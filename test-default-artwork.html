@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Default Artwork System</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .test-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .test-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .test-info {
+            padding: 10px;
+            background: #f5f5f5;
+        }
+        
+        .test-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .test-description {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+    
+    <!-- Load Artwork Helper -->
+    <script src="utils/artwork-helper.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Test Default Artwork System</h1>
+        
+        <div id="status" class="status">Loading tests...</div>
+        
+        <h2>Test Cases:</h2>
+        <div class="test-grid" id="testGrid"></div>
+    </div>
+    
+    <script>
+        // Test data
+        const testCases = [
+            {
+                title: 'Default Image',
+                description: 'Should load default-album.png',
+                src: './assets/images/default-album.png'
+            },
+            {
+                title: 'Invalid Path',
+                description: 'Should fallback to default',
+                src: './invalid/path/image.jpg'
+            },
+            {
+                title: 'Artwork Cache',
+                description: 'Should load from cache',
+                src: './artwork-cache/1.jpg'
+            },
+            {
+                title: 'No Source',
+                description: 'Should use default',
+                src: ''
+            },
+            {
+                title: 'Generated Placeholder',
+                description: 'Dynamic placeholder',
+                track: { artist: 'Test Artist', title: 'Test Song' }
+            },
+            {
+                title: 'Another Generated',
+                description: 'Different colors',
+                track: { artist: 'Another Artist', title: 'Another Song' }
+            }
+        ];
+        
+        // Initialize tests
+        function runTests() {
+            const grid = document.getElementById('testGrid');
+            const status = document.getElementById('status');
+            let successCount = 0;
+            let errorCount = 0;
+            
+            grid.innerHTML = '';
+            
+            testCases.forEach((testCase, index) => {
+                const card = document.createElement('div');
+                card.className = 'test-card';
+                
+                let imgSrc = testCase.src;
+                
+                // Use artwork helper for dynamic placeholders
+                if (testCase.track && window.artworkHelper) {
+                    imgSrc = artworkHelper.getPlaceholderUrl(testCase.track);
+                } else if (!imgSrc) {
+                    imgSrc = './assets/images/default-album.png';
+                }
+                
+                card.innerHTML = `
+                    <img class="test-image" 
+                         src="${imgSrc}"
+                         onerror="this.onerror=null; this.src='./assets/images/default-album.png'; window.errorCount++;"
+                         onload="window.successCount++;"
+                         alt="${testCase.title}">
+                    <div class="test-info">
+                        <div class="test-title">${testCase.title}</div>
+                        <div class="test-description">${testCase.description}</div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+            
+            // Update status after images load
+            setTimeout(() => {
+                const totalImages = document.querySelectorAll('.test-image').length;
+                const loadedImages = document.querySelectorAll('.test-image[src]').length;
+                
+                if (loadedImages === totalImages) {
+                    status.className = 'status success';
+                    status.innerHTML = `✅ All ${totalImages} test cases loaded successfully!`;
+                } else {
+                    status.className = 'status error';
+                    status.innerHTML = `⚠️ ${loadedImages}/${totalImages} images loaded`;
+                }
+                
+                // Test artwork helper
+                if (window.artworkHelper) {
+                    console.log('✅ Artwork Helper loaded');
+                    console.log('Default artwork:', artworkHelper.defaultArtwork);
+                    console.log('Placeholder cache size:', artworkHelper.placeholderCache.size);
+                } else {
+                    console.warn('⚠️ Artwork Helper not loaded');
+                }
+            }, 1000);
+        }
+        
+        // Initialize counters
+        window.successCount = 0;
+        window.errorCount = 0;
+        
+        // Run tests when page loads
+        document.addEventListener('DOMContentLoaded', runTests);
+    </script>
+</body>
+</html>

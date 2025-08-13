@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>K-Meter Test - Music Analyzer Pro</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #222;
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #00ff00;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        
+        .controls {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .file-selector {
+            margin-bottom: 15px;
+        }
+        
+        input[type="file"] {
+            background: #444;
+            color: #fff;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            width: 100%;
+        }
+        
+        .playback-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        button {
+            background: #00ff00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #00cc00;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        
+        button:disabled {
+            background: #555;
+            color: #999;
+            cursor: not-allowed;
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        input[type="range"] {
+            flex: 1;
+        }
+        
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .info {
+            background: #444;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .info h3 {
+            color: #00ff00;
+            margin-bottom: 10px;
+        }
+        
+        .info ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎚️ K-Meter Professional Test</h1>
+        
+        <div class="controls">
+            <div class="file-selector">
+                <input type="file" id="audioFile" accept="audio/*">
+            </div>
+            
+            <div class="playback-controls">
+                <button id="playBtn" disabled>▶ Play</button>
+                <button id="pauseBtn" disabled>⏸ Pause</button>
+                <button id="stopBtn" disabled>⏹ Stop</button>
+            </div>
+            
+            <div class="volume-control">
+                <label>Volume:</label>
+                <input type="range" id="volume" min="0" max="100" value="70">
+                <span id="volumeValue">70%</span>
+            </div>
+            
+            <audio id="audioPlayer" controls style="display: none;"></audio>
+        </div>
+        
+        <!-- K-Meter will be inserted here -->
+        <div id="meterContainer"></div>
+        
+        <div class="info">
+            <h3>📊 K-Meter Features:</h3>
+            <ul>
+                <li>Professional studio-grade level metering</li>
+                <li>Separate Peak and RMS measurements</li>
+                <li>Left/Right channel analysis</li>
+                <li>Peak hold indicators (2 second hold)</li>
+                <li>RMS averaging for accurate loudness</li>
+                <li>Correlation meter for stereo imaging</li>
+                <li>K-System calibration (K-20, K-14, K-12)</li>
+                <li>-60 to +3 dB range with color coding</li>
+                <li>Green: Safe levels (-60 to -20 dB)</li>
+                <li>Yellow: Moderate levels (-20 to -6 dB)</li>
+                <li>Red: Hot levels (-6 to +3 dB)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="../js/k-meter-visualizer.js"></script>
+    <script>
+        let audioPlayer = null;
+        let kMeter = null;
+        
+        // Get DOM elements
+        const fileInput = document.getElementById('audioFile');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const volumeSlider = document.getElementById('volume');
+        const volumeValue = document.getElementById('volumeValue');
+        const audioElement = document.getElementById('audioPlayer');
+        
+        // File selection handler
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                audioElement.src = url;
+                
+                // Enable controls
+                playBtn.disabled = false;
+                pauseBtn.disabled = false;
+                stopBtn.disabled = false;
+                
+                console.log('File loaded:', file.name);
+            }
+        });
+        
+        // Play button
+        playBtn.addEventListener('click', () => {
+            if (audioElement.src) {
+                audioElement.play();
+                
+                // Initialize K-Meter if not already done
+                if (!kMeter) {
+                    // Move the audio element to the meter container for visualization
+                    document.getElementById('meterContainer').appendChild(audioElement);
+                    audioElement.style.display = 'block';
+                    
+                    // Create K-Meter
+                    kMeter = new KMeterVisualizer(audioElement);
+                }
+                
+                // Start visualization
+                kMeter.start();
+                
+                playBtn.textContent = '▶ Playing...';
+                playBtn.style.background = '#ff9900';
+            }
+        });
+        
+        // Pause button
+        pauseBtn.addEventListener('click', () => {
+            audioElement.pause();
+            playBtn.textContent = '▶ Play';
+            playBtn.style.background = '#00ff00';
+        });
+        
+        // Stop button
+        stopBtn.addEventListener('click', () => {
+            audioElement.pause();
+            audioElement.currentTime = 0;
+            
+            if (kMeter) {
+                kMeter.stop();
+            }
+            
+            playBtn.textContent = '▶ Play';
+            playBtn.style.background = '#00ff00';
+        });
+        
+        // Volume control
+        volumeSlider.addEventListener('input', (e) => {
+            const volume = e.target.value / 100;
+            audioElement.volume = volume;
+            volumeValue.textContent = e.target.value + '%';
+        });
+        
+        // Audio ended event
+        audioElement.addEventListener('ended', () => {
+            if (kMeter) {
+                kMeter.stop();
+            }
+            playBtn.textContent = '▶ Play';
+            playBtn.style.background = '#00ff00';
+        });
+        
+        // Set initial volume
+        audioElement.volume = 0.7;
+    </script>
+</body>
+</html>

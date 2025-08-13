@@ -1,0 +1,60 @@
+<!-- Compact K-Meter Template -->
+<!-- Version Ultra-Compacta de Una Línea -->
+<div class="vu-meter-compact">
+  <span class="vu-label">VU</span>
+  <div class="vu-bar-dual">
+    <div class="vu-channel">
+      <div class="vu-fill" id="vu-left"></div>
+    </div>
+    <div class="vu-channel">
+      <div class="vu-fill" id="vu-right"></div>
+    </div>
+  </div>
+  <span class="vu-values">
+    <span id="vu-peak-l">-∞</span>
+    <span id="vu-peak-r">-∞</span>
+  </span>
+</div>
+
+<!-- Version Mini - Solo Peak L/R -->
+<div class="k-meter-container k-meter-mini">
+  <div class="k-meter-header">
+    <span class="k-meter-title">VU</span>
+  </div>
+  
+  <!-- Solo Peak Left -->
+  <div class="meter-row">
+    <label class="meter-label">L</label>
+    <div class="meter-bar-container">
+      <div class="meter-bar" id="peak-left">
+        <div class="meter-fill" id="peak-left-fill"></div>
+        <div class="peak-hold-line" id="peak-left-hold"></div>
+      </div>
+      <div class="meter-value" id="peak-left-value">-∞</div>
+    </div>
+  </div>
+  
+  <!-- Solo Peak Right -->
+  <div class="meter-row">
+    <label class="meter-label">R</label>
+    <div class="meter-bar-container">
+      <div class="meter-bar" id="peak-right">
+        <div class="meter-fill" id="peak-right-fill"></div>
+        <div class="peak-hold-line" id="peak-right-hold"></div>
+      </div>
+      <div class="meter-value" id="peak-right-value">-∞</div>
+    </div>
+  </div>
+</div>
+
+<!-- Version LED Indicators -->
+<div class="level-indicator">
+  <div class="led-strip">
+    <div class="led" data-level="1"></div>
+    <div class="led" data-level="2"></div>
+    <div class="led" data-level="3"></div>
+    <div class="led" data-level="4"></div>
+    <div class="led" data-level="5"></div>
+  </div>
+  <span class="level-text">LEVEL</span>
+</div>

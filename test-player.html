@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Player - Verificación</title>
+    <meta charset="UTF-8">
+</head>
+<body style="margin: 0; padding: 0; background: #121212; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+    
+    <!-- CONTENIDO DE PRUEBA -->
+    <div style="padding: 20px; color: white;">
+        <h1>Test del Player Reorganizado</h1>
+        <p>Este es un test aislado para verificar que el player está correctamente organizado.</p>
+        <button onclick="testPlay()" style="padding: 10px 20px; background: #1db954; color: white; border: none; border-radius: 20px; cursor: pointer;">Test Play</button>
+    </div>
+    
+    <!-- PLAYER BAR FIXED - COMPLETAMENTE NUEVO -->
+    <div style="
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 90px;
+        background: #181818;
+        border-top: 1px solid #282828;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        box-sizing: border-box;
+    ">
+        <!-- SECCIÓN 1: INFO (33%) -->
+        <div style="
+            width: 33%;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        ">
+            <div style="
+                width: 56px;
+                height: 56px;
+                background: #282828;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #b3b3b3;
+                font-size: 24px;
+            ">♪</div>
+            <div>
+                <div style="color: #fff; font-size: 14px; font-weight: 500;">Track Title</div>
+                <div style="color: #b3b3b3; font-size: 12px;">Artist Name</div>
+            </div>
+        </div>
+        
+        <!-- SECCIÓN 2: CONTROLES (34%) -->
+        <div style="
+            width: 34%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        ">
+            <!-- Botones -->
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <button style="background: none; border: none; color: #b3b3b3; font-size: 16px; cursor: pointer; padding: 0;">🔀</button>
+                <button style="background: none; border: none; color: #b3b3b3; font-size: 16px; cursor: pointer; padding: 0;">⏮</button>
+                <button style="
+                    width: 32px;
+                    height: 32px;
+                    background: #fff;
+                    border: none;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 14px;
+                    padding: 0;
+                ">▶</button>
+                <button style="background: none; border: none; color: #b3b3b3; font-size: 16px; cursor: pointer; padding: 0;">⏭</button>
+                <button style="background: none; border: none; color: #b3b3b3; font-size: 16px; cursor: pointer; padding: 0;">🔁</button>
+            </div>
+            <!-- Progress -->
+            <div style="display: flex; align-items: center; gap: 8px; width: 100%;">
+                <span style="color: #b3b3b3; font-size: 11px; min-width: 40px; text-align: right;">2:13</span>
+                <div style="flex: 1; height: 4px; background: #535353; border-radius: 2px; position: relative;">
+                    <div style="height: 100%; width: 45%; background: #fff; border-radius: 2px;"></div>
+                </div>
+                <span style="color: #b3b3b3; font-size: 11px; min-width: 40px;">4:52</span>
+            </div>
+        </div>
+        
+        <!-- SECCIÓN 3: METERS + VOLUME (33%) -->
+        <div style="
+            width: 33%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+        ">
+            <!-- K-Meter -->
+            <div style="
+                background: #000;
+                border: 1px solid #282828;
+                border-radius: 4px;
+                padding: 8px;
+                width: 140px;
+            ">
+                <!-- L Channel -->
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                    <span style="color: #666; font-size: 10px; width: 12px;">L</span>
+                    <div style="flex: 1; height: 6px; background: #1a1a1a; border-radius: 3px; overflow: hidden;">
+                        <div style="height: 100%; width: 65%; background: linear-gradient(90deg, #00ff00 0%, #ffff00 70%, #ff0000 100%);"></div>
+                    </div>
+                    <span style="color: #00ff00; font-size: 9px; font-family: monospace; width: 30px; text-align: right;">-12.3</span>
+                </div>
+                <!-- R Channel -->
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <span style="color: #666; font-size: 10px; width: 12px;">R</span>
+                    <div style="flex: 1; height: 6px; background: #1a1a1a; border-radius: 3px; overflow: hidden;">
+                        <div style="height: 100%; width: 60%; background: linear-gradient(90deg, #00ff00 0%, #ffff00 70%, #ff0000 100%);"></div>
+                    </div>
+                    <span style="color: #00ff00; font-size: 9px; font-family: monospace; width: 30px; text-align: right;">-14.1</span>
+                </div>
+            </div>
+            
+            <!-- Volume -->
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #b3b3b3; font-size: 16px;">🔊</span>
+                <input type="range" min="0" max="100" value="75" style="width: 80px; cursor: pointer;">
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function testPlay() {
+            alert('Player Test - Las 3 secciones deberían estar perfectamente alineadas:\n1. Info (izquierda)\n2. Controles (centro)\n3. Meters + Volume (derecha)');
+        }
+        
+        // Log para verificar
+        console.log('Test Player Loaded - Check if layout is organized in 3 sections');
+    </script>
+</body>
+</html>

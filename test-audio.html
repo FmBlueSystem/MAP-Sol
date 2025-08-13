@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio Test - Sol</title>
+    <style>
+        body {
+            font-family: -apple-system, sans-serif;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .test-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .log {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+        .info { color: #60a5fa; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎵 Audio System Test</h1>
+        
+        <div>
+            <button onclick="testSimpleAudio()">Test Simple Audio</button>
+            <button onclick="testWithPath()">Test With File Path</button>
+            <button onclick="checkHandlePlay()">Check handlePlay</button>
+            <button onclick="testFromDB()">Test From Database</button>
+        </div>
+        
+        <div id="log" class="log"></div>
+    </div>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+        
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.className = type;
+            entry.textContent = `${new Date().toLocaleTimeString()} - ${message}`;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(message);
+        }
+
+        // Test 1: Simple Audio API
+        function testSimpleAudio() {
+            log('Testing Simple Audio API...', 'info');
+            try {
+                const audio = new Audio();
+                log('✅ Audio constructor works', 'success');
+                
+                // Test with a simple tone
+                const context = new AudioContext();
+                const oscillator = context.createOscillator();
+                oscillator.frequency.value = 440; // A4 note
+                oscillator.connect(context.destination);
+                oscillator.start();
+                setTimeout(() => {
+                    oscillator.stop();
+                    log('✅ Web Audio API works', 'success');
+                }, 500);
+            } catch (error) {
+                log(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        // Test 2: Test with actual file
+        async function testWithPath() {
+            log('Testing with file path...', 'info');
+            try {
+                // Get first track from database
+                const tracks = await ipcRenderer.invoke('get-files-with-cached-artwork');
+                if (tracks && tracks.length > 0) {
+                    const track = tracks[0];
+                    log(`Found track: ${track.title || track.file_name}`, 'info');
+                    log(`Path: ${track.file_path}`, 'info');
+                    
+                    // Try to play
+                    const audio = new Audio();
+                    audio.src = `file://${track.file_path}`;
+                    audio.volume = 0.3;
+                    
+                    audio.onloadedmetadata = () => {
+                        log('✅ Metadata loaded', 'success');
+                        audio.play().then(() => {
+                            log('✅ Audio playing!', 'success');
+                            setTimeout(() => {
+                                audio.pause();
+                                log('Audio stopped', 'info');
+                            }, 2000);
+                        }).catch(err => {
+                            log(`❌ Play error: ${err.message}`, 'error');
+                        });
+                    };
+                    
+                    audio.onerror = (e) => {
+                        log(`❌ Audio error: ${audio.error?.message || 'Unknown'}`, 'error');
+                    };
+                } else {
+                    log('❌ No tracks found in database', 'error');
+                }
+            } catch (error) {
+                log(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        // Test 3: Check if handlePlay exists
+        function checkHandlePlay() {
+            log('Checking handlePlay function...', 'info');
+            
+            if (typeof handlePlay === 'function') {
+                log('✅ handlePlay is defined', 'success');
+            } else {
+                log('❌ handlePlay is NOT defined', 'error');
+                log('Checking window.handlePlay...', 'info');
+                
+                if (typeof window.handlePlay === 'function') {
+                    log('✅ window.handlePlay is defined', 'success');
+                } else {
+                    log('❌ window.handlePlay is NOT defined', 'error');
+                }
+            }
+            
+            // Check AudioPlayer
+            if (typeof AudioPlayer !== 'undefined') {
+                log('✅ AudioPlayer class exists', 'success');
+                if (window.audioPlayer) {
+                    log('✅ audioPlayer instance exists', 'success');
+                } else {
+                    log('⚠️ audioPlayer instance not created', 'error');
+                }
+            } else {
+                log('❌ AudioPlayer class NOT found', 'error');
+            }
+        }
+
+        // Test 4: Test from database with actual play
+        async function testFromDB() {
+            log('Testing playback from database...', 'info');
+            try {
+                const tracks = await ipcRenderer.invoke('get-files-with-cached-artwork');
+                if (tracks && tracks.length > 0) {
+                    const track = tracks[0];
+                    log(`Playing: ${track.title} by ${track.artist}`, 'info');
+                    
+                    // Try different methods
+                    if (typeof handlePlay === 'function') {
+                        handlePlay(track.file_path, track.id);
+                        log('✅ Called handlePlay', 'success');
+                    } else if (window.audioPlayer && window.audioPlayer.play) {
+                        window.audioPlayer.play(track.file_path, track.id);
+                        log('✅ Called audioPlayer.play', 'success');
+                    } else {
+                        log('❌ No play method available', 'error');
+                    }
+                }
+            } catch (error) {
+                log(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        // Initial check on load
+        window.addEventListener('DOMContentLoaded', () => {
+            log('Page loaded', 'info');
+            setTimeout(() => {
+                checkHandlePlay();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

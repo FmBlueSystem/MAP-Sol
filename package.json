@@ -1,0 +1,90 @@
+{
+  "name": "sol-music-analyzer",
+  "version": "1.0.0",
+  "description": "Sol - Professional Music Analysis by BlueSystemIO",
+  "displayName": "Sol - Music Analyzer Pro",
+  "codename": "Sol",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "extract-artwork": "node extract-artwork.js",
+    "import": "node import/import-all.js",
+    "import:test": "node import/import-all.js --limit=100",
+    "import:resume": "node import/import-all.js --resume",
+    "import:scan": "node import/scan-music.js",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "dist": "electron-builder --mac --win --linux",
+    "pack": "electron-builder --dir",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.bluesystemio.sol",
+    "productName": "Sol",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "assets/**/*",
+      "artwork-cache/**/*",
+      "!**/*.ts",
+      "!*.code-workspace",
+      "!.gitignore",
+      "!README.md",
+      "!dist",
+      "!test-*.js",
+      "!check-*.js",
+      "!fix-*.js",
+      "!continue-*.js"
+    ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "assets",
+        "filter": ["**/*"]
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.music",
+      "icon": "assets/icons/icon.icns",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/icon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icons/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "keywords": [
+    "music",
+    "analyzer",
+    "electron"
+  ],
+  "author": {
+    "name": "BlueSystemIO",
+    "email": "audio@bluesystemio.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^32.2.10",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "howler": "^2.2.4",
+    "music-metadata": "^7.14.0",
+    "sharp": "^0.34.3",
+    "sqlite3": "^5.1.7",
+    "xmlbuilder": "^15.1.1"
+  }
+}
