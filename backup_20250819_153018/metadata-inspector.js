@@ -336,10 +336,42 @@ class MetadataInspectorModal {
                     transition: width 0.3s;
                 }
                 
+                /* Field actions */
+                .mi-field-actions {
+                    display: flex;
+                    gap: 8px;
+                    margin-left: auto;
+                    opacity: 0;
+                    transition: opacity 0.2s;
+                }
+                
+                .mi-field:hover .mi-field-actions {
+                    opacity: 1;
+                }
+                
+                .mi-field-display {
+                    flex: 1;
+                }
+                
+                /* Edit button */
+                .mi-edit-btn {
+                    padding: 4px 8px;
+                    background: #48bb78;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+                
+                .mi-edit-btn:hover {
+                    background: #38a169;
+                    transform: scale(1.05);
+                }
+                
                 /* Copy button */
                 .mi-copy-btn {
-                    opacity: 0;
-                    margin-left: 10px;
                     padding: 4px 8px;
                     background: #667eea;
                     color: white;
@@ -347,11 +379,41 @@ class MetadataInspectorModal {
                     border-radius: 4px;
                     font-size: 12px;
                     cursor: pointer;
-                    transition: opacity 0.2s;
+                    transition: all 0.2s;
                 }
                 
-                .mi-field:hover .mi-copy-btn {
-                    opacity: 1;
+                .mi-copy-btn:hover {
+                    background: #5a67d8;
+                    transform: scale(1.05);
+                }
+                
+                /* Inline input */
+                .mi-inline-input {
+                    width: 100%;
+                    padding: 4px 8px;
+                    border: 2px solid #667eea;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    font-family: inherit;
+                    background: white;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                }
+                
+                .mi-inline-input:focus {
+                    outline: none;
+                    border-color: #764ba2;
+                    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+                }
+                
+                /* Editable field indicator */
+                .mi-field-value[data-editable="true"] .mi-field-display {
+                    cursor: text;
+                    border-bottom: 1px dashed transparent;
+                    transition: border-color 0.2s;
+                }
+                
+                .mi-field-value[data-editable="true"]:hover .mi-field-display {
+                    border-bottom-color: #667eea;
                 }
                 
                 /* Footer */
@@ -738,14 +800,17 @@ class MetadataInspectorModal {
             const progressBar = this.getProgressBar(field, value);
 
             html += `
-                <div class="mi-field" onclick="metadataInspector.copyField('${field}', '${this.escapeValue(value)}')">
+                <div class="mi-field" data-field="${field}" onclick="metadataInspector.handleFieldClick(event, '${field}')">
                     <div class="mi-field-name">${this.formatFieldName(field)}</div>
-                    <div class="mi-field-value ${valueClass}">
-                        ${displayValue}
+                    <div class="mi-field-value ${valueClass}" data-editable="${this.isEditableField(field)}">
+                        <span class="mi-field-display">${displayValue}</span>
                         ${progressBar}
-                        <button class="mi-copy-btn" onclick="event.stopPropagation(); metadataInspector.copyField('${field}', '${this.escapeValue(value)}')">
-                            Copy
-                        </button>
+                        <div class="mi-field-actions">
+                            ${this.isEditableField(field) ? `<button class="mi-edit-btn" onclick="event.stopPropagation(); metadataInspector.startInlineEdit('${field}')">✏️</button>` : ''}
+                            <button class="mi-copy-btn" onclick="event.stopPropagation(); metadataInspector.copyField('${field}', '${this.escapeValue(value)}')">
+                                📋
+                            </button>
+                        </div>
                     </div>
                 </div>
             ";
@@ -952,6 +1017,152 @@ class MetadataInspectorModal {
                 document.body.removeChild(toast);
             }, 300);
         }, 3000);
+    }
+
+    // Check if field is editable
+    isEditableField(field) {
+        const editableFields = [
+            'title', 'artist', 'album', 'album_artist', 'year', 'genre', 'comment',
+            'track', 'disc', 'composer', 'publisher', 'isrc', 'bpm', 'existing_bmp',
+            'existing_key', 'LLM_GENRE', 'AI_MOOD', 'LLM_MOOD'
+        ];
+        return editableFields.includes(field);
+    }
+
+    // Handle field click
+    handleFieldClick(event, field) {
+        // If clicking on editable field content (not buttons), start edit
+        if (event.target.classList.contains('mi-field-display') && this.isEditableField(field)) {
+            this.startInlineEdit(field);
+        }
+    }
+
+    // Start inline editing
+    startInlineEdit(field) {
+        const fieldElement = document.querySelector(`.mi-field[data-field="${field}"]`);
+        if (!fieldElement) return;
+
+        const valueElement = fieldElement.querySelector('.mi-field-value');
+        const displayElement = valueElement.querySelector('.mi-field-display');
+        const currentValue = this.currentTrack[field] || '';
+
+        // Create input element
+        const input = document.createElement('input');
+        input.type = this.getInputType(field);
+        input.value = currentValue;
+        input.className = 'mi-inline-input';
+        input.style.cssText = `
+            width: 100%;
+            padding: 4px 8px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        `;
+
+        // Replace display with input
+        displayElement.style.display = 'none';
+        valueElement.insertBefore(input, displayElement);
+        input.focus();
+        input.select();
+
+        // Handle save on Enter
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                this.saveInlineEdit(field, input.value);
+            } else if (e.key === 'Escape') {
+                this.cancelInlineEdit(field);
+            }
+        });
+
+        // Handle save on blur
+        input.addEventListener('blur', () => {
+            setTimeout(() => {
+                if (document.activeElement !== input) {
+                    this.saveInlineEdit(field, input.value);
+                }
+            }, 200);
+        });
+    }
+
+    // Get appropriate input type for field
+    getInputType(field) {
+        if (field === 'year' || field === 'track' || field === 'disc') {
+            return 'number';
+        }
+        return 'text';
+    }
+
+    // Save inline edit
+    async saveInlineEdit(field, newValue) {
+        const fieldElement = document.querySelector(`.mi-field[data-field="${field}"]`);
+        if (!fieldElement) return;
+
+        const valueElement = fieldElement.querySelector('.mi-field-value');
+        const displayElement = valueElement.querySelector('.mi-field-display');
+        const input = valueElement.querySelector('.mi-inline-input');
+
+        // Update local data
+        const oldValue = this.currentTrack[field];
+        this.currentTrack[field] = newValue;
+
+        // Update display
+        displayElement.textContent = this.formatValue(field, newValue);
+        displayElement.style.display = '';
+        if (input) {
+            input.remove();
+        }
+
+        // Save to database via IPC
+        if (window.api && window.api.invoke) {
+            try {
+                const updates = {
+                    id: this.currentTrack.id,
+                    [field]: newValue
+                };
+
+                const result = await window.api.invoke('update-metadata', updates);
+                
+                if (result.success) {
+                    this.showToast(`✅ ${this.formatFieldName(field)} updated`);
+                    
+                    // Emit event for other components to update
+                    document.dispatchEvent(new CustomEvent('metadata-updated', {
+                        detail: { trackId: this.currentTrack.id, field, value: newValue }
+                    }));
+                } else {
+                    // Revert on error
+                    this.currentTrack[field] = oldValue;
+                    displayElement.textContent = this.formatValue(field, oldValue);
+                    this.showToast(`❌ Failed to update ${this.formatFieldName(field)}`);
+                }
+            } catch (error) {
+                console.error('Error updating metadata:', error);
+                // Revert on error
+                this.currentTrack[field] = oldValue;
+                displayElement.textContent = this.formatValue(field, oldValue);
+                this.showToast(`❌ Error updating ${this.formatFieldName(field)}`);
+            }
+        } else {
+            // In development, just show success
+            this.showToast(`✅ ${this.formatFieldName(field)} updated (dev mode)`);
+        }
+    }
+
+    // Cancel inline edit
+    cancelInlineEdit(field) {
+        const fieldElement = document.querySelector(`.mi-field[data-field="${field}"]`);
+        if (!fieldElement) return;
+
+        const valueElement = fieldElement.querySelector('.mi-field-value');
+        const displayElement = valueElement.querySelector('.mi-field-display');
+        const input = valueElement.querySelector('.mi-inline-input');
+
+        // Restore display
+        displayElement.style.display = '';
+        if (input) {
+            input.remove();
+        }
     }
 
     close() {

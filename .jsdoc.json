@@ -1,0 +1,27 @@
+{
+  "source": {
+    "include": ["js", "handlers", "services", "main-secure.js"],
+    "exclude": ["node_modules", "dist", "tests", ".venv"],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true,
+    "template": "node_modules/docdash"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles": true,
+      "includeDate": true,
+      "useLongnameInNav": false
+    }
+  },
+  "metadata": {
+    "title": "Music Analyzer Pro - API Documentation",
+    "version": "2.0.0"
+  }
+}

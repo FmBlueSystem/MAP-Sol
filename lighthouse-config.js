@@ -1,0 +1,199 @@
+/**
+ * @fileoverview Lighthouse Performance Configuration
+ * @module lighthouse-config
+ * @description Custom Lighthouse configuration for Music Analyzer Pro
+ */
+
+module.exports = {
+    extends: 'lighthouse:default',
+    
+    settings: {
+        onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
+        formFactor: 'desktop',
+        throttling: {
+            rttMs: 40,
+            throughputKbps: 10 * 1024,
+            cpuSlowdownMultiplier: 1,
+            requestLatencyMs: 0,
+            downloadThroughputKbps: 0,
+            uploadThroughputKbps: 0
+        },
+        screenEmulation: {
+            mobile: false,
+            width: 1350,
+            height: 940,
+            deviceScaleFactor: 1,
+            disabled: false
+        },
+        emulatedUserAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+    },
+    
+    passes: [{
+        passName: 'defaultPass',
+        recordTrace: true,
+        pauseAfterLoadMs: 1000,
+        networkQuietThresholdMs: 1000,
+        cpuQuietThresholdMs: 1000,
+        gatherers: [
+            'accessibility',
+            'anchor-elements',
+            'dobetterweb/appcache',
+            'console-messages',
+            'css-usage',
+            'dobetterweb/doctype',
+            'dobetterweb/domstats',
+            'font-display',
+            'full-page-screenshot',
+            'global-listeners',
+            'iframe-elements',
+            'image-elements',
+            'js-usage',
+            'link-elements',
+            'main-document-content',
+            'meta-elements',
+            'network-requests',
+            'dobetterweb/password-inputs-with-prevented-paste',
+            'resource-summary',
+            'script-elements',
+            'source-maps',
+            'viewport-dimensions'
+        ]
+    }],
+    
+    audits: [
+        // Performance metrics
+        'first-contentful-paint',
+        'largest-contentful-paint',
+        'first-meaningful-paint',
+        'speed-index',
+        'total-blocking-time',
+        'cumulative-layout-shift',
+        'interactive',
+        'user-timings',
+        'critical-request-chains',
+        'redirects',
+        'mainthread-work-breakdown',
+        'bootup-time',
+        'uses-rel-preconnect',
+        'font-display',
+        'diagnostics',
+        'network-requests',
+        'network-rtt',
+        'network-server-latency',
+        'main-thread-tasks',
+        'metrics',
+        'resource-summary',
+        'third-party-summary',
+        'third-party-facades',
+        'largest-contentful-paint-element',
+        'lcp-lazy-loaded',
+        'layout-shift-elements',
+        'long-tasks',
+        'no-unload-listeners',
+        'non-composited-animations',
+        'unsized-images',
+        'valid-source-maps',
+        'preload-fonts',
+        'performance-budget',
+        
+        // Accessibility
+        'accesskeys',
+        'aria-allowed-attr',
+        'aria-command-name',
+        'aria-hidden-body',
+        'aria-hidden-focus',
+        'aria-input-field-name',
+        'aria-meter-name',
+        'aria-progressbar-name',
+        'aria-required-attr',
+        'aria-required-children',
+        'aria-required-parent',
+        'aria-roles',
+        'aria-toggle-field-name',
+        'aria-tooltip-name',
+        'aria-treeitem-name',
+        'aria-valid-attr-value',
+        'aria-valid-attr',
+        'button-name',
+        'bypass',
+        'color-contrast',
+        'definition-list',
+        'dlitem',
+        'document-title',
+        'duplicate-id-aria',
+        'form-field-multiple-labels',
+        'frame-title',
+        'heading-order',
+        'html-has-lang',
+        'html-lang-valid',
+        'image-alt',
+        'input-image-alt',
+        'label',
+        'link-name',
+        'list',
+        'listitem',
+        'meta-refresh',
+        'meta-viewport',
+        'object-alt',
+        'tabindex',
+        'td-headers-attr',
+        'th-has-data-cells',
+        'valid-lang',
+        'video-caption',
+        
+        // Best practices
+        'appcache-manifest',
+        'charset',
+        'deprecations',
+        'doctype',
+        'dom-size',
+        'external-anchors-use-rel-noopener',
+        'geolocation-on-start',
+        'inspector-issues',
+        'no-document-write',
+        'no-vulnerable-libraries',
+        'notification-on-start',
+        'password-inputs-can-be-pasted-into',
+        'unminified-css',
+        'unminified-javascript',
+        'unused-css-rules',
+        'unused-javascript',
+        'uses-http2',
+        'uses-optimized-images',
+        'uses-passive-event-listeners',
+        'uses-rel-preload',
+        'uses-text-compression',
+        'uses-webp-images'
+    ],
+    
+    categories: {
+        performance: {
+            title: 'Performance',
+            description: 'Music Analyzer Pro performance metrics',
+            manualDescription: 'Run additional performance tests manually',
+            auditRefs: [
+                {id: 'first-contentful-paint', weight: 10},
+                {id: 'largest-contentful-paint', weight: 25},
+                {id: 'total-blocking-time', weight: 30},
+                {id: 'cumulative-layout-shift', weight: 15},
+                {id: 'speed-index', weight: 10},
+                {id: 'interactive', weight: 10}
+            ]
+        }
+    },
+    
+    groups: {
+        'metrics': {
+            title: 'Metrics',
+            description: 'Key performance metrics'
+        },
+        'load-opportunities': {
+            title: 'Opportunities',
+            description: 'Optimization opportunities'
+        },
+        'diagnostics': {
+            title: 'Diagnostics',
+            description: 'Performance diagnostics'
+        }
+    }
+};

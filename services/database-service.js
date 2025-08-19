@@ -1,23 +1,43 @@
-// Database Service - Secure, singleton database handler
-// Prevents SQL injection, manages connections, handles errors properly
+/**
+ * @fileoverview Database Service - Secure, singleton database handler
+ * @module services/database-service
+ * @description Prevents SQL injection, manages connections, handles errors properly
+ */
 
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
+/**
+ * Singleton database service for SQLite operations
+ * @class DatabaseService
+ */
 class DatabaseService {
+    /**
+     * Creates database service instance (singleton pattern)
+     * @constructor
+     */
     constructor() {
         if (DatabaseService.instance) {
             return DatabaseService.instance;
         }
 
+        /** @type {sqlite3.Database|null} */
         this.db = null;
+        /** @type {Map<string, sqlite3.Statement>} */
         this.statements = new Map();
+        /** @type {boolean} */
         this.isConnected = false;
 
         DatabaseService.instance = this;
     }
 
-    // Initialize database connection
+    /**
+     * Initialize database connection
+     * @async
+     * @param {string} dbPath - Path to SQLite database file
+     * @returns {Promise<sqlite3.Database>} Database connection
+     * @throws {Error} Connection error
+     */
     async connect(dbPath) {
         if (this.isConnected) {
             return this.db;
@@ -45,7 +65,12 @@ class DatabaseService {
         });
     }
 
-    // Prepare statement with caching
+    /**
+     * Prepare SQL statement with caching
+     * @param {string} key - Cache key for statement
+     * @param {string} sql - SQL query string
+     * @returns {sqlite3.Statement} Prepared statement
+     */
     prepareStatement(key, sql) {
         if (!this.statements.has(key)) {
             const stmt = this.db.prepare(sql);
@@ -54,7 +79,16 @@ class DatabaseService {
         return this.statements.get(key);
     }
 
-    // Execute query with parameterized inputs (prevents SQL injection)
+    /**
+     * Execute query with parameterized inputs (prevents SQL injection)
+     * @async
+     * @param {string} sql - SQL query with placeholders
+     * @param {Array} [params=[]] - Query parameters
+     * @returns {Promise<Array<Object>>} Query results
+     * @throws {Error} Query execution error
+     * @example
+     * const tracks = await db.query('SELECT * FROM tracks WHERE genre = ?', ['Jazz']);
+     */
     async query(sql, params = []) {
         return new Promise((resolve, reject) => {
             // Validate parameters

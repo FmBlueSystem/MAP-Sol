@@ -236,7 +236,7 @@ function createPlaylistHandlers(db) {
                     const playlistSql = `
                         INSERT INTO playlists (name, description, type, icon, color)
                         VALUES (?, ?, 'smart', ?, ?)
-                    ';
+                    `;
 
                     db.run(playlistSql, [name, description, icon, color], function (err) {
                         if (err) {

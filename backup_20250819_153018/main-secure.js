@@ -4,6 +4,7 @@
 const { app, BrowserWindow, ipcMain, Menu, dialog, nativeImage } = require('electron');
 const path = require('path');
 const fs = require('fs');
+const CSPConfig = require('./config/csp-config');
 
 // Safe IPC handler registration to prevent duplicates
 const registeredHandlers = new Set();
@@ -183,6 +184,13 @@ function createWindow() {
         },
         icon: icon || undefined
     });
+
+    // Configure Content Security Policy
+    const cspConfig = new CSPConfig();
+    cspConfig.applyToWindow(mainWindow);
+    cspConfig.enableViolationReporting(mainWindow);
+    
+    logInfo('✅ CSP headers configured for ' + cspConfig.environment);
 
     // Load the production HTML file with all features
     mainWindow.loadFile('index-production.html');
@@ -945,6 +953,24 @@ app.whenReady().then(async () => {
         safeIpcHandle('export-json', exportHandlers.createExportHandler(playlistDb.db));
         safeIpcHandle('export-csv', exportHandlers.createExportHandler(playlistDb.db));
         safeIpcHandle('export-m3u', exportHandlers.createExportHandler(playlistDb.db));
+    }
+
+    // Register backup handlers
+    try {
+        const { createBackupHandler } = require('./handlers/backup-handler');
+        const backupHandlers = createBackupHandler();
+        
+        safeIpcHandle('backup-create', backupHandlers['backup-create']);
+        safeIpcHandle('backup-incremental', backupHandlers['backup-incremental']);
+        safeIpcHandle('backup-restore', backupHandlers['backup-restore']);
+        safeIpcHandle('backup-list', backupHandlers['backup-list']);
+        safeIpcHandle('backup-stats', backupHandlers['backup-stats']);
+        safeIpcHandle('backup-critical', backupHandlers['backup-critical']);
+        safeIpcHandle('backup-schedule', backupHandlers['backup-schedule']);
+        
+        logInfo('✅ Backup handlers registered successfully');
+    } catch (error) {
+        logError('Failed to register backup handlers:', error);
     }
 
     // Register normalization handlers

@@ -1,39 +1,14 @@
-// Export handler for DJ formats
+// TASK_027: Export handler para formatos DJ
 const { dialog } = require('electron');
+const { DJExporter } = require('../services/dj-exporter');
 const path = require('path');
-
-// Create mock DJExporter class if not exists
-class DJExporter {
-    getSupportedFormats() {
-        return [
-            { id: 'json', name: 'JSON', extension: '.json' },
-            { id: 'csv', name: 'CSV', extension: '.csv' },
-            { id: 'm3u', name: 'M3U Playlist', extension: '.m3u' },
-            { id: 'xml', name: 'XML', extension: '.xml' }
-        ];
-    }
-    
-    async export(tracks, format, options) {
-        return {
-            format: format,
-            savedTo: options.savePath,
-            extension: this.getSupportedFormats().find(f => f.id === format)?.extension || '.txt'
-        };
-    }
-}
 
 function createExportHandler(db) {
     const exporter = new DJExporter();
 
-    return async (event, params) => {
+    return async (event, { format, trackIds, playlistName }) => {
         try {
-            const { format, trackIds, playlistName } = params || {};
-            
-            if (!trackIds || trackIds.length === 0) {
-                return { success: false, error: 'No tracks selected' };
-            }
-            
-            // Get tracks from database
+            // Obtener tracks de la BD
             const placeholders = trackIds.map(() => '?').join(',');
             const sql = `
                 SELECT 
@@ -51,14 +26,13 @@ function createExportHandler(db) {
                         return;
                     }
 
-                    // Select save directory
+                    // Seleccionar directorio de guardado
                     const result = await dialog.showSaveDialog({
-                        title: 'Export as ' + format.toUpperCase(),
+                        title: `Exportar como ${format.toUpperCase()}`,
                         defaultPath: path.join(
                             process.env.HOME || process.env.USERPROFILE,
                             'Desktop',
-                            (playlistName || 'playlist') + '_' + format
-                        ),
+                            `${playlistName || 'playlist'}_${format}'),
                         filters: exporter
                             .getSupportedFormats()
                             .filter(f => f.id === format)
@@ -73,7 +47,7 @@ function createExportHandler(db) {
                         return;
                     }
 
-                    // Export
+                    // Exportar
                     const exportResult = await exporter.export(tracks, format, {
                         name: playlistName || 'Playlist',
                         savePath: path.dirname(result.filePath)
@@ -88,13 +62,13 @@ function createExportHandler(db) {
                 });
             });
         } catch (error) {
-            console.error('Export error:', error);
+            console.error('Error en export:', error);
             return { success: false, error: error.message };
         }
     };
 }
 
-// Handler to get supported formats
+// Handler para obtener formatos soportados
 function createGetFormatsHandler() {
     const exporter = new DJExporter();
     return async () => {

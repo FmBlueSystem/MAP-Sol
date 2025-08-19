@@ -132,7 +132,7 @@ class DJExporter {
             const escaped = row.map(field => {
                 const str = String(field);
                 if (str.includes(',') || str.includes('"')) {
-                    return `"${str.replace(/"/g, '""')}"";
+                    return '"' + str.replace(/"/g, '""') + '"';
                 }
                 return str;
             });
@@ -166,7 +166,7 @@ class DJExporter {
                 .ele('ENTRY')
                 .att('MODIFIED_DATE', new Date().toISOString())
                 .att('MODIFIED_TIME', Math.floor(Date.now() / 1000))
-                .att('AUDIO_ID', `track_${index}`)
+                .att('AUDIO_ID', 'track_' + index)
                 .att('TITLE', track.title || track.file_name)
                 .att('ARTIST', track.artist || '');
 
@@ -252,7 +252,7 @@ class DJExporter {
                 .ele('ENTRY')
                 .ele('PRIMARYKEY')
                 .att('TYPE', 'TRACK')
-                .att('KEY', `track_${index}`);
+                .att('KEY', 'track_' + index);
         });
 
         return {
