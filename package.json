@@ -4,7 +4,7 @@
     "description": "MAP - Music Analyzer Pro by BlueSystemIO",
     "displayName": "MAP - Music Analyzer Pro",
     "codename": "MAP",
-    "main": "main-secure.js",
+    "main": "main-minimal.js",
     "scripts": {
         "start": "electron .",
         "dev": "webpack serve --mode development --open",

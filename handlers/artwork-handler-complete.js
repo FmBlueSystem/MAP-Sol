@@ -181,7 +181,7 @@ function createCompleteArtworkHandler(db) {
                         totalFields = Math.max(totalFields, fieldCount);
 
                         // Process artwork
-                        const artworkPath = path.join(artworkDir, `${file.id}.jpg');
+                        const artworkPath = path.join(artworkDir, `${file.id}.jpg`);
                         const defaultImagePath = path.join(__dirname, '..', 'image.png');
 
                         if (fs.existsSync(artworkPath)) {

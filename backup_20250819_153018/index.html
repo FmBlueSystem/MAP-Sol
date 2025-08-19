@@ -245,6 +245,41 @@
                 console.error('❌ Playback error:', data);
             });
 
+            // Import music function
+            async function importMusic() {
+                try {
+                    const status = document.getElementById('status');
+                    const container = document.getElementById('container');
+                    
+                    // Show importing status
+                    status.style.display = 'block';
+                    status.textContent = '📂 Selecciona una carpeta con música...';
+                    
+                    // Call IPC handler to import music
+                    const result = await ipcRenderer.invoke('import-music');
+                    
+                    if (result.success) {
+                        status.textContent = `✅ Importados ${result.imported} de ${result.total} archivos`;
+                        // Reload data after import
+                        setTimeout(() => {
+                            loadData();
+                        }, 2000);
+                    } else if (result.canceled) {
+                        status.textContent = 'Importación cancelada';
+                        setTimeout(() => {
+                            status.style.display = 'none';
+                        }, 2000);
+                    } else {
+                        status.textContent = `❌ Error: ${result.error}`;
+                    }
+                } catch (error) {
+                    console.error('Error importing music:', error);
+                    const status = document.getElementById('status');
+                    status.style.display = 'block';
+                    status.textContent = `❌ Error al importar: ${error.message}`;
+                }
+            }
+
             async function loadData() {
                 try {
                     const container = document.getElementById('container');
