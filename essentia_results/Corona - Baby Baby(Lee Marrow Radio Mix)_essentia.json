@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Corona - Baby Baby(Lee Marrow Radio Mix).flac",
+  "file_name": "Corona - Baby Baby(Lee Marrow Radio Mix).flac",
+  "timestamp": "2025-08-16T23:36:28.368440",
+  "essentia_features": {
+    "loudness_lufs": -9.193254470825195,
+    "danceability": 1.5072886943817139,
+    "acousticness": 0.5,
+    "instrumentalness": 0.518098920583725,
+    "liveness": 0.1,
+    "speechiness": 0.177825298468043,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

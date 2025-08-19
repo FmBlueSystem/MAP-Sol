@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Black Eyed Peas, Shakira, twocolors - GIRL LIKE ME (twocolors extended).flac",
+  "file_name": "Black Eyed Peas, Shakira, twocolors - GIRL LIKE ME (twocolors extended).flac",
+  "timestamp": "2025-08-16T23:00:31.934986",
+  "essentia_features": {
+    "loudness_lufs": -4.197479248046875,
+    "danceability": 1.3196814060211182,
+    "acousticness": 0.5,
+    "instrumentalness": 0.598167210817337,
+    "liveness": 0.1,
+    "speechiness": 0.1128547144613553,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Caifanes - La Negra Tomasa (Versio\u0301n Radio).flac",
+  "file_name": "Caifanes - La Negra Tomasa (Versio\u0301n Radio).flac",
+  "timestamp": "2025-08-16T23:22:18.555967",
+  "essentia_features": {
+    "loudness_lufs": -5.343204498291016,
+    "danceability": 1.355925440788269,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4680919051170349,
+    "liveness": 0.1,
+    "speechiness": 0.11066072327322724,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

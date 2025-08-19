@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Soulvation, Supermodels From Sweden - Nasty Girls.flac",
+  "file_name": "Block & Crown, Soulvation, Supermodels From Sweden - Nasty Girls.flac",
+  "timestamp": "2025-08-16T23:13:11.301855",
+  "essentia_features": {
+    "loudness_lufs": -2.42648983001709,
+    "danceability": 1.452891230583191,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6764344871044159,
+    "liveness": 0.1,
+    "speechiness": 0.2248159606893655,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

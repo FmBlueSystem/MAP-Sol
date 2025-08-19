@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Amii Stewart - Knock On Wood  Ash 48 (1985 12 Extended Mix).flac",
+  "file_name": "Amii Stewart - Knock On Wood  Ash 48 (1985 12 Extended Mix).flac",
+  "timestamp": "2025-08-16T22:42:40.661161",
+  "essentia_features": {
+    "loudness_lufs": -6.949352264404297,
+    "danceability": 1.4169979095458984,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5317054092884064,
+    "liveness": 0.1,
+    "speechiness": 0.1625069992933757,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

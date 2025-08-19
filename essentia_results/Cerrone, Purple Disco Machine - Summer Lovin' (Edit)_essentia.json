@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cerrone, Purple Disco Machine - Summer Lovin' (Edit).flac",
+  "file_name": "Cerrone, Purple Disco Machine - Summer Lovin' (Edit).flac",
+  "timestamp": "2025-08-16T23:27:32.037314",
+  "essentia_features": {
+    "loudness_lufs": -4.667778015136719,
+    "danceability": 1.6550002098083496,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

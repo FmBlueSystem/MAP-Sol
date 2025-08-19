@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cheo Feliciano - Contigo En La Distancia.flac",
+  "file_name": "Cheo Feliciano - Contigo En La Distancia.flac",
+  "timestamp": "2025-08-16T23:29:35.756972",
+  "essentia_features": {
+    "loudness_lufs": -5.074041366577148,
+    "danceability": 1.0351169109344482,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4271619915962219,
+    "liveness": 0.1,
+    "speechiness": 0.06051394892954692,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Ben E. King - Stand Be Me (Lover Stax Mix).flac",
+  "file_name": "Ben E. King - Stand Be Me (Lover Stax Mix).flac",
+  "timestamp": "2025-08-16T22:53:08.585206",
+  "essentia_features": {
+    "loudness_lufs": -5.573976516723633,
+    "danceability": 1.4031203985214233,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5022440254688263,
+    "liveness": 0.1,
+    "speechiness": 0.10887828486038328,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,1977 @@
+{
+    "timestamp": "2025-08-16T00:23:01.540Z",
+    "stats": {
+        "era": {
+            "normalized": 7332,
+            "filled": 0
+        },
+        "mood": {
+            "normalized": 390,
+            "filled": 0
+        },
+        "energy": {
+            "normalized": 162,
+            "filled": 0
+        },
+        "genre": {
+            "normalized": 110,
+            "filled": 0
+        },
+        "language": {
+            "normalized": 3678,
+            "filled": 0
+        },
+        "storytelling": {
+            "normalized": 101,
+            "filled": 0
+        },
+        "occasions": {
+            "normalized": 0,
+            "filled": 0
+        }
+    },
+    "fields": {
+        "LLM_ERA": [
+            {
+                "value": "",
+                "count": 1
+            },
+            {
+                "value": "\"Late 20th Century Pop/Dance\"",
+                "count": 1
+            },
+            {
+                "value": "1970s",
+                "count": 138
+            },
+            {
+                "value": "1980s",
+                "count": 824
+            },
+            {
+                "value": "1990s",
+                "count": 666
+            },
+            {
+                "value": "2000s",
+                "count": 613
+            },
+            {
+                "value": "2010s",
+                "count": 716
+            },
+            {
+                "value": "2020s",
+                "count": 709
+            },
+            {
+                "value": "Contemporáneo",
+                "count": 1
+            }
+        ],
+        "AI_MOOD": [
+            {
+                "value": "Divertido",
+                "count": 2
+            },
+            {
+                "value": "Energetic",
+                "count": 61
+            },
+            {
+                "value": "Eufórico",
+                "count": 1
+            },
+            {
+                "value": "Fiesta",
+                "count": 4
+            },
+            {
+                "value": "Happy",
+                "count": 12
+            },
+            {
+                "value": "Melancholic",
+                "count": 5
+            },
+            {
+                "value": "Melancólico",
+                "count": 3
+            },
+            {
+                "value": "Neutral",
+                "count": 11
+            },
+            {
+                "value": "Nostálgico",
+                "count": 4
+            },
+            {
+                "value": "Optimista",
+                "count": 9
+            },
+            {
+                "value": "Party",
+                "count": 40
+            },
+            {
+                "value": "Reflexivo",
+                "count": 5
+            },
+            {
+                "value": "Relaxed",
+                "count": 1
+            },
+            {
+                "value": "Romantic",
+                "count": 15
+            },
+            {
+                "value": "Uplifting",
+                "count": 256
+            }
+        ],
+        "LLM_ENERGY_LEVEL": [
+            {
+                "value": "Alto",
+                "count": 15
+            },
+            {
+                "value": "Bajo",
+                "count": 1
+            },
+            {
+                "value": "Bajo, relajado",
+                "count": 2
+            },
+            {
+                "value": "Bajo, tranquilo",
+                "count": 1
+            },
+            {
+                "value": "High",
+                "count": 9
+            },
+            {
+                "value": "Medio-alto",
+                "count": 4
+            },
+            {
+                "value": "Medium",
+                "count": 147
+            },
+            {
+                "value": "Moderado a alto",
+                "count": 1
+            },
+            {
+                "value": "Very High",
+                "count": 6
+            },
+            {
+                "value": "alto",
+                "count": 84
+            },
+            {
+                "value": "bajo",
+                "count": 7
+            },
+            {
+                "value": "moderado",
+                "count": 8
+            }
+        ],
+        "LLM_LYRICS_LANGUAGE": [
+            {
+                "value": "English",
+                "count": 3637
+            },
+            {
+                "value": "French",
+                "count": 1
+            },
+            {
+                "value": "Instrumental",
+                "count": 1
+            },
+            {
+                "value": "No aplica",
+                "count": 3
+            },
+            {
+                "value": "Spanish",
+                "count": 16
+            },
+            {
+                "value": "Unknown",
+                "count": 23
+            }
+        ],
+        "LLM_STORYTELLING": [
+            {
+                "value": "0.0",
+                "count": 3571
+            },
+            {
+                "value": "0.2",
+                "count": 1
+            },
+            {
+                "value": "0.3",
+                "count": 2
+            },
+            {
+                "value": "0.5",
+                "count": 1
+            },
+            {
+                "value": "0.6",
+                "count": 1
+            },
+            {
+                "value": "0.7",
+                "count": 3
+            },
+            {
+                "value": "0.8",
+                "count": 1
+            },
+            {
+                "value": "Abstract",
+                "count": 1
+            },
+            {
+                "value": "Narrative",
+                "count": 3
+            },
+            {
+                "value": "Party",
+                "count": 3
+            },
+            {
+                "value": "Personal",
+                "count": 2
+            },
+            {
+                "value": "Romantic",
+                "count": 1
+            },
+            {
+                "value": "Unknown",
+                "count": 91
+            }
+        ],
+        "LLM_OCCASIONS": [
+            {
+                "value": "",
+                "count": 91
+            },
+            {
+                "value": "Dancing",
+                "count": 31
+            },
+            {
+                "value": "Driving",
+                "count": 3
+            },
+            {
+                "value": "Night",
+                "count": 4
+            },
+            {
+                "value": "Party",
+                "count": 130
+            },
+            {
+                "value": "Relaxation",
+                "count": 4
+            },
+            {
+                "value": "Romantic",
+                "count": 5
+            },
+            {
+                "value": "[\"80s themed parties\",\"casual listening\",\"retro playlists\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"Bailar\",\"Celebraciones\"]",
+                "count": 2
+            },
+            {
+                "value": "[\"Bailes\",\"Celebraciones\"]",
+                "count": 4
+            },
+            {
+                "value": "[\"Cita romántica\",\"Escuchar en casa\"]",
+                "count": 5
+            },
+            {
+                "value": "[\"Conciertos\",\"Reuniones sociales\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"Escuchar en casa\",\"Conciertos\"]",
+                "count": 2
+            },
+            {
+                "value": "[\"General Listening\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"General\"]",
+                "count": 6
+            },
+            {
+                "value": "[\"Reflexión\",\"Escuchar en solitario\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"Romance\",\"Baile íntimo\",\"Despecho\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"Romántico\",\"Reflexión\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"background\",\"daytime\",\"relaxed listening\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"cierre de concierto\",\"slow dance\",\"momento emotivo\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"conciertos en vivo\",\"festivales de rock\",\"radio rock\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"conciertos en vivo\",\"radio rock\",\"sesiones de rock latino\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"conciertos\",\"festivales\",\"sesiones de rock\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"peak time\",\"after-hours\"]",
+                "count": 6
+            },
+            {
+                "value": "[\"peak time\",\"festival\",\"main room\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"peak time\",\"latin parties\",\"summer festivals\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"peak time\",\"sunset\",\"main room\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"peak time\",\"warm-up\",\"summer parties\"]",
+                "count": 2
+            },
+            {
+                "value": "[\"peak time\",\"warm-up\"]",
+                "count": 5
+            },
+            {
+                "value": "[\"warm-up\",\"after-hours\"]",
+                "count": 2
+            },
+            {
+                "value": "[\"warm-up\",\"main-time\",\"retro parties\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"warm-up\",\"mainstream dance floor\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"warm-up\",\"peak time\",\"retro parties\"]",
+                "count": 1
+            },
+            {
+                "value": "[\"warm-up\",\"peak time\"]",
+                "count": 12
+            },
+            {
+                "value": "[object Object]",
+                "count": 2
+            },
+            {
+                "value": "peak time,after-hours",
+                "count": 20
+            },
+            {
+                "value": "peak time,warm-up",
+                "count": 1
+            },
+            {
+                "value": "warm-up,after-hours",
+                "count": 11
+            },
+            {
+                "value": "warm-up,peak time",
+                "count": 19
+            },
+            {
+                "value": "warm-up,peak-time",
+                "count": 47
+            }
+        ],
+        "LLM_GENRE": [
+            {
+                "value": "80s Pop",
+                "count": 4
+            },
+            {
+                "value": "80s/90s Pop",
+                "count": 1
+            },
+            {
+                "value": "Acid House",
+                "count": 3
+            },
+            {
+                "value": "Adult Contemporary",
+                "count": 4
+            },
+            {
+                "value": "Afro-Caribbean",
+                "count": 1
+            },
+            {
+                "value": "Afro-funk",
+                "count": 1
+            },
+            {
+                "value": "Afrobeats",
+                "count": 1
+            },
+            {
+                "value": "Alternative Hip Hop",
+                "count": 2
+            },
+            {
+                "value": "Alternative Pop/Rock",
+                "count": 1
+            },
+            {
+                "value": "Alternative Rock",
+                "count": 38
+            },
+            {
+                "value": "Alternativo",
+                "count": 1
+            },
+            {
+                "value": "Ambient",
+                "count": 3
+            },
+            {
+                "value": "Americana",
+                "count": 1
+            },
+            {
+                "value": "Arena Rock",
+                "count": 2
+            },
+            {
+                "value": "Art Rock",
+                "count": 5
+            },
+            {
+                "value": "Bachata",
+                "count": 1
+            },
+            {
+                "value": "Balada",
+                "count": 7
+            },
+            {
+                "value": "Balada pop",
+                "count": 17
+            },
+            {
+                "value": "Balada romántica",
+                "count": 11
+            },
+            {
+                "value": "Balearic House",
+                "count": 1
+            },
+            {
+                "value": "Balearic Sunset House",
+                "count": 1
+            },
+            {
+                "value": "Ballad",
+                "count": 31
+            },
+            {
+                "value": "Banda sonora",
+                "count": 1
+            },
+            {
+                "value": "Big Beat",
+                "count": 2
+            },
+            {
+                "value": "Big Room House",
+                "count": 1
+            },
+            {
+                "value": "Blues Rock",
+                "count": 5
+            },
+            {
+                "value": "Bolero",
+                "count": 1
+            },
+            {
+                "value": "Boogie",
+                "count": 13
+            },
+            {
+                "value": "Boogie-woogie",
+                "count": 1
+            },
+            {
+                "value": "Bossa nova",
+                "count": 1
+            },
+            {
+                "value": "Boyband",
+                "count": 1
+            },
+            {
+                "value": "Breakbeat",
+                "count": 3
+            },
+            {
+                "value": "Bubblegum pop",
+                "count": 1
+            },
+            {
+                "value": "Calypso",
+                "count": 1
+            },
+            {
+                "value": "Canción de autor",
+                "count": 1
+            },
+            {
+                "value": "Carnival/Tropical",
+                "count": 1
+            },
+            {
+                "value": "Chanson française",
+                "count": 1
+            },
+            {
+                "value": "Charanga",
+                "count": 1
+            },
+            {
+                "value": "Chicago House",
+                "count": 1
+            },
+            {
+                "value": "Children'\\''s Music",
+                "count": 1
+            },
+            {
+                "value": "Christmas Pop",
+                "count": 1
+            },
+            {
+                "value": "Classic Country",
+                "count": 1
+            },
+            {
+                "value": "Classic Funk",
+                "count": 1
+            },
+            {
+                "value": "Classic House",
+                "count": 9
+            },
+            {
+                "value": "Classic Rock",
+                "count": 18
+            },
+            {
+                "value": "Club",
+                "count": 2
+            },
+            {
+                "value": "Club House",
+                "count": 5
+            },
+            {
+                "value": "Club Nu Disco",
+                "count": 1
+            },
+            {
+                "value": "Club/Dance",
+                "count": 4
+            },
+            {
+                "value": "Club/Dance Mix",
+                "count": 1
+            },
+            {
+                "value": "Club/Dance Remix",
+                "count": 1
+            },
+            {
+                "value": "Club/Disco",
+                "count": 1
+            },
+            {
+                "value": "Club/House",
+                "count": 11
+            },
+            {
+                "value": "Club/Remix",
+                "count": 2
+            },
+            {
+                "value": "Comedy",
+                "count": 1
+            },
+            {
+                "value": "Comedy/Novelty",
+                "count": 1
+            },
+            {
+                "value": "Conscious Hip Hop",
+                "count": 1
+            },
+            {
+                "value": "Contemporary Country",
+                "count": 4
+            },
+            {
+                "value": "Contemporary Hip Hop",
+                "count": 1
+            },
+            {
+                "value": "Contemporary R&B",
+                "count": 10
+            },
+            {
+                "value": "Corrido",
+                "count": 1
+            },
+            {
+                "value": "Country pop",
+                "count": 6
+            },
+            {
+                "value": "Country-pop",
+                "count": 1
+            },
+            {
+                "value": "Countrypolitan",
+                "count": 1
+            },
+            {
+                "value": "Cover",
+                "count": 1
+            },
+            {
+                "value": "Cover/Karaoke",
+                "count": 1
+            },
+            {
+                "value": "Covers/Remakes",
+                "count": 1
+            },
+            {
+                "value": "Covers/Tributes",
+                "count": 1
+            },
+            {
+                "value": "Crunk",
+                "count": 1
+            },
+            {
+                "value": "Cubana",
+                "count": 2
+            },
+            {
+                "value": "Cumbia",
+                "count": 12
+            },
+            {
+                "value": "Cumbia Chilena",
+                "count": 1
+            },
+            {
+                "value": "Cumbia Sonidera",
+                "count": 1
+            },
+            {
+                "value": "Cumbia argentina",
+                "count": 1
+            },
+            {
+                "value": "Cumbia moderna",
+                "count": 1
+            },
+            {
+                "value": "Dance",
+                "count": 2
+            },
+            {
+                "value": "Dance-Pop",
+                "count": 6
+            },
+            {
+                "value": "Dance-pop",
+                "count": 135
+            },
+            {
+                "value": "Dance-rock",
+                "count": 1
+            },
+            {
+                "value": "Dance/Club",
+                "count": 43
+            },
+            {
+                "value": "Dance/Disco",
+                "count": 1
+            },
+            {
+                "value": "Dance/EDM",
+                "count": 2
+            },
+            {
+                "value": "Dance/Electro",
+                "count": 1
+            },
+            {
+                "value": "Dance/Electro Hip Hop",
+                "count": 1
+            },
+            {
+                "value": "Dance/Electro House",
+                "count": 1
+            },
+            {
+                "value": "Dance/House",
+                "count": 1
+            },
+            {
+                "value": "Dance/Pop",
+                "count": 1
+            },
+            {
+                "value": "Dancehall",
+                "count": 6
+            },
+            {
+                "value": "Deep House",
+                "count": 16
+            },
+            {
+                "value": "Deep Soul",
+                "count": 1
+            },
+            {
+                "value": "Disco",
+                "count": 170
+            },
+            {
+                "value": "Disco Clásico",
+                "count": 1
+            },
+            {
+                "value": "Disco Extendido",
+                "count": 2
+            },
+            {
+                "value": "Disco Funk",
+                "count": 32
+            },
+            {
+                "value": "Disco House",
+                "count": 51
+            },
+            {
+                "value": "Disco Pop",
+                "count": 6
+            },
+            {
+                "value": "Disco Remix",
+                "count": 3
+            },
+            {
+                "value": "Disco Revival",
+                "count": 1
+            },
+            {
+                "value": "Disco Rock",
+                "count": 2
+            },
+            {
+                "value": "Disco Vocal",
+                "count": 1
+            },
+            {
+                "value": "Disco clásico",
+                "count": 8
+            },
+            {
+                "value": "Disco extendido",
+                "count": 1
+            },
+            {
+                "value": "Disco funk",
+                "count": 2
+            },
+            {
+                "value": "Disco pop",
+                "count": 6
+            },
+            {
+                "value": "Disco soul",
+                "count": 1
+            },
+            {
+                "value": "Disco, House",
+                "count": 3
+            },
+            {
+                "value": "Disco-pop",
+                "count": 1
+            },
+            {
+                "value": "Disco/Dance",
+                "count": 7
+            },
+            {
+                "value": "Disco/Eurodance",
+                "count": 1
+            },
+            {
+                "value": "Disco/Funk",
+                "count": 8
+            },
+            {
+                "value": "Disco/House",
+                "count": 1
+            },
+            {
+                "value": "Downtempo",
+                "count": 8
+            },
+            {
+                "value": "Drum and Bass",
+                "count": 1
+            },
+            {
+                "value": "Dub",
+                "count": 16
+            },
+            {
+                "value": "Dub House",
+                "count": 1
+            },
+            {
+                "value": "Dubstep",
+                "count": 1
+            },
+            {
+                "value": "Duet",
+                "count": 1
+            },
+            {
+                "value": "Early Rock",
+                "count": 1
+            },
+            {
+                "value": "East Coast Hip Hop",
+                "count": 2
+            },
+            {
+                "value": "Easy Listening",
+                "count": 1
+            },
+            {
+                "value": "Electro",
+                "count": 9
+            },
+            {
+                "value": "Electro Funk",
+                "count": 1
+            },
+            {
+                "value": "Electro Hip Hop",
+                "count": 1
+            },
+            {
+                "value": "Electro House",
+                "count": 8
+            },
+            {
+                "value": "Electro House, Remixes",
+                "count": 1
+            },
+            {
+                "value": "Electro house",
+                "count": 1
+            },
+            {
+                "value": "Electro, Synth-pop",
+                "count": 1
+            },
+            {
+                "value": "Electro-Funk",
+                "count": 3
+            },
+            {
+                "value": "Electro-funk",
+                "count": 12
+            },
+            {
+                "value": "Electro/Synth-pop",
+                "count": 1
+            },
+            {
+                "value": "Electrofunk",
+                "count": 1
+            },
+            {
+                "value": "Electronic Dance",
+                "count": 1
+            },
+            {
+                "value": "Electropop",
+                "count": 25
+            },
+            {
+                "value": "Electrónica",
+                "count": 3
+            },
+            {
+                "value": "Español",
+                "count": 1
+            },
+            {
+                "value": "Eurobeat",
+                "count": 3
+            },
+            {
+                "value": "Eurodance",
+                "count": 122
+            },
+            {
+                "value": "Eurodisco",
+                "count": 17
+            },
+            {
+                "value": "Eurohouse",
+                "count": 1
+            },
+            {
+                "value": "Europop",
+                "count": 34
+            },
+            {
+                "value": "Exclusive House",
+                "count": 1
+            },
+            {
+                "value": "Experimental",
+                "count": 2
+            },
+            {
+                "value": "Experimental Rock",
+                "count": 1
+            },
+            {
+                "value": "Experimental/Avant-garde",
+                "count": 1
+            },
+            {
+                "value": "Filtered Disco",
+                "count": 1
+            },
+            {
+                "value": "Flamenco Pop",
+                "count": 1
+            },
+            {
+                "value": "Folk Pop",
+                "count": 1
+            },
+            {
+                "value": "Freestyle",
+                "count": 36
+            },
+            {
+                "value": "Funk",
+                "count": 100
+            },
+            {
+                "value": "Funk Pop",
+                "count": 5
+            },
+            {
+                "value": "Funk Rock",
+                "count": 4
+            },
+            {
+                "value": "Funk Soul",
+                "count": 2
+            },
+            {
+                "value": "Funk rock",
+                "count": 2
+            },
+            {
+                "value": "Funk/Dance",
+                "count": 1
+            },
+            {
+                "value": "Funky House",
+                "count": 7
+            },
+            {
+                "value": "Future House",
+                "count": 3
+            },
+            {
+                "value": "Garage House",
+                "count": 3
+            },
+            {
+                "value": "Glam Metal",
+                "count": 6
+            },
+            {
+                "value": "Glam Rock",
+                "count": 5
+            },
+            {
+                "value": "Gothic Rock",
+                "count": 2
+            },
+            {
+                "value": "Greek",
+                "count": 1
+            },
+            {
+                "value": "Grunge",
+                "count": 1
+            },
+            {
+                "value": "Hard Rock",
+                "count": 27
+            },
+            {
+                "value": "Hardcore",
+                "count": 1
+            },
+            {
+                "value": "Heartland Rock",
+                "count": 4
+            },
+            {
+                "value": "Heavy Metal",
+                "count": 3
+            },
+            {
+                "value": "Hi-NRG",
+                "count": 15
+            },
+            {
+                "value": "Hip Hop",
+                "count": 2
+            },
+            {
+                "value": "Hip Hop/R&B",
+                "count": 2
+            },
+            {
+                "value": "Hip Hop/Rap",
+                "count": 2
+            },
+            {
+                "value": "Hip House",
+                "count": 1
+            },
+            {
+                "value": "House",
+                "count": 413
+            },
+            {
+                "value": "House, Disco",
+                "count": 1
+            },
+            {
+                "value": "House, Electro House",
+                "count": 1
+            },
+            {
+                "value": "House, Latin Pop",
+                "count": 1
+            },
+            {
+                "value": "Ibiza House",
+                "count": 1
+            },
+            {
+                "value": "Ibiza Sunset House",
+                "count": 3
+            },
+            {
+                "value": "Indie Dance",
+                "count": 3
+            },
+            {
+                "value": "Indie Pop",
+                "count": 10
+            },
+            {
+                "value": "Indie Rock",
+                "count": 19
+            },
+            {
+                "value": "Instrumental",
+                "count": 2
+            },
+            {
+                "value": "Italo Dance",
+                "count": 2
+            },
+            {
+                "value": "Italo Disco",
+                "count": 9
+            },
+            {
+                "value": "Italo disco",
+                "count": 2
+            },
+            {
+                "value": "Italo-disco",
+                "count": 3
+            },
+            {
+                "value": "Jackin'\\'' House",
+                "count": 2
+            },
+            {
+                "value": "Karaoke",
+                "count": 2
+            },
+            {
+                "value": "Lambada",
+                "count": 4
+            },
+            {
+                "value": "Latin",
+                "count": 3
+            },
+            {
+                "value": "Latin Alternative",
+                "count": 1
+            },
+            {
+                "value": "Latin Dance",
+                "count": 4
+            },
+            {
+                "value": "Latin Disco",
+                "count": 1
+            },
+            {
+                "value": "Latin Hip Hop",
+                "count": 5
+            },
+            {
+                "value": "Latin House",
+                "count": 7
+            },
+            {
+                "value": "Latin Merengue",
+                "count": 1
+            },
+            {
+                "value": "Latin Pop",
+                "count": 101
+            },
+            {
+                "value": "Latin Pop, Reggaeton",
+                "count": 1
+            },
+            {
+                "value": "Latin Rock",
+                "count": 20
+            },
+            {
+                "value": "Latin Trap",
+                "count": 2
+            },
+            {
+                "value": "Latin Urban",
+                "count": 3
+            },
+            {
+                "value": "Latin pop, Reggaeton",
+                "count": 1
+            },
+            {
+                "value": "Latin rock",
+                "count": 1
+            },
+            {
+                "value": "Lounge House",
+                "count": 1
+            },
+            {
+                "value": "Mambo",
+                "count": 1
+            },
+            {
+                "value": "Medley",
+                "count": 1
+            },
+            {
+                "value": "Medley/Mashup",
+                "count": 1
+            },
+            {
+                "value": "Melodic Rock",
+                "count": 1
+            },
+            {
+                "value": "Merengue",
+                "count": 7
+            },
+            {
+                "value": "Merengue Típico",
+                "count": 10
+            },
+            {
+                "value": "Merengue clásico",
+                "count": 2
+            },
+            {
+                "value": "Merengue dominicano",
+                "count": 1
+            },
+            {
+                "value": "Merengue electrónico",
+                "count": 6
+            },
+            {
+                "value": "Merengue tradicional",
+                "count": 22
+            },
+            {
+                "value": "Merengue tropical",
+                "count": 1
+            },
+            {
+                "value": "Merengue típico",
+                "count": 6
+            },
+            {
+                "value": "Merengue vacilador",
+                "count": 1
+            },
+            {
+                "value": "Miami Sound",
+                "count": 1
+            },
+            {
+                "value": "Muppet Show Theme",
+                "count": 1
+            },
+            {
+                "value": "Música de Dibujos Animados",
+                "count": 1
+            },
+            {
+                "value": "Música de TV",
+                "count": 1
+            },
+            {
+                "value": "Música de cine y TV",
+                "count": 1
+            },
+            {
+                "value": "Música de dibujos animados",
+                "count": 3
+            },
+            {
+                "value": "Música de película/TV",
+                "count": 1
+            },
+            {
+                "value": "Música de televisión",
+                "count": 3
+            },
+            {
+                "value": "Música de televisión/cine",
+                "count": 1
+            },
+            {
+                "value": "Música tropical",
+                "count": 1
+            },
+            {
+                "value": "Navideña",
+                "count": 1
+            },
+            {
+                "value": "New Jack Swing",
+                "count": 13
+            },
+            {
+                "value": "New Wave",
+                "count": 196
+            },
+            {
+                "value": "New jack swing",
+                "count": 1
+            },
+            {
+                "value": "New wave",
+                "count": 2
+            },
+            {
+                "value": "Novelty/Comedy",
+                "count": 1
+            },
+            {
+                "value": "Nu Disco",
+                "count": 12
+            },
+            {
+                "value": "Nu-Disco",
+                "count": 3
+            },
+            {
+                "value": "Nu-disco",
+                "count": 1
+            },
+            {
+                "value": "Nudisco",
+                "count": 8
+            },
+            {
+                "value": "Old School",
+                "count": 1
+            },
+            {
+                "value": "Old School Hip Hop",
+                "count": 42
+            },
+            {
+                "value": "Old School Hip-Hop",
+                "count": 4
+            },
+            {
+                "value": "Old School Salsa",
+                "count": 1
+            },
+            {
+                "value": "Old school hip hop",
+                "count": 1
+            },
+            {
+                "value": "Oldies/Doo-Wop",
+                "count": 1
+            },
+            {
+                "value": "Pagan metal",
+                "count": 1
+            },
+            {
+                "value": "Pampas Reggae",
+                "count": 1
+            },
+            {
+                "value": "Philadelphia Soul",
+                "count": 1
+            },
+            {
+                "value": "Philly Soul",
+                "count": 2
+            },
+            {
+                "value": "Piano Pop",
+                "count": 1
+            },
+            {
+                "value": "Piano Rock",
+                "count": 3
+            },
+            {
+                "value": "Pop",
+                "count": 3
+            },
+            {
+                "value": "Pop Country",
+                "count": 1
+            },
+            {
+                "value": "Pop Dance",
+                "count": 1
+            },
+            {
+                "value": "Pop Disco",
+                "count": 2
+            },
+            {
+                "value": "Pop R&B",
+                "count": 2
+            },
+            {
+                "value": "Pop Rap",
+                "count": 7
+            },
+            {
+                "value": "Pop Rock",
+                "count": 49
+            },
+            {
+                "value": "Pop Rock en Español",
+                "count": 1
+            },
+            {
+                "value": "Pop contemporáneo",
+                "count": 1
+            },
+            {
+                "value": "Pop en español",
+                "count": 1
+            },
+            {
+                "value": "Pop latino",
+                "count": 22
+            },
+            {
+                "value": "Pop latino dance",
+                "count": 1
+            },
+            {
+                "value": "Pop rock",
+                "count": 7
+            },
+            {
+                "value": "Pop rock en español",
+                "count": 1
+            },
+            {
+                "value": "Pop/Dance",
+                "count": 1
+            },
+            {
+                "value": "Post-Punk",
+                "count": 3
+            },
+            {
+                "value": "Post-disco",
+                "count": 1
+            },
+            {
+                "value": "Power Ballad",
+                "count": 2
+            },
+            {
+                "value": "Power Metal",
+                "count": 1
+            },
+            {
+                "value": "Power Pop",
+                "count": 2
+            },
+            {
+                "value": "Power folk",
+                "count": 1
+            },
+            {
+                "value": "Progressive House",
+                "count": 22
+            },
+            {
+                "value": "Progressive Rock",
+                "count": 6
+            },
+            {
+                "value": "Progressive Trance",
+                "count": 1
+            },
+            {
+                "value": "Psychedelic Rock",
+                "count": 3
+            },
+            {
+                "value": "Punk",
+                "count": 1
+            },
+            {
+                "value": "Punk Rock",
+                "count": 3
+            },
+            {
+                "value": "Punk/Post-Punk",
+                "count": 1
+            },
+            {
+                "value": "Quiet Storm",
+                "count": 10
+            },
+            {
+                "value": "R&B",
+                "count": 7
+            },
+            {
+                "value": "R&B/Hip-Hop",
+                "count": 1
+            },
+            {
+                "value": "R&B/Soul",
+                "count": 6
+            },
+            {
+                "value": "Rap",
+                "count": 9
+            },
+            {
+                "value": "Rap Rock",
+                "count": 2
+            },
+            {
+                "value": "Rap/Hip Hop",
+                "count": 2
+            },
+            {
+                "value": "Rap/Hip-Hop",
+                "count": 1
+            },
+            {
+                "value": "Reggae",
+                "count": 1
+            },
+            {
+                "value": "Reggae Pop",
+                "count": 1
+            },
+            {
+                "value": "Reggae pop",
+                "count": 1
+            },
+            {
+                "value": "Reggae rock",
+                "count": 1
+            },
+            {
+                "value": "Reggaeton",
+                "count": 10
+            },
+            {
+                "value": "Reggaeton Clásico",
+                "count": 1
+            },
+            {
+                "value": "Reggaeton Comercial",
+                "count": 1
+            },
+            {
+                "value": "Reggaeton Urbano",
+                "count": 1
+            },
+            {
+                "value": "Reggaeton clásico",
+                "count": 1
+            },
+            {
+                "value": "Reggaeton comercial",
+                "count": 1
+            },
+            {
+                "value": "Reggaeton moderno",
+                "count": 3
+            },
+            {
+                "value": "Remix",
+                "count": 6
+            },
+            {
+                "value": "Remixes",
+                "count": 3
+            },
+            {
+                "value": "Retrowave",
+                "count": 1
+            },
+            {
+                "value": "Rock",
+                "count": 1
+            },
+            {
+                "value": "Rock Alternativo",
+                "count": 1
+            },
+            {
+                "value": "Rock alternativo",
+                "count": 67
+            },
+            {
+                "value": "Rock and Roll",
+                "count": 6
+            },
+            {
+                "value": "Rock argentino",
+                "count": 1
+            },
+            {
+                "value": "Rock en español",
+                "count": 25
+            },
+            {
+                "value": "Rock español",
+                "count": 1
+            },
+            {
+                "value": "Rock experimental",
+                "count": 1
+            },
+            {
+                "value": "Rock latino",
+                "count": 7
+            },
+            {
+                "value": "Rockabilly",
+                "count": 8
+            },
+            {
+                "value": "Romántica",
+                "count": 4
+            },
+            {
+                "value": "Roots Reggae",
+                "count": 9
+            },
+            {
+                "value": "Roots Rock",
+                "count": 1
+            },
+            {
+                "value": "Salsa",
+                "count": 31
+            },
+            {
+                "value": "Salsa Clásica",
+                "count": 1
+            },
+            {
+                "value": "Salsa Cubana",
+                "count": 1
+            },
+            {
+                "value": "Salsa Dura",
+                "count": 2
+            },
+            {
+                "value": "Salsa Remix",
+                "count": 1
+            },
+            {
+                "value": "Salsa Romántica",
+                "count": 5
+            },
+            {
+                "value": "Salsa Tradicional",
+                "count": 1
+            },
+            {
+                "value": "Salsa Tropical",
+                "count": 2
+            },
+            {
+                "value": "Salsa clásica",
+                "count": 8
+            },
+            {
+                "value": "Salsa cubana",
+                "count": 4
+            },
+            {
+                "value": "Salsa dura",
+                "count": 1
+            },
+            {
+                "value": "Salsa romántica",
+                "count": 77
+            },
+            {
+                "value": "Salsa tradicional",
+                "count": 4
+            },
+            {
+                "value": "Salsa/Latin Freestyle",
+                "count": 1
+            },
+            {
+                "value": "Scatman",
+                "count": 1
+            },
+            {
+                "value": "Singer-Songwriter",
+                "count": 1
+            },
+            {
+                "value": "Sitcom Theme",
+                "count": 2
+            },
+            {
+                "value": "Ska",
+                "count": 1
+            },
+            {
+                "value": "Ska Revival",
+                "count": 1
+            },
+            {
+                "value": "Ska latino",
+                "count": 1
+            },
+            {
+                "value": "Ska punk",
+                "count": 3
+            },
+            {
+                "value": "Ska-punk",
+                "count": 1
+            },
+            {
+                "value": "Smooth Funk",
+                "count": 2
+            },
+            {
+                "value": "Smooth Jazz",
+                "count": 1
+            },
+            {
+                "value": "Smooth R&B",
+                "count": 3
+            },
+            {
+                "value": "Smooth Soul",
+                "count": 5
+            },
+            {
+                "value": "Soft Pop",
+                "count": 1
+            },
+            {
+                "value": "Soft Rock",
+                "count": 154
+            },
+            {
+                "value": "Soft rock",
+                "count": 2
+            },
+            {
+                "value": "Sophisti-pop",
+                "count": 4
+            },
+            {
+                "value": "Soul",
+                "count": 10
+            },
+            {
+                "value": "Soundtrack",
+                "count": 3
+            },
+            {
+                "value": "Southern Hip Hop",
+                "count": 3
+            },
+            {
+                "value": "Southern Rock",
+                "count": 1
+            },
+            {
+                "value": "Surf Rock",
+                "count": 1
+            },
+            {
+                "value": "Symphonic Rock",
+                "count": 1
+            },
+            {
+                "value": "Synth-disco",
+                "count": 2
+            },
+            {
+                "value": "Synth-pop",
+                "count": 168
+            },
+            {
+                "value": "Synth-rock",
+                "count": 1
+            },
+            {
+                "value": "Synthpop",
+                "count": 318
+            },
+            {
+                "value": "Synthwave",
+                "count": 25
+            },
+            {
+                "value": "Synthwave, Disco",
+                "count": 1
+            },
+            {
+                "value": "Synthwave, Electropop",
+                "count": 1
+            },
+            {
+                "value": "TV Theme",
+                "count": 11
+            },
+            {
+                "value": "Tech House",
+                "count": 13
+            },
+            {
+                "value": "Techno",
+                "count": 18
+            },
+            {
+                "value": "Techno House",
+                "count": 1
+            },
+            {
+                "value": "Teen Pop",
+                "count": 1
+            },
+            {
+                "value": "Tekkno",
+                "count": 1
+            },
+            {
+                "value": "Tema de TV",
+                "count": 9
+            },
+            {
+                "value": "Tema de apertura de dibujos animados",
+                "count": 2
+            },
+            {
+                "value": "Tema de apertura de serie de TV",
+                "count": 1
+            },
+            {
+                "value": "Tema de serie animada",
+                "count": 1
+            },
+            {
+                "value": "Tema de serie de animación",
+                "count": 1
+            },
+            {
+                "value": "Tema principal de serie de TV",
+                "count": 1
+            },
+            {
+                "value": "Temas de series de TV",
+                "count": 1
+            },
+            {
+                "value": "Trance",
+                "count": 32
+            },
+            {
+                "value": "Trap",
+                "count": 6
+            },
+            {
+                "value": "Trap latino",
+                "count": 2
+            },
+            {
+                "value": "Tropical",
+                "count": 14
+            },
+            {
+                "value": "Tropical House",
+                "count": 3
+            },
+            {
+                "value": "Tropical/Salsa",
+                "count": 1
+            },
+            {
+                "value": "UK Garage",
+                "count": 2
+            },
+            {
+                "value": "UK House",
+                "count": 1
+            },
+            {
+                "value": "Unplugged",
+                "count": 2
+            },
+            {
+                "value": "Uplifting Trance",
+                "count": 1
+            },
+            {
+                "value": "Urbano latino",
+                "count": 5
+            },
+            {
+                "value": "Vallenato",
+                "count": 1
+            },
+            {
+                "value": "Vallenato tradicional",
+                "count": 1
+            },
+            {
+                "value": "Vocal House",
+                "count": 2
+            },
+            {
+                "value": "World Music",
+                "count": 1
+            },
+            {
+                "value": "disco",
+                "count": 1
+            },
+            {
+                "value": "electro-funk",
+                "count": 1
+            },
+            {
+                "value": "pampas reggae",
+                "count": 1
+            },
+            {
+                "value": "reggae pop",
+                "count": 2
+            },
+            {
+                "value": "roots reggae",
+                "count": 1
+            }
+        ]
+    }
+}

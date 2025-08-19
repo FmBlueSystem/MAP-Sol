@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Boney M - Ma Baker.flac",
+  "file_name": "Boney M - Ma Baker.flac",
+  "timestamp": "2025-08-16T23:17:12.057226",
+  "essentia_features": {
+    "loudness_lufs": -5.385622024536133,
+    "danceability": 1.8917440176010132,
+    "acousticness": 0.5,
+    "instrumentalness": 0.44024401903152466,
+    "liveness": 0.1,
+    "speechiness": 0.13443489548358112,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

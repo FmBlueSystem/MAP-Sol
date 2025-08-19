@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bee Gees - Night Fever (From Saturday Night Fever Soundtrack).flac",
+  "file_name": "Bee Gees - Night Fever (From Saturday Night Fever Soundtrack).flac",
+  "timestamp": "2025-08-16T22:51:42.227740",
+  "essentia_features": {
+    "loudness_lufs": -4.778999328613281,
+    "danceability": 1.4854116439819336,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5053632855415344,
+    "liveness": 0.1,
+    "speechiness": 0.17657462167355725,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - The 12 Mixes - Big Love (Extended Remix) [2017 Remaster].flac",
+  "file_name": "Fleetwood Mac - The 12 Mixes - Big Love (Extended Remix) [2017 Remaster].flac",
+  "timestamp": "2025-08-17T00:25:05.485619",
+  "essentia_features": {
+    "loudness_lufs": -5.918857574462891,
+    "danceability": 1.2463650703430176,
+    "acousticness": 0.5,
+    "instrumentalness": 0.48059237003326416,
+    "liveness": 0.1,
+    "speechiness": 0.17849053137549775,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

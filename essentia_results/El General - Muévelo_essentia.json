@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/El General - Mue\u0301velo.flac",
+  "file_name": "El General - Mue\u0301velo.flac",
+  "timestamp": "2025-08-17T00:10:27.722636",
+  "essentia_features": {
+    "loudness_lufs": -4.941118240356445,
+    "danceability": 1.798596978187561,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5818833112716675,
+    "liveness": 0.1,
+    "speechiness": 0.12365286166824838,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Daniel Goodheart - Soul Man (Radio Edit).flac",
+  "file_name": "Block & Crown, Daniel Goodheart - Soul Man (Radio Edit).flac",
+  "timestamp": "2025-08-16T23:06:40.314433",
+  "essentia_features": {
+    "loudness_lufs": -1.5055580139160156,
+    "danceability": 1.4652763605117798,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6148073971271515,
+    "liveness": 0.1,
+    "speechiness": 0.210318557851267,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

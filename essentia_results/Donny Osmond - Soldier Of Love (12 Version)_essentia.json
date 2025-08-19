@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Donny Osmond - Soldier Of Love (12 Version).flac",
+  "file_name": "Donny Osmond - Soldier Of Love (12 Version).flac",
+  "timestamp": "2025-08-17T00:00:43.485766",
+  "essentia_features": {
+    "loudness_lufs": -5.272377014160156,
+    "danceability": 1.4034489393234253,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4654186964035034,
+    "liveness": 0.1,
+    "speechiness": 0.16018092672607984,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

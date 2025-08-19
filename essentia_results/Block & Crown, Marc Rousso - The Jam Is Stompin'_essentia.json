@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Marc Rousso - The Jam Is Stompin'.flac",
+  "file_name": "Block & Crown, Marc Rousso - The Jam Is Stompin'.flac",
+  "timestamp": "2025-08-16T23:10:37.081508",
+  "essentia_features": {
+    "loudness_lufs": -1.9935970306396484,
+    "danceability": 1.5134106874465942,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5370126962661743,
+    "liveness": 0.1,
+    "speechiness": 0.2255446437179661,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

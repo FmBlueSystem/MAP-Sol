@@ -18,11 +18,11 @@ async function monitor() {
         
         console.log('\n📍 Checkpoint Status:');
         console.log(`   Last update: ${checkpoint.timestamp}`);
-        console.log(`   Backup: ${checkpoint.backupComplete ? '✅' : '⏳'}`);
-        console.log(`   Scan: ${checkpoint.scanComplete ? '✅' : '⏳'}`);
-        console.log(`   Metadata: ${checkpoint.metadataComplete ? '✅' : '⏳'}`);
-        console.log(`   Artwork: ${checkpoint.artworkComplete ? '✅' : '⏳'}`);
-        console.log(`   Migration: ${checkpoint.migrationComplete ? '✅' : '⏳'}`);
+        console.log(`   Backup: ${checkpoint.backupComplete ? '✅' : '⏳'}');
+        console.log(`   Scan: ${checkpoint.scanComplete ? '✅' : '⏳'}');
+        console.log(`   Metadata: ${checkpoint.metadataComplete ? '✅' : '⏳'}');
+        console.log(`   Artwork: ${checkpoint.artworkComplete ? '✅' : '⏳'}');
+        console.log(`   Migration: ${checkpoint.migrationComplete ? '✅' : '⏳'}');
         
         if (checkpoint.metadataProgress) {
             console.log(`   Progress: ${checkpoint.metadataProgress} files`);

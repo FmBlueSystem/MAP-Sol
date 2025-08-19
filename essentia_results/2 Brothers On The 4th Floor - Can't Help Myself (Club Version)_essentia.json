@@ -1,0 +1,62 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/2 Brothers On The 4th Floor - Can't Help Myself (Club Version).flac",
+  "file_name": "2 Brothers On The 4th Floor - Can't Help Myself (Club Version).flac",
+  "timestamp": "2025-08-16T21:55:45.360832",
+  "metadata": {
+    "artist": "2 Brothers On The 4th Floor",
+    "title": "Can't Help Myself (Club Version)",
+    "album": "Can't Help Myself",
+    "year": null,
+    "isrc": "NLA242100734"
+  },
+  "essentia_features": {
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/2 Brothers On The 4th Floor - Can't Help Myself (Club Version).flac",
+    "file_name": "2 Brothers On The 4th Floor - Can't Help Myself (Club Version).flac",
+    "status": "success",
+    "metadata": {
+      "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/2 Brothers On The 4th Floor - Can't Help Myself (Club Version).flac",
+      "file_name": "2 Brothers On The 4th Floor - Can't Help Myself (Club Version).flac",
+      "file_size_mb": 37.87,
+      "format": ".flac",
+      "title": "Can't Help Myself (Club Version)",
+      "artist": "2 Brothers On The 4th Floor",
+      "album": "Can't Help Myself",
+      "date": "1990",
+      "genre": "Eurodance",
+      "track_number": null,
+      "album_artist": null,
+      "bpm": 124.0,
+      "key": "2A",
+      "energy": 7.0,
+      "isrc": "NLA242100734",
+      "lyrics": null,
+      "composer": null,
+      "publisher": null,
+      "copyright": null,
+      "comment": "2A - Energy 7",
+      "has_cover": true,
+      "cover_format": "image/jpeg",
+      "cover_size_kb": 93.52,
+      "duration_seconds": 341.63,
+      "bitrate": 926734,
+      "sample_rate": 44100,
+      "channels": 2,
+      "codec": null,
+      "energy_scale": "MIK"
+    },
+    "essentia_features": {
+      "loudness": -14.99,
+      "danceability": 0.813,
+      "bpm": 124,
+      "energy": 0.7,
+      "acousticness": 1.0,
+      "instrumentalness": 0.8,
+      "liveness": 1.0,
+      "speechiness": 0.539,
+      "valence": 0.53,
+      "key": "2A"
+    },
+    "errors": []
+  },
+  "processing_time": 0.6755809783935547
+}

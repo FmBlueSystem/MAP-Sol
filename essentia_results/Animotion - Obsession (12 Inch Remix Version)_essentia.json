@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Animotion - Obsession (12 Inch Remix Version).flac",
+  "file_name": "Animotion - Obsession (12 Inch Remix Version).flac",
+  "timestamp": "2025-08-16T22:43:39.784708",
+  "essentia_features": {
+    "loudness_lufs": -10.083532333374023,
+    "danceability": 1.6935994625091553,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5331801176071167,
+    "liveness": 0.1,
+    "speechiness": 0.15709890174324123,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

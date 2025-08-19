@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Chic - I Want Your Love (Stonebridge Mix).flac",
+  "file_name": "Chic - I Want Your Love (Stonebridge Mix).flac",
+  "timestamp": "2025-08-16T23:31:33.159305",
+  "essentia_features": {
+    "loudness_lufs": -8.901052474975586,
+    "danceability": 1.7911558151245117,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7151839733123779,
+    "liveness": 0.1,
+    "speechiness": 0.1548145912833514,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Celia Cruz - La Negra Tiene Tumbao.flac",
+  "file_name": "Celia Cruz - La Negra Tiene Tumbao.flac",
+  "timestamp": "2025-08-16T23:26:39.331840",
+  "essentia_features": {
+    "loudness_lufs": -2.6314144134521484,
+    "danceability": 1.5185662508010864,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6155850887298584,
+    "liveness": 0.1,
+    "speechiness": 0.17351799764328776,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

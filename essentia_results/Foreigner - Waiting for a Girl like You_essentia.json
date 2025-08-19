@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Foreigner - Waiting for a Girl like You.flac",
+  "file_name": "Foreigner - Waiting for a Girl like You.flac",
+  "timestamp": "2025-08-17T00:26:11.388192",
+  "essentia_features": {
+    "loudness_lufs": -6.476341247558594,
+    "danceability": 1.1955227851867676,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4677079916000366,
+    "liveness": 0.1,
+    "speechiness": 0.08850841746753309,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

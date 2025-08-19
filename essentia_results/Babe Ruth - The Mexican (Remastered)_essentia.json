@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Babe Ruth - The Mexican (Remastered).flac",
+  "file_name": "Babe Ruth - The Mexican (Remastered).flac",
+  "timestamp": "2025-08-16T22:48:38.898178",
+  "essentia_features": {
+    "loudness_lufs": -5.58784294128418,
+    "danceability": 1.4170522689819336,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5396328568458557,
+    "liveness": 0.1,
+    "speechiness": 0.14980336455821186,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

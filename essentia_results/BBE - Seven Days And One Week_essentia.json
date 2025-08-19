@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/BBE - Seven Days And One Week.flac",
+  "file_name": "BBE - Seven Days And One Week.flac",
+  "timestamp": "2025-08-16T22:48:15.434772",
+  "essentia_features": {
+    "loudness_lufs": -5.105030059814453,
+    "danceability": 1.781025767326355,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6606327593326569,
+    "liveness": 0.1,
+    "speechiness": 0.15903377185727993,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

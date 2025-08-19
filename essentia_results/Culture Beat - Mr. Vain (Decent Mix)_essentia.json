@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Culture Beat - Mr. Vain (Decent Mix).flac",
+  "file_name": "Culture Beat - Mr. Vain (Decent Mix).flac",
+  "timestamp": "2025-08-16T23:38:14.215551",
+  "essentia_features": {
+    "loudness_lufs": -4.678092956542969,
+    "danceability": 1.7519679069519043,
+    "acousticness": 0.5,
+    "instrumentalness": 0.549474686384201,
+    "liveness": 0.1,
+    "speechiness": 0.173335200906959,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

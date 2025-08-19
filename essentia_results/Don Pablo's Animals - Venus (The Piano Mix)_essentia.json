@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Don Pablo's Animals - Venus (The Piano Mix).flac",
+  "file_name": "Don Pablo's Animals - Venus (The Piano Mix).flac",
+  "timestamp": "2025-08-16T23:57:39.071422",
+  "essentia_features": {
+    "loudness_lufs": -9.25942611694336,
+    "danceability": 1.6861313581466675,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5243996679782867,
+    "liveness": 0.1,
+    "speechiness": 0.19946985291331723,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

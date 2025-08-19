@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bananarama - I Heard A Rumour (Miami Remix).flac",
+  "file_name": "Bananarama - I Heard A Rumour (Miami Remix).flac",
+  "timestamp": "2025-08-16T22:50:12.130215",
+  "essentia_features": {
+    "loudness_lufs": -4.459377288818359,
+    "danceability": 1.6207505464553833,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

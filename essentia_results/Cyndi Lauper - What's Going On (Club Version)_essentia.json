@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cyndi Lauper - What's Going On (Club Version).flac",
+  "file_name": "Cyndi Lauper - What's Going On (Club Version).flac",
+  "timestamp": "2025-08-16T23:41:23.596681",
+  "essentia_features": {
+    "loudness_lufs": -4.931966781616211,
+    "danceability": 1.4025585651397705,
+    "acousticness": 0.5,
+    "instrumentalness": 0.45961207151412964,
+    "liveness": 0.1,
+    "speechiness": 0.1964393604029846,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

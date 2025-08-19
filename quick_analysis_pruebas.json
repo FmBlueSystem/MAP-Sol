@@ -1,0 +1,20 @@
+{
+    "total": 88,
+    "with_metadata": 88,
+    "without_metadata": 0,
+    "with_lyrics": 25,
+    "without_lyrics": 63,
+    "with_isrc": 81,
+    "without_isrc": 7,
+    "with_year": 87,
+    "without_year": 1,
+    "with_bpm": 88,
+    "without_bpm": 0,
+    "compilations": 12,
+    "known_tracks": 12,
+    "file_types": {
+        ".flac": 82,
+        ".m4a": 6
+    },
+    "problematic_files": []
+}

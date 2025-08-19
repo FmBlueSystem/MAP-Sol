@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/BURNS - Talamanca (Extended Mix).flac",
+  "file_name": "BURNS - Talamanca (Extended Mix).flac",
+  "timestamp": "2025-08-16T22:48:21.544813",
+  "essentia_features": {
+    "loudness_lufs": -4.246683120727539,
+    "danceability": 1.3123809099197388,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7302113771438599,
+    "liveness": 0.1,
+    "speechiness": 0.13877434395094956,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

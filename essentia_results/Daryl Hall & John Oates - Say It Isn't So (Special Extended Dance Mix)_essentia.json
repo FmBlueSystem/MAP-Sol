@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Daryl Hall & John Oates - Say It Isn't So (Special Extended Dance Mix).flac",
+  "file_name": "Daryl Hall & John Oates - Say It Isn't So (Special Extended Dance Mix).flac",
+  "timestamp": "2025-08-16T23:46:46.352706",
+  "essentia_features": {
+    "loudness_lufs": -3.7608089447021484,
+    "danceability": 1.4617948532104492,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4669305682182312,
+    "liveness": 0.1,
+    "speechiness": 0.10593407683685785,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

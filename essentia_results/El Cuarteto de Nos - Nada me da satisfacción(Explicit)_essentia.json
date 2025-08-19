@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/El Cuarteto de Nos - Nada me da satisfaccio\u0301n(Explicit).flac",
+  "file_name": "El Cuarteto de Nos - Nada me da satisfaccio\u0301n(Explicit).flac",
+  "timestamp": "2025-08-17T00:09:52.848017",
+  "essentia_features": {
+    "loudness_lufs": -1.8005943298339844,
+    "danceability": 1.2151819467544556,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5134068727493286,
+    "liveness": 0.1,
+    "speechiness": 0.12422210130147014,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

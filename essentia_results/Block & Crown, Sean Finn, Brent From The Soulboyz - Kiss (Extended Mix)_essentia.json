@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Sean Finn, Brent From The Soulboyz - Kiss (Extended Mix).flac",
+  "file_name": "Block & Crown, Sean Finn, Brent From The Soulboyz - Kiss (Extended Mix).flac",
+  "timestamp": "2025-08-16T23:12:36.066217",
+  "essentia_features": {
+    "loudness_lufs": -1.8507843017578125,
+    "danceability": 1.5355396270751953,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6628937721252441,
+    "liveness": 0.1,
+    "speechiness": 0.2014736089792922,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

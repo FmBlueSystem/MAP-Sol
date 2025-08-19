@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Martina Budde - You Are the Sunshine.flac",
+  "file_name": "Block & Crown, Martina Budde - You Are the Sunshine.flac",
+  "timestamp": "2025-08-16T23:11:15.329639",
+  "essentia_features": {
+    "loudness_lufs": -2.640768051147461,
+    "danceability": 1.3702373504638672,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6864326000213623,
+    "liveness": 0.1,
+    "speechiness": 0.16137211050705869,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

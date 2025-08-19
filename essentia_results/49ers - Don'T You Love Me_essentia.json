@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/49ers - Don'T You Love Me.flac",
+  "file_name": "49ers - Don'T You Love Me.flac",
+  "timestamp": "2025-08-16T22:32:52.718491",
+  "essentia_features": {
+    "loudness_lufs": -8.443214416503906,
+    "danceability": 1.861250400543213,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6339690983295441,
+    "liveness": 0.1,
+    "speechiness": 0.2780367401638543,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

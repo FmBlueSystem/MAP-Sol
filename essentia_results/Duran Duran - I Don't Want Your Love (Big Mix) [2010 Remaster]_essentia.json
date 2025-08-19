@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - I Don't Want Your Love (Big Mix) [2010 Remaster].flac",
+  "file_name": "Duran Duran - I Don't Want Your Love (Big Mix) [2010 Remaster].flac",
+  "timestamp": "2025-08-17T00:03:35.843668",
+  "essentia_features": {
+    "loudness_lufs": -10.674150466918945,
+    "danceability": 1.562037467956543,
+    "acousticness": 0.5,
+    "instrumentalness": 0.574482649564743,
+    "liveness": 0.1,
+    "speechiness": 0.17691833658861905,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Test Simple Audio Play</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                background: #1a1a1a;
+                color: white;
+            }
+            button {
+                padding: 10px 20px;
+                margin: 10px;
+                background: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            button:hover {
+                background: #45a049;
+            }
+            #status {
+                margin: 20px 0;
+                padding: 10px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+            }
+            .log-entry {
+                margin: 5px 0;
+                padding: 5px;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 3px;
+                font-family: monospace;
+            }
+            .error {
+                color: #ff6b6b;
+            }
+            .success {
+                color: #51cf66;
+            }
+            .info {
+                color: #74c0fc;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🎵 Test Simple Audio Playback</h1>
+
+        <div>
+            <button onclick="testSimplePlay()">▶️ Play Test File</button>
+            <button onclick="stopAudio()">⏹️ Stop</button>
+            <button onclick="clearLog()">🗑️ Clear Log</button>
+        </div>
+
+        <div id="status">
+            <h3>Status:</h3>
+            <div>Audio Element: <span id="audio-status">Not created</span></div>
+            <div>State: <span id="play-state">Stopped</span></div>
+            <div>Time: <span id="current-time">0:00</span> / <span id="duration">0:00</span></div>
+        </div>
+
+        <div id="log">
+            <h3>Log:</h3>
+        </div>
+
+        <script>
+            const { ipcRenderer } = require('electron');
+            let testAudio = null;
+
+            function log(message, type = 'info') {
+                const logDiv = document.getElementById('log');
+                const entry = document.createElement('div');
+                entry.className = `log-entry ${type}`;
+                const timestamp = new Date().toLocaleTimeString();
+                entry.textContent = `[${timestamp}] ${message}`;
+                logDiv.appendChild(entry);
+                console.log(message);
+            }
+
+            function clearLog() {
+                const logDiv = document.getElementById('log');
+                logDiv.innerHTML = '<h3>Log:</h3>';
+            }
+
+            async function testSimplePlay() {
+                log('Starting simple playback test...', 'info');
+
+                try {
+                    // Get a test file
+                    const files = await ipcRenderer.invoke('get-files-with-cached-artwork');
+                    if (!files || files.length === 0) {
+                        log('No files available', 'error');
+                        return;
+                    }
+
+                    const testFile = files[0];
+                    log(`Selected file: ${testFile.file_name}`, 'info');
+                    log(`Path: ${testFile.file_path}`, 'info');
+
+                    // Clean up previous audio
+                    if (testAudio) {
+                        testAudio.pause();
+                        testAudio.src = '';
+                        testAudio = null;
+                        log('Cleaned up previous audio', 'info');
+                    }
+
+                    // Create new audio element
+                    testAudio = new Audio();
+                    document.getElementById('audio-status').textContent = 'Created';
+                    log('Audio element created', 'success');
+
+                    // Add all event listeners
+                    testAudio.addEventListener('loadstart', () => {
+                        log('Event: loadstart', 'info');
+                    });
+
+                    testAudio.addEventListener('loadedmetadata', () => {
+                        log(`Event: loadedmetadata - Duration: ${testAudio.duration}s`, 'success');
+                        document.getElementById('duration').textContent = formatTime(
+                            testAudio.duration
+                        );
+                    });
+
+                    testAudio.addEventListener('canplay', () => {
+                        log('Event: canplay - Ready to play', 'success');
+                    });
+
+                    testAudio.addEventListener('play', () => {
+                        log('Event: play - Playback started', 'success');
+                        document.getElementById('play-state').textContent = 'Playing';
+                    });
+
+                    testAudio.addEventListener('pause', () => {
+                        log('Event: pause', 'info');
+                        document.getElementById('play-state').textContent = 'Paused';
+                    });
+
+                    testAudio.addEventListener('ended', () => {
+                        log('Event: ended', 'info');
+                        document.getElementById('play-state').textContent = 'Ended';
+                    });
+
+                    testAudio.addEventListener('error', e => {
+                        const error = e.target.error;
+                        let errorMsg = 'Unknown error';
+                        if (error) {
+                            switch (error.code) {
+                                case 1:
+                                    errorMsg = 'MEDIA_ERR_ABORTED';
+                                    break;
+                                case 2:
+                                    errorMsg = 'MEDIA_ERR_NETWORK';
+                                    break;
+                                case 3:
+                                    errorMsg = 'MEDIA_ERR_DECODE';
+                                    break;
+                                case 4:
+                                    errorMsg = 'MEDIA_ERR_SRC_NOT_SUPPORTED';
+                                    break;
+                            }
+                        }
+                        log(`Event: error - ${errorMsg}`, 'error');
+                        document.getElementById('play-state').textContent = 'Error';
+                    });
+
+                    testAudio.addEventListener('timeupdate', () => {
+                        document.getElementById('current-time').textContent = formatTime(
+                            testAudio.currentTime
+                        );
+                    });
+
+                    // Set properties
+                    testAudio.volume = 0.5;
+                    testAudio.preload = 'auto';
+
+                    // Set source
+                    log(`Setting source: ${testFile.file_path}`, 'info');
+                    testAudio.src = testFile.file_path;
+
+                    // Wait a bit for metadata to load
+                    await new Promise(resolve => setTimeout(resolve, 100));
+
+                    // Try to play
+                    log('Attempting to play...', 'info');
+                    try {
+                        const playPromise = testAudio.play();
+                        if (playPromise !== undefined) {
+                            await playPromise;
+                            log('Playback started successfully!', 'success');
+                        }
+                    } catch (playError) {
+                        log(`Play error: ${playError.name} - ${playError.message}`, 'error');
+
+                        // Try to diagnose the issue
+                        log(`Audio readyState: ${testAudio.readyState}`, 'info');
+                        log(`Audio networkState: ${testAudio.networkState}`, 'info');
+                        log(`Audio paused: ${testAudio.paused}`, 'info');
+                        log(`Audio ended: ${testAudio.ended}`, 'info');
+                        log(`Audio duration: ${testAudio.duration}`, 'info');
+                    }
+                } catch (error) {
+                    log(`Test failed: ${error.message}`, 'error');
+                    console.error(error);
+                }
+            }
+
+            function stopAudio() {
+                if (testAudio) {
+                    testAudio.pause();
+                    testAudio.currentTime = 0;
+                    document.getElementById('play-state').textContent = 'Stopped';
+                    log('Audio stopped', 'info');
+                }
+            }
+
+            function formatTime(seconds) {
+                if (isNaN(seconds)) return '0:00';
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            // Initial log
+            log('Test page ready', 'success');
+        </script>
+    </body>
+</html>

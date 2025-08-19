@@ -66,7 +66,7 @@ class ArtworkHelper {
      * @returns {string} Data URL del placeholder o default
      */
     getPlaceholderUrl(track) {
-        const key = `${track.artist || 'Unknown'}-${track.title || 'Track'}`;
+        const key = `${track.artist || 'Unknown'}-${track.title || 'Track'}';
         
         // Verificar cache
         if (this.placeholderCache.has(key)) {

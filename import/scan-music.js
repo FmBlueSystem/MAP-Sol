@@ -24,7 +24,7 @@ class MusicScanner {
         console.log('🔍 Music Scanner v1.0');
         console.log('====================\n');
         console.log(`📁 Scanning: ${dirPath}`);
-        console.log(`📝 Formats: ${this.supportedFormats.join(', ')}\n`);
+        console.log(`📝 Formats: ${this.supportedFormats.join(`, ')}\n');
         
         this.stats.startTime = performance.now();
         

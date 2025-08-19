@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/El General, Anayka - Rica y Apretadita (feat. Anayka).flac",
+  "file_name": "El General, Anayka - Rica y Apretadita (feat. Anayka).flac",
+  "timestamp": "2025-08-17T00:10:33.116042",
+  "essentia_features": {
+    "loudness_lufs": -3.986705780029297,
+    "danceability": 1.6143966913223267,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5308550894260406,
+    "liveness": 0.1,
+    "speechiness": 0.1388926053830524,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

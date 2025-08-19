@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dire Straits - Money for Nothing.flac",
+  "file_name": "Dire Straits - Money for Nothing.flac",
+  "timestamp": "2025-08-16T23:55:42.396408",
+  "essentia_features": {
+    "loudness_lufs": -6.978044509887695,
+    "danceability": 1.2783405780792236,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3668319582939148,
+    "liveness": 0.1,
+    "speechiness": 0.13471620065356432,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

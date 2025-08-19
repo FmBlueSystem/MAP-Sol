@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Enjambre - Enemigo.flac",
+  "file_name": "Enjambre - Enemigo.flac",
+  "timestamp": "2025-08-17T00:14:39.134498",
+  "essentia_features": {
+    "loudness_lufs": -1.9959526062011719,
+    "danceability": 1.0986931324005127,
+    "acousticness": 0.5,
+    "instrumentalness": 0.43467044830322266,
+    "liveness": 0.1,
+    "speechiness": 0.11059442053119306,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

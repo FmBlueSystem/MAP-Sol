@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Tango In The Night (Original Album - 2017 Remaster) - Big Love (2017 Remaster).flac",
+  "file_name": "Fleetwood Mac - Tango In The Night (Original Album - 2017 Remaster) - Big Love (2017 Remaster).flac",
+  "timestamp": "2025-08-17T00:24:57.059126",
+  "essentia_features": {
+    "loudness_lufs": -7.888210296630859,
+    "danceability": 1.410393476486206,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5197137594223022,
+    "liveness": 0.1,
+    "speechiness": 0.14701555789737578,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Chicago - Street Player (Dance Mix).flac",
+  "file_name": "Chicago - Street Player (Dance Mix).flac",
+  "timestamp": "2025-08-16T23:32:32.784549",
+  "essentia_features": {
+    "loudness_lufs": -3.357421875,
+    "danceability": 1.4134924411773682,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4045732617378235,
+    "liveness": 0.1,
+    "speechiness": 0.2030754959103145,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

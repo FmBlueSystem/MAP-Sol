@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Sean Finn, Culum Frea - What Have You Done for Me Lately (Extended Mix).flac",
+  "file_name": "Block & Crown, Sean Finn, Culum Frea - What Have You Done for Me Lately (Extended Mix).flac",
+  "timestamp": "2025-08-16T23:12:41.910530",
+  "essentia_features": {
+    "loudness_lufs": -2.310667037963867,
+    "danceability": 1.5718969106674194,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7390393912792206,
+    "liveness": 0.1,
+    "speechiness": 0.17628239694636424,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

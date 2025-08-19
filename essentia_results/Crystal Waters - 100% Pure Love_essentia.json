@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Crystal Waters - 100% Pure Love.flac",
+  "file_name": "Crystal Waters - 100% Pure Love.flac",
+  "timestamp": "2025-08-16T23:37:41.303861",
+  "essentia_features": {
+    "loudness_lufs": -6.672590255737305,
+    "danceability": 1.4333603382110596,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5652293264865875,
+    "liveness": 0.1,
+    "speechiness": 0.15742084074623547,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

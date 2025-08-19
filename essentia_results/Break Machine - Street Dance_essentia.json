@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Break Machine - Street Dance.flac",
+  "file_name": "Break Machine - Street Dance.flac",
+  "timestamp": "2025-08-16T23:18:40.361917",
+  "essentia_features": {
+    "loudness_lufs": -7.379077911376953,
+    "danceability": 1.2226309776306152,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4553772807121277,
+    "liveness": 0.1,
+    "speechiness": 0.13387803096154466,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

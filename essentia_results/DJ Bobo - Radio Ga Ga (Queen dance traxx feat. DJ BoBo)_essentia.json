@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/DJ Bobo - Radio Ga Ga (Queen dance traxx feat. DJ BoBo).flac",
+  "file_name": "DJ Bobo - Radio Ga Ga (Queen dance traxx feat. DJ BoBo).flac",
+  "timestamp": "2025-08-16T23:42:14.430963",
+  "essentia_features": {
+    "loudness_lufs": -5.49365234375,
+    "danceability": 1.3978588581085205,
+    "acousticness": 0.5,
+    "instrumentalness": 0.40304034948349,
+    "liveness": 0.1,
+    "speechiness": 0.15948412915058377,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Belinda Carlisle - I Get Weak (Romantic Mix).flac",
+  "file_name": "Belinda Carlisle - I Get Weak (Romantic Mix).flac",
+  "timestamp": "2025-08-16T22:52:45.040795",
+  "essentia_features": {
+    "loudness_lufs": -7.5298309326171875,
+    "danceability": 1.0100325345993042,
+    "acousticness": 0.5,
+    "instrumentalness": 0.43290311098098755,
+    "liveness": 0.1,
+    "speechiness": 0.13598669916230313,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

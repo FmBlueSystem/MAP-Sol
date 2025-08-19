@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dr Alban - It's My Life (Extended Club Version).flac",
+  "file_name": "Dr Alban - It's My Life (Extended Club Version).flac",
+  "timestamp": "2025-08-17T00:01:25.967531",
+  "essentia_features": {
+    "loudness_lufs": -9.761816024780273,
+    "danceability": 1.6127938032150269,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5951663255691528,
+    "liveness": 0.1,
+    "speechiness": 0.18245351382871652,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

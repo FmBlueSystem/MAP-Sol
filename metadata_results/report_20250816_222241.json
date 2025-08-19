@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-16T22:22:41.033225",
+  "stats": {
+    "total": 50,
+    "processed": 50,
+    "saved_db": 50,
+    "errors": 0,
+    "skipped": 3758,
+    "with_isrc": 47,
+    "with_mik": 0,
+    "start_time": 1755404560.969769
+  },
+  "elapsed_time": 0.06344294548034668
+}

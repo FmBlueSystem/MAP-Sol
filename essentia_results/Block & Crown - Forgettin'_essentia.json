@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown - Forgettin'.flac",
+  "file_name": "Block & Crown - Forgettin'.flac",
+  "timestamp": "2025-08-16T23:02:17.254010",
+  "essentia_features": {
+    "loudness_lufs": -2.3548412322998047,
+    "danceability": 1.4545292854309082,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

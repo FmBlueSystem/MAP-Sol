@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Freddie James - Get up and Boogie.flac",
+  "file_name": "Freddie James - Get up and Boogie.flac",
+  "timestamp": "2025-08-17T00:28:24.525177",
+  "essentia_features": {
+    "loudness_lufs": -10.424732208251953,
+    "danceability": 1.9723563194274902,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5910881459712982,
+    "liveness": 0.1,
+    "speechiness": 0.24113286339779041,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

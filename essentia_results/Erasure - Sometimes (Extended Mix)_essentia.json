@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Erasure - Sometimes (Extended Mix).flac",
+  "file_name": "Erasure - Sometimes (Extended Mix).flac",
+  "timestamp": "2025-08-17T00:15:16.079332",
+  "essentia_features": {
+    "loudness_lufs": -9.8197021484375,
+    "danceability": 1.1332186460494995,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4839514493942261,
+    "liveness": 0.1,
+    "speechiness": 0.18768800649351042,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eddie Santiago - Mi\u0301a.flac",
+  "file_name": "Eddie Santiago - Mi\u0301a.flac",
+  "timestamp": "2025-08-17T00:07:45.302600",
+  "essentia_features": {
+    "loudness_lufs": -0.7486381530761719,
+    "danceability": 1.3076854944229126,
+    "acousticness": 0.5,
+    "instrumentalness": 0.45041072368621826,
+    "liveness": 0.1,
+    "speechiness": 0.13686037838177828,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

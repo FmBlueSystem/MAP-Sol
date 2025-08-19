@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Donna Summer - On The Radio.flac",
+  "file_name": "Donna Summer - On The Radio.flac",
+  "timestamp": "2025-08-16T23:59:49.235244",
+  "essentia_features": {
+    "loudness_lufs": -5.129508972167969,
+    "danceability": 1.1640478372573853,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4963635802268982,
+    "liveness": 0.1,
+    "speechiness": 0.14391873767331406,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alphaville - Sounds Like a Melody.flac",
+  "file_name": "Alphaville - Sounds Like a Melody.flac",
+  "timestamp": "2025-08-16T22:42:02.868882",
+  "essentia_features": {
+    "loudness_lufs": -6.6266632080078125,
+    "danceability": 1.6277228593826294,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6393324434757233,
+    "liveness": 0.1,
+    "speechiness": 0.12141699757870242,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

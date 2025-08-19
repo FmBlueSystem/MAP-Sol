@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Culture Club - Karma Chameleon (Remastered 2002).flac",
+  "file_name": "Culture Club - Karma Chameleon (Remastered 2002).flac",
+  "timestamp": "2025-08-16T23:39:09.219991",
+  "essentia_features": {
+    "loudness_lufs": -4.806215286254883,
+    "danceability": 1.193360447883606,
+    "acousticness": 0.5,
+    "instrumentalness": 0.43681931495666504,
+    "liveness": 0.1,
+    "speechiness": 0.1655350511304209,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

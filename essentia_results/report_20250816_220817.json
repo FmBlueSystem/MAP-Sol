@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-08-16T22:08:17.304262",
+  "stats": {
+    "total": 20,
+    "processed": 0,
+    "errors": 16,
+    "skipped": 4,
+    "crashes": 0,
+    "start_time": 1755403670.229533
+  },
+  "elapsed_time": 27.074714183807373
+}

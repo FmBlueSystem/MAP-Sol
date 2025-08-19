@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Black Box - Ride on Time.flac",
+  "file_name": "Black Box - Ride on Time.flac",
+  "timestamp": "2025-08-16T22:58:51.378099",
+  "essentia_features": {
+    "loudness_lufs": -5.223621368408203,
+    "danceability": 1.7107363939285278,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5944769978523254,
+    "liveness": 0.1,
+    "speechiness": 0.19302321769207115,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

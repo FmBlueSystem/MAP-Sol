@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cheesecake Boys - Funky Monday (Original Mix).flac",
+  "file_name": "Cheesecake Boys - Funky Monday (Original Mix).flac",
+  "timestamp": "2025-08-16T23:29:26.508405",
+  "essentia_features": {
+    "loudness_lufs": -2.427560806274414,
+    "danceability": 1.3611489534378052,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

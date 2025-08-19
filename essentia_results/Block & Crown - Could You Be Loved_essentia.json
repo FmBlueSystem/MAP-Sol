@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown - Could You Be Loved.flac",
+  "file_name": "Block & Crown - Could You Be Loved.flac",
+  "timestamp": "2025-08-16T23:01:37.462106",
+  "essentia_features": {
+    "loudness_lufs": -2.248929977416992,
+    "danceability": 1.3922080993652344,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7024927735328674,
+    "liveness": 0.1,
+    "speechiness": 0.1843682242987395,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

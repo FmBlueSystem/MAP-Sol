@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/A Flock Of Seagulls - Wishing (If I Had a Photograph of You) (Extended Version).flac",
+  "file_name": "A Flock Of Seagulls - Wishing (If I Had a Photograph of You) (Extended Version).flac",
+  "timestamp": "2025-08-16T22:34:08.379491",
+  "essentia_features": {
+    "loudness_lufs": -8.771530151367188,
+    "danceability": 1.4409962892532349,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5161247849464417,
+    "liveness": 0.1,
+    "speechiness": 0.14091006572888432,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

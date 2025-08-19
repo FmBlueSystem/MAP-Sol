@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>MAP - Music Analyzer Pro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Load all the styles from index-with-search.html -->
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                padding: 20px;
+            }
+
+            .header {
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 16px;
+                padding: 20px;
+                margin-bottom: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+
+            .container {
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 16px;
+                padding: 20px;
+                min-height: 400px;
+            }
+
+            .loading {
+                text-align: center;
+                padding: 50px;
+                font-size: 20px;
+            }
+
+            .cards-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .track-card {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                cursor: pointer;
+                transition: transform 0.2s;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .track-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .track-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .track-info {
+                padding: 15px;
+            }
+
+            .track-title {
+                font-weight: 600;
+                margin-bottom: 5px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .track-artist {
+                color: #666;
+                font-size: 14px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>🎵 MAP - Music Analyzer Pro</h1>
+            <p>Loading your music library...</p>
+        </div>
+
+        <div class="container">
+            <div id="content" class="loading">⏳ Connecting to database...</div>
+        </div>
+
+        <script>
+            console.log('🚀 MAP Fixed Version Starting...');
+
+            // Check if electronAPI is available
+            if (window.electronAPI) {
+                console.log('✅ electronAPI found!');
+                loadFiles();
+            } else {
+                console.error('❌ electronAPI not found!');
+                document.getElementById('content').innerHTML = `
+                <div style="text-align: center; padding: 50px;">
+                    <h2>⚠️ Connection Error</h2>
+                    <p>Unable to connect to the music database.</p>
+                    <p>Please restart the application.</p>
+                    <br>
+                    <p style="font-size: 12px; color: #999;">
+                        electronAPI is not available. This may be a preload script issue.
+                    </p>
+                </div>
+            `;
+            }
+
+            async function loadFiles() {
+                const content = document.getElementById('content');
+                content.innerHTML = '⏳ Loading music files...';
+
+                try {
+                    console.log('📡 Calling get-files-with-cached-artwork...');
+                    const response = await window.electronAPI.invoke(
+                        'get-files-with-cached-artwork'
+                    );
+                    console.log('📦 Response received:', response);
+
+                    if (response && response.files && response.files.length > 0) {
+                        console.log(`✅ Loaded ${response.files.length} files`);
+                        displayFiles(response.files);
+                    } else if (response && response.length > 0) {
+                        // Handle if response is directly an array
+                        console.log(`✅ Loaded ${response.length} files`);
+                        displayFiles(response);
+                    } else {
+                        console.error('❌ No files in response');
+                        content.innerHTML = '<p>No music files found in database.</p>';
+                    }
+                } catch (error) {
+                    console.error('❌ Error loading files:', error);
+                    content.innerHTML = `
+                    <div style="text-align: center; padding: 50px;">
+                        <h2>Error Loading Files</h2>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+                }
+            }
+
+            function displayFiles(files) {
+                const content = document.getElementById('content');
+
+                // Take first 100 files for testing
+                const filesToShow = files.slice(0, 100);
+
+                content.innerHTML = `
+                <div style="padding: 20px;">
+                    <h2>Your Music Library (${files.length} tracks)</h2>
+                    <p style="color: #666; margin-bottom: 20px;">Showing first 100 tracks</p>
+                </div>
+                <div class="cards-grid">
+                    ${filesToShow
+                        .map(
+                            file => `
+                        <div class="track-card" data-id="${file.id}">
+                            <img src="${file.artwork_path || file.artwork_url || 'image.png'}" 
+                                 onerror="this.src='image.png'"
+                                 alt="${file.title || file.file_name}">
+                            <div class="track-info">
+                                <div class="track-title">${file.title || file.file_name || 'Unknown'}</div>
+                                <div class="track-artist">${file.artist || 'Unknown Artist'}</div>
+                            </div>
+                        </div>
+                    `
+                        )
+                        .join('')}
+                </div>
+            `;
+
+                // Add click handlers
+                document.querySelectorAll('.track-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        console.log('Track clicked:', card.dataset.id);
+                        // Add play functionality here
+                    });
+                });
+            }
+        </script>
+    </body>
+</html>

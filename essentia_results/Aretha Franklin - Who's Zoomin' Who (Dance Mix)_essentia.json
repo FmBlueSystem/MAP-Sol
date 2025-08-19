@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aretha Franklin - Who's Zoomin' Who (Dance Mix).flac",
+  "file_name": "Aretha Franklin - Who's Zoomin' Who (Dance Mix).flac",
+  "timestamp": "2025-08-16T22:45:40.227990",
+  "essentia_features": {
+    "loudness_lufs": -7.014068603515625,
+    "danceability": 1.2026118040084839,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4231647849082947,
+    "liveness": 0.1,
+    "speechiness": 0.14042882006419394,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

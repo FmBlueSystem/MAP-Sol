@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/2 Unlimited - No Limit (Extended Mix).flac",
+  "file_name": "2 Unlimited - No Limit (Extended Mix).flac",
+  "timestamp": "2025-08-16T22:31:57.709115",
+  "essentia_features": {
+    "loudness_lufs": -4.555456161499023,
+    "danceability": 1.5552144050598145,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4816022515296936,
+    "liveness": 0.1,
+    "speechiness": 0.1423790668493956,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Evelyn Champagne King - Shame (12 Disco Mix).flac",
+  "file_name": "Evelyn Champagne King - Shame (12 Disco Mix).flac",
+  "timestamp": "2025-08-17T00:17:40.392492",
+  "essentia_features": {
+    "loudness_lufs": -6.675670623779297,
+    "danceability": 1.2494723796844482,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4385783076286316,
+    "liveness": 0.1,
+    "speechiness": 0.13866594749120958,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

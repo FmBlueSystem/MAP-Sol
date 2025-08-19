@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown - Na Na Nah (Original Mix).flac",
+  "file_name": "Block & Crown - Na Na Nah (Original Mix).flac",
+  "timestamp": "2025-08-16T23:03:16.101462",
+  "essentia_features": {
+    "loudness_lufs": -3.2928943634033203,
+    "danceability": 1.2438242435455322,
+    "acousticness": 0.5,
+    "instrumentalness": 0.692443311214447,
+    "liveness": 0.1,
+    "speechiness": 0.18185811954278255,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

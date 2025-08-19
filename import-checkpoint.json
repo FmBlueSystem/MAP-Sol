@@ -1,15 +1,15 @@
 {
-  "backupComplete": true,
-  "timestamp": "2025-08-10T16:12:42.687Z",
-  "stats": {
-    "startTime": 1754842271528,
-    "filesScanned": 0,
-    "metadataExtracted": 0,
-    "artworkExtracted": 0,
-    "errors": []
-  },
-  "scanComplete": true,
-  "filesFound": 3766,
-  "metadataProgress": 3766,
-  "metadataComplete": true
+    "backupComplete": true,
+    "timestamp": "2025-08-10T16:12:42.687Z",
+    "stats": {
+        "startTime": 1754842271528,
+        "filesScanned": 0,
+        "metadataExtracted": 0,
+        "artworkExtracted": 0,
+        "errors": []
+    },
+    "scanComplete": true,
+    "filesFound": 3766,
+    "metadataProgress": 3766,
+    "metadataComplete": true
 }

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Amii Stewart - Knock on Wood (7 Edit).flac",
+  "file_name": "Amii Stewart - Knock on Wood (7 Edit).flac",
+  "timestamp": "2025-08-16T22:42:44.480142",
+  "essentia_features": {
+    "loudness_lufs": -5.021413803100586,
+    "danceability": 1.3189789056777954,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5079960227012634,
+    "liveness": 0.1,
+    "speechiness": 0.15631712577576726,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

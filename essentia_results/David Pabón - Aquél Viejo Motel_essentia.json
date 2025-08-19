@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/David Pabo\u0301n - Aque\u0301l Viejo Motel.flac",
+  "file_name": "David Pabo\u0301n - Aque\u0301l Viejo Motel.flac",
+  "timestamp": "2025-08-16T23:48:28.343813",
+  "essentia_features": {
+    "loudness_lufs": -1.5819282531738281,
+    "danceability": 1.163723111152649,
+    "acousticness": 0.5,
+    "instrumentalness": 0.40870869159698486,
+    "liveness": 0.1,
+    "speechiness": 0.12783860016075085,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

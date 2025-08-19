@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Lissat - Pushin On.flac",
+  "file_name": "Block & Crown, Lissat - Pushin On.flac",
+  "timestamp": "2025-08-16T23:08:30.748269",
+  "essentia_features": {
+    "loudness_lufs": -3.1099777221679688,
+    "danceability": 1.2954919338226318,
+    "acousticness": 0.5,
+    "instrumentalness": 0.625000536441803,
+    "liveness": 0.1,
+    "speechiness": 0.14570919803932916,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

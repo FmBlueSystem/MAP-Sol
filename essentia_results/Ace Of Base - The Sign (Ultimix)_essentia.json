@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Ace Of Base - The Sign (Ultimix).flac",
+  "file_name": "Ace Of Base - The Sign (Ultimix).flac",
+  "timestamp": "2025-08-16T22:36:57.393262",
+  "essentia_features": {
+    "loudness_lufs": -7.704952239990234,
+    "danceability": 1.3548821210861206,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5297107398509979,
+    "liveness": 0.1,
+    "speechiness": 0.2759184295786948,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

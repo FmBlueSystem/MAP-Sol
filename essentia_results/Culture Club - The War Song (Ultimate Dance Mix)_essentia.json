@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Culture Club - The War Song (Ultimate Dance Mix).flac",
+  "file_name": "Culture Club - The War Song (Ultimate Dance Mix).flac",
+  "timestamp": "2025-08-16T23:39:35.947400",
+  "essentia_features": {
+    "loudness_lufs": -11.090341567993164,
+    "danceability": 1.2976740598678589,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4596433639526367,
+    "liveness": 0.1,
+    "speechiness": 0.1599700357185308,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

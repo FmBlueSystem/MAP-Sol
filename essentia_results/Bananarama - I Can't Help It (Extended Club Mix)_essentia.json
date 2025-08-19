@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bananarama - I Can't Help It (Extended Club Mix).flac",
+  "file_name": "Bananarama - I Can't Help It (Extended Club Mix).flac",
+  "timestamp": "2025-08-16T22:49:59.682879",
+  "essentia_features": {
+    "loudness_lufs": -3.9082260131835938,
+    "danceability": 1.6323052644729614,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5748530030250549,
+    "liveness": 0.1,
+    "speechiness": 0.20292372778083073,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

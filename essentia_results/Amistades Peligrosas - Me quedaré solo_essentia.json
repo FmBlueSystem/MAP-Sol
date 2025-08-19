@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Amistades Peligrosas - Me quedare\u0301 solo.flac",
+  "file_name": "Amistades Peligrosas - Me quedare\u0301 solo.flac",
+  "timestamp": "2025-08-16T22:42:53.403895",
+  "essentia_features": {
+    "loudness_lufs": -4.8655548095703125,
+    "danceability": 1.1422674655914307,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3814874291419983,
+    "liveness": 0.1,
+    "speechiness": 0.17556045887026708,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Maickel Telussa - Bamba la Bamba (Original Mix).flac",
+  "file_name": "Block & Crown, Maickel Telussa - Bamba la Bamba (Original Mix).flac",
+  "timestamp": "2025-08-16T23:09:36.313376",
+  "essentia_features": {
+    "loudness_lufs": -3.6347808837890625,
+    "danceability": 1.6090776920318604,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7071875035762787,
+    "liveness": 0.1,
+    "speechiness": 0.215327717841151,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

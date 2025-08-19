@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bronski Beat - Hit That Perfect Beat (12 Version).flac",
+  "file_name": "Bronski Beat - Hit That Perfect Beat (12 Version).flac",
+  "timestamp": "2025-08-16T23:19:01.669074",
+  "essentia_features": {
+    "loudness_lufs": -9.528261184692383,
+    "danceability": 1.3011977672576904,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4919655919075012,
+    "liveness": 0.1,
+    "speechiness": 0.1782101950447331,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

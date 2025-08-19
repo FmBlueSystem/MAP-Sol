@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-17T06:07:34-06:00",
+  "processed": 0,
+  "errors": 0,
+  "success_rate": 0,
+  "total_time_seconds": 0,
+  "batch_size": 100,
+  "strategy": "smart60",
+  "final_stats": {
+    "total_files": 1479 204 1275,
+    "analyzed": ,
+    "remaining": 
+  }
+}

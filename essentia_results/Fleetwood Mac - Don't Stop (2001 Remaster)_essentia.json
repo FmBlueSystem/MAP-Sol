@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Don't Stop (2001 Remaster).flac",
+  "file_name": "Fleetwood Mac - Don't Stop (2001 Remaster).flac",
+  "timestamp": "2025-08-17T00:23:11.588322",
+  "essentia_features": {
+    "loudness_lufs": -5.203237533569336,
+    "danceability": 1.4677515029907227,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

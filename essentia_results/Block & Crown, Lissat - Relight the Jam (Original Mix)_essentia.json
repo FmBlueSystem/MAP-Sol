@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Lissat - Relight the Jam (Original Mix).flac",
+  "file_name": "Block & Crown, Lissat - Relight the Jam (Original Mix).flac",
+  "timestamp": "2025-08-16T23:08:36.350862",
+  "essentia_features": {
+    "loudness_lufs": -2.277860641479492,
+    "danceability": 1.4104145765304565,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5817131996154785,
+    "liveness": 0.1,
+    "speechiness": 0.2454050978498025,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

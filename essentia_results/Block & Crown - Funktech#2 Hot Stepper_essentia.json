@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown - Funktech#2 Hot Stepper.flac",
+  "file_name": "Block & Crown - Funktech#2 Hot Stepper.flac",
+  "timestamp": "2025-08-16T23:02:21.371087",
+  "essentia_features": {
+    "loudness_lufs": -3.213420867919922,
+    "danceability": 1.2796995639801025,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

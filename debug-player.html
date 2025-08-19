@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Debug Player</title>
+        <style>
+            body {
+                font-family: monospace;
+                padding: 20px;
+                background: #222;
+                color: #0f0;
+            }
+            .test {
+                margin: 10px 0;
+                padding: 10px;
+                border: 1px solid #0f0;
+            }
+            .error {
+                color: #f00;
+            }
+            .success {
+                color: #0f0;
+            }
+            button {
+                padding: 10px;
+                margin: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>MAP Debug Panel</h1>
+
+        <div class="test">
+            <h2>1. Check VU Meter Elements</h2>
+            <button onclick="checkVUElements()">Check VU Elements</button>
+            <div id="vu-result"></div>
+        </div>
+
+        <div class="test">
+            <h2>2. Check Progress Elements</h2>
+            <button onclick="checkProgressElements()">Check Progress</button>
+            <div id="progress-result"></div>
+        </div>
+
+        <div class="test">
+            <h2>3. Test VU Animation</h2>
+            <button onclick="testVUAnimation()">Animate VU</button>
+        </div>
+
+        <div class="test">
+            <h2>4. Test Progress Animation</h2>
+            <button onclick="testProgressAnimation()">Animate Progress</button>
+        </div>
+
+        <div class="test">
+            <h2>5. Check Audio State</h2>
+            <button onclick="checkAudioState()">Check Audio</button>
+            <div id="audio-result"></div>
+        </div>
+
+        <div class="test">
+            <h2>Console Output:</h2>
+            <div
+                id="console-output"
+                style="height: 200px; overflow-y: auto; background: #111; padding: 10px"
+            ></div>
+        </div>
+
+        <script>
+            function log(msg, isError = false) {
+                const output = document.getElementById('console-output');
+                const line = document.createElement('div');
+                line.className = isError ? 'error' : 'success';
+                line.textContent = new Date().toLocaleTimeString() + ' - ' + msg;
+                output.appendChild(line);
+                output.scrollTop = output.scrollHeight;
+                console.log(msg);
+            }
+
+            function checkVUElements() {
+                const result = document.getElementById('vu-result');
+                const elements = {
+                    'vu-left': document.getElementById('vu-left'),
+                    'vu-right': document.getElementById('vu-right'),
+                    'vu-val-l': document.getElementById('vu-val-l'),
+                    'vu-val-r': document.getElementById('vu-val-r')
+                };
+
+                let html = '<ul>';
+                for (const [id, el] of Object.entries(elements)) {
+                    if (el) {
+                        html += `<li class="success">✓ ${id} found</li>`;
+                        log(`✓ Element ${id} found`);
+                        // Try to animate it
+                        if (id.includes('left') || id.includes('right')) {
+                            el.style.width = '50%';
+                            el.style.background =
+                                'linear-gradient(90deg, #00ff00, #ffff00, #ff0000)';
+                            setTimeout(() => (el.style.width = '0%'), 1000);
+                        }
+                    } else {
+                        html += `<li class="error">✗ ${id} NOT FOUND</li>`;
+                        log(`✗ Element ${id} NOT FOUND`, true);
+                    }
+                }
+                html += '</ul>';
+                result.innerHTML = html;
+            }
+
+            function checkProgressElements() {
+                const result = document.getElementById('progress-result');
+                const elements = {
+                    progressFill: document.getElementById('progressFill'),
+                    progressFillPanel: document.getElementById('progressFillPanel'),
+                    currentTime: document.getElementById('currentTime'),
+                    duration: document.getElementById('duration'),
+                    currentTimePanel: document.getElementById('currentTimePanel'),
+                    totalTimePanel: document.getElementById('totalTimePanel')
+                };
+
+                let html = '<ul>';
+                for (const [id, el] of Object.entries(elements)) {
+                    if (el) {
+                        html += `<li class="success">✓ ${id} found</li>`;
+                        log(`✓ Element ${id} found`);
+                        // Try to animate progress bars
+                        if (id.includes('Fill')) {
+                            el.style.width = '75%';
+                            el.style.transition = 'width 1s';
+                            setTimeout(() => (el.style.width = '0%'), 1000);
+                        }
+                    } else {
+                        html += `<li class="error">✗ ${id} NOT FOUND</li>`;
+                        log(`✗ Element ${id} NOT FOUND`, true);
+                    }
+                }
+                html += '</ul>';
+                result.innerHTML = html;
+            }
+
+            function testVUAnimation() {
+                log('Starting VU animation test...');
+                let level = 0;
+                let direction = 1;
+
+                const animate = setInterval(() => {
+                    level += direction * 10;
+                    if (level >= 100) direction = -1;
+                    if (level <= 0) {
+                        direction = 1;
+                        clearInterval(animate);
+                        log('VU animation test complete');
+                        return;
+                    }
+
+                    const leftBar = document.getElementById('vu-left');
+                    const rightBar = document.getElementById('vu-right');
+
+                    if (leftBar) {
+                        leftBar.style.width = level + '%';
+                        leftBar.style.transition = 'width 0.05s';
+                    }
+                    if (rightBar) {
+                        rightBar.style.width = level * 0.8 + '%';
+                        rightBar.style.transition = 'width 0.05s';
+                    }
+
+                    const leftVal = document.getElementById('vu-val-l');
+                    const rightVal = document.getElementById('vu-val-r');
+
+                    if (leftVal) leftVal.textContent = (-60 + level * 0.6).toFixed(1);
+                    if (rightVal) rightVal.textContent = (-62 + level * 0.6).toFixed(1);
+                }, 50);
+            }
+
+            function testProgressAnimation() {
+                log('Starting progress animation test...');
+                let progress = 0;
+
+                const animate = setInterval(() => {
+                    progress += 2;
+                    if (progress > 100) {
+                        clearInterval(animate);
+                        log('Progress animation test complete');
+
+                        // Reset
+                        setTimeout(() => {
+                            const fill = document.getElementById('progressFill');
+                            const fillPanel = document.getElementById('progressFillPanel');
+                            if (fill) fill.style.width = '0%';
+                            if (fillPanel) fillPanel.style.width = '0%';
+                        }, 500);
+                        return;
+                    }
+
+                    const fill = document.getElementById('progressFill');
+                    const fillPanel = document.getElementById('progressFillPanel');
+
+                    if (fill) {
+                        fill.style.width = progress + '%';
+                        fill.style.transition = 'width 0.1s';
+                    }
+                    if (fillPanel) {
+                        fillPanel.style.width = progress + '%';
+                        fillPanel.style.transition = 'width 0.1s';
+                    }
+
+                    // Update time displays
+                    const currentTime = document.getElementById('currentTime');
+                    const currentTimePanel = document.getElementById('currentTimePanel');
+
+                    const time = Math.floor(progress * 3.6); // Simulate 6 minute song
+                    const mins = Math.floor(time / 60);
+                    const secs = time % 60;
+                    const timeStr = `${mins}:${secs.toString().padStart(2, '0')}`;
+
+                    if (currentTime) currentTime.textContent = timeStr;
+                    if (currentTimePanel) currentTimePanel.textContent = timeStr;
+                }, 100);
+            }
+
+            function checkAudioState() {
+                const result = document.getElementById('audio-result');
+
+                if (window.AppState) {
+                    const state = {
+                        'Is Playing': AppState.isPlaying,
+                        'Has Howl': !!AppState.howl,
+                        'Has AudioContext': !!AppState.audioContext,
+                        'Has Analyser': !!AppState.analyser,
+                        'Current Track': AppState.currentTrack?.title || 'None',
+                        Volume: AppState.volume
+                    };
+
+                    let html = '<ul>';
+                    for (const [key, value] of Object.entries(state)) {
+                        const className = value ? 'success' : 'error';
+                        html += `<li class="${className}">${key}: ${value}</li>`;
+                        log(`${key}: ${value}`, !value);
+                    }
+                    html += '</ul>';
+                    result.innerHTML = html;
+                } else {
+                    result.innerHTML = '<p class="error">AppState not found!</p>';
+                    log('AppState not found!', true);
+                }
+            }
+
+            // Auto-check on load
+            window.onload = () => {
+                log('Debug panel loaded');
+                setTimeout(() => {
+                    checkVUElements();
+                    checkProgressElements();
+                    checkAudioState();
+                }, 1000);
+            };
+        </script>
+    </body>
+</html>

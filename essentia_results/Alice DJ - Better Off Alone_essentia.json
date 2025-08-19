@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alice DJ - Better Off Alone.flac",
+  "file_name": "Alice DJ - Better Off Alone.flac",
+  "timestamp": "2025-08-16T22:41:23.485122",
+  "essentia_features": {
+    "loudness_lufs": -2.938993453979492,
+    "danceability": 1.5909769535064697,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6010842025279999,
+    "liveness": 0.1,
+    "speechiness": 0.17342090188324305,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Babaso\u0301nicos - Viva Satana.flac",
+  "file_name": "Babaso\u0301nicos - Viva Satana.flac",
+  "timestamp": "2025-08-16T22:48:32.838825",
+  "essentia_features": {
+    "loudness_lufs": -6.169679641723633,
+    "danceability": 1.0586258172988892,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4148136377334595,
+    "liveness": 0.1,
+    "speechiness": 0.15488699577388243,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

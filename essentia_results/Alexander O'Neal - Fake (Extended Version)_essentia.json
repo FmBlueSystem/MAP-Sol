@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alexander O'Neal - Fake (Extended Version).flac",
+  "file_name": "Alexander O'Neal - Fake (Extended Version).flac",
+  "timestamp": "2025-08-16T22:41:12.337684",
+  "essentia_features": {
+    "loudness_lufs": -7.531726837158203,
+    "danceability": 1.7386163473129272,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6214284896850586,
+    "liveness": 0.1,
+    "speechiness": 0.1769890835373862,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

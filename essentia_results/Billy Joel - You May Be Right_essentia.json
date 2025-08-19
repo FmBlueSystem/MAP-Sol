@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Joel - You May Be Right.flac",
+  "file_name": "Billy Joel - You May Be Right.flac",
+  "timestamp": "2025-08-16T22:57:06.553275",
+  "essentia_features": {
+    "loudness_lufs": -3.1175079345703125,
+    "danceability": 1.289261817932129,
+    "acousticness": 0.5,
+    "instrumentalness": 0.39816635847091675,
+    "liveness": 0.1,
+    "speechiness": 0.13064365618421347,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

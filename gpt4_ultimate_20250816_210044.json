@@ -1,0 +1,132 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/pruebas/2 Unlimited - No Limit (Extended Mix).flac",
+    "file_name": "2 Unlimited - No Limit (Extended Mix).flac",
+    "original_metadata": {
+        "artist": "2 Unlimited",
+        "title": "No Limit (extended Mix)",
+        "album": "Summer Hitz: Throwback 4",
+        "genre": "Unknown",
+        "file_name": "2 Unlimited - No Limit (Extended Mix).flac",
+        "year": 2020,
+        "existing_key": "3A",
+        "isrc": "BEAA10075003"
+    },
+    "precomputed_features": {
+        "loudness_lufs": -12.38,
+        "danceability": 0.773,
+        "acousticness": 0.685,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.062,
+        "valence": 0.46,
+        "energy": 0.8,
+        "musical_key": "Bb minor",
+        "camelot_key": "3A",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "temporal_analysis": {
+        "real_year": 1993,
+        "metadata_year": 2020,
+        "isrc_parsed": {
+            "valid": true,
+            "country": "BE",
+            "registrant": "AA1",
+            "year": 2000,
+            "recording_id": "75003",
+            "original": "BEAA10075003"
+        },
+        "year_explanation": "Known track from 1993 (database). Hit mundial de Eurodance, NO del 2000"
+    },
+    "gpt4_analysis": {
+        "genre": "Eurodance",
+        "subgenres": ["Techno", "Euro House", "Italo Dance"],
+        "mood": "Euphoric",
+        "energy": 0.8,
+        "danceability": 0.773,
+        "valence": 0.46,
+        "acousticness": 0.685,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.062,
+        "loudness": -12.38,
+        "era": "1990s",
+        "cultural_context": "1993 was a pivotal year in the Eurodance movement, with artists like 2 Unlimited at the forefront, pushing the genre into mainstream popularity across Europe and beyond.",
+        "occasions": ["party", "dance", "workout", "driving"],
+        "musical_key": "Bb minor",
+        "camelot_key": "3A",
+        "description": "An iconic Eurodance track emphasizing limitless potential and pride in one's achievements.",
+        "lyrics_analysis": {
+            "lyrics_source": "provided",
+            "language": "English",
+            "topic_main": "Limitlessness",
+            "topics_secondary": ["Aspiration", "Pride", "Determination"],
+            "coherence_score": 0.9,
+            "coherence_notes": [
+                "Consistent theme of overcoming obstacles and striving for success"
+            ],
+            "lyric_mood": "Euphoric",
+            "sentiment": 0.8,
+            "emotions": {
+                "joy": 0.9,
+                "sadness": 0.1,
+                "anger": 0.0,
+                "fear": 0.0,
+                "surprise": 0.1,
+                "trust": 0.8
+            },
+            "narrative_perspective": "first",
+            "narrative_time": "present",
+            "structure": [
+                {
+                    "section": "chorus",
+                    "summary": "Emphasizes no limits to achieving one's goals.",
+                    "sample_lines": [
+                        "No no limits, we'll reach for the sky",
+                        "No no there's no limit"
+                    ]
+                }
+            ],
+            "repeated_phrases": [
+                {
+                    "phrase": "No no, no no no no, no no no no, no no there's no limit",
+                    "count": 8,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "No no limits, we'll reach for the sky",
+                    "count": 4,
+                    "reason": "hook"
+                }
+            ],
+            "hook_candidates": ["No no there's no limit", "Let me hear you say yeah"],
+            "keywords": ["Limitless", "Sky", "Pride", "Fight"],
+            "named_entities": {},
+            "cultural_references": [],
+            "call_and_response": true,
+            "countins_shouts": true,
+            "explicitness_level": "clean",
+            "content_warnings": [],
+            "singalong_index": 0.8,
+            "chantability": 0.9,
+            "justification": [
+                "The high instrumentalness despite the presence of lyrics could imply a significant focus on the music's instrumental elements."
+            ]
+        },
+        "confidence": 0.86,
+        "validation_notes": [
+            "Real recording year: 1993",
+            "Agregado 'Euro House' (apropiado para 1993)",
+            "Agregado 'Italo Dance' (apropiado para 1993)",
+            "Agregado 'Hi-NRG' (apropiado para 1993)"
+        ],
+        "real_year": 1993,
+        "year_source": "Known track from 1993 (database). Hit mundial de Eurodance, NO del 2000"
+    },
+    "processing_time": 18.28,
+    "tokens_used": 3930,
+    "estimated_cost": 0.0531,
+    "timestamp": "2025-08-16T21:00:44.193344",
+    "version": "ultimate_v3"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Foreigner - I Want to Know What Love Is (1999 Remaster).flac",
+  "file_name": "Foreigner - I Want to Know What Love Is (1999 Remaster).flac",
+  "timestamp": "2025-08-17T00:25:49.716369",
+  "essentia_features": {
+    "loudness_lufs": -6.406974792480469,
+    "danceability": 1.03141188621521,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4575032591819763,
+    "liveness": 0.1,
+    "speechiness": 0.09733072831777129,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

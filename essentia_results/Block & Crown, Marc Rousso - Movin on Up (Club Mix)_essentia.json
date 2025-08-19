@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Marc Rousso - Movin on Up (Club Mix).flac",
+  "file_name": "Block & Crown, Marc Rousso - Movin on Up (Club Mix).flac",
+  "timestamp": "2025-08-16T23:10:27.598634",
+  "essentia_features": {
+    "loudness_lufs": -3.1414260864257812,
+    "danceability": 1.4697833061218262,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7249602973461151,
+    "liveness": 0.1,
+    "speechiness": 0.18720865134259262,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

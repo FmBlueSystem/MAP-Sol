@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Enjambre - El Beso Del Payaso.flac",
+  "file_name": "Enjambre - El Beso Del Payaso.flac",
+  "timestamp": "2025-08-17T00:14:34.831171",
+  "essentia_features": {
+    "loudness_lufs": -1.7793846130371094,
+    "danceability": 1.015557885169983,
+    "acousticness": 0.5,
+    "instrumentalness": 0.555634081363678,
+    "liveness": 0.1,
+    "speechiness": 0.15802791172036668,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

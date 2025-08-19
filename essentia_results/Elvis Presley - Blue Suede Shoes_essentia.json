@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Elvis Presley - Blue Suede Shoes.flac",
+  "file_name": "Elvis Presley - Blue Suede Shoes.flac",
+  "timestamp": "2025-08-17T00:13:10.212911",
+  "essentia_features": {
+    "loudness_lufs": -6.211894989013672,
+    "danceability": 1.111681580543518,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3310201168060303,
+    "liveness": 0.1,
+    "speechiness": 0.11582043730520776,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

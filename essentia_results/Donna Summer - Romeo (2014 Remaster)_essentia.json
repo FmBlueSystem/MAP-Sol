@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Donna Summer - Romeo (2014 Remaster).flac",
+  "file_name": "Donna Summer - Romeo (2014 Remaster).flac",
+  "timestamp": "2025-08-16T23:59:52.969446",
+  "essentia_features": {
+    "loudness_lufs": -6.222368240356445,
+    "danceability": 1.5201605558395386,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5024044513702393,
+    "liveness": 0.1,
+    "speechiness": 0.16637354337328175,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

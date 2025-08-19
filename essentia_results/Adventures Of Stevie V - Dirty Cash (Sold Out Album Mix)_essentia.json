@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Adventures Of Stevie V - Dirty Cash (Sold Out Album Mix).flac",
+  "file_name": "Adventures Of Stevie V - Dirty Cash (Sold Out Album Mix).flac",
+  "timestamp": "2025-08-16T22:37:44.281392",
+  "essentia_features": {
+    "loudness_lufs": -6.235652923583984,
+    "danceability": 1.6499903202056885,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5526873469352722,
+    "liveness": 0.1,
+    "speechiness": 0.12838510953986434,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

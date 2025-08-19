@@ -1,5 +1,5 @@
 // TASK_024: Performance tests mínimos pero funcionales
-const { performance } = require('perf_hooks');
+const { performance } = require('perf_hooks`);
 
 // Simulación de funciones para test
 const testData = Array.from({length: 10000}, (_, i) => ({
@@ -23,14 +23,14 @@ function testVirtualScroll() {
     }));
     
     const duration = performance.now() - start;
-    console.log(`✅ Virtual Scroll: ${duration.toFixed(2)}ms (Target: <20ms) ${duration < 20 ? 'PASS' : 'FAIL'}`);
+    console.log(`✅ Virtual Scroll: ${duration.toFixed(2)}ms (Target: <20ms) ${duration < 20 ? 'PASS' : 'FAIL'}');
     return duration < 20;
 }
 
 // Test 2: Search Performance
 function testSearch() {
     const start = performance.now();
-    const query = 'Artist 5';
+    const query = 'Artist 5`;
     
     const results = testData.filter(item => 
         item.artist.toLowerCase().includes(query.toLowerCase()) ||
@@ -52,14 +52,14 @@ function testFilter() {
     );
     
     const duration = performance.now() - start;
-    console.log(`✅ Filter by BPM/Energy: ${duration.toFixed(2)}ms (Target: <30ms) ${duration < 30 ? 'PASS' : 'FAIL'}`);
+    console.log(`✅ Filter by BPM/Energy: ${duration.toFixed(2)}ms (Target: <30ms) ${duration < 30 ? 'PASS' : 'FAIL'}');
     return duration < 30;
 }
 
 // Test 4: Cache Performance
 const cache = new Map();
 function testCache() {
-    const key = 'test-query';
+    const key = 'test-query`;
     const data = testData.slice(0, 500);
     
     // Write to cache
@@ -81,7 +81,7 @@ function testMemory() {
     if (process.memoryUsage) {
         const mem = process.memoryUsage();
         const heapUsedMB = mem.heapUsed / 1024 / 1024;
-        console.log(`✅ Memory Usage: ${heapUsedMB.toFixed(2)}MB (Target: <200MB) ${heapUsedMB < 200 ? 'PASS' : 'FAIL'}`);
+        console.log(`✅ Memory Usage: ${heapUsedMB.toFixed(2)}MB (Target: <200MB) ${heapUsedMB < 200 ? 'PASS' : 'FAIL'}');
         return heapUsedMB < 200;
     }
     return true;
@@ -107,7 +107,7 @@ tests.forEach(test => {
     else failed++;
 });
 
-console.log('\n================================');
+console.log(`\n================================`);
 console.log(`📊 RESULTS: ${passed}/${tests.length} PASSED`);
 console.log(`✅ Passed: ${passed}`);
 console.log(`❌ Failed: ${failed}`);

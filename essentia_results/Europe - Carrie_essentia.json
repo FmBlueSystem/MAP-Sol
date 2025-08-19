@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Europe - Carrie.flac",
+  "file_name": "Europe - Carrie.flac",
+  "timestamp": "2025-08-17T00:16:34.350155",
+  "essentia_features": {
+    "loudness_lufs": -5.4072723388671875,
+    "danceability": 1.0658247470855713,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4314113259315491,
+    "liveness": 0.1,
+    "speechiness": 0.1187341415951878,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

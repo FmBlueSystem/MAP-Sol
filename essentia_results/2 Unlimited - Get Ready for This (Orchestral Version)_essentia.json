@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/2 Unlimited - Get Ready for This (Orchestral Version).flac",
+  "file_name": "2 Unlimited - Get Ready for This (Orchestral Version).flac",
+  "timestamp": "2025-08-16T22:31:46.133101",
+  "essentia_features": {
+    "loudness_lufs": -5.582416534423828,
+    "danceability": 1.5857656002044678,
+    "acousticness": 0.5,
+    "instrumentalness": 0.48974907398223877,
+    "liveness": 0.1,
+    "speechiness": 0.19156239208310638,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

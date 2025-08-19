@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Ace Of Base - Don't Turn Around (Groove Mix Extended).flac",
+  "file_name": "Ace Of Base - Don't Turn Around (Groove Mix Extended).flac",
+  "timestamp": "2025-08-16T22:36:13.656453",
+  "essentia_features": {
+    "loudness_lufs": -9.351516723632812,
+    "danceability": 1.7286032438278198,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5917202234268188,
+    "liveness": 0.1,
+    "speechiness": 0.143878138404411,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/David Guetta, Sia - Titanium (feat. Sia) [David Guetta & MORTEN Future Rave Extended Mix].flac",
+  "file_name": "David Guetta, Sia - Titanium (feat. Sia) [David Guetta & MORTEN Future Rave Extended Mix].flac",
+  "timestamp": "2025-08-16T23:47:52.876653",
+  "essentia_features": {
+    "loudness_lufs": -6.631002426147461,
+    "danceability": 1.240203619003296,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6779739558696747,
+    "liveness": 0.1,
+    "speechiness": 0.11901445462761924,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

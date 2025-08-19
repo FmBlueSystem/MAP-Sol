@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Claudio Baglioni - Pequeno Gran Amor.flac",
+  "file_name": "Claudio Baglioni - Pequeno Gran Amor.flac",
+  "timestamp": "2025-08-16T23:33:53.609773",
+  "essentia_features": {
+    "loudness_lufs": -6.245918273925781,
+    "danceability": 0.9438501596450806,
+    "acousticness": 0.5,
+    "instrumentalness": 0.46605950593948364,
+    "liveness": 0.1,
+    "speechiness": 0.10043239474236877,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

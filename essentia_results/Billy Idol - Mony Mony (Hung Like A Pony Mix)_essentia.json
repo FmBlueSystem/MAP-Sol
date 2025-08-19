@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Idol - Mony Mony (Hung Like A Pony Mix).flac",
+  "file_name": "Billy Idol - Mony Mony (Hung Like A Pony Mix).flac",
+  "timestamp": "2025-08-16T22:54:53.587409",
+  "essentia_features": {
+    "loudness_lufs": -9.205177307128906,
+    "danceability": 1.2486919164657593,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4019927382469177,
+    "liveness": 0.1,
+    "speechiness": 0.12564186792314147,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Calo - Formas De Amor.flac",
+  "file_name": "Calo - Formas De Amor.flac",
+  "timestamp": "2025-08-16T23:23:10.861477",
+  "essentia_features": {
+    "loudness_lufs": -6.941278457641602,
+    "danceability": 1.725601315498352,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5401908755302429,
+    "liveness": 0.1,
+    "speechiness": 0.2055166089672771,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

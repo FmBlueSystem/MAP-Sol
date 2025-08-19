@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Big, Rich - Save a Horse (Ride a Cowboy).flac",
+  "file_name": "Big, Rich - Save a Horse (Ride a Cowboy).flac",
+  "timestamp": "2025-08-16T22:54:04.914827",
+  "essentia_features": {
+    "loudness_lufs": -1.2270317077636719,
+    "danceability": 1.5393959283828735,
+    "acousticness": 0.5,
+    "instrumentalness": 0.38543492555618286,
+    "liveness": 0.1,
+    "speechiness": 0.14033833584768313,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

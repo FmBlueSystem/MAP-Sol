@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Joel - Tell Her About It.flac",
+  "file_name": "Billy Joel - Tell Her About It.flac",
+  "timestamp": "2025-08-16T22:56:29.673183",
+  "essentia_features": {
+    "loudness_lufs": -3.352752685546875,
+    "danceability": 1.4683574438095093,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

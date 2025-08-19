@@ -1,0 +1,10 @@
+ANALYSIS_FAILED: Bandolero - Paris Latino (Hot Paris Latino) [Us Version - JJB Remix].flac
+ANALYSIS_FAILED: Berlin - Take My Breath Away (Extended Version).flac
+ANALYSIS_FAILED: 2 In A Room - Ahora (now).m4a
+ANALYSIS_FAILED: 2 In A Room - Dar La Vuelta.m4a
+ANALYSIS_FAILED: 80’s Groove Masters - Aint No Stoppin Us Now.m4a
+ANALYSIS_FAILED: Armand Van Helden - The Funk Phenomena.m4a
+ANALYSIS_FAILED: Belen Thomas - Aire.m4a
+ANALYSIS_FAILED: Belen Thomas - Panamà.m4a
+ANALYSIS_FAILED: Belen Thomas - Survivor.m4a
+ANALYSIS_FAILED: Belen Thomas - Y mi banda toca el rock.m4a

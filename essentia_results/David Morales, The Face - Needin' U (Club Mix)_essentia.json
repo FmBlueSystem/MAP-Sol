@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/David Morales, The Face - Needin' U (Club Mix).flac",
+  "file_name": "David Morales, The Face - Needin' U (Club Mix).flac",
+  "timestamp": "2025-08-16T23:48:12.742248",
+  "essentia_features": {
+    "loudness_lufs": -8.753524780273438,
+    "danceability": 1.9532549381256104,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6555258929729462,
+    "liveness": 0.1,
+    "speechiness": 0.14994335980501378,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

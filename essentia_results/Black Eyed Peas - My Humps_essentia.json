@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Black Eyed Peas - My Humps.flac",
+  "file_name": "Black Eyed Peas - My Humps.flac",
+  "timestamp": "2025-08-16T22:59:36.317411",
+  "essentia_features": {
+    "loudness_lufs": -3.832487106323242,
+    "danceability": 1.3975614309310913,
+    "acousticness": 0.5,
+    "instrumentalness": 0.736992359161377,
+    "liveness": 0.1,
+    "speechiness": 0.08693781062687145,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

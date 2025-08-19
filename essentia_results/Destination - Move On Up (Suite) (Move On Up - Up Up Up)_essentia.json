@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Destination - Move On Up (Suite) (Move On Up - Up Up Up).flac",
+  "file_name": "Destination - Move On Up (Suite) (Move On Up - Up Up Up).flac",
+  "timestamp": "2025-08-16T23:53:57.271371",
+  "essentia_features": {
+    "loudness_lufs": -9.17776870727539,
+    "danceability": 2.679521083831787,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6309796273708344,
+    "liveness": 0.1,
+    "speechiness": 0.18873765498821016,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cardi B, Bad Bunny, J Balvin - I Like It(Explicit).flac",
+  "file_name": "Cardi B, Bad Bunny, J Balvin - I Like It(Explicit).flac",
+  "timestamp": "2025-08-16T23:25:23.784359",
+  "essentia_features": {
+    "loudness_lufs": -2.938657760620117,
+    "danceability": 1.1937057971954346,
+    "acousticness": 0.5,
+    "instrumentalness": 0.567620187997818,
+    "liveness": 0.1,
+    "speechiness": 0.12267298633719624,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/DeBarge - Time Will Reveal (Long Version).flac",
+  "file_name": "DeBarge - Time Will Reveal (Long Version).flac",
+  "timestamp": "2025-08-16T23:49:05.460682",
+  "essentia_features": {
+    "loudness_lufs": -4.034980773925781,
+    "danceability": 1.1592941284179688,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4774479866027832,
+    "liveness": 0.1,
+    "speechiness": 0.12377617618184628,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

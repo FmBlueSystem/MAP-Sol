@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Benny Sadel - Otro Ocupa Mi Lugar.flac",
+  "file_name": "Benny Sadel - Otro Ocupa Mi Lugar.flac",
+  "timestamp": "2025-08-16T22:53:37.267959",
+  "essentia_features": {
+    "loudness_lufs": -11.805709838867188,
+    "danceability": 1.47786545753479,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5295554399490356,
+    "liveness": 0.1,
+    "speechiness": 0.15093619601979621,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Everything But The Girl, Todd Terry - Missing (Todd Terry Club Mix  US Radio Edit).flac",
+  "file_name": "Everything But The Girl, Todd Terry - Missing (Todd Terry Club Mix  US Radio Edit).flac",
+  "timestamp": "2025-08-17T00:18:14.305536",
+  "essentia_features": {
+    "loudness_lufs": -8.651866912841797,
+    "danceability": 1.5895864963531494,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5685518383979797,
+    "liveness": 0.1,
+    "speechiness": 0.13992565888760222,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

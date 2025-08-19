@@ -1,0 +1,139 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez muscia de Tidal Original descarga de musica/Consolidado2025/pruebas/France Joli - Come to Me.flac",
+    "file_name": "France Joli - Come to Me.flac",
+    "original_metadata": {
+        "artist": "France Joli",
+        "title": "Come to Me",
+        "album": "France Joli: Greatest Hits",
+        "genre": "Unknown",
+        "file_name": "France Joli - Come to Me.flac",
+        "year": 1989,
+        "existing_key": "4A",
+        "isrc": "CAU117900284"
+    },
+    "precomputed_features": {
+        "loudness_lufs": -15.56,
+        "danceability": 0.773,
+        "acousticness": 0.876,
+        "instrumentalness": 0.308,
+        "liveness": 1.0,
+        "speechiness": 0.015,
+        "valence": 0.53,
+        "energy": 0.7,
+        "musical_key": "F minor",
+        "camelot_key": "4A",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "gpt4_analysis": {
+        "genre": "Dance/Disco",
+        "subgenres": ["House", "Eurodance", "Dance-Pop"],
+        "mood": "Uplifting",
+        "energy": 0.7,
+        "danceability": 0.773,
+        "valence": 0.53,
+        "acousticness": 0.876,
+        "instrumentalness": 0.308,
+        "liveness": 1.0,
+        "speechiness": 0.015,
+        "loudness": -15.56,
+        "era": "1980s",
+        "cultural_context": "Reflecting the vibrant dance culture of the 80s, combining electronic beats with emotive lyrics, highlighting the era's penchant for expressive, danceable music.",
+        "occasions": ["dance", "party", "driving", "workout"],
+        "musical_key": "F minor",
+        "camelot_key": "4A",
+        "description": "An uplifting dance/disco track with house and eurodance influences, characterized by its high energy and danceability.",
+        "lyrics_analysis": {
+            "lyrics_source": "provided",
+            "language": "English",
+            "topic_main": "Love",
+            "topics_secondary": ["Loneliness", "Desire", "Comfort"],
+            "coherence_score": 0.9,
+            "coherence_notes": [
+                "The song maintains a consistent theme of seeking and offering love and comfort."
+            ],
+            "lyric_mood": "Romantic",
+            "sentiment": 0.75,
+            "emotions": {
+                "joy": 0.8,
+                "sadness": 0.2,
+                "anger": 0,
+                "fear": 0,
+                "surprise": 0.1,
+                "trust": 0.9
+            },
+            "narrative_perspective": "first",
+            "narrative_time": "present",
+            "structure": [
+                {
+                    "section": "intro",
+                    "summary": "Setting a longing tone with minimal lyrics.",
+                    "sample_lines": ["Mm-mm"]
+                },
+                {
+                    "section": "verse",
+                    "summary": "Expressing a desire for companionship and comfort.",
+                    "sample_lines": [
+                        "Come to me when you're all alone and feeling down",
+                        "Come to me, I'm still waiting, open-armed for you"
+                    ]
+                },
+                {
+                    "section": "chorus",
+                    "summary": "A heartfelt plea for love and presence.",
+                    "sample_lines": ["I love you and I love you", "And I need you and I want you"]
+                },
+                {
+                    "section": "bridge",
+                    "summary": "Reflecting on personal loneliness and the need for love.",
+                    "sample_lines": ["I'm a lonely man", "But if only I could learn to cry"]
+                },
+                {
+                    "section": "outro",
+                    "summary": "Reiterating the desire for love, with increasing intensity.",
+                    "sample_lines": [
+                        "Love you (oh, baby, I love you), love you",
+                        "Need you (oh, baby, I need you), want you"
+                    ]
+                }
+            ],
+            "repeated_phrases": [
+                {
+                    "phrase": "Come to me",
+                    "count": 8,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "I love you",
+                    "count": 10,
+                    "reason": "loop"
+                },
+                {
+                    "phrase": "And I need you and I want you",
+                    "count": 4,
+                    "reason": "chant"
+                }
+            ],
+            "hook_candidates": ["Come to me", "I love you"],
+            "keywords": ["love", "comfort", "loneliness", "desire"],
+            "named_entities": {},
+            "cultural_references": [],
+            "call_and_response": false,
+            "countins_shouts": false,
+            "explicitness_level": "clean",
+            "content_warnings": [],
+            "singalong_index": 0.8,
+            "chantability": 0.7,
+            "justification": [
+                "The song's lyrical content and structure are consistent with its uplifting mood and danceable rhythm."
+            ]
+        },
+        "confidence": 0.95
+    },
+    "processing_time": 23.46,
+    "tokens_used": 4076,
+    "estimated_cost": 0.0587,
+    "timestamp": "2025-08-16T20:04:34.800904",
+    "version": "enhanced_v2"
+}

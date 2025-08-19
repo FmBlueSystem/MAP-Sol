@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dire Straits - Tunnel of Love (Intro The Carousel Waltz).flac",
+  "file_name": "Dire Straits - Tunnel of Love (Intro The Carousel Waltz).flac",
+  "timestamp": "2025-08-16T23:55:51.144885",
+  "essentia_features": {
+    "loudness_lufs": -7.868925094604492,
+    "danceability": 1.1867300271987915,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4226338863372803,
+    "liveness": 0.1,
+    "speechiness": 0.10935815227287399,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

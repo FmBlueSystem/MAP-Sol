@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Colonel Abrams - Trapped (12 Regisford Vocal Mix).flac",
+  "file_name": "Colonel Abrams - Trapped (12 Regisford Vocal Mix).flac",
+  "timestamp": "2025-08-16T23:35:32.501823",
+  "essentia_features": {
+    "loudness_lufs": -8.202310562133789,
+    "danceability": 1.496004343032837,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5066628456115723,
+    "liveness": 0.1,
+    "speechiness": 0.19921185659388096,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

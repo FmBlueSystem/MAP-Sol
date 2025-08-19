@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Endor - Pump It Up (Extended Mix).flac",
+  "file_name": "Endor - Pump It Up (Extended Mix).flac",
+  "timestamp": "2025-08-17T00:14:19.429028",
+  "essentia_features": {
+    "loudness_lufs": -4.827075958251953,
+    "danceability": 1.4075111150741577,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6090964078903198,
+    "liveness": 0.1,
+    "speechiness": 0.16770692847318086,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

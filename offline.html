@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Offline - Music Analyzer Pro</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+                    sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                padding: 20px;
+            }
+
+            .offline-container {
+                text-align: center;
+                max-width: 500px;
+                animation: fadeIn 0.5s ease-out;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .icon {
+                font-size: 80px;
+                margin-bottom: 20px;
+                animation: pulse 2s infinite;
+            }
+
+            @keyframes pulse {
+                0%,
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1.1);
+                    opacity: 0.8;
+                }
+            }
+
+            h1 {
+                font-size: 36px;
+                margin-bottom: 16px;
+                font-weight: 600;
+            }
+
+            p {
+                font-size: 18px;
+                opacity: 0.95;
+                line-height: 1.6;
+                margin-bottom: 30px;
+            }
+
+            .buttons {
+                display: flex;
+                gap: 12px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            button {
+                background: white;
+                color: #667eea;
+                border: none;
+                padding: 14px 28px;
+                border-radius: 28px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            button:active {
+                transform: translateY(0);
+            }
+
+            .secondary-btn {
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                backdrop-filter: blur(10px);
+            }
+
+            .recent-tracks {
+                margin-top: 50px;
+                padding: 30px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 20px;
+                backdrop-filter: blur(10px);
+            }
+
+            .recent-tracks h2 {
+                font-size: 20px;
+                margin-bottom: 20px;
+                opacity: 0.95;
+            }
+
+            .track-list {
+                text-align: left;
+                max-height: 300px;
+                overflow-y: auto;
+            }
+
+            .track-item {
+                padding: 12px;
+                margin-bottom: 8px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                transition: background 0.2s;
+            }
+
+            .track-item:hover {
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            .track-icon {
+                font-size: 24px;
+            }
+
+            .track-info {
+                flex: 1;
+            }
+
+            .track-title {
+                font-weight: 600;
+                margin-bottom: 2px;
+            }
+
+            .track-artist {
+                font-size: 14px;
+                opacity: 0.8;
+            }
+
+            .status {
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0, 0, 0, 0.3);
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-size: 14px;
+                backdrop-filter: blur(10px);
+                display: none;
+            }
+
+            .status.visible {
+                display: block;
+                animation: slideUp 0.3s ease-out;
+            }
+
+            @keyframes slideUp {
+                from {
+                    transform: translateX(-50%) translateY(100px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(-50%) translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            /* Scrollbar styling */
+            .track-list::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .track-list::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 3px;
+            }
+
+            .track-list::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+
+            .track-list::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="offline-container">
+            <div class="icon">📡</div>
+            <h1>You're Offline</h1>
+            <p>
+                Don't worry! Your music library is still accessible. Some features may be limited
+                without an internet connection.
+            </p>
+
+            <div class="buttons">
+                <button onclick="retryConnection()">🔄 Retry Connection</button>
+                <button class="secondary-btn" onclick="viewCachedContent()">📚 View Library</button>
+            </div>
+
+            <div class="recent-tracks" id="recentTracks" style="display: none">
+                <h2>Recently Played</h2>
+                <div class="track-list" id="trackList">
+                    <!-- Tracks will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="status" id="status"></div>
+
+        <script>
+            // Check connection status
+            let isRetrying = false;
+
+            function checkConnection() {
+                return fetch('/favicon.ico', { method: 'HEAD', cache: 'no-cache' })
+                    .then(() => true)
+                    .catch(() => false);
+            }
+
+            async function retryConnection() {
+                if (isRetrying) return;
+
+                isRetrying = true;
+                showStatus('Checking connection...');
+
+                const isOnline = await checkConnection();
+
+                if (isOnline) {
+                    showStatus('✅ Connection restored! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 1500);
+                } else {
+                    showStatus('❌ Still offline. Please check your connection.');
+                    setTimeout(() => hideStatus(), 3000);
+                }
+
+                isRetrying = false;
+            }
+
+            function viewCachedContent() {
+                // Load cached tracks from localStorage
+                const cachedTracks = getCachedTracks();
+
+                if (cachedTracks.length > 0) {
+                    displayTracks(cachedTracks);
+                    document.getElementById('recentTracks').style.display = 'block';
+                } else {
+                    showStatus('No cached content available');
+                    setTimeout(() => hideStatus(), 3000);
+                }
+            }
+
+            function getCachedTracks() {
+                try {
+                    const tracks = localStorage.getItem('recentTracks');
+                    return tracks ? JSON.parse(tracks) : [];
+                } catch {
+                    return [];
+                }
+            }
+
+            function displayTracks(tracks) {
+                const trackList = document.getElementById('trackList');
+
+                trackList.innerHTML = tracks
+                    .slice(0, 10)
+                    .map(
+                        track => `
+                <div class="track-item">
+                    <div class="track-icon">🎵</div>
+                    <div class="track-info">
+                        <div class="track-title">${track.title || 'Unknown Title'}</div>
+                        <div class="track-artist">${track.artist || 'Unknown Artist'}</div>
+                    </div>
+                </div>
+            `
+                    )
+                    .join('');
+            }
+
+            function showStatus(message) {
+                const status = document.getElementById('status');
+                status.textContent = message;
+                status.classList.add('visible');
+            }
+
+            function hideStatus() {
+                const status = document.getElementById('status');
+                status.classList.remove('visible');
+            }
+
+            // Auto-check connection every 10 seconds
+            setInterval(async () => {
+                if (!isRetrying) {
+                    const isOnline = await checkConnection();
+                    if (isOnline) {
+                        showStatus('✅ Connection restored! Redirecting...');
+                        setTimeout(() => {
+                            window.location.href = '/';
+                        }, 1500);
+                    }
+                }
+            }, 10000);
+
+            // Listen for online event
+            window.addEventListener('online', () => {
+                retryConnection();
+            });
+
+            // Load cached content on page load
+            window.addEventListener('DOMContentLoaded', () => {
+                const cachedTracks = getCachedTracks();
+                if (cachedTracks.length > 0) {
+                    setTimeout(() => {
+                        showStatus('💡 Tip: You can view your cached library');
+                        setTimeout(() => hideStatus(), 4000);
+                    }, 2000);
+                }
+            });
+
+            // Service Worker communication
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.ready.then(registration => {
+                    console.log('Service Worker is active');
+                });
+            }
+        </script>
+    </body>
+</html>

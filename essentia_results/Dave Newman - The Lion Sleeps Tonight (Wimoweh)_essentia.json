@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dave Newman - The Lion Sleeps Tonight (Wimoweh).flac",
+  "file_name": "Dave Newman - The Lion Sleeps Tonight (Wimoweh).flac",
+  "timestamp": "2025-08-16T23:46:52.303443",
+  "essentia_features": {
+    "loudness_lufs": -7.641765594482422,
+    "danceability": 1.0838044881820679,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

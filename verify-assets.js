@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🔍 Verificando assets de la aplicación...\n');
+logDebug('🔍 Verificando assets de la aplicación...\n');
 
 // Configuration
 const REQUIRED_ASSETS = {
@@ -34,7 +34,7 @@ const OPTIONAL_ASSETS = {
 };
 
 // Statistics
-let stats = {
+const stats = {
     verified: 0,
     missing: 0,
     optional: 0,
@@ -60,7 +60,9 @@ function getFileSize(filePath) {
 }
 
 function formatSize(bytes) {
-    if (bytes === 0) return '0 B';
+    if (bytes === 0) {
+        return '0 B';
+    }
     const k = 1024;
     const sizes = ['B', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
@@ -70,12 +72,12 @@ function formatSize(bytes) {
 // Create directories if they don't exist
 function ensureDirectories() {
     const dirs = ['assets', 'assets/images', 'assets/icons'];
-    
+
     dirs.forEach(dir => {
         const dirPath = path.join(__dirname, dir);
         if (!fs.existsSync(dirPath)) {
             fs.mkdirSync(dirPath, { recursive: true });
-            console.log(`📁 Creado directorio: ${dir}`);
+            logDebug(`📁 Creado directorio: ${dir}`);
         }
     });
 }
@@ -84,37 +86,37 @@ function ensureDirectories() {
 function verifyAsset(assetPath, config, isRequired = true) {
     const fullPath = path.join(__dirname, assetPath);
     const exists = fileExists(fullPath);
-    
+
     if (!exists) {
         if (isRequired) {
-            console.log(`❌ FALTA: ${assetPath}`);
-            console.log(`   ${config.description}`);
+            logError('❌ FALTA: ${assetPath}');
+            logDebug(`   ${config.description}`);
             stats.missing++;
             stats.errors.push(`Archivo requerido no encontrado: ${assetPath}`);
         } else {
-            console.log(`⚠️  Opcional no encontrado: ${assetPath}`);
+            logWarn('⚠️  Opcional no encontrado: ${assetPath}');
             stats.optional++;
         }
         return false;
     }
-    
+
     const size = getFileSize(fullPath);
-    
+
     // Check size constraints
     if (config.minSize && size < config.minSize) {
-        console.log(`⚠️  ${assetPath} es muy pequeño (${formatSize(size)})`);
+        logWarn('⚠️  ${assetPath} es muy pequeño (${formatSize(size)})');
         stats.errors.push(`${assetPath} es menor al tamaño mínimo esperado`);
         return false;
     }
-    
+
     if (config.maxSize && size > config.maxSize) {
-        console.log(`⚠️  ${assetPath} es muy grande (${formatSize(size)})`);
+        logWarn('⚠️  ${assetPath} es muy grande (${formatSize(size)})');
         stats.errors.push(`${assetPath} excede el tamaño máximo permitido`);
         return false;
     }
-    
-    console.log(`✅ ${assetPath} (${formatSize(size)})`);
-    console.log(`   ${config.description}`);
+
+    logInfo('✅ ${assetPath} (${formatSize(size)})');
+    logDebug(`   ${config.description}`);
     stats.verified++;
     return true;
 }
@@ -123,20 +125,20 @@ function verifyAsset(assetPath, config, isRequired = true) {
 function copyDefaultImageIfNeeded() {
     const defaultImagePath = path.join(__dirname, 'assets/images/default-album.png');
     const sourcePath = path.join(__dirname, 'image.png');
-    
+
     if (!fileExists(defaultImagePath)) {
         if (fileExists(sourcePath)) {
-            console.log('\n📋 Copiando image.png a assets/images/default-album.png...');
+            logDebug('\n📋 Copiando image.png a assets/images/default-album.png...');
             try {
                 fs.copyFileSync(sourcePath, defaultImagePath);
-                console.log('✅ Imagen por defecto copiada exitosamente');
+                logInfo('✅ Imagen por defecto copiada exitosamente');
                 return true;
             } catch (error) {
-                console.error('❌ Error copiando imagen:', error.message);
+                logError('❌ Error copiando imagen:', error.message);
                 return false;
             }
         } else {
-            console.log('\n⚠️  No se encontró image.png para copiar como default-album.png');
+            logDebug('\n⚠️  No se encontró image.png para copiar como default-album.png');
             return false;
         }
     }
@@ -146,85 +148,87 @@ function copyDefaultImageIfNeeded() {
 // Check artwork cache
 function checkArtworkCache() {
     const cacheDir = path.join(__dirname, 'artwork-cache');
-    
+
     if (!fs.existsSync(cacheDir)) {
-        console.log('\n⚠️  No existe directorio artwork-cache');
+        logDebug('\n⚠️  No existe directorio artwork-cache');
         return 0;
     }
-    
+
     try {
         const files = fs.readdirSync(cacheDir);
         const jpgFiles = files.filter(f => f.endsWith('.jpg') || f.endsWith('.jpeg'));
-        console.log(`\n📸 Artwork cache: ${jpgFiles.length} imágenes encontradas`);
+        logDebug(`\n📸 Artwork cache: ${jpgFiles.length} imágenes encontradas`);
         return jpgFiles.length;
     } catch (error) {
-        console.error('❌ Error leyendo artwork-cache:', error.message);
+        logError('❌ Error leyendo artwork-cache:', error.message);
         return 0;
     }
 }
 
 // Main verification process
 function main() {
-    console.log('=' .repeat(50));
-    console.log('VERIFICACIÓN DE ASSETS - Music Analyzer Pro');
-    console.log('=' .repeat(50));
-    
+    logDebug('='.repeat(50));
+    logDebug('VERIFICACIÓN DE ASSETS - Music Analyzer Pro');
+    logDebug('='.repeat(50));
+
     // Step 1: Ensure directories exist
-    console.log('\n1️⃣ Verificando estructura de directorios...');
+    logDebug('\n1️⃣ Verificando estructura de directorios...');
     ensureDirectories();
-    
+
     // Step 2: Copy default image if needed
-    console.log('\n2️⃣ Verificando imagen por defecto...');
+    logDebug('\n2️⃣ Verificando imagen por defecto...');
     copyDefaultImageIfNeeded();
-    
+
     // Step 3: Verify required assets
-    console.log('\n3️⃣ Verificando assets requeridos...');
+    logDebug('\n3️⃣ Verificando assets requeridos...');
     Object.entries(REQUIRED_ASSETS).forEach(([path, config]) => {
         verifyAsset(path, config, true);
     });
-    
+
     // Step 4: Verify optional assets
-    console.log('\n4️⃣ Verificando assets opcionales...');
+    logDebug('\n4️⃣ Verificando assets opcionales...');
     Object.entries(OPTIONAL_ASSETS).forEach(([path, config]) => {
         verifyAsset(path, config, false);
     });
-    
+
     // Step 5: Check artwork cache
     const artworkCount = checkArtworkCache();
-    
+
     // Final report
-    console.log('\n' + '=' .repeat(50));
-    console.log('📊 RESUMEN DE VERIFICACIÓN');
-    console.log('=' .repeat(50));
-    console.log(`✅ Assets verificados: ${stats.verified}`);
-    console.log(`❌ Assets faltantes: ${stats.missing}`);
-    console.log(`⚠️  Assets opcionales no encontrados: ${stats.optional}`);
-    console.log(`📸 Imágenes en cache: ${artworkCount}`);
-    
+    logDebug('\n' + '='.repeat(50));
+    logDebug('📊 RESUMEN DE VERIFICACIÓN');
+    logDebug('='.repeat(50));
+    logInfo('✅ Assets verificados: ${stats.verified}');
+    logError('❌ Assets faltantes: ${stats.missing}');
+    logWarn('⚠️  Assets opcionales no encontrados: ${stats.optional}');
+    logDebug(`📸 Imágenes en cache: ${artworkCount}`);
+
     if (stats.errors.length > 0) {
-        console.log('\n❗ ERRORES ENCONTRADOS:');
+        logDebug('\n❗ ERRORES ENCONTRADOS:');
         stats.errors.forEach(error => {
-            console.log(`   - ${error}`);
+            logDebug(`   - ${error}`);
         });
     }
-    
+
     // Exit code
     if (stats.missing > 0) {
-        console.log('\n❌ Verificación FALLIDA - Faltan assets requeridos');
+        logDebug('\n❌ Verificación FALLIDA - Faltan assets requeridos');
         process.exit(1);
     } else {
-        console.log('\n✅ Verificación EXITOSA - Todos los assets requeridos están presentes');
-        
+        logDebug('\n✅ Verificación EXITOSA - Todos los assets requeridos están presentes');
+
         // Recommendations
         if (stats.optional > 0) {
-            console.log('\n💡 Recomendaciones:');
-            console.log('   - Considera agregar iconos de aplicación para mejor presentación');
+            logDebug('\n💡 Recomendaciones:');
+            logDebug('   - Considera agregar iconos de aplicación para mejor presentación');
         }
-        
+
         if (artworkCount < 100) {
-            console.log('   - Pocas imágenes en cache. Ejecuta "npm run extract-artwork" para extraer más');
+            logDebug(
+                '   - Pocas imágenes en cache. Ejecuta "npm run extract-artwork" para extraer más'
+            );
         }
-        
+
         process.exit(0);
     }
 }

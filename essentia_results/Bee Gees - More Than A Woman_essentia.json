@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bee Gees - More Than A Woman.flac",
+  "file_name": "Bee Gees - More Than A Woman.flac",
+  "timestamp": "2025-08-16T22:51:38.120380",
+  "essentia_features": {
+    "loudness_lufs": -4.456865310668945,
+    "danceability": 1.2596784830093384,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5172238051891327,
+    "liveness": 0.1,
+    "speechiness": 0.10467362004013521,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Policy of Truth (Capitol Mix).flac",
+  "file_name": "Depeche Mode - Policy of Truth (Capitol Mix).flac",
+  "timestamp": "2025-08-16T23:53:06.537854",
+  "essentia_features": {
+    "loudness_lufs": -4.233650207519531,
+    "danceability": 1.6764007806777954,
+    "acousticness": 0.5,
+    "instrumentalness": 0.644018292427063,
+    "liveness": 0.1,
+    "speechiness": 0.14092432777052083,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

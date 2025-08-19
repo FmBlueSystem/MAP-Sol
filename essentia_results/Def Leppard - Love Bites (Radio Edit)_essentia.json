@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Def Leppard - Love Bites (Radio Edit).flac",
+  "file_name": "Def Leppard - Love Bites (Radio Edit).flac",
+  "timestamp": "2025-08-16T23:51:02.463622",
+  "essentia_features": {
+    "loudness_lufs": -4.871246337890625,
+    "danceability": 1.1298129558563232,
+    "acousticness": 0.5,
+    "instrumentalness": 0.48016613721847534,
+    "liveness": 0.1,
+    "speechiness": 0.18342952647860042,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

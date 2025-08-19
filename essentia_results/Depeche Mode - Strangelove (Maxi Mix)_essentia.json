@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Strangelove (Maxi Mix).flac",
+  "file_name": "Depeche Mode - Strangelove (Maxi Mix).flac",
+  "timestamp": "2025-08-16T23:53:26.883252",
+  "essentia_features": {
+    "loudness_lufs": -7.027034759521484,
+    "danceability": 1.299242615699768,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

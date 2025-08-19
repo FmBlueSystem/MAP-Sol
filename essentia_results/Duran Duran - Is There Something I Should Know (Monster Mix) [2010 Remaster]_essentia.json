@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Is There Something I Should Know (Monster Mix) [2010 Remaster].flac",
+  "file_name": "Duran Duran - Is There Something I Should Know (Monster Mix) [2010 Remaster].flac",
+  "timestamp": "2025-08-17T00:03:55.219649",
+  "essentia_features": {
+    "loudness_lufs": -4.492929458618164,
+    "danceability": 1.3180210590362549,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4822392463684082,
+    "liveness": 0.1,
+    "speechiness": 0.23993898119450832,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

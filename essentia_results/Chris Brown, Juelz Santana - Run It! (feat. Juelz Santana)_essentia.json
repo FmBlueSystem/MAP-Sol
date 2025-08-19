@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Chris Brown, Juelz Santana - Run It! (feat. Juelz Santana).flac",
+  "file_name": "Chris Brown, Juelz Santana - Run It! (feat. Juelz Santana).flac",
+  "timestamp": "2025-08-16T23:33:01.879402",
+  "essentia_features": {
+    "loudness_lufs": -4.201303482055664,
+    "danceability": 1.8894295692443848,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7079004049301147,
+    "liveness": 0.1,
+    "speechiness": 0.10646986428303501,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

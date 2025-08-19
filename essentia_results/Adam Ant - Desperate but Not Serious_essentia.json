@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Adam Ant - Desperate but Not Serious.flac",
+  "file_name": "Adam Ant - Desperate but Not Serious.flac",
+  "timestamp": "2025-08-16T22:37:17.979725",
+  "essentia_features": {
+    "loudness_lufs": -4.868061065673828,
+    "danceability": 1.166076898574829,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4409952163696289,
+    "liveness": 0.1,
+    "speechiness": 0.12131779055129144,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

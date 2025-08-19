@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bee Gees - Stayin' Alive (Promo 12 Version).flac",
+  "file_name": "Bee Gees - Stayin' Alive (Promo 12 Version).flac",
+  "timestamp": "2025-08-16T22:51:54.762164",
+  "essentia_features": {
+    "loudness_lufs": -4.2100982666015625,
+    "danceability": 1.8747235536575317,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5369298756122589,
+    "liveness": 0.1,
+    "speechiness": 0.16739747917844958,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

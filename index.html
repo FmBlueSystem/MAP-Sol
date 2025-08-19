@@ -1,238 +1,314 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <title>Music Analyzer - Con Carátulas</title>
-    <!-- Include K-Meter Visualizer -->
-    <script src="js/k-meter-visualizer.js"></script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .header {
-            background: rgba(255,255,255,0.95);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        h1 { 
-            font-size: 28px; 
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .stats {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-        .stat { 
-            font-size: 14px;
-            color: #666;
-        }
-        .stat strong { 
-            color: #764ba2;
-            font-size: 24px;
-            display: block;
-        }
-        .controls {
-            margin-left: auto;
-        }
-        button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-        button:hover { 
-            transform: translateY(-2px);
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-        .card-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 72px;
-            position: relative;
-            overflow: hidden;
-        }
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .card-body {
-            padding: 15px;
-        }
-        .card-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .card-artist {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-        }
-        .card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .tag {
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .tag-genre {
-            background: #ff9800;
-            color: white;
-        }
-        .tag-mood {
-            background: #2196F3;
-            color: white;
-        }
-        .tag-bpm {
-            background: #4CAF50;
-            color: white;
-        }
-        .tag-energy {
-            background: #f44336;
-            color: white;
-        }
-        .loading {
-            text-align: center;
-            padding: 60px;
-            color: white;
-            font-size: 24px;
-        }
-        .status {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>🎵 Music Analyzer Pro - Con Carátulas</h1>
-        <div class="stats">
-            <div class="stat">
-                <strong id="total">0</strong>
-                Total archivos
-            </div>
-            <div class="stat">
-                <strong id="withArtwork">0</strong>
-                Con carátula
-            </div>
-            <div class="stat">
-                <strong id="percentage">0%</strong>
-                Carátulas
-            </div>
-            <div class="controls">
-                <button onclick="loadData()">🔄 Recargar</button>
+    <head>
+        <title>Music Analyzer - Con Carátulas</title>
+        <!-- Audio Fix MUST load first -->
+        <script src="js/simple-audio-fix.js"></script>
+        <!-- Include K-Meter Visualizer -->
+        <script src="js/k-meter-visualizer.js"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                padding: 20px;
+            }
+            .header {
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 16px;
+                padding: 20px;
+                margin-bottom: 30px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+            h1 {
+                font-size: 28px;
+                color: #333;
+                margin-bottom: 20px;
+            }
+            .stats {
+                display: flex;
+                gap: 30px;
+                align-items: center;
+            }
+            .stat {
+                font-size: 14px;
+                color: #666;
+            }
+            .stat strong {
+                color: #764ba2;
+                font-size: 24px;
+                display: block;
+            }
+            .controls {
+                margin-left: auto;
+            }
+            button {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: 600;
+                transition: transform 0.2s;
+            }
+            button:hover {
+                transform: translateY(-2px);
+            }
+            .container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+            .card {
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                transition:
+                    transform 0.3s,
+                    box-shadow 0.3s;
+                cursor: pointer;
+            }
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            }
+            .card-image {
+                width: 100%;
+                height: 200px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 72px;
+                position: relative;
+                overflow: hidden;
+            }
+            .card-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .card-body {
+                padding: 15px;
+            }
+            .card-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 5px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .card-artist {
+                font-size: 14px;
+                color: #666;
+                margin-bottom: 15px;
+            }
+            .card-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .tag {
+                padding: 4px 10px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+            }
+            .tag-genre {
+                background: #ff9800;
+                color: white;
+            }
+            .tag-mood {
+                background: #2196f3;
+                color: white;
+            }
+            .tag-bpm {
+                background: #4caf50;
+                color: white;
+            }
+            .tag-energy {
+                background: #f44336;
+                color: white;
+            }
+            .loading {
+                text-align: center;
+                padding: 60px;
+                color: white;
+                font-size: 24px;
+            }
+            .status {
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                padding: 10px 20px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>🎵 Music Analyzer Pro - Con Carátulas</h1>
+            <div class="stats">
+                <div class="stat">
+                    <strong id="total">0</strong>
+                    Total archivos
+                </div>
+                <div class="stat">
+                    <strong id="withArtwork">0</strong>
+                    Con carátula
+                </div>
+                <div class="stat">
+                    <strong id="percentage">0%</strong>
+                    Carátulas
+                </div>
+                <div class="controls">
+                    <button onclick="loadData()">🔄 Recargar</button>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div id="status" class="status" style="display: none;"></div>
-    
-    <div id="container" class="container">
-        <div class="loading">⏳ Cargando archivos...</div>
-    </div>
 
-    <script>
-        const { ipcRenderer } = require('electron');
-        let allFiles = [];
-        
-        async function loadData() {
-            try {
-                const container = document.getElementById('container');
-                const status = document.getElementById('status');
-                
-                container.innerHTML = '<div class="loading">⏳ Cargando archivos con carátulas...</div>';
-                
-                const files = await ipcRenderer.invoke('get-files-with-cached-artwork');
-                allFiles = files;
-                
-                if (!files || files.length === 0) {
-                    container.innerHTML = '<div class="loading">No hay archivos analizados</div>';
-                    return;
+        <div id="status" class="status" style="display: none"></div>
+
+        <div id="container" class="container">
+            <div class="loading">⏳ Cargando archivos...</div>
+        </div>
+
+        <script>
+            const { ipcRenderer } = require('electron');
+            let allFiles = [];
+            let audioContext = null;
+
+            // Initialize audio context on first user interaction
+            document.addEventListener('DOMContentLoaded', () => {
+                // Request audio permission on first user interaction
+                document.addEventListener('click', async function initAudio() {
+                    if (!audioContext) {
+                        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                        window.audioContext = audioContext;
+                    }
+                    if (audioContext?.state === 'suspended') {
+                        await audioContext.resume();
+                        console.log('✅ AudioContext resumed');
+                    }
+                    // Remove listener after first click
+                    document.removeEventListener('click', initAudio);
+                });
+            });
+
+            // Play track function with AudioContext handling
+            async function playTrack(filePath) {
+                try {
+                    // Ensure audio context is running
+                    if (window.audioContext?.state === 'suspended') {
+                        await window.audioContext.resume();
+                    }
+
+                    const result = await ipcRenderer.invoke('play-track', filePath);
+                    if (result.success) {
+                        console.log('✅ Track playing:', filePath);
+                    } else if (result.fallback === 'native') {
+                        console.log('⚠️ Using fallback player');
+                        // Handle fallback if needed
+                    }
+                    return result;
+                } catch (error) {
+                    console.error('❌ Play failed:', error);
+                    return { success: false, error: error.message };
                 }
-                
-                // Estadísticas
-                const withArtwork = files.filter(f => f.artwork_url).length;
-                const percentage = Math.round(withArtwork / files.length * 100);
-                
-                document.getElementById('total').textContent = files.length;
-                document.getElementById('withArtwork').textContent = withArtwork;
-                document.getElementById('percentage').textContent = percentage + '%';
-                
-                // Mostrar estado
-                if (withArtwork < files.length) {
-                    status.style.display = 'block';
-                    status.textContent = `💡 Las carátulas se están extrayendo en segundo plano. ${files.length - withArtwork} pendientes.`;
-                } else {
-                    status.style.display = 'none';
-                }
-                
-                // Renderizar tarjetas
-                container.innerHTML = files.map(file => {
-                    const name = file.title || file.file_name || 'Unknown';
-                    const artist = file.artist || 'Unknown Artist';
-                    const genre = file.LLM_GENRE || file.genre || '-';
-                    const mood = file.AI_MOOD || file.LLM_MOOD || '-';
-                    const bpm = file.AI_BPM || file.existing_bmp || 0;
-                    const energy = file.AI_ENERGY ? Math.round(file.AI_ENERGY * 100) : 0;
-                    
-                    // Icono según extensión
-                    const ext = file.file_extension?.toLowerCase() || '';
-                    const icon = ext === 'flac' ? '🎼' : 
-                               ext === 'mp3' ? '🎵' : 
-                               ext === 'wav' ? '🎙️' : 
-                               ext === 'm4a' ? '🎧' : '🎶';
-                    
-                    return `
-                        <div class="card">
+            }
+
+            // Listen for playback events
+            ipcRenderer.on('playback-started', () => {
+                console.log('▶️ Playback started');
+            });
+
+            ipcRenderer.on('playback-paused', () => {
+                console.log('⏸️ Playback paused');
+            });
+
+            ipcRenderer.on('track-ended', () => {
+                console.log('⏹️ Track ended');
+            });
+
+            ipcRenderer.on('playback-error', (event, data) => {
+                console.error('❌ Playback error:', data);
+            });
+
+            async function loadData() {
+                try {
+                    const container = document.getElementById('container');
+                    const status = document.getElementById('status');
+
+                    container.innerHTML =
+                        '<div class="loading">⏳ Cargando archivos con carátulas...</div>';
+
+                    const files = await ipcRenderer.invoke('get-files-with-cached-artwork');
+                    allFiles = files;
+
+                    if (!files || files.length === 0) {
+                        container.innerHTML =
+                            '<div class="loading">No hay archivos analizados</div>';
+                        return;
+                    }
+
+                    // Estadísticas
+                    const withArtwork = files.filter(f => f.artwork_url).length;
+                    const percentage = Math.round((withArtwork / files.length) * 100);
+
+                    document.getElementById('total').textContent = files.length;
+                    document.getElementById('withArtwork').textContent = withArtwork;
+                    document.getElementById('percentage').textContent = percentage + '%';
+
+                    // Mostrar estado
+                    if (withArtwork < files.length) {
+                        status.style.display = 'block';
+                        status.textContent = `💡 Las carátulas se están extrayendo en segundo plano. ${files.length - withArtwork} pendientes.`;
+                    } else {
+                        status.style.display = 'none';
+                    }
+
+                    // Renderizar tarjetas
+                    container.innerHTML = files
+                        .map(file => {
+                            const name = file.title || file.file_name || 'Unknown';
+                            const artist = file.artist || 'Unknown Artist';
+                            const genre = file.LLM_GENRE || file.genre || '-';
+                            const mood = file.AI_MOOD || file.LLM_MOOD || '-';
+                            const bpm = file.AI_BPM || file.existing_bmp || 0;
+                            const energy = file.AI_ENERGY ? Math.round(file.AI_ENERGY * 100) : 0;
+                            const filePath = file.file_path || file.path;
+
+                            // Icono según extensión
+                            const ext = file.file_extension?.toLowerCase() || '';
+                            const icon =
+                                ext === 'flac'
+                                    ? '🎼'
+                                    : ext === 'mp3'
+                                      ? '🎵'
+                                      : ext === 'wav'
+                                        ? '🎙️'
+                                        : ext === 'm4a'
+                                          ? '🎧'
+                                          : '🎶';
+
+                            return `
+                        <div class="card" onclick="playTrackSimple({file_path: '${filePath.replace(/'/g, "\\'")}'})">
                             <div class="card-image">
-                                ${file.artwork_url ? 
-                                    `<img src="${file.artwork_url}" alt="Album art" onerror="this.style.display='none'; this.parentElement.innerHTML='${icon}';">` : 
-                                    icon
+                                ${
+                                    file.artwork_url
+                                        ? `<img src="${file.artwork_url}" alt="Album art" onerror="this.style.display='none'; this.parentElement.innerHTML='${icon}';">`
+                                        : icon
                                 }
                             </div>
                             <div class="card-body">
@@ -247,27 +323,29 @@
                             </div>
                         </div>
                     `;
-                }).join('');
-                
-                console.log(`✅ ${files.length} tarjetas renderizadas (${withArtwork} con carátula)`);
-                
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('container').innerHTML = 
-                    `<div class="loading">Error: ${error.message}</div>`;
+                        })
+                        .join('');
+
+                    console.log(
+                        `✅ ${files.length} tarjetas renderizadas (${withArtwork} con carátula)`
+                    );
+                } catch (error) {
+                    console.error('Error:', error);
+                    document.getElementById('container').innerHTML =
+                        `<div class="loading">Error: ${error.message}</div>`;
+                }
             }
-        }
-        
-        // Auto-recargar cada 10 segundos para ver progreso
-        setInterval(() => {
-            const status = document.getElementById('status');
-            if (status.style.display === 'block') {
-                loadData();
-            }
-        }, 10000);
-        
-        // Cargar al iniciar
-        window.addEventListener('DOMContentLoaded', loadData);
-    </script>
-</body>
+
+            // Auto-recargar cada 10 segundos para ver progreso
+            setInterval(() => {
+                const status = document.getElementById('status');
+                if (status.style.display === 'block') {
+                    loadData();
+                }
+            }, 10000);
+
+            // Cargar al iniciar
+            window.addEventListener('DOMContentLoaded', loadData);
+        </script>
+    </body>
 </html>

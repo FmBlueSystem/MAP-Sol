@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, THE SOULBOYZ - Oh What a Night (Extended Mix).flac",
+  "file_name": "Block & Crown, THE SOULBOYZ - Oh What a Night (Extended Mix).flac",
+  "timestamp": "2025-08-16T23:13:34.697604",
+  "essentia_features": {
+    "loudness_lufs": -2.4592018127441406,
+    "danceability": 1.3657846450805664,
+    "acousticness": 0.5,
+    "instrumentalness": 0.585334300994873,
+    "liveness": 0.1,
+    "speechiness": 0.18615833747097377,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

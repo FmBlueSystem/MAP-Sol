@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/David Guetta, Kelly Rowland - When Love Takes Over (feat. Kelly Rowland).flac",
+  "file_name": "David Guetta, Kelly Rowland - When Love Takes Over (feat. Kelly Rowland).flac",
+  "timestamp": "2025-08-16T23:47:45.004563",
+  "essentia_features": {
+    "loudness_lufs": -3.2305736541748047,
+    "danceability": 1.282524585723877,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6628204882144928,
+    "liveness": 0.1,
+    "speechiness": 0.1536803155894324,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

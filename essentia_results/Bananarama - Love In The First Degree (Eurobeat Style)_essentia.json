@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bananarama - Love In The First Degree (Eurobeat Style).flac",
+  "file_name": "Bananarama - Love In The First Degree (Eurobeat Style).flac",
+  "timestamp": "2025-08-16T22:50:24.700825",
+  "essentia_features": {
+    "loudness_lufs": -5.15301513671875,
+    "danceability": 1.7243545055389404,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

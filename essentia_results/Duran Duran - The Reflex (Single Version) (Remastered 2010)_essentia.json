@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - The Reflex (Single Version) (Remastered 2010).flac",
+  "file_name": "Duran Duran - The Reflex (Single Version) (Remastered 2010).flac",
+  "timestamp": "2025-08-17T00:05:45.840059",
+  "essentia_features": {
+    "loudness_lufs": -4.181835174560547,
+    "danceability": 1.1333484649658203,
+    "acousticness": 0.5,
+    "instrumentalness": 0.35283565521240234,
+    "liveness": 0.1,
+    "speechiness": 0.18732595790928674,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

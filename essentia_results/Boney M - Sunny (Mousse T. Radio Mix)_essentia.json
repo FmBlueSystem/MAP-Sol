@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Boney M - Sunny (Mousse T. Radio Mix).flac",
+  "file_name": "Boney M - Sunny (Mousse T. Radio Mix).flac",
+  "timestamp": "2025-08-16T23:17:27.361571",
+  "essentia_features": {
+    "loudness_lufs": -3.137104034423828,
+    "danceability": 1.5158103704452515,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5353719890117645,
+    "liveness": 0.1,
+    "speechiness": 0.0945852510175873,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

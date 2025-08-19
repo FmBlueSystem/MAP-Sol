@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Black Eyed Peas, J Balvin - RITMO (Bad Boys For Life)(Explicit).flac",
+  "file_name": "Black Eyed Peas, J Balvin - RITMO (Bad Boys For Life)(Explicit).flac",
+  "timestamp": "2025-08-16T23:00:18.828973",
+  "essentia_features": {
+    "loudness_lufs": -5.601829528808594,
+    "danceability": 1.076196551322937,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6437967419624329,
+    "liveness": 0.1,
+    "speechiness": 0.10222785050641937,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

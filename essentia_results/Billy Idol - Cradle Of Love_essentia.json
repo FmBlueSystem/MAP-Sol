@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Idol - Cradle Of Love.flac",
+  "file_name": "Billy Idol - Cradle Of Love.flac",
+  "timestamp": "2025-08-16T22:54:28.565749",
+  "essentia_features": {
+    "loudness_lufs": -2.7285709381103516,
+    "danceability": 1.3063327074050903,
+    "acousticness": 0.5,
+    "instrumentalness": 0.44027674198150635,
+    "liveness": 0.1,
+    "speechiness": 0.11153267896228325,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

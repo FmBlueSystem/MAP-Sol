@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aretha Franklin - Freeway Of Love.flac",
+  "file_name": "Aretha Franklin - Freeway Of Love.flac",
+  "timestamp": "2025-08-16T22:45:08.284988",
+  "essentia_features": {
+    "loudness_lufs": -4.8551788330078125,
+    "danceability": 1.2280193567276,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3585943579673767,
+    "liveness": 0.1,
+    "speechiness": 0.13446828869306449,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

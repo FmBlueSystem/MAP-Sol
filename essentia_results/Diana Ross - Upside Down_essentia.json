@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Diana Ross - Upside Down.flac",
+  "file_name": "Diana Ross - Upside Down.flac",
+  "timestamp": "2025-08-16T23:55:08.167827",
+  "essentia_features": {
+    "loudness_lufs": -6.27049446105957,
+    "danceability": 1.5149726867675781,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4049763083457947,
+    "liveness": 0.1,
+    "speechiness": 0.17012894273585644,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Debbie Gibson - Only in My Dreams (Extended Club Mix).flac",
+  "file_name": "Debbie Gibson - Only in My Dreams (Extended Club Mix).flac",
+  "timestamp": "2025-08-16T23:50:05.793930",
+  "essentia_features": {
+    "loudness_lufs": -5.823633193969727,
+    "danceability": 1.4158250093460083,
+    "acousticness": 0.5,
+    "instrumentalness": 0.49273765087127686,
+    "liveness": 0.1,
+    "speechiness": 0.1931377426787748,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

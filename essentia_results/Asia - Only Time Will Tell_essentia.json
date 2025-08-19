@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Asia - Only Time Will Tell.flac",
+  "file_name": "Asia - Only Time Will Tell.flac",
+  "timestamp": "2025-08-16T22:47:04.365000",
+  "essentia_features": {
+    "loudness_lufs": -7.394081115722656,
+    "danceability": 1.076791524887085,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4356718063354492,
+    "liveness": 0.1,
+    "speechiness": 0.16129909083604052,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

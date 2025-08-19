@@ -1,112 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <title>K-Meter Test</title>
-    <style>
-        body { 
-            background: #000; 
-            color: #fff; 
-            font-family: monospace; 
-            padding: 20px;
-        }
-        button {
-            background: #00ff00;
-            color: #000;
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        button:hover {
-            background: #00cc00;
-        }
-        .status {
-            margin: 20px 0;
-            padding: 10px;
-            background: #222;
-            border: 1px solid #444;
-        }
-    </style>
-</head>
-<body>
-    <h1>K-Meter Professional - Test Page</h1>
-    
-    <div class="controls">
-        <button onclick="testAudioFile()">Test Audio File</button>
-        <button onclick="generateTone()">Generate Test Tone</button>
-        <button onclick="testSineWave()">Test Sine Wave</button>
-    </div>
-    
-    <div class="status" id="status">
-        Ready to test K-Meter...
-    </div>
-    
-    <audio id="testAudio" controls></audio>
-    
-    <script>
-        function updateStatus(msg) {
-            document.getElementById('status').innerHTML += '<br>' + msg;
-        }
-        
-        function testAudioFile() {
-            updateStatus('Testing with audio file...');
-            const audio = document.getElementById('testAudio');
-            // You would need to set a valid audio file path here
-            audio.src = 'test.mp3';
-            audio.play();
-            updateStatus('Audio should be playing, check K-Meter visualization');
-        }
-        
-        function generateTone() {
-            updateStatus('Generating 1kHz test tone...');
-            const audioContext = new AudioContext();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.frequency.value = 1000; // 1kHz
-            oscillator.type = 'sine';
-            gainNode.gain.value = 0.5; // -6dB
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.start();
-            setTimeout(() => {
-                oscillator.stop();
-                updateStatus('Test tone stopped');
-            }, 3000);
-            
-            updateStatus('Test tone playing for 3 seconds at -6dB');
-        }
-        
-        function testSineWave() {
-            updateStatus('Creating sine wave sweep...');
-            const audioContext = new AudioContext();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.frequency.value = 100;
-            oscillator.type = 'sine';
-            
-            // Sweep frequency from 100Hz to 5000Hz
-            oscillator.frequency.linearRampToValueAtTime(5000, audioContext.currentTime + 5);
-            
-            // Vary gain from -20dB to 0dB
-            gainNode.gain.value = 0.1; // Start at -20dB
-            gainNode.gain.linearRampToValueAtTime(1.0, audioContext.currentTime + 5);
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.start();
-            setTimeout(() => {
-                oscillator.stop();
-                updateStatus('Sweep completed');
-            }, 5000);
-            
-            updateStatus('Frequency sweep 100Hz-5kHz, Gain -20dB to 0dB over 5 seconds');
-        }
-    </script>
-</body>
+    <head>
+        <title>K-Meter Test</title>
+        <style>
+            body {
+                background: #000;
+                color: #fff;
+                font-family: monospace;
+                padding: 20px;
+            }
+            button {
+                background: #00ff00;
+                color: #000;
+                padding: 10px 20px;
+                margin: 10px;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+            }
+            button:hover {
+                background: #00cc00;
+            }
+            .status {
+                margin: 20px 0;
+                padding: 10px;
+                background: #222;
+                border: 1px solid #444;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>K-Meter Professional - Test Page</h1>
+
+        <div class="controls">
+            <button onclick="testAudioFile()">Test Audio File</button>
+            <button onclick="generateTone()">Generate Test Tone</button>
+            <button onclick="testSineWave()">Test Sine Wave</button>
+        </div>
+
+        <div class="status" id="status">Ready to test K-Meter...</div>
+
+        <audio id="testAudio" controls></audio>
+
+        <script>
+            function updateStatus(msg) {
+                document.getElementById('status').innerHTML += '<br>' + msg;
+            }
+
+            function testAudioFile() {
+                updateStatus('Testing with audio file...');
+                const audio = document.getElementById('testAudio');
+                // You would need to set a valid audio file path here
+                audio.src = 'test.mp3';
+                audio.play();
+                updateStatus('Audio should be playing, check K-Meter visualization');
+            }
+
+            function generateTone() {
+                updateStatus('Generating 1kHz test tone...');
+                const audioContext = new AudioContext();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.frequency.value = 1000; // 1kHz
+                oscillator.type = 'sine';
+                gainNode.gain.value = 0.5; // -6dB
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.start();
+                setTimeout(() => {
+                    oscillator.stop();
+                    updateStatus('Test tone stopped');
+                }, 3000);
+
+                updateStatus('Test tone playing for 3 seconds at -6dB');
+            }
+
+            function testSineWave() {
+                updateStatus('Creating sine wave sweep...');
+                const audioContext = new AudioContext();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.frequency.value = 100;
+                oscillator.type = 'sine';
+
+                // Sweep frequency from 100Hz to 5000Hz
+                oscillator.frequency.linearRampToValueAtTime(5000, audioContext.currentTime + 5);
+
+                // Vary gain from -20dB to 0dB
+                gainNode.gain.value = 0.1; // Start at -20dB
+                gainNode.gain.linearRampToValueAtTime(1.0, audioContext.currentTime + 5);
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.start();
+                setTimeout(() => {
+                    oscillator.stop();
+                    updateStatus('Sweep completed');
+                }, 5000);
+
+                updateStatus('Frequency sweep 100Hz-5kHz, Gain -20dB to 0dB over 5 seconds');
+            }
+        </script>
+    </body>
 </html>

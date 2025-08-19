@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Belinda Carlisle - Heaven Is A Place On Earth (Heavenly Version).flac",
+  "file_name": "Belinda Carlisle - Heaven Is A Place On Earth (Heavenly Version).flac",
+  "timestamp": "2025-08-16T22:52:19.595678",
+  "essentia_features": {
+    "loudness_lufs": -7.340421676635742,
+    "danceability": 1.3509209156036377,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6049996614456177,
+    "liveness": 0.1,
+    "speechiness": 0.19906930395278918,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

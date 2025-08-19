@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fine Young Cannibals - She Drives Me Crazy.flac",
+  "file_name": "Fine Young Cannibals - She Drives Me Crazy.flac",
+  "timestamp": "2025-08-17T00:22:15.918433",
+  "essentia_features": {
+    "loudness_lufs": -3.6245288848876953,
+    "danceability": 1.4121284484863281,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4653872847557068,
+    "liveness": 0.1,
+    "speechiness": 0.15024084843217173,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

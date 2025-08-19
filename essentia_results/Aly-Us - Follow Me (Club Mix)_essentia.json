@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aly-Us - Follow Me (Club Mix).flac",
+  "file_name": "Aly-Us - Follow Me (Club Mix).flac",
+  "timestamp": "2025-08-16T22:42:10.057744",
+  "essentia_features": {
+    "loudness_lufs": -6.213722229003906,
+    "danceability": 1.6897058486938477,
+    "acousticness": 0.5,
+    "instrumentalness": 0.713259369134903,
+    "liveness": 0.1,
+    "speechiness": 0.19180879191961503,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

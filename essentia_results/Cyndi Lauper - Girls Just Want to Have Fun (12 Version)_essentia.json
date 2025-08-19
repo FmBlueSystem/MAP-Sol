@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cyndi Lauper - Girls Just Want to Have Fun (12 Version).flac",
+  "file_name": "Cyndi Lauper - Girls Just Want to Have Fun (12 Version).flac",
+  "timestamp": "2025-08-16T23:40:28.393797",
+  "essentia_features": {
+    "loudness_lufs": -2.5449752807617188,
+    "danceability": 1.2807353734970093,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4056481122970581,
+    "liveness": 0.1,
+    "speechiness": 0.20385903942690292,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

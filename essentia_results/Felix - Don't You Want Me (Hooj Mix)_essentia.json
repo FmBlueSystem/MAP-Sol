@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Felix - Don't You Want Me (Hooj Mix).flac",
+  "file_name": "Felix - Don't You Want Me (Hooj Mix).flac",
+  "timestamp": "2025-08-17T00:21:49.871975",
+  "essentia_features": {
+    "loudness_lufs": -11.780693054199219,
+    "danceability": 1.4466869831085205,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5910175442695618,
+    "liveness": 0.1,
+    "speechiness": 0.1852174547896087,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

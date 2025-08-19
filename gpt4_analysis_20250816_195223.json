@@ -1,0 +1,124 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez muscia de Tidal Original descarga de musica/Consolidado2025/pruebas/France Joli - Come to Me.flac",
+    "file_name": "France Joli - Come to Me.flac",
+    "original_metadata": {
+        "artist": "France Joli",
+        "title": "Come to Me",
+        "album": "France Joli: Greatest Hits",
+        "genre": "Unknown",
+        "file_name": "France Joli - Come to Me.flac",
+        "year": 1989,
+        "existing_key": "4A",
+        "isrc": "CAU117900284"
+    },
+    "precomputed_features": {
+        "loudness_lufs": -15.56,
+        "danceability": 0.773,
+        "acousticness": 0.876,
+        "instrumentalness": 0.308,
+        "liveness": 1.0,
+        "speechiness": 0.015,
+        "valence": 0.53,
+        "energy": 0.7,
+        "musical_key": "F minor",
+        "camelot_key": "4A",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "gpt4_analysis": {
+        "genre": null,
+        "subgenres": [],
+        "mood": "Romantic",
+        "energy": 0.7,
+        "danceability": 0.773,
+        "valence": 0.53,
+        "acousticness": 0.876,
+        "instrumentalness": 0.308,
+        "liveness": 1.0,
+        "speechiness": 0.015,
+        "loudness": -15.56,
+        "era": "1980s",
+        "cultural_context": null,
+        "occasions": ["chill", "dinner", "romantic"],
+        "musical_key": "F minor",
+        "camelot_key": "4A",
+        "description": "A heartfelt plea for companionship and love, characterized by its romantic mood and inviting danceability.",
+        "lyrics_analysis": {
+            "lyrics_source": "provided",
+            "language": "English",
+            "topic_main": "Love and Loneliness",
+            "topics_secondary": ["Desire", "Comfort", "Emotional Support"],
+            "coherence_score": 0.9,
+            "coherence_notes": ["Consistent theme of seeking and offering love and comfort."],
+            "lyric_mood": "Romantic",
+            "sentiment": 0.8,
+            "emotions": {
+                "joy": 0.7,
+                "sadness": 0.2,
+                "anger": 0,
+                "fear": 0.1,
+                "surprise": 0,
+                "trust": 0.9
+            },
+            "narrative_perspective": "mixed",
+            "narrative_time": "present",
+            "structure": [
+                {
+                    "section": "chorus",
+                    "summary": "An invitation to seek comfort and love in times of loneliness.",
+                    "sample_lines": [
+                        "Come to me when you're all alone and feeling down",
+                        "Come to me, 'cause I will comfort you"
+                    ]
+                }
+            ],
+            "repeated_phrases": [
+                {
+                    "phrase": "Come to me",
+                    "count": 14,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "I love you",
+                    "count": 12,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "I need you",
+                    "count": 8,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "And I want you",
+                    "count": 8,
+                    "reason": "hook"
+                }
+            ],
+            "hook_candidates": ["Come to me", "I love you"],
+            "keywords": ["love", "comfort", "loneliness", "warmth"],
+            "named_entities": {
+                "persons": [],
+                "places": [],
+                "brands": []
+            },
+            "cultural_references": [],
+            "call_and_response": false,
+            "countins_shouts": false,
+            "explicitness_level": "clean",
+            "content_warnings": [],
+            "singalong_index": 0.8,
+            "chantability": 0.7,
+            "justification": [
+                "The repeated phrase 'Come to me' serves as a powerful hook, inviting listeners into the song's emotional landscape.",
+                "Lyrics convey a strong sense of longing and emotional vulnerability, aligning with the romantic mood of the music.",
+                "The high singalong and chantability indexes reflect the song's memorable hooks and engaging lyrical content."
+            ]
+        },
+        "confidence": 0.95
+    },
+    "processing_time": 19.07,
+    "tokens_used": 3468,
+    "estimated_cost": 0.0498,
+    "timestamp": "2025-08-16T19:52:23.385078"
+}

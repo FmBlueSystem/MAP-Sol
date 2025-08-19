@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Calvin Harris, Disciples - How Deep Is Your Love (Extended Mix).flac",
+  "file_name": "Calvin Harris, Disciples - How Deep Is Your Love (Extended Mix).flac",
+  "timestamp": "2025-08-16T23:23:27.446391",
+  "essentia_features": {
+    "loudness_lufs": -2.362992286682129,
+    "danceability": 1.2895088195800781,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6489840745925903,
+    "liveness": 0.1,
+    "speechiness": 0.13584281524900552,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

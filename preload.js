@@ -6,15 +6,15 @@ const fs = require('fs');
 // CRITICAL: Expose ipcRenderer for backwards compatibility
 contextBridge.exposeInMainWorld('ipcRenderer', {
     invoke: (channel, ...args) => {
-        console.log('IPC invoke:', channel);
+        logDebug('IPC invoke:', channel);
         return ipcRenderer.invoke(channel, ...args);
     },
     send: (channel, ...args) => {
-        console.log('IPC send:', channel);
+        logDebug('IPC send:', channel);
         return ipcRenderer.send(channel, ...args);
     },
     on: (channel, listener) => {
-        console.log('IPC on:', channel);
+        logDebug('IPC on:', channel);
         ipcRenderer.on(channel, (event, ...args) => listener(event, ...args));
     }
 });
@@ -22,26 +22,26 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
 // Also expose electronAPI for new code
 contextBridge.exposeInMainWorld('electronAPI', {
     // Asset management
-    getAssetPath: (assetName) => ipcRenderer.invoke('get-asset-path', assetName),
-    
+    getAssetPath: assetName => ipcRenderer.invoke('get-asset-path', assetName),
+
     // File system checks (safe, read-only)
-    fileExists: (filePath) => {
+    fileExists: filePath => {
         try {
             return fs.existsSync(filePath);
         } catch {
             return false;
         }
     },
-    
+
     // Path utilities
     joinPath: (...segments) => path.join(...segments),
-    
+
     // Get app paths
     getAppPath: () => __dirname,
-    
+
     // Platform info
     platform: process.platform,
     isDevelopment: process.env.NODE_ENV === 'development'
 });
 
-console.log('✅ EMERGENCY Preload script loaded - ipcRenderer exposed');
+logInfo('✅ EMERGENCY Preload script loaded - ipcRenderer exposed');

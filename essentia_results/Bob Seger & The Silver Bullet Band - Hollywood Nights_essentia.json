@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bob Seger & The Silver Bullet Band - Hollywood Nights.flac",
+  "file_name": "Bob Seger & The Silver Bullet Band - Hollywood Nights.flac",
+  "timestamp": "2025-08-16T23:15:40.057752",
+  "essentia_features": {
+    "loudness_lufs": -2.315089225769043,
+    "danceability": 1.2283351421356201,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4111170172691345,
+    "liveness": 0.1,
+    "speechiness": 0.13404178672414585,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cyndi Lauper - She Bop.flac",
+  "file_name": "Cyndi Lauper - She Bop.flac",
+  "timestamp": "2025-08-16T23:41:02.976014",
+  "essentia_features": {
+    "loudness_lufs": -3.204090118408203,
+    "danceability": 1.2002873420715332,
+    "acousticness": 0.5,
+    "instrumentalness": 0.49812406301498413,
+    "liveness": 0.1,
+    "speechiness": 0.2001738150321452,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

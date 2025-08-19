@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Donna Summer - She Works Hard For The Money.flac",
+  "file_name": "Donna Summer - She Works Hard For The Money.flac",
+  "timestamp": "2025-08-17T00:00:19.094063",
+  "essentia_features": {
+    "loudness_lufs": -6.126737594604492,
+    "danceability": 1.5223917961120605,
+    "acousticness": 0.5,
+    "instrumentalness": 0.470553994178772,
+    "liveness": 0.1,
+    "speechiness": 0.17678968022701033,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bravo & Dj's - Difacil Rap (Extended).flac",
+  "file_name": "Bravo & Dj's - Difacil Rap (Extended).flac",
+  "timestamp": "2025-08-16T23:18:26.074965",
+  "essentia_features": {
+    "loudness_lufs": -10.86172103881836,
+    "danceability": 2.1538686752319336,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5854965150356293,
+    "liveness": 0.1,
+    "speechiness": 0.1184909110676736,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

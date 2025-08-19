@@ -4,7 +4,7 @@ const path = require('path');
 
 function createArtworkHandler(db) {
     return async () => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             const sql = `
                 SELECT 
                     af.id,
@@ -15,18 +15,26 @@ function createArtworkHandler(db) {
                     af.album,
                     af.genre,
                     af.file_extension,
+                    af.bmp,
                     af.existing_bmp,
+                    af.existing_key,
                     af.artwork_path,
+                    af.duration,
+                    af.energy_level,
+                    af.comment,
+                    af.AI_ENERGY,
+                    af.AI_KEY,
+                    af.AI_BPM,
                     lm.LLM_GENRE,
                     lm.AI_MOOD,
                     lm.LLM_MOOD,
-                    lm.AI_ENERGY,
-                    lm.AI_BPM
+                    lm.AI_BPM as LM_AI_BPM,
+                    COALESCE(af.bmp, af.existing_bmp, lm.AI_BPM, af.AI_BPM) as BPM
                 FROM audio_files af
                 LEFT JOIN llm_metadata lm ON af.id = lm.file_id
                 ORDER BY af.artist, af.title
             `;
-            
+
             db.all(sql, [], (err, rows) => {
                 if (err) {
                     console.error('Error:', err);
@@ -35,11 +43,11 @@ function createArtworkHandler(db) {
                     // Verificar qué archivos tienen carátula
                     const artworkDir = path.join(__dirname, '..', 'artwork-cache');
                     let withArtwork = 0;
-                    
+
                     rows.forEach(file => {
                         const artworkPath = path.join(artworkDir, `${file.id}.jpg`);
                         const defaultImagePath = path.join(__dirname, '..', 'image.png');
-                        
+
                         if (fs.existsSync(artworkPath)) {
                             // Provide both absolute and relative paths
                             file.artwork_url = `artwork-cache/${file.id}.jpg`;
@@ -50,7 +58,7 @@ function createArtworkHandler(db) {
                         } else {
                             // Use default image.png as fallback
                             if (fs.existsSync(defaultImagePath)) {
-                                file.artwork_url = `image.png`;
+                                file.artwork_url = 'image.png';
                                 file.artwork_path = defaultImagePath;
                                 file.artwork_full = `file://${defaultImagePath}`;
                                 file.has_artwork = false;
@@ -63,9 +71,8 @@ function createArtworkHandler(db) {
                             }
                         }
                     });
-                    
-                    console.log(`✅ ${rows.length} archivos (${withArtwork} con carátula)`);
-                    resolve(rows);
+                    // Retornar en el formato esperado por el frontend
+                    resolve({ files: rows });
                 }
             });
         });

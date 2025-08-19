@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Don Omar - Salio\u0301 El Sol.flac",
+  "file_name": "Don Omar - Salio\u0301 El Sol.flac",
+  "timestamp": "2025-08-16T23:57:29.512212",
+  "essentia_features": {
+    "loudness_lufs": -3.511249542236328,
+    "danceability": 1.627880573272705,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6303040087223053,
+    "liveness": 0.1,
+    "speechiness": 0.12603025781383523,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

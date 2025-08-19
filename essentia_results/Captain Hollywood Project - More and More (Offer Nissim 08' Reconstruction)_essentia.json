@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Captain Hollywood Project - More and More (Offer Nissim 08' Reconstruction).flac",
+  "file_name": "Captain Hollywood Project - More and More (Offer Nissim 08' Reconstruction).flac",
+  "timestamp": "2025-08-16T23:25:08.950881",
+  "essentia_features": {
+    "loudness_lufs": -1.5150794982910156,
+    "danceability": 2.1386778354644775,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5924005806446075,
+    "liveness": 0.1,
+    "speechiness": 0.14853604766520695,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

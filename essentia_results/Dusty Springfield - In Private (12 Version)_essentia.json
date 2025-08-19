@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dusty Springfield - In Private (12 Version).flac",
+  "file_name": "Dusty Springfield - In Private (12 Version).flac",
+  "timestamp": "2025-08-17T00:06:19.728980",
+  "essentia_features": {
+    "loudness_lufs": -8.202905654907227,
+    "danceability": 1.490286111831665,
+    "acousticness": 0.5,
+    "instrumentalness": 0.49487531185150146,
+    "liveness": 0.1,
+    "speechiness": 0.1426449955276867,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

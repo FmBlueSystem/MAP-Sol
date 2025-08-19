@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-08-17T06:10:39-06:00",
+  "processed": 0,
+  "successful": 0,
+  "errors": 0,
+  "total_time_seconds": 7,
+  "files_per_minute": 0,
+  "batch_size": 50,
+  "strategy": "smart60"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bob Marley & The Wailers - Three Little Birds.flac",
+  "file_name": "Bob Marley & The Wailers - Three Little Birds.flac",
+  "timestamp": "2025-08-16T23:15:34.868813",
+  "essentia_features": {
+    "loudness_lufs": -7.405937194824219,
+    "danceability": 1.2101244926452637,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6408079862594604,
+    "liveness": 0.1,
+    "speechiness": 0.16118609520222374,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Test Data Loading</title>
+        <meta charset="UTF-8" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+                padding: 20px;
+                background: #f5f5f5;
+            }
+            .status {
+                padding: 10px;
+                margin: 10px 0;
+                border-radius: 5px;
+            }
+            .success {
+                background: #d4edda;
+                color: #155724;
+            }
+            .error {
+                background: #f8d7da;
+                color: #721c24;
+            }
+            .info {
+                background: #d1ecf1;
+                color: #0c5460;
+            }
+            pre {
+                background: #fff;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🧪 Test de Carga de Datos</h1>
+        <div id="results"></div>
+
+        <script>
+            const results = document.getElementById('results');
+
+            function log(message, type = 'info') {
+                const div = document.createElement('div');
+                div.className = `status ${type}`;
+                div.innerHTML = message;
+                results.appendChild(div);
+            }
+
+            async function runTests() {
+                log('🚀 Iniciando tests de integración...', 'info');
+
+                // Test 1: Verificar que ipcRenderer está disponible
+                if (window.ipcRenderer) {
+                    log('✅ ipcRenderer está disponible', 'success');
+
+                    try {
+                        // Test 2: Cargar archivos con artwork
+                        log('📂 Cargando archivos con artwork...', 'info');
+                        const files = await window.ipcRenderer.invoke(
+                            'get-files-with-cached-artwork'
+                        );
+                        log(`✅ ${files.length} archivos cargados`, 'success');
+
+                        // Mostrar primeros 3 archivos
+                        if (files.length > 0) {
+                            const sample = files.slice(0, 3);
+                            log(
+                                '📋 Muestra de archivos:<pre>' +
+                                    JSON.stringify(sample, null, 2) +
+                                    '</pre>',
+                                'info'
+                            );
+                        }
+
+                        // Test 3: Cargar opciones de filtros
+                        log('🔍 Cargando opciones de filtros...', 'info');
+                        const options = await window.ipcRenderer.invoke('get-filter-options');
+                        log(
+                            `✅ ${options.genres?.length || 0} géneros, ${options.moods?.length || 0} moods`,
+                            'success'
+                        );
+
+                        // Test 4: Probar búsqueda
+                        log('🔍 Probando búsqueda...', 'info');
+                        const searchResults = await window.ipcRenderer.invoke('search-tracks', {
+                            query: 'rock',
+                            filters: {}
+                        });
+                        log(`✅ Búsqueda "rock": ${searchResults.length} resultados`, 'success');
+                    } catch (error) {
+                        log(`❌ Error: ${error.message}`, 'error');
+                        console.error(error);
+                    }
+                } else {
+                    log('❌ ipcRenderer NO está disponible', 'error');
+                    log('ℹ️ Esto es normal si no se está ejecutando en Electron', 'info');
+                }
+
+                // Test módulos
+                log('<br><strong>📦 Verificando módulos:</strong>', 'info');
+
+                const modules = [
+                    'APP_CONFIG',
+                    'errorTracker',
+                    'logger',
+                    'performanceMonitor',
+                    'perfOptimizer',
+                    'dbOptimizer',
+                    'themeController',
+                    'VirtualScroller',
+                    'initializeApp',
+                    'MusicAnalyzer'
+                ];
+
+                modules.forEach(mod => {
+                    if (window[mod]) {
+                        log(`✅ window.${mod} está disponible`, 'success');
+                    } else {
+                        log(`❌ window.${mod} NO está disponible`, 'error');
+                    }
+                });
+            }
+
+            // Esperar a que todo esté cargado
+            window.addEventListener('DOMContentLoaded', () => {
+                setTimeout(runTests, 1000);
+            });
+        </script>
+
+        <!-- Cargar módulos -->
+        <script src="config/app.config.js"></script>
+        <script src="js/error-tracker.js"></script>
+        <script src="js/logger.js"></script>
+        <script src="js/performance-monitor.js"></script>
+        <script src="js/performance-optimizer.js"></script>
+        <script src="js/database-optimizer.js"></script>
+        <script src="js/theme-controller.js"></script>
+        <script src="js/virtual-scroller.js"></script>
+        <script src="src/index.js"></script>
+    </body>
+</html>

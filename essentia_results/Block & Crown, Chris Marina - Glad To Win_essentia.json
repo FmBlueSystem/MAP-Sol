@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Chris Marina - Glad To Win.flac",
+  "file_name": "Block & Crown, Chris Marina - Glad To Win.flac",
+  "timestamp": "2025-08-16T23:05:38.571966",
+  "essentia_features": {
+    "loudness_lufs": -3.244791030883789,
+    "danceability": 1.3933278322219849,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

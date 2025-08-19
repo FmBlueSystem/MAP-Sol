@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bananarama - Robert De Niro's Waiting (Extended Version).flac",
+  "file_name": "Bananarama - Robert De Niro's Waiting (Extended Version).flac",
+  "timestamp": "2025-08-16T22:50:45.233373",
+  "essentia_features": {
+    "loudness_lufs": -3.7093753814697266,
+    "danceability": 1.3089622259140015,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5077514946460724,
+    "liveness": 0.1,
+    "speechiness": 0.2091514718578495,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

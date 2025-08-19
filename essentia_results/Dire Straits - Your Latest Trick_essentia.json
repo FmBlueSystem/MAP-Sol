@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dire Straits - Your Latest Trick.flac",
+  "file_name": "Dire Straits - Your Latest Trick.flac",
+  "timestamp": "2025-08-16T23:56:02.854357",
+  "essentia_features": {
+    "loudness_lufs": -9.772163391113281,
+    "danceability": 1.118624210357666,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4610949754714966,
+    "liveness": 0.1,
+    "speechiness": 0.08118003850732725,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

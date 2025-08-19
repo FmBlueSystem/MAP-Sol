@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bohannon, Dr. Perri Johnson - Let's Start II Dance Again.flac",
+  "file_name": "Bohannon, Dr. Perri Johnson - Let's Start II Dance Again.flac",
+  "timestamp": "2025-08-16T23:16:33.908384",
+  "essentia_features": {
+    "loudness_lufs": -8.62502670288086,
+    "danceability": 1.5773237943649292,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5204166173934937,
+    "liveness": 0.1,
+    "speechiness": 0.2193695613500605,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

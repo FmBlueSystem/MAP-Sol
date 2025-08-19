@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alok, Ella Eyre, Kenny Dope, Never Dull - Deep Down (feat. Never Dull).flac",
+  "file_name": "Alok, Ella Eyre, Kenny Dope, Never Dull - Deep Down (feat. Never Dull).flac",
+  "timestamp": "2025-08-16T22:41:40.672907",
+  "essentia_features": {
+    "loudness_lufs": -3.410898208618164,
+    "danceability": 1.1961138248443604,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5858979225158691,
+    "liveness": 0.1,
+    "speechiness": 0.15407289232958446,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

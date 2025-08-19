@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bee Gees - Stayin\u2019 Alive (Serban Mix).flac",
+  "file_name": "Bee Gees - Stayin\u2019 Alive (Serban Mix).flac",
+  "timestamp": "2025-08-16T22:52:00.168995",
+  "essentia_features": {
+    "loudness_lufs": -4.046348571777344,
+    "danceability": 1.5177887678146362,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5769121646881104,
+    "liveness": 0.1,
+    "speechiness": 0.1281429278208529,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

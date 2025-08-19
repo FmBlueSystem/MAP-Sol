@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Elvis Presley - Don't Be Cruel.flac",
+  "file_name": "Elvis Presley - Don't Be Cruel.flac",
+  "timestamp": "2025-08-17T00:13:27.637221",
+  "essentia_features": {
+    "loudness_lufs": -7.9141845703125,
+    "danceability": 1.1346750259399414,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

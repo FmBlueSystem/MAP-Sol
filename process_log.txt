@@ -1,0 +1,115 @@
+╔══════════════════════════════════════════════╗
+║   ESSENTIA ENHANCED V2 - BATCH PROCESSOR    ║
+╚══════════════════════════════════════════════╝
+
+[0;34m📍 Python:[0m /Users/freddymolina/Desktop/music-app-clean/.venv/bin/python3
+[0;34m📦 Versión:[0m Python 3.11.13
+[0;34m🎯 Estrategia:[0m smart60
+[0;34m📊 Base de datos:[0m music_analyzer.db
+[0;34m📁 Directorio:[0m Tracks
+
+[0;32m📊 Archivos disponibles:     3808[0m
+[1;33m🎯 Procesando: 1000 archivos[0m
+
+[0;34m[1/1000][0m 'Til Tuesday - Love in a Vacuum.flac
+  ✅ 'Til Tuesday - Love in a Vacuum.flac | BPM=123.20030212402344 | Key=E major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 0%[0m[0;34m[2/1000][0m 2 Brothers On The 4th Floor - Can't Help Myself (Club Version).flac
+  ✅ 2 Brothers On The 4th Floor - Can't Help Myself (Club Version).flac | BPM=124.02989959716797 | Key=Eb minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 0%[0m[0;34m[3/1000][0m 2 Brothers On The 4th Floor - Never Alone (JoeySuki Remix).flac
+  ✅ 2 Brothers On The 4th Floor - Never Alone (JoeySuki Remix).flac | BPM=127.88240051269531 | Key=Ab minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 0%[0m[0;34m[4/1000][0m 2 Eivissa - Oh La La La (Extended Version).flac
+  ✅ 2 Eivissa - Oh La La La (Extended Version).flac | BPM=130.34385681152344 | Key=F minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 0%[0m[0;34m[5/1000][0m 2 In A Room - Dar La Vuelta (Bi-Lingual Extended).flac
+  ✅ 2 In A Room - Dar La Vuelta (Bi-Lingual Extended).flac | BPM=128.08689880371094 | Key=Eb major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 0%[0m[0;34m[6/1000][0m 2 In A Room - Wiggle It (David Morales Mix).flac
+  ✅ 2 In A Room - Wiggle It (David Morales Mix).flac | BPM=122.78341674804688 | Key=F major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 0%[0m[0;34m[7/1000][0m 2 Unlimited - Get Ready (Orchestral Mix).flac
+  ✅ 2 Unlimited - Get Ready (Orchestral Mix).flac | BPM=124.7951889038086 | Key=E major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 0%[0m[0;34m[8/1000][0m 2 Unlimited - Get Ready for This (Orchestral Version).flac
+  ✅ 2 Unlimited - Get Ready for This (Orchestral Version).flac | BPM=124.90357971191406 | Key=E major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 0%[0m[0;34m[9/1000][0m 2 Unlimited - Let the Beat Control Your Body.flac
+  ✅ 2 Unlimited - Let the Beat Control Your Body.flac | BPM=142.0211639404297 | Key=Ab minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 0%[0m[0;34m[10/1000][0m 2 Unlimited - No Limit (Extended Mix).flac
+  ✅ 2 Unlimited - No Limit (Extended Mix).flac | BPM=140.90013122558594 | Key=Bb minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 1%[0m[0;34m[11/1000][0m 2 Unlimited - No Limit (Extended No Rap).flac
+  ✅ 2 Unlimited - No Limit (Extended No Rap).flac | BPM=141.1013641357422 | Key=Bb minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 1%[0m[0;34m[12/1000][0m 2 Unlimited - No Limit (Master Blaster Remix).flac
+  ✅ 2 Unlimited - No Limit (Master Blaster Remix).flac | BPM=137.02322387695312 | Key=Bb minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 1%[0m[0;34m[13/1000][0m 2 Unlimited - The Magic Friend (Extended Remix).flac
+  ✅ 2 Unlimited - The Magic Friend (Extended Remix).flac | BPM=127.76171875 | Key=Bb minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 1%[0m[0;34m[14/1000][0m 2 Unlimited - Tribal Dance.flac
+  ✅ 2 Unlimited - Tribal Dance.flac | BPM=129.97512817382812 | Key=F minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 1%[0m[0;34m[15/1000][0m 2 Unlimited - Twilight Zone.flac
+  ✅ 2 Unlimited - Twilight Zone.flac | BPM=127.88609313964844 | Key=Bb minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 1%[0m[0;34m[16/1000][0m 2 Unlimited - Workaholic (Extended Remix).flac
+  ✅ 2 Unlimited - Workaholic (Extended Remix).flac | BPM=129.00555419921875 | Key=A minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 1%[0m[0;34m[17/1000][0m 3-V - Heart Of The Beat.flac
+  ✅ 3-V - Heart Of The Beat.flac | BPM=123.1978530883789 | Key=C# minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 1%[0m[0;34m[18/1000][0m 31 Minutos - Mi Mamá Me Lo Teje Todo.flac
+  ✅ 31 Minutos - Mi Mamá Me Lo Teje Todo.flac | BPM=114.81481170654297 | Key=B minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 1%[0m[0;34m[19/1000][0m 31 Minutos, Duque - Doggy Style.flac
+  ✅ 31 Minutos, Duque - Doggy Style.flac | BPM=161.94979858398438 | Key=B minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [##                                                ] 1%[0m[0;34m[20/1000][0m 31 Minutos, Freddy Turbina - Mi Equilibrio Espiritual.flac
+  ✅ 31 Minutos, Freddy Turbina - Mi Equilibrio Espiritual.flac | BPM=134.99534606933594 | Key=A major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 2%[0m[0;34m[21/1000][0m 31 Minutos, Juantástico - Rin Raja (En Vivo).flac
+  ✅ 31 Minutos, Juantástico - Rin Raja (En Vivo).flac | BPM=113.01166534423828 | Key=G major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 2%[0m[0;34m[22/1000][0m 38 Special - Caught Up In You.flac
+  ✅ 38 Special - Caught Up In You.flac | BPM=131.46920776367188 | Key=E major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 2%[0m[0;34m[23/1000][0m 49ers - Don'T You Love Me.flac
+  ✅ 49ers - Don'T You Love Me.flac | BPM=121.9423828125 | Key=A major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 2%[0m[0;34m[24/1000][0m A Flock Of Seagulls - I Ran (So Far Away) [Re-Recorded].flac
+  ✅ A Flock Of Seagulls - I Ran (So Far Away) [Re-Recorded].flac | BPM=147.04974365234375 | Key=G major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 2%[0m[0;34m[25/1000][0m A Flock Of Seagulls - I Ran (So Far Away).flac
+  ✅ A Flock Of Seagulls - I Ran (So Far Away).flac | BPM=145.17147827148438 | Key=G major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 2%[0m[0;34m[26/1000][0m A Flock Of Seagulls - Space Age Love Song (Extended Remix).flac
+  ✅ A Flock Of Seagulls - Space Age Love Song (Extended Remix).flac | BPM=140.028564453125 | Key=D major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 2%[0m[0;34m[27/1000][0m A Flock Of Seagulls - Space Age Love Song (Re-Recorded).flac
+  ✅ A Flock Of Seagulls - Space Age Love Song (Re-Recorded).flac | BPM=139.98268127441406 | Key=D major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 2%[0m[0;34m[28/1000][0m A Flock Of Seagulls - Space Age Love Song.flac
+  ✅ A Flock Of Seagulls - Space Age Love Song.flac | BPM=139.23020935058594 | Key=D major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 2%[0m[0;34m[29/1000][0m A Flock Of Seagulls - Telecommunication.flac
+  ✅ A Flock Of Seagulls - Telecommunication.flac | BPM=154.6408233642578 | Key=A major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 2%[0m[0;34m[30/1000][0m A Flock Of Seagulls - The More You Live The More You Love (Extended Remix).flac
+  ✅ A Flock Of Seagulls - The More You Live The More You Love (Extended Remix).flac | BPM=140.0315399169922 | Key=D major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 3%[0m[0;34m[31/1000][0m A Flock Of Seagulls - Wishing (If I Had a Photograph of You) (Extended Version).flac
+  ✅ A Flock Of Seagulls - Wishing (If I Had a Photograph of You) (Extended Version).flac | BPM=119.93836212158203 | Key=C# major
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 3%[0m[0;34m[32/1000][0m A Taste Of Honey - Boogie Oogie Oogie (New Boogie Mix).flac
+  ✅ A Taste Of Honey - Boogie Oogie Oogie (New Boogie Mix).flac | BPM=125.33773803710938 | Key=D minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 3%[0m[0;34m[33/1000][0m A Taste Of Honey - Boogie Oogie Oogie (Single Version  Remastered 2002).flac
+❌ No encontrado: /Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/A Taste Of Honey - Boogie Oogie Oogie (Single Version Remastered 2002).flac
+[0;32mProgreso: [#                                                 ] 3%[0m[0;34m[34/1000][0m A Taste Of Honey - Disco Dancin' (2004 - Remastered).flac
+  ✅ A Taste Of Honey - Disco Dancin' (2004 - Remastered).flac | BPM=104.17630767822266 | Key=E minor
+✅ Terminado. 1 elemento(s) con éxito.
+[0;32mProgreso: [#                                                 ] 3%[0m

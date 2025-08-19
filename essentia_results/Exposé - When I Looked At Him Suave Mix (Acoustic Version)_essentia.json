@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Expose\u0301 - When I Looked At Him Suave Mix (Acoustic Version).flac",
+  "file_name": "Expose\u0301 - When I Looked At Him Suave Mix (Acoustic Version).flac",
+  "timestamp": "2025-08-17T00:20:02.709822",
+  "essentia_features": {
+    "loudness_lufs": -8.856809616088867,
+    "danceability": 1.0168012380599976,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3788900375366211,
+    "liveness": 0.1,
+    "speechiness": 0.1300634339602153,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bow Wow Wow - Baby, Oh No.flac",
+  "file_name": "Bow Wow Wow - Baby, Oh No.flac",
+  "timestamp": "2025-08-16T23:18:10.251013",
+  "essentia_features": {
+    "loudness_lufs": -9.227409362792969,
+    "danceability": 1.541586995124817,
+    "acousticness": 0.5,
+    "instrumentalness": 0.573506623506546,
+    "liveness": 0.1,
+    "speechiness": 0.11615248567939782,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

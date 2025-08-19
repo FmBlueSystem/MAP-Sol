@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Darryl Pandy - Love Can't Turn Around (Long Mix).flac",
+  "file_name": "Darryl Pandy - Love Can't Turn Around (Long Mix).flac",
+  "timestamp": "2025-08-16T23:44:18.755495",
+  "essentia_features": {
+    "loudness_lufs": -5.121112823486328,
+    "danceability": 1.460389256477356,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5840186476707458,
+    "liveness": 0.1,
+    "speechiness": 0.18668490314287953,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

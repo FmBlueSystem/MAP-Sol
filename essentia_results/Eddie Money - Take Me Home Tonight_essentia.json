@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eddie Money - Take Me Home Tonight.flac",
+  "file_name": "Eddie Money - Take Me Home Tonight.flac",
+  "timestamp": "2025-08-17T00:07:27.162547",
+  "essentia_features": {
+    "loudness_lufs": -4.807167053222656,
+    "danceability": 1.0862956047058105,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4039783477783203,
+    "liveness": 0.1,
+    "speechiness": 0.16120521800241217,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

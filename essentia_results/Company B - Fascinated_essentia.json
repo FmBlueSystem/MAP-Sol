@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Company B - Fascinated.flac",
+  "file_name": "Company B - Fascinated.flac",
+  "timestamp": "2025-08-16T23:35:48.773137",
+  "essentia_features": {
+    "loudness_lufs": -9.292665481567383,
+    "danceability": 1.5892711877822876,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5338971018791199,
+    "liveness": 0.1,
+    "speechiness": 0.17014761681029314,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,374 @@
+{
+    "generated": "2025-08-15T23:03:42.212Z",
+    "coverage": [
+        {
+            "column": "LLM_GENRE",
+            "exists": true,
+            "populated": 3677,
+            "percentage": "99.9",
+            "unique_values": 389
+        },
+        {
+            "column": "LLM_SUBGENRE",
+            "exists": true,
+            "populated": 194,
+            "percentage": "5.3",
+            "unique_values": 87
+        },
+        {
+            "column": "LLM_ERA",
+            "exists": true,
+            "populated": 155,
+            "percentage": "4.2",
+            "unique_values": 6
+        },
+        {
+            "column": "LLM_MOOD",
+            "exists": true,
+            "populated": 291,
+            "percentage": "7.9",
+            "unique_values": 155
+        },
+        {
+            "column": "LLM_DESCRIPTION",
+            "exists": true,
+            "populated": 198,
+            "percentage": "5.4",
+            "unique_values": 197
+        },
+        {
+            "column": "LLM_ENERGY_LEVEL",
+            "exists": true,
+            "populated": 275,
+            "percentage": "7.5",
+            "unique_values": 15
+        },
+        {
+            "column": "LLM_DANCEABILITY",
+            "exists": true,
+            "populated": 195,
+            "percentage": "5.3",
+            "unique_values": 141
+        },
+        {
+            "column": "LLM_Mixing_Keys",
+            "exists": true,
+            "populated": 154,
+            "percentage": "4.2",
+            "unique_values": 25
+        },
+        {
+            "column": "LLM_Instruments",
+            "exists": true,
+            "populated": 154,
+            "percentage": "4.2",
+            "unique_values": 75
+        },
+        {
+            "column": "LLM_Vocal_Style",
+            "exists": true,
+            "populated": 154,
+            "percentage": "4.2",
+            "unique_values": 79
+        },
+        {
+            "column": "LLM_Production_Style",
+            "exists": true,
+            "populated": 156,
+            "percentage": "4.2",
+            "unique_values": 77
+        },
+        {
+            "column": "LLM_Energy_Description",
+            "exists": true,
+            "populated": 154,
+            "percentage": "4.2",
+            "unique_values": 114
+        },
+        {
+            "column": "LLM_DJ_Notes",
+            "exists": true,
+            "populated": 156,
+            "percentage": "4.2",
+            "unique_values": 129
+        },
+        {
+            "column": "LLM_OCCASIONS",
+            "exists": true,
+            "populated": 261,
+            "percentage": "7.1",
+            "unique_values": 65
+        },
+        {
+            "column": "LLM_MIXING_NOTES",
+            "exists": true,
+            "populated": 4,
+            "percentage": "0.1",
+            "unique_values": 1
+        },
+        {
+            "column": "LLM_COMPATIBLE_GENRES",
+            "exists": true,
+            "populated": 154,
+            "percentage": "4.2",
+            "unique_values": 81
+        },
+        {
+            "column": "LLM_RECOMMENDATIONS",
+            "exists": true,
+            "populated": 188,
+            "percentage": "5.1",
+            "unique_values": 148
+        },
+        {
+            "column": "LLM_CONTEXT",
+            "exists": true,
+            "populated": 194,
+            "percentage": "5.3",
+            "unique_values": 194
+        },
+        {
+            "column": "LLM_Similar_Artists",
+            "exists": true,
+            "populated": 156,
+            "percentage": "4.2",
+            "unique_values": 113
+        },
+        {
+            "column": "LLM_MUSICAL_INFLUENCE",
+            "exists": true,
+            "populated": 1,
+            "percentage": "0.0",
+            "unique_values": 1
+        },
+        {
+            "column": "LLM_ORIGINAL_ERA",
+            "exists": true,
+            "populated": 1,
+            "percentage": "0.0",
+            "unique_values": 1
+        },
+        {
+            "column": "LLM_RELEASE_ERA",
+            "exists": true,
+            "populated": 1,
+            "percentage": "0.0",
+            "unique_values": 1
+        },
+        {
+            "column": "LLM_STYLE_PERIOD",
+            "exists": true,
+            "populated": 1,
+            "percentage": "0.0",
+            "unique_values": 1
+        },
+        {
+            "column": "LLM_LYRICS_ANALYSIS",
+            "exists": true,
+            "populated": 0,
+            "percentage": "0.0",
+            "unique_values": 0
+        },
+        {
+            "column": "LLM_LYRICS_THEME",
+            "exists": true,
+            "populated": 71,
+            "percentage": "1.9",
+            "unique_values": 70
+        },
+        {
+            "column": "LLM_LYRICS_MOOD",
+            "exists": true,
+            "populated": 71,
+            "percentage": "1.9",
+            "unique_values": 64
+        },
+        {
+            "column": "LLM_LYRICS_LANGUAGE",
+            "exists": true,
+            "populated": 71,
+            "percentage": "1.9",
+            "unique_values": 9
+        },
+        {
+            "column": "LLM_EXPLICIT_CONTENT",
+            "exists": true,
+            "populated": 3681,
+            "percentage": "100.0",
+            "unique_values": 1
+        },
+        {
+            "column": "LLM_STORYTELLING",
+            "exists": true,
+            "populated": 3607,
+            "percentage": "98.0",
+            "unique_values": 7
+        },
+        {
+            "column": "LLM_IS_COMPILATION",
+            "exists": true,
+            "populated": 3681,
+            "percentage": "100.0",
+            "unique_values": 1
+        },
+        {
+            "column": "LLM_IS_REMIX",
+            "exists": true,
+            "populated": 3681,
+            "percentage": "100.0",
+            "unique_values": 2
+        },
+        {
+            "column": "LLM_IS_COVER",
+            "exists": true,
+            "populated": 3681,
+            "percentage": "100.0",
+            "unique_values": 1
+        },
+        {
+            "column": "LLM_IS_REISSUE",
+            "exists": true,
+            "populated": 3681,
+            "percentage": "100.0",
+            "unique_values": 1
+        },
+        {
+            "column": "LLM_CONFIDENCE_SCORE",
+            "exists": true,
+            "populated": 123,
+            "percentage": "3.3",
+            "unique_values": 5
+        },
+        {
+            "column": "LLM_VALIDATION_NOTES",
+            "exists": true,
+            "populated": 123,
+            "percentage": "3.3",
+            "unique_values": 123
+        },
+        {
+            "column": "LLM_WARNINGS",
+            "exists": true,
+            "populated": 0,
+            "percentage": "0.0",
+            "unique_values": 0
+        },
+        {
+            "column": "LLM_GENRE_CONFIDENCE",
+            "exists": true,
+            "populated": 34,
+            "percentage": "0.9",
+            "unique_values": 1
+        },
+        {
+            "column": "LLM_ANALYZED",
+            "exists": true,
+            "populated": 3681,
+            "percentage": "100.0",
+            "unique_values": 2
+        },
+        {
+            "column": "LLM_ANALYSIS_DATE",
+            "exists": true,
+            "populated": 233,
+            "percentage": "6.3",
+            "unique_values": 83
+        }
+    ],
+    "gaps": {
+        "never_analyzed": 3448,
+        "missing_description": 3483,
+        "missing_similar_artists": 3525,
+        "missing_dj_notes": 3525,
+        "missing_context": 3487,
+        "partial_analysis": 3479,
+        "complete_analysis": 61
+    },
+    "timeline": [
+        {
+            "date": "2025-08-15",
+            "tracks_analyzed": 5,
+            "genres_found": 5,
+            "moods_found": 4
+        },
+        {
+            "date": "2025-08-09",
+            "tracks_analyzed": 151,
+            "genres_found": 44,
+            "moods_found": 31
+        },
+        {
+            "date": "2025-08-08",
+            "tracks_analyzed": 1,
+            "genres_found": 1,
+            "moods_found": 1
+        },
+        {
+            "date": "2025-08-07",
+            "tracks_analyzed": 76,
+            "genres_found": 28,
+            "moods_found": 66
+        }
+    ],
+    "algorithmColumns": [
+        "AI_BPM",
+        "AI_ENERGY",
+        "AI_KEY",
+        "AI_DANCEABILITY",
+        "AI_VALENCE",
+        "AI_ACOUSTICNESS",
+        "AI_INSTRUMENTALNESS",
+        "AI_LIVENESS",
+        "AI_SPEECHINESS",
+        "AI_LOUDNESS",
+        "AI_TIME_SIGNATURE",
+        "AI_MODE"
+    ],
+    "llmColumns": [
+        "LLM_GENRE",
+        "LLM_SUBGENRE",
+        "LLM_ERA",
+        "LLM_MOOD",
+        "LLM_DESCRIPTION",
+        "LLM_ENERGY_LEVEL",
+        "LLM_DANCEABILITY",
+        "LLM_Mixing_Keys",
+        "LLM_Instruments",
+        "LLM_Vocal_Style",
+        "LLM_Production_Style",
+        "LLM_Energy_Description",
+        "LLM_DJ_Notes",
+        "LLM_OCCASIONS",
+        "LLM_MIXING_NOTES",
+        "LLM_COMPATIBLE_GENRES",
+        "LLM_RECOMMENDATIONS",
+        "LLM_CONTEXT",
+        "LLM_Similar_Artists",
+        "LLM_MUSICAL_INFLUENCE",
+        "LLM_ORIGINAL_ERA",
+        "LLM_RELEASE_ERA",
+        "LLM_STYLE_PERIOD",
+        "LLM_LYRICS_ANALYSIS",
+        "LLM_LYRICS_THEME",
+        "LLM_LYRICS_MOOD",
+        "LLM_LYRICS_LANGUAGE",
+        "LLM_EXPLICIT_CONTENT",
+        "LLM_STORYTELLING",
+        "LLM_IS_COMPILATION",
+        "LLM_IS_REMIX",
+        "LLM_IS_COVER",
+        "LLM_IS_REISSUE",
+        "LLM_CONFIDENCE_SCORE",
+        "LLM_VALIDATION_NOTES",
+        "LLM_WARNINGS",
+        "LLM_GENRE_CONFIDENCE",
+        "LLM_ANALYZED",
+        "LLM_ANALYSIS_DATE"
+    ],
+    "recommendations": [
+        "Focus on LLM_DESCRIPTION enrichment",
+        "Add Similar Artists for discovery",
+        "Complete DJ Notes for performance",
+        "Add cultural context using ISRC data"
+    ]
+}

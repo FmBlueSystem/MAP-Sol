@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/A Flock Of Seagulls - Telecommunication.flac",
+  "file_name": "A Flock Of Seagulls - Telecommunication.flac",
+  "timestamp": "2025-08-16T22:33:20.186875",
+  "essentia_features": {
+    "loudness_lufs": -3.9110240936279297,
+    "danceability": 1.141574501991272,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5407989323139191,
+    "liveness": 0.1,
+    "speechiness": 0.1674188511775632,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

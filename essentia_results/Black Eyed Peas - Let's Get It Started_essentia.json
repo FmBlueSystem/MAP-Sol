@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Black Eyed Peas - Let's Get It Started.flac",
+  "file_name": "Black Eyed Peas - Let's Get It Started.flac",
+  "timestamp": "2025-08-16T22:59:27.057833",
+  "essentia_features": {
+    "loudness_lufs": -2.586700439453125,
+    "danceability": 1.2972166538238525,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4994644522666931,
+    "liveness": 0.1,
+    "speechiness": 0.14878651302359122,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

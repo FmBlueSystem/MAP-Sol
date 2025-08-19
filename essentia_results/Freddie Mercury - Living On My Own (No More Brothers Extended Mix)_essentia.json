@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Freddie Mercury - Living On My Own (No More Brothers Extended Mix).flac",
+  "file_name": "Freddie Mercury - Living On My Own (No More Brothers Extended Mix).flac",
+  "timestamp": "2025-08-17T00:28:29.823470",
+  "essentia_features": {
+    "loudness_lufs": -7.685214996337891,
+    "danceability": 1.5672718286514282,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6430537104606628,
+    "liveness": 0.1,
+    "speechiness": 0.20777441481224887,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

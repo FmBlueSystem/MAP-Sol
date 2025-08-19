@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/D.O.D - Set Me Free.flac",
+  "file_name": "D.O.D - Set Me Free.flac",
+  "timestamp": "2025-08-16T23:42:08.946777",
+  "essentia_features": {
+    "loudness_lufs": -1.922872543334961,
+    "danceability": 1.2565357685089111,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5676043033599854,
+    "liveness": 0.1,
+    "speechiness": 0.22632762623585886,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

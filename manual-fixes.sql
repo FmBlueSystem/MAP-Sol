@@ -1,0 +1,103 @@
+-- SQL fixes for missing files
+-- Review before executing!
+
+-- Missing: Love in a Vacuum by 'Til Tuesday
+-- DELETE FROM audio_files WHERE id = 1283;
+-- Missing: Can't Help Myself (Club Version) by 2 Brothers On The 4th Floor
+-- DELETE FROM audio_files WHERE id = 1284;
+-- Missing: Never Alone (JoeySuki Remix) by 2 Brothers On The 4th Floor
+-- DELETE FROM audio_files WHERE id = 1285;
+-- Missing: Oh La La La (Extended Version) by 2 Eivissa
+-- DELETE FROM audio_files WHERE id = 1286;
+-- Missing: Dar La Vuelta (Bi-Lingual Extended) by 2 In A Room
+-- DELETE FROM audio_files WHERE id = 1287;
+-- Missing: Wiggle It (David Morales Mix) by 2 In A Room
+-- DELETE FROM audio_files WHERE id = 1288;
+-- Missing: Get Ready (Orchestral Mix) by 2 Unlimited
+-- DELETE FROM audio_files WHERE id = 1289;
+-- Missing: Get Ready for This (Orchestral Version) by 2 Unlimited
+-- DELETE FROM audio_files WHERE id = 1290;
+-- Missing: Let the Beat Control Your Body by 2 Unlimited
+-- DELETE FROM audio_files WHERE id = 1291;
+-- Missing: No Limit (Extended Mix) by 2 Unlimited
+-- DELETE FROM audio_files WHERE id = 1292;
+-- Missing: No Limit (Extended No Rap) by 2 Unlimited
+-- DELETE FROM audio_files WHERE id = 1293;
+-- Missing: No Limit (Master Blaster Remix) by 2 Unlimited
+-- DELETE FROM audio_files WHERE id = 1294;
+-- Missing: The Magic Friend (Extended Remix) by 2 Unlimited
+-- DELETE FROM audio_files WHERE id = 1295;
+-- Missing: Tribal Dance by 2 Unlimited
+-- DELETE FROM audio_files WHERE id = 1296;
+-- Missing: Twilight Zone by 2 Unlimited
+-- DELETE FROM audio_files WHERE id = 1297;
+-- Missing: Workaholic (Extended Remix) by 2 Unlimited
+-- DELETE FROM audio_files WHERE id = 1298;
+-- Missing: Heart Of The Beat by 3-V
+-- DELETE FROM audio_files WHERE id = 1299;
+-- Missing: Mi Mamá Me Lo Teje Todo by 31 Minutos
+-- DELETE FROM audio_files WHERE id = 1300;
+-- Missing: Doggy Style by 31 Minutos, Duque
+-- DELETE FROM audio_files WHERE id = 1301;
+-- Missing: Mi Equilibrio Espiritual by 31 Minutos, Freddy Turbina
+-- DELETE FROM audio_files WHERE id = 1302;
+-- Missing: Rin Raja (En Vivo) by 31 Minutos, Juantástico
+-- DELETE FROM audio_files WHERE id = 1323;
+-- Missing: Caught Up In You by 38 Special
+-- DELETE FROM audio_files WHERE id = 1324;
+-- Missing: Don'T You Love Me by 49ers
+-- DELETE FROM audio_files WHERE id = 1325;
+-- Missing: I Ran (So Far Away) [Re-Recorded] by A Flock Of Seagulls
+-- DELETE FROM audio_files WHERE id = 1326;
+-- Missing: I Ran (So Far Away) by A Flock Of Seagulls
+-- DELETE FROM audio_files WHERE id = 1327;
+-- Missing: Space Age Love Song (Extended Remix) by A Flock Of Seagulls
+-- DELETE FROM audio_files WHERE id = 1328;
+-- Missing: Space Age Love Song (Re-Recorded) by A Flock Of Seagulls
+-- DELETE FROM audio_files WHERE id = 1329;
+-- Missing: Space Age Love Song by A Flock Of Seagulls
+-- DELETE FROM audio_files WHERE id = 1330;
+-- Missing: Telecommunication by A Flock Of Seagulls
+-- DELETE FROM audio_files WHERE id = 1331;
+-- Missing: The More You Live The More You Love (Extended Remix) by A Flock Of Seagulls
+-- DELETE FROM audio_files WHERE id = 1332;
+-- Missing: Wishing (If I Had a Photograph of You) (Extended Version) by A Flock Of Seagulls
+-- DELETE FROM audio_files WHERE id = 1333;
+-- Missing: Boogie Oogie Oogie (New Boogie Mix) by A Taste Of Honey
+-- DELETE FROM audio_files WHERE id = 1334;
+-- Missing: Disco Dancin' (2004 - Remastered) by A Taste Of Honey
+-- DELETE FROM audio_files WHERE id = 1335;
+-- Missing: Cry Wolf (Extended Version) by a-ha
+-- DELETE FROM audio_files WHERE id = 1336;
+-- Missing: Take on Me (1985 Single Mix) [2015 Remaster] by a-ha
+-- DELETE FROM audio_files WHERE id = 1337;
+-- Missing: Take On Me (Kygo Remix) by a-ha
+-- DELETE FROM audio_files WHERE id = 1338;
+-- Missing: Take on Me (Single Mix) by a-ha
+-- DELETE FROM audio_files WHERE id = 1339;
+-- Missing: Take on Me by a-ha
+-- DELETE FROM audio_files WHERE id = 1340;
+-- Missing: The Sun Always Shines On T.V. (Extended Mix) by a-ha
+-- DELETE FROM audio_files WHERE id = 1341;
+-- Missing: The Sun Always Shines on T.V. (Extended Version) by a-ha
+-- DELETE FROM audio_files WHERE id = 1342;
+-- Missing: The Sun Always Shines on T.V. by a-ha
+-- DELETE FROM audio_files WHERE id = 1343;
+-- Missing: The Hitman (Extended Mix) by A.B. Logic
+-- DELETE FROM audio_files WHERE id = 1344;
+-- Missing: Dumb (VIP Extended Remix) by A7S
+-- DELETE FROM audio_files WHERE id = 1345;
+-- Missing: TAKE IT OFF by Aatig, FISHER
+-- DELETE FROM audio_files WHERE id = 1346;
+-- Missing: Dancing Queen by ABBA
+-- DELETE FROM audio_files WHERE id = 1347;
+-- Missing: Gimme! Gimme! Gimme! (A Man After Midnight) by ABBA
+-- DELETE FROM audio_files WHERE id = 1348;
+-- Missing: Be Near Me (Munich Disco Mix) by ABC
+-- DELETE FROM audio_files WHERE id = 1349;
+-- Missing: How To Be A Millionaire (Bond Street Mix) by ABC
+-- DELETE FROM audio_files WHERE id = 1350;
+-- Missing: Poison Arrow (Jazz Mix) by ABC
+-- DELETE FROM audio_files WHERE id = 1351;
+-- Missing: Poison Arrow by ABC
+-- DELETE FROM audio_files WHERE id = 1352;

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown - Travolta.flac",
+  "file_name": "Block & Crown - Travolta.flac",
+  "timestamp": "2025-08-16T23:04:36.043418",
+  "essentia_features": {
+    "loudness_lufs": -2.004758834838867,
+    "danceability": 1.406187653541565,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6198039352893829,
+    "liveness": 0.1,
+    "speechiness": 0.23051195472044395,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

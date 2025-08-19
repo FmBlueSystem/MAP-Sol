@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Martina Budde - Let's Celebrate.flac",
+  "file_name": "Block & Crown, Martina Budde - Let's Celebrate.flac",
+  "timestamp": "2025-08-16T23:10:59.968189",
+  "essentia_features": {
+    "loudness_lufs": -2.0465879440307617,
+    "danceability": 1.4102075099945068,
+    "acousticness": 0.5,
+    "instrumentalness": 0.610772043466568,
+    "liveness": 0.1,
+    "speechiness": 0.2343628201178933,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

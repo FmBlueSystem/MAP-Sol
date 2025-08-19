@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Daryl Hall & John Oates - I Can't Go for That (No Can Do).flac",
+  "file_name": "Daryl Hall & John Oates - I Can't Go for That (No Can Do).flac",
+  "timestamp": "2025-08-16T23:44:59.533073",
+  "essentia_features": {
+    "loudness_lufs": -7.16792106628418,
+    "danceability": 1.7111217975616455,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

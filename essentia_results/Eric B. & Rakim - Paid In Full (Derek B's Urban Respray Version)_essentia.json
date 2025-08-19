@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eric B. & Rakim - Paid In Full (Derek B's Urban Respray Version).flac",
+  "file_name": "Eric B. & Rakim - Paid In Full (Derek B's Urban Respray Version).flac",
+  "timestamp": "2025-08-17T00:15:27.793118",
+  "essentia_features": {
+    "loudness_lufs": -5.985023498535156,
+    "danceability": 1.552012324333191,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6695127487182617,
+    "liveness": 0.1,
+    "speechiness": 0.1077284412269556,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Don McLean - American Pie.flac",
+  "file_name": "Don McLean - American Pie.flac",
+  "timestamp": "2025-08-16T23:57:23.937005",
+  "essentia_features": {
+    "loudness_lufs": -5.1844024658203125,
+    "danceability": 1.175247311592102,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3599644899368286,
+    "liveness": 0.1,
+    "speechiness": 0.10361004645412515,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

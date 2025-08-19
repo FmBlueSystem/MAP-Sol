@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eddie Santiago - Tu\u0301 Me Haces Falta.flac",
+  "file_name": "Eddie Santiago - Tu\u0301 Me Haces Falta.flac",
+  "timestamp": "2025-08-17T00:07:55.943039",
+  "essentia_features": {
+    "loudness_lufs": -1.4191436767578125,
+    "danceability": 1.420261263847351,
+    "acousticness": 0.5,
+    "instrumentalness": 0.525429368019104,
+    "liveness": 0.1,
+    "speechiness": 0.12682869013295883,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

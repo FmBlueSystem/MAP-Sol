@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cathy Dennis - Touch Me (All Night Long) (Club Mix).flac",
+  "file_name": "Cathy Dennis - Touch Me (All Night Long) (Club Mix).flac",
+  "timestamp": "2025-08-16T23:26:18.525932",
+  "essentia_features": {
+    "loudness_lufs": -9.172660827636719,
+    "danceability": 1.6052311658859253,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6359425187110901,
+    "liveness": 0.1,
+    "speechiness": 0.1814578068631661,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/El Si\u0301mbolo - Levantando las Manos.flac",
+  "file_name": "El Si\u0301mbolo - Levantando las Manos.flac",
+  "timestamp": "2025-08-17T00:11:07.467672",
+  "essentia_features": {
+    "loudness_lufs": -3.1063690185546875,
+    "danceability": 1.525746464729309,
+    "acousticness": 0.5,
+    "instrumentalness": 0.47615277767181396,
+    "liveness": 0.1,
+    "speechiness": 0.1930250185123664,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

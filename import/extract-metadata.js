@@ -182,13 +182,61 @@ class MetadataExtractor {
                 tagging_date: metadata.common.taggingdate,
                 lyrics: metadata.common.lyrics?.[0],
                 mood: metadata.common.mood,
-                energy: metadata.common.energy,
+                energy: this.extractEnergyLevel(metadata),
                 existing_bmp: metadata.common.bpm || metadata.native?.['ID3v2.4']?.find(tag => tag.id === 'TBPM')?.value
             };
             
         } catch (error) {
             throw new Error(`Failed to extract metadata: ${error.message}`);
         }
+    }
+    
+    extractEnergyLevel(metadata) {
+        // Prioridad 1: Buscar en tags nativos ENERGYLEVEL
+        const energyLevelTag = metadata.native?.['ID3v2.4']?.find(tag => 
+            tag.id === 'TXXX' && tag.value?.description === 'ENERGYLEVEL'
+        );
+        if (energyLevelTag?.value?.text) {
+            const energy = parseInt(energyLevelTag.value.text);
+            if (!isNaN(energy)) return energy;
+        }
+        
+        // Prioridad 2: Buscar en el comment "Energy X"
+        const comment = Array.isArray(metadata.common.comment) 
+            ? metadata.common.comment[0] 
+            : metadata.common.comment;
+        if (comment) {
+            const energyMatch = comment.match(/Energy\s+(\d+)/i);
+            if (energyMatch) {
+                const energy = parseInt(energyMatch[1]);
+                if (!isNaN(energy)) return energy;
+            }
+        }
+        
+        // Prioridad 3: metadata.common.energy
+        if (metadata.common.energy) {
+            // Si es un valor entre 0-1, convertir a 1-10
+            const energy = parseFloat(metadata.common.energy);
+            if (!isNaN(energy)) {
+                if (energy <= 1) {
+                    return Math.round(energy * 10);
+                }
+                return Math.round(energy);
+            }
+        }
+        
+        // Prioridad 4: Buscar AI_Energy en tags
+        const aiEnergyTag = metadata.native?.['ID3v2.4']?.find(tag => 
+            tag.id === 'TXXX' && tag.value?.description === 'AI_Energy'
+        );
+        if (aiEnergyTag?.value?.text) {
+            const energy = parseFloat(aiEnergyTag.value.text);
+            if (!isNaN(energy)) {
+                return Math.round(energy * 10);
+            }
+        }
+        
+        return null;
     }
     
     async calculateHash(filePath, bytes = 1024 * 1024) {

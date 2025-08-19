@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Sean Finn, Maickel Telussa, THE SOULBOYZ - Sex Machine.flac",
+  "file_name": "Block & Crown, Sean Finn, Maickel Telussa, THE SOULBOYZ - Sex Machine.flac",
+  "timestamp": "2025-08-16T23:12:48.347205",
+  "essentia_features": {
+    "loudness_lufs": -1.0991230010986328,
+    "danceability": 1.473394751548767,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5650084316730499,
+    "liveness": 0.1,
+    "speechiness": 0.19863250572007576,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

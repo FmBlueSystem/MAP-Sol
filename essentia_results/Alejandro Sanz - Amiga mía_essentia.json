@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alejandro Sanz - Amiga mi\u0301a.flac",
+  "file_name": "Alejandro Sanz - Amiga mi\u0301a.flac",
+  "timestamp": "2025-08-16T22:39:44.021461",
+  "essentia_features": {
+    "loudness_lufs": -2.9691390991210938,
+    "danceability": 1.182407259941101,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4511188864707947,
+    "liveness": 0.1,
+    "speechiness": 0.12289589088343039,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

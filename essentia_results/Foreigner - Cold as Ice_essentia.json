@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Foreigner - Cold as Ice.flac",
+  "file_name": "Foreigner - Cold as Ice.flac",
+  "timestamp": "2025-08-17T00:25:44.130868",
+  "essentia_features": {
+    "loudness_lufs": -4.21153450012207,
+    "danceability": 1.0937596559524536,
+    "acousticness": 0.5,
+    "instrumentalness": 0.48469823598861694,
+    "liveness": 0.1,
+    "speechiness": 0.16132133489970457,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dimanchy - Ojo por Ojo.flac",
+  "file_name": "Dimanchy - Ojo por Ojo.flac",
+  "timestamp": "2025-08-16T23:55:13.716258",
+  "essentia_features": {
+    "loudness_lufs": -8.934467315673828,
+    "danceability": 1.3845348358154297,
+    "acousticness": 0.5,
+    "instrumentalness": 0.45373743772506714,
+    "liveness": 0.1,
+    "speechiness": 0.18168811778298416,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

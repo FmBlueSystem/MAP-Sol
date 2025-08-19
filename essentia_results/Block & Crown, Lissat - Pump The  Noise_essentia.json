@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Lissat - Pump The  Noise.flac",
+  "file_name": "Block & Crown, Lissat - Pump The  Noise.flac",
+  "timestamp": "2025-08-16T23:08:26.238298",
+  "essentia_features": {
+    "loudness_lufs": -2.689767837524414,
+    "danceability": 1.4183523654937744,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6461565494537354,
+    "liveness": 0.1,
+    "speechiness": 0.26227198192719825,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

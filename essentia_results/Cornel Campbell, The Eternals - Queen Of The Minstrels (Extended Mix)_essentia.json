@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cornel Campbell, The Eternals - Queen Of The Minstrels (Extended Mix).flac",
+  "file_name": "Cornel Campbell, The Eternals - Queen Of The Minstrels (Extended Mix).flac",
+  "timestamp": "2025-08-16T23:36:22.075807",
+  "essentia_features": {
+    "loudness_lufs": -7.321882247924805,
+    "danceability": 1.5561422109603882,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6288654804229736,
+    "liveness": 0.1,
+    "speechiness": 0.04730560557094905,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

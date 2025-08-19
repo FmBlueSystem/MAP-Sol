@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/31 Minutos - Mi Mama\u0301 Me Lo Teje Todo.flac",
+  "file_name": "31 Minutos - Mi Mama\u0301 Me Lo Teje Todo.flac",
+  "timestamp": "2025-08-16T22:32:35.476525",
+  "essentia_features": {
+    "loudness_lufs": -2.1029253005981445,
+    "danceability": 1.0677697658538818,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4018588662147522,
+    "liveness": 0.1,
+    "speechiness": 0.10954292355895778,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

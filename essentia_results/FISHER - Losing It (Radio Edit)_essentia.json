@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/FISHER - Losing It (Radio Edit).flac",
+  "file_name": "FISHER - Losing It (Radio Edit).flac",
+  "timestamp": "2025-08-17T00:20:05.456067",
+  "essentia_features": {
+    "loudness_lufs": -3.8302650451660156,
+    "danceability": 1.2860589027404785,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5903339982032776,
+    "liveness": 0.1,
+    "speechiness": 0.16137344592472141,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

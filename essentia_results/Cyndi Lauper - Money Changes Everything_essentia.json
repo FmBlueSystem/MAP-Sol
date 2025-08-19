@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cyndi Lauper - Money Changes Everything.flac",
+  "file_name": "Cyndi Lauper - Money Changes Everything.flac",
+  "timestamp": "2025-08-16T23:40:44.952650",
+  "essentia_features": {
+    "loudness_lufs": -2.415618896484375,
+    "danceability": 1.159542202949524,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4402211308479309,
+    "liveness": 0.1,
+    "speechiness": 0.17573273874040743,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

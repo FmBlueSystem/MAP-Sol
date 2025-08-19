@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Black Eyed Peas - VIDA LOCA (TRIO mix).flac",
+  "file_name": "Black Eyed Peas - VIDA LOCA (TRIO mix).flac",
+  "timestamp": "2025-08-16T22:59:48.016452",
+  "essentia_features": {
+    "loudness_lufs": -2.500460624694824,
+    "danceability": 1.3336201906204224,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5896484553813934,
+    "liveness": 0.1,
+    "speechiness": 0.09353889235448472,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

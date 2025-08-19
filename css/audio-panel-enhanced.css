@@ -1,0 +1,538 @@
+/* ======================================
+   ENHANCED AUDIO PANEL STYLES
+   Professional Studio Design v2.0
+   ====================================== */
+
+/* Base Audio Panel Container */
+.audio-panel-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(180deg, 
+        rgba(24, 24, 24, 0.98) 0%, 
+        rgba(18, 18, 18, 1) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+        0 -10px 40px rgba(0, 0, 0, 0.5),
+        0 -2px 10px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    z-index: 999999;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Main Layout Grid */
+.audio-panel-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 24px;
+    height: 100%;
+    padding: 16px 24px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+/* ===================
+   LEFT SECTION: Track Info
+   =================== */
+.track-info-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+}
+
+/* Album Artwork */
+.track-artwork {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.track-artwork:hover {
+    transform: scale(1.05);
+}
+
+.track-artwork img,
+.track-artwork-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.track-artwork-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.3);
+    background: radial-gradient(circle at center, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        transparent 70%);
+}
+
+/* Track Details */
+.track-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.track-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+}
+
+.track-artist {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.track-album {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ===================
+   CENTER SECTION: Playback Controls
+   =================== */
+.playback-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Control Buttons */
+.playback-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.control-btn.active {
+    color: #1db954;
+}
+
+/* Play/Pause Button */
+.play-pause-btn {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #1db954, #1ed760);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    box-shadow: 
+        0 4px 12px rgba(29, 185, 84, 0.3),
+        0 0 20px rgba(29, 185, 84, 0.2);
+    transition: all 0.2s ease;
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 
+        0 6px 16px rgba(29, 185, 84, 0.4),
+        0 0 30px rgba(29, 185, 84, 0.3);
+}
+
+.play-pause-btn:active {
+    transform: scale(0.95);
+}
+
+/* Progress Bar */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.time-display {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'SF Mono', 'Monaco', monospace;
+    min-width: 40px;
+    text-align: center;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.progress-bar:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1db954, #1ed760);
+    border-radius: 3px;
+    position: relative;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+}
+
+.progress-bar:hover .progress-fill::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================
+   RIGHT SECTION: Audio Meters & Volume
+   =================== */
+.audio-meters-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+/* Professional VU Meter */
+.vu-meter-container {
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    min-width: 280px;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vu-meter-title {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* VU Scale */
+.vu-scale {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 4px 6px 4px;
+    font-size: 8px;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: 'SF Mono', monospace;
+}
+
+.vu-scale span:last-child {
+    color: #ff3333;
+}
+
+/* Channel Meters */
+.channel-meter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.channel-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    width: 15px;
+    font-weight: bold;
+    text-shadow: 0 0 4px rgba(0, 255, 0, 0.3);
+}
+
+.meter-bar {
+    flex: 1;
+    height: 14px;
+    background: #0a0a0a;
+    border-radius: 7px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, 
+        #00ff00 0%, 
+        #00ff00 60%, 
+        #ffff00 80%, 
+        #ff6600 90%, 
+        #ff0000 100%);
+    transition: width 0.05s ease-out;
+    box-shadow: 0 0 12px currentColor;
+    position: relative;
+}
+
+.meter-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+.db-value {
+    color: #00ff00;
+    font-size: 10px;
+    font-family: 'SF Mono', monospace;
+    width: 45px;
+    text-align: right;
+    text-shadow: 0 0 6px currentColor;
+}
+
+/* Status Indicators */
+.status-indicators {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 16px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    transition: all 0.3s ease;
+}
+
+.status-led.active {
+    box-shadow: 0 0 8px currentColor;
+}
+
+.status-led.clip {
+    background: #330000;
+    border-color: #ff0000;
+}
+
+.status-led.clip.active {
+    background: #ff0000;
+    animation: clip-flash 0.5s;
+}
+
+.status-led.stereo {
+    background: #003300;
+    border-color: #00ff00;
+}
+
+.status-led.stereo.active {
+    background: #00ff00;
+}
+
+.status-led.comp {
+    background: #001133;
+    border-color: #0066ff;
+}
+
+.status-led.comp.active {
+    background: #0066ff;
+}
+
+.status-label {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Volume Control */
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+.volume-icon {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+}
+
+.volume-slider {
+    width: 100px;
+    height: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+/* Spectrum Analyzer */
+.spectrum-container {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, 
+        rgba(18, 18, 18, 0) 0%, 
+        rgba(18, 18, 18, 0.8) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.audio-panel-container:hover .spectrum-container {
+    opacity: 1;
+}
+
+#spectrum-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* Animations */
+@keyframes clip-flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .audio-panel-content {
+        grid-template-columns: 300px 1fr 350px;
+    }
+    
+    .vu-meter-container {
+        min-width: 240px;
+    }
+}
+
+@media (max-width: 900px) {
+    .audio-panel-container {
+        height: 100px;
+    }
+    
+    .track-artwork {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .vu-meter-container {
+        display: none;
+    }
+}
+
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+    .audio-panel-container {
+        background: linear-gradient(180deg, 
+            rgba(10, 10, 10, 0.98) 0%, 
+            rgba(5, 5, 5, 1) 100%);
+    }
+}
+
+/* Performance Optimizations */
+.audio-panel-container * {
+    will-change: auto;
+}
+
+.meter-fill,
+.progress-fill {
+    will-change: width;
+}
+
+.play-pause-btn:hover,
+.control-btn:hover {
+    will-change: transform;
+}

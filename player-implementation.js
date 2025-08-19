@@ -5,7 +5,7 @@
 
 // Asegurarse de que Howler esté cargado
 if (typeof Howl === 'undefined') {
-    console.error('⚠️ Howler.js no está cargado. Por favor incluye la biblioteca.');
+    logError('⚠️ Howler.js no está cargado. Por favor incluye la biblioteca.');
 }
 
 class MusicPlayer {
@@ -20,16 +20,16 @@ class MusicPlayer {
         this.repeatMode = 'off'; // 'off', 'one', 'all'
         this.isShuffled = false;
         this.originalPlaylist = [];
-        
+
         // Inicializar preloader si está disponible
         if (typeof trackPreloader !== 'undefined') {
             this.preloader = trackPreloader;
-            console.log('✅ Sistema de precarga activado');
+            logInfo('✅ Sistema de precarga activado');
         } else {
-            console.log('⚠️ Sistema de precarga no disponible');
+            logWarn('⚠️ Sistema de precarga no disponible');
             this.preloader = null;
         }
-        
+
         // Bind de métodos para eventos
         this.updateProgress = this.updateProgress.bind(this);
         this.progressInterval = null;
@@ -41,11 +41,11 @@ class MusicPlayer {
     setPlaylist(tracks) {
         this.originalPlaylist = [...tracks];
         this.playlist = [...tracks];
-        
+
         if (this.isShuffled) {
             this.shufflePlaylist();
         }
-        
+
         // Configurar preloader con la playlist
         if (this.preloader) {
             this.preloader.setPlaylist(this.playlist, this.currentTrackIndex);
@@ -58,7 +58,7 @@ class MusicPlayer {
     playTrack(trackId, trackData = null) {
         // Buscar el track en la playlist
         const trackIndex = this.playlist.findIndex(t => t.id === trackId);
-        
+
         if (trackIndex === -1 && trackData) {
             // Si no está en la playlist, agregarlo temporalmente
             this.playlist = [trackData];
@@ -66,29 +66,29 @@ class MusicPlayer {
         } else if (trackIndex !== -1) {
             this.currentTrackIndex = trackIndex;
         } else {
-            console.error('Track no encontrado:', trackId);
+            logError('Track no encontrado:', trackId);
             return;
         }
-        
+
         const track = this.playlist[this.currentTrackIndex];
-        
+
         // Detener el sonido actual si existe
         if (this.currentSound) {
             this.currentSound.stop();
             this.currentSound.unload();
         }
-        
+
         // Verificar si el track está precargado
         let soundToPlay = null;
-        
+
         if (this.preloader) {
             const preloaded = this.preloader.getPreloadedTrack(trackId);
             if (preloaded && preloaded.howl) {
                 soundToPlay = preloaded.howl;
-                console.log('🚀 Usando track precargado');
+                logInfo('🚀 Usando track precargado');
             }
         }
-        
+
         // Si no está precargado, crear nuevo Howl
         if (!soundToPlay) {
             soundToPlay = new Howl({
@@ -96,7 +96,7 @@ class MusicPlayer {
                 html5: true,
                 volume: this.volume,
                 onload: () => {
-                    console.log('✅ Track cargado:', track.title);
+                    logInfo('✅ Track cargado:', track.title);
                 },
                 onplay: () => {
                     this.isPlaying = true;
@@ -118,23 +118,23 @@ class MusicPlayer {
                     this.handleTrackEnd();
                 },
                 onloaderror: (id, error) => {
-                    console.error('Error cargando track:', error);
+                    logError('Error cargando track:', error);
                     this.showError('Error al cargar el archivo de audio');
                 }
             });
         }
-        
+
         // Configurar volumen correcto
         soundToPlay.volume(this.isMuted ? 0 : this.volume);
-        
+
         // Guardar referencia y reproducir
         this.currentSound = soundToPlay;
         this.currentTrackId = trackId;
         this.currentSound.play();
-        
+
         // Actualizar UI
         this.highlightCurrentTrack(trackId);
-        
+
         // Precargar siguientes tracks
         if (this.preloader) {
             this.preloader.updateCurrentIndex(this.currentTrackIndex);
@@ -145,10 +145,12 @@ class MusicPlayer {
      * Reproduce el siguiente track
      */
     playNext() {
-        if (this.playlist.length === 0) return;
-        
+        if (this.playlist.length === 0) {
+            return;
+        }
+
         let nextIndex = this.currentTrackIndex + 1;
-        
+
         if (nextIndex >= this.playlist.length) {
             if (this.repeatMode === 'all') {
                 nextIndex = 0;
@@ -158,7 +160,7 @@ class MusicPlayer {
                 return;
             }
         }
-        
+
         const nextTrack = this.playlist[nextIndex];
         this.playTrack(nextTrack.id);
     }
@@ -167,16 +169,18 @@ class MusicPlayer {
      * Reproduce el track anterior
      */
     playPrevious() {
-        if (this.playlist.length === 0) return;
-        
+        if (this.playlist.length === 0) {
+            return;
+        }
+
         // Si estamos más de 3 segundos en el track actual, reiniciarlo
         if (this.currentSound && this.currentSound.seek() > 3) {
             this.currentSound.seek(0);
             return;
         }
-        
+
         let prevIndex = this.currentTrackIndex - 1;
-        
+
         if (prevIndex < 0) {
             if (this.repeatMode === 'all') {
                 prevIndex = this.playlist.length - 1;
@@ -184,7 +188,7 @@ class MusicPlayer {
                 prevIndex = 0;
             }
         }
-        
+
         const prevTrack = this.playlist[prevIndex];
         this.playTrack(prevTrack.id);
     }
@@ -200,7 +204,7 @@ class MusicPlayer {
             }
             return;
         }
-        
+
         if (this.isPlaying) {
             this.currentSound.pause();
         } else {
@@ -217,7 +221,7 @@ class MusicPlayer {
             this.currentSound.unload();
             this.currentSound = null;
         }
-        
+
         this.isPlaying = false;
         this.currentTrackId = null;
         this.currentTrackIndex = -1;
@@ -243,23 +247,25 @@ class MusicPlayer {
      * Actualiza el progreso del track
      */
     updateProgress() {
-        if (!this.currentSound || !this.isPlaying) return;
-        
+        if (!this.currentSound || !this.isPlaying) {
+            return;
+        }
+
         const seek = this.currentSound.seek() || 0;
         const duration = this.currentSound.duration() || 0;
-        
+
         // Actualizar tiempo actual
         const currentTimeEl = document.getElementById('currentTime');
         if (currentTimeEl) {
             currentTimeEl.textContent = this.formatTime(seek);
         }
-        
+
         // Actualizar duración total
         const durationEl = document.getElementById('duration');
         if (durationEl) {
             durationEl.textContent = this.formatTime(duration);
         }
-        
+
         // Actualizar barra de progreso
         const progressFill = document.querySelector('.progress-bar-fill');
         if (progressFill && duration > 0) {
@@ -290,8 +296,10 @@ class MusicPlayer {
      * Busca una posición en el track
      */
     seek(percentage) {
-        if (!this.currentSound) return;
-        
+        if (!this.currentSound) {
+            return;
+        }
+
         const duration = this.currentSound.duration();
         const seekTime = duration * percentage;
         this.currentSound.seek(seekTime);
@@ -303,15 +311,15 @@ class MusicPlayer {
      */
     setVolume(value) {
         this.volume = Math.max(0, Math.min(1, value));
-        
+
         if (this.currentSound) {
             this.currentSound.volume(this.volume);
         }
-        
+
         // Actualizar UI de volumen
         const volumeFill = document.querySelector('.volume-bar-fill');
         if (volumeFill) {
-            volumeFill.style.width = (this.volume * 100) + '%';
+            volumeFill.style.width = this.volume * 100 + '%';
         }
     }
 
@@ -320,11 +328,11 @@ class MusicPlayer {
      */
     toggleMute() {
         this.isMuted = !this.isMuted;
-        
+
         if (this.currentSound) {
             this.currentSound.volume(this.isMuted ? 0 : this.volume);
         }
-        
+
         // Actualizar icono de volumen
         const volumeBtn = document.getElementById('btn-volume');
         if (volumeBtn) {
@@ -339,7 +347,7 @@ class MusicPlayer {
         const modes = ['off', 'one', 'all'];
         const currentIndex = modes.indexOf(this.repeatMode);
         this.repeatMode = modes[(currentIndex + 1) % modes.length];
-        
+
         // Actualizar UI
         const repeatBtn = document.getElementById('repeatBtn');
         if (repeatBtn) {
@@ -353,7 +361,7 @@ class MusicPlayer {
      */
     toggleShuffle() {
         this.isShuffled = !this.isShuffled;
-        
+
         if (this.isShuffled) {
             this.shufflePlaylist();
         } else {
@@ -362,12 +370,12 @@ class MusicPlayer {
             this.playlist = [...this.originalPlaylist];
             this.currentTrackIndex = this.playlist.findIndex(t => t.id === currentTrack.id);
         }
-        
+
         // Actualizar preloader
         if (this.preloader) {
             this.preloader.setPlaylist(this.playlist, this.currentTrackIndex);
         }
-        
+
         // Actualizar UI
         const shuffleBtn = document.getElementById('shuffleBtn');
         if (shuffleBtn) {
@@ -380,13 +388,13 @@ class MusicPlayer {
      */
     shufflePlaylist() {
         const currentTrack = this.playlist[this.currentTrackIndex];
-        
+
         // Fisher-Yates shuffle
         for (let i = this.playlist.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [this.playlist[i], this.playlist[j]] = [this.playlist[j], this.playlist[i]];
         }
-        
+
         // Mantener el track actual en su posición
         if (currentTrack) {
             this.currentTrackIndex = this.playlist.findIndex(t => t.id === currentTrack.id);
@@ -399,7 +407,7 @@ class MusicPlayer {
     formatTime(seconds) {
         const minutes = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
-        return `${minutes}:${secs.toString().padStart(2, '0')}`;
+        return `${minutes}:${secs.toString().padStart(2, '0')}';
     }
 
     /**
@@ -410,7 +418,7 @@ class MusicPlayer {
         if (playBtn) {
             const playIcon = playBtn.querySelector('.icon-play');
             const pauseIcon = playBtn.querySelector('.icon-pause');
-            
+
             if (this.isPlaying) {
                 playIcon.style.display = 'none';
                 pauseIcon.style.display = 'block';
@@ -430,9 +438,13 @@ class MusicPlayer {
         const titleEl = document.getElementById('currentTrackTitle');
         const artistEl = document.getElementById('currentTrackArtist');
         const artworkEl = document.getElementById('currentTrackArtwork');
-        
-        if (titleEl) titleEl.textContent = track.title || 'Unknown';
-        if (artistEl) artistEl.textContent = track.artist || 'Unknown Artist';
+
+        if (titleEl) {
+            titleEl.textContent = track.title || 'Unknown';
+        }
+        if (artistEl) {
+            artistEl.textContent = track.artist || 'Unknown Artist';
+        }
         if (artworkEl && track.artwork_url) {
             artworkEl.src = track.artwork_url;
         }
@@ -446,9 +458,9 @@ class MusicPlayer {
         document.querySelectorAll('.track-playing').forEach(el => {
             el.classList.remove('track-playing');
         });
-        
+
         // Agregar highlight al actual
-        document.querySelectorAll(`[data-track-id="${trackId}"]`).forEach(el => {
+        document.querySelectorAll(`[data-track-id="${trackId}"]").forEach(el => {
             el.closest('.track-card, .track-row, .compact-card')?.classList.add('track-playing');
         });
     }
@@ -457,7 +469,7 @@ class MusicPlayer {
      * Muestra un error al usuario
      */
     showError(message) {
-        console.error(message);
+        logError(message);
         // Aquí podrías mostrar un toast o notificación
     }
 
@@ -491,12 +503,12 @@ function handlePlay(filePath, trackId) {
         title: 'Unknown',
         artist: 'Unknown'
     };
-    
+
     // Establecer playlist si no existe
     if (player.playlist.length === 0) {
         player.setPlaylist(filteredTracks);
     }
-    
+
     player.playTrack(trackId, track);
 }
 

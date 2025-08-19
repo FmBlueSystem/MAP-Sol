@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Lissat - Tonight.flac",
+  "file_name": "Block & Crown, Lissat - Tonight.flac",
+  "timestamp": "2025-08-16T23:08:57.323980",
+  "essentia_features": {
+    "loudness_lufs": -1.8092002868652344,
+    "danceability": 1.3718767166137695,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6757118701934814,
+    "liveness": 0.1,
+    "speechiness": 0.17805127287168654,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

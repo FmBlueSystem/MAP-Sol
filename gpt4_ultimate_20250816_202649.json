@@ -1,0 +1,112 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez muscia de Tidal Original descarga de musica/Consolidado2025/pruebas/Frankie Ruiz - Deseándote.flac",
+    "file_name": "Frankie Ruiz - Deseándote.flac",
+    "original_metadata": {
+        "artist": "Frankie Ruiz",
+        "title": "Deseándote",
+        "album": "Show",
+        "genre": "Unknown",
+        "file_name": "Frankie Ruiz - Deseándote.flac",
+        "year": 1996,
+        "existing_key": "5B",
+        "isrc": "USUL19900233"
+    },
+    "precomputed_features": {
+        "loudness_lufs": -12.77,
+        "danceability": 0.54,
+        "acousticness": 1.0,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.042,
+        "valence": 0.65,
+        "energy": 0.5,
+        "musical_key": "Eb major",
+        "camelot_key": "5B",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "temporal_analysis": {
+        "real_year": 1999,
+        "metadata_year": 1996,
+        "isrc_parsed": {
+            "valid": true,
+            "country": "US",
+            "registrant": "UL1",
+            "year": 1999,
+            "recording_id": "00233",
+            "original": "USUL19900233"
+        },
+        "year_explanation": "Original recording from 1999 (ISRC), metadata shows 1996 (likely reissue/compilation)"
+    },
+    "gpt4_analysis": {
+        "genre": "Salsa",
+        "subgenres": ["Salsa Romántica", "Salsa Dura", "Timba"],
+        "mood": "Romantic",
+        "energy": 0.5,
+        "danceability": 0.54,
+        "valence": 0.65,
+        "acousticness": 1.0,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.042,
+        "loudness": -12.77,
+        "era": "1990s",
+        "cultural_context": "1999 fue un a�o vibrante para la salsa, con artistas como Frankie Ruiz manteniendo viva la escena.",
+        "occasions": ["dinner", "chill", "sunset", "wedding"],
+        "musical_key": "Eb major",
+        "camelot_key": "5B",
+        "description": "Una pieza rom�ntica de salsa con alta instrumentalidad y energ�a moderada, ideal para ocasiones �ntimas.",
+        "lyrics_analysis": {
+            "lyrics_source": "missing",
+            "language": null,
+            "topic_main": null,
+            "topics_secondary": [],
+            "coherence_score": 0.0,
+            "coherence_notes": [],
+            "lyric_mood": null,
+            "sentiment": null,
+            "emotions": {
+                "joy": 0,
+                "sadness": 0,
+                "anger": 0,
+                "fear": 0,
+                "surprise": 0,
+                "trust": 0
+            },
+            "narrative_perspective": null,
+            "narrative_time": null,
+            "structure": [],
+            "repeated_phrases": [],
+            "hook_candidates": [],
+            "keywords": [],
+            "named_entities": {
+                "persons": [],
+                "places": [],
+                "brands": []
+            },
+            "cultural_references": [],
+            "call_and_response": false,
+            "countins_shouts": false,
+            "explicitness_level": "clean",
+            "content_warnings": [],
+            "singalong_index": 0,
+            "chantability": 0,
+            "justification": []
+        },
+        "confidence": 0.56,
+        "validation_notes": [
+            "Real recording year: 1999",
+            "Agregado 'Salsa Romántica' (apropiado para 1999)",
+            "Agregado 'Salsa Dura' (apropiado para 1999)",
+            "Agregado 'Timba' (apropiado para 1999)"
+        ],
+        "real_year": 1999,
+        "year_source": "Original recording from 1999 (ISRC), metadata shows 1996 (likely reissue/compilation)"
+    },
+    "processing_time": 11.33,
+    "tokens_used": 2950,
+    "estimated_cost": 0.0392,
+    "timestamp": "2025-08-16T20:26:49.084114",
+    "version": "ultimate_v3"
+}

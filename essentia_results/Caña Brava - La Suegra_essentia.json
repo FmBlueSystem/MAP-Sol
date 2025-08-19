@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Can\u0303a Brava - La Suegra.flac",
+  "file_name": "Can\u0303a Brava - La Suegra.flac",
+  "timestamp": "2025-08-16T23:24:27.195116",
+  "essentia_features": {
+    "loudness_lufs": -7.092195510864258,
+    "danceability": 1.513733148574829,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4184764623641968,
+    "liveness": 0.1,
+    "speechiness": 0.19409603975215964,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

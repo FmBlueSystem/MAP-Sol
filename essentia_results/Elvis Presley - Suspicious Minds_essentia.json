@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Elvis Presley - Suspicious Minds.flac",
+  "file_name": "Elvis Presley - Suspicious Minds.flac",
+  "timestamp": "2025-08-17T00:13:56.277351",
+  "essentia_features": {
+    "loudness_lufs": -6.104610443115234,
+    "danceability": 1.1046642065048218,
+    "acousticness": 0.5,
+    "instrumentalness": 0.49468016624450684,
+    "liveness": 0.1,
+    "speechiness": 0.0991155104695116,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

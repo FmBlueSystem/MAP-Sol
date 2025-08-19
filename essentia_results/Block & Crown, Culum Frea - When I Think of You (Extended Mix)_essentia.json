@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Culum Frea - When I Think of You (Extended Mix).flac",
+  "file_name": "Block & Crown, Culum Frea - When I Think of You (Extended Mix).flac",
+  "timestamp": "2025-08-16T23:06:12.387386",
+  "essentia_features": {
+    "loudness_lufs": -2.8624534606933594,
+    "danceability": 1.5065280199050903,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7001525461673737,
+    "liveness": 0.1,
+    "speechiness": 0.22838226048471483,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

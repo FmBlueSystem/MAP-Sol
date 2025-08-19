@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Carlos Vives - Volvi\u0301 a Nacer.flac",
+  "file_name": "Carlos Vives - Volvi\u0301 a Nacer.flac",
+  "timestamp": "2025-08-16T23:25:50.261120",
+  "essentia_features": {
+    "loudness_lufs": -4.503269195556641,
+    "danceability": 1.0997488498687744,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5087567567825317,
+    "liveness": 0.1,
+    "speechiness": 0.10697178841756066,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

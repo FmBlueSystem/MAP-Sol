@@ -1,0 +1,19 @@
+{
+    "file": "'Til Tuesday - Love in a Vacuum.flac",
+    "status": "success",
+    "bpm": 123.18692016601562,
+    "bpm_confidence": 0,
+    "key": "E major",
+    "key_strength": 0.9034823179244995,
+    "energy": 296109.1875,
+    "rms": 0.17629481852054596,
+    "loudness": 0,
+    "danceability": 0.7,
+    "acousticness": 0.829,
+    "instrumentalness": 0.3,
+    "liveness": 1.0,
+    "speechiness": 0.133,
+    "valence": 0.74,
+    "duration": 216.04,
+    "fallback_used": false
+}

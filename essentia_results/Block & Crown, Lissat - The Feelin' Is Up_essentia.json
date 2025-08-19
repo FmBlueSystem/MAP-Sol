@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Lissat - The Feelin' Is Up.flac",
+  "file_name": "Block & Crown, Lissat - The Feelin' Is Up.flac",
+  "timestamp": "2025-08-16T23:08:52.762834",
+  "essentia_features": {
+    "loudness_lufs": -2.4463462829589844,
+    "danceability": 1.286307692527771,
+    "acousticness": 0.5,
+    "instrumentalness": 0.627231240272522,
+    "liveness": 0.1,
+    "speechiness": 0.20390890093797034,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

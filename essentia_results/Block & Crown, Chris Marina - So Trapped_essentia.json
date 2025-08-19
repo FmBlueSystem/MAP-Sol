@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Chris Marina - So Trapped.flac",
+  "file_name": "Block & Crown, Chris Marina - So Trapped.flac",
+  "timestamp": "2025-08-16T23:05:43.088036",
+  "essentia_features": {
+    "loudness_lufs": -1.6076316833496094,
+    "danceability": 1.3421951532363892,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

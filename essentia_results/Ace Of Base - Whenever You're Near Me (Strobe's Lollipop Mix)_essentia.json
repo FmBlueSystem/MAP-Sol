@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Ace Of Base - Whenever You're Near Me (Strobe's Lollipop Mix).flac",
+  "file_name": "Ace Of Base - Whenever You're Near Me (Strobe's Lollipop Mix).flac",
+  "timestamp": "2025-08-16T22:37:06.660172",
+  "essentia_features": {
+    "loudness_lufs": -6.060245513916016,
+    "danceability": 1.4602936506271362,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7005398273468018,
+    "liveness": 0.1,
+    "speechiness": 0.18040593374836839,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

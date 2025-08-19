@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/DEVO - Peek-A-Boo.flac",
+  "file_name": "DEVO - Peek-A-Boo.flac",
+  "timestamp": "2025-08-16T23:42:12.063680",
+  "essentia_features": {
+    "loudness_lufs": -9.460620880126953,
+    "danceability": 1.659310221672058,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5125499367713928,
+    "liveness": 0.1,
+    "speechiness": 0.1301690297399266,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

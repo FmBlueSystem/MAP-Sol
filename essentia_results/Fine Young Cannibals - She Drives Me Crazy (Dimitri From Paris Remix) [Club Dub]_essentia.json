@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fine Young Cannibals - She Drives Me Crazy (Dimitri From Paris Remix) [Club Dub].flac",
+  "file_name": "Fine Young Cannibals - She Drives Me Crazy (Dimitri From Paris Remix) [Club Dub].flac",
+  "timestamp": "2025-08-17T00:22:05.465963",
+  "essentia_features": {
+    "loudness_lufs": -6.596397399902344,
+    "danceability": 1.3147051334381104,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5949679017066956,
+    "liveness": 0.1,
+    "speechiness": 0.15670144917330878,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

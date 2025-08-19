@@ -4,8 +4,11 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const fs = require('fs');
 
-// Configurar nombre de la aplicación - CODENAME: Sol
-app.setName('Sol');
+// Configurar nombre de la aplicación antes de cualquier otra cosa
+// IMPORTANTE: Forzar el nombre de múltiples maneras
+process.title = 'MAP';
+app.name = 'MAP';
+app.setName('MAP');
 
 // Handlers modularizados
 const { createSearchHandler } = require('./handlers/search-handler');
@@ -13,6 +16,9 @@ const { createFilterHandler } = require('./handlers/filter-handler');
 const { createArtworkHandler } = require('./handlers/artwork-handler');
 const { createExportHandler, createGetFormatsHandler } = require('./handlers/export-handler');
 const { createNormalizationHandlers } = require('./handlers/normalization-handler');
+const { createPlaylistHandlers } = require('./handlers/playlist-handler');
+const { createAdvancedPlaylistHandlers } = require('./handlers/playlist-advanced-handler');
+const { createAudioHandler } = require('./handlers/audio-handler');
 
 let mainWindow;
 let db;
@@ -31,7 +37,8 @@ function createSplashScreen() {
         }
     });
 
-    splash.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(`
+    splash.loadURL(
+        `data:text/html;charset=utf-8,${encodeURIComponent(`
         <!DOCTYPE html>
         <html>
         <head>
@@ -95,7 +102,7 @@ function createSplashScreen() {
             </div>
         </body>
         </html>
-    `)}`);
+    ")}");
 
     setTimeout(() => {
         if (splash && !splash.isDestroyed()) {
@@ -111,31 +118,31 @@ function createWindow() {
     // Configurar icono de la aplicación
     const iconPath = path.join(__dirname, 'image.png');
     let icon;
-    
+
     // Verificar si el archivo de icono existe
     if (fs.existsSync(iconPath)) {
         icon = nativeImage.createFromPath(iconPath);
     }
-    
+
     mainWindow = new BrowserWindow({
         width: 1400,
         height: 900,
-        title: 'Sol - Music Analyzer Pro',
+        title: 'MAP - Music Analyzer Pro',
         titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'default', // Para macOS, título integrado
         show: false, // No mostrar hasta que el splash termine
         webPreferences: {
-            nodeIntegration: true,  // REVERTED - App needs this
-            contextIsolation: false,  // REVERTED - For now
-            webSecurity: false, // Para cargar imágenes locales
-            // preload: path.join(__dirname, 'preload.js') // DISABLED for now
+            nodeIntegration: true, // TEMPORARY - for compatibility
+            contextIsolation: false, // TEMPORARY - for compatibility
+            webSecurity: false // Para cargar imágenes locales
+            // preload: path.join(__dirname, 'preload.js') // DISABLED temporarily
         },
         icon: icon || undefined // Usar el icono si existe
     });
 
     mainWindow.loadFile('index-with-search.html');
-    
+
     // Prevenir sobrescritura del título
-    mainWindow.on('page-title-updated', (event) => {
+    mainWindow.on('page-title-updated', event => {
         event.preventDefault();
     });
 }
@@ -145,10 +152,10 @@ function createApplicationMenu() {
     const template = [
         // Menú principal - macOS: Nombre de App, Windows/Linux: File
         {
-            label: process.platform === 'darwin' ? 'Sol' : 'File',
+            label: process.platform === 'darwin' ? 'MAP' : 'File',
             submenu: [
                 {
-                    label: 'About Sol',
+                    label: 'About MAP',
                     click: () => {
                         showAboutWindow();
                     }
@@ -169,31 +176,33 @@ function createApplicationMenu() {
                     }
                 },
                 { type: 'separator' },
-                ...(process.platform === 'darwin' ? [
-                    {
-                        label: 'Services',
-                        role: 'services',
-                        submenu: []
-                    },
-                    { type: 'separator' },
-                    {
-                        label: 'Hide Sol',
-                        accelerator: 'CmdOrCtrl+H',
-                        role: 'hide'
-                    },
-                    {
-                        label: 'Hide Others',
-                        accelerator: 'CmdOrCtrl+Shift+H',
-                        role: 'hideothers'
-                    },
-                    {
-                        label: 'Show All',
-                        role: 'unhide'
-                    },
-                    { type: 'separator' }
-                ] : []),
+                ...(process.platform === 'darwin'
+                    ? [
+                          {
+                              label: 'Services',
+                              role: 'services',
+                              submenu: []
+                          },
+                          { type: 'separator' },
+                          {
+                              label: 'Hide MAP',
+                              accelerator: 'CmdOrCtrl+H',
+                              role: 'hide'
+                          },
+                          {
+                              label: 'Hide Others',
+                              accelerator: 'CmdOrCtrl+Shift+H',
+                              role: 'hideothers'
+                          },
+                          {
+                              label: 'Show All',
+                              role: 'unhide'
+                          },
+                          { type: 'separator' }
+                      ]
+                    : []),
                 {
-                    label: 'Quit Sol',
+                    label: 'Quit MAP',
                     accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
                     click: () => {
                         app.quit();
@@ -201,7 +210,7 @@ function createApplicationMenu() {
                 }
             ]
         },
-        
+
         // Menú File
         {
             label: 'File',
@@ -230,7 +239,7 @@ function createApplicationMenu() {
                 }
             ]
         },
-        
+
         // Menú Edit
         {
             label: 'Edit',
@@ -244,7 +253,7 @@ function createApplicationMenu() {
                 { role: 'selectall' }
             ]
         },
-        
+
         // Menú View
         {
             label: 'View',
@@ -260,7 +269,7 @@ function createApplicationMenu() {
                 { role: 'togglefullscreen' }
             ]
         },
-        
+
         // Menú Window
         {
             label: 'Window',
@@ -268,13 +277,10 @@ function createApplicationMenu() {
             submenu: [
                 { role: 'minimize' },
                 { role: 'close' },
-                ...(process.platform === 'darwin' ? [
-                    { type: 'separator' },
-                    { role: 'front' }
-                ] : [])
+                ...(process.platform === 'darwin' ? [{ type: 'separator' }, { role: 'front' }] : [])
             ]
         },
-        
+
         // Menú Help
         {
             label: 'Help',
@@ -289,7 +295,9 @@ function createApplicationMenu() {
                 {
                     label: 'Documentation',
                     click: () => {
-                        require('electron').shell.openExternal('https://github.com/bluesystemio/music-analyzer');
+                        require('electron').shell.openExternal(
+                            'https://github.com/bluesystemio/music-analyzer'
+                        );
                     }
                 }
             ]
@@ -322,7 +330,7 @@ function createApplicationMenu() {
     Menu.setApplicationMenu(menu);
 }
 
-// Ventana About Sol personalizada
+// Ventana About MAP personalizada
 function showAboutWindow() {
     const aboutWindow = new BrowserWindow({
         width: 450,
@@ -337,8 +345,9 @@ function showAboutWindow() {
         titleBarStyle: 'hidden',
         frame: false
     });
-    
-    aboutWindow.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(`
+
+    aboutWindow.loadURL(
+        `data:text/html;charset=utf-8,${encodeURIComponent(`
         <!DOCTYPE html>
         <html>
         <head>
@@ -413,19 +422,21 @@ function showAboutWindow() {
         </head>
         <body>
             <button class="close-btn" onclick="window.close()">×</button>
-            <div class="logo">☀️</div>
-            <div class="codename">Sol</div>
+            <div class="logo">🎵</div>
+            <div class="codename">MAP</div>
             <div class="title">Music Analyzer Pro</div>
             <div class="company">by BlueSystemIO | Audio Division</div>
-            <div class="version">Version 1.0.0 - Codename: Sol</div>
+            <div class="version">Version 1.0.0</div>
         </body>
         </html>
-    `)}`);
+    ")}");
 }
 
 // Ventana de Configuración de Audio
+let configWindow = null;
+
 function showAudioConfigWindow() {
-    const configWindow = new BrowserWindow({
+    configWindow = new BrowserWindow({
         width: 800,
         height: 700,
         parent: mainWindow,
@@ -613,7 +624,7 @@ function showAudioConfigWindow() {
         <div class="buttons">
             <button onclick="resetDefaults()">Reset Defaults</button>
             <button onclick="window.close()">Cancel</button>
-            <button onclick="saveConfig()" style="background: #667eea; color: white;">Save</button>
+            <button onclick="saveConfig(this)" style="background: #667eea; color: white;">Save</button>
         </div>
         
         <script>
@@ -628,30 +639,33 @@ function showAudioConfigWindow() {
                 document.getElementById('preloadValue').textContent = e.target.value + 's';
             });
             
-            // Load saved configuration
-            window.addEventListener('DOMContentLoaded', () => {
-                const saved = localStorage.getItem('audioConfig');
-                if (saved) {
-                    const config = JSON.parse(saved);
-                    document.getElementById('smartVolume').value = config.smartVolume || 'balanced';
-                    document.getElementById('targetLufs').value = config.targetLufs || -14;
-                    document.getElementById('peakProtection').checked = config.peakProtection !== false;
-                    document.getElementById('algorithm').value = config.algorithm || 'lufs';
-                    document.getElementById('crossfade').value = config.crossfade || 0;
-                    document.getElementById('gapless').checked = config.gapless !== false;
-                    document.getElementById('autoPlay').checked = config.autoPlay !== false;
-                    document.getElementById('preload').value = config.preload || 3;
-                    document.getElementById('sampleRate').value = config.sampleRate || 'auto';
-                    document.getElementById('bufferSize').value = config.bufferSize || 1024;
-                    document.getElementById('hwAccel').checked = config.hwAccel !== false;
-                    
-                    // Update displays
-                    document.getElementById('crossfadeValue').textContent = (config.crossfade || 0) + 's';
-                    document.getElementById('preloadValue').textContent = (config.preload || 3) + 's';
+            // Load saved configuration from main process
+            window.addEventListener('DOMContentLoaded', async () => {
+                try {
+                    const config = await ipcRenderer.invoke('get-audio-config');
+                    if (config) {
+                        document.getElementById('smartVolume').value = config.smartVolume || 'balanced';
+                        document.getElementById('targetLufs').value = config.targetLufs || -14;
+                        document.getElementById('peakProtection').checked = config.peakProtection !== false;
+                        document.getElementById('algorithm').value = config.algorithm || 'lufs';
+                        document.getElementById('crossfade').value = config.crossfade || 0;
+                        document.getElementById('gapless').checked = config.gapless !== false;
+                        document.getElementById('autoPlay').checked = config.autoPlay !== false;
+                        document.getElementById('preload').value = config.preload || 3;
+                        document.getElementById('sampleRate').value = config.sampleRate || 'auto';
+                        document.getElementById('bufferSize').value = config.bufferSize || 1024;
+                        document.getElementById('hwAccel').checked = config.hwAccel !== false;
+                        
+                        // Update displays
+                        document.getElementById('crossfadeValue').textContent = (config.crossfade || 0) + 's';
+                        document.getElementById('preloadValue').textContent = (config.preload || 3) + 's';
+                    }
+                } catch (error) {
+                    logDebug('No saved configuration found');
                 }
             });
             
-            function saveConfig() {
+            function saveConfig(button) {
                 const config = {
                     smartVolume: document.getElementById('smartVolume').value,
                     targetLufs: parseInt(document.getElementById('targetLufs').value),
@@ -666,12 +680,21 @@ function showAudioConfigWindow() {
                     hwAccel: document.getElementById('hwAccel').checked
                 };
                 
-                // Save locally
-                localStorage.setItem('audioConfig', JSON.stringify(config));
-                
-                // Send to main process
+                // Send to main process to save
                 ipcRenderer.send('save-audio-config', config);
-                window.close();
+                
+                // Show success message
+                if (button) {
+                    button.textContent = '✅ Saved!';
+                    button.style.background = '#4CAF50';
+                    button.style.color = 'white';
+                    button.disabled = true;
+                }
+                
+                // Close window after showing confirmation
+                setTimeout(function() {
+                    ipcRenderer.send('close-config-window');
+                }, 1000);
             }
             
             function resetDefaults() {
@@ -694,14 +717,40 @@ function showAudioConfigWindow() {
         </script>
     </body>
     </html>
-    `;
+    ';
 
     configWindow.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(configHTML)}`);
-    
+
     configWindow.once('ready-to-show', () => {
         configWindow.show();
     });
+
+    // Limpiar referencia cuando se cierre
+    configWindow.on('closed', () => {
+        configWindow = null;
+    });
 }
+
+// Handler para cerrar la ventana de configuración si window.close() falla
+ipcMain.on('close-config-window', () => {
+    if (configWindow) {
+        configWindow.close();
+    }
+});
+
+// Suprimir advertencias de ffmpeg ANTES de que la app esté lista
+app.commandLine.appendSwitch('disable-gpu');
+app.commandLine.appendSwitch('disable-software-rasterizer');
+app.commandLine.appendSwitch('disable-gpu-sandbox');
+app.commandLine.appendSwitch('--disable-logging');
+app.commandLine.appendSwitch('--log-level=3'); // Solo errores fatales
+app.commandLine.appendSwitch('--disable-dev-shm-usage');
+
+// Suprimir específicamente errores de ffmpeg y advertencias de seguridad
+process.env.ELECTRON_ENABLE_LOGGING = '0';
+process.env.ELECTRON_LOG_FILE = '/dev/null';
+process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
+process.env.ELECTRON_NO_ATTACH_CONSOLE = 'true';
 
 app.whenReady().then(() => {
     // Configurar icono del dock en macOS
@@ -712,26 +761,51 @@ app.whenReady().then(() => {
             app.dock.setIcon(dockIcon);
         }
     }
-    
+
     const dbPath = path.join(__dirname, 'music_analyzer.db');
     db = new sqlite3.Database(dbPath);
-    
-    console.log('✅ Base de datos conectada');
-    
+
+    logInfo('✅ Base de datos conectada');
+
     // Registrar handlers
     ipcMain.handle('get-files-with-cached-artwork', createArtworkHandler(db));
     ipcMain.handle('search-tracks', createSearchHandler(db));
     ipcMain.handle('get-filter-options', createFilterHandler(db));
-    
+
+    // Handler para Audio Configuration
+    ipcMain.on('save-audio-config', (event, config) => {
+        // Guardar configuración en archivo
+        const configPath = path.join(__dirname, 'audio-config.json');
+        fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
+        logInfo('✅ Audio configuration saved:', config);
+
+        // Enviar la configuración al renderer para aplicarla
+        if (mainWindow && mainWindow.webContents) {
+            mainWindow.webContents.send('audio-config-updated', config);
+        }
+    });
+
+    // Handler para cargar configuración guardada
+    ipcMain.handle('get-audio-config', async () => {
+        const configPath = path.join(__dirname, 'audio-config.json');
+        if (fs.existsSync(configPath)) {
+            const configData = fs.readFileSync(configPath, 'utf8');
+            return JSON.parse(configData);
+        }
+        return null;
+    });
+
     // Handler for detailed track metadata
     ipcMain.handle('get-track-metadata', async (event, filePath) => {
         const mm = require('music-metadata');
-        
+
         try {
             const metadata = await mm.parseFile(filePath);
             return {
                 format: metadata.format.codec || metadata.format.container,
-                bitrate: metadata.format.bitrate ? Math.round(metadata.format.bitrate / 1000) : null,
+                bitrate: metadata.format.bitrate
+                    ? Math.round(metadata.format.bitrate / 1000)
+                    : null,
                 sampleRate: metadata.format.sampleRate,
                 duration: metadata.format.duration,
                 lossless: metadata.format.lossless,
@@ -739,13 +813,13 @@ app.whenReady().then(() => {
                 bitsPerSample: metadata.format.bitsPerSample
             };
         } catch (error) {
-            console.error('Error parsing metadata:', error);
+            logError('Error parsing metadata:', error);
             return null;
         }
     });
     ipcMain.handle('export-dj-format', createExportHandler(db));
     ipcMain.handle('get-export-formats', createGetFormatsHandler());
-    
+
     // Registrar normalization handlers
     const normHandlers = createNormalizationHandlers(db);
     ipcMain.handle('get-normalization-data', normHandlers.getNormalizationData);
@@ -754,7 +828,7 @@ app.whenReady().then(() => {
     ipcMain.handle('save-batch-normalization', normHandlers.saveBatchNormalization);
     ipcMain.handle('get-normalization-stats', normHandlers.getNormalizationStats);
     ipcMain.handle('get-normalization-preferences', normHandlers.getNormalizationPreferences);
-    
+
     // Handler para obtener path de assets
     ipcMain.handle('get-asset-path', (event, assetName) => {
         const assetPath = path.join(__dirname, 'assets', assetName);
@@ -766,20 +840,295 @@ app.whenReady().then(() => {
         return path.join(__dirname, 'assets/images/default-album.png');
     });
     ipcMain.handle('save-normalization-preferences', normHandlers.saveNormalizationPreferences);
-    
+
+    // Registrar audio handlers
+    const audioHandlers = createAudioHandler(db);
+
+    // Playback control
+    ipcMain.handle('play-track', audioHandlers['play-track']);
+    ipcMain.handle('play-file', audioHandlers['play-file']);
+    ipcMain.handle('pause', audioHandlers['pause']);
+    ipcMain.handle('resume', audioHandlers['resume']);
+    ipcMain.handle('stop', audioHandlers['stop']);
+    ipcMain.handle('next', audioHandlers['next']);
+    ipcMain.handle('previous', audioHandlers['previous']);
+
+    // Queue management
+    ipcMain.handle('set-queue', audioHandlers['set-queue']);
+    ipcMain.handle('add-to-queue', audioHandlers['add-to-queue']);
+    ipcMain.handle('clear-queue', audioHandlers['clear-queue']);
+    ipcMain.handle('get-queue', audioHandlers['get-queue']);
+
+    // Player state
+    ipcMain.handle('get-player-state', audioHandlers['get-player-state']);
+    ipcMain.handle('set-volume', audioHandlers['set-volume']);
+    ipcMain.handle('seek', audioHandlers['seek']);
+
+    // Track analysis
+    ipcMain.handle('analyze-track', audioHandlers['analyze-track']);
+    ipcMain.handle('get-transition-points', audioHandlers['get-transition-points']);
+
+    // Registrar playlist handlers con HAMMS
+    const playlistHandlers = createPlaylistHandlers(db);
+
+    // CRUD básico
+    ipcMain.handle('create-playlist', playlistHandlers.createPlaylist);
+    ipcMain.handle('get-playlists', playlistHandlers.getPlaylists);
+    ipcMain.handle('get-playlist-with-tracks', playlistHandlers.getPlaylistWithTracks);
+    ipcMain.handle('add-track-to-playlist', playlistHandlers.addTrackToPlaylist);
+    ipcMain.handle('remove-track-from-playlist', playlistHandlers.removeTrackFromPlaylist);
+    ipcMain.handle('update-playlist', playlistHandlers.updatePlaylist);
+    ipcMain.handle('delete-playlist', playlistHandlers.deletePlaylist);
+
+    // Smart Playlists
+    ipcMain.handle('create-smart-playlist', playlistHandlers.createSmartPlaylist);
+    ipcMain.handle('get-smart-playlist-tracks', playlistHandlers.getSmartPlaylistTracks);
+
+    // HAMMS Recommendations
+    ipcMain.handle('get-hamms-recommendations', playlistHandlers.getHAMMSRecommendations);
+    ipcMain.handle('create-hamms-playlist', playlistHandlers.createHAMMSPlaylist);
+
+    // Análisis armónico
+    ipcMain.handle('get-harmonic-matches', playlistHandlers.getHarmonicMatches);
+
+    // Tags personalizados
+    ipcMain.handle('create-tag', playlistHandlers.createTag);
+    ipcMain.handle('add-tag-to-track', playlistHandlers.addTagToTrack);
+
+    // Historial y estadísticas
+    ipcMain.handle('record-play-history', playlistHandlers.recordPlayHistory);
+    ipcMain.handle('get-playlist-stats', playlistHandlers.getPlaylistStats);
+
+    // Registrar advanced playlist handlers - COMENTADO TEMPORALMENTE POR ERROR
+    // const advancedPlaylistHandlers = createAdvancedPlaylistHandlers(db);
+
+    // // Ordenamiento
+    // ipcMain.handle('reorder-playlist-tracks', advancedPlaylistHandlers.reorderPlaylistTracks);
+    // ipcMain.handle('move-track-in-playlist', advancedPlaylistHandlers.moveTrackInPlaylist);
+
+    // // Duplicación y merge
+    // ipcMain.handle('duplicate-playlist', advancedPlaylistHandlers.duplicatePlaylist);
+    // ipcMain.handle('merge-playlists', advancedPlaylistHandlers.mergePlaylists);
+
+    // // Folders
+    // ipcMain.handle('create-playlist-folder', advancedPlaylistHandlers.createPlaylistFolder);
+    // ipcMain.handle('move-playlist-to-folder', advancedPlaylistHandlers.movePlaylistToFolder);
+    // ipcMain.handle('get-playlist-hierarchy', advancedPlaylistHandlers.getPlaylistHierarchy);
+
+    // // Export avanzado
+    // ipcMain.handle('export-to-rekordbox', advancedPlaylistHandlers.exportToRekordbox);
+    // ipcMain.handle('export-to-m3u8', advancedPlaylistHandlers.exportToM3U8);
+
+    // // Analytics
+    // ipcMain.handle('get-playlist-analytics', advancedPlaylistHandlers.getPlaylistAnalytics);
+
+    // // Auto-arrange
+    // ipcMain.handle('auto-arrange-by-energy', advancedPlaylistHandlers.autoArrangeByEnergy);
+    // ipcMain.handle('auto-arrange-by-key', advancedPlaylistHandlers.autoArrangeByKey);
+    // ipcMain.handle('suggest-next-track', advancedPlaylistHandlers.suggestNextTrack);
+
     // Handler para guardar configuración de audio desde el menú
     ipcMain.on('save-audio-config', (event, config) => {
-        console.log('Audio configuration saved:', config);
+        logDebug('Audio configuration saved:', config);
         // Enviar la configuración actualizada a la ventana principal
         if (mainWindow) {
             mainWindow.webContents.send('audio-config-updated', config);
         }
     });
-    
+
+    // Asegurarse de que el nombre está configurado
+    if (process.platform === 'darwin') {
+        app.setName('MAP');
+    }
+
+    // Crear el menú ANTES de las ventanas
+    createApplicationMenu();
+
     // Crear splash screen primero
     createSplashScreen();
     createWindow();
-    createApplicationMenu(); // Crear el menú de aplicación
+});
+
+// ==================== METADATA VIEWER HANDLERS ====================
+const mm = require('music-metadata');
+const fs = require('fs').promises;
+
+// Obtener estadísticas de la base de datos
+ipcMain.handle('get-database-stats', async () => {
+    return new Promise((resolve, reject) => {
+        const queries = {
+            totalFiles: 'SELECT COUNT(*) as count FROM audio_files',
+            withArtwork: 'SELECT COUNT(*) as count FROM audio_files WHERE artwork_path IS NOT NULL',
+            withAI: 'SELECT COUNT(*) as count FROM llm_metadata WHERE AI_BPM IS NOT NULL',
+            avgBPM: 'SELECT AVG(AI_BPM) as avg FROM llm_metadata WHERE AI_BPM IS NOT NULL'
+        };
+
+        const stats = {};
+        let completed = 0;
+
+        Object.entries(queries).forEach(([key, query]) => {
+            db.get(query, (err, row) => {
+                if (!err && row) {
+                    stats[key] = row.count || row.avg || 0;
+                }
+                completed++;
+                if (completed === Object.keys(queries).length) {
+                    resolve(stats);
+                }
+            });
+        });
+    });
+});
+
+// Buscar archivos por término
+ipcMain.handle('search-metadata', async (event, searchTerm) => {
+    return new Promise((resolve, reject) => {
+        const query = `
+            SELECT file_path, title, artist, album 
+            FROM audio_files 
+            WHERE title LIKE ? OR artist LIKE ? OR file_name LIKE ? OR album LIKE ?
+            LIMIT 10
+        `;
+        const pattern = `%${searchTerm}%`;
+
+        db.all(query, [pattern, pattern, pattern, pattern], (err, rows) => {
+            if (err) {
+                logError('Search error:', err);
+                reject(err);
+            } else {
+                resolve(rows);
+            }
+        });
+    });
+});
+
+// Obtener archivo aleatorio
+ipcMain.handle('get-random-file', async () => {
+    return new Promise((resolve, reject) => {
+        db.get('SELECT file_path FROM audio_files ORDER BY RANDOM() LIMIT 1', (err, row) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(row);
+            }
+        });
+    });
+});
+
+// Obtener metadatos completos de un archivo
+ipcMain.handle('get-file-metadata', async (event, filePath) => {
+    try {
+        const result = {
+            filePath: filePath,
+            artwork: null,
+            fileSize: null,
+            format: null,
+            metadata: null,
+            database: null,
+            ai: null
+        };
+
+        // Obtener tamaño del archivo
+        try {
+            const stats = await fs.stat(filePath);
+            result.fileSize = stats.size;
+        } catch (err) {
+            logError('Error getting file stats:', err);
+        }
+
+        // Obtener metadatos del archivo
+        try {
+            const metadata = await mm.parseFile(filePath);
+
+            result.format = {
+                container: metadata.format.container,
+                codec: metadata.format.codec,
+                sampleRate: metadata.format.sampleRate,
+                bitrate: metadata.format.bitrate,
+                duration: metadata.format.duration,
+                channels: metadata.format.numberOfChannels,
+                lossless: metadata.format.lossless
+            };
+
+            result.metadata = {
+                title: metadata.common.title,
+                artist: metadata.common.artist,
+                album: metadata.common.album,
+                year: metadata.common.year,
+                genre: metadata.common.genre?.join(', '),
+                track: metadata.common.track
+                    ? `${metadata.common.track.no}/${metadata.common.track.of}`
+                    : null,
+                bpm: metadata.common.bpm,
+                key: metadata.common.key,
+                isrc: metadata.common.isrc,
+                label: metadata.common.label,
+                composer: metadata.common.composer
+            };
+        } catch (err) {
+            logError('Error parsing metadata:', err);
+        }
+
+        // Obtener datos de la base de datos
+        const dbData = await new Promise(resolve => {
+            const query = `
+                SELECT 
+                    af.*,
+                    lm.*
+                FROM audio_files af
+                LEFT JOIN llm_metadata lm ON af.id = lm.file_id
+                WHERE af.file_path = ?
+            `;
+
+            db.get(query, [filePath], (err, row) => {
+                if (err) {
+                    logError('Database error:', err);
+                    resolve(null);
+                } else {
+                    resolve(row);
+                }
+            });
+        });
+
+        if (dbData) {
+            result.database = {
+                id: dbData.id,
+                title: dbData.title,
+                artist: dbData.artist,
+                album: dbData.album,
+                genre: dbData.genre,
+                created_at: dbData.created_at,
+                updated_at: dbData.updated_at
+            };
+
+            if (dbData.artwork_path) {
+                result.artwork = dbData.artwork_path;
+            }
+
+            if (dbData.file_id) {
+                result.ai = {
+                    LLM_GENRE: dbData.LLM_GENRE,
+                    AI_MOOD: dbData.AI_MOOD,
+                    LLM_MOOD: dbData.LLM_MOOD,
+                    AI_ENERGY: dbData.AI_ENERGY,
+                    AI_BPM: dbData.AI_BPM,
+                    AI_KEY: dbData.AI_KEY,
+                    AI_DANCEABILITY: dbData.AI_DANCEABILITY,
+                    AI_VALENCE: dbData.AI_VALENCE,
+                    AI_ACOUSTICNESS: dbData.AI_ACOUSTICNESS,
+                    AI_INSTRUMENTALNESS: dbData.AI_INSTRUMENTALNESS,
+                    AI_LIVENESS: dbData.AI_LIVENESS,
+                    AI_SPEECHINESS: dbData.AI_SPEECHINESS,
+                    AI_LOUDNESS: dbData.AI_LOUDNESS
+                };
+            }
+        }
+
+        return result;
+    } catch (error) {
+        logError('Error in get-file-metadata:', error);
+        throw error;
+    }
 });
 
 app.on('window-all-closed', () => {

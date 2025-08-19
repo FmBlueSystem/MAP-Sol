@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown - Doo Wah Diddy (Extended Mix).flac",
+  "file_name": "Block & Crown - Doo Wah Diddy (Extended Mix).flac",
+  "timestamp": "2025-08-16T23:01:52.467629",
+  "essentia_features": {
+    "loudness_lufs": -2.245314598083496,
+    "danceability": 1.4602798223495483,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6499689519405365,
+    "liveness": 0.1,
+    "speechiness": 0.23609812814992834,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

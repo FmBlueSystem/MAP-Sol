@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fragma - Toca's Miracle (2000 Extended Mix).flac",
+  "file_name": "Fragma - Toca's Miracle (2000 Extended Mix).flac",
+  "timestamp": "2025-08-17T00:26:48.461072",
+  "essentia_features": {
+    "loudness_lufs": -5.1954498291015625,
+    "danceability": 1.4707021713256836,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6592113971710205,
+    "liveness": 0.1,
+    "speechiness": 0.14229570191280375,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

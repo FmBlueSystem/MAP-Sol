@@ -1,0 +1,3 @@
+Error: Invalid JSON output
+File: /Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/3-V - Heart Of The Beat.flac
+Time: 2025-08-16T22:08:16.110011

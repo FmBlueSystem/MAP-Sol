@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Joel - Movin' Out (Anthony's Song).flac",
+  "file_name": "Billy Joel - Movin' Out (Anthony's Song).flac",
+  "timestamp": "2025-08-16T22:55:59.039274",
+  "essentia_features": {
+    "loudness_lufs": -2.6002883911132812,
+    "danceability": 1.1404104232788086,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3555126190185547,
+    "liveness": 0.1,
+    "speechiness": 0.11880427757613372,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

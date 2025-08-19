@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/31 Minutos, Juanta\u0301stico - Rin Raja (En Vivo).flac",
+  "file_name": "31 Minutos, Juanta\u0301stico - Rin Raja (En Vivo).flac",
+  "timestamp": "2025-08-16T22:32:41.812465",
+  "essentia_features": {
+    "loudness_lufs": -2.569181442260742,
+    "danceability": 1.2040820121765137,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3501456379890442,
+    "liveness": 0.1,
+    "speechiness": 0.1344476669593647,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

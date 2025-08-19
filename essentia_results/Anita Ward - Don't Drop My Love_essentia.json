@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Anita Ward - Don't Drop My Love.flac",
+  "file_name": "Anita Ward - Don't Drop My Love.flac",
+  "timestamp": "2025-08-16T22:43:54.736151",
+  "essentia_features": {
+    "loudness_lufs": -9.356502532958984,
+    "danceability": 1.5395702123641968,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4026447534561157,
+    "liveness": 0.1,
+    "speechiness": 0.16093592361004821,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

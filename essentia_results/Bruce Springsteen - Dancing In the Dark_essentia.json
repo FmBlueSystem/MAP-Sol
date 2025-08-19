@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bruce Springsteen - Dancing In the Dark.flac",
+  "file_name": "Bruce Springsteen - Dancing In the Dark.flac",
+  "timestamp": "2025-08-16T23:19:50.517796",
+  "essentia_features": {
+    "loudness_lufs": -4.084291458129883,
+    "danceability": 1.3889052867889404,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

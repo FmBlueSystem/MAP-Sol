@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Amber - This Is Your Night (Berman's House Mix).flac",
+  "file_name": "Amber - This Is Your Night (Berman's House Mix).flac",
+  "timestamp": "2025-08-16T22:42:16.049582",
+  "essentia_features": {
+    "loudness_lufs": -4.832902908325195,
+    "danceability": 1.4274296760559082,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5131689310073853,
+    "liveness": 0.1,
+    "speechiness": 0.17380532561548684,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,126 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez muscia de Tidal Original descarga de musica/Consolidado2025/pruebas/George McCrae - Rock Your Baby.flac",
+    "file_name": "George McCrae - Rock Your Baby.flac",
+    "original_metadata": {
+        "artist": "George Mccrae",
+        "title": "Rock Your Baby",
+        "album": "Rock Your Baby",
+        "genre": "Unknown",
+        "file_name": "George McCrae - Rock Your Baby.flac",
+        "year": 1974,
+        "existing_key": "4A",
+        "isrc": "USRH10553733"
+    },
+    "precomputed_features": {
+        "loudness_lufs": -16.04,
+        "danceability": 0.56,
+        "acousticness": 1.0,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.159,
+        "valence": 0.4,
+        "energy": 0.5,
+        "musical_key": "F minor",
+        "camelot_key": "4A",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "temporal_analysis": {
+        "real_year": 2005,
+        "metadata_year": 1974,
+        "isrc_parsed": {
+            "valid": true,
+            "country": "US",
+            "registrant": "RH1",
+            "year": 2005,
+            "recording_id": "53733",
+            "original": "USRH10553733"
+        },
+        "year_explanation": "Original recording from 2005 (ISRC), metadata shows 1974"
+    },
+    "gpt4_analysis": {
+        "genre": null,
+        "subgenres": [],
+        "mood": "Romantic",
+        "energy": 0.5,
+        "danceability": 0.56,
+        "valence": 0.4,
+        "acousticness": 1.0,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.159,
+        "loudness": -16.04,
+        "era": "2000s",
+        "cultural_context": null,
+        "occasions": ["chill", "dinner", "sunset", "wedding"],
+        "musical_key": "F minor",
+        "camelot_key": "4A",
+        "description": "A tender, romantic tune expressing desire and intimacy through gentle lyrics.",
+        "lyrics_analysis": {
+            "lyrics_source": "provided",
+            "language": "English",
+            "topic_main": "Love and intimacy",
+            "topics_secondary": ["Desire", "Connection"],
+            "coherence_score": 0.9,
+            "coherence_notes": ["Consistent theme of romance and intimacy throughout"],
+            "lyric_mood": "Romantic",
+            "sentiment": 0.75,
+            "emotions": {
+                "joy": 0.8,
+                "sadness": 0.1,
+                "anger": 0,
+                "fear": 0,
+                "surprise": 0.1,
+                "trust": 0.9
+            },
+            "narrative_perspective": "second",
+            "narrative_time": "present",
+            "structure": [
+                {
+                    "section": "chorus",
+                    "summary": "Expresses a deep desire for closeness and intimacy.",
+                    "sample_lines": ["Woman, take me in your arms", "Rock your baby"]
+                }
+            ],
+            "repeated_phrases": [
+                {
+                    "phrase": "Woman, take me in your arms",
+                    "count": 8,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "Rock your baby",
+                    "count": 8,
+                    "reason": "hook"
+                }
+            ],
+            "hook_candidates": ["Rock your baby", "Woman, take me in your arms"],
+            "keywords": ["love", "intimacy", "desire", "connection"],
+            "named_entities": {
+                "persons": [],
+                "places": [],
+                "brands": []
+            },
+            "cultural_references": [],
+            "call_and_response": false,
+            "countins_shouts": false,
+            "explicitness_level": "clean",
+            "content_warnings": [],
+            "singalong_index": 0.8,
+            "chantability": 0.8,
+            "justification": [
+                "High instrumentalness with lyrics present may indicate a backing track with vocal samples."
+            ]
+        },
+        "confidence": 0.9199999999999999,
+        "validation_notes": ["Real recording year: 2005", "Era corregida: 1970s → 2000s"],
+        "real_year": 2005,
+        "year_source": "Original recording from 2005 (ISRC), metadata shows 1974"
+    },
+    "processing_time": 15.09,
+    "tokens_used": 3479,
+    "estimated_cost": 0.0471,
+    "timestamp": "2025-08-16T20:46:35.667475",
+    "version": "ultimate_v3"
+}

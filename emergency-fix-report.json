@@ -1,0 +1,613 @@
+{
+    "timestamp": "2025-08-18T11:15:14.245Z",
+    "summary": {
+        "fixedPaths": 3808,
+        "fixedArtwork": 0,
+        "missingFiles": 0,
+        "wrongArtwork": 1539,
+        "errors": 0
+    },
+    "missingFiles": [],
+    "wrongArtwork": [
+        {
+            "id": 3770,
+            "title": "Vivir Mi Vida",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3770.jpg",
+            "actual": "artwork-cache/3770.jpg"
+        },
+        {
+            "id": 3771,
+            "title": "Y Hubo Alguien",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3771.jpg",
+            "actual": "artwork-cache/3771.jpg"
+        },
+        {
+            "id": 3772,
+            "title": "Punk",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3772.jpg",
+            "actual": "artwork-cache/3772.jpg"
+        },
+        {
+            "id": 3773,
+            "title": "Punk",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3773.jpg",
+            "actual": "artwork-cache/3773.jpg"
+        },
+        {
+            "id": 3774,
+            "title": "No la Dejes Marchar",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3774.jpg",
+            "actual": "artwork-cache/3774.jpg"
+        },
+        {
+            "id": 3775,
+            "title": "Vamos a Bailar",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3775.jpg",
+            "actual": "artwork-cache/3775.jpg"
+        },
+        {
+            "id": 3776,
+            "title": "Fantasy (Def Club Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3776.jpg",
+            "actual": "artwork-cache/3776.jpg"
+        },
+        {
+            "id": 3777,
+            "title": "Return of the Mack (C&J Extended Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3777.jpg",
+            "actual": "artwork-cache/3777.jpg"
+        },
+        {
+            "id": 3778,
+            "title": "Return of the Mack (C&J Remix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3778.jpg",
+            "actual": "artwork-cache/3778.jpg"
+        },
+        {
+            "id": 3779,
+            "title": "Return of the Mack",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3779.jpg",
+            "actual": "artwork-cache/3779.jpg"
+        },
+        {
+            "id": 3780,
+            "title": "Uptown Funk (feat. Bruno Mars)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3780.jpg",
+            "actual": "artwork-cache/3780.jpg"
+        },
+        {
+            "id": 3781,
+            "title": "Pump Up The Volume (UK 12\" Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3781.jpg",
+            "actual": "artwork-cache/3781.jpg"
+        },
+        {
+            "id": 3782,
+            "title": "Pump Up The Volume (UK 12\" Remix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3782.jpg",
+            "actual": "artwork-cache/3782.jpg"
+        },
+        {
+            "id": 3783,
+            "title": "Pump Up The Volume (USA 12\" Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3783.jpg",
+            "actual": "artwork-cache/3783.jpg"
+        },
+        {
+            "id": 3784,
+            "title": "Move Your Body",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3784.jpg",
+            "actual": "artwork-cache/3784.jpg"
+        },
+        {
+            "id": 3785,
+            "title": "The House Music Anthem (Move Your Body)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3785.jpg",
+            "actual": "artwork-cache/3785.jpg"
+        },
+        {
+            "id": 3786,
+            "title": "Esta Vida",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3786.jpg",
+            "actual": "artwork-cache/3786.jpg"
+        },
+        {
+            "id": 3787,
+            "title": "Numb (Alok Remix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3787.jpg",
+            "actual": "artwork-cache/3787.jpg"
+        },
+        {
+            "id": 3788,
+            "title": "Arena y Sol",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3788.jpg",
+            "actual": "artwork-cache/3788.jpg"
+        },
+        {
+            "id": 3789,
+            "title": "I Feel the Earth Move (Club Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3789.jpg",
+            "actual": "artwork-cache/3789.jpg"
+        },
+        {
+            "id": 3790,
+            "title": "Disco Circus (Hardrock Striker 'Acid Circus' Punkin' Out Disco Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3790.jpg",
+            "actual": "artwork-cache/3790.jpg"
+        },
+        {
+            "id": 3791,
+            "title": "Intoxicated (Arkadiian & Whiiite Remix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3791.jpg",
+            "actual": "artwork-cache/3791.jpg"
+        },
+        {
+            "id": 3792,
+            "title": "Got To Give It Up (Pt. 1)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3792.jpg",
+            "actual": "artwork-cache/3792.jpg"
+        },
+        {
+            "id": 3793,
+            "title": "In My House (12\" Version)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3793.jpg",
+            "actual": "artwork-cache/3793.jpg"
+        },
+        {
+            "id": 3794,
+            "title": "In My House",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3794.jpg",
+            "actual": "artwork-cache/3794.jpg"
+        },
+        {
+            "id": 3795,
+            "title": "Atomic Extra Super Break",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3795.jpg",
+            "actual": "artwork-cache/3795.jpg"
+        },
+        {
+            "id": 3796,
+            "title": "Let's Break",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3796.jpg",
+            "actual": "artwork-cache/3796.jpg"
+        },
+        {
+            "id": 3797,
+            "title": "Wap-Bam-Boogie",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3797.jpg",
+            "actual": "artwork-cache/3797.jpg"
+        },
+        {
+            "id": 3798,
+            "title": "Give It to Me",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3798.jpg",
+            "actual": "artwork-cache/3798.jpg"
+        },
+        {
+            "id": 3799,
+            "title": "The Voodoo Babe (Extended Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3799.jpg",
+            "actual": "artwork-cache/3799.jpg"
+        },
+        {
+            "id": 3800,
+            "title": "Break My Stride",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3800.jpg",
+            "actual": "artwork-cache/3800.jpg"
+        },
+        {
+            "id": 3801,
+            "title": "Drugs From Amsterdam",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3801.jpg",
+            "actual": "artwork-cache/3801.jpg"
+        },
+        {
+            "id": 3802,
+            "title": "Fat Boy (J.J.'s Club Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3802.jpg",
+            "actual": "artwork-cache/3802.jpg"
+        },
+        {
+            "id": 3803,
+            "title": "Take Your Time (Do It Right) (Extended Version)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3803.jpg",
+            "actual": "artwork-cache/3803.jpg"
+        },
+        {
+            "id": 3804,
+            "title": "Take Your Time (Do It Right)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3804.jpg",
+            "actual": "artwork-cache/3804.jpg"
+        },
+        {
+            "id": 3805,
+            "title": "Get A Way (2AM Club Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3805.jpg",
+            "actual": "artwork-cache/3805.jpg"
+        },
+        {
+            "id": 3806,
+            "title": "Get a Way (Airplay Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3806.jpg",
+            "actual": "artwork-cache/3806.jpg"
+        },
+        {
+            "id": 3807,
+            "title": "Get a Way (Club Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3807.jpg",
+            "actual": "artwork-cache/3807.jpg"
+        },
+        {
+            "id": 3808,
+            "title": "Fiesta Pagana",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3808.jpg",
+            "actual": "artwork-cache/3808.jpg"
+        },
+        {
+            "id": 3809,
+            "title": "Molinos De Viento",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3809.jpg",
+            "actual": "artwork-cache/3809.jpg"
+        },
+        {
+            "id": 3810,
+            "title": "Holiday Rap (Maxi)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3810.jpg",
+            "actual": "artwork-cache/3810.jpg"
+        },
+        {
+            "id": 3811,
+            "title": "Ain't No Stoppin' Us Now",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3811.jpg",
+            "actual": "artwork-cache/3811.jpg"
+        },
+        {
+            "id": 3812,
+            "title": "I'd Do Anything For Love (But I Won't Do That) (Single Edit)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3812.jpg",
+            "actual": "artwork-cache/3812.jpg"
+        },
+        {
+            "id": 3813,
+            "title": "Hijo de la luna",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3813.jpg",
+            "actual": "artwork-cache/3813.jpg"
+        },
+        {
+            "id": 3814,
+            "title": "Me Colé en una Fiesta",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3814.jpg",
+            "actual": "artwork-cache/3814.jpg"
+        },
+        {
+            "id": 3815,
+            "title": "Me cuesta tanto olvidarte",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3815.jpg",
+            "actual": "artwork-cache/3815.jpg"
+        },
+        {
+            "id": 3816,
+            "title": "Medley: Star Wars (12\" Version)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3816.jpg",
+            "actual": "artwork-cache/3816.jpg"
+        },
+        {
+            "id": 3817,
+            "title": "Respectable (Bonus Beats)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3817.jpg",
+            "actual": "artwork-cache/3817.jpg"
+        },
+        {
+            "id": 3818,
+            "title": "Respectable (Extended Version)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3818.jpg",
+            "actual": "artwork-cache/3818.jpg"
+        },
+        {
+            "id": 3819,
+            "title": "Respectable",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3819.jpg",
+            "actual": "artwork-cache/3819.jpg"
+        },
+        {
+            "id": 3820,
+            "title": "Showing Out (Get Fresh At The Weekend) [Extended Version]",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3820.jpg",
+            "actual": "artwork-cache/3820.jpg"
+        },
+        {
+            "id": 3821,
+            "title": "Showing Out (Get Fresh At The Weekend) [Mortgage Mix]",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3821.jpg",
+            "actual": "artwork-cache/3821.jpg"
+        },
+        {
+            "id": 3822,
+            "title": "Love's Comin' At Ya (2004 Digital Remaster)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3822.jpg",
+            "actual": "artwork-cache/3822.jpg"
+        },
+        {
+            "id": 3823,
+            "title": "You Should Hear How She Talks About You (Special Extended Version)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3823.jpg",
+            "actual": "artwork-cache/3823.jpg"
+        },
+        {
+            "id": 3824,
+            "title": "Mentirosa (Re-Recorded) [Remastered]",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3824.jpg",
+            "actual": "artwork-cache/3824.jpg"
+        },
+        {
+            "id": 3825,
+            "title": "Welcome To My Groove (Hurley's Deep House Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3825.jpg",
+            "actual": "artwork-cache/3825.jpg"
+        },
+        {
+            "id": 3826,
+            "title": "Be Good Johnny",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3826.jpg",
+            "actual": "artwork-cache/3826.jpg"
+        },
+        {
+            "id": 3827,
+            "title": "Down Under (Extended Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3827.jpg",
+            "actual": "artwork-cache/3827.jpg"
+        },
+        {
+            "id": 3828,
+            "title": "Down Under",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3828.jpg",
+            "actual": "artwork-cache/3828.jpg"
+        },
+        {
+            "id": 3829,
+            "title": "It's a Mistake",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3829.jpg",
+            "actual": "artwork-cache/3829.jpg"
+        },
+        {
+            "id": 3830,
+            "title": "Overkill",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3830.jpg",
+            "actual": "artwork-cache/3830.jpg"
+        },
+        {
+            "id": 3831,
+            "title": "Who Can It Be Now?",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3831.jpg",
+            "actual": "artwork-cache/3831.jpg"
+        },
+        {
+            "id": 3832,
+            "title": "The Safety Dance (Extended Dance Version)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3832.jpg",
+            "actual": "artwork-cache/3832.jpg"
+        },
+        {
+            "id": 3833,
+            "title": "El Venado",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3833.jpg",
+            "actual": "artwork-cache/3833.jpg"
+        },
+        {
+            "id": 3834,
+            "title": "El Za Za Za (La Mesa Que Más Aplauda)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3834.jpg",
+            "actual": "artwork-cache/3834.jpg"
+        },
+        {
+            "id": 3835,
+            "title": "T.S.O.P. (The Sound of Philadelphia) (feat. The Three Degrees) (\"A Tom Moulton Mix\")",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3835.jpg",
+            "actual": "artwork-cache/3835.jpg"
+        },
+        {
+            "id": 3836,
+            "title": "Anything for You",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3836.jpg",
+            "actual": "artwork-cache/3836.jpg"
+        },
+        {
+            "id": 3837,
+            "title": "Conga",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3837.jpg",
+            "actual": "artwork-cache/3837.jpg"
+        },
+        {
+            "id": 3838,
+            "title": "Rhythm Is Gonna Get You",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3838.jpg",
+            "actual": "artwork-cache/3838.jpg"
+        },
+        {
+            "id": 3839,
+            "title": "The Weekend (Original 12 Inch Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3839.jpg",
+            "actual": "artwork-cache/3839.jpg"
+        },
+        {
+            "id": 3840,
+            "title": "Bad (Remix By AfroJack-Club Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3840.jpg",
+            "actual": "artwork-cache/3840.jpg"
+        },
+        {
+            "id": 3841,
+            "title": "Beat It",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3841.jpg",
+            "actual": "artwork-cache/3841.jpg"
+        },
+        {
+            "id": 3842,
+            "title": "Billie Jean (Long Version)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3842.jpg",
+            "actual": "artwork-cache/3842.jpg"
+        },
+        {
+            "id": 3843,
+            "title": "Billie Jean (Underground Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3843.jpg",
+            "actual": "artwork-cache/3843.jpg"
+        },
+        {
+            "id": 3844,
+            "title": "Billie Jean",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3844.jpg",
+            "actual": "artwork-cache/3844.jpg"
+        },
+        {
+            "id": 3845,
+            "title": "Dangerous",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3845.jpg",
+            "actual": "artwork-cache/3845.jpg"
+        },
+        {
+            "id": 3846,
+            "title": "Don't Stop 'Til You Get Enough",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3846.jpg",
+            "actual": "artwork-cache/3846.jpg"
+        },
+        {
+            "id": 3847,
+            "title": "In the Closet",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3847.jpg",
+            "actual": "artwork-cache/3847.jpg"
+        },
+        {
+            "id": 3848,
+            "title": "Man in the Mirror (2012 Remaster)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3848.jpg",
+            "actual": "artwork-cache/3848.jpg"
+        },
+        {
+            "id": 3849,
+            "title": "Off the Wall",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3849.jpg",
+            "actual": "artwork-cache/3849.jpg"
+        },
+        {
+            "id": 3850,
+            "title": "P.Y.T. (Pretty Young Thing)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3850.jpg",
+            "actual": "artwork-cache/3850.jpg"
+        },
+        {
+            "id": 3851,
+            "title": "Rock with You (Single Version)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3851.jpg",
+            "actual": "artwork-cache/3851.jpg"
+        },
+        {
+            "id": 3852,
+            "title": "Smooth Criminal (2012 Remaster)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3852.jpg",
+            "actual": "artwork-cache/3852.jpg"
+        },
+        {
+            "id": 3853,
+            "title": "The Way You Make Me Feel (2012 Remaster)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3853.jpg",
+            "actual": "artwork-cache/3853.jpg"
+        },
+        {
+            "id": 3854,
+            "title": "Thriller (Megamix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3854.jpg",
+            "actual": "artwork-cache/3854.jpg"
+        },
+        {
+            "id": 3855,
+            "title": "Thriller (Steve Aoki Midnight Hour Remix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3855.jpg",
+            "actual": "artwork-cache/3855.jpg"
+        },
+        {
+            "id": 3856,
+            "title": "Thriller",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3856.jpg",
+            "actual": "artwork-cache/3856.jpg"
+        },
+        {
+            "id": 3857,
+            "title": "Wanna Be Startin' Somethin' (Tommy D's Main Mix)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3857.jpg",
+            "actual": "artwork-cache/3857.jpg"
+        },
+        {
+            "id": 3858,
+            "title": "Wanna Be Startin' Somethin'",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3858.jpg",
+            "actual": "artwork-cache/3858.jpg"
+        },
+        {
+            "id": 3859,
+            "title": "You Are Not Alone",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3859.jpg",
+            "actual": "artwork-cache/3859.jpg"
+        },
+        {
+            "id": 3860,
+            "title": "You Rock My World",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3860.jpg",
+            "actual": "artwork-cache/3860.jpg"
+        },
+        {
+            "id": 3861,
+            "title": "Immortal Megamix: Can You Feel It / Don't Stop 'Til You Get Enough / Billie Jean/Black or White (Immortal Version)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3861.jpg",
+            "actual": "artwork-cache/3861.jpg"
+        },
+        {
+            "id": 3862,
+            "title": "Maniac (From \"Flashdance\")",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3862.jpg",
+            "actual": "artwork-cache/3862.jpg"
+        },
+        {
+            "id": 3863,
+            "title": "Maniac",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3863.jpg",
+            "actual": "artwork-cache/3863.jpg"
+        },
+        {
+            "id": 3864,
+            "title": "A Pesar del Tiempo",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3864.jpg",
+            "actual": "artwork-cache/3864.jpg"
+        },
+        {
+            "id": 3865,
+            "title": "Corazón Partío",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3865.jpg",
+            "actual": "artwork-cache/3865.jpg"
+        },
+        {
+            "id": 3866,
+            "title": "Cuando Acaba el Placer",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3866.jpg",
+            "actual": "artwork-cache/3866.jpg"
+        },
+        {
+            "id": 3867,
+            "title": "Y Qué Me Pasa (Salsa)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3867.jpg",
+            "actual": "artwork-cache/3867.jpg"
+        },
+        {
+            "id": 3868,
+            "title": "Johnny Are You Queer (Originally Performed By Josie Cotton) (Karaoke Version)",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3868.jpg",
+            "actual": "artwork-cache/3868.jpg"
+        },
+        {
+            "id": 3869,
+            "title": "Beds Are Burning",
+            "expected": "/Users/freddymolina/Desktop/music-app-clean/artwork-cache/3869.jpg",
+            "actual": "artwork-cache/3869.jpg"
+        }
+    ]
+}

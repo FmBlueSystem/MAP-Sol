@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Ciara - 1, 2 Step (feat. Missy Elliott).flac",
+  "file_name": "Ciara - 1, 2 Step (feat. Missy Elliott).flac",
+  "timestamp": "2025-08-16T23:33:27.165345",
+  "essentia_features": {
+    "loudness_lufs": -8.060720443725586,
+    "danceability": 1.4982296228408813,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7876535207033157,
+    "liveness": 0.1,
+    "speechiness": 0.18486018299594822,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Expose\u0301 - Tell Me Why (No Name Mix).flac",
+  "file_name": "Expose\u0301 - Tell Me Why (No Name Mix).flac",
+  "timestamp": "2025-08-17T00:19:32.594984",
+  "essentia_features": {
+    "loudness_lufs": -3.5384864807128906,
+    "danceability": 1.5293692350387573,
+    "acousticness": 0.5,
+    "instrumentalness": 0.35632407665252686,
+    "liveness": 0.1,
+    "speechiness": 0.23883586860999156,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

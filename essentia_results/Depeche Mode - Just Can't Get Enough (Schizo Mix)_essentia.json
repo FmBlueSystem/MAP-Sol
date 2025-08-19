@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Just Can't Get Enough (Schizo Mix).flac",
+  "file_name": "Depeche Mode - Just Can't Get Enough (Schizo Mix).flac",
+  "timestamp": "2025-08-16T23:52:33.084375",
+  "essentia_features": {
+    "loudness_lufs": -2.9091110229492188,
+    "danceability": 1.5057835578918457,
+    "acousticness": 0.5,
+    "instrumentalness": 0.47838878631591797,
+    "liveness": 0.1,
+    "speechiness": 0.13949418487799084,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

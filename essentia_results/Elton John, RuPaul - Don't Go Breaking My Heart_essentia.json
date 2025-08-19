@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Elton John, RuPaul - Don't Go Breaking My Heart.flac",
+  "file_name": "Elton John, RuPaul - Don't Go Breaking My Heart.flac",
+  "timestamp": "2025-08-17T00:12:48.997124",
+  "essentia_features": {
+    "loudness_lufs": -7.068874359130859,
+    "danceability": 1.5411067008972168,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5159125030040741,
+    "liveness": 0.1,
+    "speechiness": 0.24301150908909078,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

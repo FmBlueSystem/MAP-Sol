@@ -5,7 +5,7 @@ const path = require('path');
 
 function createExportHandler(db) {
     const exporter = new DJExporter();
-    
+
     return async (event, { format, trackIds, playlistName }) => {
         try {
             // Obtener tracks de la BD
@@ -18,41 +18,41 @@ function createExportHandler(db) {
                 LEFT JOIN llm_metadata lm ON af.id = lm.file_id
                 WHERE af.id IN (${placeholders})
             `;
-            
+
             return new Promise((resolve, reject) => {
                 db.all(sql, trackIds, async (err, tracks) => {
                     if (err) {
                         reject(err);
                         return;
                     }
-                    
+
                     // Seleccionar directorio de guardado
                     const result = await dialog.showSaveDialog({
                         title: `Exportar como ${format.toUpperCase()}`,
                         defaultPath: path.join(
                             process.env.HOME || process.env.USERPROFILE,
                             'Desktop',
-                            `${playlistName || 'playlist'}_${format}`
-                        ),
-                        filters: exporter.getSupportedFormats()
+                            `${playlistName || 'playlist'}_${format}'),
+                        filters: exporter
+                            .getSupportedFormats()
                             .filter(f => f.id === format)
                             .map(f => ({
                                 name: f.name,
                                 extensions: [f.extension.slice(1)]
                             }))
                     });
-                    
+
                     if (result.canceled) {
                         resolve({ success: false, canceled: true });
                         return;
                     }
-                    
+
                     // Exportar
                     const exportResult = await exporter.export(tracks, format, {
                         name: playlistName || 'Playlist',
                         savePath: path.dirname(result.filePath)
                     });
-                    
+
                     resolve({
                         success: true,
                         format: exportResult.format,
@@ -76,7 +76,7 @@ function createGetFormatsHandler() {
     };
 }
 
-module.exports = { 
+module.exports = {
     createExportHandler,
     createGetFormatsHandler
 };

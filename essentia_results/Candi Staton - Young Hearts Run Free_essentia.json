@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Candi Staton - Young Hearts Run Free.flac",
+  "file_name": "Candi Staton - Young Hearts Run Free.flac",
+  "timestamp": "2025-08-16T23:24:12.727869",
+  "essentia_features": {
+    "loudness_lufs": -6.923793792724609,
+    "danceability": 1.278223991394043,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4941018223762512,
+    "liveness": 0.1,
+    "speechiness": 0.09733386117810307,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

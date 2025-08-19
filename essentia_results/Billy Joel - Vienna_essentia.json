@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Joel - Vienna.flac",
+  "file_name": "Billy Joel - Vienna.flac",
+  "timestamp": "2025-08-16T22:56:51.742681",
+  "essentia_features": {
+    "loudness_lufs": -4.76844596862793,
+    "danceability": 1.0538113117218018,
+    "acousticness": 0.5,
+    "instrumentalness": 0.38744431734085083,
+    "liveness": 0.1,
+    "speechiness": 0.09334483563695674,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

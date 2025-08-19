@@ -29,7 +29,7 @@ class MusicImporter {
         console.log('=' .repeat(50));
         console.log(`📁 Source: ${this.musicPath}`);
         console.log(`🔧 Workers: ${this.workers}`);
-        console.log(`📊 Limit: ${this.limit || 'None'}`);
+        console.log(`📊 Limit: ${this.limit || 'None'}');
         console.log('=' .repeat(50) + '\n');
         
         try {

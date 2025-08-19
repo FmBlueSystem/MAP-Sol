@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown - Colegiala.flac",
+  "file_name": "Block & Crown - Colegiala.flac",
+  "timestamp": "2025-08-16T23:01:27.767289",
+  "essentia_features": {
+    "loudness_lufs": -2.2468156814575195,
+    "danceability": 1.3827285766601562,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

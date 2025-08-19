@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/3-V - Heart Of The Beat.flac",
+  "file_name": "3-V - Heart Of The Beat.flac",
+  "timestamp": "2025-08-16T22:32:31.472277",
+  "essentia_features": {
+    "loudness_lufs": -7.838178634643555,
+    "danceability": 1.1697226762771606,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4281436800956726,
+    "liveness": 0.1,
+    "speechiness": 0.1741886229723305,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aleks Syntek, Ana Torroja - Duele El Amor.flac",
+  "file_name": "Aleks Syntek, Ana Torroja - Duele El Amor.flac",
+  "timestamp": "2025-08-16T22:40:34.726788",
+  "essentia_features": {
+    "loudness_lufs": -4.074024200439453,
+    "danceability": 1.1341720819473267,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4616633653640747,
+    "liveness": 0.1,
+    "speechiness": 0.15132191526740033,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

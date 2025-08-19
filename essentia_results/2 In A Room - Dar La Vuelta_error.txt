@@ -1,0 +1,3 @@
+Error: Process failed with code -11
+File: /Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/2 In A Room - Dar La Vuelta.m4a
+Time: 2025-08-16T22:07:53.306946

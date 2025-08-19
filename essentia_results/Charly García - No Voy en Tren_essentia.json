@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Charly Garci\u0301a - No Voy en Tren.flac",
+  "file_name": "Charly Garci\u0301a - No Voy en Tren.flac",
+  "timestamp": "2025-08-16T23:29:16.311773",
+  "essentia_features": {
+    "loudness_lufs": -4.836904525756836,
+    "danceability": 1.387208342552185,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4219229817390442,
+    "liveness": 0.1,
+    "speechiness": 0.11843296242771621,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alan Sutton y las criaturitas de la ansiedad - Hijo Pro\u0301digo.flac",
+  "file_name": "Alan Sutton y las criaturitas de la ansiedad - Hijo Pro\u0301digo.flac",
+  "timestamp": "2025-08-16T22:38:53.792448",
+  "essentia_features": {
+    "loudness_lufs": -4.271875381469727,
+    "danceability": 1.097464919090271,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

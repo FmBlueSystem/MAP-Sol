@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Elvis Presley - Hound Dog.flac",
+  "file_name": "Elvis Presley - Hound Dog.flac",
+  "timestamp": "2025-08-17T00:13:39.290074",
+  "essentia_features": {
+    "loudness_lufs": -6.814508438110352,
+    "danceability": 1.0901192426681519,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Enhanced Audio Panel - Music Analyzer Pro</title>
+        <link rel="stylesheet" href="css/audio-panel-enhanced.css" />
+    </head>
+    <body
+        style="
+            background: #121212;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        "
+    >
+        <!-- Enhanced Audio Panel -->
+        <div class="audio-panel-container" id="audio-panel">
+            <!-- Spectrum Analyzer (appears on hover) -->
+            <div class="spectrum-container">
+                <canvas id="spectrum-canvas"></canvas>
+            </div>
+
+            <!-- Main Panel Content -->
+            <div class="audio-panel-content">
+                <!-- LEFT: Track Information -->
+                <div class="track-info-section">
+                    <div class="track-artwork">
+                        <div class="track-artwork-placeholder" id="panel-artwork">♪</div>
+                    </div>
+                    <div class="track-details">
+                        <div class="track-title" id="panel-title">No track playing</div>
+                        <div class="track-artist" id="panel-artist">Select a song to play</div>
+                        <div class="track-album" id="panel-album"></div>
+                    </div>
+                </div>
+
+                <!-- CENTER: Playback Controls -->
+                <div class="playback-section">
+                    <!-- Control Buttons -->
+                    <div class="playback-controls">
+                        <button
+                            class="control-btn"
+                            id="btn-shuffle"
+                            onclick="toggleShuffle()"
+                            title="Shuffle"
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"
+                                />
+                            </svg>
+                        </button>
+
+                        <button
+                            class="control-btn"
+                            id="btn-previous"
+                            onclick="playPrevious()"
+                            title="Previous"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
+                            </svg>
+                        </button>
+
+                        <button
+                            class="play-pause-btn"
+                            id="play-pause-btn"
+                            onclick="togglePlayPause()"
+                            title="Play/Pause"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </button>
+
+                        <button class="control-btn" id="btn-next" onclick="playNext()" title="Next">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
+                            </svg>
+                        </button>
+
+                        <button
+                            class="control-btn"
+                            id="btn-repeat"
+                            onclick="toggleRepeat()"
+                            title="Repeat"
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="progress-container">
+                        <span class="time-display" id="time-elapsed">0:00</span>
+                        <div class="progress-bar" onclick="seekTo(event)">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <span class="time-display" id="time-remaining">-0:00</span>
+                    </div>
+                </div>
+
+                <!-- RIGHT: VU Meters & Volume -->
+                <div class="audio-meters-section">
+                    <!-- Professional VU Meter -->
+                    <div class="vu-meter-container">
+                        <div class="vu-meter-title">⚡ PROFESSIONAL VU METER</div>
+
+                        <!-- Scale Reference -->
+                        <div class="vu-scale">
+                            <span>-50</span>
+                            <span>-30</span>
+                            <span>-20</span>
+                            <span>-12</span>
+                            <span>-6</span>
+                            <span>0</span>
+                            <span>+3</span>
+                        </div>
+
+                        <!-- Left Channel -->
+                        <div class="channel-meter">
+                            <span class="channel-label">L</span>
+                            <div class="meter-bar">
+                                <div class="meter-fill" id="meter-l" style="width: 0%"></div>
+                            </div>
+                            <span class="db-value" id="db-l">-∞ dB</span>
+                        </div>
+
+                        <!-- Right Channel -->
+                        <div class="channel-meter">
+                            <span class="channel-label">R</span>
+                            <div class="meter-bar">
+                                <div class="meter-fill" id="meter-r" style="width: 0%"></div>
+                            </div>
+                            <span class="db-value" id="db-r">-∞ dB</span>
+                        </div>
+
+                        <!-- Status Indicators -->
+                        <div class="status-indicators">
+                            <div class="status-item">
+                                <div class="status-led clip" id="clip-indicator"></div>
+                                <span class="status-label">Clip</span>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-led stereo active" id="stereo-indicator"></div>
+                                <span class="status-label">Stereo</span>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-led comp active" id="comp-indicator"></div>
+                                <span class="status-label">Comp</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Volume Control -->
+                    <div class="volume-control">
+                        <span class="volume-icon">🔊</span>
+                        <input
+                            type="range"
+                            class="volume-slider"
+                            id="volume-slider"
+                            min="0"
+                            max="100"
+                            value="75"
+                            oninput="setVolume(this.value)"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo Content -->
+        <div style="padding: 40px; color: #fff">
+            <h1 style="margin-bottom: 20px">🎵 Enhanced Audio Panel Demo</h1>
+            <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.6; max-width: 800px">
+                Este es el nuevo panel de audio mejorado con las siguientes características:
+            </p>
+            <ul style="color: rgba(255, 255, 255, 0.6); line-height: 2">
+                <li>✨ Diseño glassmorphism moderno con gradientes suaves</li>
+                <li>📊 VU Meter profesional con escala de -50 a +3 dB</li>
+                <li>🎨 Mejor distribución en 3 secciones: Info | Controles | Medidores</li>
+                <li>🎯 Indicadores LED de estado (Clip, Stereo, Compressor)</li>
+                <li>🎵 Spectrum analyzer que aparece al hacer hover</li>
+                <li>🎛️ Controles de reproducción centralizados y más grandes</li>
+                <li>📱 Diseño responsive que se adapta a diferentes pantallas</li>
+                <li>⚡ Animaciones suaves y transiciones optimizadas</li>
+                <li>🌙 Soporte para dark mode automático</li>
+                <li>🔊 Control de volumen mejorado con slider personalizado</li>
+            </ul>
+
+            <div style="margin-top: 40px">
+                <h2>Prueba los controles:</h2>
+                <button
+                    onclick="simulatePlay()"
+                    style="
+                        padding: 10px 20px;
+                        margin: 10px;
+                        background: #1db954;
+                        color: #000;
+                        border: none;
+                        border-radius: 20px;
+                        cursor: pointer;
+                    "
+                >
+                    Simular Reproducción
+                </button>
+                <button
+                    onclick="simulateMeters()"
+                    style="
+                        padding: 10px 20px;
+                        margin: 10px;
+                        background: #1db954;
+                        color: #000;
+                        border: none;
+                        border-radius: 20px;
+                        cursor: pointer;
+                    "
+                >
+                    Animar VU Meters
+                </button>
+            </div>
+        </div>
+
+        <!-- Enhanced JavaScript -->
+        <script>
+            // Demo functions
+            function togglePlayPause() {
+                const btn = document.getElementById('play-pause-btn');
+                const isPlaying = btn.innerHTML.includes('M6 6');
+
+                if (isPlaying) {
+                    btn.innerHTML =
+                        '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+                } else {
+                    btn.innerHTML =
+                        '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h4v12H6zm8 0h4v12h-4z"/></svg>';
+                }
+            }
+
+            function toggleShuffle() {
+                document.getElementById('btn-shuffle').classList.toggle('active');
+            }
+
+            function toggleRepeat() {
+                document.getElementById('btn-repeat').classList.toggle('active');
+            }
+
+            function playPrevious() {
+                console.log('Previous track');
+            }
+
+            function playNext() {
+                console.log('Next track');
+            }
+
+            function seekTo(event) {
+                const bar = event.currentTarget;
+                const rect = bar.getBoundingClientRect();
+                const percent = (event.clientX - rect.left) / rect.width;
+                document.getElementById('progress-fill').style.width = percent * 100 + '%';
+            }
+
+            function setVolume(value) {
+                console.log('Volume:', value);
+            }
+
+            // Demo simulation
+            function simulatePlay() {
+                const title = document.getElementById('panel-title');
+                const artist = document.getElementById('panel-artist');
+                const album = document.getElementById('panel-album');
+
+                title.textContent = 'Bohemian Rhapsody';
+                artist.textContent = 'Queen';
+                album.textContent = 'A Night at the Opera (1975)';
+
+                // Simulate progress
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 0.5;
+                    if (progress > 100) {
+                        clearInterval(interval);
+                        return;
+                    }
+                    document.getElementById('progress-fill').style.width = progress + '%';
+
+                    const elapsed = Math.floor((progress / 100) * 355);
+                    const remaining = 355 - elapsed;
+                    document.getElementById('time-elapsed').textContent = formatTime(elapsed);
+                    document.getElementById('time-remaining').textContent =
+                        '-' + formatTime(remaining);
+                }, 100);
+            }
+
+            function simulateMeters() {
+                const animateMeters = () => {
+                    // Animate L/R meters
+                    const lValue = 40 + Math.random() * 40;
+                    const rValue = 40 + Math.random() * 40;
+
+                    document.getElementById('meter-l').style.width = lValue + '%';
+                    document.getElementById('meter-r').style.width = rValue + '%';
+
+                    // Update dB values
+                    const lDb = -50 + (lValue / 100) * 53;
+                    const rDb = -50 + (rValue / 100) * 53;
+
+                    document.getElementById('db-l').textContent = lDb.toFixed(1) + ' dB';
+                    document.getElementById('db-r').textContent = rDb.toFixed(1) + ' dB';
+
+                    // Color based on level
+                    const lColor = lDb > -6 ? '#ff6600' : lDb > -12 ? '#ffff00' : '#00ff00';
+                    const rColor = rDb > -6 ? '#ff6600' : rDb > -12 ? '#ffff00' : '#00ff00';
+
+                    document.getElementById('db-l').style.color = lColor;
+                    document.getElementById('db-r').style.color = rColor;
+
+                    // Clip indicator
+                    if (lDb > 0 || rDb > 0) {
+                        document.getElementById('clip-indicator').classList.add('active');
+                        setTimeout(() => {
+                            document.getElementById('clip-indicator').classList.remove('active');
+                        }, 200);
+                    }
+
+                    requestAnimationFrame(animateMeters);
+                };
+
+                animateMeters();
+            }
+
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            // Initialize spectrum canvas
+            const canvas = document.getElementById('spectrum-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = 60;
+
+                // Draw demo spectrum
+                const drawSpectrum = () => {
+                    ctx.fillStyle = 'rgba(18, 18, 18, 0.1)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    const bars = 64;
+                    const barWidth = canvas.width / bars;
+
+                    for (let i = 0; i < bars; i++) {
+                        const height = Math.random() * 40 + 10;
+                        const hue = (i / bars) * 120; // Green to yellow
+
+                        ctx.fillStyle = `hsla(${hue}, 100%, 50%, 0.8)`;
+                        ctx.fillRect(i * barWidth, canvas.height - height, barWidth - 2, height);
+                    }
+
+                    requestAnimationFrame(drawSpectrum);
+                };
+
+                // Uncomment to see animated spectrum
+                // drawSpectrum();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,139 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez muscia de Tidal Original descarga de musica/Consolidado2025/pruebas/2 Unlimited - No Limit (Extended Mix).flac",
+    "file_name": "2 Unlimited - No Limit (Extended Mix).flac",
+    "original_metadata": {
+        "artist": "2 Unlimited",
+        "title": "No Limit (extended Mix)",
+        "album": "Summer Hitz: Throwback 4",
+        "genre": "Unknown",
+        "file_name": "2 Unlimited - No Limit (Extended Mix).flac",
+        "year": 2020,
+        "existing_key": "3A",
+        "isrc": "BEAA10075003"
+    },
+    "precomputed_features": {
+        "loudness_lufs": -12.38,
+        "danceability": 0.773,
+        "acousticness": 0.685,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.062,
+        "valence": 0.46,
+        "energy": 0.8,
+        "musical_key": "Bb minor",
+        "camelot_key": "3A",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "temporal_analysis": {
+        "real_year": 2000,
+        "metadata_year": 2020,
+        "isrc_parsed": {
+            "valid": true,
+            "country": "BE",
+            "registrant": "AA1",
+            "year": 2000,
+            "recording_id": "75003",
+            "original": "BEAA10075003"
+        },
+        "year_explanation": "Original recording from 2000 (ISRC), metadata shows 2020 (likely reissue/compilation)"
+    },
+    "gpt4_analysis": {
+        "genre": "Eurodance",
+        "subgenres": ["Trance", "EDM", "Electro House"],
+        "mood": "Euphoric",
+        "energy": 0.8,
+        "danceability": 0.77,
+        "valence": 0.46,
+        "acousticness": 0.69,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.06,
+        "loudness": -12.38,
+        "era": "2000s",
+        "cultural_context": "In 2000, Eurodance was popular, with artists like 2 Unlimited leading the charge in energetic, danceable tracks.",
+        "occasions": ["party", "dance", "workout", "driving"],
+        "musical_key": "Bb minor",
+        "camelot_key": "3A",
+        "description": "Energetic Eurodance track from 2000, embodying the party spirit of the era with its high energy and danceability.",
+        "lyrics_analysis": {
+            "lyrics_source": "provided",
+            "language": "English",
+            "topic_main": "Freedom",
+            "topics_secondary": ["Party", "Pride", "Determination"],
+            "coherence_score": 0.8,
+            "coherence_notes": ["Consistent theme of no limits and freedom throughout the song."],
+            "lyric_mood": "Euphoric",
+            "sentiment": 0.8,
+            "emotions": {
+                "joy": 0.9,
+                "sadness": 0.1,
+                "anger": 0.1,
+                "fear": 0.1,
+                "surprise": 0.2,
+                "trust": 0.7
+            },
+            "narrative_perspective": "first",
+            "narrative_time": "present",
+            "structure": [
+                {
+                    "section": "chorus",
+                    "summary": "Chorus emphasizes the song's theme of limitless potential.",
+                    "sample_lines": ["No no, no no no no, no no no no, no no there's no limit"]
+                },
+                {
+                    "section": "verse",
+                    "summary": "Verses discuss overcoming obstacles with pride and determination.",
+                    "sample_lines": [
+                        "Hard to the core, I feel the floor",
+                        "When I'm on stage, yo, you ask for more"
+                    ]
+                }
+            ],
+            "repeated_phrases": [
+                {
+                    "phrase": "No no, no no no no, no no no no, no no there's no limit",
+                    "count": 8,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "Let me hear you say yeah",
+                    "count": 4,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "No no limits, we'll reach for the sky",
+                    "count": 3,
+                    "reason": "loop"
+                }
+            ],
+            "hook_candidates": ["No no there's no limit", "Let me hear you say yeah"],
+            "keywords": ["limitless", "pride", "freedom", "party"],
+            "named_entities": {
+                "persons": [],
+                "places": [],
+                "brands": []
+            },
+            "cultural_references": [],
+            "call_and_response": true,
+            "countins_shouts": true,
+            "explicitness_level": "clean",
+            "content_warnings": [],
+            "singalong_index": 0.9,
+            "chantability": 0.9,
+            "justification": [
+                "High instrumentalness with lyrics present, indicating a strong dance track with vocal elements."
+            ]
+        },
+        "confidence": 0.95,
+        "validation_notes": ["Real recording year: 2000"],
+        "real_year": 2000,
+        "year_source": "Original recording from 2000 (ISRC), metadata shows 2020 (likely reissue/compilation)"
+    },
+    "processing_time": 17.13,
+    "tokens_used": 3781,
+    "estimated_cost": 0.0534,
+    "timestamp": "2025-08-16T20:22:40.919286",
+    "version": "ultimate_v3"
+}

@@ -1,0 +1,126 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez muscia de Tidal Original descarga de musica/Consolidado2025/pruebas/George McCrae - Rock Your Baby.flac",
+    "file_name": "George McCrae - Rock Your Baby.flac",
+    "original_metadata": {
+        "artist": "George Mccrae",
+        "title": "Rock Your Baby",
+        "album": "Rock Your Baby",
+        "genre": "Unknown",
+        "file_name": "George McCrae - Rock Your Baby.flac",
+        "year": 1974,
+        "existing_key": "4A",
+        "isrc": "USRH10553733"
+    },
+    "precomputed_features": {
+        "loudness_lufs": -16.04,
+        "danceability": 0.56,
+        "acousticness": 1.0,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.159,
+        "valence": 0.4,
+        "energy": 0.5,
+        "musical_key": "F minor",
+        "camelot_key": "4A",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "temporal_analysis": {
+        "real_year": 1974,
+        "metadata_year": 1974,
+        "isrc_parsed": {
+            "valid": true,
+            "country": "US",
+            "registrant": "RH1",
+            "year": 2005,
+            "recording_id": "53733",
+            "original": "USRH10553733"
+        },
+        "year_explanation": "Year 1974 confirmed by metadata and database"
+    },
+    "gpt4_analysis": {
+        "genre": "R&B/Soul",
+        "subgenres": ["Classic Disco"],
+        "mood": "Romantic",
+        "energy": 0.5,
+        "danceability": 0.56,
+        "valence": 0.4,
+        "acousticness": 1.0,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.159,
+        "loudness": -16.04,
+        "era": "1970s",
+        "cultural_context": "1974 was a pivotal year in music, marking the rise of disco with artists like George McCrae leading the charge.",
+        "occasions": ["party", "dance", "chill", "dinner"],
+        "musical_key": "F minor",
+        "camelot_key": "4A",
+        "description": "A classic disco hit, embodying the romantic and smooth vibes of the 70s.",
+        "lyrics_analysis": {
+            "lyrics_source": "provided",
+            "language": "English",
+            "topic_main": "Romance",
+            "topics_secondary": ["Desire", "Intimacy"],
+            "coherence_score": 0.9,
+            "coherence_notes": [
+                "Consistent romantic theme",
+                "Repeated phrases enhance the song's hook"
+            ],
+            "lyric_mood": "Romantic",
+            "sentiment": 0.8,
+            "emotions": {
+                "joy": 0.9,
+                "sadness": 0.1,
+                "anger": 0,
+                "fear": 0,
+                "surprise": 0.1,
+                "trust": 0.8
+            },
+            "narrative_perspective": "second",
+            "narrative_time": "present",
+            "structure": [
+                {
+                    "section": "chorus",
+                    "summary": "Expressing desire for closeness and romance.",
+                    "sample_lines": ["Woman, take me in your arms", "Rock your baby"]
+                }
+            ],
+            "repeated_phrases": [
+                {
+                    "phrase": "Woman, take me in your arms",
+                    "count": 8,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "Rock your baby",
+                    "count": 8,
+                    "reason": "hook"
+                }
+            ],
+            "hook_candidates": ["Woman, take me in your arms", "Rock your baby"],
+            "keywords": ["Romance", "Desire", "Intimacy", "Closeness"],
+            "named_entities": {},
+            "cultural_references": [],
+            "call_and_response": false,
+            "countins_shouts": false,
+            "explicitness_level": "clean",
+            "content_warnings": [],
+            "singalong_index": 0.9,
+            "chantability": 0.9,
+            "justification": [
+                "The repeated lines serve as a powerful and memorable hook.",
+                "Lyrics and mood align perfectly with the disco era's emphasis on dance and romance."
+            ]
+        },
+        "confidence": 0.95,
+        "validation_notes": ["Real recording year: 1974"],
+        "real_year": 1974,
+        "year_source": "Year 1974 confirmed by metadata and database"
+    },
+    "processing_time": 14.98,
+    "tokens_used": 3501,
+    "estimated_cost": 0.048,
+    "timestamp": "2025-08-16T20:47:15.724217",
+    "version": "ultimate_v3"
+}

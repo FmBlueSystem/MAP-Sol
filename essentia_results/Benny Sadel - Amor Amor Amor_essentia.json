@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Benny Sadel - Amor Amor Amor.flac",
+  "file_name": "Benny Sadel - Amor Amor Amor.flac",
+  "timestamp": "2025-08-16T22:53:23.414436",
+  "essentia_features": {
+    "loudness_lufs": -11.80642318725586,
+    "danceability": 1.4657734632492065,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5617736577987671,
+    "liveness": 0.1,
+    "speechiness": 0.1644250773442013,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

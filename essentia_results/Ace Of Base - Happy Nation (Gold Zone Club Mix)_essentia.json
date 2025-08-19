@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Ace Of Base - Happy Nation (Gold Zone Club Mix).flac",
+  "file_name": "Ace Of Base - Happy Nation (Gold Zone Club Mix).flac",
+  "timestamp": "2025-08-16T22:36:19.412708",
+  "essentia_features": {
+    "loudness_lufs": -10.330987930297852,
+    "danceability": 1.3280441761016846,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5568227469921112,
+    "liveness": 0.1,
+    "speechiness": 0.16109062113504363,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

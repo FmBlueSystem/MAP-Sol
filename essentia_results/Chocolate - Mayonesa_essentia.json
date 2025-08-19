@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Chocolate - Mayonesa.flac",
+  "file_name": "Chocolate - Mayonesa.flac",
+  "timestamp": "2025-08-16T23:32:57.540927",
+  "essentia_features": {
+    "loudness_lufs": -3.919750213623047,
+    "danceability": 1.3603191375732422,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5256038904190063,
+    "liveness": 0.1,
+    "speechiness": 0.1567995859403052,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

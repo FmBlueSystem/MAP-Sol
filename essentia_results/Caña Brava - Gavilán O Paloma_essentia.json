@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Can\u0303a Brava - Gavila\u0301n O Paloma.flac",
+  "file_name": "Can\u0303a Brava - Gavila\u0301n O Paloma.flac",
+  "timestamp": "2025-08-16T23:24:22.164494",
+  "essentia_features": {
+    "loudness_lufs": -5.207210540771484,
+    "danceability": 1.0837575197219849,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4069709777832031,
+    "liveness": 0.1,
+    "speechiness": 0.1343366395372431,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

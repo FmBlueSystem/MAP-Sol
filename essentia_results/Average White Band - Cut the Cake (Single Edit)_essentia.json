@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Average White Band - Cut the Cake (Single Edit).flac",
+  "file_name": "Average White Band - Cut the Cake (Single Edit).flac",
+  "timestamp": "2025-08-16T22:47:25.583207",
+  "essentia_features": {
+    "loudness_lufs": -4.131355285644531,
+    "danceability": 1.4052141904830933,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

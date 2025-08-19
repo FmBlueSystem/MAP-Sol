@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Culture Club - Church Of The Poison Mind (Remastered 2002).flac",
+  "file_name": "Culture Club - Church Of The Poison Mind (Remastered 2002).flac",
+  "timestamp": "2025-08-16T23:38:34.438094",
+  "essentia_features": {
+    "loudness_lufs": -3.0347442626953125,
+    "danceability": 1.1191257238388062,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4326443672180176,
+    "liveness": 0.1,
+    "speechiness": 0.16391868582761274,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

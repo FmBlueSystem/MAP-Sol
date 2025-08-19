@@ -1,0 +1,122 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/pruebas/Frankie Goes To Hollywood - Relax (Come Fighting).flac",
+    "file_name": "Frankie Goes To Hollywood - Relax (Come Fighting).flac",
+    "original_metadata": {
+        "artist": "Frankie Goes to Hollywood",
+        "title": "Relax (come Fighting)",
+        "album": "Welcome to the Pleasuredome",
+        "genre": "Unknown",
+        "file_name": "Frankie Goes To Hollywood - Relax (Come Fighting).flac",
+        "year": 1984,
+        "existing_key": "9A",
+        "isrc": "GBAHW9900051"
+    },
+    "precomputed_features": {
+        "loudness_lufs": -20.93,
+        "danceability": 0.753,
+        "acousticness": 0.541,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.07,
+        "valence": 0.44,
+        "energy": 0.7,
+        "musical_key": "E minor",
+        "camelot_key": "9A",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "temporal_analysis": {
+        "real_year": 1984,
+        "metadata_year": 1984,
+        "isrc_parsed": {
+            "valid": true,
+            "country": "GB",
+            "registrant": "AHW",
+            "year": 1999,
+            "recording_id": "00051",
+            "original": "GBAHW9900051"
+        },
+        "year_explanation": "Year 1984 confirmed by metadata and database"
+    },
+    "gpt4_analysis": {
+        "genre": "Post-Disco",
+        "subgenres": ["Hi-NRG", "New Wave"],
+        "mood": "Euphoric",
+        "energy": 0.7,
+        "danceability": 0.753,
+        "valence": 0.44,
+        "acousticness": 0.541,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.07,
+        "loudness": -20.93,
+        "era": "1980s",
+        "cultural_context": "Purple Rain era, synthesizers dominate, Hi-NRG peak",
+        "occasions": ["party", "dance", "workout", "driving"],
+        "musical_key": "E minor",
+        "camelot_key": "9A",
+        "description": "A high-energy track blending Post-Disco and Hi-NRG with New Wave influences, characterized by its euphoric mood and danceability.",
+        "lyrics_analysis": {
+            "lyrics_source": "provided",
+            "language": "English",
+            "topic_main": "Self-control",
+            "topics_secondary": ["Desire", "Temptation"],
+            "coherence_score": 0.9,
+            "coherence_notes": ["Consistent theme of resisting temptation"],
+            "lyric_mood": "Euphoric",
+            "sentiment": 0.6,
+            "emotions": {
+                "joy": 0.8,
+                "sadness": 0.1,
+                "anger": 0.1,
+                "fear": 0.1,
+                "surprise": 0.2,
+                "trust": 0.4
+            },
+            "narrative_perspective": "second",
+            "narrative_time": "present",
+            "structure": [
+                {
+                    "section": "chorus",
+                    "summary": "Chorus emphasizes the theme of resistance",
+                    "sample_lines": ["Relax, don't do it", "When you wanna come"]
+                }
+            ],
+            "repeated_phrases": [
+                {
+                    "phrase": "Relax, don't do it",
+                    "count": 8,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "When you wanna come",
+                    "count": 7,
+                    "reason": "hook"
+                }
+            ],
+            "hook_candidates": ["Relax, don't do it", "When you wanna come"],
+            "keywords": ["relax", "desire", "control", "temptation"],
+            "named_entities": {},
+            "cultural_references": [],
+            "call_and_response": false,
+            "countins_shouts": false,
+            "explicitness_level": "mild",
+            "content_warnings": [],
+            "singalong_index": 0.8,
+            "chantability": 0.9,
+            "justification": [
+                "High instrumentalness with provided lyrics might indicate a focus on the music's instrumental elements alongside vocal parts."
+            ]
+        },
+        "confidence": 0.9199999999999999,
+        "validation_notes": ["Real recording year: 1984", "Contexto actualizado para 1984"],
+        "real_year": 1984,
+        "year_source": "Year 1984 confirmed by metadata and database"
+    },
+    "processing_time": 14.99,
+    "tokens_used": 3723,
+    "estimated_cost": 0.0505,
+    "timestamp": "2025-08-16T21:01:53.577954",
+    "version": "ultimate_v3"
+}

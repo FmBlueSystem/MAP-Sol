@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Lissat, Martina Budde - The Rollin' Funka Stone.flac",
+  "file_name": "Block & Crown, Lissat, Martina Budde - The Rollin' Funka Stone.flac",
+  "timestamp": "2025-08-16T23:09:12.330112",
+  "essentia_features": {
+    "loudness_lufs": -2.494112014770508,
+    "danceability": 1.2463319301605225,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6637899279594421,
+    "liveness": 0.1,
+    "speechiness": 0.18937376102740128,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

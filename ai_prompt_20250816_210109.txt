@@ -1,0 +1,124 @@
+Usted es un analista musical y de letras. Debe entregar ÚNICAMENTE JSON válido conforme al esquema. Use PRECOMPUTED tal cual (round/clamp). Analice la LETRA si está disponible. No use fuentes externas. No incluya BPM/tempo.
+
+FORMATO JSON ESTRICTO
+- Devuelva un ÚNICO objeto JSON con TODAS las claves del esquema; si no hay dato, use null o [].
+- Números como números (no strings). Sin NaN/Infinity. Escape JSON correcto.
+
+INPUT
+- TRACK: Artist: France Joli | Title: Gonna Get Over You (12" Mix) | Album: Now! | Genre(tag): Unknown | File: France Joli - Gonna Get Over You (12 Mix).flac | Year(tag): 1994 | Key(tag): 5A | ISRC: CAU118200308
+- PRECOMPUTED (Essentia/MIK; use null si faltan):
+  {
+    "loudness_lufs": -16.36,
+    "danceability": 0.667,
+    "acousticness": 0.822,
+    "instrumentalness": 0.349,
+    "liveness": 1.0,
+    "speechiness": 0.19,
+    "valence": 0.42,
+    "energy": 0.6,
+    "musical_key": "C minor",
+    "camelot_key": "5A",
+    "extract_strategy": "full",
+    "windows_used": [],
+    "notes": []
+  }
+- LYRICS
+<<<
+(No lyrics available)
+>>>
+
+[RESTO DEL PROMPT CONTINÚA CON LAS REGLAS...]
+
+ADQUISICIÓN DE LETRA (OBLIGATORIO Y SEGURO)
+- lyrics_source = "provided" si LYRICS trae texto; "fetched" si se obtuvo con herramienta; "missing" si no hay.
+- Si "fetched": citas ≤10 palabras y máx. 2 por sección; prefiera paráfrasis. Nunca pegue la letra completa.
+
+USO DEL ISRC
+- Valide ^[A-Z]{2}-?[A-Z0-9]{3}-?\d{2}-?\d{5}$. Si inválido/vacío, anótelo; si válido, YY orienta "era" como pista (no definitiva). No incluya el código.
+
+PRIORIDAD PRECOMPUTED (INMUTABLE)
+- Si PRECOMPUTED.<campo> no es null, úselo tal cual (round 2 dec, clamp a rango). No reestime ese campo.
+
+RANGOS Y LÍMITES
+- energy,danceability,valence,acousticness,instrumentalness,liveness,speechiness: 0.00–1.00; loudness: -60.00–0.00 dB.
+- LÍMITES DE LONGITUD: description ≤ 280 chars; topic_main ≤ 80; topics_secondary ≤ 60 c/u; summary de sección ≤ 140; keywords ≤ 4 palabras.
+- LÍMITES DE PROCESAMIENTO LÉXICO: analizar hasta 5,000 tokens; repeated_phrases 3–6 items, cada phrase ≤ 6 palabras; normalizar para conteo (lowercase, sin tildes/puntuación) y devolver la forma más frecuente original.
+
+MOOD (ENUM ESTRICTO, ÁNIMO SONORO)
+- "mood" ∈ ["Euphoric","Uplifting","Happy","Groovy","Chill","Dreamy","Nostalgic","Sophisticated","Romantic","Tense","Dark","Aggressive"]; si no encaja → null.
+- Respaldo opcional basado en valence/energy; ajustes: Dreamy/Romantic/Nostalgic solo si son claros.
+
+OCASIONES (2–4)
+- ["warm-up","peak-time","after-hours","party","dance","workout","driving","study","chill","dinner","sunset","wedding"] (sin duplicados).
+
+ANÁLISIS DE LETRA (si hay texto)
+- Idioma: detectar, no traducir. Mantenga "mood" y "occasions" en inglés.
+- Coherencia: continuidad temática, persona y tiempo verbal predominantes; anotar cambios bruscos.
+- Tema central y 0–5 subtemas.
+- Frases repetidas (hooks/chant): n-gramas 2–6 palabras; min 8 caracteres; 3–6 items con {phrase,count,reason}. Fusione variantes triviales.
+- Estructura: intro/verse/pre-chorus/chorus/post-chorus/bridge/outro con summary y sample_lines (respetar límites de citas).
+- Lyric_mood (ENUM de mood aplicado al texto).
+- Sentiment 0..1 y emociones {joy,sadness,anger,fear,surprise,trust}.
+- Perspectiva: first/second/third/mixed. Tiempo: present/past/future/mixed.
+- Entidades y referencias culturales (0–8).
+- Contenido sensible: explicitness_level ("clean"|"mild"|"explicit") y content_warnings [].
+- Indicadores DJ: hook_candidates 2–5, singalong_index 0..1, chantability 0..1.
+- Justificación lírica: 3–6 viñetas (sin BPM/tempo; ISRC solo "válido/inválido").
+
+REGLAS DE CONSISTENCIA AUDIO↔LETRA
+- Si instrumentalness ≥ 0.80 y hay letra: anote posible contradicción en lyrics_analysis.justification.
+- Si extract_strategy ≠ "full": indique ventanas usadas y si se aplicó calibración de LUFS.
+
+CONFIDENCE (CÁLCULO)
+- confidence = clamp( 0.30 + 0.05 * #(métricas PRECOMPUTED no nulas entre [energy,danceability,valence,acousticness,instrumentalness,liveness,speechiness,loudness]) + (lyrics_source=="provided"?0.20:(lyrics_source=="fetched"?0.10:0)) - (extract_strategy=="first60"?0.10:0) - (windows_used && windows_used.includes("chorus30")?0:0.05), 0, 1 ); round 2 dec.
+
+DEGRADACIÓN
+- Si lyrics_source="missing": repeated_phrases=[], hook_candidates=[], sample_lines=[]; sentiment y emotions = null; topic_main/subtemas tentativos; coherence_score ≤ 0.40.
+
+SALIDA (ÚNICO JSON; ESQUEMA EXACTO)
+{
+  "genre": string | null,
+  "subgenres": string[] (0–3),
+  "mood": string | null,
+  "energy": number | null,
+  "danceability": number | null,
+  "valence": number | null,
+  "acousticness": number | null,
+  "instrumentalness": number | null,
+  "liveness": number | null,
+  "speechiness": number | null,
+  "loudness": number | null,
+  "era": "1970s" | "1980s" | "1990s" | "2000s" | "2010s" | "2020s" | null,
+  "cultural_context": string | null,
+  "occasions": string[],
+  "musical_key": string | null,
+  "camelot_key": string | null,
+  "description": string | null,
+  "lyrics_analysis": {
+    "lyrics_source": "provided" | "fetched" | "missing",
+    "language": string | null,
+    "topic_main": string | null,
+    "topics_secondary": string[],
+    "coherence_score": number,
+    "coherence_notes": string[],
+    "lyric_mood": string | null,
+    "sentiment": number | null,
+    "emotions": { "joy": number, "sadness": number, "anger": number, "fear": number, "surprise": number, "trust": number },
+    "narrative_perspective": "first" | "second" | "third" | "mixed" | null,
+    "narrative_time": "present" | "past" | "future" | "mixed" | null,
+    "structure": [ { "section": "intro|verse|pre-chorus|chorus|post-chorus|bridge|outro", "summary": "string", "sample_lines": ["line1","line2"] } ],
+    "repeated_phrases": [ { "phrase": "string", "count": number, "reason": "loop|hook|chant" } ],
+    "hook_candidates": ["string","string"],
+    "keywords": ["string","..."],
+    "named_entities": { "persons": string[], "places": string[], "brands": string[] },
+    "cultural_references": string[],
+    "call_and_response": boolean,
+    "countins_shouts": boolean,
+    "explicitness_level": "clean" | "mild" | "explicit",
+    "content_warnings": string[],
+    "singalong_index": number,
+    "chantability": number,
+    "justification": string[]
+  },
+  "confidence": number
+}

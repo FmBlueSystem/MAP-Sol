@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/El Cuarteto de Nos - Co\u0301mo pasa el tiempo.flac",
+  "file_name": "El Cuarteto de Nos - Co\u0301mo pasa el tiempo.flac",
+  "timestamp": "2025-08-17T00:08:52.087345",
+  "essentia_features": {
+    "loudness_lufs": -3.0434722900390625,
+    "danceability": 1.151763916015625,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6377137303352356,
+    "liveness": 0.1,
+    "speechiness": 0.07491592678860408,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

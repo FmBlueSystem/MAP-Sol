@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bill Medley, Jennifer Warnes - (I've Had) The Time of My Life (12 Version).flac",
+  "file_name": "Bill Medley, Jennifer Warnes - (I've Had) The Time of My Life (12 Version).flac",
+  "timestamp": "2025-08-16T22:54:12.541671",
+  "essentia_features": {
+    "loudness_lufs": -4.306890487670898,
+    "danceability": 1.202069640159607,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3962863087654114,
+    "liveness": 0.1,
+    "speechiness": 0.21044779801358968,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -41,7 +41,7 @@ function testCriticalFiles() {
         console.log('✅ Test 1: Todos los archivos críticos presentes');
         return true;
     } else {
-        console.log(`❌ Test 1: Archivos faltantes: ${missing.join(', ')}`);
+        console.log(`❌ Test 1: Archivos faltantes: ${missing.join(', ')}');
         return false;
     }
 }
@@ -69,7 +69,7 @@ function testDependencies() {
         console.log('✅ Test 2: Todas las dependencias instaladas');
         return true;
     } else {
-        console.log(`❌ Test 2: Dependencias faltantes: ${missingDeps.join(', ')}`);
+        console.log(`❌ Test 2: Dependencias faltantes: ${missingDeps.join(', ')}');
         return false;
     }
 }
@@ -116,7 +116,7 @@ function testBuildScripts() {
         console.log('✅ Test 5: Build scripts configurados correctamente');
         return true;
     } else {
-        console.log(`❌ Test 5: Scripts faltantes: ${missingScripts.join(', ')}`);
+        console.log(`❌ Test 5: Scripts faltantes: ${missingScripts.join(', ')}');
         return false;
     }
 }
@@ -140,7 +140,7 @@ function testOptimizations() {
         const missing = Object.entries(checks)
             .filter(([k, v]) => !v)
             .map(([k]) => k);
-        console.log(`❌ Test 6: Optimizaciones faltantes: ${missing.join(', ')}`);
+        console.log(`❌ Test 6: Optimizaciones faltantes: ${missing.join(', ')}');
         return false;
     }
 }
@@ -200,7 +200,7 @@ tests.forEach(test => {
     }
 });
 
-console.log('\n=====================================');
+console.log('\n===================================');
 console.log(`📊 RESULTADOS: ${passed}/${tests.length} PASSED`);
 console.log(`✅ Passed: ${passed}`);
 console.log(`❌ Failed: ${failed}`);

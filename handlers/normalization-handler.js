@@ -6,7 +6,7 @@ function createNormalizationHandlers(db) {
     return {
         // Get normalization data for a track
         getNormalizationData: async (event, trackId) => {
-            return new Promise((resolve) => {
+            return new Promise(resolve => {
                 const sql = `
                     SELECT 
                         track_id,
@@ -23,7 +23,7 @@ function createNormalizationHandlers(db) {
                     FROM audio_normalization
                     WHERE track_id = ?
                 `;
-                
+
                 db.get(sql, [trackId], (err, row) => {
                     if (err) {
                         console.error('Error getting normalization data:', err);
@@ -34,10 +34,10 @@ function createNormalizationHandlers(db) {
                 });
             });
         },
-        
+
         // Save normalization data for a track
         saveNormalizationData: async (event, data) => {
-            return new Promise((resolve) => {
+            return new Promise(resolve => {
                 const sql = `
                     INSERT OR REPLACE INTO audio_normalization (
                         track_id,
@@ -53,7 +53,7 @@ function createNormalizationHandlers(db) {
                         algorithm_version
                     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 `;
-                
+
                 const params = [
                     data.track_id,
                     data.integratedLUFS || data.integrated_lufs,
@@ -67,8 +67,8 @@ function createNormalizationHandlers(db) {
                     data.needsLimiting || data.needs_limiting ? 1 : 0,
                     'v1.0'
                 ];
-                
-                db.run(sql, params, function(err) {
+
+                db.run(sql, params, function (err) {
                     if (err) {
                         console.error('Error saving normalization data:', err);
                         resolve({ success: false, error: err.message });
@@ -77,22 +77,22 @@ function createNormalizationHandlers(db) {
                         db.run(
                             'UPDATE audio_files SET normalization_analyzed = 1 WHERE id = ?',
                             [data.track_id],
-                            (updateErr) => {
+                            updateErr => {
                                 if (updateErr) {
                                     console.error('Error updating analyzed flag:', updateErr);
                                 }
                             }
                         );
-                        
+
                         resolve({ success: true, changes: this.changes });
                     }
                 });
             });
         },
-        
+
         // Get batch of unanalyzed tracks
         getUnanalyzedTracks: async (event, limit = 100) => {
-            return new Promise((resolve) => {
+            return new Promise(resolve => {
                 const sql = `
                     SELECT 
                         af.id,
@@ -106,7 +106,7 @@ function createNormalizationHandlers(db) {
                     OR af.normalization_analyzed = 0
                     LIMIT ?
                 `;
-                
+
                 db.all(sql, [limit], (err, rows) => {
                     if (err) {
                         console.error('Error getting unanalyzed tracks:', err);
@@ -117,10 +117,10 @@ function createNormalizationHandlers(db) {
                 });
             });
         },
-        
+
         // Save batch normalization results
         saveBatchNormalization: async (event, results) => {
-            return new Promise((resolve) => {
+            return new Promise(resolve => {
                 const sql = `
                     INSERT OR REPLACE INTO audio_normalization (
                         track_id,
@@ -136,12 +136,12 @@ function createNormalizationHandlers(db) {
                         algorithm_version
                     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 `;
-                
+
                 let successCount = 0;
                 let errorCount = 0;
-                
+
                 const stmt = db.prepare(sql);
-                
+
                 results.forEach(data => {
                     const params = [
                         data.track_id,
@@ -156,8 +156,8 @@ function createNormalizationHandlers(db) {
                         data.needs_limiting ? 1 : 0,
                         'v1.0'
                     ];
-                    
-                    stmt.run(params, (err) => {
+
+                    stmt.run(params, err => {
                         if (err) {
                             errorCount++;
                         } else {
@@ -170,7 +170,7 @@ function createNormalizationHandlers(db) {
                         }
                     });
                 });
-                
+
                 stmt.finalize(() => {
                     resolve({
                         success: true,
@@ -181,21 +181,22 @@ function createNormalizationHandlers(db) {
                 });
             });
         },
-        
+
         // Get normalization statistics
-        getNormalizationStats: async (event) => {
-            return new Promise((resolve) => {
+        getNormalizationStats: async event => {
+            return new Promise(resolve => {
                 const queries = {
                     total: 'SELECT COUNT(*) as count FROM audio_files',
                     analyzed: 'SELECT COUNT(*) as count FROM audio_normalization',
                     avgGain: 'SELECT AVG(gain_db) as avg FROM audio_normalization',
                     avgLUFS: 'SELECT AVG(integrated_lufs) as avg FROM audio_normalization',
-                    needsLimiting: 'SELECT COUNT(*) as count FROM audio_normalization WHERE needs_limiting = 1'
+                    needsLimiting:
+                        'SELECT COUNT(*) as count FROM audio_normalization WHERE needs_limiting = 1'
                 };
-                
+
                 const stats = {};
                 let completed = 0;
-                
+
                 Object.entries(queries).forEach(([key, sql]) => {
                     db.get(sql, (err, row) => {
                         if (!err && row) {
@@ -203,24 +204,25 @@ function createNormalizationHandlers(db) {
                         } else {
                             stats[key] = 0;
                         }
-                        
+
                         completed++;
                         if (completed === Object.keys(queries).length) {
-                            stats.percentage = stats.total > 0 
-                                ? (stats.analyzed / stats.total * 100).toFixed(1)
-                                : 0;
+                            stats.percentage =
+                                stats.total > 0
+                                    ? ((stats.analyzed / stats.total) * 100).toFixed(1)
+                                    : 0;
                             resolve(stats);
                         }
                     });
                 });
             });
         },
-        
+
         // Get preferences
-        getNormalizationPreferences: async (event) => {
-            return new Promise((resolve) => {
+        getNormalizationPreferences: async event => {
+            return new Promise(resolve => {
                 const sql = 'SELECT * FROM normalization_preferences WHERE id = 1';
-                
+
                 db.get(sql, (err, row) => {
                     if (err || !row) {
                         // Return defaults if not found
@@ -243,10 +245,10 @@ function createNormalizationHandlers(db) {
                 });
             });
         },
-        
+
         // Save preferences
         saveNormalizationPreferences: async (event, prefs) => {
-            return new Promise((resolve) => {
+            return new Promise(resolve => {
                 const sql = `
                     UPDATE normalization_preferences
                     SET enabled = ?, mode = ?, target_lufs = ?, 
@@ -254,7 +256,7 @@ function createNormalizationHandlers(db) {
                         updated_at = CURRENT_TIMESTAMP
                     WHERE id = 1
                 `;
-                
+
                 const params = [
                     prefs.enabled ? 1 : 0,
                     prefs.mode,
@@ -262,8 +264,8 @@ function createNormalizationHandlers(db) {
                     prefs.album_mode ? 1 : 0,
                     prefs.prevent_clipping ? 1 : 0
                 ];
-                
-                db.run(sql, params, function(err) {
+
+                db.run(sql, params, function (err) {
                     if (err) {
                         console.error('Error saving preferences:', err);
                         resolve({ success: false, error: err.message });

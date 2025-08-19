@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Baltimora - Tarzan Boy (Summer Version  2010 Digital Remaster).flac",
+  "file_name": "Baltimora - Tarzan Boy (Summer Version  2010 Digital Remaster).flac",
+  "timestamp": "2025-08-16T22:49:19.548005",
+  "essentia_features": {
+    "loudness_lufs": -2.6672229766845703,
+    "danceability": 1.2652922868728638,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4342007637023926,
+    "liveness": 0.1,
+    "speechiness": 0.12710882979104923,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

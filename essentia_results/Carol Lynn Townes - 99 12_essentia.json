@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Carol Lynn Townes - 99 12.flac",
+  "file_name": "Carol Lynn Townes - 99 12.flac",
+  "timestamp": "2025-08-16T23:25:59.468919",
+  "essentia_features": {
+    "loudness_lufs": -6.5917510986328125,
+    "danceability": 1.2170199155807495,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4447920322418213,
+    "liveness": 0.1,
+    "speechiness": 0.1409736016443313,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

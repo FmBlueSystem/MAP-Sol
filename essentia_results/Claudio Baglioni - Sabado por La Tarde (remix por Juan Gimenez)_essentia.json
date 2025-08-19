@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Claudio Baglioni - Sabado por La Tarde (remix por Juan Gimenez).flac",
+  "file_name": "Claudio Baglioni - Sabado por La Tarde (remix por Juan Gimenez).flac",
+  "timestamp": "2025-08-16T23:33:59.567701",
+  "essentia_features": {
+    "loudness_lufs": -1.8978424072265625,
+    "danceability": 0.9852613806724548,
+    "acousticness": 0.5,
+    "instrumentalness": 0.46953636407852173,
+    "liveness": 0.1,
+    "speechiness": 0.11240770581595375,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

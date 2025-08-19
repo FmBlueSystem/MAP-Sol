@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bobby Brown - Don't Be Cruel.flac",
+  "file_name": "Bobby Brown - Don't Be Cruel.flac",
+  "timestamp": "2025-08-16T23:15:55.104639",
+  "essentia_features": {
+    "loudness_lufs": -10.492483139038086,
+    "danceability": 1.5425142049789429,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6277369260787964,
+    "liveness": 0.1,
+    "speechiness": 0.19492421668434484,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

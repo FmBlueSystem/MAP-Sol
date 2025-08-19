@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cafe\u0301 Tacvba - Mari\u0301a.flac",
+  "file_name": "Cafe\u0301 Tacvba - Mari\u0301a.flac",
+  "timestamp": "2025-08-16T23:21:58.118613",
+  "essentia_features": {
+    "loudness_lufs": -6.114103317260742,
+    "danceability": 1.1295218467712402,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5732840895652771,
+    "liveness": 0.1,
+    "speechiness": 0.0850567280699847,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

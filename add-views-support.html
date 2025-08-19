@@ -1,0 +1,276 @@
+<!-- ARCHIVO PARA AGREGAR SOPORTE DE VISTAS SIN ROMPER EL PANEL DE AUDIO -->
+<!-- Copiar este código al archivo index-with-search.html con cuidado -->
+
+<!-- 1. AGREGAR ESTOS ESTILOS ANTES DE </head> -->
+<style>
+    /* View Toggle Styles - NO TOCAR EL PANEL DE AUDIO */
+    .view-toggle {
+        display: flex;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3px;
+        gap: 3px;
+        margin-left: 10px;
+    }
+
+    .view-btn {
+        background: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        padding: 8px 16px;
+        border-radius: 17px;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .view-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+    .view-btn.active {
+        background: white;
+        color: #667eea;
+        font-weight: 600;
+    }
+
+    .view-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* List View Styles */
+    .list-view {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 10px;
+    }
+
+    .list-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px 15px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .list-item:hover {
+        background: rgba(102, 126, 234, 0.1);
+        transform: translateX(5px);
+    }
+
+    .list-item-artwork {
+        width: 48px;
+        height: 48px;
+        border-radius: 4px;
+        object-fit: cover;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .list-item-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+    }
+
+    .list-item-title {
+        font-weight: 600;
+        color: white;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .list-item-artist {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+    }
+
+    /* Compact View Styles */
+    .compact-view {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .compact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .compact-item:hover {
+        background: rgba(102, 126, 234, 0.1);
+        transform: scale(1.02);
+    }
+
+    .compact-item-artwork {
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;
+        object-fit: cover;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .compact-item-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .compact-item-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: white;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .compact-item-artist {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.6);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+
+<!-- 2. AGREGAR ESTE HTML DESPUÉS DEL BOTÓN DE RESET EN filters-row -->
+<!-- Buscar donde dice <button onclick="resetFilters()">Reset</button> y agregar después: -->
+
+<div class="view-toggle">
+    <button class="view-btn active" data-view="cards" title="Cards View (1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"
+            />
+        </svg>
+        <span>Cards</span>
+    </button>
+    <button class="view-btn" data-view="list" title="List View (2)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"
+            />
+        </svg>
+        <span>List</span>
+    </button>
+    <button class="view-btn" data-view="compact" title="Compact View (3)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M3 9h4V5H3v4zm0 5h4v-4H3v4zm5 0h4v-4H8v4zm5 0h4v-4h-4v4zm5 0h4v-4h-4v4zM8 9h4V5H8v4zm5-4v4h4V5h-4zm5 0v4h4V5h-4zM3 19h4v-4H3v4zm5 0h4v-4H8v4zm5 0h4v-4h-4v4zm5 0h4v-4h-4v4z"
+            />
+        </svg>
+        <span>Compact</span>
+    </button>
+</div>
+
+<!-- 3. AGREGAR ESTE JAVASCRIPT AL FINAL DEL SCRIPT EXISTENTE -->
+<!-- Buscar donde termina la función loadData() y agregar: -->
+
+<script>
+    // View management - NO TOCAR FUNCIONES DEL PLAYER
+    let currentView = 'cards';
+
+    function switchView(view) {
+        currentView = view;
+
+        // Update button states
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-view="${view}"]`).classList.add('active');
+
+        // Re-render with current view
+        displayFiles(currentFiles);
+    }
+
+    // Modificar la función displayFiles existente para soportar vistas
+    // IMPORTANTE: Hacer backup de la función original primero
+    function displayFilesWithViews(files) {
+        const container = document.getElementById('container');
+
+        if (currentView === 'list') {
+            container.className = 'list-view';
+            container.innerHTML = files
+                .map(
+                    file => `
+            <div class="list-item" onclick="playTrack('${file.file_path.replace(/'/g, "\\'")}', '${(file.title || file.file_name).replace(/'/g, "\\'")}', '${(file.artist || 'Unknown').replace(/'/g, "\\'")}', '${file.artwork_url ? file.artwork_url.replace(/'/g, "\\'") : ''}')">
+                ${
+                    file.artwork_url
+                        ? `<img src="${file.artwork_url}" class="list-item-artwork" onerror="this.style.display='none'">`
+                        : `<div class="list-item-artwork">🎵</div>`
+                }
+                <div class="list-item-info">
+                    <div class="list-item-title">${file.title || file.file_name}</div>
+                    <div class="list-item-artist">${file.artist || 'Unknown Artist'} • ${file.album || ''}</div>
+                </div>
+            </div>
+        `
+                )
+                .join('');
+        } else if (currentView === 'compact') {
+            container.className = 'compact-view';
+            container.innerHTML = files
+                .map(
+                    file => `
+            <div class="compact-item" onclick="playTrack('${file.file_path.replace(/'/g, "\\'")}', '${(file.title || file.file_name).replace(/'/g, "\\'")}', '${(file.artist || 'Unknown').replace(/'/g, "\\'")}', '${file.artwork_url ? file.artwork_url.replace(/'/g, "\\'") : ''}')">
+                ${
+                    file.artwork_url
+                        ? `<img src="${file.artwork_url}" class="compact-item-artwork" onerror="this.style.display='none'">`
+                        : `<div class="compact-item-artwork">🎵</div>`
+                }
+                <div class="compact-item-info">
+                    <div class="compact-item-title">${file.title || file.file_name}</div>
+                    <div class="compact-item-artist">${file.artist || 'Unknown'}</div>
+                </div>
+            </div>
+        `
+                )
+                .join('');
+        } else {
+            // Default cards view - mantener el código original
+            container.className = 'tracks-grid';
+            // [MANTENER EL CÓDIGO ORIGINAL DE LA VISTA DE CARDS AQUÍ]
+        }
+    }
+
+    // Event listeners para los botones de vista
+    document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            switchView(btn.dataset.view);
+        });
+    });
+
+    // Shortcuts de teclado para cambiar vistas
+    document.addEventListener('keydown', e => {
+        if (e.target.tagName !== 'INPUT') {
+            if (e.key === '1') {
+                switchView('cards');
+            } else if (e.key === '2') {
+                switchView('list');
+            } else if (e.key === '3') {
+                switchView('compact');
+            }
+        }
+    });
+</script>
+
+<!-- FIN DE LAS MODIFICACIONES - NO TOCAR EL PANEL DE AUDIO -->

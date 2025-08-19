@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Deniece Williams - Lets Here It for the Boy (Extended Version).flac",
+  "file_name": "Deniece Williams - Lets Here It for the Boy (Extended Version).flac",
+  "timestamp": "2025-08-16T23:51:46.804714",
+  "essentia_features": {
+    "loudness_lufs": -5.27275276184082,
+    "danceability": 1.3435513973236084,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5918057262897491,
+    "liveness": 0.1,
+    "speechiness": 0.1566134867602526,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

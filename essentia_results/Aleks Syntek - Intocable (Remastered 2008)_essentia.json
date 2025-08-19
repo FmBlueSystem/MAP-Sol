@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aleks Syntek - Intocable (Remastered 2008).flac",
+  "file_name": "Aleks Syntek - Intocable (Remastered 2008).flac",
+  "timestamp": "2025-08-16T22:39:51.799332",
+  "essentia_features": {
+    "loudness_lufs": -3.2731990814208984,
+    "danceability": 1.033146619796753,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4804081916809082,
+    "liveness": 0.1,
+    "speechiness": 0.10349859276750037,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

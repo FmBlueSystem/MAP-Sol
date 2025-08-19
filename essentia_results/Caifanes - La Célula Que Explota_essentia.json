@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Caifanes - La Ce\u0301lula Que Explota.flac",
+  "file_name": "Caifanes - La Ce\u0301lula Que Explota.flac",
+  "timestamp": "2025-08-16T23:22:14.870270",
+  "essentia_features": {
+    "loudness_lufs": -9.944082260131836,
+    "danceability": 1.0548231601715088,
+    "acousticness": 0.5,
+    "instrumentalness": 0.42085129022598267,
+    "liveness": 0.1,
+    "speechiness": 0.12350881337772943,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

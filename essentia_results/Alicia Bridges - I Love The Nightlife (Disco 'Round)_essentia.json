@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alicia Bridges - I Love The Nightlife (Disco 'Round).flac",
+  "file_name": "Alicia Bridges - I Love The Nightlife (Disco 'Round).flac",
+  "timestamp": "2025-08-16T22:41:26.502546",
+  "essentia_features": {
+    "loudness_lufs": -4.521778106689453,
+    "danceability": 1.2183717489242554,
+    "acousticness": 0.5,
+    "instrumentalness": 0.398912250995636,
+    "liveness": 0.1,
+    "speechiness": 0.10509474614313705,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

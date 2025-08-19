@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bohannon - Let's Start The Dance.flac",
+  "file_name": "Bohannon - Let's Start The Dance.flac",
+  "timestamp": "2025-08-16T23:16:25.423667",
+  "essentia_features": {
+    "loudness_lufs": -6.585088729858398,
+    "danceability": 1.1958664655685425,
+    "acousticness": 0.5,
+    "instrumentalness": 0.42779093980789185,
+    "liveness": 0.1,
+    "speechiness": 0.19088568169014444,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

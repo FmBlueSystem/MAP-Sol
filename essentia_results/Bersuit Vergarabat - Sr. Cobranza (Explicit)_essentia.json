@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bersuit Vergarabat - Sr. Cobranza (Explicit).flac",
+  "file_name": "Bersuit Vergarabat - Sr. Cobranza (Explicit).flac",
+  "timestamp": "2025-08-16T22:53:45.715726",
+  "essentia_features": {
+    "loudness_lufs": -3.132061004638672,
+    "danceability": 1.2369273900985718,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4129945635795593,
+    "liveness": 0.1,
+    "speechiness": 0.16774399771893087,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

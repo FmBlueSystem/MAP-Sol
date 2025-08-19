@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Ocean - Loverboy.flac",
+  "file_name": "Billy Ocean - Loverboy.flac",
+  "timestamp": "2025-08-16T22:57:37.204514",
+  "essentia_features": {
+    "loudness_lufs": -5.093599319458008,
+    "danceability": 1.3061063289642334,
+    "acousticness": 0.5,
+    "instrumentalness": 0.46997660398483276,
+    "liveness": 0.1,
+    "speechiness": 0.14164802437450627,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

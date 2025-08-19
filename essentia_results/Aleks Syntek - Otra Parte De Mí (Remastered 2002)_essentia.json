@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aleks Syntek - Otra Parte De Mi\u0301 (Remastered 2002).flac",
+  "file_name": "Aleks Syntek - Otra Parte De Mi\u0301 (Remastered 2002).flac",
+  "timestamp": "2025-08-16T22:40:00.777317",
+  "essentia_features": {
+    "loudness_lufs": -2.1743240356445312,
+    "danceability": 1.2782378196716309,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4134901165962219,
+    "liveness": 0.1,
+    "speechiness": 0.10569022961671731,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

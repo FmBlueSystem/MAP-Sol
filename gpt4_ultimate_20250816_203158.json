@@ -1,0 +1,138 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez muscia de Tidal Original descarga de musica/Consolidado2025/pruebas/George Michael - Careless Whisper.flac",
+    "file_name": "George Michael - Careless Whisper.flac",
+    "original_metadata": {
+        "artist": "George Michael",
+        "title": "Careless Whisper",
+        "album": "The Final",
+        "genre": "Unknown",
+        "file_name": "George Michael - Careless Whisper.flac",
+        "year": 1986,
+        "existing_key": "7A",
+        "isrc": "GBBBM8400003"
+    },
+    "precomputed_features": {
+        "loudness_lufs": -19.79,
+        "danceability": 0.54,
+        "acousticness": 0.576,
+        "instrumentalness": 0.494,
+        "liveness": 1.0,
+        "speechiness": 0.027,
+        "valence": 0.4,
+        "energy": 0.5,
+        "musical_key": "D minor",
+        "camelot_key": "7A",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "temporal_analysis": {
+        "real_year": 1984,
+        "metadata_year": 1986,
+        "isrc_parsed": {
+            "valid": true,
+            "country": "GB",
+            "registrant": "BBM",
+            "year": 1984,
+            "recording_id": "00003",
+            "original": "GBBBM8400003"
+        },
+        "year_explanation": "Recording year 1984 confirmed by ISRC"
+    },
+    "gpt4_analysis": {
+        "genre": "Pop",
+        "subgenres": ["R&B/Soul", "Ballad"],
+        "mood": "Nostalgic",
+        "energy": 0.5,
+        "danceability": 0.54,
+        "valence": 0.4,
+        "acousticness": 0.576,
+        "instrumentalness": 0.494,
+        "liveness": 1.0,
+        "speechiness": 0.027,
+        "loudness": -19.79,
+        "era": "1980s",
+        "cultural_context": "Purple Rain era, synthesizers dominate, Hi-NRG peak",
+        "occasions": ["chill", "dinner", "sunset", "wedding"],
+        "musical_key": "D minor",
+        "camelot_key": "7A",
+        "description": "Careless Whisper is a soulful pop ballad with a memorable saxophone riff, showcasing George Michael's emotive vocals.",
+        "lyrics_analysis": {
+            "lyrics_source": "provided",
+            "language": "English",
+            "topic_main": "Regret",
+            "topics_secondary": ["Love", "Betrayal", "Loneliness"],
+            "coherence_score": 0.9,
+            "coherence_notes": ["Consistent narrative of regret and lost love"],
+            "lyric_mood": "Nostalgic",
+            "sentiment": 0.2,
+            "emotions": {
+                "joy": 0.1,
+                "sadness": 0.8,
+                "anger": 0.1,
+                "fear": 0.05,
+                "surprise": 0,
+                "trust": 0.1
+            },
+            "narrative_perspective": "first",
+            "narrative_time": "past",
+            "structure": [
+                {
+                    "section": "intro",
+                    "summary": "Setting a somber tone with saxophone",
+                    "sample_lines": ["Oh, woah, woah, oh, hmm-mm"]
+                },
+                {
+                    "section": "verse",
+                    "summary": "Expressing uncertainty and regret",
+                    "sample_lines": [
+                        "I feel so unsure",
+                        "As I take your hand and lead you to the dance floor"
+                    ]
+                },
+                {
+                    "section": "chorus",
+                    "summary": "Vowing to never dance again due to guilt",
+                    "sample_lines": [
+                        "I'm never gonna dance again",
+                        "Guilty feet have got no rhythm"
+                    ]
+                }
+            ],
+            "repeated_phrases": [
+                {
+                    "phrase": "I'm never gonna dance again",
+                    "count": 4,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "Guilty feet have got no rhythm",
+                    "count": 3,
+                    "reason": "hook"
+                }
+            ],
+            "hook_candidates": ["never gonna dance again", "guilty feet have got no rhythm"],
+            "keywords": ["dance", "guilt", "regret", "whispers"],
+            "named_entities": {},
+            "cultural_references": [],
+            "call_and_response": false,
+            "countins_shouts": false,
+            "explicitness_level": "clean",
+            "content_warnings": [],
+            "singalong_index": 0.8,
+            "chantability": 0.7,
+            "justification": [
+                "The song's reflective mood and narrative of regret align with its nostalgic tone."
+            ]
+        },
+        "confidence": 0.9199999999999999,
+        "validation_notes": ["Real recording year: 1984", "Contexto actualizado para 1984"],
+        "real_year": 1984,
+        "year_source": "Recording year 1984 confirmed by ISRC"
+    },
+    "processing_time": 18.61,
+    "tokens_used": 3697,
+    "estimated_cost": 0.0522,
+    "timestamp": "2025-08-16T20:31:58.500249",
+    "version": "ultimate_v3"
+}

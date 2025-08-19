@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Daryl Hall & John Oates - Possession Obsession (Special Mix).flac",
+  "file_name": "Daryl Hall & John Oates - Possession Obsession (Special Mix).flac",
+  "timestamp": "2025-08-16T23:46:19.994613",
+  "essentia_features": {
+    "loudness_lufs": -3.7873363494873047,
+    "danceability": 1.4170867204666138,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4570354223251343,
+    "liveness": 0.1,
+    "speechiness": 0.1297566789278651,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Expose\u0301 - Point Of No Return.flac",
+  "file_name": "Expose\u0301 - Point Of No Return.flac",
+  "timestamp": "2025-08-17T00:19:03.424008",
+  "essentia_features": {
+    "loudness_lufs": -2.648439407348633,
+    "danceability": 1.2862669229507446,
+    "acousticness": 0.5,
+    "instrumentalness": 0.49209684133529663,
+    "liveness": 0.1,
+    "speechiness": 0.18828590307120469,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

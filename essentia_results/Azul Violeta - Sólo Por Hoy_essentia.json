@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Azul Violeta - So\u0301lo Por Hoy.flac",
+  "file_name": "Azul Violeta - So\u0301lo Por Hoy.flac",
+  "timestamp": "2025-08-16T22:47:39.801138",
+  "essentia_features": {
+    "loudness_lufs": -2.964099884033203,
+    "danceability": 1.1642813682556152,
+    "acousticness": 0.5,
+    "instrumentalness": 0.33758777379989624,
+    "liveness": 0.1,
+    "speechiness": 0.16570193661313354,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

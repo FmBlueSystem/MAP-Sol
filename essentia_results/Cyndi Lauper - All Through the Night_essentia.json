@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cyndi Lauper - All Through the Night.flac",
+  "file_name": "Cyndi Lauper - All Through the Night.flac",
+  "timestamp": "2025-08-16T23:40:13.292844",
+  "essentia_features": {
+    "loudness_lufs": -3.899383544921875,
+    "danceability": 1.1572610139846802,
+    "acousticness": 0.5,
+    "instrumentalness": 0.48468196392059326,
+    "liveness": 0.1,
+    "speechiness": 0.14810799139858447,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

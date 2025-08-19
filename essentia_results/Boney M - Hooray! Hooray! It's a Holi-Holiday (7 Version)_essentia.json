@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Boney M - Hooray! Hooray! It's a Holi-Holiday (7 Version).flac",
+  "file_name": "Boney M - Hooray! Hooray! It's a Holi-Holiday (7 Version).flac",
+  "timestamp": "2025-08-16T23:17:07.068523",
+  "essentia_features": {
+    "loudness_lufs": -4.359882354736328,
+    "danceability": 1.3089755773544312,
+    "acousticness": 0.5,
+    "instrumentalness": 0.33761918544769287,
+    "liveness": 0.1,
+    "speechiness": 0.1410508747103452,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

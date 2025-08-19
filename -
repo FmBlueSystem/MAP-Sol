@@ -1,0 +1,41 @@
+[
+  {
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Chip E - Time To Jack (House Mix).flac",
+    "file_name": "Chip E - Time To Jack (House Mix).flac",
+    "status": "success",
+    "timestamp": "2025-08-17T07:08:33.378759",
+    "extract_strategy": "smart60",
+    "windows_used": {
+      "sample_rate": 44100,
+      "frame_size": 2048,
+      "hop_size": 1024,
+      "onset_frame": 1024,
+      "onset_hop": 512
+    },
+    "notes": "Estrategia smart60: centro sin intro/outro.",
+    "duration_analyzed_sec": 60.0,
+    "features": {
+      "loudness": -14.020774164607719,
+      "loudness_range": 0.0,
+      "dynamic_range": 0.0,
+      "bpm": 124.22480010986328,
+      "bpm_confidence": 0.0,
+      "key": "C# minor",
+      "key_confidence": 0.5833468437194824,
+      "energy": 0.7663204305898714,
+      "danceability": 0.969539001544034,
+      "acousticness": 0.7903662319235616,
+      "instrumentalness": 0.8036194438395277,
+      "liveness": 1.0,
+      "speechiness": 0.15710444492837786,
+      "valence": 0.0
+    },
+    "metadata": {
+      "artist": "Chip E",
+      "title": "Time To Jack (House Mix)",
+      "album": "Time To Jack",
+      "genre": "Tech House",
+      "year": "2009"
+    }
+  }
+]

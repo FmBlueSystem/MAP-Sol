@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Destination - Move On Up.flac",
+  "file_name": "Destination - Move On Up.flac",
+  "timestamp": "2025-08-16T23:54:06.061793",
+  "essentia_features": {
+    "loudness_lufs": -12.30466079711914,
+    "danceability": 2.1197121143341064,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5677284002304077,
+    "liveness": 0.1,
+    "speechiness": 0.15201106822327234,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

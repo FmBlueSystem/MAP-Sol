@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Martina Budde - What A Fool Believes.flac",
+  "file_name": "Block & Crown, Martina Budde - What A Fool Believes.flac",
+  "timestamp": "2025-08-16T23:11:10.421243",
+  "essentia_features": {
+    "loudness_lufs": -3.3172245025634766,
+    "danceability": 1.2511603832244873,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6852418482303619,
+    "liveness": 0.1,
+    "speechiness": 0.18239417787199566,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

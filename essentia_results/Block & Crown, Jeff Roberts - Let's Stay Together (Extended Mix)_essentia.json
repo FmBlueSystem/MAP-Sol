@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Jeff Roberts - Let's Stay Together (Extended Mix).flac",
+  "file_name": "Block & Crown, Jeff Roberts - Let's Stay Together (Extended Mix).flac",
+  "timestamp": "2025-08-16T23:06:56.511861",
+  "essentia_features": {
+    "loudness_lufs": -2.4715633392333984,
+    "danceability": 1.3516665697097778,
+    "acousticness": 0.5,
+    "instrumentalness": 0.626830130815506,
+    "liveness": 0.1,
+    "speechiness": 0.17382878756652909,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

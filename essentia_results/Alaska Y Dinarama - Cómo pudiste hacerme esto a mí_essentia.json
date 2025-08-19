@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alaska Y Dinarama - Co\u0301mo pudiste hacerme esto a mi\u0301.flac",
+  "file_name": "Alaska Y Dinarama - Co\u0301mo pudiste hacerme esto a mi\u0301.flac",
+  "timestamp": "2025-08-16T22:39:27.628391",
+  "essentia_features": {
+    "loudness_lufs": -1.9808425903320312,
+    "danceability": 1.3562391996383667,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5456327795982361,
+    "liveness": 0.1,
+    "speechiness": 0.190337254551884,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

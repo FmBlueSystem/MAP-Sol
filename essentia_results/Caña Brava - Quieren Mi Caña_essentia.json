@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Can\u0303a Brava - Quieren Mi Can\u0303a.flac",
+  "file_name": "Can\u0303a Brava - Quieren Mi Can\u0303a.flac",
+  "timestamp": "2025-08-16T23:24:31.478958",
+  "essentia_features": {
+    "loudness_lufs": -6.971687316894531,
+    "danceability": 1.6687618494033813,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5113575458526611,
+    "liveness": 0.1,
+    "speechiness": 0.18150068668036842,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aretha Franklin - I'm Every Woman  Respect (Eric Kupper Club Mix).flac",
+  "file_name": "Aretha Franklin - I'm Every Woman  Respect (Eric Kupper Club Mix).flac",
+  "timestamp": "2025-08-16T22:45:23.948121",
+  "essentia_features": {
+    "loudness_lufs": -3.7637672424316406,
+    "danceability": 1.5694077014923096,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6480286121368408,
+    "liveness": 0.1,
+    "speechiness": 0.15885106253691417,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

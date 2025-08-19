@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aroma - Zorba's Dance (Sirtaki).flac",
+  "file_name": "Aroma - Zorba's Dance (Sirtaki).flac",
+  "timestamp": "2025-08-16T22:45:54.993566",
+  "essentia_features": {
+    "loudness_lufs": -3.6936378479003906,
+    "danceability": 1.2609672546386719,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6167714595794678,
+    "liveness": 0.1,
+    "speechiness": 0.10220394524217567,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

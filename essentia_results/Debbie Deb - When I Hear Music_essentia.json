@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Debbie Deb - When I Hear Music.flac",
+  "file_name": "Debbie Deb - When I Hear Music.flac",
+  "timestamp": "2025-08-16T23:49:51.354224",
+  "essentia_features": {
+    "loudness_lufs": -8.03207015991211,
+    "danceability": 1.2934608459472656,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5720864534378052,
+    "liveness": 0.1,
+    "speechiness": 0.1556404699599911,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

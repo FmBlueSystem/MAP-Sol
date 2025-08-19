@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Test Enhanced View</title>
+        <style>
+            body {
+                background: #1a1a2e;
+                color: white;
+                font-family: Arial;
+                padding: 20px;
+            }
+            .test-card {
+                background: rgba(255, 255, 255, 0.1);
+                padding: 20px;
+                border-radius: 10px;
+                margin: 20px;
+            }
+            .field {
+                margin: 10px 0;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 5px;
+            }
+            .field-name {
+                color: #667eea;
+                font-weight: bold;
+            }
+            .field-value {
+                color: #fff;
+            }
+            button {
+                padding: 10px 20px;
+                background: #667eea;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Enhanced View Test</h1>
+        <button onclick="testEnhanced()">Test Enhanced View</button>
+        <div id="output"></div>
+
+        <script>
+            // Test data simulating a track with 147 fields
+            const testTrack = {
+                id: 1,
+                title: 'Test Track',
+                artist: 'Test Artist',
+                album: 'Test Album',
+                genre: 'Electronic',
+                year: 2024,
+                AI_BPM: 128,
+                AI_KEY: '9A',
+                AI_ENERGY: 0.8,
+                AI_DANCEABILITY: 0.75,
+                AI_VALENCE: 0.6,
+                AI_MOOD: 'Energetic',
+                LLM_GENRE: 'Progressive House',
+                file_path: '/test/path/file.mp3',
+                file_size: 10485760,
+                bitrate: 320000,
+                sample_rate: 44100,
+                duration: 240,
+                artwork_path: 'test.jpg'
+            };
+
+            // Add more fields to simulate 147
+            for (let i = 20; i < 147; i++) {
+                testTrack[`field_${i}`] = `Value ${i}`;
+            }
+
+            function testEnhanced() {
+                const output = document.getElementById('output');
+                output.innerHTML = '<div class="test-card">';
+
+                // Show all fields
+                let html = `<h2>${testTrack.title} - ${testTrack.artist}</h2>`;
+                html += `<p>Total fields: ${Object.keys(testTrack).length}</p>`;
+
+                // Display key fields
+                const keyFields = [
+                    'AI_BPM',
+                    'AI_KEY',
+                    'AI_ENERGY',
+                    'AI_DANCEABILITY',
+                    'AI_MOOD',
+                    'LLM_GENRE'
+                ];
+
+                html += '<h3>Key Audio Features:</h3>';
+                keyFields.forEach(field => {
+                    if (testTrack[field] !== undefined) {
+                        html += `
+                        <div class="field">
+                            <span class="field-name">${field}:</span>
+                            <span class="field-value">${testTrack[field]}</span>
+                        </div>
+                    `;
+                    }
+                });
+
+                // Show count of all fields
+                html += `<h3>All ${Object.keys(testTrack).length} Fields Available</h3>`;
+                html += '<button onclick="showAll()">Show All Fields</button>';
+                html += '<div id="allFields" style="display:none"></div>';
+
+                output.innerHTML = html + '</div>';
+            }
+
+            function showAll() {
+                const allFields = document.getElementById('allFields');
+                let html = '';
+
+                Object.entries(testTrack).forEach(([key, value]) => {
+                    html += `
+                    <div class="field">
+                        <span class="field-name">${key}:</span>
+                        <span class="field-value">${value}</span>
+                    </div>
+                `;
+                });
+
+                allFields.innerHTML = html;
+                allFields.style.display = allFields.style.display === 'none' ? 'block' : 'none';
+            }
+        </script>
+    </body>
+</html>

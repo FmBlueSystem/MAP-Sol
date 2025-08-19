@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Boney M - Rivers of Babylon (Single Version).flac",
+  "file_name": "Boney M - Rivers of Babylon (Single Version).flac",
+  "timestamp": "2025-08-16T23:17:23.584121",
+  "essentia_features": {
+    "loudness_lufs": -9.114606857299805,
+    "danceability": 1.1786104440689087,
+    "acousticness": 0.5,
+    "instrumentalness": 0.42327868938446045,
+    "liveness": 0.1,
+    "speechiness": 0.13117928826491512,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

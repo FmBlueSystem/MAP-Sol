@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cyndi Lauper - The Goonies 'R' Good Enough (Dance Remix).flac",
+  "file_name": "Cyndi Lauper - The Goonies 'R' Good Enough (Dance Remix).flac",
+  "timestamp": "2025-08-16T23:41:08.784629",
+  "essentia_features": {
+    "loudness_lufs": -3.7143783569335938,
+    "danceability": 1.2240744829177856,
+    "acousticness": 0.5,
+    "instrumentalness": 0.42417001724243164,
+    "liveness": 0.1,
+    "speechiness": 0.1432025785356258,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,20 @@
+{
+    "timestamp": "2025-08-16T00:23:01.398Z",
+    "duration": 1.166,
+    "stats": {
+        "scanned": 3767,
+        "newFiles": 0,
+        "updatedFiles": 0,
+        "deletedFiles": 1,
+        "artworkExtracted": 0,
+        "aiAnalyzed": 0,
+        "errors": []
+    },
+    "database": {
+        "totalTracks": 3767,
+        "withArtwork": 3756,
+        "withMetadata": 3681,
+        "withAI": 223
+    },
+    "errors": []
+}

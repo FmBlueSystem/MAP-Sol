@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Booker Newberry III - Love Town.flac",
+  "file_name": "Booker Newberry III - Love Town.flac",
+  "timestamp": "2025-08-16T23:18:01.938291",
+  "essentia_features": {
+    "loudness_lufs": -6.896215438842773,
+    "danceability": 1.5213322639465332,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5706158578395844,
+    "liveness": 0.1,
+    "speechiness": 0.15423765427853078,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

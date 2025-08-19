@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fat Boys, The Beach Boys - Wipeout.flac",
+  "file_name": "Fat Boys, The Beach Boys - Wipeout.flac",
+  "timestamp": "2025-08-17T00:21:36.386683",
+  "essentia_features": {
+    "loudness_lufs": -11.884668350219727,
+    "danceability": 1.3145291805267334,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6406087577342987,
+    "liveness": 0.1,
+    "speechiness": 0.13394695640484724,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown - Blame It on the Boogie.flac",
+  "file_name": "Block & Crown - Blame It on the Boogie.flac",
+  "timestamp": "2025-08-16T23:01:08.066782",
+  "essentia_features": {
+    "loudness_lufs": -2.6725921630859375,
+    "danceability": 1.3646891117095947,
+    "acousticness": 0.5,
+    "instrumentalness": 0.697961837053299,
+    "liveness": 0.1,
+    "speechiness": 0.21787848206016502,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/David Guetta - Family Affair (Dance For Me).flac",
+  "file_name": "David Guetta - Family Affair (Dance For Me).flac",
+  "timestamp": "2025-08-16T23:47:35.058008",
+  "essentia_features": {
+    "loudness_lufs": -3.787342071533203,
+    "danceability": 1.2599437236785889,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7057347893714905,
+    "liveness": 0.1,
+    "speechiness": 0.09878446770077655,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

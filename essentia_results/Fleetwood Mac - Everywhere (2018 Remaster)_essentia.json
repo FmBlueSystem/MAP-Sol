@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Everywhere (2018 Remaster).flac",
+  "file_name": "Fleetwood Mac - Everywhere (2018 Remaster).flac",
+  "timestamp": "2025-08-17T00:23:38.909366",
+  "essentia_features": {
+    "loudness_lufs": -7.423532485961914,
+    "danceability": 1.484229564666748,
+    "acousticness": 0.5,
+    "instrumentalness": 0.49747759103775024,
+    "liveness": 0.1,
+    "speechiness": 0.22189129175687983,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

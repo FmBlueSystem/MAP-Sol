@@ -28,18 +28,20 @@ function createWindow() {
 app.whenReady().then(() => {
     const dbPath = path.join(__dirname, 'music_analyzer.db');
     db = new sqlite3.Database(dbPath);
-    
-    console.log('✅ Base de datos conectada');
-    
+
+    logInfo('✅ Base de datos conectada');
+
     // Registrar handlers
     ipcMain.handle('get-files-with-cached-artwork', createArtworkHandler(db));
     ipcMain.handle('search-tracks', createSearchHandler(db));
     ipcMain.handle('get-filter-options', createFilterHandler(db));
-    
+
     createWindow();
 });
 
 app.on('window-all-closed', () => {
-    if (db) db.close();
+    if (db) {
+        db.close();
+    }
     app.quit();
 });

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eric Carmen - All By Myself.flac",
+  "file_name": "Eric Carmen - All By Myself.flac",
+  "timestamp": "2025-08-17T00:15:48.707950",
+  "essentia_features": {
+    "loudness_lufs": -4.822710037231445,
+    "danceability": 0.9647234678268433,
+    "acousticness": 0.5,
+    "instrumentalness": 0.42776310443878174,
+    "liveness": 0.1,
+    "speechiness": 0.09641499020792586,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dombresky - Soul Sacrifice.flac",
+  "file_name": "Dombresky - Soul Sacrifice.flac",
+  "timestamp": "2025-08-16T23:57:14.835988",
+  "essentia_features": {
+    "loudness_lufs": -3.159709930419922,
+    "danceability": 1.3218629360198975,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6277627646923065,
+    "liveness": 0.1,
+    "speechiness": 0.12699058576416275,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

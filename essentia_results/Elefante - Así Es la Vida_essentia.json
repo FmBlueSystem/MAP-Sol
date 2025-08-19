@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Elefante - Asi\u0301 Es la Vida.flac",
+  "file_name": "Elefante - Asi\u0301 Es la Vida.flac",
+  "timestamp": "2025-08-17T00:11:55.557477",
+  "essentia_features": {
+    "loudness_lufs": -5.569648742675781,
+    "danceability": 1.2657886743545532,
+    "acousticness": 0.5,
+    "instrumentalness": 0.40922021865844727,
+    "liveness": 0.1,
+    "speechiness": 0.11563986490204974,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

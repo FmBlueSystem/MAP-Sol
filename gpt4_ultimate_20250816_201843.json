@@ -1,0 +1,139 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez muscia de Tidal Original descarga de musica/Consolidado2025/pruebas/France Joli - Come to Me.flac",
+    "file_name": "France Joli - Come to Me.flac",
+    "original_metadata": {
+        "artist": "France Joli",
+        "title": "Come to Me",
+        "album": "France Joli: Greatest Hits",
+        "genre": "Unknown",
+        "file_name": "France Joli - Come to Me.flac",
+        "year": 1989,
+        "existing_key": "4A",
+        "isrc": "CAU117900284"
+    },
+    "precomputed_features": {
+        "loudness_lufs": -15.56,
+        "danceability": 0.773,
+        "acousticness": 0.876,
+        "instrumentalness": 0.308,
+        "liveness": 1.0,
+        "speechiness": 0.015,
+        "valence": 0.53,
+        "energy": 0.7,
+        "musical_key": "F minor",
+        "camelot_key": "4A",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "temporal_analysis": {
+        "real_year": 1979,
+        "metadata_year": 1989,
+        "isrc_parsed": {
+            "valid": true,
+            "country": "CA",
+            "registrant": "U11",
+            "year": 1979,
+            "recording_id": "00284",
+            "original": "CAU117900284"
+        },
+        "year_explanation": "Original recording from 1979 (ISRC), metadata shows 1989 (likely reissue/compilation)"
+    },
+    "gpt4_analysis": {
+        "genre": "Disco",
+        "subgenres": ["Classic Disco", "Euro-Disco", "Funk"],
+        "mood": "Romantic",
+        "energy": 0.7,
+        "danceability": 0.77,
+        "valence": 0.53,
+        "acousticness": 0.88,
+        "instrumentalness": 0.31,
+        "liveness": 1.0,
+        "speechiness": 0.02,
+        "loudness": -15.56,
+        "era": "1970s",
+        "cultural_context": "Peak disco era, Studio 54 culture, Saturday Night Fever influence, pre-'Disco Demolition Night'",
+        "occasions": ["party", "dance", "romantic", "wedding"],
+        "musical_key": "F minor",
+        "camelot_key": "4A",
+        "description": "A quintessential disco track embodying the romantic and danceable vibes of 1979.",
+        "lyrics_analysis": {
+            "lyrics_source": "provided",
+            "language": "English",
+            "topic_main": "Love",
+            "topics_secondary": ["Loneliness", "Desire"],
+            "coherence_score": 0.9,
+            "coherence_notes": ["Consistent theme of seeking and offering love and comfort."],
+            "lyric_mood": "Romantic",
+            "sentiment": 0.8,
+            "emotions": {
+                "joy": 0.7,
+                "sadness": 0.2,
+                "anger": 0,
+                "fear": 0,
+                "surprise": 0.1,
+                "trust": 0.8
+            },
+            "narrative_perspective": "first",
+            "narrative_time": "present",
+            "structure": [
+                {
+                    "section": "chorus",
+                    "summary": "Offering love and comfort",
+                    "sample_lines": [
+                        "Come to me when you're all alone and feeling down",
+                        "Come to me, I will shelter you from the storm"
+                    ]
+                }
+            ],
+            "repeated_phrases": [
+                {
+                    "phrase": "Come to me",
+                    "count": 14,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "I love you",
+                    "count": 8,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "And I need you",
+                    "count": 4,
+                    "reason": "hook"
+                }
+            ],
+            "hook_candidates": ["Come to me", "I love you"],
+            "keywords": ["love", "comfort", "lonely", "dreams"],
+            "named_entities": {
+                "persons": [],
+                "places": [],
+                "brands": []
+            },
+            "cultural_references": [],
+            "call_and_response": false,
+            "countins_shouts": false,
+            "explicitness_level": "clean",
+            "content_warnings": [],
+            "singalong_index": 0.8,
+            "chantability": 0.8,
+            "justification": [
+                "The song's lyrics and mood are consistent with the disco era's romantic themes."
+            ]
+        },
+        "confidence": 0.86,
+        "validation_notes": [
+            "Real recording year: 1979",
+            "Agregado 'Euro-Disco' (apropiado para 1979)",
+            "Agregado 'Funk' (apropiado para 1979)",
+            "Contexto actualizado para 1979"
+        ],
+        "real_year": 1979,
+        "year_source": "Original recording from 1979 (ISRC), metadata shows 1989 (likely reissue/compilation)"
+    },
+    "processing_time": 16.51,
+    "tokens_used": 3782,
+    "estimated_cost": 0.0511,
+    "timestamp": "2025-08-16T20:18:43.279986",
+    "version": "ultimate_v3"
+}

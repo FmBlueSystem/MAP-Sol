@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Get the Balance Right!.flac",
+  "file_name": "Depeche Mode - Get the Balance Right!.flac",
+  "timestamp": "2025-08-16T23:52:25.881367",
+  "essentia_features": {
+    "loudness_lufs": -7.417030334472656,
+    "danceability": 1.5999059677124023,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5964652597904205,
+    "liveness": 0.1,
+    "speechiness": 0.14682223840224204,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

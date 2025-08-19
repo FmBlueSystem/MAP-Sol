@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aterciopelados - Baracunatana.flac",
+  "file_name": "Aterciopelados - Baracunatana.flac",
+  "timestamp": "2025-08-16T22:47:07.178955",
+  "essentia_features": {
+    "loudness_lufs": -5.055538177490234,
+    "danceability": 1.093846321105957,
+    "acousticness": 0.5,
+    "instrumentalness": 0.42848873138427734,
+    "liveness": 0.1,
+    "speechiness": 0.12518629178483737,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

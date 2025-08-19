@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Erasure - A Little Respect (Extended Mix).flac",
+  "file_name": "Erasure - A Little Respect (Extended Mix).flac",
+  "timestamp": "2025-08-17T00:14:57.255678",
+  "essentia_features": {
+    "loudness_lufs": -11.225481033325195,
+    "danceability": 1.291683554649353,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5450961589813232,
+    "liveness": 0.1,
+    "speechiness": 0.16261071666700008,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

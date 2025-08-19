@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Discotron - Disco Ballin' (Original Mix).flac",
+  "file_name": "Discotron - Disco Ballin' (Original Mix).flac",
+  "timestamp": "2025-08-16T23:56:29.477577",
+  "essentia_features": {
+    "loudness_lufs": -4.596256256103516,
+    "danceability": 1.7340008020401,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5535517632961273,
+    "liveness": 0.1,
+    "speechiness": 0.14771259464214365,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,205 @@
+{
+    "project": "Music Analyzer Pro",
+    "tasks": [
+        {
+            "title": "Fix: Resolver 89+ archivos con análisis fallido",
+            "description": "Files en missing_89_errors.txt están fallando. Implementar manejo robusto de errores y retry para FLAC/M4A",
+            "priority": 10,
+            "category": "Bug Fix",
+            "status": "todo",
+            "effort_days": 2
+        },
+        {
+            "title": "Fix: Implementar IPC handlers faltantes",
+            "description": "Completar handlers: update-metadata, delete-track, create-playlist, add-to-playlist, export-json, export-csv en main-secure.js líneas 289-311",
+            "priority": 9,
+            "category": "Bug Fix",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Fix: Saturación de audio en K-Meter",
+            "description": "K-Meter causa saturación y artifacts. Actualmente deshabilitado. Arreglar cadena de audio sin distorsión",
+            "priority": 8,
+            "category": "Bug Fix",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Perf: Implementar Virtual Scrolling completo",
+            "description": "Virtual scrolling con Intersection Observer para 10,000+ tracks. Meta: <20ms scroll, máx 50 elementos DOM (ROADMAP líneas 23-73)",
+            "priority": 9,
+            "category": "Performance",
+            "status": "todo",
+            "effort_days": 2
+        },
+        {
+            "title": "Perf: Web Workers para búsqueda",
+            "description": "Mover procesamiento de búsqueda a Web Workers. Meta: <30ms para 10k items (ROADMAP líneas 76-124)",
+            "priority": 8,
+            "category": "Performance",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Perf: Optimización avanzada de queries SQL",
+            "description": "Implementar CTEs, prepared statements y cache LRU. Meta: queries <50ms, 85%+ cache hit rate (ROADMAP líneas 127-192)",
+            "priority": 7,
+            "category": "Performance",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Audio: Sistema HAMMS de similaridad",
+            "description": "Sistema 7-dimensional: BPM, energy, danceability, valence, acousticness, instrumentalness, key (ROADMAP líneas 304-374)",
+            "priority": 8,
+            "category": "Audio Analysis",
+            "status": "todo",
+            "effort_days": 2
+        },
+        {
+            "title": "Audio: Visualización Canvas BPM vs Energy",
+            "description": "Heatmap interactivo Canvas con zoom, pan y export para BPM vs Energy (ROADMAP líneas 377-462)",
+            "priority": 6,
+            "category": "Audio Analysis",
+            "status": "todo",
+            "effort_days": 2
+        },
+        {
+            "title": "Audio: Fix pipeline Essentia/Python",
+            "description": "Resolver ModuleNotFoundError y compatibilidad NumPy. Meta: 100% success rate análisis",
+            "priority": 7,
+            "category": "Audio Analysis",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Build: Configuración Webpack producción",
+            "description": "Code splitting, tree shaking, optimización. Meta: main <250KB, vendor <500KB (PENDING_PHASES líneas 24-75)",
+            "priority": 8,
+            "category": "Build Process",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "PWA: Service Worker y offline",
+            "description": "Service Worker con cache strategies y manifest PWA. Meta: offline load <500ms (PENDING_PHASES líneas 114-230)",
+            "priority": 7,
+            "category": "PWA",
+            "status": "todo",
+            "effort_days": 2
+        },
+        {
+            "title": "TypeScript: Migración completa",
+            "description": "Migrar JS a TypeScript con 100% type coverage (PENDING_PHASES líneas 234-373)",
+            "priority": 6,
+            "category": "Technical Debt",
+            "status": "todo",
+            "effort_days": 3
+        },
+        {
+            "title": "UI: Dark Mode con persistencia",
+            "description": "Dark mode con CSS variables, toggle, localStorage y detección sistema (PENDING_PHASES líneas 447-504)",
+            "priority": 5,
+            "category": "UI/UX",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "UI: Sistema profesional de animaciones",
+            "description": "Micro-interacciones, loading states, respetando prefers-reduced-motion (PENDING_PHASES líneas 377-444)",
+            "priority": 4,
+            "category": "UI/UX",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "UI: Conectar Context Menu al backend",
+            "description": "Integrar Edit Metadata, Create Playlist, Export al backend. Frontend listo, falta backend",
+            "priority": 7,
+            "category": "UI/UX",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Monitor: Sistema global de tracking errores",
+            "description": "Error tracking con clasificación, agrupación inteligente y dashboard (PENDING_PHASES líneas 570-631)",
+            "priority": 8,
+            "category": "Monitoring",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Monitor: Dashboard performance real-time",
+            "description": "Web Vitals tracking, métricas custom, alertas. Meta: <1% CPU overhead (PENDING_PHASES líneas 510-568)",
+            "priority": 6,
+            "category": "Monitoring",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Security: Actualizar dependencias",
+            "description": "Update electron 32.3.3→37.2.6, music-metadata 7.14.0→11.7.3, revisar vulnerabilidades",
+            "priority": 7,
+            "category": "Security",
+            "status": "todo",
+            "effort_days": 0.5
+        },
+        {
+            "title": "Export: Formatos DJ profesionales",
+            "description": "Exportar a M3U8, Rekordbox XML, Traktor NML con metadata completa (ROADMAP líneas 465-535)",
+            "priority": 6,
+            "category": "Export",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Feature: Sistema de ratings y favoritos",
+            "description": "5-star rating, favoritos con corazón, persistencia DB, filtros (ROADMAP líneas 538-556)",
+            "priority": 5,
+            "category": "Feature",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Test: Suite automática de performance",
+            "description": "Tests de load time, search, memoria, stress testing (ROADMAP líneas 247-297)",
+            "priority": 7,
+            "category": "Testing",
+            "status": "todo",
+            "effort_days": 2
+        },
+        {
+            "title": "Test: E2E para flujos críticos",
+            "description": "Tests end-to-end para playback, búsqueda, context menu, carga de datos",
+            "priority": 6,
+            "category": "Testing",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Refactor: Modularización del backend",
+            "description": "Split main.js en módulos. Meta: main.js <100 líneas (ROADMAP líneas 195-244)",
+            "priority": 6,
+            "category": "Technical Debt",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "DB: Optimización de schema e índices",
+            "description": "Índices adicionales, prepared statements para 3,767+ tracks dataset",
+            "priority": 5,
+            "category": "Technical Debt",
+            "status": "todo",
+            "effort_days": 1
+        },
+        {
+            "title": "Memory: Prevención de memory leaks",
+            "description": "Cleanup de event listeners, monitoreo memoria, fix leaks en visualizaciones",
+            "priority": 6,
+            "category": "Technical Debt",
+            "status": "todo",
+            "effort_days": 1
+        }
+    ]
+}

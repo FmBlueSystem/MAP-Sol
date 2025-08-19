@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Strangelove (Highjack Mix).flac",
+  "file_name": "Depeche Mode - Strangelove (Highjack Mix).flac",
+  "timestamp": "2025-08-16T23:53:20.493720",
+  "essentia_features": {
+    "loudness_lufs": -1.4828243255615234,
+    "danceability": 1.3822925090789795,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5201535224914551,
+    "liveness": 0.1,
+    "speechiness": 0.14540754176571877,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

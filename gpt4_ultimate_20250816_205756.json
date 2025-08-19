@@ -1,0 +1,123 @@
+{
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/pruebas/Freestyle - Don't Stop The Rock.m4a",
+    "file_name": "Freestyle - Don't Stop The Rock.m4a",
+    "original_metadata": {
+        "artist": "Freestyle",
+        "title": "Don't Stop the Rock",
+        "album": "Don't Stop the Rock: the Greatest Hits (digitally Remastered) (re-mastered)",
+        "genre": "Unknown",
+        "file_name": "Freestyle - Don't Stop The Rock.m4a",
+        "year": 1997,
+        "existing_key": "F min",
+        "isrc": ""
+    },
+    "precomputed_features": {
+        "loudness_lufs": -14.02,
+        "danceability": 0.793,
+        "acousticness": 0.895,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.563,
+        "valence": 0.545,
+        "energy": 0.582,
+        "musical_key": "F min",
+        "camelot_key": "4A",
+        "extract_strategy": "full",
+        "windows_used": [],
+        "notes": []
+    },
+    "temporal_analysis": {
+        "real_year": 1987,
+        "metadata_year": 1997,
+        "isrc_parsed": {},
+        "year_explanation": "Compilation album from 1997, original likely earlier"
+    },
+    "gpt4_analysis": {
+        "genre": "Freestyle",
+        "subgenres": ["Electro", "Dance"],
+        "mood": "Uplifting",
+        "energy": 0.58,
+        "danceability": 0.79,
+        "valence": 0.54,
+        "acousticness": 0.89,
+        "instrumentalness": 0.8,
+        "liveness": 1.0,
+        "speechiness": 0.56,
+        "loudness": -14.02,
+        "era": "1980s",
+        "cultural_context": "Second Summer of Love preparation, house goes mainstream",
+        "occasions": ["party", "dance", "workout", "driving"],
+        "musical_key": "F min",
+        "camelot_key": "4A",
+        "description": "An energetic Freestyle track that celebrates the joy of dance and party culture.",
+        "lyrics_analysis": {
+            "lyrics_source": "provided",
+            "language": "English",
+            "topic_main": "Party and Dancing",
+            "topics_secondary": ["Celebration", "Enjoyment"],
+            "coherence_score": 0.9,
+            "coherence_notes": ["Consistent theme of partying and dancing throughout the song."],
+            "lyric_mood": "Uplifting",
+            "sentiment": 0.8,
+            "emotions": {
+                "joy": 0.9,
+                "sadness": 0.1,
+                "anger": 0.0,
+                "fear": 0.0,
+                "surprise": 0.2,
+                "trust": 0.7
+            },
+            "narrative_perspective": "first",
+            "narrative_time": "present",
+            "structure": [
+                {
+                    "section": "chorus",
+                    "summary": "Celebration of dance with a call to keep the party going.",
+                    "sample_lines": [
+                        "Freestyle's kickin' in the house tonight",
+                        "To all you freaks, don't stop the rock"
+                    ]
+                }
+            ],
+            "repeated_phrases": [
+                {
+                    "phrase": "Freestyle's kickin' in the house tonight",
+                    "count": 8,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "Move your body from left to right",
+                    "count": 8,
+                    "reason": "hook"
+                },
+                {
+                    "phrase": "To all you freaks, don't stop the rock",
+                    "count": 8,
+                    "reason": "hook"
+                }
+            ],
+            "hook_candidates": ["don't stop the rock", "move your body"],
+            "keywords": ["party", "dance", "freestyle", "celebration"],
+            "named_entities": {},
+            "cultural_references": [],
+            "call_and_response": false,
+            "countins_shouts": false,
+            "explicitness_level": "clean",
+            "content_warnings": [],
+            "singalong_index": 0.8,
+            "chantability": 0.9,
+            "justification": [
+                "High instrumentalness with vocal content suggests a focus on danceability and rhythm."
+            ]
+        },
+        "confidence": 0.9199999999999999,
+        "validation_notes": ["Real recording year: 1987", "Contexto actualizado para 1987"],
+        "real_year": 1987,
+        "year_source": "Compilation album from 1997, original likely earlier"
+    },
+    "processing_time": 16.24,
+    "tokens_used": 4011,
+    "estimated_cost": 0.0543,
+    "timestamp": "2025-08-16T20:57:56.803486",
+    "version": "ultimate_v3"
+}

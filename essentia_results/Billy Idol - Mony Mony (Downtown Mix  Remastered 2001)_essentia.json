@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Idol - Mony Mony (Downtown Mix  Remastered 2001).flac",
+  "file_name": "Billy Idol - Mony Mony (Downtown Mix  Remastered 2001).flac",
+  "timestamp": "2025-08-16T22:54:46.154973",
+  "essentia_features": {
+    "loudness_lufs": -4.846210479736328,
+    "danceability": 1.3619037866592407,
+    "acousticness": 0.5,
+    "instrumentalness": 0.44071054458618164,
+    "liveness": 0.1,
+    "speechiness": 0.18642243685433343,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

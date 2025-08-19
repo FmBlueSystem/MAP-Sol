@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bobby Brown - On Our Own (From Ghostbusters II Soundtrack  Extended Club Version).flac",
+  "file_name": "Bobby Brown - On Our Own (From Ghostbusters II Soundtrack  Extended Club Version).flac",
+  "timestamp": "2025-08-16T23:16:19.483565",
+  "essentia_features": {
+    "loudness_lufs": -6.450000762939453,
+    "danceability": 1.3975393772125244,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5469973683357239,
+    "liveness": 0.1,
+    "speechiness": 0.15911874872988213,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Clubholic, Nytron - Music In The Air.flac",
+  "file_name": "Clubholic, Nytron - Music In The Air.flac",
+  "timestamp": "2025-08-16T23:35:02.007805",
+  "essentia_features": {
+    "loudness_lufs": -3.4394168853759766,
+    "danceability": 1.8665269613265991,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5267046391963959,
+    "liveness": 0.1,
+    "speechiness": 0.19600377308631528,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

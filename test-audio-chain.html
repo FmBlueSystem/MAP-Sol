@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+    <head>
+        <title>🔊 Test Cadena de Audio</title>
+        <style>
+            body {
+                font-family: -apple-system, Arial, sans-serif;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+            }
+            .test-section {
+                background: rgba(255, 255, 255, 0.1);
+                padding: 20px;
+                margin: 10px 0;
+                border-radius: 10px;
+            }
+            .status {
+                padding: 10px;
+                margin: 5px 0;
+                border-radius: 5px;
+                background: rgba(0, 0, 0, 0.3);
+            }
+            .success {
+                color: #4ade80;
+            }
+            .error {
+                color: #f87171;
+            }
+            .warning {
+                color: #fbbf24;
+            }
+            button {
+                padding: 10px 20px;
+                margin: 5px;
+                border: none;
+                border-radius: 5px;
+                background: #764ba2;
+                color: white;
+                cursor: pointer;
+            }
+            button:hover {
+                background: #667eea;
+            }
+            .meter {
+                width: 100%;
+                height: 30px;
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 5px;
+                overflow: hidden;
+                margin: 10px 0;
+            }
+            .meter-bar {
+                height: 100%;
+                background: linear-gradient(90deg, #4ade80, #fbbf24, #f87171);
+                transition: width 0.1s;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🔊 Validación de Cadena de Audio</h1>
+
+        <div class="test-section">
+            <h2>1️⃣ Componentes Cargados</h2>
+            <div id="components-status"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>2️⃣ AudioContext y Web Audio API</h2>
+            <div id="audio-context-status"></div>
+            <button onclick="testAudioContext()">Test AudioContext</button>
+        </div>
+
+        <div class="test-section">
+            <h2>3️⃣ AudioProcessor</h2>
+            <div id="processor-status"></div>
+            <button onclick="testAudioProcessor()">Test AudioProcessor</button>
+        </div>
+
+        <div class="test-section">
+            <h2>4️⃣ DynamicsCompressor</h2>
+            <div id="compressor-status"></div>
+            <button onclick="testCompressor()">Test Compressor</button>
+        </div>
+
+        <div class="test-section">
+            <h2>5️⃣ AnalyserNode</h2>
+            <div id="analyser-status"></div>
+            <div class="meter"><div id="meter-bar" class="meter-bar" style="width: 0%"></div></div>
+            <button onclick="testAnalyser()">Test Analyser</button>
+        </div>
+
+        <div class="test-section">
+            <h2>6️⃣ Cadena Completa</h2>
+            <div id="chain-status"></div>
+            <button onclick="testFullChain()">Test Cadena Completa</button>
+            <button onclick="playTestTone()">🔊 Reproducir Tono de Prueba</button>
+        </div>
+
+        <div class="test-section">
+            <h2>📊 Configuración Actual</h2>
+            <div id="config-status"></div>
+        </div>
+
+        <script>
+            const { ipcRenderer } = require('electron');
+
+            // Check loaded components
+            function checkComponents() {
+                const status = document.getElementById('components-status');
+                const components = {
+                    AudioProcessor: typeof window.AudioProcessor !== 'undefined',
+                    'audioProcessor (instancia)': typeof window.audioProcessor !== 'undefined',
+                    AudioConfigManager: typeof window.AudioConfigManager !== 'undefined',
+                    'audioConfigManager (instancia)':
+                        typeof window.audioConfigManager !== 'undefined',
+                    FixedAudioPlayer: typeof window.FixedAudioPlayer !== 'undefined',
+                    'fixedPlayer (instancia)': typeof window.fixedPlayer !== 'undefined',
+                    'Web Audio API': typeof AudioContext !== 'undefined',
+                    ipcRenderer: typeof ipcRenderer !== 'undefined'
+                };
+
+                status.innerHTML = Object.entries(components)
+                    .map(
+                        ([name, loaded]) =>
+                            `<div class="status ${loaded ? 'success' : 'error'}">
+                    ${loaded ? '✅' : '❌'} ${name}: ${loaded ? 'Cargado' : 'No encontrado'}
+                </div>`
+                    )
+                    .join('');
+            }
+
+            // Test AudioContext
+            async function testAudioContext() {
+                const status = document.getElementById('audio-context-status');
+                try {
+                    const context = new (window.AudioContext || window.webkitAudioContext)();
+
+                    status.innerHTML = `
+                    <div class="status success">✅ AudioContext creado</div>
+                    <div class="status">Sample Rate: ${context.sampleRate} Hz</div>
+                    <div class="status">Estado: ${context.state}</div>
+                    <div class="status">Latencia: ${context.baseLatency || 'N/A'} ms</div>
+                `;
+
+                    // Resume if suspended
+                    if (context.state === 'suspended') {
+                        await context.resume();
+                        status.innerHTML += '<div class="status success">✅ Context resumido</div>';
+                    }
+
+                    context.close();
+                } catch (error) {
+                    status.innerHTML = `<div class="status error">❌ Error: ${error.message}</div>`;
+                }
+            }
+
+            // Test AudioProcessor
+            async function testAudioProcessor() {
+                const status = document.getElementById('processor-status');
+                try {
+                    // Load AudioProcessor if not loaded
+                    if (typeof window.AudioProcessor === 'undefined') {
+                        status.innerHTML =
+                            '<div class="status error">❌ AudioProcessor no está cargado</div>';
+                        return;
+                    }
+
+                    // Create instance if doesn't exist
+                    if (!window.audioProcessor) {
+                        window.audioProcessor = new AudioProcessor();
+                        status.innerHTML =
+                            '<div class="status success">✅ AudioProcessor creado</div>';
+                    }
+
+                    // Initialize
+                    await window.audioProcessor.initialize();
+                    status.innerHTML +=
+                        '<div class="status success">✅ AudioProcessor inicializado</div>';
+
+                    // Check components
+                    const hasContext = window.audioProcessor.audioContext !== null;
+                    const hasCompressor = window.audioProcessor.compressor !== null;
+                    const hasAnalyser = window.audioProcessor.analyser !== null;
+
+                    status.innerHTML += `
+                    <div class="status ${hasContext ? 'success' : 'error'}">
+                        ${hasContext ? '✅' : '❌'} AudioContext: ${hasContext ? 'Activo' : 'No inicializado'}
+                    </div>
+                    <div class="status ${hasCompressor ? 'success' : 'error'}">
+                        ${hasCompressor ? '✅' : '❌'} Compressor: ${hasCompressor ? 'Activo' : 'No inicializado'}
+                    </div>
+                    <div class="status ${hasAnalyser ? 'success' : 'error'}">
+                        ${hasAnalyser ? '✅' : '❌'} Analyser: ${hasAnalyser ? 'Activo' : 'No inicializado'}
+                    </div>
+                `;
+                } catch (error) {
+                    status.innerHTML = `<div class="status error">❌ Error: ${error.message}</div>`;
+                }
+            }
+
+            // Test Compressor
+            function testCompressor() {
+                const status = document.getElementById('compressor-status');
+                try {
+                    if (!window.audioProcessor || !window.audioProcessor.compressor) {
+                        status.innerHTML =
+                            '<div class="status error">❌ Compressor no inicializado</div>';
+                        return;
+                    }
+
+                    const comp = window.audioProcessor.compressor;
+                    status.innerHTML = `
+                    <div class="status success">✅ DynamicsCompressor activo</div>
+                    <div class="status">Threshold: ${comp.threshold.value} dB</div>
+                    <div class="status">Ratio: ${comp.ratio.value}:1</div>
+                    <div class="status">Knee: ${comp.knee.value} dB</div>
+                    <div class="status">Attack: ${comp.attack.value * 1000} ms</div>
+                    <div class="status">Release: ${comp.release.value * 1000} ms</div>
+                    <div class="status">Reduction: ${comp.reduction.toFixed(2)} dB</div>
+                `;
+                } catch (error) {
+                    status.innerHTML = `<div class="status error">❌ Error: ${error.message}</div>`;
+                }
+            }
+
+            // Test Analyser
+            function testAnalyser() {
+                const status = document.getElementById('analyser-status');
+                try {
+                    if (!window.audioProcessor || !window.audioProcessor.analyser) {
+                        status.innerHTML =
+                            '<div class="status error">❌ Analyser no inicializado</div>';
+                        return;
+                    }
+
+                    const analyser = window.audioProcessor.analyser;
+                    const bufferLength = analyser.frequencyBinCount;
+                    const dataArray = new Uint8Array(bufferLength);
+
+                    status.innerHTML = `
+                    <div class="status success">✅ AnalyserNode activo</div>
+                    <div class="status">FFT Size: ${analyser.fftSize}</div>
+                    <div class="status">Frequency Bins: ${bufferLength}</div>
+                    <div class="status">Min Decibels: ${analyser.minDecibels} dB</div>
+                    <div class="status">Max Decibels: ${analyser.maxDecibels} dB</div>
+                    <div class="status">Smoothing: ${analyser.smoothingTimeConstant}</div>
+                `;
+
+                    // Start visualization
+                    let animationId;
+                    function updateMeter() {
+                        analyser.getByteFrequencyData(dataArray);
+                        const average = dataArray.reduce((a, b) => a + b) / bufferLength;
+                        const percentage = (average / 255) * 100;
+                        document.getElementById('meter-bar').style.width = percentage + '%';
+                        animationId = requestAnimationFrame(updateMeter);
+                    }
+                    updateMeter();
+
+                    // Stop after 5 seconds
+                    setTimeout(() => cancelAnimationFrame(animationId), 5000);
+                } catch (error) {
+                    status.innerHTML = `<div class="status error">❌ Error: ${error.message}</div>`;
+                }
+            }
+
+            // Test full audio chain
+            async function testFullChain() {
+                const status = document.getElementById('chain-status');
+                status.innerHTML = '<div class="status">🔄 Probando cadena completa...</div>';
+
+                try {
+                    // 1. Check if player exists
+                    if (!window.fixedPlayer) {
+                        if (typeof window.FixedAudioPlayer !== 'undefined') {
+                            window.fixedPlayer = new FixedAudioPlayer();
+                            status.innerHTML +=
+                                '<div class="status success">✅ Player creado</div>';
+                        } else {
+                            throw new Error('FixedAudioPlayer no está disponible');
+                        }
+                    }
+
+                    // 2. Check AudioProcessor
+                    if (!window.audioProcessor) {
+                        if (typeof window.AudioProcessor !== 'undefined') {
+                            window.audioProcessor = new AudioProcessor();
+                            await window.audioProcessor.initialize();
+                            status.innerHTML +=
+                                '<div class="status success">✅ AudioProcessor inicializado</div>';
+                        } else {
+                            throw new Error('AudioProcessor no está disponible');
+                        }
+                    }
+
+                    // 3. Test connection
+                    const testAudio = new Audio();
+                    testAudio.src =
+                        'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+
+                    await window.audioProcessor.connectAudioElement(testAudio);
+                    status.innerHTML +=
+                        '<div class="status success">✅ Audio conectado al processor</div>';
+
+                    // 4. Check chain
+                    const chainStatus = {
+                        AudioContext: window.audioProcessor.audioContext?.state === 'running',
+                        'Compressor conectado': window.audioProcessor.compressor !== null,
+                        'Analyser conectado': window.audioProcessor.analyser !== null,
+                        'Cadena completa': window.audioProcessor.isConnected
+                    };
+
+                    Object.entries(chainStatus).forEach(([component, working]) => {
+                        status.innerHTML += `
+                        <div class="status ${working ? 'success' : 'error'}">
+                            ${working ? '✅' : '❌'} ${component}
+                        </div>
+                    `;
+                    });
+
+                    status.innerHTML +=
+                        '<div class="status success">✅ Cadena de audio validada correctamente</div>';
+                } catch (error) {
+                    status.innerHTML += `<div class="status error">❌ Error: ${error.message}</div>`;
+                }
+            }
+
+            // Play test tone
+            async function playTestTone() {
+                try {
+                    if (!window.audioProcessor) {
+                        await testAudioProcessor();
+                    }
+
+                    const context = window.audioProcessor.audioContext;
+                    const oscillator = context.createOscillator();
+                    const gainNode = context.createGain();
+
+                    oscillator.type = 'sine';
+                    oscillator.frequency.setValueAtTime(440, context.currentTime); // A4 note
+                    gainNode.gain.setValueAtTime(0.1, context.currentTime);
+
+                    // Connect through processor chain
+                    oscillator.connect(gainNode);
+                    gainNode.connect(window.audioProcessor.compressor);
+
+                    oscillator.start();
+                    oscillator.stop(context.currentTime + 1); // Play for 1 second
+
+                    document.getElementById('chain-status').innerHTML +=
+                        '<div class="status success">🔊 Tono de prueba reproducido (440Hz por 1 segundo)</div>';
+                } catch (error) {
+                    alert('Error: ' + error.message);
+                }
+            }
+
+            // Check configuration
+            async function checkConfig() {
+                const status = document.getElementById('config-status');
+                try {
+                    // Check if AudioConfigManager exists
+                    if (window.audioConfigManager) {
+                        const config = window.audioConfigManager.getConfig();
+                        status.innerHTML = `
+                        <div class="status success">✅ AudioConfigManager activo</div>
+                        <div class="status">Normalización: ${config.normalization.enabled ? 'Activada' : 'Desactivada'}</div>
+                        <div class="status">Target LUFS: ${config.normalization.targetLUFS} dB</div>
+                        <div class="status">Compressor: ${config.compressor.enabled ? 'Activado' : 'Desactivado'}</div>
+                        <div class="status">Threshold: ${config.compressor.threshold} dB</div>
+                        <div class="status">Ratio: ${config.compressor.ratio}:1</div>
+                        <div class="status">Sample Rate: ${config.processing.sampleRate} Hz</div>
+                        <div class="status">Buffer Size: ${config.processing.bufferSize}</div>
+                    `;
+                    } else {
+                        status.innerHTML =
+                            '<div class="status warning">⚠️ AudioConfigManager no está cargado</div>';
+                    }
+                } catch (error) {
+                    status.innerHTML = `<div class="status error">❌ Error: ${error.message}</div>`;
+                }
+            }
+
+            // Load AudioProcessor and AudioConfigManager if needed
+            function loadAudioModules() {
+                const scripts = ['js/audio-processor.js', 'js/audio-config-manager.js'];
+
+                scripts.forEach(src => {
+                    if (!document.querySelector(`script[src="${src}"]`)) {
+                        const script = document.createElement('script');
+                        script.src = src;
+                        document.head.appendChild(script);
+                    }
+                });
+            }
+
+            // Initialize on load
+            window.addEventListener('DOMContentLoaded', () => {
+                loadAudioModules();
+                setTimeout(() => {
+                    checkComponents();
+                    checkConfig();
+                }, 500);
+            });
+        </script>
+    </body>
+</html>

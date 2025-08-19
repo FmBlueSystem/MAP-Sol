@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-16T22:04:05.635385",
+  "stats": {
+    "total": 0,
+    "processed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "processing_times": [],
+    "with_mik": 0,
+    "without_mik": 0
+  },
+  "feature_statistics": {},
+  "total_files_processed": 0
+}

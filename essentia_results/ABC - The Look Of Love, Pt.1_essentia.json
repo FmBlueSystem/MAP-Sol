@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/ABC - The Look Of Love, Pt.1.flac",
+  "file_name": "ABC - The Look Of Love, Pt.1.flac",
+  "timestamp": "2025-08-16T22:35:16.482580",
+  "essentia_features": {
+    "loudness_lufs": -6.114656448364258,
+    "danceability": 1.2643073797225952,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3908417820930481,
+    "liveness": 0.1,
+    "speechiness": 0.1469358569167993,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

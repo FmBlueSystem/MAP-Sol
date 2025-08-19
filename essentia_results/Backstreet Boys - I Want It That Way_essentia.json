@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Backstreet Boys - I Want It That Way.flac",
+  "file_name": "Backstreet Boys - I Want It That Way.flac",
+  "timestamp": "2025-08-16T22:49:03.907339",
+  "essentia_features": {
+    "loudness_lufs": -4.342008590698242,
+    "danceability": 1.065147042274475,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3778756856918335,
+    "liveness": 0.1,
+    "speechiness": 0.1630490354132282,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

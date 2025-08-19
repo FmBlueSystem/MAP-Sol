@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Elvis Presley - Return to Sender (From Girls! Girls! Girls!).flac",
+  "file_name": "Elvis Presley - Return to Sender (From Girls! Girls! Girls!).flac",
+  "timestamp": "2025-08-17T00:13:51.666857",
+  "essentia_features": {
+    "loudness_lufs": -6.898403167724609,
+    "danceability": 1.1807527542114258,
+    "acousticness": 0.5,
+    "instrumentalness": 0.33043915033340454,
+    "liveness": 0.1,
+    "speechiness": 0.12187220395273816,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

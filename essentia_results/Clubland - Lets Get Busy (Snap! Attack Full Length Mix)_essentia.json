@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Clubland - Lets Get Busy (Snap! Attack Full Length Mix).flac",
+  "file_name": "Clubland - Lets Get Busy (Snap! Attack Full Length Mix).flac",
+  "timestamp": "2025-08-16T23:35:08.127814",
+  "essentia_features": {
+    "loudness_lufs": -4.021970748901367,
+    "danceability": 1.6927613019943237,
+    "acousticness": 0.5,
+    "instrumentalness": 0.48087722063064575,
+    "liveness": 0.1,
+    "speechiness": 0.19644008302901453,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

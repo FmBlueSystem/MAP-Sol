@@ -1,0 +1,729 @@
+{
+    "generated": "2025-08-15T22:49:31.782Z",
+    "stats": {
+        "total_tracks": 3767,
+        "valid_isrc": 2428,
+        "coverage_percentage": 64.5
+    },
+    "countries": [
+        {
+            "code": "US",
+            "name": "United States",
+            "region": "North America",
+            "emoji": "🇺🇸",
+            "tracks": 1062,
+            "artists": 440,
+            "genres": 110,
+            "topGenres": ["Pop", "House", "Synthpop"],
+            "yearRange": "2000-1999"
+        },
+        {
+            "code": "GB",
+            "name": "United Kingdom",
+            "region": "Europe",
+            "emoji": "🇬🇧",
+            "tracks": 422,
+            "artists": 174,
+            "genres": 49,
+            "topGenres": ["New Wave", "Synthpop", "Pop"],
+            "yearRange": "2000-1999"
+        },
+        {
+            "code": "DE",
+            "name": "Germany",
+            "region": "Europe",
+            "emoji": "🇩🇪",
+            "tracks": 242,
+            "artists": 109,
+            "genres": 28,
+            "topGenres": ["R&B/Soul", "Trance", "Dance/Electronic"],
+            "yearRange": "2002-1999"
+        },
+        {
+            "code": "AR",
+            "name": "Argentina",
+            "region": "Latin America",
+            "emoji": "🇦🇷",
+            "tracks": 107,
+            "artists": 30,
+            "genres": 10,
+            "topGenres": ["Pop", "Rock", "Rock alternativo"],
+            "yearRange": "2001-1999"
+        },
+        {
+            "code": "MX",
+            "name": "Mexico",
+            "region": "Latin America",
+            "emoji": "🇲🇽",
+            "tracks": 88,
+            "artists": 40,
+            "genres": 15,
+            "topGenres": ["Pop", "Dance Pop", "Tech House"],
+            "yearRange": "2000-1999"
+        },
+        {
+            "code": "ES",
+            "name": "Spain",
+            "region": "Europe",
+            "emoji": "🇪🇸",
+            "tracks": 76,
+            "artists": 43,
+            "genres": 15,
+            "topGenres": ["Humor", "Comedia musical", "Pop Rock"],
+            "yearRange": "2000-1999"
+        },
+        {
+            "code": "IT",
+            "name": "Italy",
+            "region": "Europe",
+            "emoji": "🇮🇹",
+            "tracks": 59,
+            "artists": 39,
+            "genres": 17,
+            "topGenres": ["Hip Hop", "Electro House", "House"],
+            "yearRange": "2000-1999"
+        },
+        {
+            "code": "CA",
+            "name": "Canada",
+            "region": "North America",
+            "emoji": "🇨🇦",
+            "tracks": 48,
+            "artists": 25,
+            "genres": 10,
+            "topGenres": ["Classic Disco", "Progressive Trance", "Progressive House"],
+            "yearRange": "2004-1993"
+        },
+        {
+            "code": "FR",
+            "name": "France",
+            "region": "Europe",
+            "emoji": "🇫🇷",
+            "tracks": 46,
+            "artists": 33,
+            "genres": 10,
+            "topGenres": ["Electrónica", "House", "Electro House"],
+            "yearRange": "2000-1998"
+        },
+        {
+            "code": "QZ",
+            "name": "QZ",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 45,
+            "artists": 29,
+            "genres": 6,
+            "topGenres": ["Tech House", "Progressive Trance", "Uplifting Trance 138"],
+            "yearRange": "2018-2024"
+        },
+        {
+            "code": "QM",
+            "name": "QM",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 41,
+            "artists": 29,
+            "genres": 11,
+            "topGenres": ["New Wave", "Reggaeton", "House"],
+            "yearRange": "2013-2025"
+        },
+        {
+            "code": "NL",
+            "name": "Netherlands",
+            "region": "Europe",
+            "emoji": "🇳🇱",
+            "tracks": 39,
+            "artists": 29,
+            "genres": 7,
+            "topGenres": ["Eurodance", "Disco", "Dance/Electronic"],
+            "yearRange": "2001-1998"
+        },
+        {
+            "code": "SE",
+            "name": "Sweden",
+            "region": "Europe",
+            "emoji": "🇸🇪",
+            "tracks": 23,
+            "artists": 9,
+            "genres": 4,
+            "topGenres": ["Pop", "Dance", "Dance/Electronic"],
+            "yearRange": "2008-1994"
+        },
+        {
+            "code": "HU",
+            "name": "HU",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 20,
+            "artists": 11,
+            "genres": 3,
+            "topGenres": ["House", "Progressive Trance", "Tech House"],
+            "yearRange": "2009-2009"
+        },
+        {
+            "code": "GX",
+            "name": "GX",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 18,
+            "artists": 3,
+            "genres": 1,
+            "topGenres": ["Tech House"],
+            "yearRange": "2022-2023"
+        },
+        {
+            "code": "AU",
+            "name": "Australia",
+            "region": "Oceania",
+            "emoji": "🇦🇺",
+            "tracks": 14,
+            "artists": 9,
+            "genres": 2,
+            "topGenres": ["Electrónica", "Hard Rock"],
+            "yearRange": "2007-1998"
+        },
+        {
+            "code": "CL",
+            "name": "Chile",
+            "region": "Latin America",
+            "emoji": "🇨🇱",
+            "tracks": 12,
+            "artists": 8,
+            "genres": 3,
+            "topGenres": ["Children's Music", "Comedia musical", "Peak Time Techno"],
+            "yearRange": "2000-1995"
+        },
+        {
+            "code": "BE",
+            "name": "Belgium",
+            "region": "Europe",
+            "emoji": "🇧🇪",
+            "tracks": 12,
+            "artists": 5,
+            "genres": 2,
+            "topGenres": ["Eurodance", "Reggaeton"],
+            "yearRange": "2000-1999"
+        },
+        {
+            "code": "CH",
+            "name": "Switzerland",
+            "region": "Europe",
+            "emoji": "🇨🇭",
+            "tracks": 11,
+            "artists": 8,
+            "genres": 1,
+            "topGenres": ["House"],
+            "yearRange": "2008-2022"
+        },
+        {
+            "code": "UK",
+            "name": "UK",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 7,
+            "artists": 7,
+            "genres": 2,
+            "topGenres": ["Ibiza Progressive House", "Progressive Trance"],
+            "yearRange": "2008-2022"
+        },
+        {
+            "code": "CO",
+            "name": "Colombia",
+            "region": "Latin America",
+            "emoji": "🇨🇴",
+            "tracks": 6,
+            "artists": 5,
+            "genres": 1,
+            "topGenres": ["Rock alternativo"],
+            "yearRange": "2003-1994"
+        },
+        {
+            "code": "AT",
+            "name": "Austria",
+            "region": "Europe",
+            "emoji": "🇦🇹",
+            "tracks": 6,
+            "artists": 1,
+            "genres": 0,
+            "topGenres": [],
+            "yearRange": "2003-1986"
+        },
+        {
+            "code": "UY",
+            "name": "UY",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 5,
+            "artists": 3,
+            "genres": 2,
+            "topGenres": ["Reggaeton", "Tech House"],
+            "yearRange": "2000-2023"
+        },
+        {
+            "code": "DK",
+            "name": "Denmark",
+            "region": "Europe",
+            "emoji": "🇩🇰",
+            "tracks": 5,
+            "artists": 4,
+            "genres": 2,
+            "topGenres": ["Pop", "Progressive Trance"],
+            "yearRange": "2000-1997"
+        },
+        {
+            "code": "TC",
+            "name": "TC",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 3,
+            "artists": 3,
+            "genres": 0,
+            "topGenres": [],
+            "yearRange": "2012-2018"
+        },
+        {
+            "code": "NO",
+            "name": "Norway",
+            "region": "Europe",
+            "emoji": "🇳🇴",
+            "tracks": 2,
+            "artists": 1,
+            "genres": 1,
+            "topGenres": ["Eurodance"],
+            "yearRange": "2031-2031"
+        },
+        {
+            "code": "GT",
+            "name": "GT",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 2,
+            "artists": 1,
+            "genres": 0,
+            "topGenres": [],
+            "yearRange": "2007-2007"
+        },
+        {
+            "code": "BR",
+            "name": "Brazil",
+            "region": "Latin America",
+            "emoji": "🇧🇷",
+            "tracks": 2,
+            "artists": 2,
+            "genres": 1,
+            "topGenres": ["Brazilian House"],
+            "yearRange": "2006-1971"
+        },
+        {
+            "code": "RO",
+            "name": "RO",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 1,
+            "artists": 1,
+            "genres": 0,
+            "topGenres": [],
+            "yearRange": "2009-2009"
+        },
+        {
+            "code": "PE",
+            "name": "PE",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 1,
+            "artists": 1,
+            "genres": 0,
+            "topGenres": [],
+            "yearRange": "2017-2017"
+        },
+        {
+            "code": "JM",
+            "name": "JM",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 1,
+            "artists": 1,
+            "genres": 1,
+            "topGenres": ["Dub Techno"],
+            "yearRange": "2006-2006"
+        },
+        {
+            "code": "DO",
+            "name": "DO",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 1,
+            "artists": 1,
+            "genres": 0,
+            "topGenres": [],
+            "yearRange": "2015-2015"
+        },
+        {
+            "code": "BC",
+            "name": "BC",
+            "region": "Unknown",
+            "emoji": "🌍",
+            "tracks": 1,
+            "artists": 1,
+            "genres": 1,
+            "topGenres": ["Electrónica"],
+            "yearRange": "2021-2021"
+        }
+    ],
+    "regions": [
+        {
+            "name": "North America",
+            "countries": ["🇺🇸 United States", "🇨🇦 Canada"],
+            "totalTracks": 1110,
+            "totalArtists": 465,
+            "topGenres": ["Pop", "House", "Synthpop", "Classic Disco", "Progressive Trance"]
+        },
+        {
+            "name": "Europe",
+            "countries": [
+                "🇬🇧 United Kingdom",
+                "🇩🇪 Germany",
+                "🇪🇸 Spain",
+                "🇮🇹 Italy",
+                "🇫🇷 France",
+                "🇳🇱 Netherlands",
+                "🇸🇪 Sweden",
+                "🇧🇪 Belgium",
+                "🇨🇭 Switzerland",
+                "🇦🇹 Austria",
+                "🇩🇰 Denmark",
+                "🇳🇴 Norway"
+            ],
+            "totalTracks": 943,
+            "totalArtists": 455,
+            "topGenres": ["New Wave", "Synthpop", "Pop", "R&B/Soul", "Trance"]
+        },
+        {
+            "name": "Latin America",
+            "countries": ["🇦🇷 Argentina", "🇲🇽 Mexico", "🇨🇱 Chile", "🇨🇴 Colombia", "🇧🇷 Brazil"],
+            "totalTracks": 215,
+            "totalArtists": 85,
+            "topGenres": ["Pop", "Rock", "Rock alternativo", "Dance Pop", "Tech House"]
+        },
+        {
+            "name": "Unknown",
+            "countries": [
+                "🌍 QZ",
+                "🌍 QM",
+                "🌍 HU",
+                "🌍 GX",
+                "🌍 UK",
+                "🌍 UY",
+                "🌍 TC",
+                "🌍 GT",
+                "🌍 RO",
+                "🌍 PE",
+                "🌍 JM",
+                "🌍 DO",
+                "🌍 BC"
+            ],
+            "totalTracks": 146,
+            "totalArtists": 91,
+            "topGenres": [
+                "Tech House",
+                "Progressive Trance",
+                "Uplifting Trance 138",
+                "New Wave",
+                "Reggaeton"
+            ]
+        },
+        {
+            "name": "Oceania",
+            "countries": ["🇦🇺 Australia"],
+            "totalTracks": 14,
+            "totalArtists": 9,
+            "topGenres": ["Electrónica", "Hard Rock"]
+        }
+    ],
+    "eras": [
+        {
+            "decade": "1980s",
+            "tracks": 354,
+            "artists": 175,
+            "countries": 12,
+            "topGenres": ["Synthpop", "Rock", "Pop", "Hard Rock", "Hip Hop"]
+        },
+        {
+            "decade": "1990s",
+            "tracks": 386,
+            "artists": 205,
+            "countries": 16,
+            "topGenres": ["Eurodance", "New Wave", "Disco", "Reggaeton", "Pop"]
+        },
+        {
+            "decade": "2000s",
+            "tracks": 723,
+            "artists": 348,
+            "countries": 25,
+            "topGenres": ["Pop", "Eurodance", "R&B/Soul", "New Wave", "Disco"]
+        },
+        {
+            "decade": "2010s",
+            "tracks": 478,
+            "artists": 304,
+            "countries": 24,
+            "topGenres": ["Eurodance", "House", "Electrónica", "Children's Music", "Humor"]
+        },
+        {
+            "decade": "2020s",
+            "tracks": 388,
+            "artists": 223,
+            "countries": 18,
+            "topGenres": ["Eurodance", "New Wave", "Pop", "Electrónica", "House"]
+        },
+        {
+            "decade": "Unknown",
+            "tracks": 99,
+            "artists": 50,
+            "countries": 11,
+            "topGenres": ["Eurodance", "Pop", "R&B", "Downtempo", "Soft Rock"]
+        }
+    ],
+    "enrichmentPriority": [
+        {
+            "id": 142,
+            "title": "Payaso",
+            "artist": "Andy Montañez",
+            "genre": "Salsa",
+            "isrc": "USUL10000387",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": 0.7,
+            "AI_BPM": null
+        },
+        {
+            "id": 181,
+            "title": "One Lover at a Time",
+            "artist": "Atlantic Starr",
+            "genre": null,
+            "isrc": "USWB10000493",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": 0.4886014759540558,
+            "AI_BPM": 117
+        },
+        {
+            "id": 228,
+            "title": "Freakshow On The Dance Floor",
+            "artist": "Bar-kays",
+            "genre": null,
+            "isrc": "USIR20080050",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": 0.4264513850212097,
+            "AI_BPM": 129
+        },
+        {
+            "id": 520,
+            "title": "Don't Be Cruel",
+            "artist": "Bobby Brown",
+            "genre": "Neo Soul",
+            "isrc": "USMC10000858",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 524,
+            "title": "Let's Start The Dance",
+            "artist": "Bohannon",
+            "genre": "Classic Disco",
+            "isrc": "USUMG0000282",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 684,
+            "title": "Good Times",
+            "artist": "Chic",
+            "genre": "Disco House",
+            "isrc": "USAT20001676",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 689,
+            "title": "My Forbidden Lover",
+            "artist": "Chic",
+            "genre": "Italo Disco",
+            "isrc": "USAT20001679",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 783,
+            "title": "Girls Just Want to Have Fun (12\" Version)",
+            "artist": "Cyndi Lauper",
+            "genre": "Uplifting Trance 138",
+            "isrc": "USSM10011849",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 788,
+            "title": "She Bop (12\" Version)",
+            "artist": "Cyndi Lauper",
+            "genre": null,
+            "isrc": "USSM10011852",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 803,
+            "title": "Peek-A-Boo",
+            "artist": "DEVO",
+            "genre": "Tech House",
+            "isrc": "USWB10000033",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 815,
+            "title": "Vertigo / Relight My Fire",
+            "artist": "Dan Hartman",
+            "genre": "Synthwave",
+            "isrc": "USSM10017353",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 835,
+            "title": "Maneater",
+            "artist": "Daryl Hall & John Oates",
+            "genre": "Synthwave",
+            "isrc": "USRC10000831",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 838,
+            "title": "Method of Modern Love",
+            "artist": "Daryl Hall & John Oates",
+            "genre": "Retro Synthwave",
+            "isrc": "USRC10000837",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 843,
+            "title": "Out of Touch",
+            "artist": "Daryl Hall & John Oates",
+            "genre": "Synthwave",
+            "isrc": "USRC10000836",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 880,
+            "title": "Only in My Dreams (Extended Club Mix)",
+            "artist": "Debbie Gibson",
+            "genre": "Progressive Trance",
+            "isrc": "USAT20001319",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 882,
+            "title": "Shake Your Love (Vocal/Club Mix)",
+            "artist": "Debbie Gibson",
+            "genre": "Progressive Trance",
+            "isrc": "USAT20001321",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 895,
+            "title": "Let's Hear It for the Boy (From \"Footloose\" Original Soundtrack)",
+            "artist": "Deniece Williams",
+            "genre": "Uplifting Trance 138",
+            "isrc": "USSM10027607",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 1038,
+            "title": "Boogie Wonderland (with The Emotions) (12\" Version)",
+            "artist": "Earth, Wind & Fire, The Emotions",
+            "genre": null,
+            "isrc": "USSM10009730",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 1041,
+            "title": "Baby Hold On",
+            "artist": "Eddie Money",
+            "genre": null,
+            "isrc": "USSM10012427",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        },
+        {
+            "id": 1045,
+            "title": "Me Fallaste",
+            "artist": "Eddie Santiago",
+            "genre": null,
+            "isrc": "USUL10000283",
+            "country_code": "US",
+            "year_code": "00",
+            "LLM_ANALYZED": 0,
+            "AI_ENERGY": null,
+            "AI_BPM": null
+        }
+    ]
+}

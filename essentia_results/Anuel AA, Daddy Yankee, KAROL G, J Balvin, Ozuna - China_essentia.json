@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Anuel AA, Daddy Yankee, KAROL G, J Balvin, Ozuna - China.flac",
+  "file_name": "Anuel AA, Daddy Yankee, KAROL G, J Balvin, Ozuna - China.flac",
+  "timestamp": "2025-08-16T22:44:37.237494",
+  "essentia_features": {
+    "loudness_lufs": -1.4445228576660156,
+    "danceability": 1.3548070192337036,
+    "acousticness": 0.5,
+    "instrumentalness": 0.639110654592514,
+    "liveness": 0.1,
+    "speechiness": 0.08334725290308108,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

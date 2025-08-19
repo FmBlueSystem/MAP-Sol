@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Def Leppard - Armageddon It (The Nuclear Mix).flac",
+  "file_name": "Def Leppard - Armageddon It (The Nuclear Mix).flac",
+  "timestamp": "2025-08-16T23:50:50.793771",
+  "essentia_features": {
+    "loudness_lufs": -3.5448436737060547,
+    "danceability": 1.335789442062378,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4778826832771301,
+    "liveness": 0.1,
+    "speechiness": 0.1619192234960411,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Rhiannon.flac",
+  "file_name": "Fleetwood Mac - Rhiannon.flac",
+  "timestamp": "2025-08-17T00:24:27.680295",
+  "essentia_features": {
+    "loudness_lufs": -12.116708755493164,
+    "danceability": 1.346888542175293,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5506082475185394,
+    "liveness": 0.1,
+    "speechiness": 0.06779076270454444,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Minimal Music Player</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #1a1a1a;
+                color: white;
+                padding: 20px;
+            }
+            .track {
+                padding: 10px;
+                margin: 5px;
+                background: #333;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            .track:hover {
+                background: #444;
+            }
+            .playing {
+                background: #4caf50 !important;
+            }
+            #player {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: #222;
+                padding: 20px;
+                border-top: 1px solid #444;
+            }
+            button {
+                padding: 10px 20px;
+                margin: 5px;
+                background: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🎵 Minimal Music Player</h1>
+
+        <div id="tracks"></div>
+
+        <div id="player">
+            <div id="now-playing">No track selected</div>
+            <audio id="audio-element" controls style="width: 100%; margin: 10px 0"></audio>
+            <button onclick="playPrev()">⏮ Previous</button>
+            <button onclick="playNext()">⏭ Next</button>
+        </div>
+
+        <script>
+            const { ipcRenderer } = require('electron');
+            let currentTracks = [];
+            let currentIndex = -1;
+            const audio = document.getElementById('audio-element');
+
+            // Load tracks
+            async function loadTracks() {
+                const files = await ipcRenderer.invoke('get-files-with-cached-artwork');
+                currentTracks = files.slice(0, 100); // First 100 for testing
+
+                const tracksDiv = document.getElementById('tracks');
+                tracksDiv.innerHTML = '';
+
+                currentTracks.forEach((track, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'track';
+                    div.textContent = `${track.artist || 'Unknown'} - ${track.title || track.file_name}`;
+                    div.onclick = () => playTrack(index);
+                    tracksDiv.appendChild(div);
+                });
+            }
+
+            function playTrack(index) {
+                if (index < 0 || index >= currentTracks.length) return;
+
+                currentIndex = index;
+                const track = currentTracks[index];
+
+                // Update UI
+                document.querySelectorAll('.track').forEach(t => t.classList.remove('playing'));
+                document.querySelectorAll('.track')[index].classList.add('playing');
+                document.getElementById('now-playing').textContent =
+                    `Now Playing: ${track.artist || 'Unknown'} - ${track.title || track.file_name}`;
+
+                // Play audio
+                audio.src = track.file_path;
+                audio.play().catch(err => {
+                    console.error('Play error:', err);
+                    alert('Error playing: ' + err.message);
+                });
+            }
+
+            function playNext() {
+                if (currentTracks.length === 0) return;
+                playTrack((currentIndex + 1) % currentTracks.length);
+            }
+
+            function playPrev() {
+                if (currentTracks.length === 0) return;
+                playTrack(currentIndex > 0 ? currentIndex - 1 : currentTracks.length - 1);
+            }
+
+            // Auto play next
+            audio.addEventListener('ended', playNext);
+
+            // Load on start
+            loadTracks();
+        </script>
+    </body>
+</html>

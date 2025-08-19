@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cher - Believe (Club 69 Future Anthem Mix).flac",
+  "file_name": "Cher - Believe (Club 69 Future Anthem Mix).flac",
+  "timestamp": "2025-08-16T23:29:53.194608",
+  "essentia_features": {
+    "loudness_lufs": -6.577365875244141,
+    "danceability": 1.4996517896652222,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6260593235492706,
+    "liveness": 0.1,
+    "speechiness": 0.15704502101356052,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

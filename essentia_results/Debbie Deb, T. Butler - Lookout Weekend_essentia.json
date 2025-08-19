@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Debbie Deb, T. Butler - Lookout Weekend.flac",
+  "file_name": "Debbie Deb, T. Butler - Lookout Weekend.flac",
+  "timestamp": "2025-08-16T23:49:58.750999",
+  "essentia_features": {
+    "loudness_lufs": -7.087221145629883,
+    "danceability": 1.329445719718933,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4601537585258484,
+    "liveness": 0.1,
+    "speechiness": 0.16960994835987062,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

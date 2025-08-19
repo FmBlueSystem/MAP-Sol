@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/31 Minutos, Freddy Turbina - Mi Equilibrio Espiritual.flac",
+  "file_name": "31 Minutos, Freddy Turbina - Mi Equilibrio Espiritual.flac",
+  "timestamp": "2025-08-16T22:32:39.786566",
+  "essentia_features": {
+    "loudness_lufs": -3.801851272583008,
+    "danceability": 1.4013209342956543,
+    "acousticness": 0.5,
+    "instrumentalness": 0.3976810574531555,
+    "liveness": 0.1,
+    "speechiness": 0.15841628836991434,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

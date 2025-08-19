@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aterciopelados - Bolero Falaz.flac",
+  "file_name": "Aterciopelados - Bolero Falaz.flac",
+  "timestamp": "2025-08-16T22:47:14.439320",
+  "essentia_features": {
+    "loudness_lufs": -5.381755828857422,
+    "danceability": 1.2493507862091064,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4838324189186096,
+    "liveness": 0.1,
+    "speechiness": 0.13559035955211957,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

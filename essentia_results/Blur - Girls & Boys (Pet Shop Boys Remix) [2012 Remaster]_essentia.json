@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Blur - Girls & Boys (Pet Shop Boys Remix) [2012 Remaster].flac",
+  "file_name": "Blur - Girls & Boys (Pet Shop Boys Remix) [2012 Remaster].flac",
+  "timestamp": "2025-08-16T23:15:04.952351",
+  "essentia_features": {
+    "loudness_lufs": -7.365634918212891,
+    "danceability": 1.507840633392334,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6438408195972443,
+    "liveness": 0.1,
+    "speechiness": 0.13362666007285587,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

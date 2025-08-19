@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eric Faria - Cant Get Enough of Your Love Baby.flac",
+  "file_name": "Eric Faria - Cant Get Enough of Your Love Baby.flac",
+  "timestamp": "2025-08-17T00:16:00.323726",
+  "essentia_features": {
+    "loudness_lufs": -4.424474716186523,
+    "danceability": 1.7031171321868896,
+    "acousticness": 0.5,
+    "instrumentalness": 0.5,
+    "liveness": 0.1,
+    "speechiness": 0.1,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

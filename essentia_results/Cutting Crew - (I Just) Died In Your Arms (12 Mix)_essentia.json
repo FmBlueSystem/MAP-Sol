@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cutting Crew - (I Just) Died In Your Arms (12 Mix).flac",
+  "file_name": "Cutting Crew - (I Just) Died In Your Arms (12 Mix).flac",
+  "timestamp": "2025-08-16T23:39:53.161677",
+  "essentia_features": {
+    "loudness_lufs": -6.304616928100586,
+    "danceability": 1.0933603048324585,
+    "acousticness": 0.5,
+    "instrumentalness": 0.4016452431678772,
+    "liveness": 0.1,
+    "speechiness": 0.19366058128645836,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

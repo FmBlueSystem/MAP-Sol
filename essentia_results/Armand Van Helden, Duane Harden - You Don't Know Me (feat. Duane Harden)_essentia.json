@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Armand Van Helden, Duane Harden - You Don't Know Me (feat. Duane Harden).flac",
+  "file_name": "Armand Van Helden, Duane Harden - You Don't Know Me (feat. Duane Harden).flac",
+  "timestamp": "2025-08-16T22:45:52.616966",
+  "essentia_features": {
+    "loudness_lufs": -4.070894241333008,
+    "danceability": 1.9050967693328857,
+    "acousticness": 0.5,
+    "instrumentalness": 0.6037339270114899,
+    "liveness": 0.1,
+    "speechiness": 0.13419805098980286,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}

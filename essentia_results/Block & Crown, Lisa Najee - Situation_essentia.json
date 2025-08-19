@@ -1,0 +1,18 @@
+{
+  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Lisa Najee - Situation.flac",
+  "file_name": "Block & Crown, Lisa Najee - Situation.flac",
+  "timestamp": "2025-08-16T23:07:53.492170",
+  "essentia_features": {
+    "loudness_lufs": -3.418212890625,
+    "danceability": 1.5013436079025269,
+    "acousticness": 0.5,
+    "instrumentalness": 0.7481490671634674,
+    "liveness": 0.1,
+    "speechiness": 0.1908211471341783,
+    "valence": 0.5,
+    "bpm": 120.0,
+    "key": "Unknown"
+  },
+  "format": "FLAC",
+  "processing": "success"
+}
