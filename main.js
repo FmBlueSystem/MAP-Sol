@@ -34,6 +34,11 @@ let mainWindow;
 let db;
 let splash;
 
+// Logging helper function
+function logInfo(message) {
+    console.log(`[INFO] ${new Date().toISOString()}: ${message}`);
+}
+
 function createSplashScreen() {
     splash = new BrowserWindow({
         width: 400,
@@ -773,9 +778,19 @@ app.whenReady().then(() => {
     }
 
     const dbPath = path.join(__dirname, 'music_analyzer.db');
-    db = new sqlite3.Database(dbPath);
-
-    logInfo('✅ Base de datos conectada');
+    
+    // Create database connection with error handling
+    db = new sqlite3.Database(dbPath, (err) => {
+        if (err) {
+            console.error('Error opening database:', err.message);
+            dialog.showErrorBox('Database Error', `Failed to open database: ${err.message}`);
+            app.quit();
+        } else {
+            console.log('MAP - Music Analyzer Pro starting...');
+            console.log('Connected to SQLite database');
+            logInfo('✅ Base de datos conectada');
+        }
+    });
 
     // Create smart playlist tables if needed
     createSmartPlaylistTables(db);
@@ -1170,8 +1185,24 @@ ipcMain.handle('get-file-metadata', async (event, filePath) => {
 });
 
 app.on('window-all-closed', () => {
-    if (db) {
-        db.close();
+    if (process.platform !== 'darwin') {
+        if (db) {
+            db.close((err) => {
+                if (err) {
+                    console.error('Error closing database:', err.message);
+                }
+            });
+        }
+        app.quit();
     }
-    app.quit();
+});
+
+app.on('before-quit', () => {
+    if (db) {
+        db.close((err) => {
+            if (err) {
+                console.error('Error closing database:', err.message);
+            }
+        });
+    }
 });
