@@ -3412,6 +3412,9 @@
         <!-- <link rel="stylesheet" href="css/precision-vu-meter.css"> -->
         <!-- ProMeter CSS disabled/removed -->
         <!-- <link rel="stylesheet" href="css/pro-meter.css"> -->
+        
+        <!-- Add Music Button Styles -->
+        <link rel="stylesheet" href="css/add-music-button.css">
     </head>
     <body>
         <script>
@@ -4229,9 +4232,9 @@
             </div>
         </div>
 
-        <!-- Spotify-Style Player Bar -->
+        <!-- Spotify-Style Player Bar - DISABLED: Using Simple Player instead -->
         <!-- FIXED AUDIO PLAYER BAR -->
-        <div id="player-bar" class="player-bar-fixed" style="display: none">
+        <div id="player-bar" class="player-bar-fixed" style="display: none !important" data-disabled="true">
             <!-- LEFT SECTION: Track Info & Artwork -->
             <div class="player-left-section">
                 <div class="track-artwork">
@@ -4492,11 +4495,12 @@
                 // Set initial view
                 setView(currentView);
 
-                // Initialize K-Meter segments
-                initializeKMeterSegments();
+                // Initialize K-Meter segments (disabled if using Simple Player)
+                // initializeKMeterSegments();
 
+                // UNIFIED: Disable legacy player initialization
                 // Enable continuous play by default
-                if (window.player) {
+                if (false && window.player) {
                     window.player.autoPlay = true;
                     window.player.continuousPlay = true;
                     console.log('🎵 Continuous playback ENABLED by default');
@@ -5346,21 +5350,27 @@
                     return;
                 }
 
-                // Use Simple Player if available
+                // UNIFIED: Always use Simple Player
                 if (window.simplePlayer) {
                     console.log('📀 Using Simple Player for:', trackData.title);
+                    window.simplePlayer.loadTrack(trackData);
+                    // Hide other panels if visible
+                    document.getElementById('player-bar').style.display = 'none';
+                    document.getElementById('audio-panel').style.display = 'none';
+                    document.getElementById('emergency-audio-panel').style.display = 'none';
+                    return;
+                }
+
+                // Fallback: Create Simple Player if not exists
+                console.log('📀 Initializing Simple Player...');
+                if (!window.simplePlayer && window.SimplePlayer) {
+                    window.simplePlayer = new SimplePlayer();
                     window.simplePlayer.loadTrack(trackData);
                     return;
                 }
 
-                console.log('📀 Playing track:', {
-                    id: trackData.id,
-                    title: trackData.title || trackData.file_name,
-                    artist: trackData.artist,
-                    path: filePath
-                });
-
-                // Use the AudioPlayer instance to play the track
+                // Legacy fallback (should not reach here)
+                console.warn('⚠️ Simple Player not available, using legacy player');
                 if (window.player) {
                     // Set the playlist to all filtered tracks for continuous play
                     window.player.setPlaylist(
@@ -6075,10 +6085,11 @@
                 });
             }
         </script>
-        <!-- Emergency Audio Panel -->
+        <!-- Emergency Audio Panel - DISABLED: Using Simple Player instead -->
         <div
             id="emergency-audio-panel"
             style="
+                display: none !important;
                 position: fixed;
                 top: 10px;
                 right: 10px;
@@ -6214,8 +6225,8 @@
             });
         </script>
 
-        <!-- Professional Audio Panel -->
-        <div id="audio-panel" class="audio-panel">
+        <!-- Professional Audio Panel - DISABLED: Using Simple Player instead -->
+        <div id="audio-panel" class="audio-panel" style="display: none !important" data-disabled="true">
             <!-- Minimal Transport (Always Visible) -->
             <div class="transport-minimal player-bar-grid">
                 <!-- Section 1: Playback Controls -->
@@ -6522,5 +6533,8 @@
         <link rel="stylesheet" href="css/simple-player.css" />
         <script src="js/vu-meter.js"></script>
         <script src="js/simple-player.js"></script>
+        
+        <!-- Add Music Button -->
+        <script src="js/add-music-button.js"></script>
     </body>
 </html>

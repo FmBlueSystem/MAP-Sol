@@ -1,0 +1,302 @@
+/* Add Music Button Styles - FAB + Drop Zone Design */
+
+/* Container */
+.add-music-container {
+    position: fixed;
+    bottom: 80px; /* Above simple player bar */
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Floating Action Button */
+.add-music-fab {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.add-music-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.add-music-fab.active {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: rotate(45deg);
+}
+
+.add-music-fab.processing {
+    animation: pulse 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(102, 126, 234, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+    }
+}
+
+.fab-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.fab-label {
+    position: absolute;
+    right: 70px;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.add-music-fab:hover .fab-label {
+    opacity: 1;
+}
+
+/* Drop Zone */
+.drop-zone {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 400px;
+    height: 300px;
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(20px);
+    border: 2px dashed rgba(102, 126, 234, 0.5);
+    border-radius: 16px;
+    padding: 40px;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.drop-zone.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: all;
+}
+
+.drop-zone.drag-over {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+.drop-zone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.drop-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+    color: #667eea;
+}
+
+.drop-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+}
+
+.drop-subtext {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
+}
+
+.supported-formats {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+/* Progress Overlay */
+.import-progress {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background: rgba(30, 30, 30, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.progress-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+}
+
+.progress-cancel {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s;
+}
+
+.progress-cancel:hover {
+    color: #ff4444;
+}
+
+.progress-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#current-file {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#progress-count {
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.progress-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.progress-stages {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.stage {
+    flex: 1;
+    text-align: center;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.stage.active {
+    background: rgba(102, 126, 234, 0.2);
+    color: #667eea;
+    font-weight: 500;
+}
+
+.stage.completed {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .drop-zone {
+        width: 90%;
+        max-width: 350px;
+        height: 250px;
+        padding: 30px;
+    }
+    
+    .import-progress {
+        width: 90%;
+        max-width: 400px;
+    }
+    
+    .progress-stages {
+        flex-wrap: wrap;
+    }
+    
+    .stage {
+        min-width: calc(33.333% - 6px);
+    }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+    .drop-zone {
+        background: rgba(20, 20, 20, 0.98);
+    }
+    
+    .import-progress {
+        background: rgba(20, 20, 20, 0.98);
+    }
+}
+
+/* Animation for file drop */
+@keyframes dropFile {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.drop-zone.file-dropped {
+    animation: dropFile 0.3s ease;
+}

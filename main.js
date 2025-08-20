@@ -779,6 +779,11 @@ app.whenReady().then(() => {
     
     // Create smart playlist tables if needed
     createSmartPlaylistTables(db);
+    
+    // Initialize Import Music Handler
+    const ImportMusicHandler = require('./handlers/import-music-handler');
+    const importHandler = new ImportMusicHandler(db);
+    logInfo('✅ Import Music Handler initialized');
 
     // Registrar handlers
     ipcMain.handle('get-files-with-cached-artwork', createArtworkHandler(db));

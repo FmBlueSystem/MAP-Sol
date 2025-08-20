@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Add Music Button</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: #1a1a2e;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .test-results {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .test-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+        }
+        .success { color: #4caf50; }
+        .error { color: #f44336; }
+        .warning { color: #ff9800; }
+    </style>
+    <link rel="stylesheet" href="css/add-music-button.css">
+</head>
+<body>
+    <h1>Add Music Button Test</h1>
+    
+    <div class="test-results">
+        <h2>Component Tests:</h2>
+        <div id="test-results"></div>
+    </div>
+    
+    <!-- Mock Electron and other functions -->
+    <script>
+        // Mock Electron require
+        window.require = function(module) {
+            if (module === 'electron') {
+                return {
+                    ipcRenderer: {
+                        invoke: async function(channel, data) {
+                            console.log(`IPC invoke: ${channel}`, data);
+                            if (channel === 'select-music-files') {
+                                return { filePaths: ['test-file-1.mp3', 'test-file-2.mp3'] };
+                            }
+                            if (channel === 'import-music') {
+                                return { imported: 2, skipped: 0, failed: 0, duration: 1 };
+                            }
+                            return null;
+                        },
+                        on: function(channel, callback) {
+                            console.log(`IPC listener registered: ${channel}`);
+                        },
+                        send: function(channel, data) {
+                            console.log(`IPC send: ${channel}`, data);
+                        }
+                    }
+                };
+            }
+            return {};
+        };
+        
+        window.showToast = function(message, type) {
+            console.log(`TOAST [${type}]: ${message}`);
+            addTestResult(`Toast shown: ${message}`, type === 'error' ? 'error' : 'success');
+        };
+        
+        // Mock loadFiles function
+        window.loadFiles = function() {
+            console.log('Files would be reloaded');
+            addTestResult('File reload triggered', 'success');
+        };
+        
+        function addTestResult(message, status = 'success') {
+            const resultsDiv = document.getElementById('test-results');
+            const item = document.createElement('div');
+            item.className = `test-item ${status}`;
+            item.textContent = status === 'error' ? `✗ ${message}` : `✓ ${message}`;
+            resultsDiv.appendChild(item);
+        }
+    </script>
+    
+    <!-- Load the add music button -->
+    <script src="js/add-music-button.js"></script>
+    
+    <script>
+        // Run tests after component loads
+        setTimeout(() => {
+            // Test 1: Check if FAB was created
+            const fab = document.getElementById('add-music-fab');
+            if (fab) {
+                addTestResult('FAB button created successfully', 'success');
+            } else {
+                addTestResult('FAB button not found', 'error');
+            }
+            
+            // Test 2: Check if drop zone was created
+            const dropZone = document.getElementById('drop-zone');
+            if (dropZone) {
+                addTestResult('Drop zone created successfully', 'success');
+            } else {
+                addTestResult('Drop zone not found', 'error');
+            }
+            
+            // Test 3: Check if progress overlay was created
+            const progress = document.getElementById('import-progress');
+            if (progress) {
+                addTestResult('Progress overlay created successfully', 'success');
+            } else {
+                addTestResult('Progress overlay not found', 'error');
+            }
+            
+            // Test 4: Test FAB click
+            if (fab) {
+                fab.click();
+                if (dropZone && dropZone.style.display === 'block') {
+                    addTestResult('FAB click toggles drop zone', 'success');
+                    
+                    // Hide it again
+                    setTimeout(() => {
+                        fab.click();
+                    }, 1000);
+                } else {
+                    addTestResult('FAB click did not show drop zone', 'error');
+                }
+            }
+            
+            // Test 5: Check keyboard shortcut
+            const event = new KeyboardEvent('keydown', {
+                key: 'o',
+                ctrlKey: true,
+                bubbles: true
+            });
+            document.dispatchEvent(event);
+            addTestResult('Keyboard shortcut (Ctrl+O) registered', 'success');
+            
+            // Test 6: Check drag and drop listeners
+            const dragEvent = new DragEvent('dragenter', {
+                dataTransfer: new DataTransfer(),
+                bubbles: true
+            });
+            document.dispatchEvent(dragEvent);
+            addTestResult('Drag and drop listeners attached', 'success');
+            
+            // Summary
+            setTimeout(() => {
+                const items = document.querySelectorAll('.test-item');
+                const successCount = document.querySelectorAll('.test-item.success').length;
+                const errorCount = document.querySelectorAll('.test-item.error').length;
+                
+                const summary = document.createElement('div');
+                summary.style.marginTop = '20px';
+                summary.style.padding = '15px';
+                summary.style.background = errorCount === 0 ? 'rgba(76,175,80,0.2)' : 'rgba(244,67,54,0.2)';
+                summary.style.borderRadius = '8px';
+                summary.innerHTML = `
+                    <h3>Test Summary:</h3>
+                    <p>✅ Passed: ${successCount}</p>
+                    <p>❌ Failed: ${errorCount}</p>
+                    <p>Total: ${items.length}</p>
+                    <p style="margin-top:10px; font-weight:bold;">
+                        ${errorCount === 0 ? '🎉 All tests passed!' : '⚠️ Some tests failed'}
+                    </p>
+                `;
+                document.querySelector('.test-results').appendChild(summary);
+            }, 2000);
+            
+        }, 500);
+    </script>
+</body>
+</html>

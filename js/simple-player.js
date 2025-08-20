@@ -108,6 +108,11 @@ class SimplePlayer {
                             </svg>
                             <span class="queue-count" id="queue-count">0</span>
                         </button>
+                        
+                        <!-- VU Mode Toggle -->
+                        <button id="btn-vu-mode" class="player-btn-small" title="Toggle VU Mode" onclick="simplePlayer.toggleVuMode()">
+                            <span id="vu-mode-text">B</span>
+                        </button>
                     </div>
                 </div>
                 
@@ -499,6 +504,30 @@ class SimplePlayer {
     saveSession() {
         if (this.currentTrack) {
             localStorage.setItem('lastPlayedTrack', JSON.stringify(this.currentTrack));
+        }
+    }
+    
+    // Toggle VU Meter mode
+    toggleVuMode() {
+        if (this.vuMeter) {
+            const currentMode = this.vuMeter.mode;
+            const newMode = currentMode === 'broadcast' ? 'dj' : 'broadcast';
+            this.vuMeter.setMode(newMode);
+            
+            // Update button text
+            const modeText = document.getElementById('vu-mode-text');
+            if (modeText) {
+                modeText.textContent = newMode === 'broadcast' ? 'B' : 'DJ';
+            }
+            
+            console.log(`VU Mode switched to: ${newMode}`);
+        }
+    }
+    
+    // Toggle spectrum display
+    toggleSpectrum() {
+        if (this.vuMeter) {
+            this.vuMeter.toggleSpectrum();
         }
     }
 }
