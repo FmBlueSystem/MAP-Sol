@@ -789,9 +789,14 @@ app.whenReady().then(() => {
             console.log('MAP - Music Analyzer Pro starting...');
             console.log('Connected to SQLite database');
             logInfo('✅ Base de datos conectada');
+            
+            // Initialize everything AFTER database connection is confirmed
+            initializeAppAfterDatabase();
         }
     });
+}
 
+function initializeAppAfterDatabase() {
     // Create smart playlist tables if needed
     createSmartPlaylistTables(db);
 
@@ -800,7 +805,7 @@ app.whenReady().then(() => {
     const importHandler = new ImportMusicHandler(db);
     logInfo('✅ Import Music Handler initialized');
 
-    // Registrar handlers
+    // Registrar handlers - SOLO después de que DB esté conectada
     ipcMain.handle('get-files-with-cached-artwork', createArtworkHandler(db));
     ipcMain.handle('search-tracks', createSearchHandler(db));
     ipcMain.handle('get-filter-options', createFilterHandler(db));
@@ -999,17 +1004,12 @@ app.whenReady().then(() => {
     // Crear el menú ANTES de las ventanas
     createApplicationMenu();
 
-    // Crear splash screen primero
-    createSplashScreen();
-    createWindow();
-});
+    // ==================== METADATA VIEWER HANDLERS ====================
+    const mm = require('music-metadata');
+    const fsPromises = require('fs').promises;
 
-// ==================== METADATA VIEWER HANDLERS ====================
-const mm = require('music-metadata');
-const fsPromises = require('fs').promises;
-
-// Obtener estadísticas de la base de datos
-ipcMain.handle('get-database-stats', async () => {
+    // Obtener estadísticas de la base de datos
+    ipcMain.handle('get-database-stats', async () => {
     return new Promise((resolve, reject) => {
         const queries = {
             totalFiles: 'SELECT COUNT(*) as count FROM audio_files',
@@ -1182,6 +1182,12 @@ ipcMain.handle('get-file-metadata', async (event, filePath) => {
         logError('Error in get-file-metadata:', error);
         throw error;
     }
+    });
+
+    // Crear splash screen y ventana principal DESPUÉS de inicializar handlers
+    createSplashScreen();
+    createWindow();
+}
 });
 
 app.on('window-all-closed', () => {
