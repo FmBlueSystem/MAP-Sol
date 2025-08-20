@@ -17,7 +17,7 @@
                 console.error('🔴 Initial load failed:', {
                     error,
                     src: originalSrc,
-                    fallbackAttempted,
+                    fallbackAttempted
                 });
 
                 // Try fallback only once and only for decoding errors
@@ -41,7 +41,7 @@
                                     if (originalOnloaderror) {
                                         originalOnloaderror.call(this, id, error);
                                     }
-                                },
+                                }
                             });
 
                             // Replace the current instance methods with fallback
@@ -76,7 +76,7 @@
     };
 
     // Copy all static properties
-    Object.keys(OriginalHowl).forEach((key) => {
+    Object.keys(OriginalHowl).forEach(key => {
         window.Howl[key] = OriginalHowl[key];
     });
 

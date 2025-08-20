@@ -217,9 +217,9 @@ class VirtualScroller {
         `;
 
         // Add event listeners
-        div.addEventListener('contextmenu', (e) => this.handleContextMenu(e, item, index));
-        div.addEventListener('click', (e) => this.handleClick(e, item, index));
-        div.addEventListener('dblclick', (e) => this.handleDoubleClick(e, item, index));
+        div.addEventListener('contextmenu', e => this.handleContextMenu(e, item, index));
+        div.addEventListener('click', e => this.handleClick(e, item, index));
+        div.addEventListener('dblclick', e => this.handleDoubleClick(e, item, index));
 
         return div;
     }
@@ -337,7 +337,7 @@ class VirtualScroller {
 
         this.container.scrollTo({
             top: targetScrollTop - this.itemHeight, // Show item with some margin
-            behavior: 'smooth',
+            behavior: 'smooth'
         });
     }
 
@@ -352,7 +352,7 @@ class VirtualScroller {
             totalItems: this.items.length,
             renderedItems: this.renderedItems.size,
             visibleRange: `${this.visibleStart}-${this.visibleEnd}`,
-            memoryReduction: `${Math.round((1 - this.renderedItems.size / this.items.length) * 100)}%`,
+            memoryReduction: `${Math.round((1 - this.renderedItems.size / this.items.length) * 100)}%`
         };
 
         // Dispatch custom event with stats

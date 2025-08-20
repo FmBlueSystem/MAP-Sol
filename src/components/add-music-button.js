@@ -91,10 +91,10 @@ class AddMusicButton {
 
     setupDragAndDrop() {
         // Prevent default drag behaviors
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
             document.addEventListener(
                 eventName,
-                (e) => {
+                e => {
                     e.preventDefault();
                     e.stopPropagation();
                 },
@@ -103,8 +103,8 @@ class AddMusicButton {
         });
 
         // Drag enter/over - show drop zone
-        ['dragenter', 'dragover'].forEach((eventName) => {
-            document.addEventListener(eventName, (e) => {
+        ['dragenter', 'dragover'].forEach(eventName => {
+            document.addEventListener(eventName, e => {
                 if (this.isDraggedDataValid(e)) {
                     this.showDropZone();
                     this.dropZone.classList.add('drag-over');
@@ -113,14 +113,14 @@ class AddMusicButton {
         });
 
         // Drag leave
-        document.addEventListener('dragleave', (e) => {
+        document.addEventListener('dragleave', e => {
             if (e.clientX === 0 && e.clientY === 0) {
                 this.dropZone.classList.remove('drag-over');
             }
         });
 
         // Drop
-        document.addEventListener('drop', async (e) => {
+        document.addEventListener('drop', async e => {
             if (this.isDraggedDataValid(e)) {
                 await this.handleDrop(e);
             }
@@ -128,7 +128,7 @@ class AddMusicButton {
     }
 
     setupKeyboardShortcuts() {
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', e => {
             // Ctrl/Cmd + O to open file dialog
             if ((e.ctrlKey || e.metaKey) && e.key === 'o') {
                 e.preventDefault();
@@ -308,8 +308,8 @@ class AddMusicButton {
                     checkDuplicates: true,
                     extractArtwork: true,
                     runAnalysis: false, // Disable for faster testing
-                    runAI: false, // Optional AI enrichment
-                },
+                    runAI: false // Optional AI enrichment
+                }
             });
 
             console.log('Import result:', result);
@@ -348,7 +348,7 @@ class AddMusicButton {
     }
 
     setActiveStage(stageName) {
-        document.querySelectorAll('.stage').forEach((stage) => {
+        document.querySelectorAll('.stage').forEach(stage => {
             stage.classList.remove('active');
             if (stage.dataset.stage === stageName) {
                 stage.classList.add('active');
@@ -365,7 +365,7 @@ class AddMusicButton {
             metadata: 2,
             artwork: 3,
             analysis: 4,
-            ai: 5,
+            ai: 5
         };
         return order[stage] || 999;
     }

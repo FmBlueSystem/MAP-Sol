@@ -30,7 +30,7 @@ const jsModules = [
     'playlist-manager',
     'theme-controller',
     'memory-manager',
-    'safe-dom',
+    'safe-dom'
 ];
 
 // Create entry points for each module
@@ -43,7 +43,7 @@ const entries = {
             acc[module] = modulePath;
         }
         return acc;
-    }, {}),
+    }, {})
 };
 
 module.exports = {
@@ -56,7 +56,7 @@ module.exports = {
         filename: isDevelopment ? 'js/[name].js' : 'js/[name].[contenthash:8].js',
         chunkFilename: isDevelopment ? 'js/[name].chunk.js' : 'js/[name].[contenthash:8].chunk.js',
         clean: true,
-        publicPath: '',
+        publicPath: ''
     },
 
     module: {
@@ -73,15 +73,15 @@ module.exports = {
                                 '@babel/preset-env',
                                 {
                                     targets: {
-                                        electron: '32.0.0',
+                                        electron: '32.0.0'
                                     },
-                                    modules: false,
-                                },
-                            ],
+                                    modules: false
+                                }
+                            ]
                         ],
-                        plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-syntax-dynamic-import'],
-                    },
-                },
+                        plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-syntax-dynamic-import']
+                    }
+                }
             },
 
             // CSS
@@ -96,11 +96,11 @@ module.exports = {
                             postcssOptions: {
                                 plugins: ['postcss-preset-env', 'autoprefixer', !isDevelopment && 'cssnano'].filter(
                                     Boolean
-                                ),
-                            },
-                        },
-                    },
-                ],
+                                )
+                            }
+                        }
+                    }
+                ]
             },
 
             // Images
@@ -109,12 +109,12 @@ module.exports = {
                 type: 'asset',
                 parser: {
                     dataUrlCondition: {
-                        maxSize: 8 * 1024, // 8kb
-                    },
+                        maxSize: 8 * 1024 // 8kb
+                    }
                 },
                 generator: {
-                    filename: 'images/[name].[contenthash:8][ext]',
-                },
+                    filename: 'images/[name].[contenthash:8][ext]'
+                }
             },
 
             // Fonts
@@ -122,10 +122,10 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'fonts/[name].[contenthash:8][ext]',
-                },
-            },
-        ],
+                    filename: 'fonts/[name].[contenthash:8][ext]'
+                }
+            }
+        ]
     },
 
     plugins: [
@@ -137,23 +137,23 @@ module.exports = {
             inject: 'body',
             minify: !isDevelopment
                 ? {
-                      collapseWhitespace: true,
-                      removeComments: true,
-                      removeRedundantAttributes: true,
-                      removeScriptTypeAttributes: true,
-                      removeStyleLinkTypeAttributes: true,
-                      useShortDoctype: true,
-                      minifyCSS: true,
-                      minifyJS: true,
-                  }
-                : false,
+                    collapseWhitespace: true,
+                    removeComments: true,
+                    removeRedundantAttributes: true,
+                    removeScriptTypeAttributes: true,
+                    removeStyleLinkTypeAttributes: true,
+                    useShortDoctype: true,
+                    minifyCSS: true,
+                    minifyJS: true
+                }
+                : false
         }),
 
         // CSS extraction
         !isDevelopment &&
             new MiniCssExtractPlugin({
                 filename: 'css/[name].[contenthash:8].css',
-                chunkFilename: 'css/[name].[contenthash:8].chunk.css',
+                chunkFilename: 'css/[name].[contenthash:8].chunk.css'
             }),
 
         // Copy static assets
@@ -166,17 +166,17 @@ module.exports = {
                     from: 'assets',
                     to: 'assets',
                     globOptions: {
-                        ignore: ['**/Thumbs.db', '**/.DS_Store'],
-                    },
+                        ignore: ['**/Thumbs.db', '**/.DS_Store']
+                    }
                 },
                 {
                     from: 'icons',
                     to: 'icons',
-                    noErrorOnMissing: true,
-                },
+                    noErrorOnMissing: true
+                }
                 // Don't copy artwork-cache in production bundle (too large)
                 // It should be handled by the Electron app separately
-            ],
+            ]
         }),
 
         // Compression
@@ -186,7 +186,7 @@ module.exports = {
                 test: /\.(js|css|html|svg)$/,
                 threshold: 10240,
                 minRatio: 0.8,
-                deleteOriginalAssets: false,
+                deleteOriginalAssets: false
             }),
 
         // Bundle analyzer
@@ -194,8 +194,8 @@ module.exports = {
             new BundleAnalyzerPlugin({
                 analyzerMode: 'static',
                 reportFilename: 'bundle-report.html',
-                openAnalyzer: true,
-            }),
+                openAnalyzer: true
+            })
     ].filter(Boolean),
 
     optimization: {
@@ -204,7 +204,7 @@ module.exports = {
             new TerserPlugin({
                 terserOptions: {
                     parse: {
-                        ecma: 8,
+                        ecma: 8
                     },
                     compress: {
                         ecma: 5,
@@ -213,30 +213,30 @@ module.exports = {
                         inline: 2,
                         drop_console: !isDevelopment,
                         drop_debugger: !isDevelopment,
-                        pure_funcs: !isDevelopment ? ['console.log', 'console.debug'] : [],
+                        pure_funcs: !isDevelopment ? ['console.log', 'console.debug'] : []
                     },
                     mangle: {
-                        safari10: true,
+                        safari10: true
                     },
                     output: {
                         ecma: 5,
                         comments: false,
-                        ascii_only: true,
-                    },
+                        ascii_only: true
+                    }
                 },
                 parallel: true,
-                extractComments: false,
+                extractComments: false
             }),
             new CssMinimizerPlugin({
                 minimizerOptions: {
                     preset: [
                         'default',
                         {
-                            discardComments: { removeAll: true },
-                        },
-                    ],
-                },
-            }),
+                            discardComments: { removeAll: true }
+                        }
+                    ]
+                }
+            })
         ],
 
         splitChunks: {
@@ -250,63 +250,63 @@ module.exports = {
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendor',
                     priority: 10,
-                    reuseExistingChunk: true,
+                    reuseExistingChunk: true
                 },
                 // Common modules used across entries
                 common: {
                     minChunks: 2,
                     priority: 5,
                     reuseExistingChunk: true,
-                    name: 'common',
+                    name: 'common'
                 },
                 // Separate heavy libraries
                 howler: {
                     test: /[\\/]node_modules[\\/]howler/,
                     name: 'howler',
                     priority: 20,
-                    enforce: true,
+                    enforce: true
                 },
                 // Our optimization modules
                 optimizers: {
                     test: /[\\/]js[\\/](performance-optimizer|database-optimizer|logger)/,
                     name: 'optimizers',
                     priority: 15,
-                    enforce: true,
+                    enforce: true
                 },
                 // Virtual scroller (large module)
                 virtualScroller: {
                     test: /[\\/]js[\\/]virtual-scroller/,
                     name: 'virtual-scroller',
                     priority: 15,
-                    enforce: true,
+                    enforce: true
                 },
                 // Audio modules
                 audio: {
                     test: /[\\/]js[\\/](audio-player|audio-panel|professional-meter)/,
                     name: 'audio-modules',
                     priority: 15,
-                    enforce: true,
+                    enforce: true
                 },
                 // UI components
                 ui: {
                     test: /[\\/]js[\\/](metadata-inspector|playlist-manager|theme-controller)/,
                     name: 'ui-components',
                     priority: 14,
-                    enforce: true,
+                    enforce: true
                 },
                 // Styles
                 styles: {
                     test: /\.css$/,
                     name: 'styles',
                     priority: 10,
-                    enforce: true,
-                },
-            },
+                    enforce: true
+                }
+            }
         },
 
         runtimeChunk: 'single',
 
-        moduleIds: 'deterministic',
+        moduleIds: 'deterministic'
     },
 
     resolve: {
@@ -317,14 +317,14 @@ module.exports = {
             '@handlers': path.resolve(__dirname, 'handlers'),
             '@services': path.resolve(__dirname, 'services'),
             '@config': path.resolve(__dirname, 'config'),
-            '@assets': path.resolve(__dirname, 'assets'),
-        },
+            '@assets': path.resolve(__dirname, 'assets')
+        }
     },
 
     // Development server configuration
     devServer: {
         static: {
-            directory: path.join(__dirname, 'public'),
+            directory: path.join(__dirname, 'public')
         },
         compress: true,
         port: 3000,
@@ -332,8 +332,8 @@ module.exports = {
         open: false,
         historyApiFallback: true,
         headers: {
-            'Access-Control-Allow-Origin': '*',
-        },
+            'Access-Control-Allow-Origin': '*'
+        }
     },
 
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',
@@ -344,7 +344,7 @@ module.exports = {
         maxAssetSize: 512000,
         assetFilter: function (assetFilename) {
             return !assetFilename.match(/\.(map|LICENSE)$/);
-        },
+        }
     },
 
     stats: {
@@ -359,7 +359,7 @@ module.exports = {
         hash: true,
         performance: true,
         timings: true,
-        warnings: true,
+        warnings: true
     },
 
     // Target Electron renderer process
@@ -370,14 +370,14 @@ module.exports = {
         electron: 'commonjs electron',
         sqlite3: 'commonjs sqlite3',
         'music-metadata': 'commonjs music-metadata',
-        sharp: 'commonjs sharp',
+        sharp: 'commonjs sharp'
     },
 
     // Node configuration for Electron
     node: {
         __dirname: false,
-        __filename: false,
-    },
+        __filename: false
+    }
 };
 
 // Log configuration

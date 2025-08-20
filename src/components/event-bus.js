@@ -52,7 +52,7 @@ export class EventBus {
      * @returns {Function} Unsubscribe function
      */
     once(event, callback) {
-        const wrapper = (data) => {
+        const wrapper = data => {
             callback(data);
             this.off(event, wrapper);
         };
@@ -146,7 +146,7 @@ export class EventBus {
             promises.push(
                 Promise.resolve()
                     .then(() => callback(data))
-                    .catch((error) => {
+                    .catch(error => {
                         console.error(`[EventBus] Error in ${event} async handler:`, error);
                     })
             );
@@ -224,7 +224,7 @@ export class EventBus {
         const stats = {
             totalEvents: this.events.size,
             totalListeners: 0,
-            events: {},
+            events: {}
         };
 
         for (const [event, listeners] of this.events) {
@@ -274,7 +274,7 @@ export const Events = {
     ANALYSIS_STARTED: 'analysis:started',
     ANALYSIS_PROGRESS: 'analysis:progress',
     ANALYSIS_COMPLETED: 'analysis:completed',
-    ANALYSIS_ERROR: 'analysis:error',
+    ANALYSIS_ERROR: 'analysis:error'
 };
 
 // Export singleton

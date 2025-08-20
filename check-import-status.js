@@ -18,8 +18,8 @@ async function checkStatus() {
             return;
         }
 
-        const processedPaths = new Set(rows.map((r) => r.file_path));
-        const unprocessed = files.filter((f) => !processedPaths.has(f.path));
+        const processedPaths = new Set(rows.map(r => r.file_path));
+        const unprocessed = files.filter(f => !processedPaths.has(f.path));
 
         logDebug('📊 IMPORT STATUS CHECK');
         logDebug('='.repeat(50));
@@ -30,13 +30,13 @@ async function checkStatus() {
 
         if (unprocessed.length > 0) {
             logDebug('\n❌ First 10 unprocessed files:');
-            unprocessed.slice(0, 10).forEach((f) => {
+            unprocessed.slice(0, 10).forEach(f => {
                 logDebug('  -', f.filename);
             });
 
             // Check if there's a problematic file pattern
             const extensions = {};
-            unprocessed.forEach((f) => {
+            unprocessed.forEach(f => {
                 const ext = f.extension;
                 extensions[ext] = (extensions[ext] || 0) + 1;
             });

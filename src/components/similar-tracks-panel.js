@@ -82,19 +82,19 @@ class SimilarTracksPanel {
 
     attachEventListeners() {
         // Escuchar eventos de búsqueda de tracks similares
-        document.addEventListener('findSimilarTracks', async (e) => {
+        document.addEventListener('findSimilarTracks', async e => {
             await this.findSimilar(e.detail);
         });
 
         // Cerrar con ESC
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && this.isVisible) {
                 this.hide();
             }
         });
 
         // Cerrar al hacer click fuera
-        this.panel.addEventListener('click', (e) => {
+        this.panel.addEventListener('click', e => {
             if (e.target === this.panel) {
                 this.hide();
             }
@@ -271,7 +271,7 @@ class SimilarTracksPanel {
         // Mostrar info del track en el panel principal
         document.dispatchEvent(
             new CustomEvent('trackSelected', {
-                detail: trackId,
+                detail: trackId
             })
         );
         this.hide();
@@ -285,7 +285,7 @@ class SimilarTracksPanel {
 
         // Crear playlist con los tracks similares
         const playlistName = `Similar to ${this.currentTrack.title || 'Track'}`;
-        const trackIds = this.similarTracks.map((t) => t.id);
+        const trackIds = this.similarTracks.map(t => t.id);
 
         // Disparar evento para crear playlist
         document.dispatchEvent(
@@ -293,8 +293,8 @@ class SimilarTracksPanel {
                 detail: {
                     name: playlistName,
                     trackIds: trackIds,
-                    description: `Tracks similar to "${this.currentTrack.title}" using HAMMS algorithm`,
-                },
+                    description: `Tracks similar to "${this.currentTrack.title}" using HAMMS algorithm`
+                }
             })
         );
 
@@ -308,7 +308,7 @@ class SimilarTracksPanel {
         }
 
         // Agregar todos a la cola
-        this.similarTracks.forEach((track) => {
+        this.similarTracks.forEach(track => {
             if (window.audioPlayer && window.audioPlayer.addToQueue) {
                 window.audioPlayer.addToQueue(track.id);
             }
@@ -330,19 +330,19 @@ class SimilarTracksPanel {
                 artist: this.currentTrack.artist,
                 bpm: this.currentTrack.AI_BPM,
                 key: this.currentTrack.AI_KEY,
-                energy: this.currentTrack.AI_ENERGY,
+                energy: this.currentTrack.AI_ENERGY
             },
-            similar_tracks: this.similarTracks.map((t) => ({
+            similar_tracks: this.similarTracks.map(t => ({
                 title: t.title,
                 artist: t.artist,
                 bpm: t.AI_BPM,
                 key: t.AI_KEY,
                 energy: t.AI_ENERGY,
                 similarity: t.similarity_percent,
-                file_path: t.file_path,
+                file_path: t.file_path
             })),
             generated_at: new Date().toISOString(),
-            algorithm: 'HAMMS-7D',
+            algorithm: 'HAMMS-7D'
         };
 
         // Descargar como JSON

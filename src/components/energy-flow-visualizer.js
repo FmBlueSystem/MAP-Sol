@@ -11,7 +11,7 @@ class EnergyFlowVisualizer {
             low: '#3B82F6', // Blue - Low energy (0-0.3)
             medium: '#10B981', // Green - Medium energy (0.3-0.6)
             high: '#F59E0B', // Orange - High energy (0.6-0.8)
-            peak: '#EF4444', // Red - Peak energy (0.8-1.0)
+            peak: '#EF4444' // Red - Peak energy (0.8-1.0)
         };
         this.init();
     }
@@ -137,7 +137,7 @@ class EnergyFlowVisualizer {
         document.addEventListener('queueUpdated', () => this.loadQueueTracks());
 
         // Listen for track changes
-        document.addEventListener('trackChanged', (e) => {
+        document.addEventListener('trackChanged', e => {
             this.currentTrackIndex = e.detail.index;
             this.updateVisualization();
         });
@@ -179,7 +179,7 @@ class EnergyFlowVisualizer {
             { title: 'Build Again', artist: 'Progressive 2', energy: 0.7, bpm: 126, duration: 300 },
             { title: 'Final Peak', artist: 'Closer', energy: 0.88, bpm: 128, duration: 280 },
             { title: 'Cool Down', artist: 'Outro', energy: 0.5, bpm: 122, duration: 320 },
-            { title: 'Closing', artist: 'Ambient', energy: 0.25, bpm: 118, duration: 360 },
+            { title: 'Closing', artist: 'Ambient', energy: 0.25, bpm: 118, duration: 360 }
         ];
         this.updateVisualization();
     }
@@ -230,7 +230,7 @@ class EnergyFlowVisualizer {
         // Draw smooth curve through energy points
         const points = this.tracks.map((track, index) => ({
             x: padding + index * stepX,
-            y: height - padding - track.energy * graphHeight,
+            y: height - padding - track.energy * graphHeight
         }));
 
         // Move to first point
@@ -290,7 +290,7 @@ class EnergyFlowVisualizer {
 
         // Y-axis labels (energy levels)
         const energyLevels = [0, 0.25, 0.5, 0.75, 1];
-        energyLevels.forEach((level) => {
+        energyLevels.forEach(level => {
             const y = height - padding - level * graphHeight;
             this.ctx.fillText(`${(level * 100).toFixed(0)}%`, padding - 10, y + 3);
         });
@@ -301,13 +301,13 @@ class EnergyFlowVisualizer {
             { start: 0, end: 0.3, color: 'rgba(59, 130, 246, 0.1)', label: 'Low' },
             { start: 0.3, end: 0.6, color: 'rgba(16, 185, 129, 0.1)', label: 'Medium' },
             { start: 0.6, end: 0.8, color: 'rgba(245, 158, 11, 0.1)', label: 'High' },
-            { start: 0.8, end: 1, color: 'rgba(239, 68, 68, 0.1)', label: 'Peak' },
+            { start: 0.8, end: 1, color: 'rgba(239, 68, 68, 0.1)', label: 'Peak' }
         ];
 
         const padding = 20;
         const graphHeight = height - padding * 2;
 
-        zones.forEach((zone) => {
+        zones.forEach(zone => {
             const yStart = height - padding - zone.end * graphHeight;
             const yEnd = height - padding - zone.start * graphHeight;
             const zoneHeight = yEnd - yStart;
@@ -400,8 +400,8 @@ class EnergyFlowVisualizer {
         const totalTracks = this.tracks.length;
         const totalDuration = this.tracks.reduce((sum, t) => sum + (t.duration || 180), 0);
         const avgEnergy = this.tracks.reduce((sum, t) => sum + (t.energy || 0), 0) / totalTracks;
-        const minEnergy = Math.min(...this.tracks.map((t) => t.energy || 0));
-        const maxEnergy = Math.max(...this.tracks.map((t) => t.energy || 0));
+        const minEnergy = Math.min(...this.tracks.map(t => t.energy || 0));
+        const maxEnergy = Math.max(...this.tracks.map(t => t.energy || 0));
 
         // Update UI
         document.getElementById('total-tracks').textContent = totalTracks;
@@ -422,7 +422,7 @@ class EnergyFlowVisualizer {
 
     performFlowAnalysis() {
         // Calculate metrics
-        const energies = this.tracks.map((t) => t.energy || 0);
+        const energies = this.tracks.map(t => t.energy || 0);
 
         // Energy variance
         const mean = energies.reduce((a, b) => a + b) / energies.length;
@@ -480,7 +480,7 @@ class EnergyFlowVisualizer {
         }
 
         const container = document.getElementById('flow-suggestions');
-        container.innerHTML = suggestions.map((s) => `<div class="suggestion">${s}</div>`).join('');
+        container.innerHTML = suggestions.map(s => `<div class="suggestion">${s}</div>`).join('');
     }
 
     optimizeFlow() {

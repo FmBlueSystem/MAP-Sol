@@ -6,5 +6,5 @@ console.log('Component music-analyzer-ui.js temporarily disabled due to syntax e
 // Basic placeholder component
 window.musicanalyzerui = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>',
+    render: () => '<div>Component temporarily unavailable</div>'
 };

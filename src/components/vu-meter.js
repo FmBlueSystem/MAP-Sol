@@ -39,7 +39,7 @@ class VuMeter {
             low: '#00ff00', // Green: -20 to -10 dB
             medium: '#ffff00', // Yellow: -10 to -3 dB
             high: '#ffa500', // Orange: -3 to 0 dB
-            peak: '#ff0000', // Red: 0 to +3 dB
+            peak: '#ff0000' // Red: 0 to +3 dB
         };
 
         // Scale marks (will be updated by mode)
@@ -282,7 +282,7 @@ class VuMeter {
         this.ctx.font = '10px monospace';
         this.ctx.textAlign = 'center';
 
-        this.scaleMarks.forEach((db) => {
+        this.scaleMarks.forEach(db => {
             const x = this.dbToPixels(db);
 
             // Draw tick mark
@@ -327,7 +327,7 @@ class VuMeter {
         const targetFPS = 60;
         const frameTime = 1000 / targetFPS;
 
-        const animate = (currentTime) => {
+        const animate = currentTime => {
             if (currentTime - lastTime >= frameTime) {
                 this.draw();
                 lastTime = currentTime;

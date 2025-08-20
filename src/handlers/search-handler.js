@@ -35,7 +35,7 @@ function createSearchHandler() {
                         ? Math.max(0, Math.min(1, Number(filters.maxEnergy)))
                         : null,
                 limit:
-                    filters.limit && !isNaN(filters.limit) ? Math.max(1, Math.min(1000, Number(filters.limit))) : 500,
+                    filters.limit && !isNaN(filters.limit) ? Math.max(1, Math.min(1000, Number(filters.limit))) : 500
             };
 
             // Use secure database service
@@ -47,7 +47,7 @@ function createSearchHandler() {
                 success: true,
                 results: results,
                 count: results.length,
-                filters: sanitizedFilters,
+                filters: sanitizedFilters
             };
         } catch (error) {
             console.error('Search error:', error.message);
@@ -56,7 +56,7 @@ function createSearchHandler() {
             return {
                 success: false,
                 error: 'Search failed. Please try again.',
-                results: [],
+                results: []
             };
         }
     };

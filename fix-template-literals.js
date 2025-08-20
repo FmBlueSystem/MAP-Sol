@@ -21,10 +21,10 @@ function fixTemplateLiterals(filePath) {
             /\b(logDebug|logInfo|logWarn|logError)\("([^"]*\$\{[^}]+\}[^"]*)`\)/g,
             // Pattern for closing backtick without opening
             /\b(logDebug|logInfo|logWarn|logError)\('([^']*)`\)/g,
-            /\b(logDebug|logInfo|logWarn|logError)\("([^"]*)`\)/g,
+            /\b(logDebug|logInfo|logWarn|logError)\("([^"]*)`\)/g
         ];
 
-        patterns.forEach((pattern) => {
+        patterns.forEach(pattern => {
             content = content.replace(pattern, (match, func, inner) => {
                 fixCount++;
                 // If it contains ${}, it should be a template literal
@@ -72,14 +72,14 @@ const filesToFix = [
     'js/app-production.js',
     'js/audio-player.js',
     'js/audio-panel.js',
-    'js/virtual-scroller-production.js',
+    'js/virtual-scroller-production.js'
 ];
 
 console.log('🔧 Fixing template literal syntax errors...\n');
 
 let totalFixes = 0;
 
-filesToFix.forEach((file) => {
+filesToFix.forEach(file => {
     const filePath = path.join(__dirname, file);
     if (fs.existsSync(filePath)) {
         const fixes = fixTemplateLiterals(filePath);

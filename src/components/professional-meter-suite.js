@@ -6,5 +6,5 @@ console.log('Component professional-meter-suite.js temporarily disabled due to s
 // Basic placeholder component
 window.professionalmetersuite = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>',
+    render: () => '<div>Component temporarily unavailable</div>'
 };

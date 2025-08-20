@@ -6,5 +6,5 @@ console.log('Component virtual-scroller-enhanced.js temporarily disabled due to 
 // Basic placeholder component
 window.virtualscrollerenhanced = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>',
+    render: () => '<div>Component temporarily unavailable</div>'
 };

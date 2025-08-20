@@ -14,7 +14,7 @@ describe('Project Stabilization', () => {
 
         const criticalPaths = ['src', 'js', 'handlers', 'tests'];
 
-        criticalPaths.forEach((dir) => {
+        criticalPaths.forEach(dir => {
             expect(fs.existsSync(path.join(__dirname, '..', dir))).toBe(true);
         });
     });
@@ -26,7 +26,7 @@ describe('Project Stabilization', () => {
         // Find emergency backup directory
         const projectRoot = path.join(__dirname, '..');
         const files = fs.readdirSync(projectRoot);
-        const backupDirs = files.filter((file) => file.startsWith('emergency-backup-'));
+        const backupDirs = files.filter(file => file.startsWith('emergency-backup-'));
 
         expect(backupDirs.length).toBeGreaterThan(0);
     });
@@ -49,7 +49,7 @@ describe('Project Stabilization', () => {
         // Test that placeholder files are syntactically correct
         const placeholderFiles = ['../analyze-all.js', '../calculate-audio-features.js', '../diagnose-audio.js'];
 
-        placeholderFiles.forEach((file) => {
+        placeholderFiles.forEach(file => {
             expect(() => {
                 require(file);
             }).not.toThrow();
@@ -73,7 +73,7 @@ describe('Project Stabilization', () => {
 
         const projectRoot = path.join(__dirname, '..');
         const files = fs.readdirSync(projectRoot);
-        const backupDirs = files.filter((file) => file.startsWith('emergency-backup-'));
+        const backupDirs = files.filter(file => file.startsWith('emergency-backup-'));
 
         if (backupDirs.length > 0) {
             const backupPath = path.join(projectRoot, backupDirs[0]);
@@ -111,7 +111,7 @@ describe('Project Quality Metrics', () => {
             currentErrorCount: 0,
             stabilizationDate: new Date().toISOString(),
             backupCreated: true,
-            placeholdersDeployed: true,
+            placeholdersDeployed: true
         };
 
         expect(stabilizationMetrics.originalErrorCount).toBeGreaterThan(0);
@@ -124,13 +124,13 @@ describe('Project Quality Metrics', () => {
         const beforeStabilization = {
             syntaxErrors: 75,
             testsPassing: false,
-            lintRunning: false,
+            lintRunning: false
         };
 
         const afterStabilization = {
             syntaxErrors: 0,
             testsPassing: true, // At least some tests pass
-            lintRunning: true, // ESLint can run without crashing
+            lintRunning: true // ESLint can run without crashing
         };
 
         expect(afterStabilization.syntaxErrors).toBeLessThan(beforeStabilization.syntaxErrors);

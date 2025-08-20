@@ -6,5 +6,5 @@ console.log('Component player-fix.js temporarily disabled due to syntax errors')
 // Basic placeholder component
 window.playerfix = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>',
+    render: () => '<div>Component temporarily unavailable</div>'
 };

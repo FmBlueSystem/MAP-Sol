@@ -48,7 +48,7 @@ class MemoryLeakDetector {
             clearInterval(this.memoryInterval);
         }
 
-        this.observers.forEach((observer) => observer.disconnect());
+        this.observers.forEach(observer => observer.disconnect());
         this.observers.clear();
     }
 
@@ -63,7 +63,7 @@ class MemoryLeakDetector {
             totalJSHeapSize: performance.memory.totalJSHeapSize,
             jsHeapSizeLimit: performance.memory.jsHeapSizeLimit,
             domNodes: document.getElementsByTagName('*').length,
-            listeners: this.countEventListeners(),
+            listeners: this.countEventListeners()
         };
 
         this.samples.push(sample);
@@ -96,7 +96,7 @@ class MemoryLeakDetector {
                 baseline: baseline.usedJSHeapSize / 1048576,
                 domNodeIncrease: currentSample.domNodes - baseline.domNodes,
                 listenerIncrease: currentSample.listeners - baseline.listeners,
-                type: this.classifyLeak(currentSample, baseline),
+                type: this.classifyLeak(currentSample, baseline)
             };
 
             this.leaks.push(leak);
@@ -137,7 +137,7 @@ class MemoryLeakDetector {
             increase: `${leak.increase.toFixed(2)} MB`,
             current: `${leak.current.toFixed(2)} MB`,
             domNodes: `+${leak.domNodeIncrease}`,
-            listeners: `+${leak.listenerIncrease}`,
+            listeners: `+${leak.listenerIncrease}`
         });
 
         // Attempt automatic cleanup
@@ -147,7 +147,7 @@ class MemoryLeakDetector {
         if (window.errorTracker) {
             window.errorTracker.captureError({
                 type: 'memoryLeak',
-                leak,
+                leak
             });
         }
     }
@@ -170,10 +170,10 @@ class MemoryLeakDetector {
 
     setupDOMMonitoring() {
         // Monitor for detached DOM nodes
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
+        const observer = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
                 // Track removed nodes
-                mutation.removedNodes.forEach((node) => {
+                mutation.removedNodes.forEach(node => {
                     if (node.nodeType === 1) {
                         // Element node
                         this.checkForDetachedNode(node);
@@ -184,7 +184,7 @@ class MemoryLeakDetector {
 
         observer.observe(document.body, {
             childList: true,
-            subtree: true,
+            subtree: true
         });
 
         this.observers.set('dom', observer);
@@ -219,7 +219,7 @@ class MemoryLeakDetector {
             window.memoryLeakDetector.eventListeners.get(this).push({
                 type,
                 listener,
-                options,
+                options
             });
 
             return originalAdd.call(this, type, listener, options);
@@ -229,7 +229,7 @@ class MemoryLeakDetector {
             // Remove from tracking
             const listeners = window.memoryLeakDetector.eventListeners.get(this);
             if (listeners) {
-                const index = listeners.findIndex((l) => l.type === type && l.listener === listener);
+                const index = listeners.findIndex(l => l.type === type && l.listener === listener);
                 if (index > -1) {
                     listeners.splice(index, 1);
                 }
@@ -242,13 +242,13 @@ class MemoryLeakDetector {
     setupAllocationMonitoring() {
         // Monitor large object allocations
         if (typeof FinalizationRegistry !== 'undefined') {
-            this.registry = new FinalizationRegistry((heldValue) => {});
+            this.registry = new FinalizationRegistry(heldValue => {});
         }
     }
 
     countEventListeners() {
         let count = 0;
-        this.eventListeners.forEach((listeners) => {
+        this.eventListeners.forEach(listeners => {
             count += listeners.length;
         });
         return count;
@@ -338,7 +338,7 @@ class MemoryLeakDetector {
             domNodes: latest ? latest.domNodes : 0,
             eventListeners: latest ? latest.listeners : 0,
             leaksDetected: this.leaks.length,
-            lastLeak: this.leaks[this.leaks.length - 1] || null,
+            lastLeak: this.leaks[this.leaks.length - 1] || null
         };
     }
 
@@ -371,7 +371,7 @@ class MemoryLeakDetector {
 window.memoryLeakDetector = new MemoryLeakDetector({
     enabled: true,
     interval: 10000,
-    threshold: 30,
+    threshold: 30
 });
 
 // Export for module usage

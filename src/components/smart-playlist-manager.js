@@ -168,7 +168,7 @@ class SmartPlaylistManager {
 
     attachEventListeners() {
         // Close on ESC
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && this.isVisible) {
                 this.close();
             }
@@ -211,7 +211,7 @@ class SmartPlaylistManager {
         }
 
         let html = '';
-        this.playlists.forEach((playlist) => {
+        this.playlists.forEach(playlist => {
             const isSelected = this.selectedPlaylist && this.selectedPlaylist.id === playlist.id;
             html += `
                 <div class="playlist-item ${isSelected ? 'selected' : ''}" 
@@ -235,7 +235,7 @@ class SmartPlaylistManager {
     }
 
     async selectPlaylist(playlistId) {
-        const playlist = this.playlists.find((p) => p.id === playlistId);
+        const playlist = this.playlists.find(p => p.id === playlistId);
         if (!playlist) {
             return;
         }
@@ -243,7 +243,7 @@ class SmartPlaylistManager {
         this.selectedPlaylist = playlist;
 
         // Update selection in sidebar
-        document.querySelectorAll('.playlist-item').forEach((item) => {
+        document.querySelectorAll('.playlist-item').forEach(item => {
             item.classList.remove('selected');
         });
         document.querySelector(`[data-playlist-id="${playlistId}"]`).classList.add('selected');
@@ -285,7 +285,7 @@ class SmartPlaylistManager {
             // Get playlist rules and preview tracks
             const response = await window.api.invoke('preview-smart-playlist', {
                 playlistId: playlistId,
-                limit: 20,
+                limit: 20
             });
 
             if (response.success && response.tracks) {

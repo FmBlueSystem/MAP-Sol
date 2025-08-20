@@ -6,5 +6,5 @@ console.log('Component playlist-integration.js temporarily disabled due to synta
 // Basic placeholder component
 window.playlistintegration = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>',
+    render: () => '<div>Component temporarily unavailable</div>'
 };

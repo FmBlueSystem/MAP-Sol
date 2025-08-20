@@ -2,14 +2,14 @@
 function createSmartPlaylistHandlers(db) {
     // Preview smart playlist
     const previewHandler = async (event, criteria) => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             const { rules, logic, limit } = criteria;
 
             // Build SQL query based on rules
             const conditions = [];
             const params = [];
 
-            rules.forEach((rule) => {
+            rules.forEach(rule => {
                 let condition = '';
                 const field = mapFieldToColumn(rule.field);
 
@@ -88,7 +88,7 @@ function createSmartPlaylistHandlers(db) {
                     resolve({ success: false, error: err.message });
                 } else {
                     // Add artwork URLs
-                    rows.forEach((row) => {
+                    rows.forEach(row => {
                         if (row.id) {
                             const artworkPath = `artwork-cache/${row.id}.jpg`;
                             const fs = require('fs');
@@ -111,7 +111,7 @@ function createSmartPlaylistHandlers(db) {
 
     // Create smart playlist
     const createHandler = async (event, playlistData) => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             const {
                 name,
                 description,
@@ -123,7 +123,7 @@ function createSmartPlaylistHandlers(db) {
                 removeDuplicates,
                 maxTracks,
                 sortBy,
-                energyFlow,
+                energyFlow
             } = playlistData;
 
             // First create the playlist
@@ -143,7 +143,7 @@ function createSmartPlaylistHandlers(db) {
 
                 // Save the rules
                 const rulePromises = rules.map((rule, index) => {
-                    return new Promise((resolveRule) => {
+                    return new Promise(resolveRule => {
                         const ruleSql = `
                             INSERT INTO smart_playlist_rules 
                             (playlist_id, field, operator, value, value2, logic_operator, rule_order)
@@ -153,7 +153,7 @@ function createSmartPlaylistHandlers(db) {
                         db.run(
                             ruleSql,
                             [playlistId, rule.field, rule.operator, rule.value, rule.value2 || null, logic, index],
-                            (err) => {
+                            err => {
                                 if (err) {
                                     console.error('Error saving rule:', err);
                                 }
@@ -174,7 +174,7 @@ function createSmartPlaylistHandlers(db) {
                     db.run(
                         settingsSql,
                         [playlistId, autoUpdate ? 1 : 0, removeDuplicates ? 1 : 0, maxTracks, sortBy, energyFlow],
-                        (err) => {
+                        err => {
                             if (err) {
                                 // Settings table might not exist, but playlist is created
                                 console.log('Settings table might not exist:', err);
@@ -183,7 +183,7 @@ function createSmartPlaylistHandlers(db) {
                             resolve({
                                 success: true,
                                 playlistId: playlistId,
-                                message: 'Smart playlist created successfully',
+                                message: 'Smart playlist created successfully'
                             });
                         }
                     );
@@ -194,7 +194,7 @@ function createSmartPlaylistHandlers(db) {
 
     // Get all smart playlists
     const getSmartPlaylistsHandler = async () => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             const sql = `
                 SELECT 
                     p.*,
@@ -219,7 +219,7 @@ function createSmartPlaylistHandlers(db) {
 
     // Update smart playlist tracks
     const updateSmartPlaylistHandler = async (event, playlistId) => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             // Get rules for this playlist
             const rulesSql = `
                 SELECT * FROM smart_playlist_rules 
@@ -238,7 +238,7 @@ function createSmartPlaylistHandlers(db) {
                 const params = [];
                 const logic = rules[0].logic_operator || 'AND';
 
-                rules.forEach((rule) => {
+                rules.forEach(rule => {
                     let condition = '';
                     const field = mapFieldToColumn(rule.field);
 
@@ -293,7 +293,7 @@ function createSmartPlaylistHandlers(db) {
                     db.run('DELETE FROM playlist_tracks WHERE playlist_id = ?', [playlistId], () => {
                         // Add new tracks
                         const insertPromises = tracks.map((track, index) => {
-                            return new Promise((resolveInsert) => {
+                            return new Promise(resolveInsert => {
                                 db.run(
                                     'INSERT INTO playlist_tracks (playlist_id, track_id, position) VALUES (?, ?, ?)',
                                     [playlistId, track.id, index],
@@ -306,7 +306,7 @@ function createSmartPlaylistHandlers(db) {
                             resolve({
                                 success: true,
                                 trackCount: tracks.length,
-                                message: `Updated with ${tracks.length} tracks`,
+                                message: `Updated with ${tracks.length} tracks`
                             });
                         });
                     });
@@ -319,7 +319,7 @@ function createSmartPlaylistHandlers(db) {
         previewHandler,
         createHandler,
         getSmartPlaylistsHandler,
-        updateSmartPlaylistHandler,
+        updateSmartPlaylistHandler
     };
 }
 
@@ -341,7 +341,7 @@ function mapFieldToColumn(field) {
         duration: 'af.duration',
         artist: 'af.artist',
         title: 'af.title',
-        album: 'af.album',
+        album: 'af.album'
     };
 
     return mapping[field] || `af.${field}`;
@@ -378,13 +378,13 @@ function createSmartPlaylistTables(db) {
         )
     `;
 
-    db.run(createRulesTable, (err) => {
+    db.run(createRulesTable, err => {
         if (err) {
             console.log('Rules table might already exist:', err.message);
         }
     });
 
-    db.run(createSettingsTable, (err) => {
+    db.run(createSettingsTable, err => {
         if (err) {
             console.log('Settings table might already exist:', err.message);
         }
@@ -393,5 +393,5 @@ function createSmartPlaylistTables(db) {
 
 module.exports = {
     createSmartPlaylistHandlers,
-    createSmartPlaylistTables,
+    createSmartPlaylistTables
 };

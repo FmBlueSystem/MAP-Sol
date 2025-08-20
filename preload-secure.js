@@ -61,7 +61,7 @@ const validChannels = {
         'stop-analysis',
         'select-music-folder',
         'select-music-files',
-        'get-all-library-files',
+        'get-all-library-files'
     ],
     send: ['save-audio-config', 'close-config-window', 'play-playlist', 'export-playlist', 'broadcast-player-state'],
     receive: [
@@ -87,8 +87,8 @@ const validChannels = {
         'refresh-library',
         'playlist-updated',
         'track-added-to-playlist',
-        'analysis-progress',
-    ],
+        'analysis-progress'
+    ]
 };
 
 // Expose protected API to renderer
@@ -98,7 +98,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
         if (validChannels.invoke.includes(channel)) {
             try {
                 // Sanitize arguments
-                const sanitizedArgs = args.map((arg) => {
+                const sanitizedArgs = args.map(arg => {
                     if (typeof arg === 'string') {
                         // Basic XSS prevention
                         return arg.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
@@ -152,7 +152,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     },
 
     // Remove all listeners for a channel
-    removeAllListeners: (channel) => {
+    removeAllListeners: channel => {
         if (validChannels.receive.includes(channel)) {
             ipcRenderer.removeAllListeners(channel);
         }
@@ -162,14 +162,14 @@ contextBridge.exposeInMainWorld('electronAPI', {
     getSystemInfo: () => ({
         platform: process.platform,
         arch: process.arch,
-        version: process.versions.electron,
+        version: process.versions.electron
     }),
 
     // Path utilities (safe subset)
     path: {
         join: (...args) => {
             // Validate paths don't contain traversal attempts
-            const safe = args.every((arg) => typeof arg === 'string' && !arg.includes('..') && !arg.includes('~'));
+            const safe = args.every(arg => typeof arg === 'string' && !arg.includes('..') && !arg.includes('~'));
 
             if (safe) {
                 return args.join('/').replace(/\/+/g, '/');
@@ -177,7 +177,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
             throw new Error('Invalid path');
         },
 
-        basename: (path) => {
+        basename: path => {
             if (typeof path === 'string' && !path.includes('..')) {
                 const parts = path.split(/[\\/]/);
                 return parts[parts.length - 1];
@@ -185,14 +185,14 @@ contextBridge.exposeInMainWorld('electronAPI', {
             throw new Error('Invalid path');
         },
 
-        extname: (path) => {
+        extname: path => {
             if (typeof path === 'string') {
                 const match = path.match(/\.[^.]+$/);
                 return match ? match[0] : '';
             }
             return '';
-        },
-    },
+        }
+    }
 });
 
 // Expose performance monitoring
@@ -211,11 +211,11 @@ contextBridge.exposeInMainWorld('performanceAPI', {
             return {
                 usedJSHeapSize: (performance.memory.usedJSHeapSize / 1024 / 1024).toFixed(2) + ' MB',
                 totalJSHeapSize: (performance.memory.totalJSHeapSize / 1024 / 1024).toFixed(2) + ' MB',
-                jsHeapSizeLimit: (performance.memory.jsHeapSizeLimit / 1024 / 1024).toFixed(2) + ' MB',
+                jsHeapSizeLimit: (performance.memory.jsHeapSizeLimit / 1024 / 1024).toFixed(2) + ' MB'
             };
         }
         return null;
-    },
+    }
 });
 
 // Log that preload script is active

@@ -17,7 +17,7 @@ let db;
 // Conectar a la base de datos
 function connectDatabase() {
     const dbPath = path.join(__dirname, 'music_analyzer.db');
-    db = new sqlite3.Database(dbPath, (err) => {
+    db = new sqlite3.Database(dbPath, err => {
         if (err) {
             logError('❌ Error conectando a BD:', err);
         } else {
@@ -35,7 +35,7 @@ function registerHandlers() {
                 totalFiles: 'SELECT COUNT(*) as count FROM audio_files',
                 withArtwork: 'SELECT COUNT(*) as count FROM audio_files WHERE artwork_path IS NOT NULL',
                 withAI: 'SELECT COUNT(*) as count FROM llm_metadata WHERE AI_BPM IS NOT NULL',
-                avgBPM: 'SELECT AVG(AI_BPM) as avg FROM llm_metadata WHERE AI_BPM IS NOT NULL',
+                avgBPM: 'SELECT AVG(AI_BPM) as avg FROM llm_metadata WHERE AI_BPM IS NOT NULL'
             };
 
             const stats = {};
@@ -100,7 +100,7 @@ function registerHandlers() {
                 format: null,
                 metadata: null,
                 database: null,
-                ai: null,
+                ai: null
             };
 
             // Obtener tamaño del archivo
@@ -122,7 +122,7 @@ function registerHandlers() {
                     bitrate: metadata.format.bitrate,
                     duration: metadata.format.duration,
                     channels: metadata.format.numberOfChannels,
-                    lossless: metadata.format.lossless,
+                    lossless: metadata.format.lossless
                 };
 
                 result.metadata = {
@@ -136,14 +136,14 @@ function registerHandlers() {
                     key: metadata.common.key,
                     isrc: metadata.common.isrc,
                     label: metadata.common.label,
-                    composer: metadata.common.composer,
+                    composer: metadata.common.composer
                 };
             } catch (err) {
                 logError('Error parsing metadata:', err);
             }
 
             // Obtener datos de la base de datos
-            const dbData = await new Promise((resolve) => {
+            const dbData = await new Promise(resolve => {
                 const query = `
                     SELECT 
                         af.*,
@@ -171,7 +171,7 @@ function registerHandlers() {
                     album: dbData.album,
                     genre: dbData.genre,
                     created_at: dbData.created_at,
-                    updated_at: dbData.updated_at,
+                    updated_at: dbData.updated_at
                 };
 
                 if (dbData.artwork_path) {
@@ -192,7 +192,7 @@ function registerHandlers() {
                         AI_INSTRUMENTALNESS: dbData.AI_INSTRUMENTALNESS,
                         AI_LIVENESS: dbData.AI_LIVENESS,
                         AI_SPEECHINESS: dbData.AI_SPEECHINESS,
-                        AI_LOUDNESS: dbData.AI_LOUDNESS,
+                        AI_LOUDNESS: dbData.AI_LOUDNESS
                     };
                 }
             }
@@ -211,11 +211,11 @@ function createViewerWindow() {
         height: 900,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false,
+            contextIsolation: false
         },
         icon: path.join(__dirname, 'icons', 'icon.png'),
         title: 'Metadata Viewer - Music Analyzer Pro',
-        backgroundColor: '#1e3c72',
+        backgroundColor: '#1e3c72'
     });
 
     // Cargar el archivo HTML corregido

@@ -22,39 +22,39 @@ const STATIC_CACHE_URLS = [
     '/optimize-main.js',
     '/manifest.json',
     '/icons/icon-192.png',
-    '/icons/icon-512.png',
+    '/icons/icon-512.png'
 ];
 
 // Install event - cache static assets
-self.addEventListener('install', (event) => {
+self.addEventListener('install', event => {
     logDebug('[SW] Installing Service Worker');
 
     event.waitUntil(
         caches
             .open(CACHE_NAME)
-            .then((cache) => {
+            .then(cache => {
                 logDebug('[SW] Caching static assets');
                 return cache.addAll(STATIC_CACHE_URLS);
             })
             .then(() => self.skipWaiting())
-            .catch((err) => {
+            .catch(err => {
                 logError('[SW] Failed to cache:', err);
             })
     );
 });
 
 // Activate event - clean old caches
-self.addEventListener('activate', (event) => {
+self.addEventListener('activate', event => {
     logDebug('[SW] Activating Service Worker');
 
     event.waitUntil(
         caches
             .keys()
-            .then((cacheNames) => {
+            .then(cacheNames => {
                 return Promise.all(
                     cacheNames
-                        .filter((name) => name !== CACHE_NAME && name !== DYNAMIC_CACHE)
-                        .map((name) => {
+                        .filter(name => name !== CACHE_NAME && name !== DYNAMIC_CACHE)
+                        .map(name => {
                             logDebug('[SW] Deleting old cache:', name);
                             return caches.delete(name);
                         })
@@ -65,7 +65,7 @@ self.addEventListener('activate', (event) => {
 });
 
 // Fetch event - implement caching strategies
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', event => {
     const { request } = event;
     const url = new URL(request.url);
 
@@ -82,18 +82,18 @@ self.addEventListener('fetch', (event) => {
     // Handle artwork images with Cache First strategy
     if (url.pathname.startsWith('/artwork-cache/')) {
         event.respondWith(
-            caches.match(request).then((response) => {
+            caches.match(request).then(response => {
                 if (response) {
                     return response;
                 }
 
-                return fetch(request).then((response) => {
+                return fetch(request).then(response => {
                     if (!response || response.status !== 200) {
                         return response;
                     }
 
                     const responseToCache = response.clone();
-                    caches.open(DYNAMIC_CACHE).then((cache) => {
+                    caches.open(DYNAMIC_CACHE).then(cache => {
                         cache.put(request, responseToCache);
                     });
 
@@ -108,9 +108,9 @@ self.addEventListener('fetch', (event) => {
     if (url.pathname.includes('/api/') || url.pathname.includes('.json')) {
         event.respondWith(
             fetch(request)
-                .then((response) => {
+                .then(response => {
                     const responseToCache = response.clone();
-                    caches.open(DYNAMIC_CACHE).then((cache) => {
+                    caches.open(DYNAMIC_CACHE).then(cache => {
                         cache.put(request, responseToCache);
                     });
                     return response;
@@ -126,14 +126,14 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches
             .match(request)
-            .then((response) => {
+            .then(response => {
                 if (response) {
                     // Return cached version
                     return response;
                 }
 
                 // Fetch from network
-                return fetch(request).then((response) => {
+                return fetch(request).then(response => {
                     // Check if valid response
                     if (!response || response.status !== 200 || response.type !== 'basic') {
                         return response;
@@ -142,14 +142,14 @@ self.addEventListener('fetch', (event) => {
                     // Clone response for caching
                     const responseToCache = response.clone();
 
-                    caches.open(DYNAMIC_CACHE).then((cache) => {
+                    caches.open(DYNAMIC_CACHE).then(cache => {
                         cache.put(request, responseToCache);
                     });
 
                     return response;
                 });
             })
-            .catch((error) => {
+            .catch(error => {
                 logError('[SW] Fetch failed:', error);
 
                 // Return offline page if available
@@ -161,7 +161,7 @@ self.addEventListener('fetch', (event) => {
 });
 
 // Handle background sync
-self.addEventListener('sync', (event) => {
+self.addEventListener('sync', event => {
     logDebug('[SW] Background sync:', event.tag);
 
     if (event.tag === 'sync-tracks') {
@@ -170,7 +170,7 @@ self.addEventListener('sync', (event) => {
 });
 
 // Handle push notifications
-self.addEventListener('push', (event) => {
+self.addEventListener('push', event => {
     const options = {
         body: event.data ? event.data.text() : 'New update available',
         icon: '/icons/icon-192.png',
@@ -178,15 +178,15 @@ self.addEventListener('push', (event) => {
         vibrate: [200, 100, 200],
         data: {
             dateOfArrival: Date.now(),
-            primaryKey: 1,
-        },
+            primaryKey: 1
+        }
     };
 
     event.waitUntil(self.registration.showNotification('Music Analyzer Pro', options));
 });
 
 // Handle notification clicks
-self.addEventListener('notificationclick', (event) => {
+self.addEventListener('notificationclick', event => {
     event.notification.close();
 
     event.waitUntil(clients.openWindow('/'));
@@ -205,7 +205,7 @@ async function syncTracks() {
 }
 
 // Message handler for skip waiting
-self.addEventListener('message', (event) => {
+self.addEventListener('message', event => {
     if (event.data.action === 'skipWaiting') {
         self.skipWaiting();
     }

@@ -11,7 +11,7 @@ console.log('='.repeat(60));
 function getAllJsFiles(dir, fileList = []) {
     const files = fs.readdirSync(dir);
 
-    files.forEach((file) => {
+    files.forEach(file => {
         const filePath = path.join(dir, file);
         const stat = fs.statSync(filePath);
 
@@ -69,7 +69,7 @@ function fixFile(filePath) {
     content = content.replace(/`([^`]*\/Volumes\/[^`]*)`/g, "'$1'");
 
     // Fix SQL template literals starting with semicolon
-    content = content.replace(/const\s+\w+\s*=\s*`;/gm, (match) => match.replace('`;', '`'));
+    content = content.replace(/const\s+\w+\s*=\s*`;/gm, match => match.replace('`;', '`'));
 
     // Fix specific template literal patterns
     content = content.replace(/`([^`]*)`\s*\+\s*`([^`]*)`/g, '`$1$2`');
@@ -136,7 +136,7 @@ console.log(`   Encontrados: ${jsFiles.length} archivos\n`);
 
 console.log('🔍 Identificando archivos con errores de sintaxis...');
 const filesWithErrors = [];
-jsFiles.forEach((file) => {
+jsFiles.forEach(file => {
     const error = hasSyntaxError(file);
     if (error) {
         filesWithErrors.push({ file, error });

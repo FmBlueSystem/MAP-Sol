@@ -6,5 +6,5 @@ console.log('Component simple-player.js temporarily disabled due to syntax error
 // Basic placeholder component
 window.simpleplayer = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>',
+    render: () => '<div>Component temporarily unavailable</div>'
 };

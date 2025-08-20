@@ -25,13 +25,13 @@ function showEnhancedView() {
     container.className = 'enhanced-view-container';
 
     // Create enhanced cards for each file
-    files.forEach((file) => {
+    files.forEach(file => {
         const cardHTML = window.metadataCard.createEnhancedCard(file);
         container.insertAdjacentHTML('beforeend', cardHTML);
     });
 
     // Update active button
-    document.querySelectorAll('.view-btn').forEach((btn) => {
+    document.querySelectorAll('.view-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     document.getElementById('enhancedViewBtn').classList.add('active');
@@ -66,9 +66,9 @@ window.showEnhancedView = showEnhancedView;
 document.addEventListener('DOMContentLoaded', () => {
     // Setup view button handlers
     const viewButtons = document.querySelectorAll('.view-btn');
-    viewButtons.forEach((btn) => {
+    viewButtons.forEach(btn => {
         if (btn.dataset.view === 'enhanced') {
-            btn.addEventListener('click', (e) => {
+            btn.addEventListener('click', e => {
                 e.preventDefault();
                 showEnhancedView();
             });

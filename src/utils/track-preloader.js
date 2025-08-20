@@ -54,13 +54,13 @@ class TrackPreloader {
                 if (track && !this.preloadedTracks.has(track.id)) {
                     tracksToPreload.push({
                         index: nextIndex,
-                        track: track,
+                        track: track
                     });
                 }
             }
 
             // Precargar en paralelo pero con límite
-            const preloadPromises = tracksToPreload.map((item) => this.preloadTrack(item.track, item.index));
+            const preloadPromises = tracksToPreload.map(item => this.preloadTrack(item.track, item.index));
 
             await Promise.allSettled(preloadPromises);
         } catch (error) {
@@ -85,10 +85,10 @@ class TrackPreloader {
                     album: track.album,
                     duration: track.duration,
                     artwork_url: track.artwork_url,
-                    file_path: track.file_path,
+                    file_path: track.file_path
                 },
                 audioBuffer: null,
-                preloadedAt: Date.now(),
+                preloadedAt: Date.now()
             };
 
             // Si tenemos acceso a Howler, precargar el audio
@@ -103,7 +103,7 @@ class TrackPreloader {
                     },
                     onloaderror: (id, error) => {
                         console.error(`❌ Error precargando ${track.title}:`, error);
-                    },
+                    }
                 });
             } else {
                 // Fallback: precargar usando Audio API nativo
@@ -207,12 +207,12 @@ class TrackPreloader {
             currentIndex: this.currentIndex,
             playlistLength: this.currentPlaylist.length,
             isPreloading: this.isPreloading,
-            cacheDetails: Array.from(this.preloadedTracks.values()).map((item) => ({
+            cacheDetails: Array.from(this.preloadedTracks.values()).map(item => ({
                 id: item.id,
                 title: item.metadata.title,
                 index: item.index,
-                age: Math.floor((Date.now() - item.preloadedAt) / 1000) + 's',
-            })),
+                age: Math.floor((Date.now() - item.preloadedAt) / 1000) + 's'
+            }))
         };
     }
 

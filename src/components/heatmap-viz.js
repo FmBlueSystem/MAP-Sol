@@ -29,14 +29,14 @@ class BPMEnergyHeatmap {
     }
 
     createScale(domainMin, domainMax, rangeMin, rangeMax) {
-        return (value) => {
+        return value => {
             const ratio = (value - domainMin) / (domainMax - domainMin);
             return rangeMin + ratio * (rangeMax - rangeMin);
         };
     }
 
     setData(tracks) {
-        this.data = tracks.filter((t) => t.AI_BPM && t.AI_ENERGY);
+        this.data = tracks.filter(t => t.AI_BPM && t.AI_ENERGY);
         this.calculateHeatmap();
         this.render();
     }
@@ -48,7 +48,7 @@ class BPMEnergyHeatmap {
             .map(() => Array(this.gridSize).fill(0));
 
         // Contar puntos en cada celda
-        this.data.forEach((track) => {
+        this.data.forEach(track => {
             const bpm = parseInt(track.AI_BPM) || 0;
             const energy = parseFloat(track.AI_ENERGY) || 0;
 
@@ -65,7 +65,7 @@ class BPMEnergyHeatmap {
         // Normalizar valores
         const maxCount = Math.max(...this.heatGrid.flat());
         if (maxCount > 0) {
-            this.heatGrid = this.heatGrid.map((row) => row.map((count) => count / maxCount));
+            this.heatGrid = this.heatGrid.map(row => row.map(count => count / maxCount));
         }
     }
 
@@ -107,7 +107,7 @@ class BPMEnergyHeatmap {
     }
 
     drawPoints() {
-        this.data.forEach((track) => {
+        this.data.forEach(track => {
             const x = this.scaleX(parseInt(track.AI_BPM) || 120);
             const y = this.scaleY(parseFloat(track.AI_ENERGY) || 0.5);
 
@@ -201,7 +201,7 @@ class BPMEnergyHeatmap {
     }
 
     setupInteraction() {
-        this.canvas.addEventListener('click', (e) => {
+        this.canvas.addEventListener('click', e => {
             const rect = this.canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -223,7 +223,7 @@ class BPMEnergyHeatmap {
                         bpmMin: Math.max(60, bpm - 10),
                         bpmMax: Math.min(200, bpm + 10),
                         energyMin: Math.max(0, energy - 0.1),
-                        energyMax: Math.min(1, energy + 0.1),
+                        energyMax: Math.min(1, energy + 0.1)
                     });
                 }
 

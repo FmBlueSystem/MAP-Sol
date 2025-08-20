@@ -18,7 +18,7 @@ class MetadataExtractor {
 
     async init() {
         return new Promise((resolve, reject) => {
-            this.db = new sqlite3.Database(this.dbPath, (err) => {
+            this.db = new sqlite3.Database(this.dbPath, err => {
                 if (err) {
                     reject(err);
                 } else {
@@ -86,7 +86,7 @@ class MetadataExtractor {
         `;
 
         return new Promise((resolve, reject) => {
-            this.db.exec(sql, (err) => {
+            this.db.exec(sql, err => {
                 if (err) {
                     reject(err);
                 } else {
@@ -122,7 +122,7 @@ class MetadataExtractor {
             } catch (error) {
                 this.failed.push({
                     path: filePath,
-                    error: error.message,
+                    error: error.message
                 });
             }
         }
@@ -140,7 +140,7 @@ class MetadataExtractor {
         try {
             const metadata = await mm.parseFile(filePath, {
                 skipCovers: true, // Skip covers for speed (we extract them separately)
-                duration: true,
+                duration: true
             });
 
             const stats = await fs.stat(filePath);
@@ -188,7 +188,7 @@ class MetadataExtractor {
                 mood: metadata.common.mood,
                 energy: this.extractEnergyLevel(metadata),
                 existing_bmp:
-                    metadata.common.bpm || metadata.native?.['ID3v2.4']?.find((tag) => tag.id === 'TBPM')?.value,
+                    metadata.common.bpm || metadata.native?.['ID3v2.4']?.find(tag => tag.id === 'TBPM')?.value
             };
         } catch (error) {
             throw new Error(`Failed to extract metadata: ${error.message}`);
@@ -198,7 +198,7 @@ class MetadataExtractor {
     extractEnergyLevel(metadata) {
         // Prioridad 1: Buscar en tags nativos ENERGYLEVEL
         const energyLevelTag = metadata.native?.['ID3v2.4']?.find(
-            (tag) => tag.id === 'TXXX' && tag.value?.description === 'ENERGYLEVEL'
+            tag => tag.id === 'TXXX' && tag.value?.description === 'ENERGYLEVEL'
         );
         if (energyLevelTag?.value?.text) {
             const energy = parseInt(energyLevelTag.value.text);
@@ -233,7 +233,7 @@ class MetadataExtractor {
 
         // Prioridad 4: Buscar AI_Energy en tags
         const aiEnergyTag = metadata.native?.['ID3v2.4']?.find(
-            (tag) => tag.id === 'TXXX' && tag.value?.description === 'AI_Energy'
+            tag => tag.id === 'TXXX' && tag.value?.description === 'AI_Energy'
         );
         if (aiEnergyTag?.value?.text) {
             const energy = parseFloat(aiEnergyTag.value.text);
@@ -262,7 +262,7 @@ class MetadataExtractor {
 
         // Use transaction for better performance
         await new Promise((resolve, reject) => {
-            this.db.run('BEGIN TRANSACTION', (err) => {
+            this.db.run('BEGIN TRANSACTION', err => {
                 if (err) {
                     reject(err);
                 } else {
@@ -286,7 +286,7 @@ class MetadataExtractor {
         `;
 
         const values = [];
-        this.cache.forEach((track) => {
+        this.cache.forEach(track => {
             values.push(
                 track.file_path,
                 track.file_name,
@@ -332,14 +332,14 @@ class MetadataExtractor {
         });
 
         return new Promise((resolve, reject) => {
-            this.db.run(sql, values, async (err) => {
+            this.db.run(sql, values, async err => {
                 if (err) {
                     console.error('❌ DB Error:', err);
                     // Rollback transaction
                     this.db.run('ROLLBACK', () => reject(err));
                 } else {
                     // Commit transaction
-                    this.db.run('COMMIT', (commitErr) => {
+                    this.db.run('COMMIT', commitErr => {
                         if (commitErr) {
                             console.error('❌ Commit Error:', commitErr);
                             reject(commitErr);
@@ -360,7 +360,7 @@ class MetadataExtractor {
             await this.saveToDatabase();
         }
 
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             this.db.close(() => {
                 console.log('✅ Database connection closed');
                 resolve();
@@ -377,7 +377,7 @@ class MetadataExtractor {
 
         if (this.failed.length > 0 && this.failed.length <= 10) {
             console.log('\n❌ Failed files:');
-            this.failed.forEach((f) => {
+            this.failed.forEach(f => {
                 console.log(`   ${f.path}: ${f.error}`);
             });
         } else if (this.failed.length > 10) {
@@ -395,7 +395,7 @@ if (require.main === module) {
         try {
             // Read file list from scanner output
             const fileList = await fs.readFile('music-files.txt', 'utf8');
-            const files = fileList.split('\n').filter((f) => f.trim());
+            const files = fileList.split('\n').filter(f => f.trim());
 
             console.log(`📚 Found ${files.length} files to process`);
 

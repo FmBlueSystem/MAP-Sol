@@ -1,0 +1,10 @@
+            this.splitter.disconnect();
+        }
+
+        this.isConnected = false;
+    }
+}
+
+// Create global instance
+window.professionalMeterSuite = new ProfessionalMeterSuite();
+

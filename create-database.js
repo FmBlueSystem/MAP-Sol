@@ -5,7 +5,7 @@ const dbPath = path.join(__dirname, 'music_analyzer.db');
 
 console.log('📦 Creating database schema...');
 
-const db = new sqlite3.Database(dbPath, (err) => {
+const db = new sqlite3.Database(dbPath, err => {
     if (err) {
         console.error('❌ Error opening database:', err);
         process.exit(1);
@@ -38,7 +38,7 @@ db.serialize(() => {
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     `,
-        (err) => {
+        err => {
             if (err) {
                 console.error('❌ Error creating audio_files table:', err);
             } else {
@@ -72,7 +72,7 @@ db.serialize(() => {
             FOREIGN KEY (file_id) REFERENCES audio_files(id) ON DELETE CASCADE
         )
     `,
-        (err) => {
+        err => {
             if (err) {
                 console.error('❌ Error creating llm_metadata table:', err);
             } else {
@@ -92,11 +92,11 @@ db.serialize(() => {
         'CREATE INDEX IF NOT EXISTS idx_ai_mood ON llm_metadata(AI_MOOD)',
         'CREATE INDEX IF NOT EXISTS idx_ai_bpm ON llm_metadata(AI_BPM)',
         'CREATE INDEX IF NOT EXISTS idx_ai_energy ON llm_metadata(AI_ENERGY)',
-        'CREATE INDEX IF NOT EXISTS idx_file_id ON llm_metadata(file_id)',
+        'CREATE INDEX IF NOT EXISTS idx_file_id ON llm_metadata(file_id)'
     ];
 
-    indexes.forEach((indexSql) => {
-        db.run(indexSql, (err) => {
+    indexes.forEach(indexSql => {
+        db.run(indexSql, err => {
             if (err) {
                 console.error('❌ Error creating index:', err);
             }

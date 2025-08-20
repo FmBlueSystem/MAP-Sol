@@ -6,5 +6,5 @@ console.log('Component virtual-scroller-integration.js temporarily disabled due 
 // Basic placeholder component
 window.virtualscrollerintegration = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>',
+    render: () => '<div>Component temporarily unavailable</div>'
 };

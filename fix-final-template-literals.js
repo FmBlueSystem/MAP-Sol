@@ -85,7 +85,7 @@ const files = ['services/database-service.js', 'main-secure.js', 'main.js', 'han
 console.log('🔧 Final template literal fixes...\n');
 
 let totalFixes = 0;
-files.forEach((file) => {
+files.forEach(file => {
     const filePath = path.join(__dirname, file);
     if (fs.existsSync(filePath)) {
         console.log(`Checking ${file}...`);

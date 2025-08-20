@@ -12,7 +12,7 @@ const criticalFiles = [
     'src/index.js',
     'js/audio-player.js',
     'handlers/export-handler.js',
-    'handlers/complete-metadata-handler.js',
+    'handlers/complete-metadata-handler.js'
 ];
 
 // Get count of broken files
@@ -22,7 +22,7 @@ function countBrokenFiles() {
 
     function scan(dir) {
         const files = fs.readdirSync(dir);
-        files.forEach((file) => {
+        files.forEach(file => {
             const filePath = path.join(dir, file);
             const stat = fs.statSync(filePath);
 
@@ -36,7 +36,7 @@ function countBrokenFiles() {
 
     scan('.');
 
-    jsFiles.forEach((file) => {
+    jsFiles.forEach(file => {
         try {
             execSync(`node -c "${file}" 2>/dev/null`);
         } catch {
@@ -78,7 +78,7 @@ if (fileStatus.broken > 50) {
     function processDirectory(dir, relativePath = '') {
         const files = fs.readdirSync(dir);
 
-        files.forEach((file) => {
+        files.forEach(file => {
             const filePath = path.join(dir, file);
             const relativeFilePath = path.join(relativePath, file);
             const stat = fs.statSync(filePath);

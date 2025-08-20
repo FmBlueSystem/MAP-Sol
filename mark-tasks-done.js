@@ -12,14 +12,14 @@ const taskIds = [
     'e2bcf580-7431-4e05-8d40-6c81fe2f30f3',
     'eae630fa-f98b-4428-89e6-737c29d22a25',
     'd7e7ed83-cdc2-40ac-9f98-6255bc1be62a',
-    '518bdd36-13da-4f0d-8fe7-d97032317154',
+    '518bdd36-13da-4f0d-8fe7-d97032317154'
 ];
 
 logDebug(`Marking ${taskIds.length} tasks as DONE...`);
 
 // Note: This would need to be executed through the Archon API
 // For now, we'll mark them manually through Claude
-taskIds.forEach((id) => {
+taskIds.forEach(id => {
     logDebug(`Task ID to mark as done: ${id}`);
 });
 

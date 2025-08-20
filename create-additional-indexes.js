@@ -10,7 +10,7 @@ const db = new sqlite3.Database('music_analyzer.db');
 function createIndex(indexName, tableName, columns, callback) {
     const sql = `CREATE INDEX IF NOT EXISTS ${indexName} ON ${tableName}(${columns})`;
 
-    db.run(sql, (err) => {
+    db.run(sql, err => {
         if (err) {
             logError('❌ Error creando ${indexName}: ${err.message}');
         } else {
@@ -26,106 +26,106 @@ const indexes = [
     {
         name: 'idx_search_composite',
         table: 'audio_files',
-        columns: 'artist, title, album',
+        columns: 'artist, title, album'
     },
 
     // Índice para ordenamiento por artista y título
     {
         name: 'idx_artist_title',
         table: 'audio_files',
-        columns: 'artist COLLATE NOCASE, title COLLATE NOCASE',
+        columns: 'artist COLLATE NOCASE, title COLLATE NOCASE'
     },
 
     // Índice para búsqueda por extensión de archivo
     {
         name: 'idx_file_extension',
         table: 'audio_files',
-        columns: 'file_extension',
+        columns: 'file_extension'
     },
 
     // Índice compuesto para filtros combinados
     {
         name: 'idx_genre_mood_composite',
         table: 'llm_metadata',
-        columns: 'LLM_GENRE, AI_MOOD',
+        columns: 'LLM_GENRE, AI_MOOD'
     },
 
     // Índice para búsqueda por BPM range
     {
         name: 'idx_bpm_range',
         table: 'audio_files',
-        columns: 'existing_bmp',
+        columns: 'existing_bmp'
     },
 
     // Índice para tracks con artwork
     {
         name: 'idx_artwork_path',
         table: 'audio_files',
-        columns: 'artwork_path',
+        columns: 'artwork_path'
     },
 
     // Índice para búsqueda por década
     {
         name: 'idx_year_decade',
         table: 'audio_files',
-        columns: 'year',
+        columns: 'year'
     },
 
     // Índice para búsqueda por duración
     {
         name: 'idx_duration',
         table: 'audio_files',
-        columns: 'duration',
+        columns: 'duration'
     },
 
     // Índice compuesto para playlist generation
     {
         name: 'idx_playlist_generation',
         table: 'llm_metadata',
-        columns: 'AI_ENERGY, AI_BPM, AI_MOOD',
+        columns: 'AI_ENERGY, AI_BPM, AI_MOOD'
     },
 
     // Índice para búsqueda de tracks analizados
     {
         name: 'idx_analyzed_status',
         table: 'llm_metadata',
-        columns: 'file_id, AI_ANALYZED',
+        columns: 'file_id, AI_ANALYZED'
     },
 
     // Índice para búsqueda por key musical
     {
         name: 'idx_musical_key',
         table: 'audio_files',
-        columns: 'mixed_in_key',
+        columns: 'mixed_in_key'
     },
 
     // Índice para búsqueda por fecha de adición
     {
         name: 'idx_date_added',
         table: 'audio_files',
-        columns: 'date_added DESC',
+        columns: 'date_added DESC'
     },
 
     // Índice para búsqueda por última reproducción
     {
         name: 'idx_last_played',
         table: 'audio_files',
-        columns: 'last_played DESC',
+        columns: 'last_played DESC'
     },
 
     // Índice para búsqueda por play count
     {
         name: 'idx_play_count',
         table: 'audio_files',
-        columns: 'play_count DESC',
+        columns: 'play_count DESC'
     },
 
     // Índice para búsqueda por rating
     {
         name: 'idx_rating',
         table: 'audio_files',
-        columns: 'rating DESC',
-    },
+        columns: 'rating DESC'
+    }
 ];
 
 // Crear todos los índices
@@ -136,7 +136,7 @@ function createNextIndex() {
         // Optimizar la base de datos después de crear índices
         logDebug('\n🔄 Optimizando base de datos...');
 
-        db.run('VACUUM', (err) => {
+        db.run('VACUUM', err => {
             if (err) {
                 logError('❌ Error optimizando:', err.message);
             } else {
@@ -144,7 +144,7 @@ function createNextIndex() {
             }
 
             // Analizar estadísticas
-            db.run('ANALYZE', (err) => {
+            db.run('ANALYZE', err => {
                 if (err) {
                     logError('❌ Error analizando:', err.message);
                 } else {
@@ -169,7 +169,7 @@ function createNextIndex() {
                         "SELECT name FROM sqlite_master WHERE type='index' AND name NOT LIKE 'sqlite_%' ORDER BY name",
                         (err, rows) => {
                             if (!err) {
-                                rows.forEach((row) => {
+                                rows.forEach(row => {
                                     logDebug(`   - ${row.name}`);
                                 });
                                 logDebug(`\n✅ Total de índices: ${rows.length}`);

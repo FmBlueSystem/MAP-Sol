@@ -14,7 +14,7 @@ class MemoryManager {
 
     // Gestión de Animation Frames
     requestAnimationFrame(callback) {
-        const id = window.requestAnimationFrame((time) => {
+        const id = window.requestAnimationFrame(time => {
             this.animationFrames.delete(id);
             callback(time);
         });
@@ -118,7 +118,7 @@ class MemoryManager {
         const elementListeners = this.eventListeners.get(element);
         if (elementListeners) {
             elementListeners.forEach((handlers, event) => {
-                handlers.forEach((handler) => {
+                handlers.forEach(handler => {
                     element.removeEventListener(event, handler);
                 });
             });
@@ -129,19 +129,19 @@ class MemoryManager {
     // Cleanup general
     cleanup() {
         // Cancelar animation frames
-        this.animationFrames.forEach((id) => window.cancelAnimationFrame(id));
+        this.animationFrames.forEach(id => window.cancelAnimationFrame(id));
         this.animationFrames.clear();
 
         // Limpiar intervals
-        this.intervals.forEach((id) => window.clearInterval(id));
+        this.intervals.forEach(id => window.clearInterval(id));
         this.intervals.clear();
 
         // Limpiar timeouts
-        this.timeouts.forEach((id) => window.clearTimeout(id));
+        this.timeouts.forEach(id => window.clearTimeout(id));
         this.timeouts.clear();
 
         // Cerrar audio contexts
-        this.audioContexts.forEach((context) => {
+        this.audioContexts.forEach(context => {
             if (context.state !== 'closed') {
                 context.close();
             }
@@ -149,13 +149,13 @@ class MemoryManager {
         this.audioContexts.clear();
 
         // Desconectar observers
-        this.observers.forEach((observer) => observer.disconnect());
+        this.observers.forEach(observer => observer.disconnect());
         this.observers.clear();
 
         // Limpiar event listeners
         this.eventListeners.forEach((events, element) => {
             events.forEach((handlers, event) => {
-                handlers.forEach((handler) => {
+                handlers.forEach(handler => {
                     element.removeEventListener(event, handler);
                 });
             });
@@ -183,12 +183,12 @@ class MemoryManager {
             }
         });
 
-        elementsToRemove.forEach((element) => {
+        elementsToRemove.forEach(element => {
             this.removeAllEventListeners(element);
         });
 
         // Cerrar AudioContexts suspendidos
-        this.audioContexts.forEach((context) => {
+        this.audioContexts.forEach(context => {
             if (context.state === 'suspended') {
                 this.closeAudioContext(context);
             }
@@ -213,7 +213,7 @@ class MemoryManager {
                 (total, events) =>
                     total + Array.from(events.values()).reduce((sum, handlers) => sum + handlers.size, 0),
                 0
-            ),
+            )
         };
     }
 }

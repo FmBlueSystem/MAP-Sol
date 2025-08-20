@@ -13,7 +13,7 @@ class SharedPlayerState {
             duration: 0,
             shuffle: false,
             repeat: 'none', // 'none', 'one', 'all'
-            source: null, // 'library', 'playlist', 'search', etc.
+            source: null // 'library', 'playlist', 'search', etc.
         };
 
         this.listeners = new Set();
@@ -55,7 +55,7 @@ class SharedPlayerState {
 
     setupStorageSync() {
         // Use localStorage for cross-tab communication
-        window.addEventListener('storage', (e) => {
+        window.addEventListener('storage', e => {
             if (e.key === 'playerState' && e.newValue) {
                 try {
                     const newState = JSON.parse(e.newValue);
@@ -316,7 +316,7 @@ class SharedPlayerState {
     }
 
     notifyListeners() {
-        this.listeners.forEach((callback) => {
+        this.listeners.forEach(callback => {
             try {
                 callback(this.state);
             } catch (error) {
@@ -343,7 +343,7 @@ class SharedPlayerState {
     }
 
     isTrackInQueue(trackId) {
-        return this.state.queue.some((track) => track.id === trackId);
+        return this.state.queue.some(track => track.id === trackId);
     }
 
     getCurrentTrackIndex() {

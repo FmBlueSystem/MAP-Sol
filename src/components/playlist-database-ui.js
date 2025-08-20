@@ -6,5 +6,5 @@ console.log('Component playlist-database-ui.js temporarily disabled due to synta
 // Basic placeholder component
 window.playlistdatabaseui = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>',
+    render: () => '<div>Component temporarily unavailable</div>'
 };

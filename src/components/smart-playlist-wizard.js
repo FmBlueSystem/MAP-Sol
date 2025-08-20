@@ -9,7 +9,7 @@ class SmartPlaylistWizard {
             rules: [],
             icon: '🎵',
             color: '#667eea',
-            autoUpdate: true,
+            autoUpdate: true
         };
         this.previewTracks = [];
         this.init();
@@ -254,31 +254,31 @@ class SmartPlaylistWizard {
 
     attachEventListeners() {
         // Name input
-        document.getElementById('playlist-name').addEventListener('input', (e) => {
+        document.getElementById('playlist-name').addEventListener('input', e => {
             this.playlistData.name = e.target.value;
         });
 
         // Description
-        document.getElementById('playlist-desc').addEventListener('input', (e) => {
+        document.getElementById('playlist-desc').addEventListener('input', e => {
             this.playlistData.description = e.target.value;
         });
 
         // Icon selector
-        document.querySelectorAll('.icon-btn').forEach((btn) => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.icon-btn').forEach((b) => b.classList.remove('selected'));
+        document.querySelectorAll('.icon-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                document.querySelectorAll('.icon-btn').forEach(b => b.classList.remove('selected'));
                 btn.classList.add('selected');
                 this.playlistData.icon = btn.dataset.icon;
             });
         });
 
         // Color picker
-        document.getElementById('playlist-color').addEventListener('change', (e) => {
+        document.getElementById('playlist-color').addEventListener('change', e => {
             this.playlistData.color = e.target.value;
         });
 
         // Close on ESC
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && this.wizard.style.display !== 'none') {
                 this.close();
             }
@@ -372,28 +372,28 @@ class SmartPlaylistWizard {
             highEnergy: [
                 { field: 'energy', operator: 'greater', value: '0.7' },
                 { field: 'bpm', operator: 'between', value: '120', value2: '140' },
-                { field: 'danceability', operator: 'greater', value: '0.6' },
+                { field: 'danceability', operator: 'greater', value: '0.6' }
             ],
             chill: [
                 { field: 'energy', operator: 'less', value: '0.5' },
                 { field: 'valence', operator: 'between', value: '0.3', value2: '0.7' },
-                { field: 'acousticness', operator: 'greater', value: '0.3' },
+                { field: 'acousticness', operator: 'greater', value: '0.3' }
             ],
             party: [
                 { field: 'danceability', operator: 'greater', value: '0.7' },
                 { field: 'energy', operator: 'greater', value: '0.6' },
-                { field: 'valence', operator: 'greater', value: '0.5' },
+                { field: 'valence', operator: 'greater', value: '0.5' }
             ],
             workout: [
                 { field: 'bpm', operator: 'between', value: '125', value2: '135' },
                 { field: 'energy', operator: 'greater', value: '0.8' },
-                { field: 'danceability', operator: 'greater', value: '0.7' },
-            ],
+                { field: 'danceability', operator: 'greater', value: '0.7' }
+            ]
         };
 
         const rules = templates[template];
         if (rules) {
-            rules.forEach((rule) => {
+            rules.forEach(rule => {
                 this.addRule();
                 const lastRule = document.querySelector('.rule-item:last-child');
                 lastRule.querySelector('.rule-field').value = rule.field;
@@ -411,7 +411,7 @@ class SmartPlaylistWizard {
 
     collectRules() {
         const rules = [];
-        document.querySelectorAll('.rule-item').forEach((ruleEl) => {
+        document.querySelectorAll('.rule-item').forEach(ruleEl => {
             const field = ruleEl.querySelector('.rule-field').value;
             const operator = ruleEl.querySelector('.rule-operator').value;
             const value = ruleEl.querySelector('.rule-value').value;
@@ -436,7 +436,7 @@ class SmartPlaylistWizard {
             const response = await window.api.invoke('preview-smart-playlist', {
                 rules: rules,
                 logic: logic,
-                limit: 20,
+                limit: 20
             });
 
             if (response.success) {
@@ -545,7 +545,7 @@ class SmartPlaylistWizard {
         progressFill.style.width = `${(this.currentStep / this.totalSteps) * 100}%`;
 
         // Update step indicators
-        document.querySelectorAll('.step').forEach((step) => {
+        document.querySelectorAll('.step').forEach(step => {
             const stepNum = parseInt(step.dataset.step);
             if (stepNum <= this.currentStep) {
                 step.classList.add('active');
@@ -619,7 +619,7 @@ class SmartPlaylistWizard {
             rules: [],
             icon: '🎵',
             color: '#667eea',
-            autoUpdate: true,
+            autoUpdate: true
         };
 
         // Reset form
@@ -629,7 +629,7 @@ class SmartPlaylistWizard {
         this.addRule();
 
         // Reset steps
-        document.querySelectorAll('.wizard-step').forEach((step) => {
+        document.querySelectorAll('.wizard-step').forEach(step => {
             step.style.display = 'none';
         });
         document.getElementById('step1').style.display = 'block';

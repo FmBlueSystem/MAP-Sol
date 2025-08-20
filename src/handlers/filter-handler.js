@@ -2,7 +2,7 @@
 
 function createFilterHandler(db) {
     return async () => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             const result = { genres: [], moods: [] };
 
             // Obtener géneros únicos
@@ -16,7 +16,7 @@ function createFilterHandler(db) {
                 [],
                 (err, genreRows) => {
                     if (!err) {
-                        result.genres = genreRows.map((r) => r.genre).filter((g) => g);
+                        result.genres = genreRows.map(r => r.genre).filter(g => g);
                     }
 
                     // Obtener moods únicos
@@ -30,7 +30,7 @@ function createFilterHandler(db) {
                         [],
                         (err, moodRows) => {
                             if (!err) {
-                                result.moods = moodRows.map((r) => r.mood).filter((m) => m);
+                                result.moods = moodRows.map(r => r.mood).filter(m => m);
                             }
 
                             resolve(result);
