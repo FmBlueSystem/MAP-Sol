@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Planet Earth (Night Version).flac",
-  "file_name": "Duran Duran - Planet Earth (Night Version).flac",
-  "timestamp": "2025-08-17T00:04:22.292574",
-  "essentia_features": {
-    "loudness_lufs": -4.705600738525391,
-    "danceability": 1.6423590183258057,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4629303812980652,
-    "liveness": 0.1,
-    "speechiness": 0.1852519559401577,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Planet Earth (Night Version).flac",
+    "file_name": "Duran Duran - Planet Earth (Night Version).flac",
+    "timestamp": "2025-08-17T00:04:22.292574",
+    "essentia_features": {
+        "loudness_lufs": -4.705600738525391,
+        "danceability": 1.6423590183258057,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4629303812980652,
+        "liveness": 0.1,
+        "speechiness": 0.1852519559401577,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

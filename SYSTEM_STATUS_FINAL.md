@@ -8,6 +8,7 @@
 ## 🎯 CONFIRMACIÓN DE FUNCIONAMIENTO
 
 ### ✅ BASE DE DATOS
+
 ```
 Estado:        OPERATIVA
 Archivos:      3,767 registros
@@ -18,6 +19,7 @@ Backup:        Creado y seguro
 ```
 
 ### ✅ ARCHIVOS DE AUDIO
+
 ```
 Estado:        ACCESIBLES
 Total:         3,767 archivos
@@ -28,6 +30,7 @@ Carátulas:     3,752 extraídas
 ```
 
 ### ✅ NORMALIZACIÓN DE DATOS
+
 ```
 ERA:           99.7% normalizada (6 décadas estándar)
 LANGUAGE:      100% identificado (8 idiomas)
@@ -38,6 +41,7 @@ STORYTELLING:  8 categorías definidas
 ```
 
 ### ✅ SISTEMA LLM (OpenAI GPT-4)
+
 ```
 Estado:        FUNCIONAL
 API Key:       Configurada en .env
@@ -53,20 +57,21 @@ Rate Limit:    Configurado (3s entre llamadas)
 
 ### Antes → Después
 
-| Métrica | Antes | Después | Mejora |
-|---------|-------|---------|--------|
-| **Columnas** | 92 | 54 | -41% |
-| **Duplicados** | 38 | 0 | -100% |
-| **Era normalizada** | 5% | 99.7% | +1,894% |
-| **Language identificado** | 0% | 100% | +∞ |
-| **Datos consolidados** | 0 | 943 | +943 |
-| **Valores consistentes** | 15% | 100% | +567% |
+| Métrica                   | Antes | Después | Mejora  |
+| ------------------------- | ----- | ------- | ------- |
+| **Columnas**              | 92    | 54      | -41%    |
+| **Duplicados**            | 38    | 0       | -100%   |
+| **Era normalizada**       | 5%    | 99.7%   | +1,894% |
+| **Language identificado** | 0%    | 100%    | +∞      |
+| **Datos consolidados**    | 0     | 943     | +943    |
+| **Valores consistentes**  | 15%   | 100%    | +567%   |
 
 ---
 
 ## 🛠️ HERRAMIENTAS DISPONIBLES
 
 ### Scripts de Mantenimiento
+
 1. **cleanup-duplicate-columns.js** - Limpieza de columnas
 2. **normalize-all-fields.js** - Normalización de campos
 3. **normalized-llm-handler.js** - Análisis con GPT-4
@@ -74,6 +79,7 @@ Rate Limit:    Configurado (3s entre llamadas)
 5. **batch-enrich-by-region.js** - Enriquecimiento por región
 
 ### Handlers Funcionales
+
 - ✅ artwork-handler.js
 - ✅ search-handler.js
 - ✅ complete-llm-handler.js
@@ -87,46 +93,52 @@ Rate Limit:    Configurado (3s entre llamadas)
 ### Puedes hacer ahora:
 
 1. **Búsquedas y Filtros**
-   ```sql
-   -- Ejemplo: Todos los tracks de los 80s con mood Happy
-   SELECT * FROM llm_metadata 
-   WHERE LLM_ERA = '1980s' AND AI_MOOD = 'Happy'
-   ```
+
+    ```sql
+    -- Ejemplo: Todos los tracks de los 80s con mood Happy
+    SELECT * FROM llm_metadata
+    WHERE LLM_ERA = '1980s' AND AI_MOOD = 'Happy'
+    ```
 
 2. **Análisis Estadísticos**
-   ```sql
-   -- Distribución por década
-   SELECT LLM_ERA, COUNT(*) FROM llm_metadata 
-   GROUP BY LLM_ERA ORDER BY COUNT(*) DESC
-   ```
+
+    ```sql
+    -- Distribución por década
+    SELECT LLM_ERA, COUNT(*) FROM llm_metadata
+    GROUP BY LLM_ERA ORDER BY COUNT(*) DESC
+    ```
 
 3. **Recomendaciones**
-   ```sql
-   -- Tracks similares por mood y energy
-   SELECT * FROM llm_metadata 
-   WHERE AI_MOOD = 'Energetic' AND LLM_ENERGY_LEVEL = 'High'
-   ```
+
+    ```sql
+    -- Tracks similares por mood y energy
+    SELECT * FROM llm_metadata
+    WHERE AI_MOOD = 'Energetic' AND LLM_ENERGY_LEVEL = 'High'
+    ```
 
 4. **Enriquecimiento con AI**
-   ```bash
-   node normalized-llm-handler.js 10  # Analiza 10 tracks
-   ```
+
+    ```bash
+    node normalized-llm-handler.js 10  # Analiza 10 tracks
+    ```
 
 5. **Playlists Automáticas**
-   - Por era + mood
-   - Por energía + ocasión
-   - Por género + idioma
+    - Por era + mood
+    - Por energía + ocasión
+    - Por género + idioma
 
 ---
 
 ## 📈 PROYECCIÓN DE COMPLETITUD
 
 ### Estado Actual
+
 - **3,681** tracks con metadata básica
 - **~200** tracks con análisis completo
 - **3,481** tracks pendientes de enriquecimiento
 
 ### Para Completar 100%
+
 - **Inversión**: ~$35 USD
 - **Tiempo**: 3-4 horas
 - **Resultado**: Base de datos nivel Spotify/Apple Music
@@ -147,6 +159,7 @@ Rate Limit:    Configurado (3s entre llamadas)
 ## 💡 PRÓXIMOS PASOS SUGERIDOS
 
 ### Inmediato (Opcional)
+
 ```bash
 # Analizar 100 tracks populares
 node normalized-llm-handler.js 100
@@ -159,6 +172,7 @@ node create-smart-playlists.js
 ```
 
 ### Futuro
+
 - Integrar con UI de Electron
 - Crear API REST para la app
 - Implementar sistema de recomendaciones
@@ -180,5 +194,5 @@ node create-smart-playlists.js
 
 ---
 
-*Sistema verificado y documentado el 2025-08-15*  
-*Todos los componentes funcionando correctamente*
+_Sistema verificado y documentado el 2025-08-15_  
+_Todos los componentes funcionando correctamente_

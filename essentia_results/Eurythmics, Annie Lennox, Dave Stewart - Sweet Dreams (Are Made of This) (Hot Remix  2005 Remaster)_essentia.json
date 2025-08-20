@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eurythmics, Annie Lennox, Dave Stewart - Sweet Dreams (Are Made of This) (Hot Remix  2005 Remaster).flac",
-  "file_name": "Eurythmics, Annie Lennox, Dave Stewart - Sweet Dreams (Are Made of This) (Hot Remix  2005 Remaster).flac",
-  "timestamp": "2025-08-17T00:17:09.718350",
-  "essentia_features": {
-    "loudness_lufs": -2.193805694580078,
-    "danceability": 1.503312110900879,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5276349186897278,
-    "liveness": 0.1,
-    "speechiness": 0.157065963710644,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eurythmics, Annie Lennox, Dave Stewart - Sweet Dreams (Are Made of This) (Hot Remix  2005 Remaster).flac",
+    "file_name": "Eurythmics, Annie Lennox, Dave Stewart - Sweet Dreams (Are Made of This) (Hot Remix  2005 Remaster).flac",
+    "timestamp": "2025-08-17T00:17:09.718350",
+    "essentia_features": {
+        "loudness_lufs": -2.193805694580078,
+        "danceability": 1.503312110900879,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5276349186897278,
+        "liveness": 0.1,
+        "speechiness": 0.157065963710644,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

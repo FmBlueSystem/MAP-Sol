@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bee Gees - Stayin Alive.flac",
-  "file_name": "Bee Gees - Stayin Alive.flac",
-  "timestamp": "2025-08-16T22:51:47.014988",
-  "essentia_features": {
-    "loudness_lufs": -4.61956787109375,
-    "danceability": 1.5930689573287964,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5419046878814697,
-    "liveness": 0.1,
-    "speechiness": 0.14678054592832232,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bee Gees - Stayin Alive.flac",
+    "file_name": "Bee Gees - Stayin Alive.flac",
+    "timestamp": "2025-08-16T22:51:47.014988",
+    "essentia_features": {
+        "loudness_lufs": -4.61956787109375,
+        "danceability": 1.5930689573287964,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5419046878814697,
+        "liveness": 0.1,
+        "speechiness": 0.14678054592832232,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -27,7 +27,7 @@ class ImportMusicHandler {
                         extensions: ['mp3', 'm4a', 'flac', 'wav', 'ogg', 'aac', 'wma', 'aiff', 'ape', 'opus', 'webm'],
                     },
                     { name: 'All Files', extensions: ['*'] },
-                ]
+                ],
             });
 
             if (!result.canceled) {

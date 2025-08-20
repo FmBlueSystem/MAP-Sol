@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bruce Springsteen - I'm On Fire.flac",
-  "file_name": "Bruce Springsteen - I'm On Fire.flac",
-  "timestamp": "2025-08-16T23:19:58.331155",
-  "essentia_features": {
-    "loudness_lufs": -7.874021530151367,
-    "danceability": 0.9550841450691223,
-    "acousticness": 0.5,
-    "instrumentalness": 0.48998159170150757,
-    "liveness": 0.1,
-    "speechiness": 0.08434246462126531,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bruce Springsteen - I'm On Fire.flac",
+    "file_name": "Bruce Springsteen - I'm On Fire.flac",
+    "timestamp": "2025-08-16T23:19:58.331155",
+    "essentia_features": {
+        "loudness_lufs": -7.874021530151367,
+        "danceability": 0.9550841450691223,
+        "acousticness": 0.5,
+        "instrumentalness": 0.48998159170150757,
+        "liveness": 0.1,
+        "speechiness": 0.08434246462126531,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

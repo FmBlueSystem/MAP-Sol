@@ -78,7 +78,7 @@ function createSplashScreen() {
             nodeIntegration: false,
             contextIsolation: true,
             sandbox: true,
-        }
+        },
     });
 
     const splashHTML = `
@@ -236,8 +236,8 @@ function createApplicationMenu() {
                     label: 'Quit MAP',
                     accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
                     click: () => app.quit(),
-                }
-            ]
+                },
+            ],
         },
         {
             label: 'Edit',
@@ -249,7 +249,7 @@ function createApplicationMenu() {
                 { role: 'copy' },
                 { role: 'paste' },
                 { role: 'selectall' },
-            ]
+            ],
         },
         {
             label: 'View',
@@ -263,13 +263,13 @@ function createApplicationMenu() {
                 { role: 'zoomout' },
                 { type: 'separator' },
                 { role: 'togglefullscreen' },
-            ]
+            ],
         },
         {
             label: 'Window',
             role: 'window',
             submenu: [{ role: 'minimize' }, { role: 'close' }],
-        }
+        },
     ];
 
     const menu = Menu.buildFromTemplate(template);
@@ -304,7 +304,7 @@ function showAudioConfigWindow() {
             contextIsolation: true,
             sandbox: true,
             preload: path.join(__dirname, 'preload-config.js'),
-        }
+        },
     });
 
     configWindow.loadFile('audio-config.html');
@@ -1156,7 +1156,7 @@ app.whenReady().then(async () => {
                     extensions: ['mp3', 'm4a', 'flac', 'wav', 'aac', 'ogg', 'opus', 'wma'],
                 },
                 { name: 'All Files', extensions: ['*'] },
-            ]
+            ],
         });
 
         if (!result.canceled && result.filePaths.length > 0) {

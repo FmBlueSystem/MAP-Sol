@@ -18,7 +18,7 @@ class ArtworkExtractor {
             extracted: 0,
             skipped: 0,
             failed: 0,
-            noArtwork: 0
+            noArtwork: 0,
         };
     }
 
@@ -29,7 +29,7 @@ class ArtworkExtractor {
 
         // Connect to database
         return new Promise((resolve, reject) => {
-            this.db = new sqlite3.Database(path.resolve(__dirname, this.dbPath), err => {
+            this.db = new sqlite3.Database(path.resolve(__dirname, this.dbPath), (err) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -57,7 +57,7 @@ class ArtworkExtractor {
 
             // Parse metadata
             const metadata = await mm.parseFile(filePath, {
-                skipCovers: false
+                skipCovers: false,
             });
 
             if (!metadata.common.picture || metadata.common.picture.length === 0) {
@@ -72,7 +72,7 @@ class ArtworkExtractor {
             await sharp(picture.data)
                 .resize(this.maxSize, this.maxSize, {
                     fit: 'cover',
-                    withoutEnlargement: true
+                    withoutEnlargement: true,
                 })
                 .jpeg({ quality: this.quality })
                 .toFile(outputPath);
@@ -93,7 +93,7 @@ class ArtworkExtractor {
                 path: outputPath,
                 format: picture.format,
                 originalSize: picture.data.length,
-                extracted: true
+                extracted: true,
             };
         } catch (error) {
             this.stats.failed++;
@@ -152,9 +152,9 @@ class ArtworkExtractor {
                 for (let i = 0; i < rows.length; i += batchSize) {
                     const batch = rows.slice(i, i + batchSize);
                     await this.extractBatch(
-                        batch.map(r => ({
+                        batch.map((r) => ({
                             id: r.id,
-                            path: r.file_path
+                            path: r.file_path,
                         }))
                     );
 
@@ -174,7 +174,7 @@ class ArtworkExtractor {
         `;
 
         return new Promise((resolve, reject) => {
-            this.db.run(sql, [artworkPath, fileId], err => {
+            this.db.run(sql, [artworkPath, fileId], (err) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -193,8 +193,8 @@ class ArtworkExtractor {
                 width: this.maxSize,
                 height: this.maxSize,
                 channels: 3,
-                background: { r: 100, g: 100, b: 100 }
-            }
+                background: { r: 100, g: 100, b: 100 },
+            },
         })
             .jpeg({ quality: 70 })
             .toFile(placeholderPath);
@@ -216,7 +216,7 @@ class ArtworkExtractor {
     }
 
     async close() {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             if (this.db) {
                 this.db.close(() => {
                     console.log('✅ Database connection closed');
@@ -233,10 +233,10 @@ class ArtworkExtractor {
 if (require.main === module) {
     const args = process.argv.slice(2);
     const fromDb = args.includes('--from-db');
-    const startId = args.find(a => a.startsWith('--start-id='));
+    const startId = args.find((a) => a.startsWith('--start-id='));
 
     const extractor = new ArtworkExtractor({
-        startId: startId ? parseInt(startId.split('=')[1]) : 492
+        startId: startId ? parseInt(startId.split('=')[1]) : 492,
     });
 
     (async () => {
@@ -252,7 +252,7 @@ if (require.main === module) {
             } else {
                 // Extract from file list
                 const fileList = await fs.readFile('music-files.txt', 'utf8');
-                const files = fileList.split('\n').filter(f => f.trim());
+                const files = fileList.split('\n').filter((f) => f.trim());
 
                 console.log(`📚 Processing ${files.length} files...`);
                 await extractor.extractBatch(files);

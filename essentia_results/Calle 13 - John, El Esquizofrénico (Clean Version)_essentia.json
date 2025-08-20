@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Calle 13 - John, El Esquizofre\u0301nico (Clean Version).flac",
-  "file_name": "Calle 13 - John, El Esquizofre\u0301nico (Clean Version).flac",
-  "timestamp": "2025-08-16T23:22:46.725046",
-  "essentia_features": {
-    "loudness_lufs": -3.29620361328125,
-    "danceability": 1.2906537055969238,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4309922456741333,
-    "liveness": 0.1,
-    "speechiness": 0.1289915378120524,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Calle 13 - John, El Esquizofre\u0301nico (Clean Version).flac",
+    "file_name": "Calle 13 - John, El Esquizofre\u0301nico (Clean Version).flac",
+    "timestamp": "2025-08-16T23:22:46.725046",
+    "essentia_features": {
+        "loudness_lufs": -3.29620361328125,
+        "danceability": 1.2906537055969238,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4309922456741333,
+        "liveness": 0.1,
+        "speechiness": 0.1289915378120524,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

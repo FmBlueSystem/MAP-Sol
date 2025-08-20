@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Frankie Goes To Hollywood - Relax (Original 7\u201d).flac",
-  "file_name": "Frankie Goes To Hollywood - Relax (Original 7\u201d).flac",
-  "timestamp": "2025-08-17T00:27:36.697866",
-  "essentia_features": {
-    "loudness_lufs": -2.994609832763672,
-    "danceability": 1.1566355228424072,
-    "acousticness": 0.5,
-    "instrumentalness": 0.50541952252388,
-    "liveness": 0.1,
-    "speechiness": 0.16549050950390296,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Frankie Goes To Hollywood - Relax (Original 7\u201d).flac",
+    "file_name": "Frankie Goes To Hollywood - Relax (Original 7\u201d).flac",
+    "timestamp": "2025-08-17T00:27:36.697866",
+    "essentia_features": {
+        "loudness_lufs": -2.994609832763672,
+        "danceability": 1.1566355228424072,
+        "acousticness": 0.5,
+        "instrumentalness": 0.50541952252388,
+        "liveness": 0.1,
+        "speechiness": 0.16549050950390296,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

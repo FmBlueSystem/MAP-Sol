@@ -18,16 +18,16 @@ class ImportMusicHandler {
 
     setupHandlers() {
         // File selection dialog
-        ipcMain.handle('select-music-files', async event => {
+        ipcMain.handle('select-music-files', async (event) => {
             const result = await dialog.showOpenDialog({
                 properties: ['openFile', 'openDirectory', 'multiSelections'],
                 filters: [
                     {
                         name: 'Audio Files',
-                        extensions: ['mp3', 'm4a', 'flac', 'wav', 'ogg', 'aac', 'wma', 'aiff', 'ape', 'opus', 'webm']
+                        extensions: ['mp3', 'm4a', 'flac', 'wav', 'ogg', 'aac', 'wma', 'aiff', 'ape', 'opus', 'webm'],
                     },
-                    { name: 'All Files', extensions: ['*'] }
-                ]
+                    { name: 'All Files', extensions: ['*'] },
+                ],
             });
 
             if (!result.canceled) {
@@ -75,7 +75,7 @@ class ImportMusicHandler {
             skipped: 0,
             failed: 0,
             errors: [],
-            files: []
+            files: [],
         };
 
         // Stage 1: Scan for audio files
@@ -99,7 +99,7 @@ class ImportMusicHandler {
         this.sendProgress(event, {
             stage: 'import',
             current: 0,
-            total: filesToImport.length
+            total: filesToImport.length,
         });
 
         for (let i = 0; i < filesToImport.length; i++) {
@@ -115,7 +115,7 @@ class ImportMusicHandler {
                     stage: 'import',
                     current: i + 1,
                     total: filesToImport.length,
-                    fileName: path.basename(file)
+                    fileName: path.basename(file),
                 });
 
                 // Import the file
@@ -149,7 +149,7 @@ class ImportMusicHandler {
             '.aiff',
             '.ape',
             '.opus',
-            '.webm'
+            '.webm',
         ]);
 
         console.log('[ImportHandler] Scanning paths:', paths);
@@ -218,7 +218,7 @@ class ImportMusicHandler {
     }
 
     async checkFileExists(filePath) {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             this.db.get('SELECT id FROM audio_files WHERE file_path = ?', [filePath], (err, row) => {
                 resolve(!!row);
             });
@@ -257,7 +257,7 @@ class ImportMusicHandler {
         return {
             id: fileId,
             file_path: filePath,
-            ...metadata
+            ...metadata,
         };
     }
 
@@ -283,7 +283,7 @@ class ImportMusicHandler {
                 duration: format.duration || null,
                 bitrate: format.bitrate || null,
                 sampleRate: format.sampleRate || null,
-                artwork: artwork
+                artwork: artwork,
             };
         } catch (error) {
             console.error('Metadata extraction error:', error);
@@ -298,7 +298,7 @@ class ImportMusicHandler {
                 duration: null,
                 bitrate: null,
                 sampleRate: null,
-                artwork: null
+                artwork: null,
             };
         }
     }
@@ -344,7 +344,7 @@ class ImportMusicHandler {
                     metadata.bitrate,
                     metadata.sampleRate,
                     fileHash,
-                    fileExt
+                    fileExt,
                 ],
                 function (err) {
                     if (err) {
@@ -370,8 +370,8 @@ class ImportMusicHandler {
             await fs.writeFile(artworkPath, artworkData.data);
 
             // Update database with artwork path
-            return new Promise(resolve => {
-                this.db.run('UPDATE audio_files SET artwork_path = ? WHERE id = ?', [artworkPath, fileId], err => {
+            return new Promise((resolve) => {
+                this.db.run('UPDATE audio_files SET artwork_path = ? WHERE id = ?', [artworkPath, fileId], (err) => {
                     if (err) {
                         console.error('Error updating artwork path:', err);
                     }
@@ -384,7 +384,7 @@ class ImportMusicHandler {
     }
 
     async runAnalysis(filePath, fileId) {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             // Run the Python analysis script
             const analysisScript = path.join(process.cwd(), 'calculate_audio_features.py');
             const python = spawn('python3', [analysisScript, filePath, fileId]);
@@ -392,15 +392,15 @@ class ImportMusicHandler {
             let output = '';
             let error = '';
 
-            python.stdout.on('data', data => {
+            python.stdout.on('data', (data) => {
                 output += data.toString();
             });
 
-            python.stderr.on('data', data => {
+            python.stderr.on('data', (data) => {
                 error += data.toString();
             });
 
-            python.on('close', code => {
+            python.on('close', (code) => {
                 if (code !== 0) {
                     console.error('Analysis error:', error);
                 } else {

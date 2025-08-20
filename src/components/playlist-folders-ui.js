@@ -6,5 +6,5 @@ console.log('Component playlist-folders-ui.js temporarily disabled due to syntax
 // Basic placeholder component
 window.playlistfoldersui = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>'
+    render: () => '<div>Component temporarily unavailable</div>',
 };

@@ -92,7 +92,8 @@
 }
 
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
     50% {
@@ -204,7 +205,11 @@
 
 /* Bounce animations */
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateY(0);
     }
     40% {
@@ -234,19 +239,28 @@
 
 /* Shake animations */
 @keyframes shake {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateX(0);
     }
-    10%, 30%, 50%, 70%, 90% {
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
         transform: translateX(-10px);
     }
-    20%, 40%, 60%, 80% {
+    20%,
+    40%,
+    60%,
+    80% {
         transform: translateX(10px);
     }
 }
 
 @keyframes jello {
-    0%, 100% {
+    0%,
+    100% {
         transform: skewX(0deg);
     }
     30% {
@@ -354,7 +368,8 @@
 
 /* Music visualizer animations */
 @keyframes equalizer {
-    0%, 100% {
+    0%,
+    100% {
         transform: scaleY(0.3);
     }
     50% {
@@ -407,22 +422,26 @@
 
 /* Glow animations */
 @keyframes glow {
-    0%, 100% {
+    0%,
+    100% {
         box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
     }
     50% {
-        box-shadow: 0 0 20px rgba(102, 126, 234, 0.8), 
-                    0 0 40px rgba(102, 126, 234, 0.4);
+        box-shadow:
+            0 0 20px rgba(102, 126, 234, 0.8),
+            0 0 40px rgba(102, 126, 234, 0.4);
     }
 }
 
 @keyframes text-glow {
-    0%, 100% {
+    0%,
+    100% {
         text-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
     }
     50% {
-        text-shadow: 0 0 10px rgba(102, 126, 234, 0.8),
-                     0 0 20px rgba(102, 126, 234, 0.4);
+        text-shadow:
+            0 0 10px rgba(102, 126, 234, 0.8),
+            0 0 20px rgba(102, 126, 234, 0.4);
     }
 }
 
@@ -619,7 +638,10 @@
 }
 
 .transition-colors {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .transition-shadow {

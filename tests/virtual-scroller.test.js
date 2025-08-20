@@ -30,7 +30,7 @@ describe('VirtualScroller', () => {
                 container: container,
                 itemHeight: 100,
                 bufferSize: 5,
-                renderItem: jest.fn()
+                renderItem: jest.fn(),
             };
 
             scroller = new VirtualScroller(config);
@@ -63,7 +63,7 @@ describe('VirtualScroller', () => {
                     const itemsVisible = Math.ceil(containerHeight / this.config.itemHeight);
                     this.visibleRange = {
                         start: 0,
-                        end: Math.min(itemsVisible, this.items.length - 1)
+                        end: Math.min(itemsVisible, this.items.length - 1),
                     };
                 };
 
@@ -77,7 +77,7 @@ describe('VirtualScroller', () => {
             scroller = new VirtualScroller({
                 container: container,
                 itemHeight: 100,
-                renderItem: jest.fn()
+                renderItem: jest.fn(),
             });
         });
 
@@ -136,7 +136,7 @@ describe('VirtualScroller', () => {
 
             scroller = new VirtualScroller({
                 container: container,
-                itemHeight: 50
+                itemHeight: 50,
             });
 
             // Test with 10,000 items

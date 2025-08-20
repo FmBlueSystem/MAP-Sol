@@ -189,7 +189,7 @@ function createEnergyFlowHandlers(db) {
                     flowScore,
                     recommendations,
                     transitions,
-                }
+                },
             });
         });
     };

@@ -16,7 +16,7 @@ class SecureFileSystemHandler {
             '/Volumes', // For external drives on macOS
             'C:\\',
             'D:\\',
-            'E:\\' // For Windows drives
+            'E:\\', // For Windows drives
         ];
 
         // File extension whitelist for audio files
@@ -44,7 +44,7 @@ class SecureFileSystemHandler {
         }
 
         // Check if path is within allowed directories
-        const isAllowed = this.allowedBasePaths.some(basePath => {
+        const isAllowed = this.allowedBasePaths.some((basePath) => {
             return resolvedPath.startsWith(path.normalize(basePath));
         });
 
@@ -98,7 +98,7 @@ class SecureFileSystemHandler {
         const files = await fs.readdir(validPath, { withFileTypes: true });
 
         // Filter only audio files
-        const audioFiles = files.filter(file => {
+        const audioFiles = files.filter((file) => {
             if (!file.isFile()) {
                 return false;
             }
@@ -111,10 +111,10 @@ class SecureFileSystemHandler {
         const limited = audioFiles.slice(0, limit);
 
         // Return safe file info
-        return limited.map(file => ({
+        return limited.map((file) => ({
             name: file.name,
             path: path.join(validPath, file.name),
-            extension: path.extname(file.name).toLowerCase()
+            extension: path.extname(file.name).toLowerCase(),
         }));
     }
 
@@ -136,7 +136,7 @@ class SecureFileSystemHandler {
             console.error('Show in folder error:', error.message);
             return {
                 success: false,
-                error: 'Cannot show file in folder'
+                error: 'Cannot show file in folder',
             };
         }
     }
@@ -167,7 +167,7 @@ class SecureFileSystemHandler {
             isFile: stats.isFile(),
             extension: path.extname(validPath),
             name: path.basename(validPath),
-            directory: path.dirname(validPath)
+            directory: path.dirname(validPath),
         };
     }
 
@@ -193,7 +193,7 @@ class SecureFileSystemHandler {
                 } catch (error) {
                     return {
                         success: false,
-                        error: 'Cannot read file metadata'
+                        error: 'Cannot read file metadata',
                     };
                 }
             },
@@ -206,10 +206,10 @@ class SecureFileSystemHandler {
                     return {
                         success: false,
                         error: 'Cannot list directory',
-                        files: []
+                        files: [],
                     };
                 }
-            }
+            },
         };
     }
 }

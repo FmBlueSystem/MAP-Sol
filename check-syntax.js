@@ -12,7 +12,7 @@ const directories = ['handlers', 'services', 'js', '.'];
 let errorCount = 0;
 const errorFiles = [];
 
-directories.forEach(dir => {
+directories.forEach((dir) => {
     const dirPath = path.join(__dirname, dir);
 
     if (!fs.existsSync(dirPath)) {
@@ -22,7 +22,7 @@ directories.forEach(dir => {
 
     const files = fs.readdirSync(dirPath);
 
-    files.forEach(file => {
+    files.forEach((file) => {
         if (!file.endsWith('.js')) {
             return;
         }
@@ -48,7 +48,7 @@ directories.forEach(dir => {
             errorFiles.push({
                 path: filePath,
                 relativePath: `${dir}/${file}`,
-                error: errorMsg
+                error: errorMsg,
             });
         }
     });
@@ -60,12 +60,12 @@ if (errorCount === 0) {
     console.log('\n✅ Todos los archivos tienen sintaxis correcta!');
 } else {
     console.log(`\n❌ Se encontraron ${errorCount} archivos con errores de sintaxis:\n`);
-    errorFiles.forEach(file => {
+    errorFiles.forEach((file) => {
         console.log(`  - ${file.relativePath}`);
     });
 
     console.log('\n📝 Detalles de los errores:\n');
-    errorFiles.forEach(file => {
+    errorFiles.forEach((file) => {
         console.log(`\n${file.relativePath}:`);
         console.log(file.error.split('\n').slice(0, 5).join('\n'));
     });

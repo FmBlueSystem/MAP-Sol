@@ -24,7 +24,7 @@ module.exports = (env, argv) => {
                 './js/performance-optimizer.js',
                 './js/database-optimizer.js',
                 './js/virtual-scroller-enhanced.js',
-            ]
+            ],
         },
 
         output: {
@@ -66,8 +66,8 @@ module.exports = (env, argv) => {
                         minChunks: 2,
                         priority: -10,
                         reuseExistingChunk: true,
-                    }
-                }
+                    },
+                },
             },
 
             runtimeChunk: 'single',
@@ -99,13 +99,13 @@ module.exports = (env, argv) => {
                             ecma: 5,
                             comments: false,
                             ascii_only: true,
-                        }
+                        },
                     },
                     parallel: true,
                     extractComments: false,
                 }),
                 new CssMinimizerPlugin(),
-            ]
+            ],
         },
 
         module: {
@@ -123,8 +123,8 @@ module.exports = (env, argv) => {
                                         modules: false, // Important for tree shaking
                                         targets: {
                                             electron: '32',
-                                        }
-                                    }
+                                        },
+                                    },
                                 ],
                             ],
                             plugins: [
@@ -132,8 +132,8 @@ module.exports = (env, argv) => {
                                 '@babel/plugin-proposal-class-properties',
                                 '@babel/plugin-proposal-optional-chaining',
                                 '@babel/plugin-proposal-nullish-coalescing-operator',
-                            ]
-                        }
+                            ],
+                        },
                     },
                 },
                 {
@@ -144,25 +144,25 @@ module.exports = (env, argv) => {
                             loader: 'css-loader',
                             options: {
                                 modules: false,
-                            }
+                            },
                         },
                         'postcss-loader',
-                    ]
+                    ],
                 },
                 {
                     test: /\.(png|svg|jpg|jpeg|gif)$/i,
                     type: 'asset/resource',
                     generator: {
                         filename: 'images/[name].[hash:8][ext]',
-                    }
+                    },
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|otf)$/i,
                     type: 'asset/resource',
                     generator: {
                         filename: 'fonts/[name].[hash:8][ext]',
-                    }
-                }
+                    },
+                },
             ],
         },
 
@@ -183,7 +183,7 @@ module.exports = (env, argv) => {
                           minifyJS: true,
                           minifyCSS: true,
                           minifyURLs: true,
-                    }
+                      }
                     : false,
             }),
 
@@ -195,18 +195,18 @@ module.exports = (env, argv) => {
                           test: /\.(js|css|html|svg)$/,
                           threshold: 8192,
                           minRatio: 0.8,
-                    }),
+                      }),
                       new CompressionPlugin({
                           algorithm: 'brotliCompress',
                           test: /\.(js|css|html|svg)$/,
                           compressionOptions: {
                               level: 11,
-                        },
+                          },
                           threshold: 8192,
                           minRatio: 0.8,
                           filename: '[path][base].br',
-                    })
-                ]
+                      }),
+                  ]
                 : []),
 
             // PWA Support
@@ -225,19 +225,19 @@ module.exports = (env, argv) => {
                                       expiration: {
                                           maxEntries: 100,
                                           maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
-                                    },
-                                  }
+                                      },
+                                  },
                               },
                               {
                                   urlPattern: /\.(?:js|css)$/,
                                   handler: 'StaleWhileRevalidate',
                                   options: {
                                       cacheName: 'static-resources',
-                                },
-                              }
-                        ],
+                                  },
+                              },
+                          ],
                       }),
-                ]
+                  ]
                 : []),
 
             // Bundle analyzer
@@ -249,8 +249,8 @@ module.exports = (env, argv) => {
                           openAnalyzer: true,
                           generateStatsFile: true,
                           statsFilename: 'bundle-stats.json',
-                    })
-                ]
+                      }),
+                  ]
                 : []),
         ],
 
@@ -304,6 +304,6 @@ module.exports = (env, argv) => {
             errorDetails: true,
             warnings: true,
             publicPath: false,
-        }
+        },
     };
 };

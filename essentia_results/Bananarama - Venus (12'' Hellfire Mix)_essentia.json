@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bananarama - Venus (12'' Hellfire Mix).flac",
-  "file_name": "Bananarama - Venus (12'' Hellfire Mix).flac",
-  "timestamp": "2025-08-16T22:51:01.426557",
-  "essentia_features": {
-    "loudness_lufs": -6.787286758422852,
-    "danceability": 1.3840916156768799,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5,
-    "liveness": 0.1,
-    "speechiness": 0.1,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bananarama - Venus (12'' Hellfire Mix).flac",
+    "file_name": "Bananarama - Venus (12'' Hellfire Mix).flac",
+    "timestamp": "2025-08-16T22:51:01.426557",
+    "essentia_features": {
+        "loudness_lufs": -6.787286758422852,
+        "danceability": 1.3840916156768799,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5,
+        "liveness": 0.1,
+        "speechiness": 0.1,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

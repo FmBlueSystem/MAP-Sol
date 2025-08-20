@@ -12,7 +12,7 @@ function createTestWindow() {
             nodeIntegration: false,
             contextIsolation: true,
             preload: path.join(__dirname, 'preload-secure.js'),
-        }
+        },
     });
 
     // Load the test player page

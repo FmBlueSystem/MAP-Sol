@@ -21,7 +21,7 @@ function createSimplePlayerHandlers(db) {
     };
 
     return {
-        getTrackForPlayerHandler
+        getTrackForPlayerHandler,
     };
 }
 

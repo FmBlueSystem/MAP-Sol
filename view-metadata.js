@@ -16,11 +16,11 @@ function createViewerWindow() {
         height: 900,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: false,
         },
         icon: path.join(__dirname, 'icons', 'icon.png'),
         title: 'Metadata Viewer - Music Analyzer Pro',
-        backgroundColor: '#1e3c72'
+        backgroundColor: '#1e3c72',
     });
 
     // Cargar el archivo HTML

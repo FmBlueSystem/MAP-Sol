@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Expose\u0301 - What You Don't Know (Atomic Mix).flac",
-  "file_name": "Expose\u0301 - What You Don't Know (Atomic Mix).flac",
-  "timestamp": "2025-08-17T00:19:46.158299",
-  "essentia_features": {
-    "loudness_lufs": -3.6826114654541016,
-    "danceability": 1.538974404335022,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5191173255443573,
-    "liveness": 0.1,
-    "speechiness": 0.20062092052706498,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Expose\u0301 - What You Don't Know (Atomic Mix).flac",
+    "file_name": "Expose\u0301 - What You Don't Know (Atomic Mix).flac",
+    "timestamp": "2025-08-17T00:19:46.158299",
+    "essentia_features": {
+        "loudness_lufs": -3.6826114654541016,
+        "danceability": 1.538974404335022,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5191173255443573,
+        "liveness": 0.1,
+        "speechiness": 0.20062092052706498,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

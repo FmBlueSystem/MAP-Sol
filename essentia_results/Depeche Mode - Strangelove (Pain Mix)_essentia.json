@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Strangelove (Pain Mix).flac",
-  "file_name": "Depeche Mode - Strangelove (Pain Mix).flac",
-  "timestamp": "2025-08-16T23:53:35.201501",
-  "essentia_features": {
-    "loudness_lufs": -3.898834228515625,
-    "danceability": 2.0362114906311035,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6638327240943909,
-    "liveness": 0.1,
-    "speechiness": 0.22059062909807983,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Strangelove (Pain Mix).flac",
+    "file_name": "Depeche Mode - Strangelove (Pain Mix).flac",
+    "timestamp": "2025-08-16T23:53:35.201501",
+    "essentia_features": {
+        "loudness_lufs": -3.898834228515625,
+        "danceability": 2.0362114906311035,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6638327240943909,
+        "liveness": 0.1,
+        "speechiness": 0.22059062909807983,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bananarama - I Heard a Rumour (Horoscope Mix).flac",
-  "file_name": "Bananarama - I Heard a Rumour (Horoscope Mix).flac",
-  "timestamp": "2025-08-16T22:50:18.088057",
-  "essentia_features": {
-    "loudness_lufs": -3.232196807861328,
-    "danceability": 1.2500567436218262,
-    "acousticness": 0.5,
-    "instrumentalness": 0.439439594745636,
-    "liveness": 0.1,
-    "speechiness": 0.18587341297155482,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bananarama - I Heard a Rumour (Horoscope Mix).flac",
+    "file_name": "Bananarama - I Heard a Rumour (Horoscope Mix).flac",
+    "timestamp": "2025-08-16T22:50:18.088057",
+    "essentia_features": {
+        "loudness_lufs": -3.232196807861328,
+        "danceability": 1.2500567436218262,
+        "acousticness": 0.5,
+        "instrumentalness": 0.439439594745636,
+        "liveness": 0.1,
+        "speechiness": 0.18587341297155482,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -6,5 +6,5 @@ console.log('Component artwork-helper.js temporarily disabled due to syntax erro
 // Basic placeholder component
 window.artworkhelper = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>'
+    render: () => '<div>Component temporarily unavailable</div>',
 };

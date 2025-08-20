@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eurythmics, Annie Lennox, Dave Stewart - Sweet Dreams (Are Made of This).flac",
-  "file_name": "Eurythmics, Annie Lennox, Dave Stewart - Sweet Dreams (Are Made of This).flac",
-  "timestamp": "2025-08-17T00:17:14.824897",
-  "essentia_features": {
-    "loudness_lufs": -9.159912109375,
-    "danceability": 1.5186933279037476,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6014796495437622,
-    "liveness": 0.1,
-    "speechiness": 0.1261490598446177,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eurythmics, Annie Lennox, Dave Stewart - Sweet Dreams (Are Made of This).flac",
+    "file_name": "Eurythmics, Annie Lennox, Dave Stewart - Sweet Dreams (Are Made of This).flac",
+    "timestamp": "2025-08-17T00:17:14.824897",
+    "essentia_features": {
+        "loudness_lufs": -9.159912109375,
+        "danceability": 1.5186933279037476,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6014796495437622,
+        "liveness": 0.1,
+        "speechiness": 0.1261490598446177,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

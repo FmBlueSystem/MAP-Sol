@@ -21,7 +21,7 @@ function performSearch({ items, query, filters }) {
     // Búsqueda rápida sin regex complejos
     const searchTerm = query.toLowerCase();
 
-    const results = items.filter(item => {
+    const results = items.filter((item) => {
         // Búsqueda en campos principales
         if (query) {
             const searchableText = `
@@ -76,13 +76,13 @@ function performSearch({ items, query, filters }) {
     self.postMessage({
         type: 'searchComplete',
         results: results,
-        count: results.length
+        count: results.length,
     });
 }
 
 function performFilter({ items, filters }) {
     // Solo filtrado sin búsqueda
-    const results = items.filter(item => {
+    const results = items.filter((item) => {
         // Aplicar cada filtro
         for (const key in filters) {
             const filterValue = filters[key];
@@ -95,7 +95,7 @@ function performFilter({ items, filters }) {
 
     self.postMessage({
         type: 'filterComplete',
-        results: results
+        results: results,
     });
 }
 
@@ -113,14 +113,14 @@ function performBatchOperation({ items, operation }) {
             self.postMessage({
                 type: 'progress',
                 current: i,
-                total: items.length
+                total: items.length,
             });
         }
     }
 
     self.postMessage({
         type: 'batchComplete',
-        results: processed
+        results: processed,
     });
 }
 

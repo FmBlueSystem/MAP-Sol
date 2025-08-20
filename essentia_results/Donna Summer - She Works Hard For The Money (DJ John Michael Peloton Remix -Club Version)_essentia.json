@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Donna Summer - She Works Hard For The Money (DJ John Michael Peloton Remix -Club Version).flac",
-  "file_name": "Donna Summer - She Works Hard For The Money (DJ John Michael Peloton Remix -Club Version).flac",
-  "timestamp": "2025-08-17T00:00:05.387937",
-  "essentia_features": {
-    "loudness_lufs": -3.976581573486328,
-    "danceability": 1.5230962038040161,
-    "acousticness": 0.5,
-    "instrumentalness": 0.7232673764228821,
-    "liveness": 0.1,
-    "speechiness": 0.16656751558770966,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Donna Summer - She Works Hard For The Money (DJ John Michael Peloton Remix -Club Version).flac",
+    "file_name": "Donna Summer - She Works Hard For The Money (DJ John Michael Peloton Remix -Club Version).flac",
+    "timestamp": "2025-08-17T00:00:05.387937",
+    "essentia_features": {
+        "loudness_lufs": -3.976581573486328,
+        "danceability": 1.5230962038040161,
+        "acousticness": 0.5,
+        "instrumentalness": 0.7232673764228821,
+        "liveness": 0.1,
+        "speechiness": 0.16656751558770966,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

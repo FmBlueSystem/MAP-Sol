@@ -356,7 +356,7 @@ class DJExporter {
                 name: 'Traktor NML',
                 extension: '.nml',
                 description: 'Native Instruments Traktor',
-            }
+            },
         ];
     }
 }

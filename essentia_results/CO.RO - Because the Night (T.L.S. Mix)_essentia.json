@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/CO.RO - Because the Night (T.L.S. Mix).flac",
-  "file_name": "CO.RO - Because the Night (T.L.S. Mix).flac",
-  "timestamp": "2025-08-16T23:21:34.538298",
-  "essentia_features": {
-    "loudness_lufs": -5.064149856567383,
-    "danceability": 1.3853955268859863,
-    "acousticness": 0.5,
-    "instrumentalness": 0.48344558477401733,
-    "liveness": 0.1,
-    "speechiness": 0.18983444438284944,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/CO.RO - Because the Night (T.L.S. Mix).flac",
+    "file_name": "CO.RO - Because the Night (T.L.S. Mix).flac",
+    "timestamp": "2025-08-16T23:21:34.538298",
+    "essentia_features": {
+        "loudness_lufs": -5.064149856567383,
+        "danceability": 1.3853955268859863,
+        "acousticness": 0.5,
+        "instrumentalness": 0.48344558477401733,
+        "liveness": 0.1,
+        "speechiness": 0.18983444438284944,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

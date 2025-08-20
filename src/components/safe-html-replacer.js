@@ -21,7 +21,7 @@ class SafeHTMLReplacer {
             },
             get: function () {
                 return this.originalInnerHTML;
-            }
+            },
         });
 
         // Add safe methods to elements
@@ -49,10 +49,10 @@ class SafeHTMLReplacer {
             /javascript:/i,
             /on\w+\s*=/i, // Event handlers
             /<style/i,
-            /data:text\/html/i
+            /data:text\/html/i,
         ];
 
-        return !dangerousPatterns.some(pattern => pattern.test(html));
+        return !dangerousPatterns.some((pattern) => pattern.test(html));
     }
 
     static safeSetHTML(element, html) {
@@ -152,7 +152,7 @@ class SafeHTMLReplacer {
         }
 
         if (Array.isArray(children)) {
-            children.forEach(child => {
+            children.forEach((child) => {
                 if (typeof child === 'string') {
                     element.appendChild(document.createTextNode(child));
                 } else if (child instanceof Node) {
@@ -181,7 +181,7 @@ class SafeHTMLReplacer {
     getStats() {
         return {
             replacements: this.replacements,
-            safeMode: true
+            safeMode: true,
         };
     }
 }
@@ -196,7 +196,7 @@ window.safeHTML = {
     sanitize: SafeHTMLReplacer.sanitizeHTML,
     createElement: SafeHTMLReplacer.createElement,
     setText: SafeHTMLReplacer.setText,
-    build: SafeHTMLReplacer.buildHTML
+    build: SafeHTMLReplacer.buildHTML,
 };
 
 // Polyfill for Sanitizer API if available

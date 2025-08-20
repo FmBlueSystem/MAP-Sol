@@ -15,14 +15,14 @@ const colors = {
     red: '\x1b[31m',
     green: '\x1b[32m',
     yellow: '\x1b[33m',
-    blue: '\x1b[34m'
+    blue: '\x1b[34m',
 };
 
 const log = {
-    info: msg => console.log(`${colors.blue}ℹ${colors.reset} ${msg}`),
-    success: msg => console.log(`${colors.green}✓${colors.reset} ${msg}`),
-    warning: msg => console.log(`${colors.yellow}⚠${colors.reset} ${msg}`),
-    error: msg => console.log(`${colors.red}✗${colors.reset} ${msg}`)
+    info: (msg) => console.log(`${colors.blue}ℹ${colors.reset} ${msg}`),
+    success: (msg) => console.log(`${colors.green}✓${colors.reset} ${msg}`),
+    warning: (msg) => console.log(`${colors.yellow}⚠${colors.reset} ${msg}`),
+    error: (msg) => console.log(`${colors.red}✗${colors.reset} ${msg}`),
 };
 
 console.log('\n🔧 ARREGLANDO ERRORES DE SINTAXIS RESTANTES\n');
@@ -31,9 +31,9 @@ console.log('\n🔧 ARREGLANDO ERRORES DE SINTAXIS RESTANTES\n');
 function getAllJSFiles() {
     try {
         const output = execSync('find . -name "*.js" -not -path "./node_modules/*" -not -path "./backup*/*" -type f', {
-            encoding: 'utf8'
+            encoding: 'utf8',
         });
-        return output.split('\n').filter(f => f);
+        return output.split('\n').filter((f) => f);
     } catch (error) {
         return [];
     }

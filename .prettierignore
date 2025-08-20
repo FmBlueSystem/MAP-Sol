@@ -1,0 +1,22 @@
+# Data directories with large JSON files
+metadata_results/
+essentia_results/
+analysis_results/
+playlist-reports/
+smart*_*.json
+update-report-*.json
+
+# Build directories
+dist/
+node_modules/
+
+# Backup directories
+backup_*/
+
+# Cache directories
+artwork-cache/
+.cache/
+
+# Generated files
+*.min.js
+*.bundle.js

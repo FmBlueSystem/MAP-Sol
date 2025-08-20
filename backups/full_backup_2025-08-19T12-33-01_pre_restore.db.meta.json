@@ -1,7 +1,7 @@
 {
-  "type": "full",
-  "timestamp": "2025-08-19T12:33:01.861Z",
-  "reason": "pre_restore",
-  "size": 20750336,
-  "originalPath": "/Users/freddymolina/Desktop/music-app-clean/music_analyzer.db"
+    "type": "full",
+    "timestamp": "2025-08-19T12:33:01.861Z",
+    "reason": "pre_restore",
+    "size": 20750336,
+    "originalPath": "/Users/freddymolina/Desktop/music-app-clean/music_analyzer.db"
 }

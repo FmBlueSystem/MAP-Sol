@@ -332,7 +332,7 @@
     cursor: pointer;
 }
 
-.checkbox-list input[type="checkbox"] {
+.checkbox-list input[type='checkbox'] {
     width: 16px;
     height: 16px;
     cursor: pointer;
@@ -538,11 +538,11 @@
         height: 100vh;
         border-radius: 0;
     }
-    
+
     .selection-options {
         grid-template-columns: 1fr;
     }
-    
+
     .options-grid {
         grid-template-columns: 1fr;
     }

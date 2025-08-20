@@ -1,4 +1,5 @@
 # 📱 UI/UX Design Documentation - MAP (Music Analyzer Pro)
+
 **Fecha**: 2025-08-15
 **Versión**: 1.0.0
 **Estado**: Diseño Completo ASCII
@@ -21,6 +22,7 @@
 ## 🏗️ ARQUITECTURA DE UI
 
 ### Principios de Diseño
+
 - **Tres Paneles Principales**: Navegación | Contenido | Detalles
 - **Diseño Responsive**: Adaptable a diferentes tamaños
 - **Feedback Visual Inmediato**: Cada acción tiene respuesta visual
@@ -28,6 +30,7 @@
 - **Keyboard-First**: Todas las acciones tienen shortcut
 
 ### Estructura de Componentes
+
 ```
 MAP Application
 ├── Header Bar (Global Controls)
@@ -84,6 +87,7 @@ MAP Application
 ```
 
 ### Dimensiones y Proporción
+
 - **Panel Izquierdo**: 20% del ancho (mínimo 200px)
 - **Panel Central**: 50% del ancho (flexible)
 - **Panel Derecho**: 30% del ancho (mínimo 300px)
@@ -140,6 +144,7 @@ MAP Application
 ```
 
 **Características:**
+
 - Estructura jerárquica con carpetas
 - Iconos visuales para identificación rápida
 - Contadores de tracks en tiempo real
@@ -178,6 +183,7 @@ MAP Application
 ```
 
 **Características:**
+
 - Información de playlist en header
 - Controles de selección y ordenamiento
 - Columnas configurables
@@ -233,6 +239,7 @@ MAP Application
 ```
 
 **Características:**
+
 - Metadata completa del track
 - Artwork prominente
 - Información técnica detallada
@@ -282,6 +289,7 @@ User Journey:
 ```
 
 **Pasos detallados:**
+
 1. Click en "Smart Playlists" → "Create New"
 2. Modal se abre con constructor de reglas
 3. Agregar reglas (Genre = Techno AND BPM > 130)
@@ -700,6 +708,7 @@ Narrow Screen:
 ## 🔧 TECHNICAL IMPLEMENTATION NOTES
 
 ### Component Structure
+
 ```javascript
 // React/Vue/Vanilla Component Structure
 MAP_UI = {
@@ -707,28 +716,29 @@ MAP_UI = {
         PlaylistPanel: {
             PlaylistTree: {},
             SmartPlaylistBuilder: {},
-            TagManager: {}
+            TagManager: {},
         },
         TrackList: {
             TrackRow: {},
             SortControls: {},
-            PaginationControls: {}
+            PaginationControls: {},
         },
         TrackInfo: {
             MetadataDisplay: {},
             HAMMSAnalyzer: {},
-            ActionButtons: {}
+            ActionButtons: {},
         },
         PlayerBar: {
             PlaybackControls: {},
             ProgressBar: {},
-            VolumeControl: {}
-        }
-    }
-}
+            VolumeControl: {},
+        },
+    },
+};
 ```
 
 ### State Management
+
 ```javascript
 AppState = {
     playlists: [],
@@ -739,32 +749,33 @@ AppState = {
         activePanel: 'playlists',
         sortBy: 'energy',
         filterBy: null,
-        viewMode: 'detailed'
-    }
-}
+        viewMode: 'detailed',
+    },
+};
 ```
 
 ### Event Flow
+
 ```javascript
 Events = {
     // User Actions
     'playlist:select': (playlistId) => {},
     'track:play': (trackId) => {},
     'track:select': (trackId, multi) => {},
-    
+
     // Drag & Drop
     'drag:start': (item, type) => {},
     'drag:over': (target) => {},
     'drag:drop': (item, target) => {},
-    
+
     // HAMMS
     'hamms:analyze': (trackId) => {},
     'hamms:recommend': (similarity) => {},
-    
+
     // Updates
     'playlist:update': (changes) => {},
-    'track:update': (metadata) => {}
-}
+    'track:update': (metadata) => {},
+};
 ```
 
 ---
@@ -796,6 +807,7 @@ Events = {
 ```
 
 ### Touch Gestures
+
 - **Swipe Right**: Open playlist panel
 - **Swipe Left**: Open track info
 - **Long Press**: Multi-select mode
@@ -836,6 +848,7 @@ Accent:     #FFFF00
 ## 📊 PERFORMANCE CONSIDERATIONS
 
 ### Optimization Strategies
+
 1. **Virtual Scrolling**: Only render visible tracks
 2. **Lazy Loading**: Load playlists on demand
 3. **Debounced Search**: 300ms delay on typing
@@ -843,6 +856,7 @@ Accent:     #FFFF00
 5. **Progressive Loading**: Images load as needed
 
 ### Target Metrics
+
 - Initial Load: < 2 seconds
 - Playlist Switch: < 200ms
 - Search Response: < 100ms
@@ -854,24 +868,28 @@ Accent:     #FFFF00
 ## 🚀 IMPLEMENTATION PRIORITY
 
 ### Phase 1: Core (Week 1)
+
 1. Basic three-panel layout
 2. Playlist tree navigation
 3. Track list with sorting
 4. Basic playback controls
 
 ### Phase 2: Interactions (Week 2)
+
 1. Drag & drop
 2. Multi-selection
 3. Context menus
 4. Keyboard navigation
 
 ### Phase 3: Smart Features (Week 3)
+
 1. Smart playlist builder
 2. HAMMS integration
 3. Transition analyzer
 4. Energy flow planner
 
 ### Phase 4: Polish (Week 4)
+
 1. Animations & transitions
 2. Responsive design
 3. Theme system

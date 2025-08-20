@@ -294,7 +294,7 @@ class SimilarTracksPanel {
                     name: playlistName,
                     trackIds: trackIds,
                     description: `Tracks similar to "${this.currentTrack.title}" using HAMMS algorithm`,
-                }
+                },
             })
         );
 

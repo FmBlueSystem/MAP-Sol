@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Go Your Own Way (2001 Remaster).flac",
-  "file_name": "Fleetwood Mac - Go Your Own Way (2001 Remaster).flac",
-  "timestamp": "2025-08-17T00:24:03.391045",
-  "essentia_features": {
-    "loudness_lufs": -4.011980056762695,
-    "danceability": 1.1979303359985352,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4769635796546936,
-    "liveness": 0.1,
-    "speechiness": 0.13483798795996885,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Go Your Own Way (2001 Remaster).flac",
+    "file_name": "Fleetwood Mac - Go Your Own Way (2001 Remaster).flac",
+    "timestamp": "2025-08-17T00:24:03.391045",
+    "essentia_features": {
+        "loudness_lufs": -4.011980056762695,
+        "danceability": 1.1979303359985352,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4769635796546936,
+        "liveness": 0.1,
+        "speechiness": 0.13483798795996885,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

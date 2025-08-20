@@ -56,7 +56,7 @@ contextBridge.exposeInMainWorld('require', (module) => {
                     logDebug('require.electron.ipcRenderer.send:', channel);
                     return ipcRenderer.send(channel, ...args);
                 },
-            }
+            },
         };
     }
     return null;

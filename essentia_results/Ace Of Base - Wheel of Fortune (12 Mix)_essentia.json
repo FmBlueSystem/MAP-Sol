@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Ace Of Base - Wheel of Fortune (12 Mix).flac",
-  "file_name": "Ace Of Base - Wheel of Fortune (12 Mix).flac",
-  "timestamp": "2025-08-16T22:37:02.956755",
-  "essentia_features": {
-    "loudness_lufs": -11.850563049316406,
-    "danceability": 1.4220538139343262,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5390920042991638,
-    "liveness": 0.1,
-    "speechiness": 0.13503428243167725,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Ace Of Base - Wheel of Fortune (12 Mix).flac",
+    "file_name": "Ace Of Base - Wheel of Fortune (12 Mix).flac",
+    "timestamp": "2025-08-16T22:37:02.956755",
+    "essentia_features": {
+        "loudness_lufs": -11.850563049316406,
+        "danceability": 1.4220538139343262,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5390920042991638,
+        "liveness": 0.1,
+        "speechiness": 0.13503428243167725,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

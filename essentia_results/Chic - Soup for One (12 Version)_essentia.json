@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Chic - Soup for One (12 Version).flac",
-  "file_name": "Chic - Soup for One (12 Version).flac",
-  "timestamp": "2025-08-16T23:32:06.054109",
-  "essentia_features": {
-    "loudness_lufs": -5.5877227783203125,
-    "danceability": 1.8769950866699219,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4735785126686096,
-    "liveness": 0.1,
-    "speechiness": 0.14521508565121993,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Chic - Soup for One (12 Version).flac",
+    "file_name": "Chic - Soup for One (12 Version).flac",
+    "timestamp": "2025-08-16T23:32:06.054109",
+    "essentia_features": {
+        "loudness_lufs": -5.5877227783203125,
+        "danceability": 1.8769950866699219,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4735785126686096,
+        "liveness": 0.1,
+        "speechiness": 0.14521508565121993,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

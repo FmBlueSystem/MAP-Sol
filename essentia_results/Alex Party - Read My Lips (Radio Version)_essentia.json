@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alex Party - Read My Lips (Radio Version).flac",
-  "file_name": "Alex Party - Read My Lips (Radio Version).flac",
-  "timestamp": "2025-08-16T22:40:54.019210",
-  "essentia_features": {
-    "loudness_lufs": -6.086206436157227,
-    "danceability": 1.6301560401916504,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5621605515480042,
-    "liveness": 0.1,
-    "speechiness": 0.17646643713339988,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alex Party - Read My Lips (Radio Version).flac",
+    "file_name": "Alex Party - Read My Lips (Radio Version).flac",
+    "timestamp": "2025-08-16T22:40:54.019210",
+    "essentia_features": {
+        "loudness_lufs": -6.086206436157227,
+        "danceability": 1.6301560401916504,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5621605515480042,
+        "liveness": 0.1,
+        "speechiness": 0.17646643713339988,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

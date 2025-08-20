@@ -17,6 +17,7 @@
 ### 📋 CHECKLIST OBLIGATORIO ANTES DE DECLARAR "COMPLETADO":
 
 #### Para CUALQUIER nueva característica:
+
 - [ ] ¿La funcionalidad CORE está implementada?
 - [ ] ¿Los handlers IPC están conectados y funcionando?
 - [ ] ¿Se probó el flujo completo end-to-end?
@@ -25,6 +26,7 @@
 - [ ] ¿Los errores se manejan apropiadamente?
 
 #### PROCESO CORRECTO de implementación:
+
 1. **ENTENDER** - ¿Qué espera el usuario que suceda?
 2. **IMPLEMENTAR** - Backend/lógica primero
 3. **PROBAR** - Verificar que funcione realmente
@@ -32,6 +34,7 @@
 5. **VALIDAR** - Probar flujo completo antes de declarar listo
 
 #### ❌ ERRORES A EVITAR:
+
 - NO crear UI sin backend funcional
 - NO asumir que algo funciona sin probarlo
 - NO declarar "completado" sin validación end-to-end
@@ -39,6 +42,7 @@
 - NO crear componentes "vacíos" o "mock"
 
 #### ✅ MEJORES PRÁCTICAS:
+
 - SIEMPRE implementar funcionalidad mínima viable primero
 - SIEMPRE probar que el usuario pueda completar la tarea
 - SIEMPRE validar IPC connections y handlers
@@ -46,20 +50,25 @@
 - SIEMPRE pensar "¿qué espera el usuario que pase cuando clickea esto?"
 
 ### 🎯 MANTRA DE DESARROLLO:
+
 > "Un botón sin función es una promesa rota. Primero hazlo funcionar, luego hazlo bonito."
 
 ### 🔴 SEGUNDA LECCIÓN NO APRENDIDA (2025-08-18):
+
 **Contexto**: Implementé vista Enhanced, dije que funcionaba SIN verificar
 **Error**: Declaré "✅ funcionando" solo porque la app arrancó
 **Problema REAL**: NO validé que el botón aparezca ni que funcione
 
 #### REGLA ACTUALIZADA:
+
 **NUNCA declarar "funciona" sin:**
+
 1. Confirmación visual del usuario
-2. Test real de la funcionalidad 
+2. Test real de la funcionalidad
 3. Verificación de que hace lo prometido
 
 **NUEVO MANTRA**:
+
 > "No está funcionando hasta que el USUARIO confirme que funciona"
 
 ---
@@ -69,6 +78,7 @@
 **Music Analyzer Pro (Sol)** es una aplicación de escritorio profesional para gestión y análisis de bibliotecas musicales con AI, construida con Electron y tecnologías web modernas. Maneja 3,767 archivos de audio con análisis inteligente y visualización en tiempo real.
 
 ### 📊 Estadísticas Actuales
+
 - **Archivos de Audio**: 3,808
 - **Carátulas Extraídas**: 3,752 (156 MB)
 - **Metadatos MixedInKey**: 3,621 archivos (95%)
@@ -97,37 +107,40 @@
 #### **PROCESO DE ANÁLISIS COMPLETO (4 PASOS)**
 
 1. **PASO 1: IMPORTAR METADATOS MIXEDINKEY**
-   - **Objetivo**: Leer metadatos embebidos por MixedInKey en los archivos
-   - **Implementado en**: `analyze_complete.sh` (embebido)
-   - **Datos extraídos**: BPM, Key, Energy (ya calculados por MixedInKey)
-   - **Almacenamiento**: Se guardan en `llm_metadata` con `AI_TEMPO_CONFIDENCE = 1.0`
-   - **Velocidad**: ~1000 archivos/minuto (solo lectura, no análisis)
+    - **Objetivo**: Leer metadatos embebidos por MixedInKey en los archivos
+    - **Implementado en**: `analyze_complete.sh` (embebido)
+    - **Datos extraídos**: BPM, Key, Energy (ya calculados por MixedInKey)
+    - **Almacenamiento**: Se guardan en `llm_metadata` con `AI_TEMPO_CONFIDENCE = 1.0`
+    - **Velocidad**: ~1000 archivos/minuto (solo lectura, no análisis)
 
 2. **PASO 2: ANÁLISIS COMPLEMENTARIO CON ESSENTIA/LIBROSA**
-   - **Objetivo**: Calcular features ADICIONALES que MixedInKey NO proporciona
-   - **Implementado en**: `analyze_complete.sh` y `analyze_step3_only.sh`
-   - **Input**: USA los valores de MixedInKey (BPM, Key, Energy) como referencia
-   - **Output**: Calcula danceability, valence, acousticness, instrumentalness, liveness, speechiness
-   - **IMPORTANTE**: NO recalcula BPM/Key/Energy, los toma de MixedInKey
-   - **Velocidad**: 2-5 archivos/minuto (análisis de audio real)
+    - **Objetivo**: Calcular features ADICIONALES que MixedInKey NO proporciona
+    - **Implementado en**: `analyze_complete.sh` y `analyze_step3_only.sh`
+    - **Input**: USA los valores de MixedInKey (BPM, Key, Energy) como referencia
+    - **Output**: Calcula danceability, valence, acousticness, instrumentalness, liveness, speechiness
+    - **IMPORTANTE**: NO recalcula BPM/Key/Energy, los toma de MixedInKey
+    - **Velocidad**: 2-5 archivos/minuto (análisis de audio real)
 
 3. **PASO 3: ENRIQUECIMIENTO CON IA (OPCIONAL)**
-   - **Objetivo**: Añadir contexto, descripciones, géneros detallados usando GPT-4
-   - **Script**: `analyze_step4_ai_enrichment.sh`
-   - **Input**: USA todos los datos previos (MixedInKey + Essentia) como contexto
-   - **Output**: LLM_GENRE, descripciones, artistas similares, contexto cultural, DJ notes
-   - **Costo**: ~$0.05 USD por archivo con GPT-4 Turbo
-   - **Velocidad**: 2-3 segundos/archivo
-   - **Requisito**: OPENAI_API_KEY en archivo .env
+    - **Objetivo**: Añadir contexto, descripciones, géneros detallados usando GPT-4
+    - **Script**: `analyze_step4_ai_enrichment.sh`
+    - **Input**: USA todos los datos previos (MixedInKey + Essentia) como contexto
+    - **Output**: LLM_GENRE, descripciones, artistas similares, contexto cultural, DJ notes
+    - **Costo**: ~$0.05 USD por archivo con GPT-4 Turbo
+    - **Velocidad**: 2-3 segundos/archivo
+    - **Requisito**: OPENAI_API_KEY en archivo .env
 
 #### 🎯 **CONCEPTO CLAVE**
+
 - **NO es análisis duplicado**: Es análisis COMPLEMENTARIO
 - MixedInKey da: BPM, Key, Energy (rápido y preciso)
 - Essentia/Librosa añade: Features espectrales y características adicionales
 - Los analizadores USAN los datos de MixedInKey como semilla/referencia
 
 #### 📊 **RESULTADO FINAL EN BD**
+
 Cada archivo tendrá:
+
 ```sql
 -- Desde MixedInKey (Paso 1):
 AI_BPM = 128.0           -- Tempo exacto
@@ -146,6 +159,7 @@ AI_LOUDNESS = -14.0      -- Loudness LUFS
 ```
 
 #### ⚠️ **ERRORES COMUNES A EVITAR**
+
 1. ❌ NO ejecutar solo Essentia sin leer MixedInKey primero
 2. ❌ NO recalcular BPM/Key/Energy con Essentia (ya los tiene MixedInKey)
 3. ❌ NO pensar que es trabajo duplicado (es complementario)
@@ -156,6 +170,7 @@ AI_LOUDNESS = -14.0      -- Loudness LUFS
 ## 🏗️ ARQUITECTURA TÉCNICA ACTUAL
 
 ### 📋 Stack Tecnológico
+
 ```
 Frontend:  Vanilla JavaScript (ES6+) + Módulos Optimizados
 Backend:   Node.js + Electron IPC
@@ -166,6 +181,7 @@ Assets:    3,752 carátulas JPG con lazy loading
 ```
 
 ### 🔄 Flujo de Datos Optimizado
+
 ```
 Usuario → HTML/JS → Cache → IPC → main.js → SQLite → Cache → UI Update
            ↓                         ↓
@@ -175,6 +191,7 @@ Usuario → HTML/JS → Cache → IPC → main.js → SQLite → Cache → UI Up
 ```
 
 ### 📁 Estructura del Proyecto (Actualizada)
+
 ```
 music-app-clean/
 ├── 📁 config/
@@ -205,6 +222,7 @@ music-app-clean/
 ## ⚡ OPTIMIZACIONES IMPLEMENTADAS (NUEVO)
 
 ### 1️⃣ **Performance Optimizer**
+
 - ✅ Lazy Loading con Intersection Observer
 - ✅ Request Animation Frame para animaciones
 - ✅ Cache LRU con límite de 100MB
@@ -214,6 +232,7 @@ music-app-clean/
 - ✅ Web Workers support
 
 ### 2️⃣ **Database Optimizer**
+
 - ✅ 9 índices SQLite optimizados
 - ✅ Cache de queries (TTL: 5 min)
 - ✅ Prepared statements
@@ -222,6 +241,7 @@ music-app-clean/
 - ✅ Cache hit rate: 70-90%
 
 ### 3️⃣ **Logger System**
+
 - ✅ 5 niveles: debug, info, warn, error, critical
 - ✅ Console interceptor
 - ✅ Error tracking global
@@ -230,6 +250,7 @@ music-app-clean/
 - ✅ Estadísticas en tiempo real
 
 ### 4️⃣ **Configuración Centralizada**
+
 - ✅ Un solo archivo de configuración
 - ✅ Feature flags
 - ✅ Configuración por entorno
@@ -240,6 +261,7 @@ music-app-clean/
 ## 🚀 CARACTERÍSTICAS COMPLETADAS
 
 ### ✅ **Reproductor Profesional**
+
 - Player bar tipo Spotify con controles completos
 - K-Meter profesional (dB) - FUNCIONAL
 - Gestión de cola de reproducción
@@ -247,6 +269,7 @@ music-app-clean/
 - Shortcuts: Space, →, ←, ↑, ↓
 
 ### ✅ **Sistema de Vistas**
+
 - **Cards View**: Grid responsive con carátulas
 - **Table View**: Profesional tipo DJ software
 - **Compact View**: Lista compacta
@@ -254,26 +277,29 @@ music-app-clean/
 - Persistencia de vista seleccionada
 
 ### ✅ **Menú Contextual Completo**
+
 - **Header con info**: Muestra canción seleccionada + carátula
 - **Acciones implementadas**:
-  - Play/Pause con estado dinámico
-  - Add to Queue / Play Next
-  - Analyze con AI (modal con progreso)
-  - Edit Metadata (formulario completo)
-  - Show in Finder
-  - Create/Add to Playlist
-  - Export (JSON/CSV/M3U)
-  - Delete con confirmación
+    - Play/Pause con estado dinámico
+    - Add to Queue / Play Next
+    - Analyze con AI (modal con progreso)
+    - Edit Metadata (formulario completo)
+    - Show in Finder
+    - Create/Add to Playlist
+    - Export (JSON/CSV/M3U)
+    - Delete con confirmación
 - **Multi-selección**: Ctrl/Cmd + Click
 - **Shortcuts**: Enter, Q, N, E, A, F, Del
 
 ### ✅ **Sistema de Notificaciones**
+
 - Toast notifications con 4 tipos
 - Auto-dismiss (5 segundos)
 - Animaciones slideIn/slideOut
 - Posicionamiento top-right
 
 ### ✅ **Modales Profesionales**
+
 - Backdrop con blur
 - Animaciones suaves
 - Glassmorphism design
@@ -285,29 +311,31 @@ music-app-clean/
 ## 🔌 IPC HANDLERS
 
 ### Implementados y Funcionando
+
 ```javascript
 // Database
-'get-files-with-cached-artwork'  // ✅ Obtiene hasta 300 archivos
-'search-tracks'                   // ✅ Búsqueda con filtros
-'get-filter-options'              // ✅ Obtiene géneros y moods únicos
+'get-files-with-cached-artwork'; // ✅ Obtiene hasta 300 archivos
+'search-tracks'; // ✅ Búsqueda con filtros
+'get-filter-options'; // ✅ Obtiene géneros y moods únicos
 
 // Audio (parcialmente implementados)
-'play-track'                      // ⚠️ Frontend-only actualmente
-'pause-track'                     // ⚠️ Frontend-only actualmente
+'play-track'; // ⚠️ Frontend-only actualmente
+'pause-track'; // ⚠️ Frontend-only actualmente
 
 // File System
-'show-in-folder'                  // ✅ Abre carpeta en Finder/Explorer
-'extract-metadata'                // ✅ Extrae metadatos con music-metadata
+'show-in-folder'; // ✅ Abre carpeta en Finder/Explorer
+'extract-metadata'; // ✅ Extrae metadatos con music-metadata
 ```
 
 ### Pendientes de Implementación
+
 ```javascript
-'update-metadata'                 // ❌ Actualizar en BD
-'delete-track'                    // ❌ Eliminar de BD
-'create-playlist'                 // ❌ Crear playlist
-'add-to-playlist'                 // ❌ Agregar a playlist
-'export-json'                     // ⚠️ Frontend-only actualmente
-'export-csv'                      // ⚠️ Frontend-only actualmente
+'update-metadata'; // ❌ Actualizar en BD
+'delete-track'; // ❌ Eliminar de BD
+'create-playlist'; // ❌ Crear playlist
+'add-to-playlist'; // ❌ Agregar a playlist
+'export-json'; // ⚠️ Frontend-only actualmente
+'export-csv'; // ⚠️ Frontend-only actualmente
 ```
 
 ---
@@ -315,6 +343,7 @@ music-app-clean/
 ## 📊 ESQUEMA DE BASE DE DATOS
 
 ### Tabla: `audio_files`
+
 ```sql
 CREATE TABLE audio_files (
     id INTEGER PRIMARY KEY,
@@ -333,6 +362,7 @@ CREATE TABLE audio_files (
 ```
 
 ### Tabla: `llm_metadata`
+
 ```sql
 CREATE TABLE llm_metadata (
     file_id INTEGER PRIMARY KEY,
@@ -356,6 +386,7 @@ CREATE TABLE llm_metadata (
 ```
 
 ### Índices Optimizados
+
 ```sql
 CREATE INDEX idx_artist ON audio_files(artist);
 CREATE INDEX idx_title ON audio_files(title);
@@ -373,6 +404,7 @@ CREATE INDEX idx_file_id ON llm_metadata(file_id);
 ## 🎹 SHORTCUTS IMPLEMENTADOS
 
 ### Globales
+
 - `/` - Enfocar búsqueda
 - `ESC` - Limpiar búsqueda/Cerrar modales
 - `Space` - Play/Pause
@@ -382,11 +414,13 @@ CREATE INDEX idx_file_id ON llm_metadata(file_id);
 - `↓` - Bajar volumen
 
 ### Vistas
+
 - `1` - Vista Cards
 - `2` - Vista Tabla
 - `3` - Vista Compacta
 
 ### Menú Contextual
+
 - `Enter` - Reproducir
 - `Q` - Agregar a cola
 - `N` - Reproducir siguiente
@@ -400,12 +434,14 @@ CREATE INDEX idx_file_id ON llm_metadata(file_id);
 ## 📈 MÉTRICAS DE PERFORMANCE
 
 ### Antes de Optimización
+
 - ⏱️ Tiempo de carga: ~3-5 segundos
 - 💾 Memoria: ~300-400 MB
 - 🔍 Búsqueda: ~500-800ms
 - 📊 Cache hit: 0%
 
 ### Después de Optimización
+
 - ⏱️ **Tiempo de carga: ~1-2 segundos** (60% más rápido)
 - 💾 **Memoria: ~150-200 MB** (50% menos)
 - 🔍 **Búsqueda: ~50-100ms** (90% más rápido)
@@ -443,6 +479,7 @@ logger.getStatistics()
 ## ⚠️ REGLAS DE DESARROLLO
 
 ### ✅ HACER
+
 - Mantener vanilla JavaScript (sin frameworks grandes)
 - Usar módulos ES6 para nuevas características
 - Implementar lazy loading para todo contenido pesado
@@ -452,6 +489,7 @@ logger.getStatistics()
 - Commit frecuente con mensajes descriptivos
 
 ### ❌ NO HACER
+
 - NO agregar React/Vue/Angular al core
 - NO cambiar a PostgreSQL/MongoDB
 - NO eliminar el sistema de cache
@@ -465,18 +503,21 @@ logger.getStatistics()
 ## 🚀 PRÓXIMOS PASOS PRIORITARIOS
 
 ### Inmediatos (Esta semana)
+
 1. ✅ ~~Integrar optimizaciones en index-with-search.html~~
 2. Implementar handlers IPC faltantes
 3. Activar cache en producción
 4. Testing con usuarios reales
 
 ### Corto Plazo (2-3 semanas)
+
 1. Service Worker para PWA
 2. Tests automatizados con Jest
 3. Build process con Webpack/Vite
 4. GitHub Actions CI/CD
 
 ### Mediano Plazo (1-2 meses)
+
 1. Sincronización en la nube (Supabase)
 2. AI real con OpenAI/Claude API
 3. Mobile companion app
@@ -497,18 +538,21 @@ logger.getStatistics()
 ## 💡 DECISIONES ARQUITECTÓNICAS
 
 ### ¿Por qué Vanilla JS?
+
 - **Simplicidad**: Menos dependencias = menos problemas
 - **Performance**: Sin overhead de frameworks
 - **Control total**: Cada línea es nuestra
 - **Aprendizaje**: Mejor comprensión del DOM
 
 ### ¿Por qué SQLite?
+
 - **Portabilidad**: Un solo archivo
 - **Performance**: Muy rápido para lecturas
 - **Sin servidor**: Embedded database
 - **Suficiente**: Para < 100k tracks
 
 ### ¿Por qué Electron?
+
 - **Cross-platform**: Windows, Mac, Linux
 - **Acceso a filesystem**: Necesario para música local
 - **Familiar**: Tecnologías web
@@ -519,6 +563,7 @@ logger.getStatistics()
 ## 📝 NOTAS DE LA SESIÓN ACTUAL
 
 ### Logros de Hoy
+
 1. ✅ Menú contextual 100% funcional
 2. ✅ Sistema de optimización completo
 3. ✅ Logger estructurado implementado
@@ -527,6 +572,7 @@ logger.getStatistics()
 6. ✅ Configuración centralizada
 
 ### Contexto Importante
+
 - Usuario trabaja en español e inglés
 - Proyecto guardado en GitHub como "MAP-Sol"
 - K-meter costó trabajo pero funciona perfecto
@@ -534,6 +580,7 @@ logger.getStatistics()
 - 3,767 archivos funcionando sin problemas
 
 ### Recordatorios
+
 - El panel de audio es delicado, no modificar sin cuidado
 - Las optimizaciones están listas para producción
 - El menú contextual reconoce la canción seleccionada
@@ -544,6 +591,7 @@ logger.getStatistics()
 ## 🎯 RESUMEN EJECUTIVO
 
 **Music Analyzer Pro / Sol** es un proyecto **maduro y optimizado** con:
+
 - ✅ 3,767 archivos gestionados eficientemente
 - ✅ UI profesional con 3 vistas
 - ✅ Menú contextual completo

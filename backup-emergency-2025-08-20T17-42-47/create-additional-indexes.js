@@ -125,7 +125,7 @@ const indexes = [
         name: 'idx_rating',
         table: 'audio_files',
         columns: 'rating DESC',
-    }
+    },
 ];
 
 // Crear todos los índices

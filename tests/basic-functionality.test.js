@@ -28,7 +28,7 @@ describe('Basic Project Functionality', () => {
     test('Basic dependencies should be loadable', () => {
         const dependencies = ['path', 'fs', 'util'];
 
-        dependencies.forEach(dep => {
+        dependencies.forEach((dep) => {
             expect(() => {
                 const module = require(dep);
                 expect(module).toBeDefined();
@@ -44,7 +44,7 @@ describe('Project Structure Validation', () => {
 
         const requiredDirs = ['src', 'js', 'tests', 'handlers'];
 
-        requiredDirs.forEach(dir => {
+        requiredDirs.forEach((dir) => {
             const dirPath = path.join(__dirname, '..', dir);
             if (fs.existsSync(dirPath)) {
                 const stat = fs.statSync(dirPath);
@@ -59,7 +59,7 @@ describe('Project Structure Validation', () => {
 
         const configFiles = ['../../package.json', '../.eslintrc.js', '../jest.config.js'];
 
-        configFiles.forEach(file => {
+        configFiles.forEach((file) => {
             const filePath = path.join(__dirname, file);
             if (fs.existsSync(filePath)) {
                 expect(fs.existsSync(filePath)).toBe(true);
@@ -76,11 +76,11 @@ describe('Placeholder System Integrity', () => {
         // Get all JS files in project root
         const projectRoot = path.join(__dirname, '..');
         const files = fs.readdirSync(projectRoot);
-        const jsFiles = files.filter(f => f.endsWith('.js'));
+        const jsFiles = files.filter((f) => f.endsWith('.js'));
 
         // Test that each can be loaded without syntax errors
         const errors = [];
-        jsFiles.forEach(file => {
+        jsFiles.forEach((file) => {
             try {
                 const { execSync } = require('child_process');
                 execSync(`node -c "${path.join(projectRoot, file)}"`, { stdio: 'pipe' });
@@ -95,7 +95,7 @@ describe('Placeholder System Integrity', () => {
     test('placeholders should provide basic module exports', () => {
         const placeholderFiles = ['../analyze-all.js', '../calculate-audio-features.js'];
 
-        placeholderFiles.forEach(file => {
+        placeholderFiles.forEach((file) => {
             const module = require(file);
             expect(typeof module).toBe('object');
         });
@@ -119,7 +119,7 @@ describe('Development Environment Health', () => {
     test('development dependencies should be available', () => {
         const commonDevDeps = ['jest', 'eslint'];
 
-        commonDevDeps.forEach(dep => {
+        commonDevDeps.forEach((dep) => {
             try {
                 const module = require(dep);
                 expect(module).toBeDefined();
@@ -137,7 +137,7 @@ describe('Development Environment Health', () => {
 
         const projectRoot = path.join(__dirname, '..');
         const files = fs.readdirSync(projectRoot);
-        const backupDirs = files.filter(f => f.startsWith('emergency-backup-'));
+        const backupDirs = files.filter((f) => f.startsWith('emergency-backup-'));
 
         if (backupDirs.length > 0) {
             const backupDir = backupDirs[0];

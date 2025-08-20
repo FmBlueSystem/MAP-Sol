@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Acraze - Funky Town (Extended Mix).flac",
-  "file_name": "Acraze - Funky Town (Extended Mix).flac",
-  "timestamp": "2025-08-16T22:37:10.816889",
-  "essentia_features": {
-    "loudness_lufs": -2.50192928314209,
-    "danceability": 1.1569582223892212,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6914021670818329,
-    "liveness": 0.1,
-    "speechiness": 0.19670092018063165,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Acraze - Funky Town (Extended Mix).flac",
+    "file_name": "Acraze - Funky Town (Extended Mix).flac",
+    "timestamp": "2025-08-16T22:37:10.816889",
+    "essentia_features": {
+        "loudness_lufs": -2.50192928314209,
+        "danceability": 1.1569582223892212,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6914021670818329,
+        "liveness": 0.1,
+        "speechiness": 0.19670092018063165,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

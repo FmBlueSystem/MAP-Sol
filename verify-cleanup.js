@@ -34,10 +34,10 @@ currentDb.all('PRAGMA table_info(llm_metadata)', (err, currentColumns) => {
         'LLM Analysis': [],
         Lyrics: [],
         'DJ/Production': [],
-        Other: []
+        Other: [],
     };
 
-    currentColumns.forEach(col => {
+    currentColumns.forEach((col) => {
         const name = col.name;
         if (name.includes('ANALYZED') || name.includes('FLAG')) {
             categories['Flags'].push(name);
@@ -58,7 +58,7 @@ currentDb.all('PRAGMA table_info(llm_metadata)', (err, currentColumns) => {
     Object.entries(categories).forEach(([cat, cols]) => {
         if (cols.length > 0) {
             logDebug(`\n   ${cat} (${cols.length}):`);
-            cols.forEach(col => logDebug(`     • ${col}`));
+            cols.forEach((col) => logDebug(`     • ${col}`));
         }
     });
 
@@ -79,12 +79,12 @@ currentDb.all('PRAGMA table_info(llm_metadata)', (err, currentColumns) => {
             logDebug(`   Porcentaje: ${((1 - currentColumns.length / backupColumns.length) * 100).toFixed(1)}% menos`);
 
             // Encontrar columnas eliminadas
-            const currentNames = new Set(currentColumns.map(c => c.name));
-            const removedColumns = backupColumns.map(c => c.name).filter(name => !currentNames.has(name));
+            const currentNames = new Set(currentColumns.map((c) => c.name));
+            const removedColumns = backupColumns.map((c) => c.name).filter((name) => !currentNames.has(name));
 
             if (removedColumns.length > 0) {
                 logDebug('\n🗑️  COLUMNAS ELIMINADAS:');
-                removedColumns.forEach(col => logDebug(`     ❌ ${col}`));
+                removedColumns.forEach((col) => logDebug(`     ❌ ${col}`));
             }
 
             backupDb.close();

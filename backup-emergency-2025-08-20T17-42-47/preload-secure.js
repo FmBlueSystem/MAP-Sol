@@ -88,7 +88,7 @@ const validChannels = {
         'playlist-updated',
         'track-added-to-playlist',
         'analysis-progress',
-    ]
+    ],
 };
 
 // Expose protected API to renderer
@@ -192,7 +192,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
             }
             return '';
         },
-    }
+    },
 });
 
 // Expose performance monitoring

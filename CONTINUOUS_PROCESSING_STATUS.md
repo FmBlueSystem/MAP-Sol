@@ -1,4 +1,5 @@
 # 🚀 ESTADO DE PROCESAMIENTO CONTINUO - SMART-60
+
 **Última actualización**: 2025-08-16 07:33 PST
 
 ---
@@ -24,11 +25,13 @@
 ## ⚙️ PROCESO ACTIVO
 
 ### Comando en ejecución:
+
 ```bash
 nohup python3 essentia_smart60.py --batch 500 > smart60_continuous.log 2>&1 &
 ```
 
 ### Estado del proceso:
+
 - **PID**: 17763
 - **CPU**: 71.1%
 - **Memoria**: 622 MB
@@ -54,17 +57,20 @@ Los 7 parámetros siendo calculados para cada archivo:
 ## 🎯 CARACTERÍSTICAS DEL ANÁLISIS SMART-60
 
 ### Ventanas Múltiples:
+
 - **Start30**: Primeros 30 segundos (20% peso)
 - **Chorus30**: Zona del chorus detectada (60% peso)
 - **End20**: Últimos 20 segundos (20% peso)
 
 ### Compensaciones de Sesgo:
+
 ✅ Loudness: MAX + calibración LUFS
 ✅ Instrumentalness: MIN para detectar voz
 ✅ Danceability: Ajuste por BPM
 ✅ Valence: Ajuste por modo musical
 
 ### Confidence Score:
+
 - Cada análisis incluye un score de confianza (0-1)
 - Promedio actual: **0.84** (muy bueno)
 - Archivos con alta confianza: **464**
@@ -74,11 +80,13 @@ Los 7 parámetros siendo calculados para cada archivo:
 ## ⏱️ ESTIMACIÓN DE TIEMPO
 
 ### Cálculos:
+
 - Archivos restantes: ~2,245
 - Velocidad: ~3-4 archivos/minuto
 - **Tiempo estimado**: 9-12 horas
 
 ### Proyección:
+
 - **Finalización estimada**: ~7:00 PM PST hoy
 
 ---

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Evelyn Thomas - High Energy (Extended Version).flac",
-  "file_name": "Evelyn Thomas - High Energy (Extended Version).flac",
-  "timestamp": "2025-08-17T00:18:03.121189",
-  "essentia_features": {
-    "loudness_lufs": -6.587490081787109,
-    "danceability": 1.6467266082763672,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5670698583126068,
-    "liveness": 0.1,
-    "speechiness": 0.21259481040400377,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Evelyn Thomas - High Energy (Extended Version).flac",
+    "file_name": "Evelyn Thomas - High Energy (Extended Version).flac",
+    "timestamp": "2025-08-17T00:18:03.121189",
+    "essentia_features": {
+        "loudness_lufs": -6.587490081787109,
+        "danceability": 1.6467266082763672,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5670698583126068,
+        "liveness": 0.1,
+        "speechiness": 0.21259481040400377,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

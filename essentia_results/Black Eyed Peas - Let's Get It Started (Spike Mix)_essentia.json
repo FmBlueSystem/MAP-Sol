@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Black Eyed Peas - Let's Get It Started (Spike Mix).flac",
-  "file_name": "Black Eyed Peas - Let's Get It Started (Spike Mix).flac",
-  "timestamp": "2025-08-16T22:59:23.087912",
-  "essentia_features": {
-    "loudness_lufs": -1.3849067687988281,
-    "danceability": 1.3381763696670532,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5003125965595245,
-    "liveness": 0.1,
-    "speechiness": 0.15014985353442906,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Black Eyed Peas - Let's Get It Started (Spike Mix).flac",
+    "file_name": "Black Eyed Peas - Let's Get It Started (Spike Mix).flac",
+    "timestamp": "2025-08-16T22:59:23.087912",
+    "essentia_features": {
+        "loudness_lufs": -1.3849067687988281,
+        "danceability": 1.3381763696670532,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5003125965595245,
+        "liveness": 0.1,
+        "speechiness": 0.15014985353442906,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -3,12 +3,15 @@
 ## ⚠️ MANDATORY RULES - MUST FOLLOW
 
 ### 1. ✅ SYNTAX VALIDATION
+
 **BEFORE SAVING ANY CODE:**
+
 - Run `node -c filename.js` to check syntax
 - Fix ALL errors before committing
 - Test the code actually runs
 
 ### 2. 🎯 INDENTATION RULES
+
 ```javascript
 // ✅ CORRECT
 if (condition) {
@@ -17,11 +20,12 @@ if (condition) {
 
 // ❌ WRONG
 if (condition) {
-doSomething();
+    doSomething();
 }
 ```
 
 ### 3. 📝 TEMPLATE LITERALS
+
 ```javascript
 // ✅ CORRECT - Use backticks properly
 const message = `Hello ${name}`;
@@ -31,6 +35,7 @@ const message = `Hello ${name}';
 ```
 
 ### 4. 🔧 IF/ELSE STRUCTURE
+
 ```javascript
 // ✅ CORRECT
 if (condition) {
@@ -42,12 +47,13 @@ if (condition) {
 // ❌ WRONG
 if (condition) {
     // code
-    } else {
+} else {
     // code
-    }
+}
 ```
 
 ### 5. 🎨 HTML IN JAVASCRIPT
+
 ```javascript
 // ✅ CORRECT - Complete template literal
 element.innerHTML = `
@@ -67,6 +73,7 @@ element.innerHTML = `
 ## 🔍 QUALITY CHECKLIST
 
 ### Before ANY code change:
+
 - [ ] Syntax validated with `node -c`
 - [ ] Indentation consistent (4 spaces)
 - [ ] All brackets properly closed
@@ -75,6 +82,7 @@ element.innerHTML = `
 - [ ] Code actually tested
 
 ### Before commit:
+
 - [ ] Run the app and verify no console errors
 - [ ] Test the specific feature changed
 - [ ] Check for duplicate code
@@ -91,6 +99,7 @@ element.innerHTML = `
 ## 🛠️ TOOLS TO USE
 
 ### Validation:
+
 ```bash
 # Check JavaScript syntax
 node -c path/to/file.js
@@ -100,6 +109,7 @@ for f in js/*.js; do node -c "$f"; done
 ```
 
 ### Formatting:
+
 ```bash
 # Install prettier (if not installed)
 npm install -g prettier
@@ -111,12 +121,14 @@ prettier --write path/to/file.js
 ## 📊 QUALITY METRICS
 
 ### Acceptable:
+
 - ✅ 0 syntax errors
 - ✅ Consistent indentation
 - ✅ All tests pass
 - ✅ No console errors
 
 ### Unacceptable:
+
 - ❌ ANY syntax error
 - ❌ Mixed indentation
 - ❌ Broken functionality
@@ -125,6 +137,7 @@ prettier --write path/to/file.js
 ## 🎯 ENFORCEMENT
 
 **NO CODE MERGES** if:
+
 1. Syntax errors exist
 2. Indentation is inconsistent
 3. Tests fail

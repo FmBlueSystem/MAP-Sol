@@ -39,8 +39,8 @@ export class UIController {
      */
     setupViewToggle() {
         const viewButtons = document.querySelectorAll('[data-view]');
-        viewButtons.forEach(btn => {
-            btn.addEventListener('click', e => {
+        viewButtons.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
                 const view = e.target.dataset.view;
                 this.switchView(view);
             });
@@ -57,12 +57,12 @@ export class UIController {
         localStorage.setItem('viewMode', view);
 
         // Update UI
-        document.querySelectorAll('.view-container').forEach(container => {
+        document.querySelectorAll('.view-container').forEach((container) => {
             container.style.display = container.dataset.viewType === view ? 'block' : 'none';
         });
 
         // Update buttons
-        document.querySelectorAll('[data-view]').forEach(btn => {
+        document.querySelectorAll('[data-view]').forEach((btn) => {
             btn.classList.toggle('active', btn.dataset.view === view);
         });
 
@@ -76,7 +76,7 @@ export class UIController {
      * @returns {void}
      */
     setupSelectionHandlers() {
-        document.addEventListener('click', e => {
+        document.addEventListener('click', (e) => {
             const card = e.target.closest('.file-card');
             if (card) {
                 this.handleSelection(card, e);
@@ -84,7 +84,7 @@ export class UIController {
         });
 
         // Keyboard shortcuts
-        document.addEventListener('keydown', e => {
+        document.addEventListener('keydown', (e) => {
             if (e.ctrlKey && e.key === 'a') {
                 e.preventDefault();
                 this.selectAll();
@@ -129,7 +129,7 @@ export class UIController {
      */
     clearSelection() {
         this.selectedItems.clear();
-        document.querySelectorAll('.selected').forEach(el => {
+        document.querySelectorAll('.selected').forEach((el) => {
             el.classList.remove('selected');
         });
     }
@@ -139,7 +139,7 @@ export class UIController {
      * @returns {void}
      */
     selectAll() {
-        document.querySelectorAll('.file-card').forEach(card => {
+        document.querySelectorAll('.file-card').forEach((card) => {
             const id = parseInt(card.dataset.fileId);
             this.selectedItems.add(id);
             card.classList.add('selected');
@@ -162,7 +162,7 @@ export class UIController {
         }
 
         // Enable/disable bulk actions
-        document.querySelectorAll('.bulk-action').forEach(btn => {
+        document.querySelectorAll('.bulk-action').forEach((btn) => {
             btn.disabled = count === 0;
         });
     }

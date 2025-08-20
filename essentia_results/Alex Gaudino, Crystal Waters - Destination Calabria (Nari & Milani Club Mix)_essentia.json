@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alex Gaudino, Crystal Waters - Destination Calabria (Nari & Milani Club Mix).flac",
-  "file_name": "Alex Gaudino, Crystal Waters - Destination Calabria (Nari & Milani Club Mix).flac",
-  "timestamp": "2025-08-16T22:40:41.791456",
-  "essentia_features": {
-    "loudness_lufs": -1.9245986938476562,
-    "danceability": 1.4884592294692993,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6986202597618103,
-    "liveness": 0.1,
-    "speechiness": 0.1343408137156455,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alex Gaudino, Crystal Waters - Destination Calabria (Nari & Milani Club Mix).flac",
+    "file_name": "Alex Gaudino, Crystal Waters - Destination Calabria (Nari & Milani Club Mix).flac",
+    "timestamp": "2025-08-16T22:40:41.791456",
+    "essentia_features": {
+        "loudness_lufs": -1.9245986938476562,
+        "danceability": 1.4884592294692993,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6986202597618103,
+        "liveness": 0.1,
+        "speechiness": 0.1343408137156455,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

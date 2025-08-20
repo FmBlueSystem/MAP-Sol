@@ -51,7 +51,7 @@ class ArchonTaskMonitor {
                 status: 'todo',
                 assignee: 'AI IDE Agent',
                 priority: 'medium',
-            }
+            },
         ];
 
         const newTasks = mockTasks.filter((task) => !this.processedTasks.has(task.id));

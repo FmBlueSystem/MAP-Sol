@@ -85,18 +85,12 @@
                 {
                     "section": "verse",
                     "summary": "Expressing uncertainty and regret",
-                    "sample_lines": [
-                        "I feel so unsure",
-                        "As I take your hand and lead you to the dance floor"
-                    ]
+                    "sample_lines": ["I feel so unsure", "As I take your hand and lead you to the dance floor"]
                 },
                 {
                     "section": "chorus",
                     "summary": "Vowing to never dance again due to guilt",
-                    "sample_lines": [
-                        "I'm never gonna dance again",
-                        "Guilty feet have got no rhythm"
-                    ]
+                    "sample_lines": ["I'm never gonna dance again", "Guilty feet have got no rhythm"]
                 }
             ],
             "repeated_phrases": [
@@ -121,9 +115,7 @@
             "content_warnings": [],
             "singalong_index": 0.8,
             "chantability": 0.7,
-            "justification": [
-                "The song's reflective mood and narrative of regret align with its nostalgic tone."
-            ]
+            "justification": ["The song's reflective mood and narrative of regret align with its nostalgic tone."]
         },
         "confidence": 0.9199999999999999,
         "validation_notes": ["Real recording year: 1984", "Contexto actualizado para 1984"],

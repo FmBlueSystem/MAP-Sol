@@ -50,7 +50,7 @@ class HistoryManager {
             artwork_url: track.artwork_url || track.artwork_path,
             played_at: new Date().toISOString(),
             duration_played: 0, // Se actualizará cuando termine
-            completed: false
+            completed: false,
         };
 
         // Agregar al inicio del historial
@@ -65,7 +65,7 @@ class HistoryManager {
 
     // Actualizar duración reproducida
     updatePlayDuration(trackPath, duration, completed = false) {
-        const entry = this.history.find(h => h.file_path === trackPath && !h.completed);
+        const entry = this.history.find((h) => h.file_path === trackPath && !h.completed);
 
         if (entry) {
             entry.duration_played = duration;
@@ -93,7 +93,7 @@ class HistoryManager {
             history: this.history.slice(start, end),
             totalPages: Math.ceil(this.history.length / pageSize),
             currentPage: page,
-            totalItems: this.history.length
+            totalItems: this.history.length,
         };
     }
 
@@ -101,7 +101,7 @@ class HistoryManager {
     getHistoryByDate(date) {
         const targetDate = new Date(date).toDateString();
 
-        return this.history.filter(entry => {
+        return this.history.filter((entry) => {
             const entryDate = new Date(entry.played_at).toDateString();
             return entryDate === targetDate;
         });
@@ -124,7 +124,7 @@ class HistoryManager {
         const weekAgo = new Date();
         weekAgo.setDate(weekAgo.getDate() - 7);
 
-        return this.history.filter(entry => new Date(entry.played_at) >= weekAgo);
+        return this.history.filter((entry) => new Date(entry.played_at) >= weekAgo);
     }
 
     // Obtener historial del último mes
@@ -132,7 +132,7 @@ class HistoryManager {
         const monthAgo = new Date();
         monthAgo.setMonth(monthAgo.getMonth() - 1);
 
-        return this.history.filter(entry => new Date(entry.played_at) >= monthAgo);
+        return this.history.filter((entry) => new Date(entry.played_at) >= monthAgo);
     }
 
     // Buscar en historial
@@ -140,7 +140,7 @@ class HistoryManager {
         const searchTerm = query.toLowerCase();
 
         return this.history.filter(
-            entry =>
+            (entry) =>
                 entry.title?.toLowerCase().includes(searchTerm) ||
                 entry.artist?.toLowerCase().includes(searchTerm) ||
                 entry.album?.toLowerCase().includes(searchTerm) ||
@@ -153,13 +153,13 @@ class HistoryManager {
         const playCount = {};
 
         // Contar reproducciones por track
-        this.history.forEach(entry => {
+        this.history.forEach((entry) => {
             const key = entry.file_path;
             if (!playCount[key]) {
                 playCount[key] = {
                     track: entry,
                     count: 0,
-                    totalDuration: 0
+                    totalDuration: 0,
                 };
             }
             playCount[key].count++;
@@ -170,10 +170,10 @@ class HistoryManager {
         return Object.values(playCount)
             .sort((a, b) => b.count - a.count)
             .slice(0, limit)
-            .map(item => ({
+            .map((item) => ({
                 ...item.track,
                 play_count: item.count,
-                total_duration: item.totalDuration
+                total_duration: item.totalDuration,
             }));
     }
 
@@ -181,7 +181,7 @@ class HistoryManager {
     getMostPlayedArtists(limit = 10) {
         const artistCount = {};
 
-        this.history.forEach(entry => {
+        this.history.forEach((entry) => {
             const artist = entry.artist || 'Unknown Artist';
             artistCount[artist] = (artistCount[artist] || 0) + 1;
         });
@@ -196,7 +196,7 @@ class HistoryManager {
     getMostPlayedGenres(limit = 10) {
         const genreCount = {};
 
-        this.history.forEach(entry => {
+        this.history.forEach((entry) => {
             if (entry.genre) {
                 genreCount[entry.genre] = (genreCount[entry.genre] || 0) + 1;
             }
@@ -214,18 +214,18 @@ class HistoryManager {
             totalPlays: this.history.length,
             todayPlays: this.getTodayHistory().length,
             weekPlays: this.getWeekHistory().length,
-            uniqueTracks: new Set(this.history.map(h => h.file_path)).size,
-            uniqueArtists: new Set(this.history.map(h => h.artist)).size,
+            uniqueTracks: new Set(this.history.map((h) => h.file_path)).size,
+            uniqueArtists: new Set(this.history.map((h) => h.artist)).size,
             totalListeningTime: 0,
             averageListeningTime: 0,
             completionRate: 0,
             mostActiveHour: null,
-            mostActiveDay: null
+            mostActiveDay: null,
         };
 
         // Calcular tiempo total escuchado
         let completedCount = 0;
-        this.history.forEach(entry => {
+        this.history.forEach((entry) => {
             stats.totalListeningTime += entry.duration_played || 0;
             if (entry.completed) {
                 completedCount++;
@@ -240,7 +240,7 @@ class HistoryManager {
 
         // Hora más activa
         const hourCount = {};
-        this.history.forEach(entry => {
+        this.history.forEach((entry) => {
             const hour = new Date(entry.played_at).getHours();
             hourCount[hour] = (hourCount[hour] || 0) + 1;
         });
@@ -255,7 +255,7 @@ class HistoryManager {
         const dayCount = {};
         const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
-        this.history.forEach(entry => {
+        this.history.forEach((entry) => {
             const day = new Date(entry.played_at).getDay();
             dayCount[day] = (dayCount[day] || 0) + 1;
         });
@@ -285,7 +285,7 @@ class HistoryManager {
             activity.push({
                 date: date.toISOString().split('T')[0],
                 plays: dayHistory.length,
-                duration: dayHistory.reduce((sum, h) => sum + (h.duration_played || 0), 0)
+                duration: dayHistory.reduce((sum, h) => sum + (h.duration_played || 0), 0),
             });
         }
 
@@ -298,7 +298,7 @@ class HistoryManager {
         cutoffDate.setDate(cutoffDate.getDate() - daysToKeep);
 
         const originalLength = this.history.length;
-        this.history = this.history.filter(entry => new Date(entry.played_at) >= cutoffDate);
+        this.history = this.history.filter((entry) => new Date(entry.played_at) >= cutoffDate);
 
         const removed = originalLength - this.history.length;
         if (removed > 0) {
@@ -338,7 +338,7 @@ class HistoryManager {
     dispatchEvent(eventName, detail = {}) {
         window.dispatchEvent(
             new CustomEvent(eventName, {
-                detail: { ...detail, historyCount: this.history.length }
+                detail: { ...detail, historyCount: this.history.length },
             })
         );
     }
@@ -348,14 +348,14 @@ class HistoryManager {
 window.historyManager = new HistoryManager();
 
 // Integración con el player
-window.addEventListener('trackStarted', event => {
+window.addEventListener('trackStarted', (event) => {
     const track = event.detail?.track;
     if (track) {
         window.historyManager.addToHistory(track);
     }
 });
 
-window.addEventListener('trackEnded', event => {
+window.addEventListener('trackEnded', (event) => {
     const { trackPath, duration, completed } = event.detail || {};
     if (trackPath) {
         window.historyManager.updatePlayDuration(trackPath, duration, completed);

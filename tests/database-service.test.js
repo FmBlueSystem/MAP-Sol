@@ -4,7 +4,7 @@ describe('Database Service', () => {
 
     beforeEach(() => {
         mockElectronAPI = {
-            invoke: jest.fn()
+            invoke: jest.fn(),
         };
         global.electronAPI = mockElectronAPI;
     });
@@ -13,19 +13,19 @@ describe('Database Service', () => {
         test('should fetch files from database', async () => {
             const mockFiles = [
                 { id: 1, title: 'Track 1', artist: 'Artist 1' },
-                { id: 2, title: 'Track 2', artist: 'Artist 2' }
+                { id: 2, title: 'Track 2', artist: 'Artist 2' },
             ];
 
             mockElectronAPI.invoke.mockResolvedValue({ files: mockFiles });
 
             const result = await electronAPI.invoke('get-files-with-cached-artwork', {
                 limit: 100,
-                offset: 0
+                offset: 0,
             });
 
             expect(mockElectronAPI.invoke).toHaveBeenCalledWith('get-files-with-cached-artwork', {
                 limit: 100,
-                offset: 0
+                offset: 0,
             });
             expect(result.files).toEqual(mockFiles);
         });
@@ -45,7 +45,7 @@ describe('Database Service', () => {
 
             const result = await electronAPI.invoke('search-tracks', {
                 query: 'Matching',
-                filters: {}
+                filters: {},
             });
 
             expect(mockElectronAPI.invoke).toHaveBeenCalledWith('search-tracks', { query: 'Matching', filters: {} });
@@ -56,12 +56,12 @@ describe('Database Service', () => {
             const filters = {
                 genre: 'Electronic',
                 bpm: '120-130',
-                mood: 'Energetic'
+                mood: 'Energetic',
             };
 
             await electronAPI.invoke('search-tracks', {
                 query: '',
-                filters
+                filters,
             });
 
             expect(mockElectronAPI.invoke).toHaveBeenCalledWith('search-tracks', { query: '', filters });
@@ -73,14 +73,14 @@ describe('Database Service', () => {
             const metadata = {
                 title: 'New Title',
                 artist: 'New Artist',
-                album: 'New Album'
+                album: 'New Album',
             };
 
             mockElectronAPI.invoke.mockResolvedValue({ success: true });
 
             const result = await electronAPI.invoke('update-metadata', {
                 fileId: 1,
-                metadata
+                metadata,
             });
 
             expect(result.success).toBe(true);

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Union of the Snake (The Monkey Mix) [2010 Remaster].flac",
-  "file_name": "Duran Duran - Union of the Snake (The Monkey Mix) [2010 Remaster].flac",
-  "timestamp": "2025-08-17T00:06:06.328703",
-  "essentia_features": {
-    "loudness_lufs": -3.1188735961914062,
-    "danceability": 1.2292102575302124,
-    "acousticness": 0.5,
-    "instrumentalness": 0.39965611696243286,
-    "liveness": 0.1,
-    "speechiness": 0.2056000797338486,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Union of the Snake (The Monkey Mix) [2010 Remaster].flac",
+    "file_name": "Duran Duran - Union of the Snake (The Monkey Mix) [2010 Remaster].flac",
+    "timestamp": "2025-08-17T00:06:06.328703",
+    "essentia_features": {
+        "loudness_lufs": -3.1188735961914062,
+        "danceability": 1.2292102575302124,
+        "acousticness": 0.5,
+        "instrumentalness": 0.39965611696243286,
+        "liveness": 0.1,
+        "speechiness": 0.2056000797338486,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

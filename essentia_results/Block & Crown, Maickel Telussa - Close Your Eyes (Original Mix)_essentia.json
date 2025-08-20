@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Maickel Telussa - Close Your Eyes (Original Mix).flac",
-  "file_name": "Block & Crown, Maickel Telussa - Close Your Eyes (Original Mix).flac",
-  "timestamp": "2025-08-16T23:09:41.236819",
-  "essentia_features": {
-    "loudness_lufs": -2.6952171325683594,
-    "danceability": 1.5358086824417114,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6389148533344269,
-    "liveness": 0.1,
-    "speechiness": 0.22066003899162925,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Maickel Telussa - Close Your Eyes (Original Mix).flac",
+    "file_name": "Block & Crown, Maickel Telussa - Close Your Eyes (Original Mix).flac",
+    "timestamp": "2025-08-16T23:09:41.236819",
+    "essentia_features": {
+        "loudness_lufs": -2.6952171325683594,
+        "danceability": 1.5358086824417114,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6389148533344269,
+        "liveness": 0.1,
+        "speechiness": 0.22066003899162925,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

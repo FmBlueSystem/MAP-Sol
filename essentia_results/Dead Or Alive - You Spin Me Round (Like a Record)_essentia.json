@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dead Or Alive - You Spin Me Round (Like a Record).flac",
-  "file_name": "Dead Or Alive - You Spin Me Round (Like a Record).flac",
-  "timestamp": "2025-08-16T23:49:30.138929",
-  "essentia_features": {
-    "loudness_lufs": -8.044544219970703,
-    "danceability": 1.3777092695236206,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4166053533554077,
-    "liveness": 0.1,
-    "speechiness": 0.19050444090091928,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dead Or Alive - You Spin Me Round (Like a Record).flac",
+    "file_name": "Dead Or Alive - You Spin Me Round (Like a Record).flac",
+    "timestamp": "2025-08-16T23:49:30.138929",
+    "essentia_features": {
+        "loudness_lufs": -8.044544219970703,
+        "danceability": 1.3777092695236206,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4166053533554077,
+        "liveness": 0.1,
+        "speechiness": 0.19050444090091928,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

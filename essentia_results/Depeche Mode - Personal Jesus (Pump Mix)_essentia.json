@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Personal Jesus (Pump Mix).flac",
-  "file_name": "Depeche Mode - Personal Jesus (Pump Mix).flac",
-  "timestamp": "2025-08-16T23:52:52.963949",
-  "essentia_features": {
-    "loudness_lufs": -3.2531890869140625,
-    "danceability": 1.526170015335083,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5851163864135742,
-    "liveness": 0.1,
-    "speechiness": 0.10766083397704167,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Personal Jesus (Pump Mix).flac",
+    "file_name": "Depeche Mode - Personal Jesus (Pump Mix).flac",
+    "timestamp": "2025-08-16T23:52:52.963949",
+    "essentia_features": {
+        "loudness_lufs": -3.2531890869140625,
+        "danceability": 1.526170015335083,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5851163864135742,
+        "liveness": 0.1,
+        "speechiness": 0.10766083397704167,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -56,17 +56,17 @@ function processFile(filePath) {
 logDebug('🧹 Starting console.log cleanup...');
 logDebug('================================================');
 
-directories.forEach(dir => {
+directories.forEach((dir) => {
     const pattern = path.join(dir, '**/*.js');
     const files = glob.sync(pattern);
 
     logDebug(`\n📁 Processing ${dir} (${files.length} files)...`);
 
-    files.forEach(file => {
+    files.forEach((file) => {
         // Skip certain files that might need console.logs
         const skipFiles = ['logger.js', 'debug-', 'test-', 'validate-'];
 
-        const shouldSkip = skipFiles.some(skip => file.includes(skip));
+        const shouldSkip = skipFiles.some((skip) => file.includes(skip));
 
         if (!shouldSkip) {
             processFile(file);
@@ -88,7 +88,7 @@ const backupNote = {
     date: new Date().toISOString(),
     filesProcessed,
     consoleLogsRemoved: totalRemoved,
-    directories: directories
+    directories: directories,
 };
 
 fs.writeFileSync('console-log-removal.json', JSON.stringify(backupNote, null, 2));

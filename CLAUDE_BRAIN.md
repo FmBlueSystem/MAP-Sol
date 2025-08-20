@@ -1,4 +1,5 @@
 # 🧠 CLAUDE_BRAIN.md
+
 > Sistema Unificado de Colaboración y Continuidad v3.0
 > Proyecto: Music Analyzer Pro
 > Path: /Users/freddymolina/Desktop/pro2/music-analyzer-electron/music-app-clean
@@ -7,6 +8,7 @@
 ---
 
 ## 🎯 MODO DE OPERACIÓN ACTUAL
+
 ```yaml
 MODO: CREATIVE
 NIVEL_CREATIVIDAD: 4 (INNOVATIVE)
@@ -19,6 +21,7 @@ ENERGIA: 🔋🔋🔋🔋🔋 # Full power - acabamos de completar 8 tareas!
 ## ⚡ INSTANT RESUME (30 segundos)
 
 ### 🎯 CURRENT_CHECKPOINT
+
 ```markdown
 CHECKPOINT_ID: MA_2025_01_10_1900
 TIMESTAMP: 2025-01-10 19:00:00
@@ -34,19 +37,22 @@ FUNCIÓN_TARGET: Separar handlers en archivos
 PATRÓN_A_USAR: Module.exports pattern
 TIEMPO_ESTIMADO: 6 horas (target: 30 min)
 
-ESTADO_MENTAL: 
+ESTADO_MENTAL:
+
 - Modo MARATÓN activado 🔥
 - Velocidad 10x ✅
 - Sin explicaciones largas ✅
 - Commit cada task ✅
 
 VARIABLES_ACTIVAS:
+
 - virtualScroll: Implementado para >100 items
 - searchWorker: Web Worker activo
 - queryCache: LRU Cache de 50 queries
 - 3 tasks completadas en 30 min
 
 PRÓXIMO_MICRO_PASO:
+
 1. Crear handlers/search-handler.js
 2. Mover lógica de búsqueda
 3. Crear services/database-service.js
@@ -56,6 +62,7 @@ COMANDO_SUGERIDO: Continuar con TASK_023
 ```
 
 ### 📊 SNAPSHOT
+
 ```yaml
 Completado_Hoy: 15/15 tareas ✅
 Bloqueadores: 0
@@ -64,33 +71,35 @@ Tests: No implementados aún (TASK_024 pendiente)
 Última_Victoria: 3 tasks Sprint 1 en 30 min ✅
 
 MEGA_SPRINT_Stats:
-  Inicio: 18:45
-  Actual: 19:00
-  Tasks_Completadas: 3/5 Sprint 1
-  Velocidad: 10 min/task (vs 8h estimadas)
-  Eficiencia: 48x más rápido
-  
+    Inicio: 18:45
+    Actual: 19:00
+    Tasks_Completadas: 3/5 Sprint 1
+    Velocidad: 10 min/task (vs 8h estimadas)
+    Eficiencia: 48x más rápido
+
 Estado_Proyecto:
-  Features: 95% completas
-  Escalabilidad: 80% ✅ (virtual scroll DONE)
-  Polish: 70% 
-  Test_Coverage: 0%
-  Production_Ready: 60% (avanzando rápido)
-  
+    Features: 95% completas
+    Escalabilidad: 80% ✅ (virtual scroll DONE)
+    Polish: 70%
+    Test_Coverage: 0%
+    Production_Ready: 60% (avanzando rápido)
+
 Sprint_1_Progress:
-  TASK_020: ✅ Virtual Scroll
-  TASK_021: ✅ Web Workers
-  TASK_022: ✅ SQL Cache
-  TASK_023: 🔄 IN PROGRESS
-  TASK_024: ⏸️ PENDING
+    TASK_020: ✅ Virtual Scroll
+    TASK_021: ✅ Web Workers
+    TASK_022: ✅ SQL Cache
+    TASK_023: 🔄 IN PROGRESS
+    TASK_024: ⏸️ PENDING
 ```
 
 ### 🎯 PLAN DE ACCIÓN INMEDIATO (CAMINO 2)
+
 ```markdown
 📋 ROADMAP COMPLETO: Ver ROADMAP.md
 📅 4 SPRINTS x 1 SEMANA = 160 horas total
 
 SPRINT 1 - Foundation (Semana actual):
+
 - TASK_020: Virtual Scrolling [12h] 🔴 CRÍTICO
 - TASK_021: Web Workers [10h] 🟡 ALTA
 - TASK_022: SQL Optimization [8h] 🟡 ALTA
@@ -99,11 +108,12 @@ SPRINT 1 - Foundation (Semana actual):
 
 PRÓXIMA ACCIÓN INMEDIATA:
 → TASK_020: Implementar Virtual Scrolling
-  Archivo: index-complete.html
-  Patrón: Intersection Observer
-  Meta: Solo 50 elementos en DOM
+Archivo: index-complete.html
+Patrón: Intersection Observer
+Meta: Solo 50 elementos en DOM
 
 DEPENDENCIAS CRÍTICAS:
+
 - Virtual scroll ANTES de todo lo demás
 - Web Workers ANTES de HAMMS
 - Tests DESPUÉS de cada feature
@@ -114,6 +124,7 @@ DEPENDENCIAS CRÍTICAS:
 ## 🤖 PROTOCOLO DE COMANDOS
 
 ### 🟢 COMANDOS PRIMARIOS (Uso diario)
+
 ```bash
 CMD_WAKE    # Despertar a Claude con contexto
 CMD_RESUME  # Continuar desde checkpoint
@@ -123,6 +134,7 @@ CMD_SLEEP   # Cerrar sesión con documentación
 ```
 
 ### 🔵 COMANDOS CREATIVOS (Cuando necesitas ideas)
+
 ```bash
 CMD_SPARK   # 3 ideas rápidas sobre problema actual
 CMD_DREAM   # Solución sin límites técnicos
@@ -131,6 +143,7 @@ CMD_FLIP    # Invertir approach actual
 ```
 
 ### 🟣 COMANDOS DE EMERGENCIA
+
 ```bash
 CMD_PANIC   # Solución hacky AHORA
 CMD_REVERT  # Volver a último estado estable
@@ -138,6 +151,7 @@ CMD_DOCTOR  # Diagnosticar qué está roto
 ```
 
 ### Sintaxis Universal
+
 ```
 [COMANDO] [PARÁMETRO] [--FLAGS]
 
@@ -152,6 +166,7 @@ CMD_SPARK visualizations --practical
 ## 📝 MEMORIA PERSISTENTE
 
 ### 🔒 DECISIONES INMUTABLES
+
 ```markdown
 DEC_001 | 2025-01-09 | Stack Tecnológico
 Decisión: Vanilla JS + Electron + SQLite
@@ -203,6 +218,7 @@ LOCKED: FALSE (evaluable según necesidad)
 ```
 
 ### 💡 IDEAS PARKING (Para no perder creatividad)
+
 ```markdown
 IDEA_001 | Prioridad: HIGH | Estado: SCHEDULED (Semana 2)
 Concepto: Mapa de calor BPM vs Energy con Canvas 2D
@@ -222,10 +238,10 @@ Potencial: ⭐⭐⭐⭐⭐
 Requisitos: Web Audio API, visualización waveform
 Nota: Considerar para CAMINO 3 - AMBITIOUS
 
-IDEA_004 | Prioridad: HIGH | Estado: SCHEDULED (Semana 2)
+IDEA*004 | Prioridad: HIGH | Estado: SCHEDULED (Semana 2)
 Concepto: Sistema HAMMS - Similitud 7D entre tracks
 Potencial: ⭐⭐⭐⭐⭐
-Requisitos: Campos AI_*, algoritmo de distancia euclidiana
+Requisitos: Campos AI*\*, algoritmo de distancia euclidiana
 Plan: Feature diferenciador clave del CAMINO 2
 
 IDEA_005 | Prioridad: MED | Estado: SCHEDULED (Semana 3)
@@ -254,6 +270,7 @@ Complejidad: Alta, temas legales
 ```
 
 ### ✅ VICTORIAS (Qué funcionó)
+
 ```markdown
 WIN_001 | 2025-01-10
 Qué: Implementamos búsqueda con debounce
@@ -287,6 +304,7 @@ Aprendizaje: Índices bien pensados = magia
 ```
 
 ### ❌ TRAMPAS (Qué evitar)
+
 ```markdown
 TRAP_001 | 2025-01-09
 Error: Cargar carátulas en tiempo real
@@ -319,6 +337,7 @@ Lección: Web Workers para procesamiento pesado
 ## 🔄 ESTADO DEL PROYECTO
 
 ### Arquitectura Viva
+
 ```
 music-app-clean/
 ├── main.js          [■■■■■] 100% ✅ Backend completo
@@ -329,14 +348,15 @@ music-app-clean/
 ```
 
 ### Métricas en Tiempo Real
+
 ```javascript
 const PROJECT_HEALTH = {
-  velocity: "8 tasks/day",      // 📈 EXCEPCIONAL
-  blockers: 0,                  // 🎉 Sin obstáculos
-  tech_debt: "3 hours",         // 💳 Mínima deuda
-  morale: "VERY HIGH",          // 🚀 Sesión súper productiva
-  next_milestone: "Extraer más carátulas" // 🎯 Objetivo
-}
+    velocity: '8 tasks/day', // 📈 EXCEPCIONAL
+    blockers: 0, // 🎉 Sin obstáculos
+    tech_debt: '3 hours', // 💳 Mínima deuda
+    morale: 'VERY HIGH', // 🚀 Sesión súper productiva
+    next_milestone: 'Extraer más carátulas', // 🎯 Objetivo
+};
 ```
 
 ---
@@ -344,11 +364,12 @@ const PROJECT_HEALTH = {
 ## 🧩 PATRONES Y SNIPPETS
 
 ### Patrón Activo
+
 ```javascript
 // PATRÓN: Debounce Universal - Usar en TODOS los inputs de búsqueda
 function debounce(func, wait) {
     let timeout;
-    return function(...args) {
+    return function (...args) {
         clearTimeout(timeout);
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
@@ -357,6 +378,7 @@ function debounce(func, wait) {
 ```
 
 ### Snippet del Día
+
 ```javascript
 // SNIPPET: Toggle Tema Oscuro/Claro
 // Copiar/pegar directo, ya probado
@@ -374,26 +396,29 @@ function toggleTheme() {
 ## 📊 TABLERO DE CONTROL
 
 ### Sprint 1 - Foundation (Semana 1)
-| ID | Tarea | Estado | Progreso | Tiempo |
-|----|-------|--------|----------|--------|
-| T020 | Virtual Scrolling | 🔴 NEXT | ░░░░░ 0% | 12h |
-| T021 | Web Workers | 📋 TODO | ░░░░░ 0% | 10h |
-| T022 | SQL Optimization | 📋 TODO | ░░░░░ 0% | 8h |
-| T023 | Modularización | 📋 TODO | ░░░░░ 0% | 6h |
-| T024 | Performance Tests | 📋 TODO | ░░░░░ 0% | 4h |
+
+| ID   | Tarea             | Estado  | Progreso | Tiempo |
+| ---- | ----------------- | ------- | -------- | ------ |
+| T020 | Virtual Scrolling | 🔴 NEXT | ░░░░░ 0% | 12h    |
+| T021 | Web Workers       | 📋 TODO | ░░░░░ 0% | 10h    |
+| T022 | SQL Optimization  | 📋 TODO | ░░░░░ 0% | 8h     |
+| T023 | Modularización    | 📋 TODO | ░░░░░ 0% | 6h     |
+| T024 | Performance Tests | 📋 TODO | ░░░░░ 0% | 4h     |
 
 ### Completadas (Sesión #3)
-| ID | Tarea | Estado | Tiempo Real |
-|----|-------|--------|-------------|
-| T008 | Sliders BPM/Energy | ✅ DONE | 45min |
-| T011 | Reproductor | ✅ DONE | 2h |
-| T012 | Vista Lista | ✅ DONE | 1h |
-| T013 | Modo Oscuro | ✅ DONE | 30min |
+
+| ID   | Tarea              | Estado  | Tiempo Real |
+| ---- | ------------------ | ------- | ----------- |
+| T008 | Sliders BPM/Energy | ✅ DONE | 45min       |
+| T011 | Reproductor        | ✅ DONE | 2h          |
+| T012 | Vista Lista        | ✅ DONE | 1h          |
+| T013 | Modo Oscuro        | ✅ DONE | 30min       |
 
 ### Salud del Código
+
 ```
 Complejidad: 🟢 Baja (< 10)
-Duplicación: 🟢 Baja (2%)  
+Duplicación: 🟢 Baja (2%)
 Coverage: 🔴 No hay tests (0%)
 Performance: 🟢 Óptimo (<100ms)
 Deuda Técnica: 🟢 3 horas
@@ -404,14 +429,16 @@ Deuda Técnica: 🟢 3 horas
 ## 🎮 MODO DE OPERACIÓN
 
 ### Selector de Modo
+
 ```yaml
-FOCUS:       Hacer una cosa bien
-CREATIVE:    Explorar posibilidades ← ACTUAL
+FOCUS: Hacer una cosa bien
+CREATIVE: Explorar posibilidades ← ACTUAL
 MAINTENANCE: Limpiar y optimizar
 EXPLORATION: Investigar nuevas tech
 ```
 
 ### Nivel de Creatividad
+
 ```
 [1] CONSERVATIVE - Solución probada y segura
 [2] ENHANCED     - Pequeñas mejoras permitidas
@@ -426,25 +453,25 @@ EXPLORATION: Investigar nuevas tech
 
 ```yaml
 Electron:
-  version: 32.2.10
-  status: ✅ RUNNING
-  window: index-complete.html
+    version: 32.2.10
+    status: ✅ RUNNING
+    window: index-complete.html
 
 SQLite:
-  database: music_analyzer.db
-  size: 14.5 MB
-  records: 3,767 tracks
-  metadata: 3,681 con LLM (97%)
+    database: music_analyzer.db
+    size: 14.5 MB
+    records: 3,767 tracks
+    metadata: 3,681 con LLM (97%)
 
 Artwork:
-  cached: 491 JPGs
-  pending: 3,276 (87%)
-  location: artwork-cache/
+    cached: 491 JPGs
+    pending: 3,276 (87%)
+    location: artwork-cache/
 
 Dependencies:
-  sqlite3: ✅ OK
-  music-metadata: ✅ OK
-  howler: ✅ OK
+    sqlite3: ✅ OK
+    music-metadata: ✅ OK
+    howler: ✅ OK
 ```
 
 ---
@@ -452,6 +479,7 @@ Dependencies:
 ## 💬 PROTOCOLO DE COMUNICACIÓN
 
 ### Claude Responde Así:
+
 ```markdown
 ## [EMOJI] [COMANDO] Ejecutado
 
@@ -469,6 +497,7 @@ Dependencies:
 ```
 
 ### Humano Pregunta Así:
+
 ```
 [COMANDO] [objetivo] [--contexto]
 ```
@@ -478,6 +507,7 @@ Dependencies:
 ## 📈 PROGRESO DE SESIÓN
 
 ### Hoy (Sesión #3)
+
 - [x] CMD_WAKE - Framework creado
 - [x] CMD_TASK 008 - Sliders BPM/Energy
 - [x] CMD_TASK 011 - Reproductor
@@ -487,9 +517,10 @@ Dependencies:
 - [ ] CMD_SLEEP - Pendiente
 
 ### Esta Semana
+
 ```
 LUN [██████████] 100% - Setup + Migración
-MAR [██████████] 100% - Búsqueda + Filtros  
+MAR [██████████] 100% - Búsqueda + Filtros
 MIE [██████████] 100% - UI Completa + Player
 JUE [░░░░░░░░░░] 0%  - (Por planear)
 VIE [░░░░░░░░░░] 0%  - (Por planear)
@@ -500,6 +531,7 @@ VIE [░░░░░░░░░░] 0%  - (Por planear)
 ## 🚨 SISTEMA DE ALERTAS
 
 ### ⚠️ Warnings Activos
+
 ```markdown
 W001: Solo 13% de tracks tienen carátula (491/3,767)
 W002: No hay tests implementados (0% coverage)
@@ -507,6 +539,7 @@ W003: Falta documentación de API en main.js
 ```
 
 ### 🎯 Recordatorios
+
 ```markdown
 R001: Extraer más carátulas (3,276 pendientes)
 R002: Implementar virtual scrolling para 10k+ tracks
@@ -518,6 +551,7 @@ R003: Agregar tests básicos para handlers IPC
 ## 🔧 CONFIGURACIÓN RÁPIDA
 
 ### Para Copiar/Pegar
+
 ```bash
 # Comandos del proyecto
 cd /Users/freddymolina/Desktop/pro2/music-analyzer-electron/music-app-clean
@@ -543,12 +577,14 @@ alias metrics="claude 'CMD_METRICS'"
 ## 📚 KNOWLEDGE BASE
 
 ### 📁 Documentos del Proyecto
+
 - **ROADMAP.md** - Plan detallado de 4 sprints (40 tareas)
 - **CLAUDE.md** - Documentación técnica del proyecto
 - **MUSIC_ANALYZER_SESSION_STATE.md** - Estado de sesión
 - **COLLABORATION_FRAMEWORK.md** - Framework de colaboración
 
 ### Links Vitales
+
 - [Electron Docs](https://www.electronjs.org/docs)
 - [Howler.js Docs](https://howlerjs.com/)
 - [SQLite3 Node](https://github.com/TryGhost/node-sqlite3)
@@ -556,6 +592,7 @@ alias metrics="claude 'CMD_METRICS'"
 - [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
 
 ### Soluciones a Problemas Comunes
+
 <details>
 <summary>Error: "Carátulas no se muestran"</summary>
 
@@ -563,9 +600,10 @@ alias metrics="claude 'CMD_METRICS'"
 // Problema: webSecurity bloquea file://
 // Solución: En main.js
 webPreferences: {
-    webSecurity: false
+    webSecurity: false;
 }
 ```
+
 </details>
 
 <details>
@@ -576,6 +614,7 @@ webPreferences: {
 // Solución: Siempre usar debounce 300ms
 const searchDebounced = debounce(performSearch, 300);
 ```
+
 </details>
 
 ---
@@ -583,16 +622,19 @@ const searchDebounced = debounce(performSearch, 300);
 ## 🎯 MODO INSTANT ACTION
 
 ### Si solo tienes 5 minutos:
+
 ```bash
 claude "CMD_RESUME --quick"  # Continúa lo más urgente
 ```
 
 ### Si estás bloqueado:
+
 ```bash
 claude "CMD_SPARK artwork"  # 3 formas de manejar carátulas
 ```
 
 ### Si necesitas commitear ya:
+
 ```bash
 claude "CMD_SAVE --git-ready"  # Prepara todo para commit
 ```
@@ -602,6 +644,7 @@ claude "CMD_SAVE --git-ready"  # Prepara todo para commit
 ## 🔄 RITUALES DE SESIÓN
 
 ### 🌅 Inicio (2 min)
+
 ```bash
 CMD_WAKE        # Cargar contexto
 CMD_RESUME      # Ver dónde estamos
@@ -609,6 +652,7 @@ CMD_RESUME      # Ver dónde estamos
 ```
 
 ### 🏃 Durante (Trabajo)
+
 ```bash
 CMD_TASK [id]   # Ejecutar
 CMD_SPARK       # Si necesitas ideas
@@ -616,6 +660,7 @@ CMD_SAVE        # Checkpoint cada hora
 ```
 
 ### 🌙 Cierre (3 min)
+
 ```bash
 CMD_SAVE        # Guardar estado final
 CMD_SLEEP       # Documentar y cerrar
@@ -627,12 +672,14 @@ CMD_SLEEP       # Documentar y cerrar
 ## 🧬 EVOLUCIÓN DEL SISTEMA
 
 ### Versión Actual: 3.0
+
 - ✅ Unificado en un solo archivo
-- ✅ Comandos simplificados  
+- ✅ Comandos simplificados
 - ✅ Modo de operación flexible
 - ✅ Métricas en tiempo real
 
 ### Próximas Mejoras (v4.0)
+
 - [ ] Auto-save cada 15 min
 - [ ] Integración con Git hooks
 - [ ] Dashboard visual
@@ -647,22 +694,22 @@ Fecha: 2025-01-10
 Duración: ~5 horas
 Tareas Completadas: 10/10 (100%)
 Features Agregadas:
-  - Búsqueda con debounce y caché
-  - Filtros avanzados (BPM/Energy sliders)
-  - Modo oscuro/claro persistente
-  - Vista dual Grid/Lista
-  - Reproductor completo con Howler.js
-  - 9 índices de optimización BD
+    - Búsqueda con debounce y caché
+    - Filtros avanzados (BPM/Energy sliders)
+    - Modo oscuro/claro persistente
+    - Vista dual Grid/Lista
+    - Reproductor completo con Howler.js
+    - 9 índices de optimización BD
 Análisis Estratégico:
-  - CMD_ANALYZE completo del proyecto
-  - 3 roadmaps detallados (Conservative/Balanced/Ambitious)
-  - CAMINO 2 - BALANCED seleccionado (1 mes)
-  - Plan de acción documentado
+    - CMD_ANALYZE completo del proyecto
+    - 3 roadmaps detallados (Conservative/Balanced/Ambitious)
+    - CAMINO 2 - BALANCED seleccionado (1 mes)
+    - Plan de acción documentado
 Decisiones Tomadas:
-  - Virtual scroll es CRÍTICO (siguiente tarea)
-  - Mantener vanilla JS confirmado
-  - HAMMS como diferenciador clave
-  - Web Workers para cálculos pesados
+    - Virtual scroll es CRÍTICO (siguiente tarea)
+    - Mantener vanilla JS confirmado
+    - HAMMS como diferenciador clave
+    - Web Workers para cálculos pesados
 Líneas de Código: ~1,500
 Bugs Introducidos: 0
 Estado Final: PRODUCCIÓN READY + ROADMAP CLARO
@@ -670,8 +717,8 @@ Estado Final: PRODUCCIÓN READY + ROADMAP CLARO
 
 ---
 
-*Sistema CLAUDE_BRAIN v3.0 - Un solo archivo, toda la inteligencia*
-*"Menos archivos, más acción"*
+_Sistema CLAUDE_BRAIN v3.0 - Un solo archivo, toda la inteligencia_
+_"Menos archivos, más acción"_
 
 ## 🎯 USO RÁPIDO
 

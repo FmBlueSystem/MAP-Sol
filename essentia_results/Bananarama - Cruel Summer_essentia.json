@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bananarama - Cruel Summer.flac",
-  "file_name": "Bananarama - Cruel Summer.flac",
-  "timestamp": "2025-08-16T22:49:51.564986",
-  "essentia_features": {
-    "loudness_lufs": -4.405418395996094,
-    "danceability": 1.3275270462036133,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5004207491874695,
-    "liveness": 0.1,
-    "speechiness": 0.1436356572152771,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bananarama - Cruel Summer.flac",
+    "file_name": "Bananarama - Cruel Summer.flac",
+    "timestamp": "2025-08-16T22:49:51.564986",
+    "essentia_features": {
+        "loudness_lufs": -4.405418395996094,
+        "danceability": 1.3275270462036133,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5004207491874695,
+        "liveness": 0.1,
+        "speechiness": 0.1436356572152771,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

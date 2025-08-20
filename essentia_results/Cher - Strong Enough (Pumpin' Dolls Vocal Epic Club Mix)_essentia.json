@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cher - Strong Enough (Pumpin' Dolls Vocal Epic Club Mix).flac",
-  "file_name": "Cher - Strong Enough (Pumpin' Dolls Vocal Epic Club Mix).flac",
-  "timestamp": "2025-08-16T23:30:23.578726",
-  "essentia_features": {
-    "loudness_lufs": -4.611469268798828,
-    "danceability": 1.5254595279693604,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5962815284729004,
-    "liveness": 0.1,
-    "speechiness": 0.13201511881407338,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cher - Strong Enough (Pumpin' Dolls Vocal Epic Club Mix).flac",
+    "file_name": "Cher - Strong Enough (Pumpin' Dolls Vocal Epic Club Mix).flac",
+    "timestamp": "2025-08-16T23:30:23.578726",
+    "essentia_features": {
+        "loudness_lufs": -4.611469268798828,
+        "danceability": 1.5254595279693604,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5962815284729004,
+        "liveness": 0.1,
+        "speechiness": 0.13201511881407338,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

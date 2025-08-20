@@ -63,10 +63,7 @@
             "topic_main": "Romance",
             "topics_secondary": ["Desire", "Intimacy"],
             "coherence_score": 0.9,
-            "coherence_notes": [
-                "Consistent romantic theme",
-                "Repeated phrases enhance the song's hook"
-            ],
+            "coherence_notes": ["Consistent romantic theme", "Repeated phrases enhance the song's hook"],
             "lyric_mood": "Romantic",
             "sentiment": 0.8,
             "emotions": {

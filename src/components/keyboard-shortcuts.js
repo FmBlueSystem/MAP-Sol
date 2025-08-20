@@ -116,7 +116,7 @@ class KeyboardShortcuts {
         }
 
         // Reset filtros
-        ['genreFilter', 'moodFilter', 'sortFilter'].forEach(id => {
+        ['genreFilter', 'moodFilter', 'sortFilter'].forEach((id) => {
             const el = document.getElementById(id);
             if (el) {
                 el.selectedIndex = 0;
@@ -226,5 +226,5 @@ class KeyboardShortcuts {
 // Auto-inicializar
 if (typeof window !== 'undefined') {
     window.keyboardShortcuts = new KeyboardShortcuts();
-    document.addEventListener('keydown', e => window.keyboardShortcuts.handleKeyDown(e));
+    document.addEventListener('keydown', (e) => window.keyboardShortcuts.handleKeyDown(e));
 }

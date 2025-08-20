@@ -2,36 +2,36 @@
 :root {
     /* Colors */
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --secondary-gradient: linear-gradient(135deg, #FDB813 0%, #FFAA00 100%);
+    --secondary-gradient: linear-gradient(135deg, #fdb813 0%, #ffaa00 100%);
     --dark-gradient: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
-    
+
     --primary-color: #667eea;
-    --secondary-color: #FDB813;
+    --secondary-color: #fdb813;
     --accent-color: #764ba2;
-    
+
     --bg-primary: #0a0a0f;
     --bg-secondary: #1a1a2e;
     --bg-tertiary: #2a2a3e;
-    
+
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.7);
     --text-tertiary: rgba(255, 255, 255, 0.5);
-    
+
     --border-color: rgba(255, 255, 255, 0.1);
     --border-hover: rgba(255, 255, 255, 0.2);
-    
+
     --success-color: #10b981;
     --warning-color: #f59e0b;
     --error-color: #ef4444;
     --info-color: #3b82f6;
-    
+
     /* Glassmorphism */
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-bg-hover: rgba(255, 255, 255, 0.08);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     --glass-blur: blur(10px);
-    
+
     /* Spacing */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
@@ -40,7 +40,7 @@
     --spacing-xl: 32px;
     --spacing-2xl: 48px;
     --spacing-3xl: 64px;
-    
+
     /* Typography */
     --font-xs: 0.75rem;
     --font-sm: 0.875rem;
@@ -50,19 +50,19 @@
     --font-2xl: 1.5rem;
     --font-3xl: 2rem;
     --font-4xl: 2.5rem;
-    
+
     /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
     --radius-xl: 16px;
     --radius-full: 9999px;
-    
+
     /* Transitions */
     --transition-fast: 150ms ease;
     --transition-base: 200ms ease;
     --transition-slow: 300ms ease;
-    
+
     /* Z-index */
     --z-base: 1;
     --z-dropdown: 10;
@@ -71,7 +71,7 @@
     --z-modal: 40;
     --z-toast: 50;
     --z-tooltip: 60;
-    
+
     /* Layout */
     --header-height: 60px;
     --nav-width: 250px;

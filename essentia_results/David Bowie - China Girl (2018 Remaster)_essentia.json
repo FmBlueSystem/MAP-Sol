@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/David Bowie - China Girl (2018 Remaster).flac",
-  "file_name": "David Bowie - China Girl (2018 Remaster).flac",
-  "timestamp": "2025-08-16T23:47:06.767500",
-  "essentia_features": {
-    "loudness_lufs": -5.125875473022461,
-    "danceability": 1.296528935432434,
-    "acousticness": 0.5,
-    "instrumentalness": 0.42889201641082764,
-    "liveness": 0.1,
-    "speechiness": 0.10182636719762844,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/David Bowie - China Girl (2018 Remaster).flac",
+    "file_name": "David Bowie - China Girl (2018 Remaster).flac",
+    "timestamp": "2025-08-16T23:47:06.767500",
+    "essentia_features": {
+        "loudness_lufs": -5.125875473022461,
+        "danceability": 1.296528935432434,
+        "acousticness": 0.5,
+        "instrumentalness": 0.42889201641082764,
+        "liveness": 0.1,
+        "speechiness": 0.10182636719762844,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -36,11 +36,11 @@ function createExportHandler(db) {
                         ),
                         filters: exporter
                             .getSupportedFormats()
-                            .filter(f => f.id === format)
-                            .map(f => ({
+                            .filter((f) => f.id === format)
+                            .map((f) => ({
                                 name: f.name,
-                                extensions: [f.extension.slice(1)]
-                            }))
+                                extensions: [f.extension.slice(1)],
+                            })),
                     });
 
                     if (result.canceled) {
@@ -51,14 +51,14 @@ function createExportHandler(db) {
                     // Exportar
                     const exportResult = await exporter.export(tracks, format, {
                         name: playlistName || 'Playlist',
-                        savePath: path.dirname(result.filePath)
+                        savePath: path.dirname(result.filePath),
                     });
 
                     resolve({
                         success: true,
                         format: exportResult.format,
                         path: exportResult.savedTo,
-                        tracksExported: tracks.length
+                        tracksExported: tracks.length,
                     });
                 });
             });
@@ -79,5 +79,5 @@ function createGetFormatsHandler() {
 
 module.exports = {
     createExportHandler,
-    createGetFormatsHandler
+    createGetFormatsHandler,
 };

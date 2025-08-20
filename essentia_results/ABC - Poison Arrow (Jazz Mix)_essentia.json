@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/ABC - Poison Arrow (Jazz Mix).flac",
-  "file_name": "ABC - Poison Arrow (Jazz Mix).flac",
-  "timestamp": "2025-08-16T22:35:03.501147",
-  "essentia_features": {
-    "loudness_lufs": -6.098073959350586,
-    "danceability": 1.379594087600708,
-    "acousticness": 0.5,
-    "instrumentalness": 0.47238683700561523,
-    "liveness": 0.1,
-    "speechiness": 0.08163191870710267,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/ABC - Poison Arrow (Jazz Mix).flac",
+    "file_name": "ABC - Poison Arrow (Jazz Mix).flac",
+    "timestamp": "2025-08-16T22:35:03.501147",
+    "essentia_features": {
+        "loudness_lufs": -6.098073959350586,
+        "danceability": 1.379594087600708,
+        "acousticness": 0.5,
+        "instrumentalness": 0.47238683700561523,
+        "liveness": 0.1,
+        "speechiness": 0.08163191870710267,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

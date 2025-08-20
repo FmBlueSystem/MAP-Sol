@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Chic - Everybody Dance (2018 Remaster).flac",
-  "file_name": "Chic - Everybody Dance (2018 Remaster).flac",
-  "timestamp": "2025-08-16T23:31:08.927937",
-  "essentia_features": {
-    "loudness_lufs": -9.048324584960938,
-    "danceability": 1.7320913076400757,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4351755976676941,
-    "liveness": 0.1,
-    "speechiness": 0.1615222884712715,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Chic - Everybody Dance (2018 Remaster).flac",
+    "file_name": "Chic - Everybody Dance (2018 Remaster).flac",
+    "timestamp": "2025-08-16T23:31:08.927937",
+    "essentia_features": {
+        "loudness_lufs": -9.048324584960938,
+        "danceability": 1.7320913076400757,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4351755976676941,
+        "liveness": 0.1,
+        "speechiness": 0.1615222884712715,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

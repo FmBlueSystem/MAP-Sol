@@ -414,7 +414,7 @@ class ExportUI {
                 fields: ['basic'],
                 format: 'm3u',
                 encoding: 'utf8',
-            }
+            },
         };
 
         const preset = presets[presetName];

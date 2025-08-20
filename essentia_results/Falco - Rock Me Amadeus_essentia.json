@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Falco - Rock Me Amadeus.flac",
-  "file_name": "Falco - Rock Me Amadeus.flac",
-  "timestamp": "2025-08-17T00:20:52.155035",
-  "essentia_features": {
-    "loudness_lufs": -6.951274871826172,
-    "danceability": 1.341338872909546,
-    "acousticness": 0.5,
-    "instrumentalness": 0.44912415742874146,
-    "liveness": 0.1,
-    "speechiness": 0.1488484319971329,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Falco - Rock Me Amadeus.flac",
+    "file_name": "Falco - Rock Me Amadeus.flac",
+    "timestamp": "2025-08-17T00:20:52.155035",
+    "essentia_features": {
+        "loudness_lufs": -6.951274871826172,
+        "danceability": 1.341338872909546,
+        "acousticness": 0.5,
+        "instrumentalness": 0.44912415742874146,
+        "liveness": 0.1,
+        "speechiness": 0.1488484319971329,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - I Don't Want Your Love (Dub Mix) [2010 Remaster].flac",
-  "file_name": "Duran Duran - I Don't Want Your Love (Dub Mix) [2010 Remaster].flac",
-  "timestamp": "2025-08-17T00:03:43.841724",
-  "essentia_features": {
-    "loudness_lufs": -8.290021896362305,
-    "danceability": 1.439188838005066,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6751025915145874,
-    "liveness": 0.1,
-    "speechiness": 0.2458923305452738,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - I Don't Want Your Love (Dub Mix) [2010 Remaster].flac",
+    "file_name": "Duran Duran - I Don't Want Your Love (Dub Mix) [2010 Remaster].flac",
+    "timestamp": "2025-08-17T00:03:43.841724",
+    "essentia_features": {
+        "loudness_lufs": -8.290021896362305,
+        "danceability": 1.439188838005066,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6751025915145874,
+        "liveness": 0.1,
+        "speechiness": 0.2458923305452738,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

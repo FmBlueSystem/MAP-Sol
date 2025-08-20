@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Estopa - Como Camaro\u0301n.flac",
-  "file_name": "Estopa - Como Camaro\u0301n.flac",
-  "timestamp": "2025-08-17T00:16:23.698501",
-  "essentia_features": {
-    "loudness_lufs": -7.749237060546875,
-    "danceability": 1.1911485195159912,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4021151065826416,
-    "liveness": 0.1,
-    "speechiness": 0.14386572320122454,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Estopa - Como Camaro\u0301n.flac",
+    "file_name": "Estopa - Como Camaro\u0301n.flac",
+    "timestamp": "2025-08-17T00:16:23.698501",
+    "essentia_features": {
+        "loudness_lufs": -7.749237060546875,
+        "danceability": 1.1911485195159912,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4021151065826416,
+        "liveness": 0.1,
+        "speechiness": 0.14386572320122454,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

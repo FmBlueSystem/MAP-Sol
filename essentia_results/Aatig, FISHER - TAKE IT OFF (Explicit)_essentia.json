@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aatig, FISHER - TAKE IT OFF (Explicit).flac",
-  "file_name": "Aatig, FISHER - TAKE IT OFF (Explicit).flac",
-  "timestamp": "2025-08-16T22:35:50.087579",
-  "essentia_features": {
-    "loudness_lufs": -4.114221572875977,
-    "danceability": 1.3828977346420288,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6858155131340027,
-    "liveness": 0.1,
-    "speechiness": 0.1062344738064993,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aatig, FISHER - TAKE IT OFF (Explicit).flac",
+    "file_name": "Aatig, FISHER - TAKE IT OFF (Explicit).flac",
+    "timestamp": "2025-08-16T22:35:50.087579",
+    "essentia_features": {
+        "loudness_lufs": -4.114221572875977,
+        "danceability": 1.3828977346420288,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6858155131340027,
+        "liveness": 0.1,
+        "speechiness": 0.1062344738064993,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

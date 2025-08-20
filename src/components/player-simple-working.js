@@ -6,5 +6,5 @@ console.log('Component player-simple-working.js temporarily disabled due to synt
 // Basic placeholder component
 window.playersimpleworking = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>'
+    render: () => '<div>Component temporarily unavailable</div>',
 };

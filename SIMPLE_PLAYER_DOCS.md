@@ -7,51 +7,51 @@ Panel de reproducción minimalista con VU meter profesional de estándar broadca
 ### 🎯 Características Implementadas
 
 1. **✅ Layout HTML/CSS del Player**
-   - Player bar fijo en la parte inferior
-   - Diseño glassmorphism con backdrop blur
-   - Información del track con artwork
+    - Player bar fijo en la parte inferior
+    - Diseño glassmorphism con backdrop blur
+    - Información del track con artwork
 
 2. **✅ Clase VuMeter Base**
-   - Canvas 2D con renderizado de alta calidad
-   - Escala broadcast estándar (-20 a +3 dB)
-   - Gradientes de color por nivel de audio
+    - Canvas 2D con renderizado de alta calidad
+    - Escala broadcast estándar (-20 a +3 dB)
+    - Gradientes de color por nivel de audio
 
 3. **✅ Web Audio API Integración**
-   - Conexión automática con Howler.js
-   - Análisis RMS en tiempo real
-   - Manejo de nodos de audio
+    - Conexión automática con Howler.js
+    - Análisis RMS en tiempo real
+    - Manejo de nodos de audio
 
 4. **✅ Controles de Reproducción**
-   - Play/Pause, Previous/Next
-   - Barra de progreso interactiva
-   - Control de volumen
-   - Sistema de cola básico
+    - Play/Pause, Previous/Next
+    - Barra de progreso interactiva
+    - Control de volumen
+    - Sistema de cola básico
 
 5. **✅ Sistema Peak Hold**
-   - Hold de picos por 2 segundos
-   - Decay automático de picos
-   - Indicador visual blanco
+    - Hold de picos por 2 segundos
+    - Decay automático de picos
+    - Indicador visual blanco
 
 6. **✅ Conexión SQLite Database**
-   - Handler IPC: `get-track-for-player`
-   - Integración con menú contextual existente
-   - Fallback al player anterior
+    - Handler IPC: `get-track-for-player`
+    - Integración con menú contextual existente
+    - Fallback al player anterior
 
 7. **✅ Sistema de Cola**
-   - Panel desplegable de cola
-   - Gestión de tracks en cola
-   - Contador visual
+    - Panel desplegable de cola
+    - Gestión de tracks en cola
+    - Contador visual
 
 8. **✅ Atajos de Teclado**
-   - Space: Play/Pause
-   - ←/→: Anterior/Siguiente
-   - ↑/↓: Volumen
-   - M: Mute
+    - Space: Play/Pause
+    - ←/→: Anterior/Siguiente
+    - ↑/↓: Volumen
+    - M: Mute
 
 9. **✅ Optimización 60 FPS**
-   - Control de frame rate con requestAnimationFrame
-   - Limitador de FPS a 60
-   - Renderizado eficiente
+    - Control de frame rate con requestAnimationFrame
+    - Limitador de FPS a 60
+    - Renderizado eficiente
 
 10. **✅ Diseño Responsive**
     - Breakpoints: 1024px, 768px, 480px
@@ -111,6 +111,7 @@ vuMeter.setSmoothing(0.85);
 ## 🔧 Configuración
 
 Todos los parámetros están en `js/vu-meter.js`:
+
 - `minDb/maxDb`: Rango de medición
 - `smoothingFactor`: Suavizado (0-1)
 - `peakHoldTime`: Tiempo hold picos (ms)

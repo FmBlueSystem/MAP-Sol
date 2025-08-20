@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Martina Budde - Tryin to Forget You (Nudisco Mix).flac",
-  "file_name": "Block & Crown, Martina Budde - Tryin to Forget You (Nudisco Mix).flac",
-  "timestamp": "2025-08-16T23:11:05.089669",
-  "essentia_features": {
-    "loudness_lufs": -3.490171432495117,
-    "danceability": 1.4608007669448853,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6882063448429108,
-    "liveness": 0.1,
-    "speechiness": 0.17399398303988664,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, Martina Budde - Tryin to Forget You (Nudisco Mix).flac",
+    "file_name": "Block & Crown, Martina Budde - Tryin to Forget You (Nudisco Mix).flac",
+    "timestamp": "2025-08-16T23:11:05.089669",
+    "essentia_features": {
+        "loudness_lufs": -3.490171432495117,
+        "danceability": 1.4608007669448853,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6882063448429108,
+        "liveness": 0.1,
+        "speechiness": 0.17399398303988664,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

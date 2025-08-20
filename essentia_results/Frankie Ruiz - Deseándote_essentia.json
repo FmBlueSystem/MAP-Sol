@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Frankie Ruiz - Desea\u0301ndote.flac",
-  "file_name": "Frankie Ruiz - Desea\u0301ndote.flac",
-  "timestamp": "2025-08-17T00:27:50.625453",
-  "essentia_features": {
-    "loudness_lufs": -4.0952606201171875,
-    "danceability": 1.4320193529129028,
-    "acousticness": 0.5,
-    "instrumentalness": 0.46463412046432495,
-    "liveness": 0.1,
-    "speechiness": 0.11511851690017451,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Frankie Ruiz - Desea\u0301ndote.flac",
+    "file_name": "Frankie Ruiz - Desea\u0301ndote.flac",
+    "timestamp": "2025-08-17T00:27:50.625453",
+    "essentia_features": {
+        "loudness_lufs": -4.0952606201171875,
+        "danceability": 1.4320193529129028,
+        "acousticness": 0.5,
+        "instrumentalness": 0.46463412046432495,
+        "liveness": 0.1,
+        "speechiness": 0.11511851690017451,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

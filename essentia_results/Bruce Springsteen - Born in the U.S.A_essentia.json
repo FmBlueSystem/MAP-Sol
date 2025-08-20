@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bruce Springsteen - Born in the U.S.A.flac",
-  "file_name": "Bruce Springsteen - Born in the U.S.A.flac",
-  "timestamp": "2025-08-16T23:19:43.873895",
-  "essentia_features": {
-    "loudness_lufs": -4.926441192626953,
-    "danceability": 1.2191333770751953,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4656870365142822,
-    "liveness": 0.1,
-    "speechiness": 0.17361956736460554,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bruce Springsteen - Born in the U.S.A.flac",
+    "file_name": "Bruce Springsteen - Born in the U.S.A.flac",
+    "timestamp": "2025-08-16T23:19:43.873895",
+    "essentia_features": {
+        "loudness_lufs": -4.926441192626953,
+        "danceability": 1.2191333770751953,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4656870365142822,
+        "liveness": 0.1,
+        "speechiness": 0.17361956736460554,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

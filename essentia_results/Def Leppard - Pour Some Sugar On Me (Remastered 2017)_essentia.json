@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Def Leppard - Pour Some Sugar On Me (Remastered 2017).flac",
-  "file_name": "Def Leppard - Pour Some Sugar On Me (Remastered 2017).flac",
-  "timestamp": "2025-08-16T23:51:19.850883",
-  "essentia_features": {
-    "loudness_lufs": -3.373088836669922,
-    "danceability": 1.2553551197052002,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4785234332084656,
-    "liveness": 0.1,
-    "speechiness": 0.18489118293463622,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Def Leppard - Pour Some Sugar On Me (Remastered 2017).flac",
+    "file_name": "Def Leppard - Pour Some Sugar On Me (Remastered 2017).flac",
+    "timestamp": "2025-08-16T23:51:19.850883",
+    "essentia_features": {
+        "loudness_lufs": -3.373088836669922,
+        "danceability": 1.2553551197052002,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4785234332084656,
+        "liveness": 0.1,
+        "speechiness": 0.18489118293463622,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

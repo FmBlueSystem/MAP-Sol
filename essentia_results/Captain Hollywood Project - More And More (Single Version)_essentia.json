@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Captain Hollywood Project - More And More (Single Version).flac",
-  "file_name": "Captain Hollywood Project - More And More (Single Version).flac",
-  "timestamp": "2025-08-16T23:25:01.991631",
-  "essentia_features": {
-    "loudness_lufs": -6.927057266235352,
-    "danceability": 2.1550800800323486,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5607593953609467,
-    "liveness": 0.1,
-    "speechiness": 0.11972018732273353,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Captain Hollywood Project - More And More (Single Version).flac",
+    "file_name": "Captain Hollywood Project - More And More (Single Version).flac",
+    "timestamp": "2025-08-16T23:25:01.991631",
+    "essentia_features": {
+        "loudness_lufs": -6.927057266235352,
+        "danceability": 2.1550800800323486,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5607593953609467,
+        "liveness": 0.1,
+        "speechiness": 0.11972018732273353,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

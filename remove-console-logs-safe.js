@@ -48,7 +48,7 @@ function processFile(filePath) {
             // console.info
             /console\.info\s*\(/g,
             // console.debug
-            /console\.debug\s*\(/g
+            /console\.debug\s*\(/g,
         ];
 
         // Contar console.logs antes
@@ -104,7 +104,7 @@ function processDirectory(dirPath) {
 
     const files = fs.readdirSync(dirPath);
 
-    files.forEach(file => {
+    files.forEach((file) => {
         const fullPath = path.join(dirPath, file);
         const stat = fs.statSync(fullPath);
 
@@ -122,14 +122,14 @@ function main() {
     console.log('🔍 Removing console.logs from production code...\n');
 
     // Procesar cada directorio
-    directories.forEach(dir => {
+    directories.forEach((dir) => {
         console.log(`📁 Processing ${dir}/...`);
         processDirectory(dir);
     });
 
     // También procesar archivos .js en la raíz
     const rootFiles = fs.readdirSync('.');
-    rootFiles.forEach(file => {
+    rootFiles.forEach((file) => {
         if (file.endsWith('.js') && !excludeFiles.includes(file)) {
             processFile(file);
         }

@@ -1,14 +1,14 @@
 {
-  "timestamp": "2025-08-16T21:55:20.167059",
-  "stats": {
-    "total": 100,
-    "processed": 0,
-    "errors": 100,
-    "skipped": 0,
-    "processing_times": [],
-    "with_mik": 0,
-    "without_mik": 0
-  },
-  "feature_statistics": {},
-  "total_files_processed": 0
+    "timestamp": "2025-08-16T21:55:20.167059",
+    "stats": {
+        "total": 100,
+        "processed": 0,
+        "errors": 100,
+        "skipped": 0,
+        "processing_times": [],
+        "with_mik": 0,
+        "without_mik": 0
+    },
+    "feature_statistics": {},
+    "total_files_processed": 0
 }

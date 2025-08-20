@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Debbie Gibson - Only in My Dreams.flac",
-  "file_name": "Debbie Gibson - Only in My Dreams.flac",
-  "timestamp": "2025-08-16T23:50:10.612156",
-  "essentia_features": {
-    "loudness_lufs": -9.278867721557617,
-    "danceability": 1.2593111991882324,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4132542610168457,
-    "liveness": 0.1,
-    "speechiness": 0.17260229615397596,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Debbie Gibson - Only in My Dreams.flac",
+    "file_name": "Debbie Gibson - Only in My Dreams.flac",
+    "timestamp": "2025-08-16T23:50:10.612156",
+    "essentia_features": {
+        "loudness_lufs": -9.278867721557617,
+        "danceability": 1.2593111991882324,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4132542610168457,
+        "liveness": 0.1,
+        "speechiness": 0.17260229615397596,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

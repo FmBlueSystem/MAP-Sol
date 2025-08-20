@@ -14,23 +14,23 @@ const REQUIRED_ASSETS = {
         description: 'Imagen por defecto para álbumes',
         required: true,
         minSize: 1000, // Minimum 1KB
-        maxSize: 5000000 // Maximum 5MB
-    }
+        maxSize: 5000000, // Maximum 5MB
+    },
 };
 
 const OPTIONAL_ASSETS = {
     'assets/icons/app-icon.png': {
         description: 'Icono de la aplicación (PNG)',
-        required: false
+        required: false,
     },
     'assets/icons/icon.icns': {
         description: 'Icono para macOS',
-        required: false
+        required: false,
     },
     'assets/icons/icon.ico': {
         description: 'Icono para Windows',
-        required: false
-    }
+        required: false,
+    },
 };
 
 // Statistics
@@ -38,7 +38,7 @@ const stats = {
     verified: 0,
     missing: 0,
     optional: 0,
-    errors: []
+    errors: [],
 };
 
 // Helper functions
@@ -73,7 +73,7 @@ function formatSize(bytes) {
 function ensureDirectories() {
     const dirs = ['assets', 'assets/images', 'assets/icons'];
 
-    dirs.forEach(dir => {
+    dirs.forEach((dir) => {
         const dirPath = path.join(__dirname, dir);
         if (!fs.existsSync(dirPath)) {
             fs.mkdirSync(dirPath, { recursive: true });
@@ -156,7 +156,7 @@ function checkArtworkCache() {
 
     try {
         const files = fs.readdirSync(cacheDir);
-        const jpgFiles = files.filter(f => f.endsWith('.jpg') || f.endsWith('.jpeg'));
+        const jpgFiles = files.filter((f) => f.endsWith('.jpg') || f.endsWith('.jpeg'));
         logDebug(`\n📸 Artwork cache: ${jpgFiles.length} imágenes encontradas`);
         return jpgFiles.length;
     } catch (error) {
@@ -205,7 +205,7 @@ function main() {
 
     if (stats.errors.length > 0) {
         logDebug('\n❗ ERRORES ENCONTRADOS:');
-        stats.errors.forEach(error => {
+        stats.errors.forEach((error) => {
             logDebug(`   - ${error}`);
         });
     }

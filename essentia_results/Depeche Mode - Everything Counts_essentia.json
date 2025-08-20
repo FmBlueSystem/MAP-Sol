@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Everything Counts.flac",
-  "file_name": "Depeche Mode - Everything Counts.flac",
-  "timestamp": "2025-08-16T23:52:22.455155",
-  "essentia_features": {
-    "loudness_lufs": -6.278898239135742,
-    "danceability": 1.1160188913345337,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4591478705406189,
-    "liveness": 0.1,
-    "speechiness": 0.14357761619085538,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Depeche Mode - Everything Counts.flac",
+    "file_name": "Depeche Mode - Everything Counts.flac",
+    "timestamp": "2025-08-16T23:52:22.455155",
+    "essentia_features": {
+        "loudness_lufs": -6.278898239135742,
+        "danceability": 1.1160188913345337,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4591478705406189,
+        "liveness": 0.1,
+        "speechiness": 0.14357761619085538,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -106,9 +106,7 @@
             "content_warnings": [],
             "singalong_index": 0.8,
             "chantability": 0.9,
-            "justification": [
-                "High instrumentalness with vocal content suggests a focus on danceability and rhythm."
-            ]
+            "justification": ["High instrumentalness with vocal content suggests a focus on danceability and rhythm."]
         },
         "confidence": 0.9199999999999999,
         "validation_notes": ["Real recording year: 1987", "Contexto actualizado para 1987"],

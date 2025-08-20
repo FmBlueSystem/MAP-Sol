@@ -58,7 +58,9 @@ body {
     bottom: 0;
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition-slow), visibility var(--transition-slow);
+    transition:
+        opacity var(--transition-slow),
+        visibility var(--transition-slow);
     overflow-y: auto;
     padding: var(--spacing-lg);
 }
@@ -133,13 +135,22 @@ body {
 
 /* Animations */
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 @keyframes loading {
-    from { width: 0; }
-    to { width: 100%; }
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 /* Utility Classes */

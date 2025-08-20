@@ -10,13 +10,11 @@
     left: 0;
     right: 0;
     height: 120px;
-    background: linear-gradient(180deg, 
-        rgba(24, 24, 24, 0.98) 0%, 
-        rgba(18, 18, 18, 1) 100%);
+    background: linear-gradient(180deg, rgba(24, 24, 24, 0.98) 0%, rgba(18, 18, 18, 1) 100%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 
+    box-shadow:
         0 -10px 40px rgba(0, 0, 0, 0.5),
         0 -2px 10px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -53,7 +51,7 @@
     border-radius: 8px;
     overflow: hidden;
     background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-    box-shadow: 
+    box-shadow:
         0 4px 12px rgba(0, 0, 0, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.05);
     transition: transform 0.3s ease;
@@ -76,9 +74,7 @@
     justify-content: center;
     font-size: 28px;
     color: rgba(255, 255, 255, 0.3);
-    background: radial-gradient(circle at center, 
-        rgba(255, 255, 255, 0.05) 0%, 
-        transparent 70%);
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
 }
 
 /* Track Details */
@@ -167,7 +163,7 @@
     align-items: center;
     justify-content: center;
     color: #000000;
-    box-shadow: 
+    box-shadow:
         0 4px 12px rgba(29, 185, 84, 0.3),
         0 0 20px rgba(29, 185, 84, 0.2);
     transition: all 0.2s ease;
@@ -175,7 +171,7 @@
 
 .play-pause-btn:hover {
     transform: scale(1.08);
-    box-shadow: 
+    box-shadow:
         0 6px 16px rgba(29, 185, 84, 0.4),
         0 0 30px rgba(29, 185, 84, 0.3);
 }
@@ -254,7 +250,7 @@
     border-radius: 8px;
     padding: 12px 16px;
     min-width: 280px;
-    box-shadow: 
+    box-shadow:
         0 4px 12px rgba(0, 0, 0, 0.4),
         inset 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -311,12 +307,7 @@
 
 .meter-fill {
     height: 100%;
-    background: linear-gradient(90deg, 
-        #00ff00 0%, 
-        #00ff00 60%, 
-        #ffff00 80%, 
-        #ff6600 90%, 
-        #ff0000 100%);
+    background: linear-gradient(90deg, #00ff00 0%, #00ff00 60%, #ffff00 80%, #ff6600 90%, #ff0000 100%);
     transition: width 0.05s ease-out;
     box-shadow: 0 0 12px currentColor;
     position: relative;
@@ -464,9 +455,7 @@
     left: 0;
     right: 0;
     height: 60px;
-    background: linear-gradient(180deg, 
-        rgba(18, 18, 18, 0) 0%, 
-        rgba(18, 18, 18, 0.8) 100%);
+    background: linear-gradient(180deg, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 0.8) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -483,8 +472,13 @@
 
 /* Animations */
 @keyframes clip-flash {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
 }
 
 /* Responsive Design */
@@ -492,7 +486,7 @@
     .audio-panel-content {
         grid-template-columns: 300px 1fr 350px;
     }
-    
+
     .vu-meter-container {
         min-width: 240px;
     }
@@ -502,12 +496,12 @@
     .audio-panel-container {
         height: 100px;
     }
-    
+
     .track-artwork {
         width: 56px;
         height: 56px;
     }
-    
+
     .vu-meter-container {
         display: none;
     }
@@ -516,9 +510,7 @@
 /* Dark Mode Enhancements */
 @media (prefers-color-scheme: dark) {
     .audio-panel-container {
-        background: linear-gradient(180deg, 
-            rgba(10, 10, 10, 0.98) 0%, 
-            rgba(5, 5, 5, 1) 100%);
+        background: linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(5, 5, 5, 1) 100%);
     }
 }
 

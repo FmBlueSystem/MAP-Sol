@@ -309,7 +309,7 @@ class AddMusicButton {
                     extractArtwork: true,
                     runAnalysis: false, // Disable for faster testing
                     runAI: false, // Optional AI enrichment
-                }
+                },
             });
 
             console.log('Import result:', result);

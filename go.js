@@ -12,10 +12,10 @@ const commands = [
     'node update-music-library.js',
     'node normalize-all-fields.js 2>/dev/null',
     `node handlers/normalized-llm-handler.js ${n}`,
-    'node music-tools.js stats'
+    'node music-tools.js stats',
 ];
 
-commands.forEach(cmd => {
+commands.forEach((cmd) => {
     try {
         execSync(cmd, { stdio: 'inherit', shell: true });
     } catch (e) {}

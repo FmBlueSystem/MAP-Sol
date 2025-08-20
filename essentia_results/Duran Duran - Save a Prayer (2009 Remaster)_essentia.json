@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Save a Prayer (2009 Remaster).flac",
-  "file_name": "Duran Duran - Save a Prayer (2009 Remaster).flac",
-  "timestamp": "2025-08-17T00:04:57.439877",
-  "essentia_features": {
-    "loudness_lufs": -6.454816818237305,
-    "danceability": 1.2049204111099243,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4479564428329468,
-    "liveness": 0.1,
-    "speechiness": 0.13527649521856405,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Save a Prayer (2009 Remaster).flac",
+    "file_name": "Duran Duran - Save a Prayer (2009 Remaster).flac",
+    "timestamp": "2025-08-17T00:04:57.439877",
+    "essentia_features": {
+        "loudness_lufs": -6.454816818237305,
+        "danceability": 1.2049204111099243,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4479564428329468,
+        "liveness": 0.1,
+        "speechiness": 0.13527649521856405,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

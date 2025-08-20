@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dr Alban - Look Who's Talking (Long Version).flac",
-  "file_name": "Dr Alban - Look Who's Talking (Long Version).flac",
-  "timestamp": "2025-08-17T00:01:36.913024",
-  "essentia_features": {
-    "loudness_lufs": -4.515750885009766,
-    "danceability": 1.8096073865890503,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5749277770519257,
-    "liveness": 0.1,
-    "speechiness": 0.1644481629855638,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dr Alban - Look Who's Talking (Long Version).flac",
+    "file_name": "Dr Alban - Look Who's Talking (Long Version).flac",
+    "timestamp": "2025-08-17T00:01:36.913024",
+    "essentia_features": {
+        "loudness_lufs": -4.515750885009766,
+        "danceability": 1.8096073865890503,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5749277770519257,
+        "liveness": 0.1,
+        "speechiness": 0.1644481629855638,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

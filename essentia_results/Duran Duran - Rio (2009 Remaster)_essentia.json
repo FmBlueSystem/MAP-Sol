@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Rio (2009 Remaster).flac",
-  "file_name": "Duran Duran - Rio (2009 Remaster).flac",
-  "timestamp": "2025-08-17T00:04:34.050338",
-  "essentia_features": {
-    "loudness_lufs": -5.3462371826171875,
-    "danceability": 1.2178329229354858,
-    "acousticness": 0.5,
-    "instrumentalness": 0.3755425810813904,
-    "liveness": 0.1,
-    "speechiness": 0.1807458832656009,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Rio (2009 Remaster).flac",
+    "file_name": "Duran Duran - Rio (2009 Remaster).flac",
+    "timestamp": "2025-08-17T00:04:34.050338",
+    "essentia_features": {
+        "loudness_lufs": -5.3462371826171875,
+        "danceability": 1.2178329229354858,
+        "acousticness": 0.5,
+        "instrumentalness": 0.3755425810813904,
+        "liveness": 0.1,
+        "speechiness": 0.1807458832656009,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

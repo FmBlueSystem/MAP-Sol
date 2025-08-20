@@ -44,7 +44,7 @@ class DatabaseService {
         }
 
         return new Promise((resolve, reject) => {
-            this.db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, err => {
+            this.db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
                 if (err) {
                     logError('Database connection failed:', err);
                     reject(err);
@@ -98,7 +98,7 @@ class DatabaseService {
             }
 
             // Sanitize parameters
-            const sanitizedParams = params.map(param => {
+            const sanitizedParams = params.map((param) => {
                 if (param === null || param === undefined) {
                     return null;
                 }
@@ -148,7 +148,7 @@ class DatabaseService {
                 } else {
                     resolve({
                         lastID: this.lastID,
-                        changes: this.changes
+                        changes: this.changes,
                     });
                 }
             });
@@ -168,12 +168,12 @@ class DatabaseService {
                 try {
                     const columns = Object.keys(records[0]);
                     const placeholders = columns.map(() => '?').join(',');
-                    const sql = `INSERT INTO ${this.escapeIdentifier(tableName)} (${columns.map(c => this.escapeIdentifier(c)).join(',')}) VALUES (${placeholders})`;
+                    const sql = `INSERT INTO ${this.escapeIdentifier(tableName)} (${columns.map((c) => this.escapeIdentifier(c)).join(',')}) VALUES (${placeholders})`;
 
                     const stmt = this.db.prepare(sql);
 
                     for (const record of records) {
-                        const values = columns.map(col => record[col]);
+                        const values = columns.map((col) => record[col]);
                         stmt.run(values);
                     }
 
@@ -337,12 +337,12 @@ class DatabaseService {
                 FROM llm_metadata 
                 WHERE AI_MOOD IS NOT NULL 
                 ORDER BY AI_MOOD
-            `)
+            `),
         ]);
 
         return {
-            genres: genres.map(g => g.genre),
-            moods: moods.map(m => m.AI_MOOD)
+            genres: genres.map((g) => g.genre),
+            moods: moods.map((m) => m.AI_MOOD),
         };
     }
 
@@ -357,7 +357,7 @@ class DatabaseService {
             'CREATE INDEX IF NOT EXISTS idx_artwork_path ON audio_files(artwork_path)',
             'CREATE INDEX IF NOT EXISTS idx_ai_mood ON llm_metadata(AI_MOOD)',
             'CREATE INDEX IF NOT EXISTS idx_ai_energy ON llm_metadata(AI_ENERGY)',
-            'CREATE INDEX IF NOT EXISTS idx_ai_bpm ON llm_metadata(AI_BPM)'
+            'CREATE INDEX IF NOT EXISTS idx_ai_bpm ON llm_metadata(AI_BPM)',
         ];
 
         for (const index of indexes) {
@@ -373,7 +373,7 @@ class DatabaseService {
             return [];
         }
 
-        return params.map(param => {
+        return params.map((param) => {
             if (param === null || param === undefined) {
                 return null;
             }
@@ -417,7 +417,7 @@ class DatabaseService {
             this.statements.clear();
 
             if (this.db) {
-                this.db.close(err => {
+                this.db.close((err) => {
                     if (err) {
                         logError('Error closing database:', err);
                         reject(err);

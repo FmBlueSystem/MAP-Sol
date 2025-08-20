@@ -15,7 +15,7 @@ const REQUIRED_ASSETS = {
         required: true,
         minSize: 1000, // Minimum 1KB
         maxSize: 5000000, // Maximum 5MB
-    }
+    },
 };
 
 const OPTIONAL_ASSETS = {
@@ -30,7 +30,7 @@ const OPTIONAL_ASSETS = {
     'assets/icons/icon.ico': {
         description: 'Icono para Windows',
         required: false,
-    }
+    },
 };
 
 // Statistics

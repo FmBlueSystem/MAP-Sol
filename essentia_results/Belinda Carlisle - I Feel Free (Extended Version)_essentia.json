@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Belinda Carlisle - I Feel Free (Extended Version).flac",
-  "file_name": "Belinda Carlisle - I Feel Free (Extended Version).flac",
-  "timestamp": "2025-08-16T22:52:31.056082",
-  "essentia_features": {
-    "loudness_lufs": -7.004554748535156,
-    "danceability": 1.3519164323806763,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4996912479400635,
-    "liveness": 0.1,
-    "speechiness": 0.15015368658732564,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Belinda Carlisle - I Feel Free (Extended Version).flac",
+    "file_name": "Belinda Carlisle - I Feel Free (Extended Version).flac",
+    "timestamp": "2025-08-16T22:52:31.056082",
+    "essentia_features": {
+        "loudness_lufs": -7.004554748535156,
+        "danceability": 1.3519164323806763,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4996912479400635,
+        "liveness": 0.1,
+        "speechiness": 0.15015368658732564,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

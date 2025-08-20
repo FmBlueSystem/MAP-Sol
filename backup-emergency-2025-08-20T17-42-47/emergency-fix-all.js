@@ -193,7 +193,7 @@ async function setupTools() {
             logInfo: 'readonly',
             logError: 'readonly',
             logDebug: 'readonly',
-        }
+        },
     };
 
     // Crear .prettierrc

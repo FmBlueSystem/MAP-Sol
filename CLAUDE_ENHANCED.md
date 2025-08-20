@@ -1,4 +1,5 @@
 # CLAUDE.md - Music Analyzer Pro (MAP) v3.0
+
 > **Versión**: 3.0.0 - Integración con Estándares Archon
 > **Última actualización**: 2025-01-19
 > **Estado**: Producción con Estándares de Calidad Enforced
@@ -12,35 +13,39 @@
 **ANTES de escribir CUALQUIER línea de código, DEBES leer:**
 
 1. **ESTÁNDARES DE CALIDAD** ⚠️ CRÍTICO
-   ```
-   Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/CODE_QUALITY_STANDARDS.md
-   Aplicar: TODOS los principios, métricas y ejemplos
-   ```
+
+    ```
+    Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/CODE_QUALITY_STANDARDS.md
+    Aplicar: TODOS los principios, métricas y ejemplos
+    ```
 
 2. **ARQUITECTURA Y PATRONES**
-   ```
-   Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/CLAUDE.md
-   Consultar: Arquitectura existente, no reinventar
-   ```
+
+    ```
+    Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/CLAUDE.md
+    Consultar: Arquitectura existente, no reinventar
+    ```
 
 3. **INTEGRACIÓN ARCHON MCP**
-   ```
-   Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/CLAUDE-ARCHON.md
-   Usar: Para task management y documentación
-   ```
+
+    ```
+    Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/CLAUDE-ARCHON.md
+    Usar: Para task management y documentación
+    ```
 
 4. **ESPECIFICACIONES TÉCNICAS**
-   ```
-   VU Meter: /Users/freddymolina/Desktop/Archon V2/Archon/VU_METER_TECHNICAL_SPECS.md
-   Player: /Users/freddymolina/Desktop/Archon V2/Archon/MAP_PLAYER_PANEL_BRAINSTORM.md
-   UI Planning: /Users/freddymolina/Desktop/Archon V2/Archon/MAP_UI_FIRST_PLANNING.md
-   ```
+    ```
+    VU Meter: /Users/freddymolina/Desktop/Archon V2/Archon/VU_METER_TECHNICAL_SPECS.md
+    Player: /Users/freddymolina/Desktop/Archon V2/Archon/MAP_PLAYER_PANEL_BRAINSTORM.md
+    UI Planning: /Users/freddymolina/Desktop/Archon V2/Archon/MAP_UI_FIRST_PLANNING.md
+    ```
 
 ---
 
 ## ⛔ REGLAS DE ORO - NO NEGOCIABLES
 
 ### 1. FUNCIONAL PRIMERO, BONITO DESPUÉS
+
 ```javascript
 // ❌ INCORRECTO
 <Button onClick={() => {}} className="beautiful-gradient">
@@ -54,8 +59,10 @@
 ```
 
 ### 2. VALIDACIÓN ANTES DE DECLARAR "COMPLETADO"
+
 ```markdown
 ✅ Checklist obligatorio:
+
 - [ ] Backend implementado y probado
 - [ ] Frontend conectado con IPC handlers
 - [ ] Errores manejados con feedback al usuario
@@ -65,6 +72,7 @@
 ```
 
 ### 3. ESTÁNDARES DE CÓDIGO (desde CODE_QUALITY_STANDARDS.md)
+
 ```javascript
 // Aplicar SIEMPRE:
 - ESLint configurado según estándares
@@ -80,27 +88,29 @@
 ## 🏗️ ARQUITECTURA DEL PROYECTO
 
 ### Stack Tecnológico Actual
+
 ```yaml
 Frontend:
-  - Framework: Vanilla JS (ES6+) + Módulos
-  - UI Library: HTML5 + CSS3 (Glassmorphism)
-  - Audio: Web Audio API + Howler.js
-  - Estado: Sin framework (considerar React para v4)
+    - Framework: Vanilla JS (ES6+) + Módulos
+    - UI Library: HTML5 + CSS3 (Glassmorphism)
+    - Audio: Web Audio API + Howler.js
+    - Estado: Sin framework (considerar React para v4)
 
 Backend:
-  - Runtime: Node.js + Electron
-  - Database: SQLite3 (music_analyzer.db)
-  - IPC: Electron IPC para comunicación
-  - Cache: LRU con TTL 5 minutos
+    - Runtime: Node.js + Electron
+    - Database: SQLite3 (music_analyzer.db)
+    - IPC: Electron IPC para comunicación
+    - Cache: LRU con TTL 5 minutos
 
 Análisis:
-  - Metadata: MixedInKey (embebido)
-  - Features: Essentia + Librosa
-  - AI: OpenAI GPT-4 (opcional)
-  - Pipeline: Bash + Python scripts
+    - Metadata: MixedInKey (embebido)
+    - Features: Essentia + Librosa
+    - AI: OpenAI GPT-4 (opcional)
+    - Pipeline: Bash + Python scripts
 ```
 
 ### Estructura de Carpetas (OBLIGATORIA)
+
 ```
 music-app-clean/
 ├── src/                    # NUEVO: Migrar código aquí
@@ -130,6 +140,7 @@ music-app-clean/
 ## 📊 ESTADO ACTUAL DEL PROYECTO
 
 ### ✅ Completado (95%)
+
 - [x] Base de datos con 3,808 archivos
 - [x] Sistema HAMMS de 7 dimensiones
 - [x] Pipeline de análisis híbrido
@@ -139,6 +150,7 @@ music-app-clean/
 - [x] 15 índices SQLite optimizados
 
 ### 🔄 En Progreso (Sprint 0 - UI First)
+
 - [ ] Track Info Panel Completo (Task #1)
 - [ ] Sistema HAMMS Visible (Task #2)
 - [ ] Smart Playlist UI (Task #3-4)
@@ -147,6 +159,7 @@ music-app-clean/
 - [ ] VU Meter Integration (Proyecto separado)
 
 ### 🚀 Pendiente (5%)
+
 - [ ] Migración a estructura src/
 - [ ] Tests automatizados (0% → 60%)
 - [ ] TypeScript migration
@@ -157,29 +170,32 @@ music-app-clean/
 ## 🔌 IPC HANDLERS - ESTADO ACTUAL
 
 ### ✅ Funcionando
+
 ```javascript
 // Implementados y probados
-'get-files-with-cached-artwork'  // Obtiene archivos con artwork
-'search-tracks'                   // Búsqueda con filtros
-'show-in-folder'                  // Abre en Finder/Explorer
-'extract-metadata'                // Extrae con music-metadata
+'get-files-with-cached-artwork'; // Obtiene archivos con artwork
+'search-tracks'; // Búsqueda con filtros
+'show-in-folder'; // Abre en Finder/Explorer
+'extract-metadata'; // Extrae con music-metadata
 ```
 
 ### ⚠️ Parcialmente Implementados
+
 ```javascript
-'play-track'     // Frontend-only, falta integración Electron
-'pause-track'    // Frontend-only, falta integración Electron
-'export-json'    // Funciona pero podría usar workers
-'export-csv'     // Funciona pero podría optimizarse
+'play-track'; // Frontend-only, falta integración Electron
+'pause-track'; // Frontend-only, falta integración Electron
+'export-json'; // Funciona pero podría usar workers
+'export-csv'; // Funciona pero podría optimizarse
 ```
 
 ### ❌ Pendientes
+
 ```javascript
-'update-metadata'   // Actualizar en BD
-'delete-track'      // Eliminar de BD
-'create-playlist'   // Crear playlist
-'add-to-playlist'   // Agregar a playlist
-'import-music'      // Importar nuevos archivos
+'update-metadata'; // Actualizar en BD
+'delete-track'; // Eliminar de BD
+'create-playlist'; // Crear playlist
+'add-to-playlist'; // Agregar a playlist
+'import-music'; // Importar nuevos archivos
 ```
 
 ---
@@ -187,6 +203,7 @@ music-app-clean/
 ## 💾 BASE DE DATOS
 
 ### Esquema Principal
+
 ```sql
 -- Tabla principal con metadata
 CREATE TABLE audio_files (
@@ -226,6 +243,7 @@ CREATE INDEX idx_ai_bpm ON llm_metadata(AI_BPM);
 ## 🚀 COMANDOS Y SCRIPTS
 
 ### Desarrollo
+
 ```bash
 # Iniciar aplicación
 npm start
@@ -245,6 +263,7 @@ npm run test
 ```
 
 ### Base de Datos
+
 ```bash
 # Consultas útiles
 sqlite3 music_analyzer.db "SELECT COUNT(*) FROM audio_files"
@@ -257,6 +276,7 @@ sqlite3 music_analyzer.db "VACUUM"  # Optimizar
 ## 📈 MÉTRICAS DE CALIDAD (desde CODE_QUALITY_STANDARDS.md)
 
 ### Objetivos Actuales
+
 ```yaml
 Cobertura de Tests:
   Actual: 0%
@@ -266,7 +286,7 @@ Cobertura de Tests:
 Complejidad:
   Máximo permitido: 15
   Promedio actual: 8
-  
+
 Tamaño de Archivos:
   Máximo: 400 líneas
   Promedio actual: 250 líneas
@@ -282,15 +302,18 @@ Performance:
 ## 🐛 ISSUES CONOCIDOS
 
 ### Críticos (P1)
+
 1. **Player controls**: Solo frontend, falta integración con Electron
 2. **Memory leak**: En visualizaciones después de 2+ horas
 
 ### Importantes (P2)
+
 3. **Export large files**: Bloquea UI con >1000 tracks
 4. **Duplicate detection**: Implementado parcialmente
 5. **Playlist persistence**: No se guardan en DB
 
 ### Menores (P3)
+
 6. **UI responsiveness**: Algunos componentes no son mobile-friendly
 7. **Dark mode**: Inconsistente en modales
 
@@ -299,6 +322,7 @@ Performance:
 ## 🎯 WORKFLOW DE DESARROLLO
 
 ### Para Nueva Feature
+
 ```bash
 1. Leer CODE_QUALITY_STANDARDS.md
 2. Crear branch: feature/nombre-descriptivo
@@ -313,6 +337,7 @@ Performance:
 ```
 
 ### Para Bug Fix
+
 ```bash
 1. Reproducir el bug
 2. Escribir test que falle
@@ -327,12 +352,14 @@ Performance:
 ## 📝 DOCUMENTACIÓN RELACIONADA
 
 ### En Este Proyecto
+
 - `README.md` - Documentación de usuario
 - `CLAUDE.md` - Este archivo (brain)
 - `CMD_COMMANDS.md` - Comandos disponibles
 - `LESSONS-LEARNED-SYNTAX-ERRORS.md` - Errores comunes
 
 ### En Archon (OBLIGATORIO CONSULTAR)
+
 - `CODE_QUALITY_STANDARDS.md` - Estándares de código
 - `MAP_UI_FIRST_PLANNING.md` - Plan de desarrollo UI
 - `MAP_COMPLETE_TASK_LIST.md` - Todas las tareas pendientes
@@ -343,18 +370,21 @@ Performance:
 ## ⚠️ RECORDATORIOS CRÍTICOS
 
 ### ANTES de Codear
+
 1. ¿Leíste CODE_QUALITY_STANDARDS.md?
 2. ¿Entiendes qué espera el usuario?
 3. ¿Existe código similar que puedas reutilizar?
 4. ¿El approach es el más simple posible?
 
 ### DURANTE el Desarrollo
+
 1. ¿Estás siguiendo los estándares?
 2. ¿Los nombres son descriptivos?
 3. ¿Estás manejando errores?
 4. ¿Hay feedback al usuario?
 
 ### ANTES de Declarar "Completado"
+
 1. ¿Funciona end-to-end?
 2. ¿Hay tests?
 3. ¿Está documentado?
@@ -365,6 +395,7 @@ Performance:
 ## 🔄 PROCESO DE MEJORA CONTINUA
 
 ### Métricas a Trackear
+
 - Bugs por sprint
 - Tiempo de resolución
 - Cobertura de tests (trend)
@@ -372,6 +403,7 @@ Performance:
 - User satisfaction
 
 ### Reviews Periódicos
+
 - **Diario**: Standup (qué hice, qué haré, blockers)
 - **Semanal**: Code review de PRs
 - **Sprint**: Retrospectiva técnica
@@ -382,16 +414,19 @@ Performance:
 ## 💡 DECISIONES ARQUITECTÓNICAS
 
 ### ¿Por qué Vanilla JS?
+
 - **Decisión**: Mantener simplicidad inicial
 - **Trade-off**: Menos estructura vs menos complejidad
 - **Futuro**: Migrar a React en v4.0
 
 ### ¿Por qué SQLite?
+
 - **Decisión**: Portabilidad y simplicidad
 - **Trade-off**: Sin concurrencia vs sin servidor
 - **Límite**: Funciona bien hasta ~100k tracks
 
 ### ¿Por qué Electron?
+
 - **Decisión**: Cross-platform con tecnologías web
 - **Trade-off**: Peso vs familiaridad
 - **Alternativa considerada**: Tauri (futuro)
@@ -419,16 +454,19 @@ Una tarea está COMPLETA cuando:
 ## 🚀 PRÓXIMOS PASOS INMEDIATOS
 
 ### Esta Semana (Sprint 0)
+
 1. [ ] Implementar Track Info Panel (8h)
 2. [ ] Hacer visible sistema HAMMS (6h)
 3. [ ] UI para Smart Playlists (10h)
 
 ### Este Mes
+
 1. [ ] Completar Sprint 0 (40h total)
 2. [ ] Comenzar Sprint 1 - UX Pro (40h)
 3. [ ] Alcanzar 30% cobertura de tests
 
 ### Este Trimestre
+
 1. [ ] Completar Sprint 0 y 1
 2. [ ] 60% cobertura de tests
 3. [ ] Migración a TypeScript iniciada
@@ -442,4 +480,4 @@ Una tarea está COMPLETA cuando:
 
 ---
 
-*Este documento es la fuente de verdad para MAP. Manténlo actualizado.*
+_Este documento es la fuente de verdad para MAP. Manténlo actualizado._

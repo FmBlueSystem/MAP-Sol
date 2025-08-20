@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Elvis Presley - Good Luck Charm.flac",
-  "file_name": "Elvis Presley - Good Luck Charm.flac",
-  "timestamp": "2025-08-17T00:13:32.377956",
-  "essentia_features": {
-    "loudness_lufs": -8.873733520507812,
-    "danceability": 1.13637375831604,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4524914622306824,
-    "liveness": 0.1,
-    "speechiness": 0.07079901900712711,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Elvis Presley - Good Luck Charm.flac",
+    "file_name": "Elvis Presley - Good Luck Charm.flac",
+    "timestamp": "2025-08-17T00:13:32.377956",
+    "essentia_features": {
+        "loudness_lufs": -8.873733520507812,
+        "danceability": 1.13637375831604,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4524914622306824,
+        "liveness": 0.1,
+        "speechiness": 0.07079901900712711,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

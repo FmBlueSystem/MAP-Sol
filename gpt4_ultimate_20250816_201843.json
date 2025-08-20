@@ -117,9 +117,7 @@
             "content_warnings": [],
             "singalong_index": 0.8,
             "chantability": 0.8,
-            "justification": [
-                "The song's lyrics and mood are consistent with the disco era's romantic themes."
-            ]
+            "justification": ["The song's lyrics and mood are consistent with the disco era's romantic themes."]
         },
         "confidence": 0.86,
         "validation_notes": [

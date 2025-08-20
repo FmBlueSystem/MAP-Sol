@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Carlos Rivera - Eres Tu\u0301 (Mama\u0301).flac",
-  "file_name": "Carlos Rivera - Eres Tu\u0301 (Mama\u0301).flac",
-  "timestamp": "2025-08-16T23:25:46.052629",
-  "essentia_features": {
-    "loudness_lufs": -3.1600799560546875,
-    "danceability": 1.0557429790496826,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5,
-    "liveness": 0.1,
-    "speechiness": 0.1,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Carlos Rivera - Eres Tu\u0301 (Mama\u0301).flac",
+    "file_name": "Carlos Rivera - Eres Tu\u0301 (Mama\u0301).flac",
+    "timestamp": "2025-08-16T23:25:46.052629",
+    "essentia_features": {
+        "loudness_lufs": -3.1600799560546875,
+        "danceability": 1.0557429790496826,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5,
+        "liveness": 0.1,
+        "speechiness": 0.1,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

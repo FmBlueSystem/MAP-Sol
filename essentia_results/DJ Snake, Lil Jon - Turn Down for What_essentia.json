@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/DJ Snake, Lil Jon - Turn Down for What.flac",
-  "file_name": "DJ Snake, Lil Jon - Turn Down for What.flac",
-  "timestamp": "2025-08-16T23:42:31.483474",
-  "essentia_features": {
-    "loudness_lufs": -1.7040138244628906,
-    "danceability": 1.1641134023666382,
-    "acousticness": 0.5,
-    "instrumentalness": 0.7472566068172455,
-    "liveness": 0.1,
-    "speechiness": 0.1718543792209786,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/DJ Snake, Lil Jon - Turn Down for What.flac",
+    "file_name": "DJ Snake, Lil Jon - Turn Down for What.flac",
+    "timestamp": "2025-08-16T23:42:31.483474",
+    "essentia_features": {
+        "loudness_lufs": -1.7040138244628906,
+        "danceability": 1.1641134023666382,
+        "acousticness": 0.5,
+        "instrumentalness": 0.7472566068172455,
+        "liveness": 0.1,
+        "speechiness": 0.1718543792209786,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

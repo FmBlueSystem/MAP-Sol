@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/El Si\u0301mbolo - 1, 2, 3 (Espan\u0303ol).flac",
-  "file_name": "El Si\u0301mbolo - 1, 2, 3 (Espan\u0303ol).flac",
-  "timestamp": "2025-08-17T00:11:03.022659",
-  "essentia_features": {
-    "loudness_lufs": -3.6266956329345703,
-    "danceability": 1.5602965354919434,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4694163203239441,
-    "liveness": 0.1,
-    "speechiness": 0.2128214758243091,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/El Si\u0301mbolo - 1, 2, 3 (Espan\u0303ol).flac",
+    "file_name": "El Si\u0301mbolo - 1, 2, 3 (Espan\u0303ol).flac",
+    "timestamp": "2025-08-17T00:11:03.022659",
+    "essentia_features": {
+        "loudness_lufs": -3.6266956329345703,
+        "danceability": 1.5602965354919434,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4694163203239441,
+        "liveness": 0.1,
+        "speechiness": 0.2128214758243091,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

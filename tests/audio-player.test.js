@@ -71,7 +71,7 @@ describe('AudioPlayer', () => {
                 id: '1',
                 file_path: '/path/to/track.mp3',
                 title: 'Test Track',
-                artist: 'Test Artist'
+                artist: 'Test Artist',
             };
 
             await player.play(trackData.file_path, trackData.id, trackData);
@@ -104,7 +104,7 @@ describe('AudioPlayer', () => {
         const mockPlaylist = [
             { id: '1', file_path: '/track1.mp3', title: 'Track 1' },
             { id: '2', file_path: '/track2.mp3', title: 'Track 2' },
-            { id: '3', file_path: '/track3.mp3', title: 'Track 3' }
+            { id: '3', file_path: '/track3.mp3', title: 'Track 3' },
         ];
 
         beforeEach(() => {

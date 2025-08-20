@@ -426,7 +426,7 @@
     .flow-content {
         grid-template-columns: 1fr;
     }
-    
+
     .energy-track-list {
         max-height: 300px;
     }
@@ -438,12 +438,12 @@
         height: 100vh;
         border-radius: 0;
     }
-    
+
     .flow-header,
     .flow-stats {
         border-radius: 0;
     }
-    
+
     .analysis-content {
         grid-template-columns: repeat(2, 1fr);
     }

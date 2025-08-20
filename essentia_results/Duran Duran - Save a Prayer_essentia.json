@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Save a Prayer.flac",
-  "file_name": "Duran Duran - Save a Prayer.flac",
-  "timestamp": "2025-08-17T00:05:09.279426",
-  "essentia_features": {
-    "loudness_lufs": -4.802188873291016,
-    "danceability": 1.14792001247406,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4492637515068054,
-    "liveness": 0.1,
-    "speechiness": 0.1429464607827961,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Save a Prayer.flac",
+    "file_name": "Duran Duran - Save a Prayer.flac",
+    "timestamp": "2025-08-17T00:05:09.279426",
+    "essentia_features": {
+        "loudness_lufs": -4.802188873291016,
+        "danceability": 1.14792001247406,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4492637515068054,
+        "liveness": 0.1,
+        "speechiness": 0.1429464607827961,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

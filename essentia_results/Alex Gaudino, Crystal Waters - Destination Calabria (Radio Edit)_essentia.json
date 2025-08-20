@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alex Gaudino, Crystal Waters - Destination Calabria (Radio Edit).flac",
-  "file_name": "Alex Gaudino, Crystal Waters - Destination Calabria (Radio Edit).flac",
-  "timestamp": "2025-08-16T22:40:46.010785",
-  "essentia_features": {
-    "loudness_lufs": -2.965099334716797,
-    "danceability": 1.186694622039795,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5223127603530884,
-    "liveness": 0.1,
-    "speechiness": 0.1714136984424346,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alex Gaudino, Crystal Waters - Destination Calabria (Radio Edit).flac",
+    "file_name": "Alex Gaudino, Crystal Waters - Destination Calabria (Radio Edit).flac",
+    "timestamp": "2025-08-16T22:40:46.010785",
+    "essentia_features": {
+        "loudness_lufs": -2.965099334716797,
+        "danceability": 1.186694622039795,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5223127603530884,
+        "liveness": 0.1,
+        "speechiness": 0.1714136984424346,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -105,9 +105,7 @@
             "content_warnings": [],
             "singalong_index": 0.9,
             "chantability": 0.9,
-            "justification": [
-                "High instrumentalness with lyrics might indicate a focus on music over words."
-            ]
+            "justification": ["High instrumentalness with lyrics might indicate a focus on music over words."]
         },
         "confidence": 0.82,
         "validation_notes": ["Real recording year: 1983", "Contexto actualizado para 1983"],

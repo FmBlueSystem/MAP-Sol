@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bon Jovi - Livin' On A Prayer.flac",
-  "file_name": "Bon Jovi - Livin' On A Prayer.flac",
-  "timestamp": "2025-08-16T23:16:40.774347",
-  "essentia_features": {
-    "loudness_lufs": -8.233283996582031,
-    "danceability": 1.1789222955703735,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5,
-    "liveness": 0.1,
-    "speechiness": 0.1,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bon Jovi - Livin' On A Prayer.flac",
+    "file_name": "Bon Jovi - Livin' On A Prayer.flac",
+    "timestamp": "2025-08-16T23:16:40.774347",
+    "essentia_features": {
+        "loudness_lufs": -8.233283996582031,
+        "danceability": 1.1789222955703735,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5,
+        "liveness": 0.1,
+        "speechiness": 0.1,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

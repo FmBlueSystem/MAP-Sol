@@ -16,10 +16,10 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
         },
         icon: path.join(__dirname, 'assets', 'icons', 'icon.png'),
-        title: 'MAP - Music Analyzer Pro'
+        title: 'MAP - Music Analyzer Pro',
     });
 
     // Load the main HTML file
@@ -37,7 +37,7 @@ function createWindow() {
 
 // Initialize database
 function initDatabase() {
-    db = new sqlite3.Database(dbPath, err => {
+    db = new sqlite3.Database(dbPath, (err) => {
         if (err) {
             console.error('Error opening database:', err);
         } else {
@@ -74,7 +74,7 @@ ipcMain.handle('get-files-with-cached-artwork', async (event, limit = 300) => {
                 resolve([]);
             } else {
                 // Add artwork URLs
-                rows.forEach(row => {
+                rows.forEach((row) => {
                     if (row.artwork_path) {
                         row.artwork_url = `artwork-cache/${row.id}.jpg`;
                     }
@@ -118,7 +118,7 @@ ipcMain.handle('search-tracks', async (event, searchTerm) => {
                 resolve([]);
             } else {
                 // Add artwork URLs
-                rows.forEach(row => {
+                rows.forEach((row) => {
                     if (row.artwork_path) {
                         row.artwork_url = `artwork-cache/${row.id}.jpg`;
                     }
@@ -131,14 +131,14 @@ ipcMain.handle('search-tracks', async (event, searchTerm) => {
 
 // Get filter options
 ipcMain.handle('get-filter-options', async () => {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         const genres = [];
         const moods = [];
 
         // Get unique genres
         db.all('SELECT DISTINCT genre FROM audio_files WHERE genre IS NOT NULL', (err, genreRows) => {
             if (!err && genreRows) {
-                genreRows.forEach(row => {
+                genreRows.forEach((row) => {
                     if (row.genre) {
                         genres.push(row.genre);
                     }
@@ -148,7 +148,7 @@ ipcMain.handle('get-filter-options', async () => {
             // Get unique moods
             db.all('SELECT DISTINCT AI_MOOD FROM llm_metadata WHERE AI_MOOD IS NOT NULL', (err, moodRows) => {
                 if (!err && moodRows) {
-                    moodRows.forEach(row => {
+                    moodRows.forEach((row) => {
                         if (row.AI_MOOD) {
                             moods.push(row.AI_MOOD);
                         }
@@ -157,7 +157,7 @@ ipcMain.handle('get-filter-options', async () => {
 
                 resolve({
                     genres: genres.sort(),
-                    moods: moods.sort()
+                    moods: moods.sort(),
                 });
             });
         });
@@ -180,7 +180,7 @@ ipcMain.handle('import-music', async () => {
     // Open folder dialog
     const result = await dialog.showOpenDialog(mainWindow, {
         properties: ['openDirectory'],
-        title: 'Select Music Folder'
+        title: 'Select Music Folder',
     });
 
     if (result.canceled) {
@@ -238,9 +238,9 @@ ipcMain.handle('import-music', async () => {
                             metadata.common.genre ? metadata.common.genre[0] : null,
                             metadata.common.year,
                             metadata.format.duration,
-                            path.extname(filePath)
+                            path.extname(filePath),
                         ],
-                        err => {
+                        (err) => {
                             if (err) {
                                 reject(err);
                             } else {
@@ -259,7 +259,7 @@ ipcMain.handle('import-music', async () => {
             success: true,
             imported: imported,
             total: files.length,
-            message: `Imported ${imported} of ${files.length} files`
+            message: `Imported ${imported} of ${files.length} files`,
         };
     } catch (error) {
         return { success: false, error: error.message };

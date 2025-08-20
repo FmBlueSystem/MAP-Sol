@@ -18,7 +18,5 @@
         "withMetadata": 3681,
         "withAI": 215
     },
-    "errors": [
-        "Carlos Rivera - Eres Tú (Mamá).flac: SQLITE_ERROR: table audio_files has no column named created_at"
-    ]
+    "errors": ["Carlos Rivera - Eres Tú (Mamá).flac: SQLITE_ERROR: table audio_files has no column named created_at"]
 }

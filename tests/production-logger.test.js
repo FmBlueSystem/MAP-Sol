@@ -12,14 +12,14 @@ describe('ProductionLogger', () => {
             log: console.log,
             error: console.error,
             warn: console.warn,
-            info: console.info
+            info: console.info,
         };
 
         // Reset global variables
         global.window = {
             location: {
-                hostname: 'localhost'
-            }
+                hostname: 'localhost',
+            },
         };
 
         // Clear any previous module cache
@@ -111,8 +111,8 @@ describe('ProductionLogger', () => {
             const history = logger.getHistory();
 
             expect(history.length).toBeGreaterThan(0);
-            expect(history.some(log => log.message === 'Test message 1')).toBe(true);
-            expect(history.some(log => log.message === 'Test error')).toBe(true);
+            expect(history.some((log) => log.message === 'Test message 1')).toBe(true);
+            expect(history.some((log) => log.message === 'Test error')).toBe(true);
         });
 
         test('should limit history size', () => {

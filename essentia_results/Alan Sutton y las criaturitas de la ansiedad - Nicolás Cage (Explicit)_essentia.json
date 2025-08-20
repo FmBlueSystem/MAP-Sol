@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alan Sutton y las criaturitas de la ansiedad - Nicola\u0301s Cage (Explicit).flac",
-  "file_name": "Alan Sutton y las criaturitas de la ansiedad - Nicola\u0301s Cage (Explicit).flac",
-  "timestamp": "2025-08-16T22:38:57.985781",
-  "essentia_features": {
-    "loudness_lufs": -2.9406661987304688,
-    "danceability": 1.1208375692367554,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4667714834213257,
-    "liveness": 0.1,
-    "speechiness": 0.11291930569078525,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Alan Sutton y las criaturitas de la ansiedad - Nicola\u0301s Cage (Explicit).flac",
+    "file_name": "Alan Sutton y las criaturitas de la ansiedad - Nicola\u0301s Cage (Explicit).flac",
+    "timestamp": "2025-08-16T22:38:57.985781",
+    "essentia_features": {
+        "loudness_lufs": -2.9406661987304688,
+        "danceability": 1.1208375692367554,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4667714834213257,
+        "liveness": 0.1,
+        "speechiness": 0.11291930569078525,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

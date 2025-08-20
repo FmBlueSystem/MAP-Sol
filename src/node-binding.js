@@ -6,5 +6,5 @@ console.log('Component node-binding.js temporarily disabled due to syntax errors
 // Basic placeholder component
 window.nodebinding = {
     init: () => console.log('Component not implemented'),
-    render: () => '<div>Component temporarily unavailable</div>'
+    render: () => '<div>Component temporarily unavailable</div>',
 };

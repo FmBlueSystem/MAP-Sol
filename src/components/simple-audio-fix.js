@@ -53,7 +53,7 @@
                 if (window.electronAPI) {
                     window.electronAPI
                         .invoke('play-audio-file', audioPath)
-                        .then(result => {
+                        .then((result) => {
                             if (result.success) {
                                 // Success handled by IPC
                             } else {
@@ -61,7 +61,7 @@
                                 showErrorMessage('Cannot play this file');
                             }
                         })
-                        .catch(err => {
+                        .catch((err) => {
                             logError('IPC error:', err);
                         });
                 }
@@ -83,7 +83,7 @@
                 audio
                     .play()
                     .then(() => {})
-                    .catch(err => {
+                    .catch((err) => {
                         logError('Play failed:', err);
 
                         // User interaction might be needed
@@ -106,7 +106,7 @@
                 audioPath, // Original path
                 'file:///' + audioPath, // Windows style
                 'file://' + encodeURI(audioPath).replace(/#/g, '%23'), // Encoded with protocol
-                encodeURI(audioPath).replace(/#/g, '%23') // Encoded
+                encodeURI(audioPath).replace(/#/g, '%23'), // Encoded
             ];
 
             let loaded = false;
@@ -196,7 +196,7 @@
                 .then(() => {
                     btn.remove();
                 })
-                .catch(err => {
+                .catch((err) => {
                     logError('Manual play failed:', err);
                 });
         };
@@ -235,6 +235,6 @@
     // Export for debugging
     window.SimpleAudioFix = {
         play: window.playTrackSimple,
-        original: originalPlayTrack
+        original: originalPlayTrack,
     };
 })();

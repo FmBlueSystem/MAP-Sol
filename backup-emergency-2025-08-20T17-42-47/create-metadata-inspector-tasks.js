@@ -86,7 +86,7 @@ const tasks = [
         status: 'todo',
         task_order: 5,
         feature: 'UX',
-    }
+    },
 ];
 
 async function createTask(task) {
@@ -105,7 +105,7 @@ async function createTask(task) {
             headers: {
                 'Content-Type': 'application/json',
                 'Content-Length': data.length,
-            }
+            },
         };
 
         const req = http.request(options, (res) => {

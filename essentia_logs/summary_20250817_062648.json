@@ -1,14 +1,14 @@
 {
-  "timestamp": "2025-08-17T06:27:20-06:00",
-  "processed": 0,
-  "success": 0,
-  "errors": 0,
-  "skipped": 0,
-  "crashes": 0,
-  "duration_seconds": 32,
-  "success_rate": 0,
-  "new_analyzed": 20,
-  "strategy": "smart60",
-  "timeout": 30,
-  "skip_m4a": false
+    "timestamp": "2025-08-17T06:27:20-06:00",
+    "processed": 0,
+    "success": 0,
+    "errors": 0,
+    "skipped": 0,
+    "crashes": 0,
+    "duration_seconds": 32,
+    "success_rate": 0,
+    "new_analyzed": 20,
+    "strategy": "smart60",
+    "timeout": 30,
+    "skip_m4a": false
 }

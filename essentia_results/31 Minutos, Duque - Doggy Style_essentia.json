@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/31 Minutos, Duque - Doggy Style.flac",
-  "file_name": "31 Minutos, Duque - Doggy Style.flac",
-  "timestamp": "2025-08-16T22:32:37.342901",
-  "essentia_features": {
-    "loudness_lufs": -4.346904754638672,
-    "danceability": 1.2903716564178467,
-    "acousticness": 0.5,
-    "instrumentalness": 0.3102480173110962,
-    "liveness": 0.1,
-    "speechiness": 0.16989891783409283,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/31 Minutos, Duque - Doggy Style.flac",
+    "file_name": "31 Minutos, Duque - Doggy Style.flac",
+    "timestamp": "2025-08-16T22:32:37.342901",
+    "essentia_features": {
+        "loudness_lufs": -4.346904754638672,
+        "danceability": 1.2903716564178467,
+        "acousticness": 0.5,
+        "instrumentalness": 0.3102480173110962,
+        "liveness": 0.1,
+        "speechiness": 0.16989891783409283,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

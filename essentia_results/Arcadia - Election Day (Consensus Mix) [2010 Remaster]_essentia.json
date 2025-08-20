@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Arcadia - Election Day (Consensus Mix) [2010 Remaster].flac",
-  "file_name": "Arcadia - Election Day (Consensus Mix) [2010 Remaster].flac",
-  "timestamp": "2025-08-16T22:45:02.347841",
-  "essentia_features": {
-    "loudness_lufs": -6.619014739990234,
-    "danceability": 1.3382309675216675,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6107869744300842,
-    "liveness": 0.1,
-    "speechiness": 0.14404061314495947,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Arcadia - Election Day (Consensus Mix) [2010 Remaster].flac",
+    "file_name": "Arcadia - Election Day (Consensus Mix) [2010 Remaster].flac",
+    "timestamp": "2025-08-16T22:45:02.347841",
+    "essentia_features": {
+        "loudness_lufs": -6.619014739990234,
+        "danceability": 1.3382309675216675,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6107869744300842,
+        "liveness": 0.1,
+        "speechiness": 0.14404061314495947,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

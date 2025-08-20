@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Idol - Hot In The City (Exterminator Mix  Remastered 2001).flac",
-  "file_name": "Billy Idol - Hot In The City (Exterminator Mix  Remastered 2001).flac",
-  "timestamp": "2025-08-16T22:54:40.951070",
-  "essentia_features": {
-    "loudness_lufs": -5.460920333862305,
-    "danceability": 1.382369875907898,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4794877767562866,
-    "liveness": 0.1,
-    "speechiness": 0.1273159906142519,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Idol - Hot In The City (Exterminator Mix  Remastered 2001).flac",
+    "file_name": "Billy Idol - Hot In The City (Exterminator Mix  Remastered 2001).flac",
+    "timestamp": "2025-08-16T22:54:40.951070",
+    "essentia_features": {
+        "loudness_lufs": -5.460920333862305,
+        "danceability": 1.382369875907898,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4794877767562866,
+        "liveness": 0.1,
+        "speechiness": 0.1273159906142519,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

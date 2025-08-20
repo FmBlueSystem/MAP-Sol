@@ -11,7 +11,7 @@ const dbPath = path.join(__dirname, 'music_analyzer.db');
 logDebug('📊 ADDING UPDATED_AT COLUMN');
 logDebug('='.repeat(60));
 
-const db = new sqlite3.Database(dbPath, err => {
+const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         logError('❌ Database connection error:', err);
         process.exit(1);
@@ -37,7 +37,7 @@ db.get("SELECT COUNT(*) as count FROM pragma_table_info('audio_files') WHERE nam
     // Add column
     logDebug('📝 Adding updated_at column...');
 
-    db.run('ALTER TABLE audio_files ADD COLUMN updated_at TIMESTAMP', err => {
+    db.run('ALTER TABLE audio_files ADD COLUMN updated_at TIMESTAMP', (err) => {
         if (err) {
             logError('❌ Error adding column:', err);
             db.close();

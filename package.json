@@ -41,15 +41,22 @@
         "clean": "rm -rf dist node_modules package-lock.json",
         "reinstall": "npm run clean && npm install",
         "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
+        "lint:fix": "eslint . --ext .js --fix",
+        "lint:watch": "nodemon --exec 'npm run lint'",
         "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,css,md}\"",
         "typecheck": "tsc --noEmit",
+        "verify": "npm run lint && npm run test",
+        "verify:all": "npm run lint && npm run test && npm run build",
+        "setup:quality": "npm i -D husky lint-staged && npx husky install && echo 'npx lint-staged' > .husky/pre-commit && chmod +x .husky/pre-commit",
+        "clean:errors": "npm run lint:fix && npm run format",
         "prebuild": "npm run lint && npm run typecheck",
         "postinstall": "electron-builder install-app-deps",
         "pack": "electron-builder --dir",
         "dist": "electron-builder --mac --win --linux",
         "dist:mac": "electron-builder --mac",
         "dist:win": "electron-builder --win",
-        "dist:linux": "electron-builder --linux"
+        "dist:linux": "electron-builder --linux",
+        "prepare": "husky"
     },
     "build": {
         "appId": "com.bluesystemio.map",

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Claudio Baglioni - Amore bello.flac",
-  "file_name": "Claudio Baglioni - Amore bello.flac",
-  "timestamp": "2025-08-16T23:33:47.718624",
-  "essentia_features": {
-    "loudness_lufs": -9.522310256958008,
-    "danceability": 1.1316194534301758,
-    "acousticness": 0.5,
-    "instrumentalness": 0.47757089138031006,
-    "liveness": 0.1,
-    "speechiness": 0.09762666707983571,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Claudio Baglioni - Amore bello.flac",
+    "file_name": "Claudio Baglioni - Amore bello.flac",
+    "timestamp": "2025-08-16T23:33:47.718624",
+    "essentia_features": {
+        "loudness_lufs": -9.522310256958008,
+        "danceability": 1.1316194534301758,
+        "acousticness": 0.5,
+        "instrumentalness": 0.47757089138031006,
+        "liveness": 0.1,
+        "speechiness": 0.09762666707983571,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

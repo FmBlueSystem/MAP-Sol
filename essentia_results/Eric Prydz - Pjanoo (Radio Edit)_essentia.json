@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eric Prydz - Pjanoo (Radio Edit).flac",
-  "file_name": "Eric Prydz - Pjanoo (Radio Edit).flac",
-  "timestamp": "2025-08-17T00:16:05.842252",
-  "essentia_features": {
-    "loudness_lufs": -3.0501041412353516,
-    "danceability": 1.1409246921539307,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6348576843738556,
-    "liveness": 0.1,
-    "speechiness": 0.15888972313039182,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eric Prydz - Pjanoo (Radio Edit).flac",
+    "file_name": "Eric Prydz - Pjanoo (Radio Edit).flac",
+    "timestamp": "2025-08-17T00:16:05.842252",
+    "essentia_features": {
+        "loudness_lufs": -3.0501041412353516,
+        "danceability": 1.1409246921539307,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6348576843738556,
+        "liveness": 0.1,
+        "speechiness": 0.15888972313039182,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

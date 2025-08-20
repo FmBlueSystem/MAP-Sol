@@ -388,7 +388,7 @@ class SmartPlaylistWizard {
                 { field: 'bpm', operator: 'between', value: '125', value2: '135' },
                 { field: 'energy', operator: 'greater', value: '0.8' },
                 { field: 'danceability', operator: 'greater', value: '0.7' },
-            ]
+            ],
         };
 
         const rules = templates[template];

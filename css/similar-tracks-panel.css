@@ -15,8 +15,12 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .similar-tracks-panel {
@@ -299,15 +303,15 @@
 }
 
 .similarity-score.high .score-text {
-    color: #4CAF50;
+    color: #4caf50;
 }
 
 .similarity-score.medium .score-text {
-    color: #FFC107;
+    color: #ffc107;
 }
 
 .similarity-score.low .score-text {
-    color: #F44336;
+    color: #f44336;
 }
 
 /* Track Actions */
@@ -353,7 +357,9 @@
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .loading-spinner p {
@@ -383,7 +389,7 @@
 .error-message {
     text-align: center;
     padding: 40px;
-    color: #F44336;
+    color: #f44336;
 }
 
 .error-message p {
@@ -438,11 +444,11 @@
         width: 95%;
         max-width: none;
     }
-    
+
     .similar-track-item {
         flex-wrap: wrap;
     }
-    
+
     .track-info {
         width: 100%;
     }

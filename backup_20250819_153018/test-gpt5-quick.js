@@ -22,12 +22,12 @@ async function quickTestGPT5() {
                         role: 'user',
                         content:
                             'Analyze this song: "Bohemian Rhapsody" by Queen. Return JSON with genre, mood, and energy (0-1).',
-                    }
+                    },
                 ],
                 max_completion_tokens: 200,
                 temperature: 1,
                 response_format: { type: 'json_object' },
-            })
+            }),
         });
 
         if (response.ok) {

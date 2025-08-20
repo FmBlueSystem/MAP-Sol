@@ -19,6 +19,6 @@ module.exports = {
             functions: 25,
             lines: 30,
             statements: 30,
-        }
-    }
+        },
+    },
 };

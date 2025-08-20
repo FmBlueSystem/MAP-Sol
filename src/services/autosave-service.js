@@ -22,7 +22,7 @@ class AutoSaveService {
         this.currentSession = {
             id: Date.now().toString(),
             startTime: new Date().toISOString(),
-            data: sessionData
+            data: sessionData,
         };
 
         // Guardar inmediatamente
@@ -93,11 +93,11 @@ class AutoSaveService {
     recover() {
         const files = fs
             .readdirSync(this.storageDir)
-            .filter(f => f.startsWith('recovery_') && f.endsWith('.json'))
-            .map(f => ({
+            .filter((f) => f.startsWith('recovery_') && f.endsWith('.json'))
+            .map((f) => ({
                 file: f,
                 path: path.join(this.storageDir, f),
-                stats: fs.statSync(path.join(this.storageDir, f))
+                stats: fs.statSync(path.join(this.storageDir, f)),
             }))
             .sort((a, b) => b.stats.mtime - a.stats.mtime);
 
@@ -117,7 +117,7 @@ class AutoSaveService {
             return {
                 ...session,
                 recoveredFrom: latestFile.file,
-                minutesAgo: minutesAgo
+                minutesAgo: minutesAgo,
             };
         } catch (error) {
             logError('Error recovering session:', error);
@@ -129,8 +129,8 @@ class AutoSaveService {
     listRecoverable() {
         const files = fs
             .readdirSync(this.storageDir)
-            .filter(f => f.startsWith('recovery_') && f.endsWith('.json'))
-            .map(f => {
+            .filter((f) => f.startsWith('recovery_') && f.endsWith('.json'))
+            .map((f) => {
                 const filepath = path.join(this.storageDir, f);
                 const stats = fs.statSync(filepath);
 
@@ -144,7 +144,7 @@ class AutoSaveService {
                         lastSave: session.lastSave,
                         size: stats.size,
                         file: f,
-                        dataKeys: Object.keys(session.data || {})
+                        dataKeys: Object.keys(session.data || {}),
                     };
                 } catch {
                     return null;
@@ -160,17 +160,17 @@ class AutoSaveService {
     cleanOldRecoveryFiles() {
         const files = fs
             .readdirSync(this.storageDir)
-            .filter(f => f.startsWith('recovery_') && f.endsWith('.json'))
-            .map(f => ({
+            .filter((f) => f.startsWith('recovery_') && f.endsWith('.json'))
+            .map((f) => ({
                 file: f,
                 path: path.join(this.storageDir, f),
-                stats: fs.statSync(path.join(this.storageDir, f))
+                stats: fs.statSync(path.join(this.storageDir, f)),
             }))
             .sort((a, b) => b.stats.mtime - a.stats.mtime);
 
         // Mantener solo los N más recientes
         if (files.length > this.maxRecoveryFiles) {
-            files.slice(this.maxRecoveryFiles).forEach(f => {
+            files.slice(this.maxRecoveryFiles).forEach((f) => {
                 try {
                     fs.unlinkSync(f.path);
                     logDebug(`🗑️ Eliminado archivo de recuperación antiguo: ${f.file}`);
@@ -199,10 +199,10 @@ class AutoSaveService {
 
     // Eliminar todos los archivos de recuperación
     clearAll() {
-        const files = fs.readdirSync(this.storageDir).filter(f => f.startsWith('recovery_') && f.endsWith('.json'));
+        const files = fs.readdirSync(this.storageDir).filter((f) => f.startsWith('recovery_') && f.endsWith('.json'));
 
         let deleted = 0;
-        files.forEach(f => {
+        files.forEach((f) => {
             try {
                 fs.unlinkSync(path.join(this.storageDir, f));
                 deleted++;

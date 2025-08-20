@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Disko Junkie - I Like To Party.flac",
-  "file_name": "Disko Junkie - I Like To Party.flac",
-  "timestamp": "2025-08-16T23:56:44.587496",
-  "essentia_features": {
-    "loudness_lufs": -3.2968578338623047,
-    "danceability": 1.6417996883392334,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5387817919254303,
-    "liveness": 0.1,
-    "speechiness": 0.24295807894339358,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Disko Junkie - I Like To Party.flac",
+    "file_name": "Disko Junkie - I Like To Party.flac",
+    "timestamp": "2025-08-16T23:56:44.587496",
+    "essentia_features": {
+        "loudness_lufs": -3.2968578338623047,
+        "danceability": 1.6417996883392334,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5387817919254303,
+        "liveness": 0.1,
+        "speechiness": 0.24295807894339358,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

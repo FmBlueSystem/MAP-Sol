@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aterciopelados - Florecita Rockera.flac",
-  "file_name": "Aterciopelados - Florecita Rockera.flac",
-  "timestamp": "2025-08-16T22:47:17.704935",
-  "essentia_features": {
-    "loudness_lufs": -5.101451873779297,
-    "danceability": 1.035041332244873,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5010607838630676,
-    "liveness": 0.1,
-    "speechiness": 0.16084493346420337,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Aterciopelados - Florecita Rockera.flac",
+    "file_name": "Aterciopelados - Florecita Rockera.flac",
+    "timestamp": "2025-08-16T22:47:17.704935",
+    "essentia_features": {
+        "loudness_lufs": -5.101451873779297,
+        "danceability": 1.035041332244873,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5010607838630676,
+        "liveness": 0.1,
+        "speechiness": 0.16084493346420337,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

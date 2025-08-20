@@ -4,7 +4,7 @@ const path = require('path');
 
 function createArtworkHandler(db) {
     return async () => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const sql = `
                 SELECT 
                     af.id,
@@ -44,7 +44,7 @@ function createArtworkHandler(db) {
                     const artworkDir = path.join(__dirname, '..', 'artwork-cache');
                     let withArtwork = 0;
 
-                    rows.forEach(file => {
+                    rows.forEach((file) => {
                         const artworkPath = path.join(artworkDir, `${file.id}.jpg`);
                         const defaultImagePath = path.join(__dirname, '..', 'image.png');
 

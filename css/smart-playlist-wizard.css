@@ -150,8 +150,8 @@
     color: var(--text-secondary, #666);
 }
 
-.form-group input[type="text"],
-.form-group input[type="number"],
+.form-group input[type='text'],
+.form-group input[type='number'],
 .form-group textarea,
 .form-group select {
     width: 100%;
@@ -589,7 +589,7 @@
 }
 
 .btn-success {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #4caf50, #45a049);
     color: white;
 }
 
@@ -615,11 +615,11 @@
         width: 95%;
         height: 90vh;
     }
-    
+
     .form-row {
         grid-template-columns: 1fr;
     }
-    
+
     .template-buttons {
         grid-template-columns: 1fr;
     }

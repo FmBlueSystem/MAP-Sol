@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Barry White - You're The First, The Last, My Everything.flac",
-  "file_name": "Barry White - You're The First, The Last, My Everything.flac",
-  "timestamp": "2025-08-16T22:51:34.630844",
-  "essentia_features": {
-    "loudness_lufs": -9.764774322509766,
-    "danceability": 1.2959282398223877,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5003344118595123,
-    "liveness": 0.1,
-    "speechiness": 0.1522348424043445,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Barry White - You're The First, The Last, My Everything.flac",
+    "file_name": "Barry White - You're The First, The Last, My Everything.flac",
+    "timestamp": "2025-08-16T22:51:34.630844",
+    "essentia_features": {
+        "loudness_lufs": -9.764774322509766,
+        "danceability": 1.2959282398223877,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5003344118595123,
+        "liveness": 0.1,
+        "speechiness": 0.1522348424043445,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

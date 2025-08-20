@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Crazy Frog - Axel F (Club Mix).flac",
-  "file_name": "Crazy Frog - Axel F (Club Mix).flac",
-  "timestamp": "2025-08-16T23:37:29.786398",
-  "essentia_features": {
-    "loudness_lufs": -3.2569351196289062,
-    "danceability": 1.3850725889205933,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6141310930252075,
-    "liveness": 0.1,
-    "speechiness": 0.1820668365507037,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Crazy Frog - Axel F (Club Mix).flac",
+    "file_name": "Crazy Frog - Axel F (Club Mix).flac",
+    "timestamp": "2025-08-16T23:37:29.786398",
+    "essentia_features": {
+        "loudness_lufs": -3.2569351196289062,
+        "danceability": 1.3850725889205933,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6141310930252075,
+        "liveness": 0.1,
+        "speechiness": 0.1820668365507037,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Idol - To Be A Lover (Mother Of Mercy Mix  Remastered 2002).flac",
-  "file_name": "Billy Idol - To Be A Lover (Mother Of Mercy Mix  Remastered 2002).flac",
-  "timestamp": "2025-08-16T22:55:12.517933",
-  "essentia_features": {
-    "loudness_lufs": -5.48785400390625,
-    "danceability": 1.054949164390564,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5255788862705231,
-    "liveness": 0.1,
-    "speechiness": 0.08789972530519714,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Idol - To Be A Lover (Mother Of Mercy Mix  Remastered 2002).flac",
+    "file_name": "Billy Idol - To Be A Lover (Mother Of Mercy Mix  Remastered 2002).flac",
+    "timestamp": "2025-08-16T22:55:12.517933",
+    "essentia_features": {
+        "loudness_lufs": -5.48785400390625,
+        "danceability": 1.054949164390564,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5255788862705231,
+        "liveness": 0.1,
+        "speechiness": 0.08789972530519714,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

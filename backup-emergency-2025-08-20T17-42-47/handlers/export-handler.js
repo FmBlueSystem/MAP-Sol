@@ -233,7 +233,7 @@ function createGetExportFormatsHandler() {
                 { id: 'traktor', name: 'Traktor NML', available: false },
                 { id: 'serato', name: 'Serato Crate', available: false },
                 { id: 'virtualDJ', name: 'VirtualDJ', available: false },
-            ]
+            ],
         };
     };
 }

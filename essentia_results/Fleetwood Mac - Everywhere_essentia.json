@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Everywhere.flac",
-  "file_name": "Fleetwood Mac - Everywhere.flac",
-  "timestamp": "2025-08-17T00:23:42.934548",
-  "essentia_features": {
-    "loudness_lufs": -7.9680633544921875,
-    "danceability": 1.343775987625122,
-    "acousticness": 0.5,
-    "instrumentalness": 0.46450549364089966,
-    "liveness": 0.1,
-    "speechiness": 0.19651123836622378,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Everywhere.flac",
+    "file_name": "Fleetwood Mac - Everywhere.flac",
+    "timestamp": "2025-08-17T00:23:42.934548",
+    "essentia_features": {
+        "loudness_lufs": -7.9680633544921875,
+        "danceability": 1.343775987625122,
+        "acousticness": 0.5,
+        "instrumentalness": 0.46450549364089966,
+        "liveness": 0.1,
+        "speechiness": 0.19651123836622378,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

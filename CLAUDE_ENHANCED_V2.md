@@ -1,4 +1,5 @@
 # CLAUDE.md - Music Analyzer Pro (MAP) v3.1
+
 > **Versión**: 3.1.0 - Quality Enforcement Edition
 > **Última actualización**: 2025-01-19
 > **Estado**: Producción con Enforcement Automático de Calidad
@@ -36,22 +37,24 @@ git push             # GitHub Actions DEBE pasar
 **ANTES de escribir CUALQUIER línea de código, DEBES leer:**
 
 1. **ESTÁNDARES DE CALIDAD** ⚠️ CRÍTICO
-   ```
-   Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/CODE_QUALITY_STANDARDS.md
-   Aplicar: TODOS los principios, métricas y ejemplos
-   ```
+
+    ```
+    Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/CODE_QUALITY_STANDARDS.md
+    Aplicar: TODOS los principios, métricas y ejemplos
+    ```
 
 2. **ANÁLISIS DE FALLOS DE CALIDAD** 🆕 CRÍTICO
-   ```
-   Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/QUALITY_PROCESS_FAILURE_ANALYSIS.md
-   Leer: Por qué fallan los procesos y cómo prevenirlo
-   ```
+
+    ```
+    Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/QUALITY_PROCESS_FAILURE_ANALYSIS.md
+    Leer: Por qué fallan los procesos y cómo prevenirlo
+    ```
 
 3. **STATUS DE VIRTUAL SCROLLING** 🆕 IMPORTANTE
-   ```
-   Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/VIRTUAL_SCROLLING_STATUS_ANALYSIS.md
-   Caso: Ejemplo de feature "completada" pero no integrada
-   ```
+    ```
+    Ubicación: /Users/freddymolina/Desktop/Archon V2/Archon/VIRTUAL_SCROLLING_STATUS_ANALYSIS.md
+    Caso: Ejemplo de feature "completada" pero no integrada
+    ```
 
 ---
 
@@ -62,6 +65,7 @@ git push             # GitHub Actions DEBE pasar
 **Síntoma**: El código existe pero no funciona en la app
 
 **Ejemplos Reales**:
+
 - Virtual Scrolling: 4 archivos JS creados pero NO conectados al HTML
 - Tests: Escritos pero NO ejecutándose en CI/CD
 - ESLint: "Arreglado" pero sigue fallando en GitHub Actions
@@ -174,6 +178,7 @@ git push origin feature-branch  # DEBE: GitHub Actions ✅
 ## 📊 DEFINICIÓN ACTUALIZADA DE "HECHO"
 
 ### ❌ VIEJA DEFINICIÓN (Problemática)
+
 - ✅ Código escrito
 - ✅ "Parece que funciona"
 - ✅ Commit hecho
@@ -209,6 +214,7 @@ DOCUMENTACIÓN:
 ## 🚀 PROCESO MEJORADO DE DESARROLLO
 
 ### PASO 1: Setup Inicial (Solo una vez)
+
 ```bash
 # Clonar y configurar
 git clone [repo]
@@ -220,6 +226,7 @@ npm run setup:quality  # Script que ejecuta todo el setup de husky
 ```
 
 ### PASO 2: Desarrollo de Feature
+
 ```bash
 # 1. Crear branch
 git checkout -b feature/nombre-descriptivo
@@ -235,9 +242,10 @@ npm run verify  # Ejecuta: lint + test + build
 ```
 
 ### PASO 3: Integración
+
 ```javascript
 // EN EL HTML PRINCIPAL
-<script src="js/nueva-feature.js"></script>
+<script src="js/nueva-feature.js"></script>;
 
 // EN EL JS PRINCIPAL
 document.addEventListener('DOMContentLoaded', () => {
@@ -251,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 
 ### PASO 4: Verificación Final
+
 ```bash
 # 1. Limpiar cualquier error
 npx eslint . --fix
@@ -277,20 +286,20 @@ Agregar a `package.json`:
 
 ```json
 {
-  "scripts": {
-    "lint": "eslint . --ext .js",
-    "lint:fix": "eslint . --ext .js --fix",
-    "lint:watch": "nodemon --exec 'npm run lint'",
-    "format": "prettier --write '**/*.{js,json,css,html,md}'",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "verify": "npm run lint && npm run test",
-    "verify:all": "npm run lint && npm run test && npm run build",
-    "setup:quality": "npm i -D husky lint-staged && npx husky install && npx husky add .husky/pre-commit 'npx lint-staged'",
-    "clean:errors": "npm run lint:fix && npm run format",
-    "check:integration": "node scripts/check-integration.js"
-  }
+    "scripts": {
+        "lint": "eslint . --ext .js",
+        "lint:fix": "eslint . --ext .js --fix",
+        "lint:watch": "nodemon --exec 'npm run lint'",
+        "format": "prettier --write '**/*.{js,json,css,html,md}'",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+        "verify": "npm run lint && npm run test",
+        "verify:all": "npm run lint && npm run test && npm run build",
+        "setup:quality": "npm i -D husky lint-staged && npx husky install && npx husky add .husky/pre-commit 'npx lint-staged'",
+        "clean:errors": "npm run lint:fix && npm run format",
+        "check:integration": "node scripts/check-integration.js"
+    }
 }
 ```
 
@@ -299,6 +308,7 @@ Agregar a `package.json`:
 ## 🎯 CASOS DE ÉXITO vs FRACASO
 
 ### ❌ CASO DE FRACASO: Virtual Scrolling
+
 ```
 1. Se desarrollaron 4 archivos JS ✅
 2. Se escribieron tests ✅
@@ -309,6 +319,7 @@ Agregar a `package.json`:
 ```
 
 ### ✅ CASO DE ÉXITO: Como debería ser
+
 ```
 1. Desarrollar virtual-scrolling.js ✅
 2. Agregar <script> en index.html ✅
@@ -325,22 +336,27 @@ Agregar a `package.json`:
 ## 🔴 ERRORES COMUNES A EVITAR
 
 ### 1. "Funciona en mi máquina"
+
 **Problema**: No verificar en CI/CD
 **Solución**: SIEMPRE esperar que GitHub Actions pase
 
 ### 2. "El código está ahí"
+
 **Problema**: Código escrito pero no integrado
 **Solución**: Verificar que está en HTML y se ejecuta
 
 ### 3. "Ya arreglé los errores de lint"
+
 **Problema**: Se arreglan pero vuelven a aparecer
 **Solución**: Pre-commit hooks automáticos
 
 ### 4. "Los tests pasan"
+
 **Problema**: Tests pasan pero feature no funciona
 **Solución**: Tests de integración + prueba manual
 
 ### 5. "Completé la tarea"
+
 **Problema**: Completar sin verificar todos los puntos
 **Solución**: Usar checklist obligatorio
 
@@ -350,20 +366,20 @@ Agregar a `package.json`:
 
 **Estas features están desarrolladas pero NO integradas:**
 
-1. **Virtual Scrolling** 
-   - Archivos: `js/virtual-scroller-production.js`
-   - Estado: NO en index.html
-   - Acción: Integrar urgentemente
+1. **Virtual Scrolling**
+    - Archivos: `js/virtual-scroller-production.js`
+    - Estado: NO en index.html
+    - Acción: Integrar urgentemente
 
 2. **Performance Optimizer**
-   - Archivos: `js/performance-optimizer.js`
-   - Estado: Parcialmente integrado
-   - Acción: Verificar inicialización
+    - Archivos: `js/performance-optimizer.js`
+    - Estado: Parcialmente integrado
+    - Acción: Verificar inicialización
 
 3. **Database Optimizer**
-   - Archivos: `js/database-optimizer.js`
-   - Estado: No claro si está activo
-   - Acción: Verificar y activar
+    - Archivos: `js/database-optimizer.js`
+    - Estado: No claro si está activo
+    - Acción: Verificar y activar
 
 **TAREA INMEDIATA**: Auditar y conectar TODAS las features existentes antes de crear nuevas.
 
@@ -373,14 +389,14 @@ Agregar a `package.json`:
 
 ### Objetivo vs Realidad
 
-| Métrica | Objetivo | Realidad Actual | Acción |
-|---------|----------|-----------------|--------|
-| ESLint errors | 0 | 16+ (GitHub) | Setup husky |
-| Test coverage | 60% | 38% | Escribir más tests |
-| Features integradas | 100% | ~70% | Auditar y conectar |
-| CI/CD passing | 100% | Fallando | Fix ESLint + tests |
-| Bundle size | < 5MB | No medido | npm run build |
-| Performance score | > 80 | No medido | Lighthouse |
+| Métrica             | Objetivo | Realidad Actual | Acción             |
+| ------------------- | -------- | --------------- | ------------------ |
+| ESLint errors       | 0        | 16+ (GitHub)    | Setup husky        |
+| Test coverage       | 60%      | 38%             | Escribir más tests |
+| Features integradas | 100%     | ~70%            | Auditar y conectar |
+| CI/CD passing       | 100%     | Fallando        | Fix ESLint + tests |
+| Bundle size         | < 5MB    | No medido       | npm run build      |
+| Performance score   | > 80     | No medido       | Lighthouse         |
 
 ---
 
@@ -422,12 +438,14 @@ SOLO ENTONCES:
 ## 🎯 ACCIONES INMEDIATAS REQUERIDAS
 
 ### 1. Setup de Calidad (5 minutos)
+
 ```bash
 npm run setup:quality
 npm run clean:errors
 ```
 
 ### 2. Activar Features Existentes (2 horas)
+
 ```bash
 # Integrar Virtual Scrolling
 # Verificar Performance Optimizer
@@ -435,6 +453,7 @@ npm run clean:errors
 ```
 
 ### 3. Corregir GitHub Actions (30 minutos)
+
 ```bash
 npx eslint . --fix
 npm test
@@ -442,6 +461,7 @@ git push
 ```
 
 ### 4. Establecer Baseline (1 hora)
+
 ```bash
 npm run test:coverage  # Documentar %
 npm run build         # Documentar size
@@ -456,4 +476,4 @@ npx lighthouse URL    # Documentar score
 
 ---
 
-*Este documento es la fuente de verdad para MAP. Sin enforcement automático, la calidad siempre degrada.*
+_Este documento es la fuente de verdad para MAP. Sin enforcement automático, la calidad siempre degrada._

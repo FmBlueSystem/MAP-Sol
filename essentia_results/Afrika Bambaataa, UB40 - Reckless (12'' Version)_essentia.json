@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Afrika Bambaataa, UB40 - Reckless (12'' Version).flac",
-  "file_name": "Afrika Bambaataa, UB40 - Reckless (12'' Version).flac",
-  "timestamp": "2025-08-16T22:38:32.193550",
-  "essentia_features": {
-    "loudness_lufs": -9.918540954589844,
-    "danceability": 1.542995810508728,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4082913398742676,
-    "liveness": 0.1,
-    "speechiness": 0.1541761755686165,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Afrika Bambaataa, UB40 - Reckless (12'' Version).flac",
+    "file_name": "Afrika Bambaataa, UB40 - Reckless (12'' Version).flac",
+    "timestamp": "2025-08-16T22:38:32.193550",
+    "essentia_features": {
+        "loudness_lufs": -9.918540954589844,
+        "danceability": 1.542995810508728,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4082913398742676,
+        "liveness": 0.1,
+        "speechiness": 0.1541761755686165,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

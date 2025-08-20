@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Skin Trade (S.O.S Dub) [2010 Remaster].flac",
-  "file_name": "Duran Duran - Skin Trade (S.O.S Dub) [2010 Remaster].flac",
-  "timestamp": "2025-08-17T00:05:25.660752",
-  "essentia_features": {
-    "loudness_lufs": -9.745691299438477,
-    "danceability": 1.5823322534561157,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6048394739627838,
-    "liveness": 0.1,
-    "speechiness": 0.24980044223493492,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Skin Trade (S.O.S Dub) [2010 Remaster].flac",
+    "file_name": "Duran Duran - Skin Trade (S.O.S Dub) [2010 Remaster].flac",
+    "timestamp": "2025-08-17T00:05:25.660752",
+    "essentia_features": {
+        "loudness_lufs": -9.745691299438477,
+        "danceability": 1.5823322534561157,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6048394739627838,
+        "liveness": 0.1,
+        "speechiness": 0.24980044223493492,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

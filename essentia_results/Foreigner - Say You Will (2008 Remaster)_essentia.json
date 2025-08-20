@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Foreigner - Say You Will (2008 Remaster).flac",
-  "file_name": "Foreigner - Say You Will (2008 Remaster).flac",
-  "timestamp": "2025-08-17T00:26:01.514876",
-  "essentia_features": {
-    "loudness_lufs": -3.0335922241210938,
-    "danceability": 1.1767528057098389,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4083471894264221,
-    "liveness": 0.1,
-    "speechiness": 0.16450162973355972,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Foreigner - Say You Will (2008 Remaster).flac",
+    "file_name": "Foreigner - Say You Will (2008 Remaster).flac",
+    "timestamp": "2025-08-17T00:26:01.514876",
+    "essentia_features": {
+        "loudness_lufs": -3.0335922241210938,
+        "danceability": 1.1767528057098389,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4083471894264221,
+        "liveness": 0.1,
+        "speechiness": 0.16450162973355972,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

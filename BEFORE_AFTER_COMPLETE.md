@@ -2,49 +2,49 @@
 
 ## 🎵 Ejemplo 1: "Dumb (VIP Extended Remix)" - A7S (ID: 39)
 
-| **Aspecto** | **ANTES** | **DESPUÉS** | **Mejora** |
-|-------------|-----------|-------------|------------|
-| **ESTRUCTURA** | | | |
-| Columnas totales | 92 columnas | 54 columnas | ✅ -41% |
-| Columnas duplicadas | 15+ duplicados | 0 duplicados | ✅ 100% limpio |
-| Nomenclatura | `LLM_Similar_Artists` (mixto) | `LLM_SIMILAR_ARTISTS` (consistente) | ✅ Estandarizado |
-| | | | |
-| **DATOS BÁSICOS** | | | |
-| Era | ❌ NULL | ✅ **2020s** | ✅ Normalizado |
-| Mood | ❌ NULL | ✅ **Happy** | ✅ De lista estándar |
-| Energy Level | ❌ NULL | ✅ **Very High** | ✅ 5 niveles claros |
-| Language | ❌ NULL | ✅ **English** | ✅ 8 opciones |
-| Storytelling | ❌ NULL o "0" | ✅ **Party** | ✅ 8 categorías |
-| | | | |
-| **ANÁLISIS** | | | |
-| Description | ❌ VACÍO | ✅ "A modern electronic dance track with energetic vibes..." | ✅ Completo |
-| DJ Notes | ❌ VACÍO | ✅ JSON con best_for, mix_with, set_position | ✅ Estructurado |
-| Similar Artists | ❌ VACÍO | ✅ ["Martin Garrix", "Tiësto", "David Guetta"] | ✅ 5 artistas |
-| Cultural Context | ❌ VACÍO | ✅ "Part of the 2020s EDM revival movement..." | ✅ Contextualizado |
-| Production Style | ❌ VACÍO | ✅ "Modern EDM production with heavy sidechain..." | ✅ Detallado |
+| **Aspecto**         | **ANTES**                     | **DESPUÉS**                                                  | **Mejora**           |
+| ------------------- | ----------------------------- | ------------------------------------------------------------ | -------------------- |
+| **ESTRUCTURA**      |                               |                                                              |                      |
+| Columnas totales    | 92 columnas                   | 54 columnas                                                  | ✅ -41%              |
+| Columnas duplicadas | 15+ duplicados                | 0 duplicados                                                 | ✅ 100% limpio       |
+| Nomenclatura        | `LLM_Similar_Artists` (mixto) | `LLM_SIMILAR_ARTISTS` (consistente)                          | ✅ Estandarizado     |
+|                     |                               |                                                              |                      |
+| **DATOS BÁSICOS**   |                               |                                                              |                      |
+| Era                 | ❌ NULL                       | ✅ **2020s**                                                 | ✅ Normalizado       |
+| Mood                | ❌ NULL                       | ✅ **Happy**                                                 | ✅ De lista estándar |
+| Energy Level        | ❌ NULL                       | ✅ **Very High**                                             | ✅ 5 niveles claros  |
+| Language            | ❌ NULL                       | ✅ **English**                                               | ✅ 8 opciones        |
+| Storytelling        | ❌ NULL o "0"                 | ✅ **Party**                                                 | ✅ 8 categorías      |
+|                     |                               |                                                              |                      |
+| **ANÁLISIS**        |                               |                                                              |                      |
+| Description         | ❌ VACÍO                      | ✅ "A modern electronic dance track with energetic vibes..." | ✅ Completo          |
+| DJ Notes            | ❌ VACÍO                      | ✅ JSON con best_for, mix_with, set_position                 | ✅ Estructurado      |
+| Similar Artists     | ❌ VACÍO                      | ✅ ["Martin Garrix", "Tiësto", "David Guetta"]               | ✅ 5 artistas        |
+| Cultural Context    | ❌ VACÍO                      | ✅ "Part of the 2020s EDM revival movement..."               | ✅ Contextualizado   |
+| Production Style    | ❌ VACÍO                      | ✅ "Modern EDM production with heavy sidechain..."           | ✅ Detallado         |
 
 ---
 
 ## 🎵 Ejemplo 2: "Der Kommissar" - After The Fire (ID: 82)
 
-| **Aspecto** | **ANTES** | **DESPUÉS** | **Mejora** |
-|-------------|-----------|-------------|------------|
-| **ESTRUCTURA** | | | |
-| Columnas totales | 92 columnas | 54 columnas | ✅ -41% |
-| Redundancias | `AI_ERA`, `LLM_ERA`, `era` | Solo `LLM_ERA` | ✅ Consolidado |
-| | | | |
-| **DATOS BÁSICOS** | | | |
-| Era | ❌ NULL o "80s" | ✅ **1980s** | ✅ Formato estándar |
-| Mood | ❌ NULL | ✅ **Happy** | ✅ Normalizado |
-| Energy Level | ❌ NULL | ✅ **High** | ✅ De 5 niveles |
-| Language | ❌ NULL | ✅ **English** | ✅ Identificado |
-| Storytelling | ❌ "0" | ✅ **Narrative** | ✅ Categorizado |
-| | | | |
-| **ANÁLISIS** | | | |
-| Description | ❌ VACÍO | ✅ "Classic 1980s new wave track with German lyrics..." | ✅ Enriquecido |
-| DJ Notes | ❌ VACÍO | ✅ {"best_for": "Party", "set_position": "peak-time"} | ✅ Útil para DJs |
-| Similar Artists | ❌ VACÍO | ✅ ["Falco", "Nena", "Modern Talking"] | ✅ Para discovery |
-| Flags | ❌ Incorrectos | ✅ is_remix: 0, is_cover: 1 | ✅ Correctos |
+| **Aspecto**       | **ANTES**                  | **DESPUÉS**                                             | **Mejora**          |
+| ----------------- | -------------------------- | ------------------------------------------------------- | ------------------- |
+| **ESTRUCTURA**    |                            |                                                         |                     |
+| Columnas totales  | 92 columnas                | 54 columnas                                             | ✅ -41%             |
+| Redundancias      | `AI_ERA`, `LLM_ERA`, `era` | Solo `LLM_ERA`                                          | ✅ Consolidado      |
+|                   |                            |                                                         |                     |
+| **DATOS BÁSICOS** |                            |                                                         |                     |
+| Era               | ❌ NULL o "80s"            | ✅ **1980s**                                            | ✅ Formato estándar |
+| Mood              | ❌ NULL                    | ✅ **Happy**                                            | ✅ Normalizado      |
+| Energy Level      | ❌ NULL                    | ✅ **High**                                             | ✅ De 5 niveles     |
+| Language          | ❌ NULL                    | ✅ **English**                                          | ✅ Identificado     |
+| Storytelling      | ❌ "0"                     | ✅ **Narrative**                                        | ✅ Categorizado     |
+|                   |                            |                                                         |                     |
+| **ANÁLISIS**      |                            |                                                         |                     |
+| Description       | ❌ VACÍO                   | ✅ "Classic 1980s new wave track with German lyrics..." | ✅ Enriquecido      |
+| DJ Notes          | ❌ VACÍO                   | ✅ {"best_for": "Party", "set_position": "peak-time"}   | ✅ Útil para DJs    |
+| Similar Artists   | ❌ VACÍO                   | ✅ ["Falco", "Nena", "Modern Talking"]                  | ✅ Para discovery   |
+| Flags             | ❌ Incorrectos             | ✅ is_remix: 0, is_cover: 1                             | ✅ Correctos        |
 
 ---
 
@@ -108,7 +108,7 @@ CALIDAD:
 
 ```sql
 -- Query ANTES (no funcionaría bien):
-SELECT * FROM llm_metadata 
+SELECT * FROM llm_metadata
 WHERE LLM_ERA IN ('80s', 'eighties', '1980s', 'Early 80s', '1980-1989')
 -- Resultado: Datos fragmentados, muchos NULL
 ```
@@ -117,7 +117,7 @@ WHERE LLM_ERA IN ('80s', 'eighties', '1980s', 'Early 80s', '1980-1989')
 
 ```sql
 -- Query DESPUÉS (funciona perfectamente):
-SELECT * FROM llm_metadata 
+SELECT * FROM llm_metadata
 WHERE LLM_ERA = '1980s'
 -- Resultado: 824 tracks consistentes
 ```
@@ -126,16 +126,16 @@ WHERE LLM_ERA = '1980s'
 
 ## 💡 VALOR PARA ALGORITMOS Y ML
 
-| **Uso** | **ANTES** | **DESPUÉS** |
-|---------|-----------|-------------|
-| **Recomendaciones por Era** | ❌ Imposible (datos fragmentados) | ✅ `WHERE LLM_ERA = '1980s'` |
-| **Filtro por Mood** | ❌ No disponible | ✅ 15 moods estándar |
-| **Agrupación por Energy** | ❌ Valores mixtos | ✅ 5 niveles claros |
-| **Análisis por Idioma** | ❌ Sin datos | ✅ 100% identificado |
-| **Playlists Automáticas** | ❌ Sin contexto | ✅ Por ocasión normalizada |
-| **Machine Learning** | ❌ Datos sucios | ✅ Datos limpios y normalizados |
-| **Estadísticas** | ❌ Poco confiables | ✅ 100% precisas |
-| **APIs/Export** | ❌ Inconsistente | ✅ Formato estándar |
+| **Uso**                     | **ANTES**                         | **DESPUÉS**                     |
+| --------------------------- | --------------------------------- | ------------------------------- |
+| **Recomendaciones por Era** | ❌ Imposible (datos fragmentados) | ✅ `WHERE LLM_ERA = '1980s'`    |
+| **Filtro por Mood**         | ❌ No disponible                  | ✅ 15 moods estándar            |
+| **Agrupación por Energy**   | ❌ Valores mixtos                 | ✅ 5 niveles claros             |
+| **Análisis por Idioma**     | ❌ Sin datos                      | ✅ 100% identificado            |
+| **Playlists Automáticas**   | ❌ Sin contexto                   | ✅ Por ocasión normalizada      |
+| **Machine Learning**        | ❌ Datos sucios                   | ✅ Datos limpios y normalizados |
+| **Estadísticas**            | ❌ Poco confiables                | ✅ 100% precisas                |
+| **APIs/Export**             | ❌ Inconsistente                  | ✅ Formato estándar             |
 
 ---
 

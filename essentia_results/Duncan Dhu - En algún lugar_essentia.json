@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duncan Dhu - En algu\u0301n lugar.flac",
-  "file_name": "Duncan Dhu - En algu\u0301n lugar.flac",
-  "timestamp": "2025-08-17T00:02:03.361797",
-  "essentia_features": {
-    "loudness_lufs": -4.2234954833984375,
-    "danceability": 1.3276102542877197,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4068622589111328,
-    "liveness": 0.1,
-    "speechiness": 0.2145548969541205,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duncan Dhu - En algu\u0301n lugar.flac",
+    "file_name": "Duncan Dhu - En algu\u0301n lugar.flac",
+    "timestamp": "2025-08-17T00:02:03.361797",
+    "essentia_features": {
+        "loudness_lufs": -4.2234954833984375,
+        "danceability": 1.3276102542877197,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4068622589111328,
+        "liveness": 0.1,
+        "speechiness": 0.2145548969541205,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

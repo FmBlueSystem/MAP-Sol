@@ -160,13 +160,13 @@ class TrackInfoPanel {
         toggleBtn.addEventListener('click', () => this.togglePanel());
 
         // Escuchar eventos de selección de tracks
-        document.addEventListener('trackSelected', e => {
+        document.addEventListener('trackSelected', (e) => {
             this.loadTrackData(e.detail);
         });
 
         // Escuchar playback events
         if (window.audioPlayer) {
-            document.addEventListener('trackChanged', e => {
+            document.addEventListener('trackChanged', (e) => {
                 this.loadTrackData(e.detail);
             });
         }
@@ -326,7 +326,7 @@ class TrackInfoPanel {
         }
 
         // Renderizar tags
-        tags.forEach(tag => {
+        tags.forEach((tag) => {
             const tagEl = document.createElement('span');
             tagEl.className = 'tag';
             tagEl.textContent = tag;
@@ -356,7 +356,7 @@ class TrackInfoPanel {
             { label: 'Acousticness', value: track.AI_ACOUSTICNESS || 0 },
             { label: 'Instrumentalness', value: track.AI_INSTRUMENTALNESS || 0 },
             { label: 'Liveness', value: track.AI_LIVENESS || 0 },
-            { label: 'Speechiness', value: track.AI_SPEECHINESS || 0 }
+            { label: 'Speechiness', value: track.AI_SPEECHINESS || 0 },
         ];
 
         const angleStep = (Math.PI * 2) / dimensions.length;
@@ -451,7 +451,7 @@ class TrackInfoPanel {
         // Disparar evento para buscar tracks similares
         document.dispatchEvent(
             new CustomEvent('findSimilarTracks', {
-                detail: this.currentTrack
+                detail: this.currentTrack,
             })
         );
     }
@@ -465,7 +465,7 @@ class TrackInfoPanel {
         // Disparar evento para análisis profundo
         document.dispatchEvent(
             new CustomEvent('deepAnalysis', {
-                detail: this.currentTrack
+                detail: this.currentTrack,
             })
         );
     }

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Ocean - Stay the Night (12 Version).flac",
-  "file_name": "Billy Ocean - Stay the Night (12 Version).flac",
-  "timestamp": "2025-08-16T22:57:44.222786",
-  "essentia_features": {
-    "loudness_lufs": -3.738262176513672,
-    "danceability": 1.6092251539230347,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5467015504837036,
-    "liveness": 0.1,
-    "speechiness": 0.1702103549222507,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Ocean - Stay the Night (12 Version).flac",
+    "file_name": "Billy Ocean - Stay the Night (12 Version).flac",
+    "timestamp": "2025-08-16T22:57:44.222786",
+    "essentia_features": {
+        "loudness_lufs": -3.738262176513672,
+        "danceability": 1.6092251539230347,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5467015504837036,
+        "liveness": 0.1,
+        "speechiness": 0.1702103549222507,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

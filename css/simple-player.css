@@ -419,12 +419,12 @@
         gap: 8px;
         padding: 8px 15px;
     }
-    
+
     .player-controls-section {
         flex-wrap: wrap;
         gap: 15px;
     }
-    
+
     .progress-section {
         order: -1;
         width: 100%;
@@ -435,53 +435,54 @@
     .simple-player-bar {
         padding: 8px 12px;
     }
-    
+
     .player-track-info {
         min-width: 180px;
         flex: 1;
     }
-    
+
     .player-artwork {
         width: 40px;
         height: 40px;
     }
-    
+
     .track-details {
         overflow: hidden;
     }
-    
-    .player-title, .player-artist {
+
+    .player-title,
+    .player-artist {
         max-width: 150px;
     }
-    
+
     .player-meta {
         display: none;
     }
-    
+
     .player-vu-section {
         min-height: 60px;
     }
-    
+
     #vu-meter-canvas {
         height: 60px;
     }
-    
+
     .transport-controls {
         gap: 6px;
     }
-    
+
     .progress-section {
         min-width: 100%;
     }
-    
+
     .volume-section {
         min-width: 100px;
     }
-    
+
     .volume-bar {
         width: 60px;
     }
-    
+
     .queue-panel {
         width: calc(100vw - 20px);
         left: 10px;
@@ -494,53 +495,53 @@
         padding: 6px 10px;
         gap: 6px;
     }
-    
+
     .player-track-info {
         min-width: 140px;
     }
-    
+
     .player-artwork {
         width: 36px;
         height: 36px;
     }
-    
+
     .player-title {
         font-size: 13px;
         max-width: 120px;
     }
-    
+
     .player-artist {
         font-size: 11px;
         max-width: 120px;
     }
-    
+
     .player-vu-section {
         min-height: 50px;
         flex: 0 0 auto;
     }
-    
+
     #vu-meter-canvas {
         height: 50px;
         width: 100%;
         max-width: 300px;
     }
-    
+
     .transport-controls {
         gap: 4px;
     }
-    
+
     .player-btn {
         padding: 6px;
     }
-    
+
     .player-btn-play {
         padding: 8px;
     }
-    
+
     .volume-section {
         display: none;
     }
-    
+
     .queue-display .queue-count {
         font-size: 9px;
         padding: 1px 4px;
@@ -553,16 +554,16 @@
         flex-direction: row;
         padding: 6px 15px;
     }
-    
+
     .player-vu-section {
         flex: 1;
         min-height: 50px;
     }
-    
+
     #vu-meter-canvas {
         height: 50px;
     }
-    
+
     .progress-section {
         order: 0;
         min-width: 200px;

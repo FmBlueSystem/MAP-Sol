@@ -22,7 +22,7 @@ const filesToFix = [
     'js/virtual-scroller-enhanced.js',
     'js/virtual-scroller-integration.js',
     'handlers/export-handler-broken.js',
-    'utils/artwork-helper.js'
+    'utils/artwork-helper.js',
 ];
 
 function fixFile(filePath) {
@@ -91,7 +91,7 @@ console.log('=== Fixing Syntax Errors in JavaScript Files ===\n');
 let fixedCount = 0;
 let errorCount = 0;
 
-filesToFix.forEach(file => {
+filesToFix.forEach((file) => {
     const fullPath = path.join(__dirname, file);
     if (fs.existsSync(fullPath)) {
         if (fixFile(fullPath)) {

@@ -71,7 +71,7 @@ export class DataManager {
         try {
             const result = await window.api.invoke('search-tracks', {
                 query,
-                ...filters
+                ...filters,
             });
 
             if (result.success) {
@@ -97,7 +97,7 @@ export class DataManager {
         try {
             const result = await window.api.invoke('update-metadata', {
                 id: trackId,
-                ...updates
+                ...updates,
             });
 
             if (result.success) {
@@ -108,7 +108,7 @@ export class DataManager {
                 // Emit update event
                 document.dispatchEvent(
                     new CustomEvent('track-updated', {
-                        detail: { trackId, updates }
+                        detail: { trackId, updates },
                     })
                 );
 
@@ -141,7 +141,7 @@ export class DataManager {
                 const options = {
                     genres: result.genres || [],
                     moods: result.moods || [],
-                    years: result.years || []
+                    years: result.years || [],
                 };
 
                 this.setCache(cacheKey, options);
@@ -166,7 +166,7 @@ export class DataManager {
         try {
             const result = await window.api.invoke(`export-${format}`, {
                 trackIds,
-                timestamp: Date.now()
+                timestamp: Date.now(),
             });
 
             return result.success;
@@ -217,7 +217,7 @@ export class DataManager {
             }
         }
 
-        keysToDelete.forEach(key => {
+        keysToDelete.forEach((key) => {
             this.cache.delete(key);
             this.cacheTimestamps.delete(key);
         });
@@ -241,7 +241,7 @@ export class DataManager {
             size: this.cache.size,
             memoryUsage: this.estimateCacheSize(),
             ttl: this.cacheTTL,
-            entries: Array.from(this.cache.keys())
+            entries: Array.from(this.cache.keys()),
         };
     }
 

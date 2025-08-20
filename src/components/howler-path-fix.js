@@ -9,7 +9,7 @@
     window.Howl = function (options) {
         // Fix src paths if they're local files
         if (options && options.src) {
-            options.src = options.src.map(src => {
+            options.src = options.src.map((src) => {
                 if (typeof src === 'string') {
                     // Check if it's a local file path without protocol
                     if (
@@ -41,7 +41,7 @@
                         if (parts) {
                             const encoded = parts
                                 .split('/')
-                                .map(part => encodeURIComponent(part).replace(/'/g, '%27'))
+                                .map((part) => encodeURIComponent(part).replace(/'/g, '%27'))
                                 .join('/');
                             fixedPath = 'file://' + encoded;
                         }
@@ -59,7 +59,7 @@
                     error: error,
                     errorCode: error,
                     src: options.src[0],
-                    id: id
+                    id: id,
                 });
 
                 // Error codes:
@@ -84,7 +84,7 @@
     };
 
     // Copy all static properties
-    Object.keys(OriginalHowl).forEach(key => {
+    Object.keys(OriginalHowl).forEach((key) => {
         window.Howl[key] = OriginalHowl[key];
     });
 

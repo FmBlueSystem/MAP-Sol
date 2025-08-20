@@ -19,7 +19,7 @@ const {
     createGetFormatsHandler,
     createGetAllTracksForExportHandler,
     createExportTracksHandler,
-    createGetExportFormatsHandler
+    createGetExportFormatsHandler,
 } = require('./handlers/export-handler');
 const { createNormalizationHandlers } = require('./handlers/normalization-handler');
 const { createPlaylistHandlers } = require('./handlers/playlist-handler');
@@ -43,8 +43,8 @@ function createSplashScreen() {
         transparent: true,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
-        }
+            contextIsolation: false,
+        },
     });
 
     splash.loadURL(
@@ -145,15 +145,15 @@ function createWindow() {
             nodeIntegration: false,
             contextIsolation: true,
             webSecurity: false, // Para cargar imágenes locales
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
         },
-        icon: icon || undefined // Usar el icono si existe
+        icon: icon || undefined, // Usar el icono si existe
     });
 
     mainWindow.loadFile('index-with-search.html');
 
     // Prevenir sobrescritura del título
-    mainWindow.on('page-title-updated', event => {
+    mainWindow.on('page-title-updated', (event) => {
         event.preventDefault();
     });
 }
@@ -169,7 +169,7 @@ function createApplicationMenu() {
                     label: 'About MAP',
                     click: () => {
                         showAboutWindow();
-                    }
+                    },
                 },
                 { type: 'separator' },
                 {
@@ -177,49 +177,49 @@ function createApplicationMenu() {
                     accelerator: 'CmdOrCtrl+Shift+A',
                     click: () => {
                         showAudioConfigWindow();
-                    }
+                    },
                 },
                 {
                     label: 'Preferences...',
                     accelerator: 'CmdOrCtrl+,',
                     click: () => {
                         mainWindow.webContents.send('open-preferences');
-                    }
+                    },
                 },
                 { type: 'separator' },
                 ...(process.platform === 'darwin'
                     ? [
-                        {
-                            label: 'Services',
-                            role: 'services',
-                            submenu: []
-                        },
-                        { type: 'separator' },
-                        {
-                            label: 'Hide MAP',
-                            accelerator: 'CmdOrCtrl+H',
-                            role: 'hide'
-                        },
-                        {
-                            label: 'Hide Others',
-                            accelerator: 'CmdOrCtrl+Shift+H',
-                            role: 'hideothers'
-                        },
-                        {
-                            label: 'Show All',
-                            role: 'unhide'
-                        },
-                        { type: 'separator' }
-                    ]
+                          {
+                              label: 'Services',
+                              role: 'services',
+                              submenu: [],
+                          },
+                          { type: 'separator' },
+                          {
+                              label: 'Hide MAP',
+                              accelerator: 'CmdOrCtrl+H',
+                              role: 'hide',
+                          },
+                          {
+                              label: 'Hide Others',
+                              accelerator: 'CmdOrCtrl+Shift+H',
+                              role: 'hideothers',
+                          },
+                          {
+                              label: 'Show All',
+                              role: 'unhide',
+                          },
+                          { type: 'separator' },
+                      ]
                     : []),
                 {
                     label: 'Quit MAP',
                     accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
                     click: () => {
                         app.quit();
-                    }
-                }
-            ]
+                    },
+                },
+            ],
         },
 
         // Menú File
@@ -231,14 +231,14 @@ function createApplicationMenu() {
                     accelerator: 'CmdOrCtrl+I',
                     click: () => {
                         mainWindow.webContents.send('import-library');
-                    }
+                    },
                 },
                 {
                     label: 'Export Playlist...',
                     accelerator: 'CmdOrCtrl+E',
                     click: () => {
                         mainWindow.webContents.send('export-playlist');
-                    }
+                    },
                 },
                 { type: 'separator' },
                 {
@@ -246,9 +246,9 @@ function createApplicationMenu() {
                     accelerator: 'F5',
                     click: () => {
                         mainWindow.webContents.send('refresh-library');
-                    }
-                }
-            ]
+                    },
+                },
+            ],
         },
 
         // Menú Edit
@@ -261,8 +261,8 @@ function createApplicationMenu() {
                 { role: 'cut' },
                 { role: 'copy' },
                 { role: 'paste' },
-                { role: 'selectall' }
-            ]
+                { role: 'selectall' },
+            ],
         },
 
         // Menú View
@@ -277,8 +277,8 @@ function createApplicationMenu() {
                 { role: 'zoomin' },
                 { role: 'zoomout' },
                 { type: 'separator' },
-                { role: 'togglefullscreen' }
-            ]
+                { role: 'togglefullscreen' },
+            ],
         },
 
         // Menú Window
@@ -288,8 +288,8 @@ function createApplicationMenu() {
             submenu: [
                 { role: 'minimize' },
                 { role: 'close' },
-                ...(process.platform === 'darwin' ? [{ type: 'separator' }, { role: 'front' }] : [])
-            ]
+                ...(process.platform === 'darwin' ? [{ type: 'separator' }, { role: 'front' }] : []),
+            ],
         },
 
         // Menú Help
@@ -301,16 +301,16 @@ function createApplicationMenu() {
                     label: 'Learn More',
                     click: () => {
                         require('electron').shell.openExternal('https://bluesystemio.com');
-                    }
+                    },
                 },
                 {
                     label: 'Documentation',
                     click: () => {
                         require('electron').shell.openExternal('https://github.com/bluesystemio/music-analyzer');
-                    }
-                }
-            ]
-        }
+                    },
+                },
+            ],
+        },
     ];
 
     // Para Windows/Linux, reorganizar si es necesario
@@ -322,14 +322,14 @@ function createApplicationMenu() {
                 accelerator: 'Ctrl+Shift+A',
                 click: () => {
                     showAudioConfigWindow();
-                }
+                },
             },
             {
                 label: 'Preferences',
                 accelerator: 'Ctrl+,',
                 click: () => {
                     mainWindow.webContents.send('open-preferences');
-                }
+                },
             },
             { type: 'separator' }
         );
@@ -349,10 +349,10 @@ function showAboutWindow() {
         parent: mainWindow,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: false,
         },
         titleBarStyle: 'hidden',
-        frame: false
+        frame: false,
     });
 
     aboutWindow.loadURL(
@@ -455,8 +455,8 @@ function showAudioConfigWindow() {
         title: 'Audio Configuration',
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
-        }
+            contextIsolation: false,
+        },
     });
 
     // HTML para la configuración de audio
@@ -850,7 +850,7 @@ app.whenReady().then(() => {
                 duration: metadata.format.duration,
                 lossless: metadata.format.lossless,
                 channels: metadata.format.numberOfChannels,
-                bitsPerSample: metadata.format.bitsPerSample
+                bitsPerSample: metadata.format.bitsPerSample,
             };
         } catch (error) {
             logError('Error parsing metadata:', error);
@@ -1000,7 +1000,7 @@ ipcMain.handle('get-database-stats', async () => {
             totalFiles: 'SELECT COUNT(*) as count FROM audio_files',
             withArtwork: 'SELECT COUNT(*) as count FROM audio_files WHERE artwork_path IS NOT NULL',
             withAI: 'SELECT COUNT(*) as count FROM llm_metadata WHERE AI_BPM IS NOT NULL',
-            avgBPM: 'SELECT AVG(AI_BPM) as avg FROM llm_metadata WHERE AI_BPM IS NOT NULL'
+            avgBPM: 'SELECT AVG(AI_BPM) as avg FROM llm_metadata WHERE AI_BPM IS NOT NULL',
         };
 
         const stats = {};
@@ -1065,7 +1065,7 @@ ipcMain.handle('get-file-metadata', async (event, filePath) => {
             format: null,
             metadata: null,
             database: null,
-            ai: null
+            ai: null,
         };
 
         // Obtener tamaño del archivo
@@ -1087,7 +1087,7 @@ ipcMain.handle('get-file-metadata', async (event, filePath) => {
                 bitrate: metadata.format.bitrate,
                 duration: metadata.format.duration,
                 channels: metadata.format.numberOfChannels,
-                lossless: metadata.format.lossless
+                lossless: metadata.format.lossless,
             };
 
             result.metadata = {
@@ -1101,14 +1101,14 @@ ipcMain.handle('get-file-metadata', async (event, filePath) => {
                 key: metadata.common.key,
                 isrc: metadata.common.isrc,
                 label: metadata.common.label,
-                composer: metadata.common.composer
+                composer: metadata.common.composer,
             };
         } catch (err) {
             logError('Error parsing metadata:', err);
         }
 
         // Obtener datos de la base de datos
-        const dbData = await new Promise(resolve => {
+        const dbData = await new Promise((resolve) => {
             const query = `
                 SELECT 
                     af.*,
@@ -1136,7 +1136,7 @@ ipcMain.handle('get-file-metadata', async (event, filePath) => {
                 album: dbData.album,
                 genre: dbData.genre,
                 created_at: dbData.created_at,
-                updated_at: dbData.updated_at
+                updated_at: dbData.updated_at,
             };
 
             if (dbData.artwork_path) {
@@ -1157,7 +1157,7 @@ ipcMain.handle('get-file-metadata', async (event, filePath) => {
                     AI_INSTRUMENTALNESS: dbData.AI_INSTRUMENTALNESS,
                     AI_LIVENESS: dbData.AI_LIVENESS,
                     AI_SPEECHINESS: dbData.AI_SPEECHINESS,
-                    AI_LOUDNESS: dbData.AI_LOUDNESS
+                    AI_LOUDNESS: dbData.AI_LOUDNESS,
                 };
             }
         }

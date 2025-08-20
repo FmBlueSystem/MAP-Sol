@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Hungry Like the Wolf.flac",
-  "file_name": "Duran Duran - Hungry Like the Wolf.flac",
-  "timestamp": "2025-08-17T00:03:27.973222",
-  "essentia_features": {
-    "loudness_lufs": -3.7914905548095703,
-    "danceability": 1.2872018814086914,
-    "acousticness": 0.5,
-    "instrumentalness": 0.38678550720214844,
-    "liveness": 0.1,
-    "speechiness": 0.1732232566147626,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Hungry Like the Wolf.flac",
+    "file_name": "Duran Duran - Hungry Like the Wolf.flac",
+    "timestamp": "2025-08-17T00:03:27.973222",
+    "essentia_features": {
+        "loudness_lufs": -3.7914905548095703,
+        "danceability": 1.2872018814086914,
+        "acousticness": 0.5,
+        "instrumentalness": 0.38678550720214844,
+        "liveness": 0.1,
+        "speechiness": 0.1732232566147626,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

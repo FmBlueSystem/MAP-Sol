@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - All She Wants Is (Eurohouse Dub) [2010 Remaster].flac",
-  "file_name": "Duran Duran - All She Wants Is (Eurohouse Dub) [2010 Remaster].flac",
-  "timestamp": "2025-08-17T00:02:23.423955",
-  "essentia_features": {
-    "loudness_lufs": -9.485319137573242,
-    "danceability": 1.5264023542404175,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6055444180965424,
-    "liveness": 0.1,
-    "speechiness": 0.2835556716595117,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - All She Wants Is (Eurohouse Dub) [2010 Remaster].flac",
+    "file_name": "Duran Duran - All She Wants Is (Eurohouse Dub) [2010 Remaster].flac",
+    "timestamp": "2025-08-17T00:02:23.423955",
+    "essentia_features": {
+        "loudness_lufs": -9.485319137573242,
+        "danceability": 1.5264023542404175,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6055444180965424,
+        "liveness": 0.1,
+        "speechiness": 0.2835556716595117,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

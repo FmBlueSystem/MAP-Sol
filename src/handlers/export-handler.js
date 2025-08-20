@@ -9,7 +9,7 @@ class DJExporter {
             { id: 'json', name: 'JSON', extension: '.json' },
             { id: 'csv', name: 'CSV', extension: '.csv' },
             { id: 'm3u', name: 'M3U Playlist', extension: '.m3u' },
-            { id: 'xml', name: 'XML', extension: '.xml' }
+            { id: 'xml', name: 'XML', extension: '.xml' },
         ];
     }
 
@@ -17,7 +17,7 @@ class DJExporter {
         return {
             format: format,
             savedTo: options.savePath,
-            extension: this.getSupportedFormats().find(f => f.id === format)?.extension || '.txt'
+            extension: this.getSupportedFormats().find((f) => f.id === format)?.extension || '.txt',
         };
     }
 }
@@ -61,11 +61,11 @@ function createExportHandler(db) {
                         ),
                         filters: exporter
                             .getSupportedFormats()
-                            .filter(f => f.id === format)
-                            .map(f => ({
+                            .filter((f) => f.id === format)
+                            .map((f) => ({
                                 name: f.name,
-                                extensions: [f.extension.slice(1)]
-                            }))
+                                extensions: [f.extension.slice(1)],
+                            })),
                     });
 
                     if (result.canceled) {
@@ -76,14 +76,14 @@ function createExportHandler(db) {
                     // Export
                     const exportResult = await exporter.export(tracks, format, {
                         name: playlistName || 'Playlist',
-                        savePath: path.dirname(result.filePath)
+                        savePath: path.dirname(result.filePath),
                     });
 
                     resolve({
                         success: true,
                         format: exportResult.format,
                         path: exportResult.savedTo,
-                        tracksExported: tracks.length
+                        tracksExported: tracks.length,
                     });
                 });
             });
@@ -105,7 +105,7 @@ function createGetFormatsHandler() {
 // Handler to get all tracks for export
 function createGetAllTracksForExportHandler(db) {
     return async () => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const sql = `
                 SELECT 
                     af.*,
@@ -152,23 +152,24 @@ function createExportTracksHandler(db) {
                     extension = '.json';
                     break;
 
-                case 'csv':
+                case 'csv': {
                     // Generate CSV
                     const headers = Object.keys(tracks[0]).join(',');
-                    const rows = tracks.map(t =>
+                    const rows = tracks.map((t) =>
                         Object.values(t)
-                            .map(v => (typeof v === 'string' && v.includes(',') ? `"${v}"` : v))
+                            .map((v) => (typeof v === 'string' && v.includes(',') ? `"${v}"` : v))
                             .join(',')
                     );
                     content = headers + '\n' + rows.join('\n');
                     extension = '.csv';
                     break;
+                }
 
                 case 'm3u':
                 case 'm3u8':
                     // Generate M3U playlist
                     content = '#EXTM3U\n';
-                    tracks.forEach(track => {
+                    tracks.forEach((track) => {
                         const duration = track.duration || 0;
                         const artist = track.artist || 'Unknown';
                         const title = track.title || track.file_name;
@@ -182,7 +183,7 @@ function createExportTracksHandler(db) {
                     // Basic XML export
                     content = '<?xml version="1.0" encoding="UTF-8"?>\n';
                     content += '<tracks>\n';
-                    tracks.forEach(track => {
+                    tracks.forEach((track) => {
                         content += '  <track>\n';
                         Object.entries(track).forEach(([key, value]) => {
                             if (value !== null && value !== undefined) {
@@ -208,7 +209,7 @@ function createExportTracksHandler(db) {
             return {
                 success: true,
                 filepath: filepath,
-                message: `Exported ${tracks.length} tracks to ${filepath}`
+                message: `Exported ${tracks.length} tracks to ${filepath}`,
             };
         } catch (error) {
             console.error('Export error:', error);
@@ -232,8 +233,8 @@ function createGetExportFormatsHandler() {
                 { id: 'rekordbox', name: 'Rekordbox XML', available: false },
                 { id: 'traktor', name: 'Traktor NML', available: false },
                 { id: 'serato', name: 'Serato Crate', available: false },
-                { id: 'virtualDJ', name: 'VirtualDJ', available: false }
-            ]
+                { id: 'virtualDJ', name: 'VirtualDJ', available: false },
+            ],
         };
     };
 }
@@ -243,5 +244,5 @@ module.exports = {
     createGetFormatsHandler,
     createGetAllTracksForExportHandler,
     createExportTracksHandler,
-    createGetExportFormatsHandler
+    createGetExportFormatsHandler,
 };

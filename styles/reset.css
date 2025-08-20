@@ -1,5 +1,7 @@
 /* CSS Reset - Normalize browser defaults */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -19,7 +21,12 @@ body {
     line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
     font-weight: 600;
 }
@@ -28,7 +35,8 @@ p {
     margin: 0;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -47,7 +55,9 @@ button {
     cursor: pointer;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
     font: inherit;
     border: none;
     outline: none;

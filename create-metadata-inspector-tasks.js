@@ -12,7 +12,7 @@ const tasks = [
             'Implementar estructura HTML/CSS del modal con tabs y secciones para mostrar 143 campos de metadata. Incluir diseño responsive y animaciones smooth.',
         status: 'todo',
         task_order: 10,
-        feature: 'UI Component'
+        feature: 'UI Component',
     },
     {
         title: 'Implementar Categorización de 143 Campos',
@@ -20,7 +20,7 @@ const tasks = [
             'Crear lógica para agrupar los 143 campos en categorías lógicas: Basic, Audio, AI/LLM, Technical, Artwork, Analysis. Mapear cada campo a su categoría correspondiente.',
         status: 'todo',
         task_order: 9,
-        feature: 'Data Processing'
+        feature: 'Data Processing',
     },
     {
         title: 'Agregar Búsqueda y Filtrado en Tiempo Real',
@@ -28,7 +28,7 @@ const tasks = [
             'Implementar búsqueda fuzzy across all 143 fields con highlighting de resultados. Filtros por categoría, tipo de dato, campos vacíos/llenos.',
         status: 'todo',
         task_order: 8,
-        feature: 'Search'
+        feature: 'Search',
     },
     {
         title: 'Implementar Edición Inline de Campos',
@@ -36,7 +36,7 @@ const tasks = [
             "Permitir editar valores directamente en el modal con validación por tipo de dato. Guardar cambios via IPC handler 'update-complete-metadata'.",
         status: 'todo',
         task_order: 8,
-        feature: 'CRUD'
+        feature: 'CRUD',
     },
     {
         title: 'Agregar Exportación Multi-formato',
@@ -44,7 +44,7 @@ const tasks = [
             'Export metadata completa a JSON, CSV, XML con opciones de selección de campos. Incluir templates predefinidos para diferentes usos.',
         status: 'todo',
         task_order: 7,
-        feature: 'Export'
+        feature: 'Export',
     },
     {
         title: 'Crear Vista de Árbol para Datos Anidados',
@@ -52,7 +52,7 @@ const tasks = [
             'Tree view colapsable para objetos JSON complejos en campos como llm_metadata. Expandir/colapsar con animaciones smooth.',
         status: 'todo',
         task_order: 7,
-        feature: 'UI Component'
+        feature: 'UI Component',
     },
     {
         title: 'Implementar Estadísticas de Campos',
@@ -60,7 +60,7 @@ const tasks = [
             'Dashboard mostrando: campos null vs llenos, tipos de datos, tamaño de valores, campos más/menos usados. Gráficos con Chart.js.',
         status: 'todo',
         task_order: 6,
-        feature: 'Analytics'
+        feature: 'Analytics',
     },
     {
         title: 'Agregar Comparación Entre Archivos',
@@ -68,7 +68,7 @@ const tasks = [
             'Comparar metadata de 2+ archivos lado a lado. Highlighting de diferencias. Export de comparación.',
         status: 'todo',
         task_order: 6,
-        feature: 'Comparison'
+        feature: 'Comparison',
     },
     {
         title: 'Crear Historial de Cambios',
@@ -76,7 +76,7 @@ const tasks = [
             'Track todos los cambios en metadata con timestamp y usuario. Función undo/redo. Revertir a versión anterior.',
         status: 'todo',
         task_order: 5,
-        feature: 'Version Control'
+        feature: 'Version Control',
     },
     {
         title: 'Implementar Atajos de Teclado',
@@ -84,8 +84,8 @@ const tasks = [
             'Ctrl+F buscar, Ctrl+E editar campo actual, Tab navegar campos, ESC cerrar modal, Ctrl+S guardar cambios, Ctrl+C copiar valor.',
         status: 'todo',
         task_order: 5,
-        feature: 'UX'
-    }
+        feature: 'UX',
+    },
 ];
 
 async function createTask(task) {
@@ -93,7 +93,7 @@ async function createTask(task) {
         const data = JSON.stringify({
             ...task,
             project_id: PROJECT_ID,
-            assignee: 'Developer'
+            assignee: 'Developer',
         });
 
         const options = {
@@ -103,14 +103,14 @@ async function createTask(task) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Content-Length': data.length
-            }
+                'Content-Length': data.length,
+            },
         };
 
-        const req = http.request(options, res => {
+        const req = http.request(options, (res) => {
             let responseData = '';
 
-            res.on('data', chunk => {
+            res.on('data', (chunk) => {
                 responseData += chunk;
             });
 
@@ -125,7 +125,7 @@ async function createTask(task) {
             });
         });
 
-        req.on('error', error => {
+        req.on('error', (error) => {
             logError(`❌ Error de conexión: ${error.message}`);
             reject(error);
         });
@@ -149,7 +149,7 @@ async function createAllTasks() {
             await createTask(task);
             created++;
             // Pequeña pausa para no sobrecargar el servidor
-            await new Promise(resolve => setTimeout(resolve, 500));
+            await new Promise((resolve) => setTimeout(resolve, 500));
         } catch (error) {
             failed++;
             logError(`Error detallado: ${error.message}`);
@@ -177,8 +177,8 @@ async function createAllTasks() {
 
 // Check if Archon is running
 function checkArchonStatus() {
-    return new Promise(resolve => {
-        const req = http.get('http://localhost:8181/health', res => {
+    return new Promise((resolve) => {
+        const req = http.get('http://localhost:8181/health', (res) => {
             resolve(res.statusCode === 200);
         });
         req.on('error', () => resolve(false));

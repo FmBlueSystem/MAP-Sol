@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Idol - White Wedding (Pt. 1).flac",
-  "file_name": "Billy Idol - White Wedding (Pt. 1).flac",
-  "timestamp": "2025-08-16T22:55:18.882544",
-  "essentia_features": {
-    "loudness_lufs": -8.953495025634766,
-    "danceability": 1.1888458728790283,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5,
-    "liveness": 0.1,
-    "speechiness": 0.1,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Billy Idol - White Wedding (Pt. 1).flac",
+    "file_name": "Billy Idol - White Wedding (Pt. 1).flac",
+    "timestamp": "2025-08-16T22:55:18.882544",
+    "essentia_features": {
+        "loudness_lufs": -8.953495025634766,
+        "danceability": 1.1888458728790283,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5,
+        "liveness": 0.1,
+        "speechiness": 0.1,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -58,8 +58,8 @@ module.exports = {
                 'script-elements',
                 'source-maps',
                 'viewport-dimensions',
-            ]
-        }
+            ],
+        },
     ],
 
     audits: [
@@ -180,8 +180,8 @@ module.exports = {
                 { id: 'cumulative-layout-shift', weight: 15 },
                 { id: 'speed-index', weight: 10 },
                 { id: 'interactive', weight: 10 },
-            ]
-        }
+            ],
+        },
     },
 
     groups: {
@@ -196,6 +196,6 @@ module.exports = {
         diagnostics: {
             title: 'Diagnostics',
             description: 'Performance diagnostics',
-        }
-    }
+        },
+    },
 };

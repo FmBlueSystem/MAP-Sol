@@ -16,7 +16,7 @@ async function testGPT5() {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${OPENAI_API_KEY}`,
-            }
+            },
         });
 
         if (!modelsResponse.ok) {
@@ -74,10 +74,10 @@ async function testGPT5() {
                     {
                         role: 'user',
                         content: 'What model are you? Please specify your exact model name and capabilities.',
-                    }
+                    },
                 ],
                 max_tokens: 100,
-            })
+            }),
         });
 
         if (testResponse.ok) {

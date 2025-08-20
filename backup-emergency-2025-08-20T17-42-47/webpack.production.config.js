@@ -76,12 +76,12 @@ module.exports = {
                                         electron: '32.0.0',
                                     },
                                     modules: false,
-                                }
-                            ]
+                                },
+                            ],
                         ],
                         plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-syntax-dynamic-import'],
-                    }
-                }
+                    },
+                },
             },
 
             // CSS
@@ -97,10 +97,10 @@ module.exports = {
                                 plugins: ['postcss-preset-env', 'autoprefixer', !isDevelopment && 'cssnano'].filter(
                                     Boolean
                                 ),
-                            }
-                        }
+                            },
+                        },
                     },
-                ]
+                ],
             },
 
             // Images
@@ -110,11 +110,11 @@ module.exports = {
                 parser: {
                     dataUrlCondition: {
                         maxSize: 8 * 1024, // 8kb
-                    }
+                    },
                 },
                 generator: {
                     filename: 'images/[name].[contenthash:8][ext]',
-                }
+                },
             },
 
             // Fonts
@@ -123,8 +123,8 @@ module.exports = {
                 type: 'asset/resource',
                 generator: {
                     filename: 'fonts/[name].[contenthash:8][ext]',
-                }
-            }
+                },
+            },
         ],
     },
 
@@ -145,7 +145,7 @@ module.exports = {
                       useShortDoctype: true,
                       minifyCSS: true,
                       minifyJS: true,
-                }
+                  }
                 : false,
         }),
 
@@ -167,16 +167,16 @@ module.exports = {
                     to: 'assets',
                     globOptions: {
                         ignore: ['**/Thumbs.db', '**/.DS_Store'],
-                    }
+                    },
                 },
                 {
                     from: 'icons',
                     to: 'icons',
                     noErrorOnMissing: true,
-                }
+                },
                 // Don't copy artwork-cache in production bundle (too large)
                 // It should be handled by the Electron app separately
-            ]
+            ],
         }),
 
         // Compression
@@ -195,7 +195,7 @@ module.exports = {
                 analyzerMode: 'static',
                 reportFilename: 'bundle-report.html',
                 openAnalyzer: true,
-            })
+            }),
     ].filter(Boolean),
 
     optimization: {
@@ -222,7 +222,7 @@ module.exports = {
                         ecma: 5,
                         comments: false,
                         ascii_only: true,
-                    }
+                    },
                 },
                 parallel: true,
                 extractComments: false,
@@ -233,8 +233,8 @@ module.exports = {
                         'default',
                         {
                             discardComments: { removeAll: true },
-                        }
-                    ]
+                        },
+                    ],
                 },
             }),
         ],
@@ -300,8 +300,8 @@ module.exports = {
                     name: 'styles',
                     priority: 10,
                     enforce: true,
-                }
-            }
+                },
+            },
         },
 
         runtimeChunk: 'single',
@@ -318,7 +318,7 @@ module.exports = {
             '@services': path.resolve(__dirname, 'services'),
             '@config': path.resolve(__dirname, 'config'),
             '@assets': path.resolve(__dirname, 'assets'),
-        }
+        },
     },
 
     // Development server configuration
@@ -333,7 +333,7 @@ module.exports = {
         historyApiFallback: true,
         headers: {
             'Access-Control-Allow-Origin': '*',
-        }
+        },
     },
 
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',
@@ -377,7 +377,7 @@ module.exports = {
     node: {
         __dirname: false,
         __filename: false,
-    }
+    },
 };
 
 // Log configuration

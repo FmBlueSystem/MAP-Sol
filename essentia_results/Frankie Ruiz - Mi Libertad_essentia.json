@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Frankie Ruiz - Mi Libertad.flac",
-  "file_name": "Frankie Ruiz - Mi Libertad.flac",
-  "timestamp": "2025-08-17T00:28:00.760551",
-  "essentia_features": {
-    "loudness_lufs": -5.17881965637207,
-    "danceability": 1.3966337442398071,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4946543574333191,
-    "liveness": 0.1,
-    "speechiness": 0.12360866825636545,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Frankie Ruiz - Mi Libertad.flac",
+    "file_name": "Frankie Ruiz - Mi Libertad.flac",
+    "timestamp": "2025-08-17T00:28:00.760551",
+    "essentia_features": {
+        "loudness_lufs": -5.17881965637207,
+        "danceability": 1.3966337442398071,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4946543574333191,
+        "liveness": 0.1,
+        "speechiness": 0.12360866825636545,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

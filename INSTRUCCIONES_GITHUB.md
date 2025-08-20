@@ -1,12 +1,15 @@
 # Instrucciones para subir MAP-Sol a GitHub
 
 ## Estado Actual
+
 ✅ **Código guardado en Git local** con el commit:
+
 - Mensaje: "✅ PLAYER COMPLETAMENTE ARREGLADO Y FUNCIONAL"
 - 12,320 archivos incluidos
 - Base de datos y artwork cache incluidos
 
 ## ⚠️ Problema con el Token
+
 El token proporcionado no tiene permisos para crear repositorios.
 
 ## 📋 Pasos para Subir el Código
@@ -16,16 +19,17 @@ El token proporcionado no tiene permisos para crear repositorios.
 1. **Ve a GitHub.com** en tu navegador
 2. **Inicia sesión** con tu cuenta `FmBlueSystem`
 3. **Crea nuevo repositorio**:
-   - Click en el botón **"+"** (esquina superior derecha)
-   - Selecciona **"New repository"**
-   - **Repository name:** `MAP-Sol`
-   - **Description:** `Music Analyzer Pro - Codename Sol`
-   - **Public/Private:** Elige según prefieras
-   - ⚠️ **NO** marques "Initialize with README"
-   - ⚠️ **NO** agregues .gitignore o licencia
-   - Click **"Create repository"**
+    - Click en el botón **"+"** (esquina superior derecha)
+    - Selecciona **"New repository"**
+    - **Repository name:** `MAP-Sol`
+    - **Description:** `Music Analyzer Pro - Codename Sol`
+    - **Public/Private:** Elige según prefieras
+    - ⚠️ **NO** marques "Initialize with README"
+    - ⚠️ **NO** agregues .gitignore o licencia
+    - Click **"Create repository"**
 
 4. **Una vez creado**, ejecuta en la terminal:
+
 ```bash
 # Configurar el remote
 git remote set-url origin https://github.com/FmBlueSystem/MAP-Sol.git
@@ -40,12 +44,13 @@ git push -u origin master
 2. **Token name:** `MAP-Sol-Upload`
 3. **Expiration:** 30 días (o lo que prefieras)
 4. **Scopes necesarios:**
-   - ✅ **repo** (marca todo el grupo)
-   - ✅ **workflow** (opcional, para GitHub Actions)
+    - ✅ **repo** (marca todo el grupo)
+    - ✅ **workflow** (opcional, para GitHub Actions)
 5. Click **"Generate token"**
 6. **COPIA EL TOKEN** (solo se muestra una vez)
 
 7. Ejecuta con el nuevo token:
+
 ```bash
 # Reemplaza NEW_TOKEN con tu nuevo token
 git remote set-url origin https://FmBlueSystem:NEW_TOKEN@github.com/FmBlueSystem/MAP-Sol.git

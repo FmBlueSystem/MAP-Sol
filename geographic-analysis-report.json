@@ -424,13 +424,7 @@
             ],
             "totalTracks": 146,
             "totalArtists": 91,
-            "topGenres": [
-                "Tech House",
-                "Progressive Trance",
-                "Uplifting Trance 138",
-                "New Wave",
-                "Reggaeton"
-            ]
+            "topGenres": ["Tech House", "Progressive Trance", "Uplifting Trance 138", "New Wave", "Reggaeton"]
         },
         {
             "name": "Oceania",

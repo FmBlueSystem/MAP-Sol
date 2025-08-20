@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Daft Punk - Around the World.flac",
-  "file_name": "Daft Punk - Around the World.flac",
-  "timestamp": "2025-08-16T23:42:45.740066",
-  "essentia_features": {
-    "loudness_lufs": -3.0876998901367188,
-    "danceability": 1.9439336061477661,
-    "acousticness": 0.5,
-    "instrumentalness": 0.618925154209137,
-    "liveness": 0.1,
-    "speechiness": 0.1637497174569445,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Daft Punk - Around the World.flac",
+    "file_name": "Daft Punk - Around the World.flac",
+    "timestamp": "2025-08-16T23:42:45.740066",
+    "essentia_features": {
+        "loudness_lufs": -3.0876998901367188,
+        "danceability": 1.9439336061477661,
+        "acousticness": 0.5,
+        "instrumentalness": 0.618925154209137,
+        "liveness": 0.1,
+        "speechiness": 0.1637497174569445,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

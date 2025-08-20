@@ -6,7 +6,7 @@ function createNormalizationHandlers(db) {
     return {
         // Get normalization data for a track
         getNormalizationData: async (event, trackId) => {
-            return new Promise(resolve => {
+            return new Promise((resolve) => {
                 const sql = `
                     SELECT 
                         track_id,
@@ -37,7 +37,7 @@ function createNormalizationHandlers(db) {
 
         // Save normalization data for a track
         saveNormalizationData: async (event, data) => {
-            return new Promise(resolve => {
+            return new Promise((resolve) => {
                 const sql = `
                     INSERT OR REPLACE INTO audio_normalization (
                         track_id,
@@ -65,7 +65,7 @@ function createNormalizationHandlers(db) {
                     data.method || 'LUFS',
                     data.targetLUFS || data.target_lufs || -14.0,
                     data.needsLimiting || data.needs_limiting ? 1 : 0,
-                    'v1.0'
+                    'v1.0',
                 ];
 
                 db.run(sql, params, function (err) {
@@ -77,7 +77,7 @@ function createNormalizationHandlers(db) {
                         db.run(
                             'UPDATE audio_files SET normalization_analyzed = 1 WHERE id = ?',
                             [data.track_id],
-                            updateErr => {
+                            (updateErr) => {
                                 if (updateErr) {
                                     console.error('Error updating analyzed flag:', updateErr);
                                 }
@@ -92,7 +92,7 @@ function createNormalizationHandlers(db) {
 
         // Get batch of unanalyzed tracks
         getUnanalyzedTracks: async (event, limit = 100) => {
-            return new Promise(resolve => {
+            return new Promise((resolve) => {
                 const sql = `
                     SELECT 
                         af.id,
@@ -120,7 +120,7 @@ function createNormalizationHandlers(db) {
 
         // Save batch normalization results
         saveBatchNormalization: async (event, results) => {
-            return new Promise(resolve => {
+            return new Promise((resolve) => {
                 const sql = `
                     INSERT OR REPLACE INTO audio_normalization (
                         track_id,
@@ -142,7 +142,7 @@ function createNormalizationHandlers(db) {
 
                 const stmt = db.prepare(sql);
 
-                results.forEach(data => {
+                results.forEach((data) => {
                     const params = [
                         data.track_id,
                         data.integrated_lufs,
@@ -154,10 +154,10 @@ function createNormalizationHandlers(db) {
                         data.method || 'LUFS',
                         data.target_lufs || -14.0,
                         data.needs_limiting ? 1 : 0,
-                        'v1.0'
+                        'v1.0',
                     ];
 
-                    stmt.run(params, err => {
+                    stmt.run(params, (err) => {
                         if (err) {
                             errorCount++;
                         } else {
@@ -173,21 +173,21 @@ function createNormalizationHandlers(db) {
                         success: true,
                         processed: results.length,
                         saved: successCount,
-                        errors: errorCount
+                        errors: errorCount,
                     });
                 });
             });
         },
 
         // Get normalization statistics
-        getNormalizationStats: async event => {
-            return new Promise(resolve => {
+        getNormalizationStats: async (event) => {
+            return new Promise((resolve) => {
                 const queries = {
                     total: 'SELECT COUNT(*) as count FROM audio_files',
                     analyzed: 'SELECT COUNT(*) as count FROM audio_normalization',
                     avgGain: 'SELECT AVG(gain_db) as avg FROM audio_normalization',
                     avgLUFS: 'SELECT AVG(integrated_lufs) as avg FROM audio_normalization',
-                    needsLimiting: 'SELECT COUNT(*) as count FROM audio_normalization WHERE needs_limiting = 1'
+                    needsLimiting: 'SELECT COUNT(*) as count FROM audio_normalization WHERE needs_limiting = 1',
                 };
 
                 const stats = {};
@@ -212,8 +212,8 @@ function createNormalizationHandlers(db) {
         },
 
         // Get preferences
-        getNormalizationPreferences: async event => {
-            return new Promise(resolve => {
+        getNormalizationPreferences: async (event) => {
+            return new Promise((resolve) => {
                 const sql = 'SELECT * FROM normalization_preferences WHERE id = 1';
 
                 db.get(sql, (err, row) => {
@@ -224,7 +224,7 @@ function createNormalizationHandlers(db) {
                             mode: 'smart',
                             target_lufs: -14.0,
                             album_mode: false,
-                            prevent_clipping: true
+                            prevent_clipping: true,
                         });
                     } else {
                         resolve({
@@ -232,7 +232,7 @@ function createNormalizationHandlers(db) {
                             mode: row.mode,
                             target_lufs: row.target_lufs,
                             album_mode: row.album_mode === 1,
-                            prevent_clipping: row.prevent_clipping === 1
+                            prevent_clipping: row.prevent_clipping === 1,
                         });
                     }
                 });
@@ -241,7 +241,7 @@ function createNormalizationHandlers(db) {
 
         // Save preferences
         saveNormalizationPreferences: async (event, prefs) => {
-            return new Promise(resolve => {
+            return new Promise((resolve) => {
                 const sql = `
                     UPDATE normalization_preferences
                     SET enabled = ?, mode = ?, target_lufs = ?, 
@@ -255,7 +255,7 @@ function createNormalizationHandlers(db) {
                     prefs.mode,
                     prefs.target_lufs,
                     prefs.album_mode ? 1 : 0,
-                    prefs.prevent_clipping ? 1 : 0
+                    prefs.prevent_clipping ? 1 : 0,
                 ];
 
                 db.run(sql, params, function (err) {
@@ -267,7 +267,7 @@ function createNormalizationHandlers(db) {
                     }
                 });
             });
-        }
+        },
     };
 }
 

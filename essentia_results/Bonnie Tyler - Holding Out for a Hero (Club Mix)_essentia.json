@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bonnie Tyler - Holding Out for a Hero (Club Mix).flac",
-  "file_name": "Bonnie Tyler - Holding Out for a Hero (Club Mix).flac",
-  "timestamp": "2025-08-16T23:17:38.526293",
-  "essentia_features": {
-    "loudness_lufs": -9.206764221191406,
-    "danceability": 1.4452099800109863,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6165927648544312,
-    "liveness": 0.1,
-    "speechiness": 0.12751641177580528,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bonnie Tyler - Holding Out for a Hero (Club Mix).flac",
+    "file_name": "Bonnie Tyler - Holding Out for a Hero (Club Mix).flac",
+    "timestamp": "2025-08-16T23:17:38.526293",
+    "essentia_features": {
+        "loudness_lufs": -9.206764221191406,
+        "danceability": 1.4452099800109863,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6165927648544312,
+        "liveness": 0.1,
+        "speechiness": 0.12751641177580528,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

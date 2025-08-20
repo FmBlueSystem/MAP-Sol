@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Culture Club - Do You Really Want To Hurt Me (Blank & Jones so80s Extended Reconstruction).flac",
-  "file_name": "Culture Club - Do You Really Want To Hurt Me (Blank & Jones so80s Extended Reconstruction).flac",
-  "timestamp": "2025-08-16T23:38:39.485672",
-  "essentia_features": {
-    "loudness_lufs": -4.79466438293457,
-    "danceability": 1.0908136367797852,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4859429597854614,
-    "liveness": 0.1,
-    "speechiness": 0.1108579351768695,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Culture Club - Do You Really Want To Hurt Me (Blank & Jones so80s Extended Reconstruction).flac",
+    "file_name": "Culture Club - Do You Really Want To Hurt Me (Blank & Jones so80s Extended Reconstruction).flac",
+    "timestamp": "2025-08-16T23:38:39.485672",
+    "essentia_features": {
+        "loudness_lufs": -4.79466438293457,
+        "danceability": 1.0908136367797852,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4859429597854614,
+        "liveness": 0.1,
+        "speechiness": 0.1108579351768695,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

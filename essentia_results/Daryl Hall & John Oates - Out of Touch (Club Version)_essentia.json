@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Daryl Hall & John Oates - Out of Touch (Club Version).flac",
-  "file_name": "Daryl Hall & John Oates - Out of Touch (Club Version).flac",
-  "timestamp": "2025-08-16T23:46:08.287282",
-  "essentia_features": {
-    "loudness_lufs": -2.6005916595458984,
-    "danceability": 1.2719249725341797,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4800286293029785,
-    "liveness": 0.1,
-    "speechiness": 0.13052411444368328,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Daryl Hall & John Oates - Out of Touch (Club Version).flac",
+    "file_name": "Daryl Hall & John Oates - Out of Touch (Club Version).flac",
+    "timestamp": "2025-08-16T23:46:08.287282",
+    "essentia_features": {
+        "loudness_lufs": -2.6005916595458984,
+        "danceability": 1.2719249725341797,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4800286293029785,
+        "liveness": 0.1,
+        "speechiness": 0.13052411444368328,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

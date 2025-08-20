@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/ABC - When Smokey Sings (The Miami Mix).flac",
-  "file_name": "ABC - When Smokey Sings (The Miami Mix).flac",
-  "timestamp": "2025-08-16T22:35:21.773948",
-  "essentia_features": {
-    "loudness_lufs": -10.556640625,
-    "danceability": 1.7543410062789917,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5794609487056732,
-    "liveness": 0.1,
-    "speechiness": 0.17528653146124074,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/ABC - When Smokey Sings (The Miami Mix).flac",
+    "file_name": "ABC - When Smokey Sings (The Miami Mix).flac",
+    "timestamp": "2025-08-16T22:35:21.773948",
+    "essentia_features": {
+        "loudness_lufs": -10.556640625,
+        "danceability": 1.7543410062789917,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5794609487056732,
+        "liveness": 0.1,
+        "speechiness": 0.17528653146124074,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

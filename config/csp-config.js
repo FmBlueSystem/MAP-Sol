@@ -20,7 +20,7 @@ class CSPConfig {
                 'base-uri': ["'self'"],
                 'form-action': ["'self'"],
                 'frame-ancestors': ["'none'"],
-                'upgrade-insecure-requests': []
+                'upgrade-insecure-requests': [],
             },
 
             // Development CSP - More permissive
@@ -35,8 +35,8 @@ class CSPConfig {
                 'frame-src': ["'none'"],
                 'object-src': ["'none'"],
                 'base-uri': ["'self'"],
-                'form-action': ["'self'"]
-            }
+                'form-action': ["'self'"],
+            },
         };
 
         this.environment = process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -72,8 +72,8 @@ class CSPConfig {
                     'X-Content-Type-Options': ['nosniff'],
                     'X-Frame-Options': ['DENY'],
                     'X-XSS-Protection': ['1; mode=block'],
-                    'Referrer-Policy': ['strict-origin-when-cross-origin']
-                }
+                    'Referrer-Policy': ['strict-origin-when-cross-origin'],
+                },
             });
         });
     }
@@ -131,7 +131,7 @@ class CSPConfig {
         return {
             environment: this.environment,
             policy: this.policies[this.environment],
-            header: this.getCSPHeader()
+            header: this.getCSPHeader(),
         };
     }
 }

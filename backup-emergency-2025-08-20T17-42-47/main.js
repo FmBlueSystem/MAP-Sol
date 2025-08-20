@@ -44,7 +44,7 @@ function createSplashScreen() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-        }
+        },
     });
 
     splash.loadURL(
@@ -193,24 +193,24 @@ function createApplicationMenu() {
                               label: 'Services',
                               role: 'services',
                               submenu: [],
-                        },
+                          },
                           { type: 'separator' },
                           {
                               label: 'Hide MAP',
                               accelerator: 'CmdOrCtrl+H',
                               role: 'hide',
-                        },
+                          },
                           {
                               label: 'Hide Others',
                               accelerator: 'CmdOrCtrl+Shift+H',
                               role: 'hideothers',
-                        },
+                          },
                           {
                               label: 'Show All',
                               role: 'unhide',
-                        },
+                          },
                           { type: 'separator' },
-                    ]
+                      ]
                     : []),
                 {
                     label: 'Quit MAP',
@@ -218,8 +218,8 @@ function createApplicationMenu() {
                     click: () => {
                         app.quit();
                     },
-                }
-            ]
+                },
+            ],
         },
 
         // Menú File
@@ -247,8 +247,8 @@ function createApplicationMenu() {
                     click: () => {
                         mainWindow.webContents.send('refresh-library');
                     },
-                }
-            ]
+                },
+            ],
         },
 
         // Menú Edit
@@ -262,7 +262,7 @@ function createApplicationMenu() {
                 { role: 'copy' },
                 { role: 'paste' },
                 { role: 'selectall' },
-            ]
+            ],
         },
 
         // Menú View
@@ -278,7 +278,7 @@ function createApplicationMenu() {
                 { role: 'zoomout' },
                 { type: 'separator' },
                 { role: 'togglefullscreen' },
-            ]
+            ],
         },
 
         // Menú Window
@@ -289,7 +289,7 @@ function createApplicationMenu() {
                 { role: 'minimize' },
                 { role: 'close' },
                 ...(process.platform === 'darwin' ? [{ type: 'separator' }, { role: 'front' }] : []),
-            ]
+            ],
         },
 
         // Menú Help
@@ -308,8 +308,8 @@ function createApplicationMenu() {
                     click: () => {
                         require('electron').shell.openExternal('https://github.com/bluesystemio/music-analyzer');
                     },
-                }
-            ]
+                },
+            ],
         },
     ];
 
@@ -456,7 +456,7 @@ function showAudioConfigWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-        }
+        },
     });
 
     // HTML para la configuración de audio

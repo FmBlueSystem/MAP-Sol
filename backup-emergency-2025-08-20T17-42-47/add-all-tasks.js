@@ -196,7 +196,7 @@ const tasks = [
         status: 'todo',
         task_order: 6,
         feature: 'Technical Debt',
-    }
+    },
 ];
 
 async function createTask(task) {
@@ -215,7 +215,7 @@ async function createTask(task) {
             headers: {
                 'Content-Type': 'application/json',
                 'Content-Length': data.length,
-            }
+            },
         };
 
         const req = http.request(options, (res) => {

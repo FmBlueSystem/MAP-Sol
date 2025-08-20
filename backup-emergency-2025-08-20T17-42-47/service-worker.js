@@ -179,7 +179,7 @@ self.addEventListener('push', (event) => {
         data: {
             dateOfArrival: Date.now(),
             primaryKey: 1,
-        }
+        },
     };
 
     event.waitUntil(self.registration.showNotification('Music Analyzer Pro', options));

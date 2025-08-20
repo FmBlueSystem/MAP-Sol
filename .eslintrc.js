@@ -2,12 +2,12 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
-        node: true
+        node: true,
     },
     extends: ['eslint:recommended'],
     parserOptions: {
         ecmaVersion: 12,
-        sourceType: 'module'
+        sourceType: 'module',
     },
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -35,9 +35,9 @@ module.exports = {
             {
                 anonymous: 'always',
                 named: 'never',
-                asyncArrow: 'always'
-            }
-        ]
+                asyncArrow: 'always',
+            },
+        ],
     },
     globals: {
         APP_CONFIG: 'readonly',
@@ -59,6 +59,6 @@ module.exports = {
         jest: 'readonly',
         backupDir: 'readonly',
         movedCount: 'readonly',
-        clients: 'readonly'
-    }
+        clients: 'readonly',
+    },
 };

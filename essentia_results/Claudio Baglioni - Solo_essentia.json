@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Claudio Baglioni - Solo.flac",
-  "file_name": "Claudio Baglioni - Solo.flac",
-  "timestamp": "2025-08-16T23:34:11.050520",
-  "essentia_features": {
-    "loudness_lufs": -7.57862663269043,
-    "danceability": 1.0374747514724731,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4128434658050537,
-    "liveness": 0.1,
-    "speechiness": 0.09647200205674772,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Claudio Baglioni - Solo.flac",
+    "file_name": "Claudio Baglioni - Solo.flac",
+    "timestamp": "2025-08-16T23:34:11.050520",
+    "essentia_features": {
+        "loudness_lufs": -7.57862663269043,
+        "danceability": 1.0374747514724731,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4128434658050537,
+        "liveness": 0.1,
+        "speechiness": 0.09647200205674772,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

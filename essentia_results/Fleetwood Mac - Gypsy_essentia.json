@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Gypsy.flac",
-  "file_name": "Fleetwood Mac - Gypsy.flac",
-  "timestamp": "2025-08-17T00:24:08.221304",
-  "essentia_features": {
-    "loudness_lufs": -12.693527221679688,
-    "danceability": 1.2825922966003418,
-    "acousticness": 0.5,
-    "instrumentalness": 0.47671717405319214,
-    "liveness": 0.1,
-    "speechiness": 0.1630245213818432,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Gypsy.flac",
+    "file_name": "Fleetwood Mac - Gypsy.flac",
+    "timestamp": "2025-08-17T00:24:08.221304",
+    "essentia_features": {
+        "loudness_lufs": -12.693527221679688,
+        "danceability": 1.2825922966003418,
+        "acousticness": 0.5,
+        "instrumentalness": 0.47671717405319214,
+        "liveness": 0.1,
+        "speechiness": 0.1630245213818432,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

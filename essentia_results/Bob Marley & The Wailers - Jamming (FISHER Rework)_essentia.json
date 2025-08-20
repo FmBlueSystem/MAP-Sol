@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bob Marley & The Wailers - Jamming (FISHER Rework).flac",
-  "file_name": "Bob Marley & The Wailers - Jamming (FISHER Rework).flac",
-  "timestamp": "2025-08-16T23:15:20.005072",
-  "essentia_features": {
-    "loudness_lufs": -4.505729675292969,
-    "danceability": 1.207082748413086,
-    "acousticness": 0.5,
-    "instrumentalness": 0.7266988158226013,
-    "liveness": 0.1,
-    "speechiness": 0.1248314184184762,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Bob Marley & The Wailers - Jamming (FISHER Rework).flac",
+    "file_name": "Bob Marley & The Wailers - Jamming (FISHER Rework).flac",
+    "timestamp": "2025-08-16T23:15:20.005072",
+    "essentia_features": {
+        "loudness_lufs": -4.505729675292969,
+        "danceability": 1.207082748413086,
+        "acousticness": 0.5,
+        "instrumentalness": 0.7266988158226013,
+        "liveness": 0.1,
+        "speechiness": 0.1248314184184762,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

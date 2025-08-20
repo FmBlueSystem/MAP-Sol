@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Hungry Like the Wolf (Night Version) [2009 Remaster].flac",
-  "file_name": "Duran Duran - Hungry Like the Wolf (Night Version) [2009 Remaster].flac",
-  "timestamp": "2025-08-17T00:03:19.130134",
-  "essentia_features": {
-    "loudness_lufs": -7.120109558105469,
-    "danceability": 1.554324746131897,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4562839865684509,
-    "liveness": 0.1,
-    "speechiness": 0.15891503906078044,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Hungry Like the Wolf (Night Version) [2009 Remaster].flac",
+    "file_name": "Duran Duran - Hungry Like the Wolf (Night Version) [2009 Remaster].flac",
+    "timestamp": "2025-08-17T00:03:19.130134",
+    "essentia_features": {
+        "loudness_lufs": -7.120109558105469,
+        "danceability": 1.554324746131897,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4562839865684509,
+        "liveness": 0.1,
+        "speechiness": 0.15891503906078044,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

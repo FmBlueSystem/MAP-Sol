@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Girls on Film (Night Mix) [Extended Version].flac",
-  "file_name": "Duran Duran - Girls on Film (Night Mix) [Extended Version].flac",
-  "timestamp": "2025-08-17T00:02:57.225716",
-  "essentia_features": {
-    "loudness_lufs": -3.315641403198242,
-    "danceability": 1.3458226919174194,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4680253267288208,
-    "liveness": 0.1,
-    "speechiness": 0.2628238276952645,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - Girls on Film (Night Mix) [Extended Version].flac",
+    "file_name": "Duran Duran - Girls on Film (Night Mix) [Extended Version].flac",
+    "timestamp": "2025-08-17T00:02:57.225716",
+    "essentia_features": {
+        "loudness_lufs": -3.315641403198242,
+        "danceability": 1.3458226919174194,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4680253267288208,
+        "liveness": 0.1,
+        "speechiness": 0.2628238276952645,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - All She Wants Is (US Master Mix) [2010 Remaster].flac",
-  "file_name": "Duran Duran - All She Wants Is (US Master Mix) [2010 Remaster].flac",
-  "timestamp": "2025-08-17T00:02:38.612571",
-  "essentia_features": {
-    "loudness_lufs": -11.30849838256836,
-    "danceability": 1.277970552444458,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6825501918792725,
-    "liveness": 0.1,
-    "speechiness": 0.16078074968597306,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - All She Wants Is (US Master Mix) [2010 Remaster].flac",
+    "file_name": "Duran Duran - All She Wants Is (US Master Mix) [2010 Remaster].flac",
+    "timestamp": "2025-08-17T00:02:38.612571",
+    "essentia_features": {
+        "loudness_lufs": -11.30849838256836,
+        "danceability": 1.277970552444458,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6825501918792725,
+        "liveness": 0.1,
+        "speechiness": 0.16078074968597306,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

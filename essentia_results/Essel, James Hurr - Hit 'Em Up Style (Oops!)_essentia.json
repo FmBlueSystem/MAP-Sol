@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Essel, James Hurr - Hit 'Em Up Style (Oops!).flac",
-  "file_name": "Essel, James Hurr - Hit 'Em Up Style (Oops!).flac",
-  "timestamp": "2025-08-17T00:16:17.687562",
-  "essentia_features": {
-    "loudness_lufs": -3.374034881591797,
-    "danceability": 1.140532374382019,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6834097802639008,
-    "liveness": 0.1,
-    "speechiness": 0.13580947457381173,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Essel, James Hurr - Hit 'Em Up Style (Oops!).flac",
+    "file_name": "Essel, James Hurr - Hit 'Em Up Style (Oops!).flac",
+    "timestamp": "2025-08-17T00:16:17.687562",
+    "essentia_features": {
+        "loudness_lufs": -3.374034881591797,
+        "danceability": 1.140532374382019,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6834097802639008,
+        "liveness": 0.1,
+        "speechiness": 0.13580947457381173,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

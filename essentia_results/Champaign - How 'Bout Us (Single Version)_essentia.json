@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Champaign - How 'Bout Us (Single Version).flac",
-  "file_name": "Champaign - How 'Bout Us (Single Version).flac",
-  "timestamp": "2025-08-16T23:28:15.564710",
-  "essentia_features": {
-    "loudness_lufs": -11.700010299682617,
-    "danceability": 1.1712238788604736,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6054569780826569,
-    "liveness": 0.1,
-    "speechiness": 0.11317157160794906,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Champaign - How 'Bout Us (Single Version).flac",
+    "file_name": "Champaign - How 'Bout Us (Single Version).flac",
+    "timestamp": "2025-08-16T23:28:15.564710",
+    "essentia_features": {
+        "loudness_lufs": -11.700010299682617,
+        "danceability": 1.1712238788604736,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6054569780826569,
+        "liveness": 0.1,
+        "speechiness": 0.11317157160794906,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

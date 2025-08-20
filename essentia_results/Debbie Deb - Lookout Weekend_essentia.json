@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Debbie Deb - Lookout Weekend.flac",
-  "file_name": "Debbie Deb - Lookout Weekend.flac",
-  "timestamp": "2025-08-16T23:49:43.907936",
-  "essentia_features": {
-    "loudness_lufs": -7.473493576049805,
-    "danceability": 1.225469946861267,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4124806523323059,
-    "liveness": 0.1,
-    "speechiness": 0.17724940970100306,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Debbie Deb - Lookout Weekend.flac",
+    "file_name": "Debbie Deb - Lookout Weekend.flac",
+    "timestamp": "2025-08-16T23:49:43.907936",
+    "essentia_features": {
+        "loudness_lufs": -7.473493576049805,
+        "danceability": 1.225469946861267,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4124806523323059,
+        "liveness": 0.1,
+        "speechiness": 0.17724940970100306,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

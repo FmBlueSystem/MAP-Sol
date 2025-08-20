@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - The Reflex.flac",
-  "file_name": "Duran Duran - The Reflex.flac",
-  "timestamp": "2025-08-17T00:05:50.627261",
-  "essentia_features": {
-    "loudness_lufs": -3.685516357421875,
-    "danceability": 1.1316934823989868,
-    "acousticness": 0.5,
-    "instrumentalness": 0.352789044380188,
-    "liveness": 0.1,
-    "speechiness": 0.18847672609443167,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duran Duran - The Reflex.flac",
+    "file_name": "Duran Duran - The Reflex.flac",
+    "timestamp": "2025-08-17T00:05:50.627261",
+    "essentia_features": {
+        "loudness_lufs": -3.685516357421875,
+        "danceability": 1.1316934823989868,
+        "acousticness": 0.5,
+        "instrumentalness": 0.352789044380188,
+        "liveness": 0.1,
+        "speechiness": 0.18847672609443167,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

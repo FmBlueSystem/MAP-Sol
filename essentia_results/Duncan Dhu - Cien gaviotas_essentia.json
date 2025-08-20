@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duncan Dhu - Cien gaviotas.flac",
-  "file_name": "Duncan Dhu - Cien gaviotas.flac",
-  "timestamp": "2025-08-17T00:01:59.060338",
-  "essentia_features": {
-    "loudness_lufs": -4.530378341674805,
-    "danceability": 1.3136755228042603,
-    "acousticness": 0.5,
-    "instrumentalness": 0.48594391345977783,
-    "liveness": 0.1,
-    "speechiness": 0.16572288219192075,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Duncan Dhu - Cien gaviotas.flac",
+    "file_name": "Duncan Dhu - Cien gaviotas.flac",
+    "timestamp": "2025-08-17T00:01:59.060338",
+    "essentia_features": {
+        "loudness_lufs": -4.530378341674805,
+        "danceability": 1.3136755228042603,
+        "acousticness": 0.5,
+        "instrumentalness": 0.48594391345977783,
+        "liveness": 0.1,
+        "speechiness": 0.16572288219192075,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

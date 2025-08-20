@@ -7,7 +7,9 @@
 ## 🔴 ERRORES ENCONTRADOS Y SOLUCIONES
 
 ### Error 1: Template Literal Mal Cerrado (Splash Screen)
+
 **Ubicación**: `main.js` línea 114
+
 ```javascript
 // ❌ INCORRECTO
 splash.loadURL(
@@ -27,7 +29,9 @@ splash.loadURL(
 ```
 
 ### Error 2: Template Literal con Comilla Simple (Config Window)
+
 **Ubicación**: `main.js` línea 729
+
 ```javascript
 // ❌ INCORRECTO
 const configHTML = `
@@ -45,7 +49,9 @@ const configHTML = `
 ```
 
 ### Error 3: Template Literal en About Window
+
 **Ubicación**: `main.js` línea 441
+
 ```javascript
 // ❌ INCORRECTO
 aboutWindow.loadURL(
@@ -61,22 +67,25 @@ aboutWindow.loadURL(
 ```
 
 ### Error 4: Variable Duplicada
+
 **Ubicación**: `main.js` línea 986
+
 ```javascript
 // ❌ INCORRECTO
-const fs = require('fs');           // Línea 5
+const fs = require('fs'); // Línea 5
 // ... más código ...
-const fs = require('fs').promises;  // Línea 986 - ERROR: fs ya declarado
+const fs = require('fs').promises; // Línea 986 - ERROR: fs ya declarado
 
 // ✅ CORRECTO
-const fs = require('fs');           // Línea 5
+const fs = require('fs'); // Línea 5
 // ... más código ...
-const fsPromises = require('fs').promises;  // Línea 986 - Nombre diferente
+const fsPromises = require('fs').promises; // Línea 986 - Nombre diferente
 ```
 
 ## 🎯 PATRONES CORRECTOS
 
 ### 1. Template Literals con HTML Embebido
+
 ```javascript
 // Patrón correcto para cargar HTML en Electron
 window.loadURL(
@@ -85,40 +94,43 @@ window.loadURL(
         <html>
             <!-- contenido HTML -->
         </html>
-    `)}`  // Nota: backtick → paréntesis → llave → paréntesis
+    `)}` // Nota: backtick → paréntesis → llave → paréntesis
 );
 ```
 
 ### 2. Template Literals Simples
+
 ```javascript
 // Para strings multilínea simples
 const html = `
     <div>
         contenido
     </div>
-`;  // Solo backtick al final
+`; // Solo backtick al final
 ```
 
 ## ⚠️ REGLAS DE ORO
 
 1. **SIEMPRE verificar sintaxis antes de ejecutar**:
-   ```bash
-   node -c archivo.js
-   ```
+
+    ```bash
+    node -c archivo.js
+    ```
 
 2. **Template literals se cierran con backtick (`), no con comillas simples (') o dobles (")**
 
 3. **La secuencia de cierre para `encodeURIComponent` es**: `)}`);`
-   - Primero cierra el template literal interno: `
-   - Luego cierra encodeURIComponent: )
-   - Luego cierra el template literal externo: }
-   - Finalmente cierra loadURL: );
+    - Primero cierra el template literal interno: `
+    - Luego cierra encodeURIComponent: )
+    - Luego cierra el template literal externo: }
+    - Finalmente cierra loadURL: );
 
 4. **No declarar la misma variable dos veces** - usar nombres diferentes o reutilizar
 
 ## 🔍 HERRAMIENTAS DE DEBUGGING
 
 ### Comandos Útiles
+
 ```bash
 # Verificar sintaxis sin ejecutar
 node -c main.js
@@ -138,9 +150,9 @@ head -n 500 main.js > test-part.js && node -c test-part.js
 1. **Los errores de sintaxis en template literals son difíciles de detectar** porque el IDE no siempre los marca correctamente
 
 2. **JavaScript permite mezclar backticks, comillas simples y dobles**, pero cada uno tiene su propósito:
-   - Backticks (`) para template literals
-   - Comillas simples (') y dobles (") para strings normales
-   - No se pueden mezclar para cerrar el mismo string
+    - Backticks (`) para template literals
+    - Comillas simples (') y dobles (") para strings normales
+    - No se pueden mezclar para cerrar el mismo string
 
 3. **El error "Unexpected token" puede estar lejos de donde Node.js lo reporta** - especialmente con template literals largos
 
@@ -149,6 +161,7 @@ head -n 500 main.js > test-part.js && node -c test-part.js
 ## ✅ CHECKLIST DE PREVENCIÓN
 
 Antes de ejecutar el código:
+
 - [ ] Verificar que todos los template literals se abren y cierran con backticks
 - [ ] Revisar la secuencia de cierre en `loadURL` con HTML embebido
 - [ ] Confirmar que no hay variables duplicadas con `const`
@@ -158,6 +171,7 @@ Antes de ejecutar el código:
 ## 🚀 RESULTADO FINAL
 
 Después de corregir estos 4 errores de sintaxis:
+
 - ✅ La aplicación arranca correctamente
 - ✅ Todas las ventanas modales funcionan
 - ✅ Los template literals renderizan el HTML correctamente

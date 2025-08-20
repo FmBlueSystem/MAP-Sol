@@ -402,7 +402,7 @@ class AudioHandler {
                 transitionType: this.suggestTransitionType(bpmDiff, keyCompatibility),
                 beatMatching: bpmDiff < 5,
                 harmonicMixing: keyCompatibility > 0.7,
-            }
+            },
         };
     }
 

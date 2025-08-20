@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fito Paez - Mariposa tecknicolor.flac",
-  "file_name": "Fito Paez - Mariposa tecknicolor.flac",
-  "timestamp": "2025-08-17T00:22:49.246975",
-  "essentia_features": {
-    "loudness_lufs": -5.716220855712891,
-    "danceability": 1.1728675365447998,
-    "acousticness": 0.5,
-    "instrumentalness": 0.36068809032440186,
-    "liveness": 0.1,
-    "speechiness": 0.14739393704326392,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fito Paez - Mariposa tecknicolor.flac",
+    "file_name": "Fito Paez - Mariposa tecknicolor.flac",
+    "timestamp": "2025-08-17T00:22:49.246975",
+    "essentia_features": {
+        "loudness_lufs": -5.716220855712891,
+        "danceability": 1.1728675365447998,
+        "acousticness": 0.5,
+        "instrumentalness": 0.36068809032440186,
+        "liveness": 0.1,
+        "speechiness": 0.14739393704326392,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

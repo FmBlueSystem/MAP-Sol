@@ -316,7 +316,7 @@ class ProductionMonitor {
                         metrics: metricsToSend,
                         vitals: this.vitals,
                         timestamp: Date.now(),
-                    })
+                    }),
                 });
             } else {
                 // In development, just log

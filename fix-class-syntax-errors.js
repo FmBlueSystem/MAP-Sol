@@ -15,9 +15,9 @@ console.log('🔧 Fixing class method syntax errors...\n');
 function getAllJSFiles() {
     try {
         const output = execSync('find . -name "*.js" -not -path "./node_modules/*" -not -path "./backup*/*" -type f', {
-            encoding: 'utf8'
+            encoding: 'utf8',
         });
-        return output.split('\n').filter(f => f);
+        return output.split('\n').filter((f) => f);
     } catch (error) {
         return [];
     }

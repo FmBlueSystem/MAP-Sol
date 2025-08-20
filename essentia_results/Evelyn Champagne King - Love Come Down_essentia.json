@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Evelyn Champagne King - Love Come Down.flac",
-  "file_name": "Evelyn Champagne King - Love Come Down.flac",
-  "timestamp": "2025-08-17T00:17:33.409719",
-  "essentia_features": {
-    "loudness_lufs": -9.276641845703125,
-    "danceability": 1.4564197063446045,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6277681291103363,
-    "liveness": 0.1,
-    "speechiness": 0.19890767365268,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Evelyn Champagne King - Love Come Down.flac",
+    "file_name": "Evelyn Champagne King - Love Come Down.flac",
+    "timestamp": "2025-08-17T00:17:33.409719",
+    "essentia_features": {
+        "loudness_lufs": -9.276641845703125,
+        "danceability": 1.4564197063446045,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6277681291103363,
+        "liveness": 0.1,
+        "speechiness": 0.19890767365268,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

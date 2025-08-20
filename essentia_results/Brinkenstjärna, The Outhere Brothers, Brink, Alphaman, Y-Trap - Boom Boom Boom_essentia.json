@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Brinkenstja\u0308rna, The Outhere Brothers, Brink, Alphaman, Y-Trap - Boom Boom Boom.flac",
-  "file_name": "Brinkenstja\u0308rna, The Outhere Brothers, Brink, Alphaman, Y-Trap - Boom Boom Boom.flac",
-  "timestamp": "2025-08-16T23:18:54.661429",
-  "essentia_features": {
-    "loudness_lufs": -6.189062118530273,
-    "danceability": 1.2340166568756104,
-    "acousticness": 0.5,
-    "instrumentalness": 0.7202984392642975,
-    "liveness": 0.1,
-    "speechiness": 0.1955239543620468,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Brinkenstja\u0308rna, The Outhere Brothers, Brink, Alphaman, Y-Trap - Boom Boom Boom.flac",
+    "file_name": "Brinkenstja\u0308rna, The Outhere Brothers, Brink, Alphaman, Y-Trap - Boom Boom Boom.flac",
+    "timestamp": "2025-08-16T23:18:54.661429",
+    "essentia_features": {
+        "loudness_lufs": -6.189062118530273,
+        "danceability": 1.2340166568756104,
+        "acousticness": 0.5,
+        "instrumentalness": 0.7202984392642975,
+        "liveness": 0.1,
+        "speechiness": 0.1955239543620468,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cutting Crew - I've Been In Love Before (Extended).flac",
-  "file_name": "Cutting Crew - I've Been In Love Before (Extended).flac",
-  "timestamp": "2025-08-16T23:40:08.572711",
-  "essentia_features": {
-    "loudness_lufs": -6.950893402099609,
-    "danceability": 1.0322411060333252,
-    "acousticness": 0.5,
-    "instrumentalness": 0.48946595191955566,
-    "liveness": 0.1,
-    "speechiness": 0.11990362170357562,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cutting Crew - I've Been In Love Before (Extended).flac",
+    "file_name": "Cutting Crew - I've Been In Love Before (Extended).flac",
+    "timestamp": "2025-08-16T23:40:08.572711",
+    "essentia_features": {
+        "loudness_lufs": -6.950893402099609,
+        "danceability": 1.0322411060333252,
+        "acousticness": 0.5,
+        "instrumentalness": 0.48946595191955566,
+        "liveness": 0.1,
+        "speechiness": 0.11990362170357562,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

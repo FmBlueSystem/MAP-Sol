@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, DJ Groovemonkey - The Carwash (Nudisco Clubmix).flac",
-  "file_name": "Block & Crown, DJ Groovemonkey - The Carwash (Nudisco Clubmix).flac",
-  "timestamp": "2025-08-16T23:06:22.441821",
-  "essentia_features": {
-    "loudness_lufs": -1.8723621368408203,
-    "danceability": 1.3395060300827026,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5824761092662811,
-    "liveness": 0.1,
-    "speechiness": 0.24715499260941343,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Block & Crown, DJ Groovemonkey - The Carwash (Nudisco Clubmix).flac",
+    "file_name": "Block & Crown, DJ Groovemonkey - The Carwash (Nudisco Clubmix).flac",
+    "timestamp": "2025-08-16T23:06:22.441821",
+    "essentia_features": {
+        "loudness_lufs": -1.8723621368408203,
+        "danceability": 1.3395060300827026,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5824761092662811,
+        "liveness": 0.1,
+        "speechiness": 0.24715499260941343,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

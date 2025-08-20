@@ -13,33 +13,33 @@ const fixes = [
     {
         pattern: /^(\s*)function\s+if\s*\(/gm,
         replacement: '$1if (',
-        description: 'function if() -> if()'
+        description: 'function if() -> if()',
     },
     {
         pattern: /^(\s*)async\s+function\s+if\s*\(/gm,
         replacement: '$1if (',
-        description: 'async function if() -> if()'
+        description: 'async function if() -> if()',
     },
 
     // 2. Fix logger function declarations
     {
         pattern: /^(\s*)function\s+(logInfo|logError|logDebug|logWarn)\s*\(/gm,
         replacement: '$1$2(',
-        description: 'function logX() -> logX()'
+        description: 'function logX() -> logX()',
     },
 
     // 3. Fix function calls that were incorrectly declared as functions
     {
         pattern: /^(\s*)function\s+(extractArtworkMissing|diagnoseAudio|fixAllPaths)\s*\(\)/gm,
         replacement: '$1$2()',
-        description: 'function funcName() -> funcName()'
+        description: 'function funcName() -> funcName()',
     },
 
     // 4. Fix class methods with 'function' keyword
     {
         pattern: /^(\s{4,})(async\s+)?function\s+(\w+)\s*\(/gm,
         replacement: '$1$2$3(',
-        description: 'class method: function name() -> name()'
+        description: 'class method: function name() -> name()',
     },
 
     // 5. Fix template literal errors - backticks inside backticks
@@ -52,55 +52,55 @@ const fixes = [
             }
             return p1 + '\\`' + p2 + '\\`' + p3;
         },
-        description: 'Escape nested backticks'
+        description: 'Escape nested backticks',
     },
 
     // 6. Fix SQL template literals with incorrect semicolons
     {
         pattern: /const\s+\w+\s*=\s*`;/gm,
-        replacement: match => match.replace('`;', '`'),
-        description: 'Remove semicolon at start of template literal'
+        replacement: (match) => match.replace('`;', '`'),
+        description: 'Remove semicolon at start of template literal',
     },
 
     // 7. Fix ternary operators split across lines incorrectly
     {
         pattern: /(\w+)\s*\?\s*\n\s*([^:]+)\s*:\s*([^;]+);/gm,
         replacement: '$1 ? $2 : $3;',
-        description: 'Fix multiline ternary operators'
+        description: 'Fix multiline ternary operators',
     },
 
     // 8. Fix incorrect template literal continuations
     {
         pattern: /(\$\{[^}]+\})\s*\+\s*`/g,
         replacement: '$1',
-        description: 'Remove + after template literal expression'
+        description: 'Remove + after template literal expression',
     },
     {
         pattern: /`\s*\+\s*(\$\{[^}]+\})/g,
         replacement: '$1',
-        description: 'Remove + before template literal expression'
+        description: 'Remove + before template literal expression',
     },
 
     // 9. Fix incorrect string concatenation in template literals
     {
         pattern: /`([^`]*)\$\{([^}]+)\}([^`]*)`\s*\+\s*`/g,
         replacement: '`$1${$2}$3',
-        description: 'Fix template literal concatenation'
+        description: 'Fix template literal concatenation',
     },
 
     // 10. Fix missing const/let/var declarations (conservative)
     {
         pattern: /^(\s*)(sql|query|command|result|data|options|config)\s*=/gm,
         replacement: '$1const $2 =',
-        description: 'Add const to common variable names'
-    }
+        description: 'Add const to common variable names',
+    },
 ];
 
 // Get all JS files
 function getAllJsFiles(dir, fileList = []) {
     const files = fs.readdirSync(dir);
 
-    files.forEach(file => {
+    files.forEach((file) => {
         const filePath = path.join(dir, file);
         const stat = fs.statSync(filePath);
 
@@ -134,7 +134,7 @@ function fixFile(filePath) {
     const changesMade = [];
 
     // Apply each fix
-    fixes.forEach(fix => {
+    fixes.forEach((fix) => {
         const beforeLength = content.length;
         if (typeof fix.replacement === 'function') {
             content = content.replace(fix.pattern, fix.replacement);
@@ -212,7 +212,7 @@ const jsFiles = getAllJsFiles('.');
 console.log(`   Encontrados: ${jsFiles.length} archivos\n`);
 
 console.log('🔍 Identificando archivos con errores de sintaxis...');
-const filesWithErrors = jsFiles.filter(file => hasSyntaxError(file));
+const filesWithErrors = jsFiles.filter((file) => hasSyntaxError(file));
 console.log(`   Archivos con errores: ${filesWithErrors.length}\n`);
 
 if (filesWithErrors.length === 0) {
@@ -249,7 +249,7 @@ console.log(`   ❌ Todavía con errores: ${stillBrokenCount}`);
 
 if (stillBroken.length > 0) {
     console.log('\n⚠️  Archivos que requieren revisión manual:');
-    stillBroken.forEach(file => {
+    stillBroken.forEach((file) => {
         console.log(`   - ${file}`);
     });
 

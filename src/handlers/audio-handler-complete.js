@@ -50,19 +50,19 @@ class AudioHandler {
 
                     // Send track data to renderer for actual playback
                     const windows = BrowserWindow.getAllWindows();
-                    windows.forEach(window => {
+                    windows.forEach((window) => {
                         window.webContents.send('play-audio', {
                             track,
                             filePath: track.file_path,
                             volume: this.volume,
-                            crossfade: this.crossfade
+                            crossfade: this.crossfade,
                         });
                     });
 
                     resolve({
                         success: true,
                         track,
-                        state: this.getPlayerState()
+                        state: this.getPlayerState(),
                     });
                 }
             });
@@ -95,7 +95,7 @@ class AudioHandler {
                         track = {
                             file_path: filePath,
                             file_name: path.basename(filePath),
-                            title: path.basename(filePath, path.extname(filePath))
+                            title: path.basename(filePath, path.extname(filePath)),
                         };
                     }
 
@@ -106,19 +106,19 @@ class AudioHandler {
                     this.broadcastPlayerState();
 
                     const windows = BrowserWindow.getAllWindows();
-                    windows.forEach(window => {
+                    windows.forEach((window) => {
                         window.webContents.send('play-audio', {
                             track,
                             filePath,
                             volume: this.volume,
-                            crossfade: this.crossfade
+                            crossfade: this.crossfade,
                         });
                     });
 
                     resolve({
                         success: true,
                         track,
-                        state: this.getPlayerState()
+                        state: this.getPlayerState(),
                     });
                 }
             });
@@ -130,7 +130,7 @@ class AudioHandler {
         this.isPlaying = false;
 
         const windows = BrowserWindow.getAllWindows();
-        windows.forEach(window => {
+        windows.forEach((window) => {
             window.webContents.send('pause-audio');
         });
 
@@ -138,7 +138,7 @@ class AudioHandler {
 
         return {
             success: true,
-            state: this.getPlayerState()
+            state: this.getPlayerState(),
         };
     }
 
@@ -147,7 +147,7 @@ class AudioHandler {
         this.isPlaying = true;
 
         const windows = BrowserWindow.getAllWindows();
-        windows.forEach(window => {
+        windows.forEach((window) => {
             window.webContents.send('resume-audio');
         });
 
@@ -155,7 +155,7 @@ class AudioHandler {
 
         return {
             success: true,
-            state: this.getPlayerState()
+            state: this.getPlayerState(),
         };
     }
 
@@ -165,7 +165,7 @@ class AudioHandler {
         this.currentTime = 0;
 
         const windows = BrowserWindow.getAllWindows();
-        windows.forEach(window => {
+        windows.forEach((window) => {
             window.webContents.send('stop-audio');
         });
 
@@ -173,7 +173,7 @@ class AudioHandler {
 
         return {
             success: true,
-            state: this.getPlayerState()
+            state: this.getPlayerState(),
         };
     }
 
@@ -210,13 +210,13 @@ class AudioHandler {
             this.currentTime = 0;
 
             const windows = BrowserWindow.getAllWindows();
-            windows.forEach(window => {
+            windows.forEach((window) => {
                 window.webContents.send('seek-audio', 0);
             });
 
             return {
                 success: true,
-                state: this.getPlayerState()
+                state: this.getPlayerState(),
             };
         }
 
@@ -248,7 +248,7 @@ class AudioHandler {
 
         return {
             success: true,
-            queue: this.queue
+            queue: this.queue,
         };
     }
 
@@ -260,7 +260,7 @@ class AudioHandler {
 
         return {
             success: true,
-            queue: this.queue
+            queue: this.queue,
         };
     }
 
@@ -273,7 +273,7 @@ class AudioHandler {
 
         return {
             success: true,
-            queue: this.queue
+            queue: this.queue,
         };
     }
 
@@ -282,7 +282,7 @@ class AudioHandler {
         return {
             success: true,
             queue: this.queue,
-            queueIndex: this.queueIndex
+            queueIndex: this.queueIndex,
         };
     }
 
@@ -291,7 +291,7 @@ class AudioHandler {
         this.volume = Math.max(0, Math.min(1, volume));
 
         const windows = BrowserWindow.getAllWindows();
-        windows.forEach(window => {
+        windows.forEach((window) => {
             window.webContents.send('set-volume', this.volume);
         });
 
@@ -299,7 +299,7 @@ class AudioHandler {
 
         return {
             success: true,
-            volume: this.volume
+            volume: this.volume,
         };
     }
 
@@ -308,7 +308,7 @@ class AudioHandler {
         this.currentTime = position;
 
         const windows = BrowserWindow.getAllWindows();
-        windows.forEach(window => {
+        windows.forEach((window) => {
             window.webContents.send('seek-audio', position);
         });
 
@@ -316,7 +316,7 @@ class AudioHandler {
 
         return {
             success: true,
-            position: this.currentTime
+            position: this.currentTime,
         };
     }
 
@@ -333,7 +333,7 @@ class AudioHandler {
             queueLength: this.queue.length,
             queueIndex: this.queueIndex,
             crossfade: this.crossfade,
-            gapless: this.gapless
+            gapless: this.gapless,
         };
     }
 
@@ -362,7 +362,7 @@ class AudioHandler {
                         energy: track.AI_ENERGY || Math.random(),
                         waveform: await this.generateWaveform(track.file_path),
                         cuePoints: this.detectCuePoints(track.file_path),
-                        beatGrid: this.generateBeatGrid(track.AI_BPM)
+                        beatGrid: this.generateBeatGrid(track.AI_BPM),
                     };
 
                     // Save analysis to database
@@ -370,7 +370,7 @@ class AudioHandler {
 
                     resolve({
                         success: true,
-                        analysis
+                        analysis,
                     });
                 }
             });
@@ -401,8 +401,8 @@ class AudioHandler {
                 suggestedMixPoint: this.calculateMixPoint(fromAnalysis.analysis, toAnalysis.analysis),
                 transitionType: this.suggestTransitionType(bpmDiff, keyCompatibility),
                 beatMatching: bpmDiff < 5,
-                harmonicMixing: keyCompatibility > 0.7
-            }
+                harmonicMixing: keyCompatibility > 0.7,
+            },
         };
     }
 
@@ -410,7 +410,7 @@ class AudioHandler {
     addToHistory(track) {
         this.playHistory.unshift({
             track,
-            timestamp: Date.now()
+            timestamp: Date.now(),
         });
 
         if (this.playHistory.length > this.maxHistory) {
@@ -421,17 +421,17 @@ class AudioHandler {
     broadcastPlayerState() {
         const state = this.getPlayerState();
         const windows = BrowserWindow.getAllWindows();
-        windows.forEach(window => {
+        windows.forEach((window) => {
             window.webContents.send('player-state-update', state);
         });
     }
 
     broadcastQueueUpdate() {
         const windows = BrowserWindow.getAllWindows();
-        windows.forEach(window => {
+        windows.forEach((window) => {
             window.webContents.send('queue-updated', {
                 queue: this.queue,
-                queueIndex: this.queueIndex
+                queueIndex: this.queueIndex,
             });
         });
     }
@@ -465,7 +465,7 @@ class AudioHandler {
             outro: 180,
             drop1: 30,
             drop2: 90,
-            breakdown: 60
+            breakdown: 60,
         };
     }
 
@@ -499,7 +499,7 @@ class AudioHandler {
         return {
             fromTime: fromAnalysis.cuePoints?.outro || 150,
             toTime: toAnalysis.cuePoints?.intro || 0,
-            duration: 8 // bars
+            duration: 8, // bars
         };
     }
 
@@ -548,7 +548,7 @@ function createAudioHandler(db) {
         'set-volume': handler.setVolume.bind(handler),
         seek: handler.seek.bind(handler),
         'analyze-track': handler.analyzeTrack.bind(handler),
-        'get-transition-points': handler.getTransitionPoints.bind(handler)
+        'get-transition-points': handler.getTransitionPoints.bind(handler),
     };
 }
 

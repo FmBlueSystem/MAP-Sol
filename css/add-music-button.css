@@ -259,16 +259,16 @@
         height: 250px;
         padding: 30px;
     }
-    
+
     .import-progress {
         width: 90%;
         max-width: 400px;
     }
-    
+
     .progress-stages {
         flex-wrap: wrap;
     }
-    
+
     .stage {
         min-width: calc(33.333% - 6px);
     }
@@ -279,7 +279,7 @@
     .drop-zone {
         background: rgba(20, 20, 20, 0.98);
     }
-    
+
     .import-progress {
         background: rgba(20, 20, 20, 0.98);
     }

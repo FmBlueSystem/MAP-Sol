@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/David Tavare\u0301 - Hot Summer Night (Oh La La La) [feat. 2 Eivissa] (feat. 2 Eivissa).flac",
-  "file_name": "David Tavare\u0301 - Hot Summer Night (Oh La La La) [feat. 2 Eivissa] (feat. 2 Eivissa).flac",
-  "timestamp": "2025-08-16T23:48:31.873779",
-  "essentia_features": {
-    "loudness_lufs": -0.9028224945068359,
-    "danceability": 1.2669503688812256,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5148798823356628,
-    "liveness": 0.1,
-    "speechiness": 0.13804193002287363,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/David Tavare\u0301 - Hot Summer Night (Oh La La La) [feat. 2 Eivissa] (feat. 2 Eivissa).flac",
+    "file_name": "David Tavare\u0301 - Hot Summer Night (Oh La La La) [feat. 2 Eivissa] (feat. 2 Eivissa).flac",
+    "timestamp": "2025-08-16T23:48:31.873779",
+    "essentia_features": {
+        "loudness_lufs": -0.9028224945068359,
+        "danceability": 1.2669503688812256,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5148798823356628,
+        "liveness": 0.1,
+        "speechiness": 0.13804193002287363,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

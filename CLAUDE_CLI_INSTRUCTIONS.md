@@ -20,6 +20,7 @@ Confirma que los has leído antes de proceder con cualquier tarea.
 ## 🎯 COMANDOS FRECUENTES PARA CLAUDE
 
 ### Para Implementar Nueva Feature
+
 ```
 Implementa [nombre de feature] siguiendo:
 1. CODE_QUALITY_STANDARDS.md para estándares
@@ -28,6 +29,7 @@ Implementa [nombre de feature] siguiendo:
 ```
 
 ### Para Revisar Código
+
 ```
 Revisa este código según CODE_QUALITY_STANDARDS.md:
 - ¿Cumple con las métricas de complejidad?
@@ -36,6 +38,7 @@ Revisa este código según CODE_QUALITY_STANDARDS.md:
 ```
 
 ### Para Crear Tests
+
 ```
 Crea tests para [función/componente] siguiendo:
 - Estructura de tests en CODE_QUALITY_STANDARDS.md
@@ -44,6 +47,7 @@ Crea tests para [función/componente] siguiendo:
 ```
 
 ### Para Documentar
+
 ```
 Documenta [función/módulo] usando:
 - Formato JSDoc de CODE_QUALITY_STANDARDS.md
@@ -52,6 +56,7 @@ Documenta [función/módulo] usando:
 ```
 
 ### Para Refactorizar
+
 ```
 Refactoriza [archivo/función] para:
 - Reducir complejidad a máximo 15
@@ -64,6 +69,7 @@ Refactoriza [archivo/función] para:
 ## 📁 ESTRUCTURA DE ARCHIVOS CLAVE
 
 ### Documentación Principal (Este Proyecto)
+
 ```
 CLAUDE.md                    # Brain del proyecto - LEER PRIMERO
 CMD_COMMANDS.md              # Comandos disponibles
@@ -71,6 +77,7 @@ LESSONS-LEARNED-SYNTAX-ERRORS.md  # Errores comunes a evitar
 ```
 
 ### Documentación de Archon (Referencias)
+
 ```
 /Users/freddymolina/Desktop/Archon V2/Archon/
 ├── CODE_QUALITY_STANDARDS.md    # Estándares obligatorios
@@ -112,35 +119,38 @@ LESSONS-LEARNED-SYNTAX-ERRORS.md  # Errores comunes a evitar
 Del archivo MAP_COMPLETE_TASK_LIST.md:
 
 1. **[P10] Track Info Panel Completo** - 8h
-   - Panel expandible con TODOS los datos
-   - Gráfico radar HAMMS
-   - Backend ya existe
+    - Panel expandible con TODOS los datos
+    - Gráfico radar HAMMS
+    - Backend ya existe
 
 2. **[P9] Sistema HAMMS Visible** - 6h
-   - Top 10 tracks similares
-   - Backend en similarity_searches
+    - Top 10 tracks similares
+    - Backend en similarity_searches
 
 3. **[P9] Smart Playlist UI - Wizard** - 10h
-   - Step-by-step con criterios
-   - Backend en smart_playlists
+    - Step-by-step con criterios
+    - Backend en smart_playlists
 
 ---
 
 ## 💡 TIPS PARA CLAUDE CLI
 
 ### Contexto Persistente
+
 ```
 Recuerda que estamos en Sprint 0: hacer visible lo oculto.
 El backend ya existe, solo necesitamos UI.
 ```
 
 ### Validación Continua
+
 ```
 ¿Este código cumple con CODE_QUALITY_STANDARDS.md?
 ¿Estoy siguiendo el plan de MAP_UI_FIRST_PLANNING.md?
 ```
 
 ### Testing Incremental
+
 ```
 Escribe el test primero, luego la implementación.
 Verifica que funciona antes de pulir la UI.
@@ -201,11 +211,11 @@ Closes Task #1 from Sprint 0
 
 ---
 
-**RECORDATORIO FINAL**: Este proyecto sigue los estándares de Archon. 
+**RECORDATORIO FINAL**: Este proyecto sigue los estándares de Archon.
 Cada línea de código debe cumplir con CODE_QUALITY_STANDARDS.md.
 La funcionalidad SIEMPRE viene antes que la estética.
 
 ---
 
-*Última actualización: 2025-01-19*
-*Siguiente revisión: Al completar Sprint 0*
+_Última actualización: 2025-01-19_
+_Siguiente revisión: Al completar Sprint 0_

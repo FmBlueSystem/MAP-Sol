@@ -63,9 +63,7 @@
             "topic_main": "Limitlessness",
             "topics_secondary": ["Aspiration", "Pride", "Determination"],
             "coherence_score": 0.9,
-            "coherence_notes": [
-                "Consistent theme of overcoming obstacles and striving for success"
-            ],
+            "coherence_notes": ["Consistent theme of overcoming obstacles and striving for success"],
             "lyric_mood": "Euphoric",
             "sentiment": 0.8,
             "emotions": {
@@ -82,10 +80,7 @@
                 {
                     "section": "chorus",
                     "summary": "Emphasizes no limits to achieving one's goals.",
-                    "sample_lines": [
-                        "No no limits, we'll reach for the sky",
-                        "No no there's no limit"
-                    ]
+                    "sample_lines": ["No no limits, we'll reach for the sky", "No no there's no limit"]
                 }
             ],
             "repeated_phrases": [

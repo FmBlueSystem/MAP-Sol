@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eurythmics, Annie Lennox, Dave Stewart - Here Comes the Rain Again (Remastered Version).flac",
-  "file_name": "Eurythmics, Annie Lennox, Dave Stewart - Here Comes the Rain Again (Remastered Version).flac",
-  "timestamp": "2025-08-17T00:16:44.760652",
-  "essentia_features": {
-    "loudness_lufs": -5.415468215942383,
-    "danceability": 1.2649976015090942,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5773007571697235,
-    "liveness": 0.1,
-    "speechiness": 0.1365924417529657,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Eurythmics, Annie Lennox, Dave Stewart - Here Comes the Rain Again (Remastered Version).flac",
+    "file_name": "Eurythmics, Annie Lennox, Dave Stewart - Here Comes the Rain Again (Remastered Version).flac",
+    "timestamp": "2025-08-17T00:16:44.760652",
+    "essentia_features": {
+        "loudness_lufs": -5.415468215942383,
+        "danceability": 1.2649976015090942,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5773007571697235,
+        "liveness": 0.1,
+        "speechiness": 0.1365924417529657,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Little Lies.flac",
-  "file_name": "Fleetwood Mac - Little Lies.flac",
-  "timestamp": "2025-08-17T00:24:23.305742",
-  "essentia_features": {
-    "loudness_lufs": -6.843559265136719,
-    "danceability": 1.261618733406067,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5144015848636627,
-    "liveness": 0.1,
-    "speechiness": 0.18446385744986757,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Fleetwood Mac - Little Lies.flac",
+    "file_name": "Fleetwood Mac - Little Lies.flac",
+    "timestamp": "2025-08-17T00:24:23.305742",
+    "essentia_features": {
+        "loudness_lufs": -6.843559265136719,
+        "danceability": 1.261618733406067,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5144015848636627,
+        "liveness": 0.1,
+        "speechiness": 0.18446385744986757,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

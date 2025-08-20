@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dr Alban - Look Who's Talking (Stone's Radio).flac",
-  "file_name": "Dr Alban - Look Who's Talking (Stone's Radio).flac",
-  "timestamp": "2025-08-17T00:01:41.451531",
-  "essentia_features": {
-    "loudness_lufs": -6.3635406494140625,
-    "danceability": 1.293908715248108,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6586001515388489,
-    "liveness": 0.1,
-    "speechiness": 0.14707378340089156,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Dr Alban - Look Who's Talking (Stone's Radio).flac",
+    "file_name": "Dr Alban - Look Who's Talking (Stone's Radio).flac",
+    "timestamp": "2025-08-17T00:01:41.451531",
+    "essentia_features": {
+        "loudness_lufs": -6.3635406494140625,
+        "danceability": 1.293908715248108,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6586001515388489,
+        "liveness": 0.1,
+        "speechiness": 0.14707378340089156,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const testAudio = new Audio(filePath);
             testAudio.volume = 0.5;
 
-            testAudio.addEventListener('error', e => {
+            testAudio.addEventListener('error', (e) => {
                 logError('❌ Error en audio:', e);
                 logError('Error code:', e.target.error?.code);
                 logError('Error message:', e.target.error?.message);
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         logDebug('⏸ Pausado después de 2 segundos');
                     }, 2000);
                 })
-                .catch(err => {
+                .catch((err) => {
                     logError('❌ Play falló:', err.name, err.message);
                 });
         }
@@ -69,7 +69,7 @@ window.testPlay = function () {
             .then(() => {
                 logInfo('✅ Test manual funcionó!');
             })
-            .catch(err => {
+            .catch((err) => {
                 logError('❌ Test manual falló:', err);
             });
     }

@@ -63,9 +63,7 @@
             "topic_main": "Limitlessness",
             "topics_secondary": ["Pride", "Struggle"],
             "coherence_score": 0.8,
-            "coherence_notes": [
-                "Consistent theme of overcoming limits and pride in one's achievements."
-            ],
+            "coherence_notes": ["Consistent theme of overcoming limits and pride in one's achievements."],
             "lyric_mood": "Euphoric",
             "sentiment": 0.8,
             "emotions": {
@@ -92,10 +90,7 @@
                     "reason": "hook"
                 }
             ],
-            "hook_candidates": [
-                "No no there's no limit",
-                "We do what we want and we do it with pride"
-            ],
+            "hook_candidates": ["No no there's no limit", "We do what we want and we do it with pride"],
             "keywords": ["limit", "pride", "sky", "fight"],
             "named_entities": {},
             "cultural_references": [],

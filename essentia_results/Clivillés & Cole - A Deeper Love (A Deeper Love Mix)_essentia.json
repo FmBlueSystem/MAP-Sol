@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cliville\u0301s & Cole - A Deeper Love (A Deeper Love Mix).flac",
-  "file_name": "Cliville\u0301s & Cole - A Deeper Love (A Deeper Love Mix).flac",
-  "timestamp": "2025-08-16T23:34:34.366439",
-  "essentia_features": {
-    "loudness_lufs": -3.2054710388183594,
-    "danceability": 1.5518934726715088,
-    "acousticness": 0.5,
-    "instrumentalness": 0.5576095879077911,
-    "liveness": 0.1,
-    "speechiness": 0.22578248941949217,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Cliville\u0301s & Cole - A Deeper Love (A Deeper Love Mix).flac",
+    "file_name": "Cliville\u0301s & Cole - A Deeper Love (A Deeper Love Mix).flac",
+    "timestamp": "2025-08-16T23:34:34.366439",
+    "essentia_features": {
+        "loudness_lufs": -3.2054710388183594,
+        "danceability": 1.5518934726715088,
+        "acousticness": 0.5,
+        "instrumentalness": 0.5576095879077911,
+        "liveness": 0.1,
+        "speechiness": 0.22578248941949217,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

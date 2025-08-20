@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Belkis Concepcio\u0301n, Las Chicas Del Can, Wilfrido Vargas y Sus Beduinos - El Higuero\u0301n.flac",
-  "file_name": "Belkis Concepcio\u0301n, Las Chicas Del Can, Wilfrido Vargas y Sus Beduinos - El Higuero\u0301n.flac",
-  "timestamp": "2025-08-16T22:52:54.750095",
-  "essentia_features": {
-    "loudness_lufs": -15.00820541381836,
-    "danceability": 1.363138198852539,
-    "acousticness": 0.5,
-    "instrumentalness": 0.487704873085022,
-    "liveness": 0.1,
-    "speechiness": 0.14120851713783011,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Belkis Concepcio\u0301n, Las Chicas Del Can, Wilfrido Vargas y Sus Beduinos - El Higuero\u0301n.flac",
+    "file_name": "Belkis Concepcio\u0301n, Las Chicas Del Can, Wilfrido Vargas y Sus Beduinos - El Higuero\u0301n.flac",
+    "timestamp": "2025-08-16T22:52:54.750095",
+    "essentia_features": {
+        "loudness_lufs": -15.00820541381836,
+        "danceability": 1.363138198852539,
+        "acousticness": 0.5,
+        "instrumentalness": 0.487704873085022,
+        "liveness": 0.1,
+        "speechiness": 0.14120851713783011,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Claudio Baglioni - Y Tu, \u00bfComo Estas.flac",
-  "file_name": "Claudio Baglioni - Y Tu, \u00bfComo Estas.flac",
-  "timestamp": "2025-08-16T23:34:16.928455",
-  "essentia_features": {
-    "loudness_lufs": -7.43634033203125,
-    "danceability": 1.11253821849823,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4340469241142273,
-    "liveness": 0.1,
-    "speechiness": 0.13744692018147375,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Claudio Baglioni - Y Tu, \u00bfComo Estas.flac",
+    "file_name": "Claudio Baglioni - Y Tu, \u00bfComo Estas.flac",
+    "timestamp": "2025-08-16T23:34:16.928455",
+    "essentia_features": {
+        "loudness_lufs": -7.43634033203125,
+        "danceability": 1.11253821849823,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4340469241142273,
+        "liveness": 0.1,
+        "speechiness": 0.13744692018147375,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

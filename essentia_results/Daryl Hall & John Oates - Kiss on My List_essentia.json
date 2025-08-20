@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Daryl Hall & John Oates - Kiss on My List.flac",
-  "file_name": "Daryl Hall & John Oates - Kiss on My List.flac",
-  "timestamp": "2025-08-16T23:45:09.323371",
-  "essentia_features": {
-    "loudness_lufs": -10.395355224609375,
-    "danceability": 1.423728585243225,
-    "acousticness": 0.5,
-    "instrumentalness": 0.4017455577850342,
-    "liveness": 0.1,
-    "speechiness": 0.15909602274628465,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Daryl Hall & John Oates - Kiss on My List.flac",
+    "file_name": "Daryl Hall & John Oates - Kiss on My List.flac",
+    "timestamp": "2025-08-16T23:45:09.323371",
+    "essentia_features": {
+        "loudness_lufs": -10.395355224609375,
+        "danceability": 1.423728585243225,
+        "acousticness": 0.5,
+        "instrumentalness": 0.4017455577850342,
+        "liveness": 0.1,
+        "speechiness": 0.15909602274628465,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

@@ -1,4 +1,5 @@
 # 🤖 CLAUDE CLI PROMPTS - Guía de Ejecución
+
 > Prompts específicos para ejecutar cada tarea con Claude CLI
 > Última actualización: 2025-08-14
 
@@ -13,8 +14,9 @@ Cada sección contiene prompts exactos que puedes copiar y pegar en Claude CLI p
 ## 🧪 FASE 1: VALIDACIÓN Y TESTING
 
 ### 1.1 Performance Testing Completo
+
 ```bash
-claude "Ejecuta un test de performance completo del proyecto music-app-clean. 
+claude "Ejecuta un test de performance completo del proyecto music-app-clean.
 Necesito:
 1. Medir tiempo de carga con los 3,767 archivos
 2. Analizar memory usage durante operaciones normales
@@ -25,6 +27,7 @@ Usa performance.now() y performance.memory para las mediciones"
 ```
 
 ### 1.2 Stress Testing
+
 ```bash
 claude "Implementa stress testing para music-app-clean:
 1. Crea tests/stress-test.js con:
@@ -39,6 +42,7 @@ claude "Implementa stress testing para music-app-clean:
 ```
 
 ### 1.3 Benchmark Suite
+
 ```bash
 claude "CMD_BUILD benchmark-suite para music-app-clean con:
 1. Benchmark de carga inicial
@@ -54,6 +58,7 @@ Exporta resultados en JSON y genera gráficos de comparación"
 ## 🚀 FASE 2: VIRTUAL SCROLLING
 
 ### 2.1 Implementar Virtual Scroller
+
 ```bash
 claude "CMD_BUILD virtual-scroll-system para music-app-clean:
 1. Crea js/virtual-scroller.js con:
@@ -68,6 +73,7 @@ claude "CMD_BUILD virtual-scroll-system para music-app-clean:
 ```
 
 ### 2.2 Optimizar Renderizado
+
 ```bash
 claude "Optimiza el renderizado en index-with-search.html:
 1. Implementa requestIdleCallback para renders no críticos
@@ -82,6 +88,7 @@ claude "Optimiza el renderizado en index-with-search.html:
 ## 🔧 FASE 3: BUILD PROCESS
 
 ### 3.1 Configurar Webpack
+
 ```bash
 claude "Configura Webpack para music-app-clean:
 1. Crea webpack.config.js con:
@@ -98,6 +105,7 @@ claude "Configura Webpack para music-app-clean:
 ```
 
 ### 3.2 Implementar Code Splitting
+
 ```bash
 claude "Implementa code splitting dinámico:
 1. Separa módulos pesados:
@@ -115,6 +123,7 @@ claude "Implementa code splitting dinámico:
 ## 🌐 FASE 4: PWA & SERVICE WORKER
 
 ### 4.1 Service Worker Completo
+
 ```bash
 claude "CMD_BUILD complete-service-worker para music-app-clean:
 1. Crea service-worker.js con:
@@ -129,6 +138,7 @@ claude "CMD_BUILD complete-service-worker para music-app-clean:
 ```
 
 ### 4.2 PWA Manifest
+
 ```bash
 claude "Configura PWA completa:
 1. Crea manifest.json con:
@@ -147,6 +157,7 @@ claude "Configura PWA completa:
 ## 📘 FASE 5: TYPESCRIPT MIGRATION
 
 ### 5.1 Setup TypeScript
+
 ```bash
 claude "Migra music-app-clean a TypeScript:
 1. Instala TypeScript y tipos necesarios
@@ -162,6 +173,7 @@ claude "Migra music-app-clean a TypeScript:
 ```
 
 ### 5.2 Type Definitions Completas
+
 ```bash
 claude "Crea type definitions exhaustivas:
 1. types/models.d.ts - Modelos de datos
@@ -178,6 +190,7 @@ claude "Crea type definitions exhaustivas:
 ## 🎨 FASE 6: UI/UX REFINEMENTS
 
 ### 6.1 Sistema de Animaciones
+
 ```bash
 claude "CMD_BUILD animation-system para music-app-clean:
 1. Crea css/animations.css con:
@@ -192,6 +205,7 @@ claude "CMD_BUILD animation-system para music-app-clean:
 ```
 
 ### 6.2 Dark Mode Completo
+
 ```bash
 claude "Implementa dark mode profesional:
 1. CSS variables para todos los colores
@@ -208,6 +222,7 @@ claude "Implementa dark mode profesional:
 ## 📊 FASE 7: MONITORING & ANALYTICS
 
 ### 7.1 Performance Monitoring
+
 ```bash
 claude "CMD_BUILD performance-monitoring para music-app-clean:
 1. Implementa Web Vitals tracking:
@@ -222,6 +237,7 @@ claude "CMD_BUILD performance-monitoring para music-app-clean:
 ```
 
 ### 7.2 Error Tracking System
+
 ```bash
 claude "Implementa error tracking completo:
 1. Global error handler con context
@@ -239,6 +255,7 @@ claude "Implementa error tracking completo:
 ## 🔄 COMANDOS DE UTILIDAD
 
 ### Análisis de Estado Actual
+
 ```bash
 claude "CMD_ANALYZE music-app-clean con foco en:
 1. Performance bottlenecks actuales
@@ -250,6 +267,7 @@ Genera reporte detallado con prioridades"
 ```
 
 ### Optimización Automática
+
 ```bash
 claude "CMD_OPTIMIZE music-app-clean:
 1. Aplica todas las optimizaciones pendientes
@@ -261,6 +279,7 @@ claude "CMD_OPTIMIZE music-app-clean:
 ```
 
 ### Testing Completo
+
 ```bash
 claude "CMD_TEST all para music-app-clean:
 1. Unit tests para funciones core
@@ -272,6 +291,7 @@ claude "CMD_TEST all para music-app-clean:
 ```
 
 ### Build de Producción
+
 ```bash
 claude "CMD_DEPLOY mac para music-app-clean:
 1. Optimiza todo el código
@@ -287,6 +307,7 @@ claude "CMD_DEPLOY mac para music-app-clean:
 ## 📝 PROMPTS PARA DOCUMENTACIÓN
 
 ### Generar Documentación Técnica
+
 ```bash
 claude "CMD_DOCUMENT technical para music-app-clean:
 1. API documentation (JSDoc)
@@ -299,6 +320,7 @@ Formato: Markdown con diagramas Mermaid"
 ```
 
 ### Manual de Usuario
+
 ```bash
 claude "CMD_DOCUMENT user-manual para music-app-clean:
 1. Getting started guide
@@ -315,6 +337,7 @@ Formato: Markdown, tono amigable"
 ## 🎯 PROMPTS PARA FEATURES ESPECÍFICAS
 
 ### Sistema HAMMS de Similitud
+
 ```bash
 claude "CMD_BUILD hamms-similarity-system:
 1. Implementa algoritmo HAMMS de 7 dimensiones
@@ -326,6 +349,7 @@ claude "CMD_BUILD hamms-similarity-system:
 ```
 
 ### Visualización BPM vs Energy
+
 ```bash
 claude "CMD_BUILD bpm-energy-heatmap:
 1. Canvas 2D con heatmap
@@ -338,6 +362,7 @@ claude "CMD_BUILD bpm-energy-heatmap:
 ```
 
 ### Export a Formatos DJ
+
 ```bash
 claude "CMD_BUILD dj-export-system:
 1. Export a Rekordbox XML
@@ -354,6 +379,7 @@ claude "CMD_BUILD dj-export-system:
 ## ⚡ PROMPTS PARA SOLUCIÓN RÁPIDA
 
 ### Fix Performance Issues
+
 ```bash
 claude "CMD_FIX performance-issues en music-app-clean:
 Identifica y soluciona problemas de performance.
@@ -361,6 +387,7 @@ Prioridad: scroll lag, memory leaks, slow search"
 ```
 
 ### Fix UI Bugs
+
 ```bash
 claude "CMD_FIX ui-bugs en music-app-clean:
 Encuentra y repara bugs visuales.
@@ -368,6 +395,7 @@ Prioridad: layout shifts, broken animations, responsive issues"
 ```
 
 ### Fix Database Issues
+
 ```bash
 claude "CMD_FIX database-issues:
 Repara problemas de base de datos.
@@ -379,6 +407,7 @@ Incluye: índices faltantes, queries lentas, data corruption"
 ## 🔐 PROMPTS DE VALIDACIÓN
 
 ### Validar Optimizaciones
+
 ```bash
 claude "CMD_VALIDATE optimizations en music-app-clean:
 1. Verifica que todas las optimizaciones funcionen
@@ -389,6 +418,7 @@ claude "CMD_VALIDATE optimizations en music-app-clean:
 ```
 
 ### Validar Compatibilidad
+
 ```bash
 claude "CMD_VALIDATE compatibility:
 1. Test en Electron versions
@@ -403,6 +433,7 @@ claude "CMD_VALIDATE compatibility:
 ## 📚 MEJORES PRÁCTICAS PARA PROMPTS
 
 ### Estructura Recomendada
+
 ```
 claude "[COMANDO] [objetivo] para [proyecto]:
 1. [Acción específica 1]
@@ -414,6 +445,7 @@ claude "[COMANDO] [objetivo] para [proyecto]:
 ```
 
 ### Tips para Mejores Resultados
+
 1. **Sé específico**: Incluye números, métricas, archivos exactos
 2. **Define el éxito**: Indica qué resultado esperas
 3. **Provee contexto**: Menciona archivos relacionados
@@ -421,6 +453,7 @@ claude "[COMANDO] [objetivo] para [proyecto]:
 5. **Especifica formato**: JSON, Markdown, código, etc.
 
 ### Ejemplo de Prompt Perfecto
+
 ```bash
 claude "CMD_BUILD virtual-scroll para music-app-clean en index-with-search.html:
 1. Implementa virtual scrolling para la vista de cards
@@ -439,18 +472,21 @@ Documenta con comentarios inline y actualiza CLAUDE.md"
 ## 🚨 PROMPTS DE EMERGENCIA
 
 ### Rollback Urgente
+
 ```bash
 claude "URGENTE: Rollback últimos cambios en music-app-clean.
 La aplicación no arranca. Restaura al último estado funcional conocido."
 ```
 
 ### Fix Crítico
+
 ```bash
 claude "CRÍTICO: La base de datos está corrupta en music-app-clean.
 Repara o reconstruye music_analyzer.db manteniendo los datos posibles."
 ```
 
 ### Recovery
+
 ```bash
 claude "RECOVERY: Recupera music-app-clean desde backup.
 Usa los archivos en backup/ y restaura funcionalidad completa."
@@ -458,6 +494,6 @@ Usa los archivos en backup/ y restaura funcionalidad completa."
 
 ---
 
-*Documento de Prompts v1.0*
-*Última actualización: 2025-08-14*
-*Total de prompts: 40+*
+_Documento de Prompts v1.0_
+_Última actualización: 2025-08-14_
+_Total de prompts: 40+_

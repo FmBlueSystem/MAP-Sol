@@ -3,6 +3,7 @@
 ## ✅ Estado Actual
 
 ### Ambiente Virtual
+
 - **Python**: 3.12.11 (estable, sin problemas de compatibilidad)
 - **Essentia**: 2.1-beta6 ✅
 - **NumPy**: 2.2.6 ✅
@@ -12,7 +13,9 @@
 ### Scripts Creados
 
 #### 1. `essentia_advanced_features.py`
+
 Extrae 7 características avanzadas:
+
 - **LUFS** (Loudness) - EBU R128 standard
 - **Danceability** (0-1)
 - **Acousticness** (0-1)
@@ -22,7 +25,9 @@ Extrae 7 características avanzadas:
 - **Valence** (0-1)
 
 #### 2. `process_library_essentia.py`
+
 Procesamiento masivo de biblioteca:
+
 - Procesamiento en lotes configurable
 - Sistema de caché para resumir procesamiento
 - Manejo robusto de errores
@@ -32,6 +37,7 @@ Procesamiento masivo de biblioteca:
 ## 📊 Base de Datos
 
 ### Columnas Agregadas a `llm_metadata`
+
 ```sql
 AI_LOUDNESS REAL           -- LUFS en dB [-60, 0]
 AI_DANCEABILITY REAL        -- 0-1
@@ -47,6 +53,7 @@ ESSENTIA_DATE TIMESTAMP    -- Fecha de procesamiento
 ## 🚀 Comandos de Uso
 
 ### Activar Ambiente Virtual
+
 ```bash
 source .venv/bin/activate
 # o
@@ -54,11 +61,13 @@ source .venv/bin/activate
 ```
 
 ### Analizar Un Archivo
+
 ```bash
 python essentia_advanced_features.py /ruta/archivo.mp3
 ```
 
 ### Procesar Biblioteca Completa
+
 ```bash
 # Procesar todos los archivos pendientes
 python process_library_essentia.py
@@ -79,10 +88,12 @@ python process_library_essentia.py --reset-cache
 ## 📈 Estado de Procesamiento
 
 ### Archivos Locales
+
 - **Procesados**: 1 de 1 (100%)
 - **Archivo**: Carlos Rivera - Eres Tú (Mamá).flac
 
 ### Archivos en Disco Externo
+
 - **Total**: 3,767 archivos
 - **Ubicación**: /Volumes/My Passport/
 - **Estado**: Pendientes (requiere disco conectado)
@@ -90,15 +101,19 @@ python process_library_essentia.py --reset-cache
 ## 🔄 Para Procesar Tu Biblioteca
 
 ### Opción 1: Con Disco Externo Conectado
+
 1. Conecta tu disco "My Passport"
 2. Ejecuta:
+
 ```bash
 source .venv/bin/activate
 python process_library_essentia.py --batch-size 50
 ```
 
 ### Opción 2: Copiar Archivos Localmente
+
 1. Copia algunos archivos de prueba:
+
 ```bash
 mkdir -p ~/Desktop/music-app-clean/test_audio
 # Copiar algunos archivos del disco externo
@@ -109,16 +124,17 @@ mkdir -p ~/Desktop/music-app-clean/test_audio
 ## 📊 Características Calculadas
 
 ### Ejemplo de Resultados
+
 ```json
 {
-  "loudness": -8.91,        // LUFS en dB
-  "danceability": 1.0,      // 100% bailable
-  "acousticness": 0.882,    // 88.2% acústico
-  "instrumentalness": 1.0,  // 100% instrumental
-  "liveness": 1.0,          // 100% en vivo
-  "speechiness": 0.174,     // 17.4% hablado
-  "valence": 0.417,         // 41.7% positivo
-  "duration": 195.09        // segundos
+    "loudness": -8.91, // LUFS en dB
+    "danceability": 1.0, // 100% bailable
+    "acousticness": 0.882, // 88.2% acústico
+    "instrumentalness": 1.0, // 100% instrumental
+    "liveness": 1.0, // 100% en vivo
+    "speechiness": 0.174, // 17.4% hablado
+    "valence": 0.417, // 41.7% positivo
+    "duration": 195.09 // segundos
 }
 ```
 
@@ -142,11 +158,13 @@ mkdir -p ~/Desktop/music-app-clean/test_audio
 ## 🔧 Troubleshooting
 
 ### Si el análisis falla:
+
 1. Verificar que el archivo existe y es legible
 2. Verificar formato soportado (mp3, m4a, flac, wav, ogg)
 3. Revisar logs en `essentia_processing_report_*.json`
 
 ### Si la base de datos no se actualiza:
+
 1. Verificar permisos de escritura en `music_analyzer.db`
 2. Verificar que existe la tabla `llm_metadata`
 3. Usar `--check-status` para verificar estado

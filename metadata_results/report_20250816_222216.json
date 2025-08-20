@@ -1,14 +1,14 @@
 {
-  "timestamp": "2025-08-16T22:22:16.659700",
-  "stats": {
-    "total": 100,
-    "processed": 100,
-    "saved_db": 0,
-    "errors": 0,
-    "skipped": 3708,
-    "with_isrc": 97,
-    "with_mik": 0,
-    "start_time": 1755404530.663834
-  },
-  "elapsed_time": 5.995855808258057
+    "timestamp": "2025-08-16T22:22:16.659700",
+    "stats": {
+        "total": 100,
+        "processed": 100,
+        "saved_db": 0,
+        "errors": 0,
+        "skipped": 3708,
+        "with_isrc": 97,
+        "with_mik": 0,
+        "start_time": 1755404530.663834
+    },
+    "elapsed_time": 5.995855808258057
 }

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Earth, Wind & Fire - September (Eric Kupper Radio Mix).flac",
-  "file_name": "Earth, Wind & Fire - September (Eric Kupper Radio Mix).flac",
-  "timestamp": "2025-08-17T00:06:53.989626",
-  "essentia_features": {
-    "loudness_lufs": -4.230842590332031,
-    "danceability": 1.6027393341064453,
-    "acousticness": 0.5,
-    "instrumentalness": 0.6008352041244507,
-    "liveness": 0.1,
-    "speechiness": 0.1663853385718066,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Earth, Wind & Fire - September (Eric Kupper Radio Mix).flac",
+    "file_name": "Earth, Wind & Fire - September (Eric Kupper Radio Mix).flac",
+    "timestamp": "2025-08-17T00:06:53.989626",
+    "essentia_features": {
+        "loudness_lufs": -4.230842590332031,
+        "danceability": 1.6027393341064453,
+        "acousticness": 0.5,
+        "instrumentalness": 0.6008352041244507,
+        "liveness": 0.1,
+        "speechiness": 0.1663853385718066,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }

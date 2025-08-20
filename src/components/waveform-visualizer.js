@@ -82,7 +82,7 @@ class WaveformVisualizer {
 
     setupEventListeners() {
         // Listen for track load events
-        document.addEventListener('track-loaded', e => {
+        document.addEventListener('track-loaded', (e) => {
             this.loadTrack(e.detail);
         });
 
@@ -95,7 +95,7 @@ class WaveformVisualizer {
             this.stop();
         });
 
-        document.addEventListener('audio-seek', e => {
+        document.addEventListener('audio-seek', (e) => {
             this.currentTime = e.detail.time;
             this.drawStaticWaveform();
         });

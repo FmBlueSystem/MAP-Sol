@@ -19,7 +19,7 @@ function createWindow() {
             nodeIntegration: true,
             contextIsolation: false,
             webSecurity: false, // Para cargar imágenes locales
-        }
+        },
     });
 
     mainWindow.loadFile('index-complete.html');

@@ -1,18 +1,18 @@
 {
-  "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Charly Garci\u0301a - No Me Dejan Salir.flac",
-  "file_name": "Charly Garci\u0301a - No Me Dejan Salir.flac",
-  "timestamp": "2025-08-16T23:29:12.889708",
-  "essentia_features": {
-    "loudness_lufs": -5.27886962890625,
-    "danceability": 1.2689160108566284,
-    "acousticness": 0.5,
-    "instrumentalness": 0.3914153575897217,
-    "liveness": 0.1,
-    "speechiness": 0.14162992353280782,
-    "valence": 0.5,
-    "bpm": 120.0,
-    "key": "Unknown"
-  },
-  "format": "FLAC",
-  "processing": "success"
+    "file_path": "/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks/Charly Garci\u0301a - No Me Dejan Salir.flac",
+    "file_name": "Charly Garci\u0301a - No Me Dejan Salir.flac",
+    "timestamp": "2025-08-16T23:29:12.889708",
+    "essentia_features": {
+        "loudness_lufs": -5.27886962890625,
+        "danceability": 1.2689160108566284,
+        "acousticness": 0.5,
+        "instrumentalness": 0.3914153575897217,
+        "liveness": 0.1,
+        "speechiness": 0.14162992353280782,
+        "valence": 0.5,
+        "bpm": 120.0,
+        "key": "Unknown"
+    },
+    "format": "FLAC",
+    "processing": "success"
 }
