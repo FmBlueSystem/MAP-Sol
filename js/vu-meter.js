@@ -1,235 +1,394 @@
-// VU Meter con Web Audio API y Procesamiento
-
-let analyser = null;
-let dataArray = null;
-let animationId = null;
-
-// ESCALA AJUSTADA: -50 a +3 dB (más sensible)
-const MIN_DB = -50;  // Cambiado de -60 a -50
-const MAX_DB = 3;
-const DB_RANGE = MAX_DB - MIN_DB;  // 53 dB de rango
-
-// Inicializar VU Meter con el processor
-function initVUMeter() {
-    const audio = document.getElementById('global-audio');
-    if (!audio) {
-        console.error('Audio element not found');
-        return;
+// VU Meter Professional - Broadcast Standard (-20 to +3 dB)
+class VuMeter {
+    constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        this.ctx = this.canvas.getContext('2d');
+        this.analyser = null;
+        this.dataArray = null;
+        this.animationId = null;
+        
+        // VU Meter settings
+        this.minDb = -20;  // Minimum dB level
+        this.maxDb = 3;    // Maximum dB level (broadcast standard)
+        this.dbRange = this.maxDb - this.minDb;
+        
+        // Visual settings
+        this.width = this.canvas.width;
+        this.height = this.canvas.height;
+        this.meterWidth = this.width * 0.9;
+        this.meterHeight = 25;
+        this.meterX = (this.width - this.meterWidth) / 2;
+        this.meterY = (this.height - this.meterHeight) / 2;
+        
+        // Peak hold
+        this.peakLevel = -Infinity;
+        this.peakHoldTime = 2000; // Hold peak for 2 seconds
+        this.peakDecayRate = 0.05; // How fast peak falls
+        this.lastPeakTime = 0;
+        
+        // Smoothing
+        this.smoothingFactor = 0.85; // Audio smoothing
+        this.currentLevel = -Infinity;
+        
+        // Meter modes
+        this.mode = 'broadcast'; // 'broadcast' or 'dj'
+        this.showSpectrum = false;
+        
+        // Colors for different levels
+        this.colors = {
+            low: '#00ff00',      // Green: -20 to -10 dB
+            medium: '#ffff00',   // Yellow: -10 to -3 dB
+            high: '#ffa500',     // Orange: -3 to 0 dB
+            peak: '#ff0000'      // Red: 0 to +3 dB
+        };
+        
+        // Scale marks (will be updated by mode)
+        this.updateScaleMarks();
+        
+        this.setupCanvas();
+        this.initResponsive();
     }
-
-    try {
-        // Usar el Audio Processor Lite si existe
-        if (window.audioProcessorLite && !window.audioProcessorLite.isInitialized) {
-            window.audioProcessorLite.initialize(audio).then(() => {
-                setupVUFromProcessor();
-            });
-        } else if (window.audioProcessorLite && window.audioProcessorLite.isInitialized) {
-            setupVUFromProcessor();
+    
+    init(analyser) {
+        this.analyser = analyser;
+        this.dataArray = new Uint8Array(analyser.frequencyBinCount);
+        this.startAnimation();
+    }
+    
+    setupCanvas() {
+        // Set canvas resolution for crisp rendering
+        const dpr = window.devicePixelRatio || 1;
+        const rect = this.canvas.getBoundingClientRect();
+        
+        this.canvas.width = rect.width * dpr;
+        this.canvas.height = rect.height * dpr;
+        this.canvas.style.width = rect.width + 'px';
+        this.canvas.style.height = rect.height + 'px';
+        
+        this.ctx.scale(dpr, dpr);
+        
+        // Update dimensions after scaling
+        this.width = rect.width;
+        this.height = rect.height;
+        this.meterWidth = this.width * 0.8;
+        this.meterHeight = 40;
+        this.meterX = (this.width - this.meterWidth) / 2;
+        this.meterY = (this.height - this.meterHeight) / 2;
+    }
+    
+    calculateRMS() {
+        if (!this.analyser || !this.dataArray) return -Infinity;
+        
+        // Get time domain data for RMS calculation
+        this.analyser.getByteTimeDomainData(this.dataArray);
+        
+        let sum = 0;
+        for (let i = 0; i < this.dataArray.length; i++) {
+            // Convert from 0-255 to -1 to 1
+            const normalized = (this.dataArray[i] - 128) / 128;
+            sum += normalized * normalized;
+        }
+        
+        const rms = Math.sqrt(sum / this.dataArray.length);
+        
+        // Convert to dB with professional calibration
+        const dbFS = 20 * Math.log10(Math.max(0.00001, rms));
+        const db = this.getCalibratedDb(dbFS);
+        
+        // Apply smoothing
+        if (this.currentLevel === -Infinity) {
+            this.currentLevel = db;
         } else {
-            // Fallback: crear analyser propio
-            setupStandaloneVU(audio);
+            this.currentLevel = this.currentLevel * this.smoothingFactor + 
+                              db * (1 - this.smoothingFactor);
         }
-    } catch (error) {
-        console.error('Error iniciando VU Meter:', error);
-    }
-}
-
-// Usar analyser del processor
-function setupVUFromProcessor() {
-    if (window.audioProcessorLite && window.audioProcessorLite.getAnalyser()) {
-        analyser = window.audioProcessorLite.getAnalyser();
-        const bufferLength = analyser.frequencyBinCount;
-        dataArray = new Float32Array(bufferLength);
-        startVUAnimation();
-        ');
-    }
-}
-
-// Crear analyser standalone
-function setupStandaloneVU(audio) {
-    try {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        const audioContext = new AudioContext();
-        analyser = audioContext.createAnalyser();
-        analyser.fftSize = 2048;
-        analyser.smoothingTimeConstant = 0.8;
-
-        const bufferLength = analyser.frequencyBinCount;
-        dataArray = new Float32Array(bufferLength);
-
-        const source = audioContext.createMediaElementSource(audio);
-        source.connect(analyser);
-        analyser.connect(audioContext.destination);
-
-        startVUAnimation();
-        ');
-    } catch (e) {
-        console.error('Error en standalone VU:', e);
-    }
-}
-
-// Animación del VU meter
-function startVUAnimation() {
-    function updateMeters() {
-        animationId = requestAnimationFrame(updateMeters);
-
-        if (!analyser || !dataArray) return;
-
-        // Obtener datos de audio
-        analyser.getFloatTimeDomainData(dataArray);
-
-        // Calcular RMS para cada canal (simulado)
-        let sumL = 0, sumR = 0;
-        const halfLength = Math.floor(dataArray.length / 2);
-
-        // Canal izquierdo
-        for (let i = 0; i < halfLength; i++) {
-            const value = dataArray[i];
-            sumL += value * value;
+        
+        // Update peak
+        if (this.currentLevel > this.peakLevel) {
+            this.peakLevel = this.currentLevel;
+            this.lastPeakTime = Date.now();
         }
-
-        // Canal derecho (con pequeño offset para variación)
-        for (let i = halfLength; i < dataArray.length; i++) {
-            const value = dataArray[i] * 1.05; // Pequeña variación
-            sumR += value * value;
+        
+        // Peak decay
+        const timeSincePeak = Date.now() - this.lastPeakTime;
+        if (timeSincePeak > this.peakHoldTime) {
+            this.peakLevel -= this.peakDecayRate;
         }
-
-        // Calcular RMS
-        const rmsL = Math.sqrt(sumL / halfLength);
-        const rmsR = Math.sqrt(sumR / halfLength);
-
-        // Convertir a dB
-        const dbL = rmsL > 0 ? 20 * Math.log10(rmsL) : -60;
-        const dbR = rmsR > 0 ? 20 * Math.log10(rmsR) : -60;
-
-        // Actualizar UI
-        updateMeterUI('l', dbL);
-        updateMeterUI('r', dbR);
+        
+        return this.currentLevel;
     }
-
-    updateMeters();
-}
-
-// Actualizar la UI del meter con nueva escala
-function updateMeterUI(channel, db) {
-    const meter = document.getElementById(`meter-${channel}`);
-    const dbText = document.getElementById(`db-${channel}`);
-    const peak = document.getElementById(`peak-${channel}`);
-
-    if (!meter || !dbText) return;
-
-    // Limitar el rango con nueva escala (-50 a +3)
-    const clampedDb = Math.max(MIN_DB, Math.min(MAX_DB, db));
-
-    // Convertir dB a porcentaje con nueva escala
-    const percent = ((clampedDb - MIN_DB) / DB_RANGE) * 100;
-
-    // Actualizar barra
-    meter.style.width = percent + '%';
-
-    // Actualizar texto con nuevo mínimo
-    if (db <= MIN_DB) {
-        dbText.textContent = '-∞ dB';
-    } else {
-        dbText.textContent = db.toFixed(1) + ' dB';
+    
+    dbToPixels(db) {
+        // Convert dB value to pixel position
+        const normalized = (db - this.minDb) / this.dbRange;
+        const clamped = Math.max(0, Math.min(1, normalized));
+        return this.meterX + (clamped * this.meterWidth);
     }
-
-    // Cambiar color según nivel
-    if (db > 0) {
-        meter.style.background = 'linear-gradient(90deg, #00ff00 0%, #00ff00 60%, #ffff00 80%, #ff6600 90%, #ff0000 100%)';
-        dbText.style.color = '#ff0000';
-        if (peak) peak.style.opacity = '1';
-    } else if (db > -6) {
-        dbText.style.color = '#ff6600';
-        if (peak) peak.style.opacity = '0';
-    } else if (db > -12) {
-        dbText.style.color = '#ffff00';
-        if (peak) peak.style.opacity = '0';
-    } else {
-        dbText.style.color = '#00ff00';
-        if (peak) peak.style.opacity = '0';
+    
+    getColorForLevel(db) {
+        if (db < -10) return this.colors.low;
+        if (db < -3) return this.colors.medium;
+        if (db < 0) return this.colors.high;
+        return this.colors.peak;
     }
-
-    // Indicadores
-    updateIndicators(db);
-}
-
-// Actualizar indicadores
-function updateIndicators(db) {
-    // Clip indicator
-    const clipIndicator = document.getElementById('clip-indicator');
-    if (clipIndicator) {
-        if (db > 0) {
-            clipIndicator.style.background = '#ff0000';
-            clipIndicator.style.boxShadow = '0 0 10px rgba(255,0,0,0.8)';
-            setTimeout(() => {
-                clipIndicator.style.background = '#330000';
-                clipIndicator.style.boxShadow = 'none';
-            }, 200);
+    
+    createGradient(level) {
+        const gradient = this.ctx.createLinearGradient(
+            this.meterX, 0, 
+            this.dbToPixels(level), 0
+        );
+        
+        // Add color stops based on dB ranges
+        gradient.addColorStop(0, this.colors.low);
+        
+        if (level > -10) {
+            const stop1 = this.dbToPixels(-10) / this.meterWidth;
+            gradient.addColorStop(stop1, this.colors.low);
+            gradient.addColorStop(stop1, this.colors.medium);
+        }
+        
+        if (level > -3) {
+            const stop2 = this.dbToPixels(-3) / this.meterWidth;
+            gradient.addColorStop(stop2, this.colors.medium);
+            gradient.addColorStop(stop2, this.colors.high);
+        }
+        
+        if (level > 0) {
+            const stop3 = this.dbToPixels(0) / this.meterWidth;
+            gradient.addColorStop(stop3, this.colors.high);
+            gradient.addColorStop(stop3, this.colors.peak);
+        }
+        
+        gradient.addColorStop(1, this.getColorForLevel(level));
+        
+        return gradient;
+    }
+    
+    draw() {
+        // Clear canvas
+        this.ctx.fillStyle = 'rgba(20, 20, 20, 0.95)';
+        this.ctx.fillRect(0, 0, this.width, this.height);
+        
+        // Draw background meter area
+        this.ctx.fillStyle = 'rgba(40, 40, 40, 0.8)';
+        this.ctx.fillRect(this.meterX, this.meterY, this.meterWidth, this.meterHeight);
+        
+        // Calculate current level
+        const currentDb = this.calculateRMS();
+        
+        // Draw level bar with gradient
+        if (currentDb > this.minDb) {
+            const levelWidth = this.dbToPixels(currentDb) - this.meterX;
+            const gradient = this.createGradient(currentDb);
+            
+            this.ctx.fillStyle = gradient;
+            this.ctx.fillRect(this.meterX, this.meterY, levelWidth, this.meterHeight);
+        }
+        
+        // Draw peak indicator
+        if (this.peakLevel > this.minDb) {
+            const peakX = this.dbToPixels(this.peakLevel);
+            this.ctx.strokeStyle = '#ffffff';
+            this.ctx.lineWidth = 2;
+            this.ctx.beginPath();
+            this.ctx.moveTo(peakX, this.meterY - 5);
+            this.ctx.lineTo(peakX, this.meterY + this.meterHeight + 5);
+            this.ctx.stroke();
+        }
+        
+        // Draw scale
+        this.drawScale();
+        
+        // Draw dB value
+        this.drawDbValue(currentDb);
+        
+        // Draw mini spectrum (optional)
+        if (this.showSpectrum) {
+            this.drawMiniSpectrum();
         }
     }
-
-    // Stereo indicator (activo con nueva escala)
-    const stereoIndicator = document.getElementById('stereo-indicator');
-    if (stereoIndicator && db > MIN_DB) {
-        stereoIndicator.style.background = '#00ff00';
-        stereoIndicator.style.boxShadow = '0 0 5px rgba(0,255,0,0.5)';
+    
+    drawMiniSpectrum() {
+        if (!this.analyser || !this.dataArray) return;
+        
+        // Get frequency data for spectrum
+        const frequencyData = new Uint8Array(this.analyser.frequencyBinCount);
+        this.analyser.getByteFrequencyData(frequencyData);
+        
+        // Draw small spectrum bars
+        const spectrumY = this.meterY + this.meterHeight + 8;
+        const spectrumHeight = 10;
+        const barWidth = this.meterWidth / 32; // 32 frequency bars
+        const maxFreqIndex = Math.min(32, frequencyData.length / 8);
+        
+        this.ctx.fillStyle = 'rgba(0, 255, 136, 0.3)';
+        
+        for (let i = 0; i < maxFreqIndex; i++) {
+            const value = frequencyData[i * 8] / 255;
+            const barHeight = value * spectrumHeight;
+            const x = this.meterX + (i * barWidth);
+            
+            this.ctx.fillRect(x, spectrumY + spectrumHeight - barHeight, barWidth - 1, barHeight);
+        }
     }
-
-    // Mostrar reducción del compresor si está disponible
-    if (window.audioProcessorLite && window.audioProcessorLite.getCompressionReduction) {
-        const reduction = window.audioProcessorLite.getCompressionReduction();
-        if (reduction < -1) {
-            const compIndicator = document.getElementById('comp-indicator');
-            if (compIndicator) {
-                compIndicator.style.background = '#0066ff';
-                compIndicator.style.boxShadow = `0 0 ${Math.abs(reduction)}px rgba(0,102,255,0.5)`;
+    
+    // Toggle spectrum display
+    toggleSpectrum() {
+        this.showSpectrum = !this.showSpectrum;
+    }
+    
+    // Set VU Meter mode
+    setMode(mode) {
+        if (mode === 'broadcast' || mode === 'dj') {
+            this.mode = mode;
+            
+            if (mode === 'broadcast') {
+                // Broadcast settings: slower response, stricter range
+                this.smoothingFactor = 0.85;
+                this.minDb = -20;
+                this.maxDb = 3;
+                this.peakHoldTime = 2000;
+            } else {
+                // DJ settings: faster response, wider range
+                this.smoothingFactor = 0.7;
+                this.minDb = -25;
+                this.maxDb = 6;
+                this.peakHoldTime = 1500;
+                this.showSpectrum = true; // DJ mode shows spectrum by default
             }
+            
+            this.dbRange = this.maxDb - this.minDb;
+            this.updateScaleMarks();
+            console.log(`VU Meter mode set to: ${mode}`);
         }
     }
-
-    // Comp indicator (activo cuando hay compresión)
-    const compIndicator = document.getElementById('comp-indicator');
-    if (compIndicator && db > -20 && db < -6) {
-        compIndicator.style.background = '#0066ff';
-        compIndicator.style.boxShadow = '0 0 5px rgba(0,102,255,0.5)';
-    } else if (compIndicator) {
-        compIndicator.style.background = '#003366';
-        compIndicator.style.boxShadow = 'none';
+    
+    // Update scale marks based on current range
+    updateScaleMarks() {
+        if (this.mode === 'broadcast') {
+            this.scaleMarks = [-20, -15, -10, -7, -5, -3, 0, 3];
+        } else {
+            this.scaleMarks = [-25, -20, -15, -10, -5, 0, 3, 6];
+        }
+    }
+    
+    drawScale() {
+        this.ctx.font = '10px monospace';
+        this.ctx.textAlign = 'center';
+        
+        this.scaleMarks.forEach(db => {
+            const x = this.dbToPixels(db);
+            
+            // Draw tick mark
+            this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            this.ctx.lineWidth = 1;
+            this.ctx.beginPath();
+            this.ctx.moveTo(x, this.meterY - 3);
+            this.ctx.lineTo(x, this.meterY);
+            this.ctx.stroke();
+            
+            // Draw scale number
+            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            this.ctx.fillText(db.toString(), x, this.meterY - 8);
+        });
+        
+        // Draw dB label
+        this.ctx.font = '12px monospace';
+        this.ctx.textAlign = 'left';
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        this.ctx.fillText('dB', this.meterX + this.meterWidth + 10, this.meterY + this.meterHeight / 2 + 4);
+    }
+    
+    drawDbValue(db) {
+        // Draw current dB value
+        const displayDb = db > this.minDb ? db.toFixed(1) : '-∞';
+        
+        this.ctx.font = 'bold 14px monospace';
+        this.ctx.textAlign = 'right';
+        this.ctx.fillStyle = this.getColorForLevel(db);
+        this.ctx.fillText(displayDb + ' dB', this.meterX - 10, this.meterY + this.meterHeight / 2 + 5);
+        
+        // Draw peak value if different from current (compact)
+        if (Math.abs(this.peakLevel - db) > 0.5 && this.peakLevel > this.minDb) {
+            this.ctx.font = '8px monospace';
+            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            this.ctx.fillText('P:' + this.peakLevel.toFixed(1), this.meterX + this.meterWidth + 5, this.meterY + 8);
+        }
+    }
+    
+    startAnimation() {
+        let lastTime = 0;
+        const targetFPS = 60;
+        const frameTime = 1000 / targetFPS;
+        
+        const animate = (currentTime) => {
+            if (currentTime - lastTime >= frameTime) {
+                this.draw();
+                lastTime = currentTime;
+            }
+            this.animationId = requestAnimationFrame(animate);
+        };
+        animate();
+    }
+    
+    stopAnimation() {
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+            this.animationId = null;
+        }
+    }
+    
+    destroy() {
+        this.stopAnimation();
+        this.analyser = null;
+        this.dataArray = null;
+    }
+    
+    // Reset peak hold
+    resetPeak() {
+        this.peakLevel = -Infinity;
+        this.lastPeakTime = 0;
+    }
+    
+    // Set smoothing (0-1, higher = smoother)
+    setSmoothing(value) {
+        this.smoothingFactor = Math.max(0, Math.min(1, value));
+    }
+    
+    // Professional calibration method
+    calibrate(referenceLevel = -18) {
+        // Adjust calibration offset based on reference level
+        // -18 dBFS is common for broadcast/digital audio
+        this.calibrationOffset = referenceLevel + 21; // Maps -18dBFS to +3dBVU
+        console.log(`VU Meter calibrated to ${referenceLevel} dBFS reference`);
+    }
+    
+    // Get calibrated dB value
+    getCalibratedDb(dbFS) {
+        const offset = this.calibrationOffset || 3;
+        return dbFS + offset;
+    }
+    
+    // Resize handler
+    resize() {
+        this.setupCanvas();
+    }
+    
+    // Auto-resize on window resize
+    initResponsive() {
+        window.addEventListener('resize', () => {
+            setTimeout(() => this.resize(), 100);
+        });
+        
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => this.resize(), 300);
+        });
     }
 }
 
-// Esperar a que el audio esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar cuando se reproduzca algo
-    const audio = document.getElementById('global-audio');
-    if (audio) {
-        audio.addEventListener('play', () => {
-            if (!audioContext) {
-                initVUMeter();
-            } else if (audioContext.state === 'suspended') {
-                audioContext.resume();
-            }
-        });
-
-        audio.addEventListener('pause', () => {
-            // Reducir meters gradualmente
-            const meters = ['l', 'r'];
-            meters.forEach(ch => {
-                const meter = document.getElementById(`meter-${ch}`);
-                const dbText = document.getElementById(`db-${ch}`);
-                if (meter) {
-                    meter.style.transition = 'width 1s ease-out';
-                    meter.style.width = '0%';
-                }
-                if (dbText) {
-                    setTimeout(() => {
-                        dbText.textContent = '-∞ dB';
-                        dbText.style.color = '#00ff00';
-                    }, 1000);
-                }
-            });
-        });
-    }
-});
-
+// Export for use in other modules
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = VuMeter;
+} else {
+    window.VuMeter = VuMeter;
+}

@@ -14,11 +14,21 @@ app.setName('MAP');
 const { createSearchHandler } = require('./handlers/search-handler');
 const { createFilterHandler } = require('./handlers/filter-handler');
 const { createArtworkHandler } = require('./handlers/artwork-handler');
-const { createExportHandler, createGetFormatsHandler } = require('./handlers/export-handler');
+const { 
+    createExportHandler, 
+    createGetFormatsHandler,
+    createGetAllTracksForExportHandler,
+    createExportTracksHandler,
+    createGetExportFormatsHandler
+} = require('./handlers/export-handler');
 const { createNormalizationHandlers } = require('./handlers/normalization-handler');
 const { createPlaylistHandlers } = require('./handlers/playlist-handler');
 const { createAdvancedPlaylistHandlers } = require('./handlers/playlist-advanced-handler');
 const { createAudioHandler } = require('./handlers/audio-handler');
+const { createTrackInfoHandler, createFindSimilarHandler } = require('./handlers/track-info-handler');
+const { createSmartPlaylistHandlers, createSmartPlaylistTables } = require('./handlers/smart-playlist-handler');
+const { createEnergyFlowHandlers } = require('./handlers/energy-flow-handler');
+const { createSimplePlayerHandlers } = require('./handlers/simple-player-handler');
 
 let mainWindow;
 let db;
@@ -102,7 +112,7 @@ function createSplashScreen() {
             </div>
         </body>
         </html>
-    ")}");
+    `)}`);
 
     setTimeout(() => {
         if (splash && !splash.isDestroyed()) {
@@ -429,7 +439,7 @@ function showAboutWindow() {
             <div class="version">Version 1.0.0</div>
         </body>
         </html>
-    ")}");
+    `)}`);
 }
 
 // Ventana de Configuración de Audio
@@ -717,7 +727,7 @@ function showAudioConfigWindow() {
         </script>
     </body>
     </html>
-    ';
+    `;
 
     configWindow.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(configHTML)}`);
 
@@ -766,11 +776,38 @@ app.whenReady().then(() => {
     db = new sqlite3.Database(dbPath);
 
     logInfo('✅ Base de datos conectada');
+    
+    // Create smart playlist tables if needed
+    createSmartPlaylistTables(db);
 
     // Registrar handlers
     ipcMain.handle('get-files-with-cached-artwork', createArtworkHandler(db));
     ipcMain.handle('search-tracks', createSearchHandler(db));
     ipcMain.handle('get-filter-options', createFilterHandler(db));
+    ipcMain.handle('get-track-complete-data', createTrackInfoHandler(db));
+    ipcMain.handle('find-similar-tracks', createFindSimilarHandler(db));
+    
+    // Simple Player handlers
+    const simplePlayerHandlers = createSimplePlayerHandlers(db);
+    ipcMain.handle('get-track-for-player', simplePlayerHandlers.getTrackForPlayerHandler);
+    
+    // Smart Playlist handlers
+    const smartPlaylistHandlers = createSmartPlaylistHandlers(db);
+    ipcMain.handle('preview-smart-playlist', smartPlaylistHandlers.previewHandler);
+    ipcMain.handle('create-smart-playlist', smartPlaylistHandlers.createHandler);
+    ipcMain.handle('get-smart-playlists', smartPlaylistHandlers.getSmartPlaylistsHandler);
+    ipcMain.handle('update-smart-playlist', smartPlaylistHandlers.updateSmartPlaylistHandler);
+    
+    // Energy Flow handlers
+    const energyFlowHandlers = createEnergyFlowHandlers(db);
+    ipcMain.handle('get-queue-tracks', energyFlowHandlers.getQueueTracksHandler);
+    ipcMain.handle('analyze-energy-flow', energyFlowHandlers.analyzeFlowHandler);
+    ipcMain.handle('optimize-energy-flow', energyFlowHandlers.optimizeFlowHandler);
+    
+    // Export UI handlers
+    ipcMain.handle('get-all-tracks-for-export', createGetAllTracksForExportHandler(db));
+    ipcMain.handle('export-tracks', createExportTracksHandler(db));
+    ipcMain.handle('get-export-formats', createGetExportFormatsHandler());
 
     // Handler para Audio Configuration
     ipcMain.on('save-audio-config', (event, config) => {
@@ -951,7 +988,7 @@ app.whenReady().then(() => {
 
 // ==================== METADATA VIEWER HANDLERS ====================
 const mm = require('music-metadata');
-const fs = require('fs').promises;
+const fsPromises = require('fs').promises;
 
 // Obtener estadísticas de la base de datos
 ipcMain.handle('get-database-stats', async () => {

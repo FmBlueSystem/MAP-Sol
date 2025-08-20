@@ -703,6 +703,11 @@
             .track-card.selected {
                 box-shadow: 0 0 0 3px var(--accent);
             }
+            
+            .track-card.track-selected {
+                box-shadow: 0 0 0 2px #667eea;
+                transform: scale(1.02);
+            }
 
             /* Currently playing card */
             .track-card.playing {
@@ -3966,6 +3971,21 @@
                     </button>
                 </div>
 
+                <!-- Smart Playlist Button -->
+                <button class="view-btn smart-playlist-btn" onclick="smartPlaylistWizard.open()" title="Create Smart Playlist">
+                    🧙 <span>Smart Playlist</span>
+                </button>
+                
+                <!-- Energy Flow Button -->
+                <button class="view-btn energy-flow-btn" onclick="energyFlow.open()" title="Energy Flow Visualizer">
+                    📊 <span>Energy Flow</span>
+                </button>
+                
+                <!-- Export Button -->
+                <button class="view-btn export-btn" onclick="exportUI.open()" title="Export Tracks">
+                    💾 <span>Export</span>
+                </button>
+                
                 <!-- Configuration Button -->
                 <button class="view-btn" onclick="document.getElementById('config-modal').style.display='block'" title="Configuración">
                     ⚙️ Config
@@ -4741,6 +4761,25 @@
                     };
 
                     card.ondblclick = () => handlePlay(track.file_path, track.id);
+                    
+                    // Agregar click simple para mostrar info del track
+                    card.onclick = (e) => {
+                        // Si no es un click en el botón de play
+                        if (!e.target.closest('.play-button')) {
+                            // Disparar evento para el panel de información
+                            document.dispatchEvent(new CustomEvent('trackSelected', {
+                                detail: track.id
+                            }));
+                            
+                            // Guardar último track seleccionado
+                            localStorage.setItem('lastSelectedTrack', track.id);
+                            
+                            // Marcar como seleccionado visualmente
+                            document.querySelectorAll('.track-card').forEach(c => 
+                                c.classList.remove('track-selected'));
+                            card.classList.add('track-selected');
+                        }
+                    };
 
                     grid.appendChild(card);
                 });
@@ -4837,6 +4876,25 @@
                     };
 
                     card.ondblclick = () => handlePlay(track.file_path, track.id);
+                    
+                    // Agregar click simple para mostrar info del track
+                    card.onclick = (e) => {
+                        // Si no es un click en el botón de play
+                        if (!e.target.closest('.play-button')) {
+                            // Disparar evento para el panel de información
+                            document.dispatchEvent(new CustomEvent('trackSelected', {
+                                detail: track.id
+                            }));
+                            
+                            // Guardar último track seleccionado
+                            localStorage.setItem('lastSelectedTrack', track.id);
+                            
+                            // Marcar como seleccionado visualmente
+                            document.querySelectorAll('.track-card').forEach(c => 
+                                c.classList.remove('track-selected'));
+                            card.classList.add('track-selected');
+                        }
+                    };
 
                     grid.appendChild(card);
                 });
@@ -5285,6 +5343,13 @@
 
                 if (!trackData) {
                     console.error('❌ Track data not found for ID:', trackId);
+                    return;
+                }
+
+                // Use Simple Player if available
+                if (window.simplePlayer) {
+                    console.log('📀 Using Simple Player for:', trackData.title);
+                    window.simplePlayer.loadTrack(trackData);
                     return;
                 }
 
@@ -6428,5 +6493,34 @@
         <link rel="stylesheet" href="css/audio-panel.css" />
         <script src="js/audio-panel.js"></script>
         <script src="js/k-meter-compact.js"></script>
+        
+        <!-- Track Info Panel -->
+        <link rel="stylesheet" href="css/track-info-panel.css" />
+        <script src="js/track-info-panel.js"></script>
+        
+        <!-- Similar Tracks Panel -->
+        <link rel="stylesheet" href="css/similar-tracks-panel.css" />
+        <script src="js/similar-tracks-panel.js"></script>
+        
+        <!-- Smart Playlist Wizard -->
+        <link rel="stylesheet" href="css/smart-playlist-wizard.css" />
+        <script src="js/smart-playlist-wizard.js"></script>
+        
+        <!-- Smart Playlist Manager -->
+        <link rel="stylesheet" href="css/smart-playlist-manager.css" />
+        <script src="js/smart-playlist-manager.js"></script>
+        
+        <!-- Energy Flow Visualizer -->
+        <link rel="stylesheet" href="css/energy-flow-visualizer.css" />
+        <script src="js/energy-flow-visualizer.js"></script>
+        
+        <!-- Export UI -->
+        <link rel="stylesheet" href="css/export-ui.css" />
+        <script src="js/export-ui.js"></script>
+        
+        <!-- Simple Player with VU Meter -->
+        <link rel="stylesheet" href="css/simple-player.css" />
+        <script src="js/vu-meter.js"></script>
+        <script src="js/simple-player.js"></script>
     </body>
 </html>
