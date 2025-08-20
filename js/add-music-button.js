@@ -190,16 +190,45 @@ class AddMusicButton {
         
         console.log('Files dropped:', files.length);
         
-        // Get file paths
-        for (const file of files) {
-            console.log('Processing file:', file.name, 'Type:', file.type, 'Path:', file.path);
-            
-            if (this.isAudioFile(file.name) || file.type === '') {
-                // In Electron, file.path contains the full path
-                const filePath = file.path || file.webkitRelativePath || file.name;
-                paths.push(filePath);
-                console.log('Added path:', filePath);
+        // In Electron, we need to get the path differently
+        if (typeof require !== 'undefined') {
+            // We're in Electron - use the file paths from the event
+            const items = e.dataTransfer.items;
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                if (item.kind === 'file') {
+                    const file = item.getAsFile();
+                    console.log('Processing file:', file.name, 'Type:', file.type);
+                    
+                    // Try to get the path from the File object
+                    // In Electron, the path might be in different properties
+                    const filePath = file.path || file.webkitRelativePath || '';
+                    
+                    // If still no path, try to construct it (last resort)
+                    if (!filePath && file.name) {
+                        console.warn('No path available for:', file.name);
+                        console.log('File object properties:', Object.keys(file));
+                        
+                        // For now, show message to use file selector
+                        this.showNotification('Drag & drop not fully supported. Please use the + button to select files.', 'warning');
+                        // Open file dialog instead
+                        setTimeout(() => {
+                            this.openFileDialog();
+                        }, 500);
+                        return;
+                    }
+                    
+                    if (filePath && this.isAudioFile(file.name)) {
+                        paths.push(filePath);
+                        console.log('Added path:', filePath);
+                    }
+                }
             }
+        } else {
+            // Not in Electron
+            console.error('Drag & drop requires Electron environment');
+            this.showError('Drag & drop is not available in browser mode');
+            return;
         }
         
         console.log('Total paths to import:', paths.length);

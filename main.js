@@ -141,10 +141,10 @@ function createWindow() {
         titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'default', // Para macOS, título integrado
         show: false, // No mostrar hasta que el splash termine
         webPreferences: {
-            nodeIntegration: true, // TEMPORARY - for compatibility
-            contextIsolation: false, // TEMPORARY - for compatibility
-            webSecurity: false // Para cargar imágenes locales
-            // preload: path.join(__dirname, 'preload.js') // DISABLED temporarily
+            nodeIntegration: false,
+            contextIsolation: true,
+            webSecurity: false, // Para cargar imágenes locales
+            preload: path.join(__dirname, 'preload.js')
         },
         icon: icon || undefined // Usar el icono si existe
     });
