@@ -188,16 +188,28 @@ class AddMusicButton {
         const files = Array.from(e.dataTransfer.files);
         const paths = [];
         
+        console.log('Files dropped:', files.length);
+        
         // Get file paths
         for (const file of files) {
+            console.log('Processing file:', file.name, 'Type:', file.type, 'Path:', file.path);
+            
             if (this.isAudioFile(file.name) || file.type === '') {
-                // Empty type might be a folder
-                paths.push(file.path || file.name);
+                // In Electron, file.path contains the full path
+                const filePath = file.path || file.webkitRelativePath || file.name;
+                paths.push(filePath);
+                console.log('Added path:', filePath);
             }
         }
         
+        console.log('Total paths to import:', paths.length);
+        
         if (paths.length > 0) {
+            // Show immediate feedback
+            this.showNotification(`Processing ${paths.length} file(s)...`, 'info');
             this.startImport(paths);
+        } else {
+            this.showError('No valid audio files found in selection');
         }
     }
     
@@ -225,6 +237,8 @@ class AddMusicButton {
     }
     
     async startImport(paths) {
+        console.log('Starting import for paths:', paths);
+        
         if (this.isProcessing) {
             this.showError('Import already in progress');
             return;
@@ -240,7 +254,18 @@ class AddMusicButton {
         this.fab.classList.add('processing');
         
         try {
+            // Check if we're in Electron environment
+            if (typeof require === 'undefined') {
+                console.error('Not in Electron environment - cannot import files');
+                this.showError('File import requires the desktop application');
+                this.isProcessing = false;
+                this.hideProgress();
+                return;
+            }
+            
             const { ipcRenderer } = require('electron');
+            
+            console.log('Invoking import-music IPC with options...');
             
             // Start import process
             const result = await ipcRenderer.invoke('import-music', {
@@ -248,11 +273,12 @@ class AddMusicButton {
                 options: {
                     checkDuplicates: true,
                     extractArtwork: true,
-                    runAnalysis: true,
+                    runAnalysis: false, // Disable for faster testing
                     runAI: false // Optional AI enrichment
                 }
             });
             
+            console.log('Import result:', result);
             this.handleImportComplete(result);
             
         } catch (error) {

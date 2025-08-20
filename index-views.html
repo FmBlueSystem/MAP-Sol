@@ -4511,6 +4511,9 @@
                     }
                 }
 
+                // Make loadTracks available globally for Add Music button
+                window.loadFiles = loadTracks;
+                
                 // Load data
                 await loadTracks();
                 await loadFilters();
@@ -4524,12 +4527,14 @@
 
             // Load tracks
             async function loadTracks() {
+                console.log('[UI] Loading tracks from database...');
                 showLoading(true);
                 const startTime = performance.now();
 
                 try {
                     allTracks = await ipcRenderer.invoke('get-files-with-cached-artwork');
                     filteredTracks = [...allTracks];
+                    console.log('[UI] Loaded tracks:', allTracks.length);
 
                     // CRITICAL: Make tracks globally available IMMEDIATELY
                     window.allTracks = allTracks;

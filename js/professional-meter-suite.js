@@ -1031,7 +1031,7 @@ class ProfessionalMeterSuite {
     }
 
     updatePeakSegments(channel, value) {
-        const container = document.getElementById(`peak-segments-${channel}`);
+        const container = document.getElementById('peak-segments-' + channel);
         if (!container) {
             return;
         }

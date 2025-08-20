@@ -3,9 +3,9 @@
 /* Container */
 .add-music-container {
     position: fixed;
-    bottom: 80px; /* Above simple player bar */
+    bottom: 100px; /* Higher above simple player bar */
     right: 20px;
-    z-index: 1000;
+    z-index: 9999; /* Maximum z-index to ensure visibility */
 }
 
 /* Floating Action Button */

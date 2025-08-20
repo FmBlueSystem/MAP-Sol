@@ -402,14 +402,14 @@ if (formatEl) {
 }
 
         const bitrateEl = document.getElementById('panel-bitrate');
-if (bitrateEl) {
-            bitrateEl.textContent = track.bitrate ? `${track.bitrate}kbps` : '--';
-}
+        if (bitrateEl) {
+            bitrateEl.textContent = track.bitrate ? track.bitrate + 'kbps' : '--';
+        }
 
         const samplerateEl = document.getElementById('panel-samplerate');
-if (samplerateEl) {
-            samplerateEl.textContent = track.sampleRate ? `${track.sampleRate}Hz` : '--';
-}
+        if (samplerateEl) {
+            samplerateEl.textContent = track.sampleRate ? track.sampleRate + 'Hz' : '--';
+        }
 
         // Update panel status
         const panel = document.getElementById('audio-panel');

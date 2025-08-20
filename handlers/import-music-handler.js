@@ -66,6 +66,9 @@ class ImportMusicHandler {
     }
     
     async importFiles(paths, options, event) {
+        console.log('[ImportHandler] Starting import with paths:', paths);
+        console.log('[ImportHandler] Options:', options);
+        
         const startTime = Date.now();
         const results = {
             imported: 0,
@@ -78,6 +81,8 @@ class ImportMusicHandler {
         // Stage 1: Scan for audio files
         this.sendProgress(event, { stage: 'scan', current: 0, total: paths.length });
         const audioFiles = await this.scanForAudioFiles(paths);
+        
+        console.log('[ImportHandler] Found audio files:', audioFiles.length);
         
         if (audioFiles.length === 0) {
             throw new Error('No audio files found in selected paths');
@@ -139,19 +144,28 @@ class ImportMusicHandler {
             '.aac', '.wma', '.aiff', '.ape', '.opus', '.webm'
         ]);
         
+        console.log('[ImportHandler] Scanning paths:', paths);
+        
         for (const inputPath of paths) {
-            const stats = await fs.stat(inputPath);
-            
-            if (stats.isDirectory()) {
-                // Recursively scan directory
-                const files = await this.scanDirectory(inputPath, audioExtensions);
-                audioFiles.push(...files);
-            } else if (stats.isFile()) {
-                // Check if it's an audio file
-                const ext = path.extname(inputPath).toLowerCase();
-                if (audioExtensions.has(ext)) {
-                    audioFiles.push(inputPath);
+            try {
+                const stats = await fs.stat(inputPath);
+                
+                if (stats.isDirectory()) {
+                    console.log('[ImportHandler] Scanning directory:', inputPath);
+                    // Recursively scan directory
+                    const files = await this.scanDirectory(inputPath, audioExtensions);
+                    audioFiles.push(...files);
+                } else if (stats.isFile()) {
+                    // Check if it's an audio file
+                    const ext = path.extname(inputPath).toLowerCase();
+                    if (audioExtensions.has(ext)) {
+                        console.log('[ImportHandler] Found audio file:', inputPath);
+                        audioFiles.push(inputPath);
+                    }
                 }
+            } catch (error) {
+                console.error('[ImportHandler] Error scanning path:', inputPath, error.message);
+                // Skip files that don't exist or can't be accessed
             }
         }
         

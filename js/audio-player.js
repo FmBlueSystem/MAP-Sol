@@ -523,13 +523,11 @@ artistEl.textContent = this.currentTrackData.artist || 'Unknown Artist';
             const nowPlayingArt = document.getElementById('nowPlayingArt');
 
             if (nowPlayingTitle) {
-            {
-nowPlayingTitle.textContent = this.currentTrackData.title || 'Unknown';
-}
+                nowPlayingTitle.textContent = this.currentTrackData.title || 'Unknown';
+            }
             if (nowPlayingArtist) {
-            {
-nowPlayingArtist.textContent = this.currentTrackData.artist || 'Unknown Artist';
-}
+                nowPlayingArtist.textContent = this.currentTrackData.artist || 'Unknown Artist';
+            }
 
             if (nowPlayingArt && this.currentTrackData.artwork_url) {
                 nowPlayingArt.src = this.currentTrackData.artwork_url;
@@ -621,7 +619,7 @@ return '0:00';
 
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs.toString().padStart(2, '0')}';
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 }
 
