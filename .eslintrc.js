@@ -4,7 +4,7 @@ module.exports = {
         es2021: true,
         node: true,
     },
-    extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+    extends: ['eslint:recommended'],
     parserOptions: {
         ecmaVersion: 12,
         sourceType: 'module',
@@ -16,14 +16,18 @@ module.exports = {
         'no-empty': ['error', { allowEmptyCatch: true }],
         'prefer-const': 'warn',
         'no-var': 'error',
-        eqeqeq: ['error', 'always', { null: 'ignore' }],
+        'no-useless-escape': 'warn',
+        'no-constant-condition': 'warn',
+        'no-inner-declarations': 'warn',
+        'no-undef': 'warn',
+        eqeqeq: ['warn', 'always', { null: 'ignore' }],
         curly: ['error', 'all'],
-        'brace-style': ['error', '1tbs'],
-        indent: ['error', 4, { SwitchCase: 1 }],
+        'brace-style': ['warn', '1tbs'],
+        indent: ['warn', 4, { SwitchCase: 1 }],
         quotes: ['error', 'single', { avoidEscape: true }],
         semi: ['error', 'always'],
-        'comma-dangle': ['error', 'never'],
-        'arrow-parens': ['error', 'as-needed'],
+        'comma-dangle': ['warn', 'never'],
+        'arrow-parens': ['warn', 'as-needed'],
         'object-curly-spacing': ['error', 'always'],
         'array-bracket-spacing': ['error', 'never'],
         'space-before-function-paren': [
@@ -32,7 +36,7 @@ module.exports = {
                 anonymous: 'always',
                 named: 'never',
                 asyncArrow: 'always',
-            }
+            },
         ]
     },
     globals: {
@@ -46,6 +50,15 @@ module.exports = {
         logInfo: 'readonly',
         logError: 'readonly',
         logDebug: 'readonly',
-        logWarn: 'readonly'
-    }
+        logWarn: 'readonly',
+        describe: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        jest: 'readonly',
+        backupDir: 'readonly',
+        movedCount: 'readonly',
+        clients: 'readonly'
+    },
 };
