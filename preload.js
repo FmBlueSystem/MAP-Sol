@@ -28,6 +28,20 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
 
 // Also expose electronAPI for new code
 contextBridge.exposeInMainWorld('electronAPI', {
+    // IPC methods
+    invoke: (channel, ...args) => {
+        logDebug('electronAPI.invoke:', channel);
+        return ipcRenderer.invoke(channel, ...args);
+    },
+    send: (channel, ...args) => {
+        logDebug('electronAPI.send:', channel);
+        return ipcRenderer.send(channel, ...args);
+    },
+    on: (channel, listener) => {
+        logDebug('electronAPI.on:', channel);
+        ipcRenderer.on(channel, (event, ...args) => listener(event, ...args));
+    },
+    
     // Asset management
     getAssetPath: assetName => ipcRenderer.invoke('get-asset-path', assetName),
 
