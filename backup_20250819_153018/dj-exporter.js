@@ -13,7 +13,7 @@ class DJExporter {
         let content = '#EXTM3U\n';
         content += `#PLAYLIST:${playlistName}\n\n`;
 
-        tracks.forEach(track => {
+        tracks.forEach((track) => {
             const duration = track.duration || -1;
             const artist = track.artist || 'Unknown';
             const title = track.title || track.file_name;
@@ -25,15 +25,13 @@ class DJExporter {
         return {
             format: 'm3u',
             content: content,
-            extension: '.m3u'
+            extension: '.m3u',
         };
     }
 
     // Exportar a Rekordbox XML
     exportRekordbox(tracks, collectionName = 'Collection') {
-        const xml = xmlbuilder
-            .create('DJ_PLAYLISTS', { version: '1.0.0', encoding: 'UTF-8' })
-            .att('Version', '1.0.0');
+        const xml = xmlbuilder.create('DJ_PLAYLISTS', { version: '1.0.0', encoding: 'UTF-8' }).att('Version', '1.0.0');
 
         const product = xml
             .ele('PRODUCT')
@@ -107,7 +105,7 @@ class DJExporter {
         return {
             format: 'rekordbox',
             content: xml.end({ pretty: true }),
-            extension: '.xml'
+            extension: '.xml',
         };
     }
 
@@ -116,7 +114,7 @@ class DJExporter {
         // Serato usa formato binario .crate, aquí generamos un CSV compatible
         let content = 'name,artist,album,genre,bpm,key,comment,location\n';
 
-        tracks.forEach(track => {
+        tracks.forEach((track) => {
             const row = [
                 track.title || track.file_name,
                 track.artist || '',
@@ -125,11 +123,11 @@ class DJExporter {
                 track.AI_BPM || track.existing_bmp || '',
                 track.AI_KEY || track.key || '',
                 track.AI_MOOD || '',
-                track.file_path
+                track.file_path,
             ];
 
             // Escapar commas y quotes
-            const escaped = row.map(field => {
+            const escaped = row.map((field) => {
                 const str = String(field);
                 if (str.includes(',') || str.includes('"')) {
                     return '"' + str.replace(/"/g, '""') + '"';
@@ -144,20 +142,15 @@ class DJExporter {
             format: 'serato',
             content: content,
             extension: '.csv',
-            instructions: 'Import this CSV file into Serato using File > Import'
+            instructions: 'Import this CSV file into Serato using File > Import',
         };
     }
 
     // Exportar a Traktor NML
     exportTraktor(tracks, collectionName = 'Collection') {
-        const xml = xmlbuilder
-            .create('NML', { version: '19', encoding: 'UTF-8' })
-            .att('VERSION', '19');
+        const xml = xmlbuilder.create('NML', { version: '19', encoding: 'UTF-8' }).att('VERSION', '19');
 
-        const head = xml
-            .ele('HEAD')
-            .att('COMPANY', 'Music Analyzer Pro')
-            .att('PROGRAM', 'Music Analyzer');
+        const head = xml.ele('HEAD').att('COMPANY', 'Music Analyzer Pro').att('PROGRAM', 'Music Analyzer');
 
         const collection = xml.ele('COLLECTION').att('ENTRIES', tracks.length);
 
@@ -203,9 +196,7 @@ class DJExporter {
 
             // Musical key
             if (track.AI_KEY || track.key) {
-                entry
-                    .ele('MUSICAL_KEY')
-                    .att('VALUE', this.convertKeyToTraktor(track.AI_KEY || track.key));
+                entry.ele('MUSICAL_KEY').att('VALUE', this.convertKeyToTraktor(track.AI_KEY || track.key));
             }
 
             // Loudness
@@ -235,11 +226,7 @@ class DJExporter {
         const playlists = xml.ele('PLAYLISTS');
         const node = playlists.ele('NODE').att('TYPE', 'FOLDER').att('NAME', '$ROOT');
 
-        const playlist = node
-            .ele('SUBNODES')
-            .ele('NODE')
-            .att('TYPE', 'PLAYLIST')
-            .att('NAME', collectionName);
+        const playlist = node.ele('SUBNODES').ele('NODE').att('TYPE', 'PLAYLIST').att('NAME', collectionName);
 
         const playlistEntries = playlist
             .ele('PLAYLIST')
@@ -258,7 +245,7 @@ class DJExporter {
         return {
             format: 'traktor',
             content: xml.end({ pretty: true }),
-            extension: '.nml'
+            extension: '.nml',
         };
     }
 
@@ -281,7 +268,7 @@ class DJExporter {
             A: 9,
             'A#': 10,
             Bb: 10,
-            B: 11
+            B: 11,
         };
 
         if (!key) {
@@ -350,25 +337,25 @@ class DJExporter {
                 id: 'm3u',
                 name: 'M3U Playlist',
                 extension: '.m3u',
-                description: 'Universal playlist format'
+                description: 'Universal playlist format',
             },
             {
                 id: 'rekordbox',
                 name: 'Rekordbox XML',
                 extension: '.xml',
-                description: 'Pioneer DJ Rekordbox'
+                description: 'Pioneer DJ Rekordbox',
             },
             {
                 id: 'serato',
                 name: 'Serato CSV',
                 extension: '.csv',
-                description: 'Serato DJ Pro (import via CSV)'
+                description: 'Serato DJ Pro (import via CSV)',
             },
             {
                 id: 'traktor',
                 name: 'Traktor NML',
                 extension: '.nml',
-                description: 'Native Instruments Traktor'
+                description: 'Native Instruments Traktor',
             }
         ];
     }

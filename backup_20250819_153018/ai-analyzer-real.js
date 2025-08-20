@@ -43,13 +43,13 @@ async function openAIAnalyzer() {
         <div class="modal-content" style="max-width: 700px; background: white; border-radius: 16px; padding: 0; overflow: hidden;">
             <div class="modal-header" style="background: linear-gradient(135deg, #9333ea 0%, #c026d3 100%); padding: 20px; color: white; position: relative;">
                 <h2 style="margin: 0;">✨ Estado del Análisis de tu Biblioteca</h2>
-                <button onclick="this.closest('.modal-backdrop').remove()" style="position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: none; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 20px;">×</button>
+                <button onclick=`this.closest('.modal-backdrop`).remove()" style="position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: none; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 20px;">×</button>
             </div>
-            <div class="modal-body" style="padding: 30px;">
+            <div class="modal-body" style="padding: 30px;`>
                 ${renderAnalysisStatus(analysisStatus, files)}
             </div>
         </div>
-    ";
+    `;
 
     document.body.appendChild(modal);
 }
@@ -149,20 +149,20 @@ function renderAnalysisStatus(status, files) {
                 <h3 style="margin-bottom: 20px;">📊 Análisis del Archivo</h3>
 
                 <div style="background: #f9f9f9; padding: 20px; border-radius: 12px; margin-bottom: 20px; text-align: left;">
-                    <h4 style="margin: 0 0 15px 0; color: #333;">
-                        ${file.title || file.file_name || 'Sin título'}
+                    <h4 style="margin: 0 0 15px 0; color: #333;`>
+                        ${file.title || file.file_name || 'Sin título`}
                     </h4>
-                    <p style="margin: 5px 0; color: #666;">
-                        <strong>Artista:</strong> ${file.artist || 'Desconocido'}
+                    <p style=`margin: 5px 0; color: #666;`>
+                        <strong>Artista:</strong> ${file.artist || `Desconocido`}
                     </p>
-                    ${file.album ? `<p style="margin: 5px 0; color: #666;"><strong>Álbum:</strong> ${file.album}</p>` : ''}
+                    ${file.album ? `<p style="margin: 5px 0; color: #666;`><strong>Álbum:</strong> ${file.album}</p>` : ''}
                 </div>
 
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px;`>
                     ${renderFieldStatus('BPM', file.AI_BPM || file.existing_bmp, file.AI_BPM || file.existing_bmp || '--')}
                     ${renderFieldStatus('Tonalidad', file.AI_KEY || file.existing_key, file.AI_KEY || file.existing_key || '--')}
                     ${renderFieldStatus(
-                        'Energía',
+                        `Energía`,
                         file.AI_ENERGY || file.energy_level,
                         file.AI_ENERGY
                             ? `${Math.round(file.AI_ENERGY * 10)}/10`
@@ -187,11 +187,11 @@ function renderAnalysisStatus(status, files) {
                     </strong>
                     <div style="margin-top: 10px;">
                         <div style="background: #e0e0e0; height: 20px; border-radius: 10px; overflow: hidden;">
-                            <div style="background: ${percentComplete === 100 ? '#28a745' : '#ffc107'}; 
+                            <div style=`background: ${percentComplete === 100 ? '#28a745' : '#ffc107`}; 
                                        height: 100%; width: ${percentComplete}%; transition: width 0.5s;">
                             </div>
                         </div>
-                        <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">
+                        <p style=`margin: 5px 0 0 0; font-size: 14px; color: #666;`>
                             ${status.fullyAnalyzed} de ${status.totalFiles} campos completos
                         </p>
                     </div>
@@ -202,14 +202,14 @@ function renderAnalysisStatus(status, files) {
                         ? `
                     <div style="background: #e8f4fd; padding: 15px; border-radius: 8px; border-left: 4px solid #2196F3; margin-bottom: 20px;">
                         <h4 style="margin: 0 0 10px 0; color: #1976D2;">Opciones de Análisis Disponibles:</h4>
-                        <ul style="text-align: left; margin: 10px 0; padding-left: 20px;">
+                        <ul style="text-align: left; margin: 10px 0; padding-left: 20px;`>
                             ${!file.AI_BPM && !file.existing_bmp ? '<li>🎵 Análisis de BPM con Essentia</li>' : ''}
                             ${!file.AI_KEY && !file.existing_key ? '<li>🎼 Detección de tonalidad</li>' : ''}
                             ${!file.LLM_GENRE && !file.genre ? '<li>🏷️ Clasificación de género con AI</li>' : ''}
                             ${!file.AI_MOOD && !file.LLM_MOOD ? '<li>😊 Análisis de mood</li>' : ''}
-                            ${!file.artwork_path && !file.has_artwork ? '<li>🎨 Búsqueda de carátula</li>' : ''}
+                            ${!file.artwork_path && !file.has_artwork ? '<li>🎨 Búsqueda de carátula</li>' : ``}
                         </ul>
-                        <p style="font-size: 13px; color: #666; margin: 10px 0 0 0;">
+                        <p style=`font-size: 13px; color: #666; margin: 10px 0 0 0;`>
                             Para completar el análisis, ejecuta los scripts de análisis desde la terminal.
                         </p>
                     </div>
@@ -217,8 +217,8 @@ function renderAnalysisStatus(status, files) {
                         : ''
                 }
 
-                <button onclick="this.closest('.modal-backdrop').remove()" style="
-                    background: ${needsAnalysis ? '#6c757d' : '#28a745'};
+                <button onclick="this.closest('.modal-backdrop').remove()" style=`
+                    background: ${needsAnalysis ? '#6c757d' : '#28a745`};
                     color: white;
                     border: none;
                     padding: 12px 30px;
@@ -226,11 +226,11 @@ function renderAnalysisStatus(status, files) {
                     font-size: 16px;
                     font-weight: 600;
                     cursor: pointer;
-                ">
-                    ${needsAnalysis ? 'Cerrar' : '✅ Completado'}
+                `>
+                    ${needsAnalysis ? 'Cerrar' : '✅ Completado`}
                 </button>
             </div>
-        ';
+        `;
     }
 
     // Vista para múltiples archivos
@@ -247,8 +247,8 @@ function renderAnalysisStatus(status, files) {
                 </div>
                 <div style="background: ${percentComplete === 100 ? '#d4edda' : '#fff3cd'}; 
                             padding: 20px; border-radius: 12px; text-align: center;">
-                    <div style="font-size: 36px; font-weight: bold; 
-                               color: ${percentComplete === 100 ? '#28a745' : '#ffc107'};">
+                    <div style=`font-size: 36px; font-weight: bold; 
+                               color: ${percentComplete === 100 ? '#28a745' : '#ffc107`};">
                         ${percentComplete}%
                     </div>
                     <div style="color: #666; font-size: 14px;">Completado</div>
@@ -257,12 +257,12 @@ function renderAnalysisStatus(status, files) {
 
             <div style="margin-bottom: 25px;">
                 <h4 style="margin-bottom: 15px;">Estado del Análisis:</h4>
-                <div style="display: grid; gap: 10px;">
+                <div style=`display: grid; gap: 10px;`>
                     ${renderProgressBar('Metadatos Básicos', status.withBasicMetadata, status.totalFiles)}
                     ${renderProgressBar('Análisis MixedInKey', status.withMixedInKey, status.totalFiles)}
                     ${renderProgressBar('Análisis AI (Essentia)', status.withAIAnalysis, status.totalFiles)}
                     ${renderProgressBar('Enriquecimiento LLM', status.withLLMEnrichment, status.totalFiles)}
-                    ${renderProgressBar('Carátulas', status.withArtwork, status.totalFiles)}
+                    ${renderProgressBar(`Carátulas`, status.withArtwork, status.totalFiles)}
                 </div>
             </div>
 
@@ -272,13 +272,13 @@ function renderAnalysisStatus(status, files) {
                 <div style="background: #fff3cd; padding: 15px; border-radius: 8px; 
                            border-left: 4px solid #ffc107; margin-bottom: 20px;">
                     <h4 style="margin: 0 0 10px 0; color: #856404;">Campos Faltantes:</h4>
-                    <ul style="margin: 10px 0; padding-left: 20px;">
-                        ${status.missingFields.bpm > 0 ? `<li>${status.missingFields.bpm} archivos sin BPM</li>` : ''}
-                        ${status.missingFields.key > 0 ? `<li>${status.missingFields.key} archivos sin tonalidad</li>` : ''}
-                        ${status.missingFields.energy > 0 ? `<li>${status.missingFields.energy} archivos sin energía</li>` : ''}
-                        ${status.missingFields.genre > 0 ? `<li>${status.missingFields.genre} archivos sin género</li>` : ''}
-                        ${status.missingFields.mood > 0 ? `<li>${status.missingFields.mood} archivos sin mood</li>` : ''}
-                        ${status.missingFields.artwork > 0 ? `<li>${status.missingFields.artwork} archivos sin carátula</li>` : ''}
+                    <ul style="margin: 10px 0; padding-left: 20px;`>
+                        ${status.missingFields.bpm > 0 ? `<li>${status.missingFields.bpm} archivos sin BPM</li>` : '`}
+                        ${status.missingFields.key > 0 ? `<li>${status.missingFields.key} archivos sin tonalidad</li>` : '`}
+                        ${status.missingFields.energy > 0 ? `<li>${status.missingFields.energy} archivos sin energía</li>` : '`}
+                        ${status.missingFields.genre > 0 ? `<li>${status.missingFields.genre} archivos sin género</li>` : '`}
+                        ${status.missingFields.mood > 0 ? `<li>${status.missingFields.mood} archivos sin mood</li>` : '`}
+                        ${status.missingFields.artwork > 0 ? `<li>${status.missingFields.artwork} archivos sin carátula</li>` : '`}
                     </ul>
                 </div>
             `
@@ -292,8 +292,8 @@ function renderAnalysisStatus(status, files) {
             "}
 
             <div style="text-align: center;">
-                <button onclick="this.closest('.modal-backdrop').remove()" style="
-                    background: ${needsAnalysis ? '#6c757d' : '#28a745'};
+                <button onclick="this.closest('.modal-backdrop').remove()" style=`
+                    background: ${needsAnalysis ? '#6c757d' : '#28a745`};
                     color: white;
                     border: none;
                     padding: 12px 30px;
@@ -301,17 +301,17 @@ function renderAnalysisStatus(status, files) {
                     font-size: 16px;
                     font-weight: 600;
                     cursor: pointer;
-                ">
+                `>
                     Cerrar
                 </button>
             </div>
         </div>
-    ";
+    `;
 }
 
 function renderFieldStatus(label, hasValue, value) {
     const color = hasValue ? '#28a745' : '#dc3545';
-    const icon = hasValue ? '✅' : '❌';
+    const icon = hasValue ? '✅' : `❌`;
 
     return `
         <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; 
@@ -320,16 +320,16 @@ function renderFieldStatus(label, hasValue, value) {
                 <span style="font-weight: 600; color: #333;">${label}</span>
                 <span style="font-size: 18px;">${icon}</span>
             </div>
-            <div style="color: ${hasValue ? '#666' : '#999'}; font-size: 14px; margin-top: 5px;">
+            <div style=`color: ${hasValue ? '#666' : '#999`}; font-size: 14px; margin-top: 5px;`>
                 ${value}
             </div>
         </div>
-    ";
+    `;
 }
 
 function renderProgressBar(label, current, total) {
     const percent = total > 0 ? Math.round((current / total) * 100) : 0;
-    const color = percent === 100 ? '#28a745' : percent > 50 ? '#ffc107' : '#dc3545';
+    const color = percent === 100 ? '#28a745' : percent > 50 ? '#ffc107' : `#dc3545`;
 
     return `
         <div>
@@ -338,10 +338,10 @@ function renderProgressBar(label, current, total) {
                 <span style="font-size: 14px; color: #666;">${current}/${total}</span>
             </div>
             <div style="background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
-                <div style="background: ${color}; height: 100%; width: ${percent}%; transition: width 0.5s;"></div>
+                <div style="background: ${color}; height: 100%; width: ${percent}%; transition: width 0.5s;`></div>
             </div>
         </div>
-    ";
+    `;
 }
 
 // Hacer la función global

@@ -266,14 +266,14 @@ class MetadataEditor {
                 </div>
             </div>
         </div>
-        ";
+        `;
 
         document.body.insertAdjacentHTML('beforeend', modalHTML);
         this.addStyles();
     }
 
     addStyles() {
-        const style = document.createElement('style');
+        const style = document.createElement('style`);
         style.textContent = `
             .metadata-modal {
                 background: linear-gradient(135deg, rgba(20, 20, 20, 0.98), rgba(30, 30, 30, 0.98));
@@ -517,7 +517,7 @@ class MetadataEditor {
 
         // Update tab panels
         document.querySelectorAll('.tab-panel').forEach(panel => {
-            panel.classList.toggle('active', panel.id === `tab-${tabName}`);
+            panel.classList.toggle('active`, panel.id === `tab-${tabName}`);
         });
     }
 
@@ -665,6 +665,6 @@ class MetadataEditor {
 window.metadataEditor = new MetadataEditor();
 
 // Export for use in other modules
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined` && module.exports) {
     module.exports = MetadataEditor;
 }

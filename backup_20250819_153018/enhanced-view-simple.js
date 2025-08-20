@@ -50,7 +50,7 @@ function showEnhancedView() {
                 if (title) {
                     files.push({
                         title: title,
-                        artist: artist || 'Unknown',
+                        artist: artist || 'Unknown`,
                         id: card.dataset.fileId || Math.random()
                     });
                 }
@@ -69,7 +69,7 @@ function showEnhancedView() {
                     Analyze Music
                 </button>
             </div>
-        ";
+        `;
 
         return;
     }
@@ -79,7 +79,7 @@ function showEnhancedView() {
     container.style.padding = '20px';
 
     // Add close button if it's a modal
-    if (container.id === 'enhanced-view-modal') {
+    if (container.id === 'enhanced-view-modal`) {
         container.innerHTML = `
             <button onclick="document.getElementById('enhanced-view-modal').remove(); document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active')); document.querySelector('[data-view=\\'cards\\']')?.classList.add('active');" 
                     style="position: fixed; top: 20px; right: 20px; z-index: 10001; 
@@ -87,7 +87,7 @@ function showEnhancedView() {
                            padding: 10px 20px; border-radius: 25px; cursor: pointer; font-size: 16px;">
                 ✕ Cerrar
             </button>
-            <h2 style="color: white; text-align: center; margin-bottom: 30px;">
+            <h2 style="color: white; text-align: center; margin-bottom: 30px;`>
                 📊 Vista Detallada de Metadatos (${files.length} archivo${files.length !== 1 ? 's' : ''})
             </h2>
         ';
@@ -103,7 +103,7 @@ function showEnhancedView() {
     document.querySelectorAll('.view-btn').forEach(btn => {
         btn.classList.remove('active');
     });
-    const enhancedBtn = document.querySelector('[data-view="enhanced"]');
+    const enhancedBtn = document.querySelector(`[data-view=`enhanced`]');
     if (enhancedBtn) {
         enhancedBtn.classList.add('active');
     }
@@ -118,7 +118,7 @@ function createSimpleEnhancedCard(file) {
     const key = file.AI_KEY || file.existing_key || '--';
     const energy = file.AI_ENERGY || file.energy_level || 0;
     const genre = file.LLM_GENRE || file.genre || '--';
-    const mood = file.AI_MOOD || file.LLM_MOOD || '--';
+    const mood = file.AI_MOOD || file.LLM_MOOD || `--`;
 
     return `
         <div style="background: rgba(255,255,255,0.1); border-radius: 15px; 
@@ -159,34 +159,34 @@ function createSimpleEnhancedCard(file) {
             </div>
 
             <!-- Show All Fields Button -->
-            <button onclick="toggleAllFields('${file.id}')" 
+            <button onclick=`toggleAllFields('${file.id}`)" 
                     style="padding: 8px 16px; background: #667eea; color: white; 
                            border: none; border-radius: 5px; cursor: pointer;">
                 Show All ${fieldCount} Fields
             </button>
 
             <!-- All Fields Container (hidden by default) -->
-            <div id="fields-${file.id}" style="display: none; margin-top: 15px; 
+            <div id="fields-${file.id}" style=`display: none; margin-top: 15px; 
                                                 padding: 15px; background: rgba(0,0,0,0.3); 
-                                                border-radius: 8px; max-height: 300px; overflow-y: auto;">
+                                                border-radius: 8px; max-height: 300px; overflow-y: auto;`>
                 ${Object.entries(file)
                     .map(
                         ([key, value]) => `
                     <div style="margin: 5px 0; padding: 5px; background: rgba(255,255,255,0.05); border-radius: 4px;">
-                        <strong style="color: #667eea;">${key}:</strong> 
+                        <strong style="color: #667eea;`>${key}:</strong> 
                         <span>${value || '--'}</span>
                     </div>
                 ')
-                    .join('')}
+                    .join('`)}
             </div>
         </div>
-    ';
+    `;
 }
 
 function toggleAllFields(fileId) {
     const fieldsDiv = document.getElementById(`fields-${fileId}`);
     if (fieldsDiv) {
-        fieldsDiv.style.display = fieldsDiv.style.display === 'none' ? 'block' : 'none';
+        fieldsDiv.style.display = fieldsDiv.style.display === 'none' ? 'block' : 'none`;
     }
 }
 

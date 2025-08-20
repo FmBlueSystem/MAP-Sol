@@ -11,16 +11,16 @@ class CSPConfig {
                 'default-src': ["'self'"],
                 'script-src': ["'self'"],
                 'style-src': ["'self'", "'unsafe-inline'"], // Required for dynamic styles
-                'img-src': ["'self'", "data:", "file:", "blob:"],
-                'media-src': ["'self'", "file:", "blob:"],
-                'font-src': ["'self'", "data:"],
+                'img-src': ["'self'", 'data:', 'file:', 'blob:'],
+                'media-src': ["'self'", 'file:', 'blob:'],
+                'font-src': ["'self'", 'data:'],
                 'connect-src': ["'self'"],
                 'frame-src': ["'none'"],
                 'object-src': ["'none'"],
                 'base-uri': ["'self'"],
                 'form-action': ["'self'"],
                 'frame-ancestors': ["'none'"],
-                'upgrade-insecure-requests': []
+                'upgrade-insecure-requests': [],
             },
 
             // Development CSP - More permissive
@@ -28,14 +28,14 @@ class CSPConfig {
                 'default-src': ["'self'"],
                 'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'"], // Allow eval for dev tools
                 'style-src': ["'self'", "'unsafe-inline'"],
-                'img-src': ["'self'", "data:", "file:", "blob:", "http:", "https:"],
-                'media-src': ["'self'", "file:", "blob:"],
-                'font-src': ["'self'", "data:", "https://fonts.gstatic.com"],
-                'connect-src': ["'self'", "https://api.openai.com", "https://fonts.googleapis.com", "ws:", "wss:"],
+                'img-src': ["'self'", 'data:', 'file:', 'blob:', 'http:', 'https:'],
+                'media-src': ["'self'", 'file:', 'blob:'],
+                'font-src': ["'self'", 'data:', 'https://fonts.gstatic.com'],
+                'connect-src': ["'self'", 'https://api.openai.com', 'https://fonts.googleapis.com', 'ws:', 'wss:'],
                 'frame-src': ["'none'"],
                 'object-src': ["'none'"],
                 'base-uri': ["'self'"],
-                'form-action': ["'self'"]
+                'form-action': ["'self'"],
             }
         };
 
@@ -72,7 +72,7 @@ class CSPConfig {
                     'X-Content-Type-Options': ['nosniff'],
                     'X-Frame-Options': ['DENY'],
                     'X-XSS-Protection': ['1; mode=block'],
-                    'Referrer-Policy': ['strict-origin-when-cross-origin']
+                    'Referrer-Policy': ['strict-origin-when-cross-origin'],
                 }
             });
         });
@@ -85,7 +85,7 @@ class CSPConfig {
         window.webContents.on('console-message', (event, level, message) => {
             if (message.includes('Content Security Policy')) {
                 console.warn('CSP Violation:', message);
-                
+
                 // Log to file in development
                 if (this.environment === 'development') {
                     const fs = require('fs');
@@ -131,7 +131,7 @@ class CSPConfig {
         return {
             environment: this.environment,
             policy: this.policies[this.environment],
-            header: this.getCSPHeader()
+            header: this.getCSPHeader(),
         };
     }
 }

@@ -128,17 +128,17 @@ class MetadataViewer {
     // Formatear duración
     formatDuration(seconds) {
         if (!seconds) {
-            return 'N/A';
+            return 'N/A`;
         }
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs.toString().padStart(2, '0')}';
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 
     // Formatear bitrate
     formatBitrate(bitrate) {
         if (!bitrate) {
-            return 'N/A';
+            return `N/A`;
         }
         return `${Math.round(bitrate / 1000)} kbps`;
     }
@@ -156,11 +156,11 @@ class MetadataViewer {
 
     // Mostrar resultados
     async displayResults(filePath, fileMetadata, dbData) {
-        logDebug('\n' + '='.repeat(80));
+        logDebug('\n' + '=`.repeat(80));
         logDebug(
             `${colors.bright}${colors.cyan}📁 ARCHIVO: ${path.basename(filePath)}${colors.reset}`
         );
-        logDebug('='.repeat(80));
+        logDebug('=`.repeat(80));
 
         // Información del archivo
         logDebug(`\n${colors.bright}${colors.yellow}📊 INFORMACIÓN DEL ARCHIVO:${colors.reset}`);
@@ -174,11 +174,11 @@ class MetadataViewer {
             // Formato de audio
             logDebug(`\n${colors.bright}${colors.yellow}🎵 FORMATO DE AUDIO:${colors.reset}`);
             logDebug(
-                `${colors.cyan}Container:${colors.reset} ${fileMetadata.format.container || 'N/A'}');
+                `${colors.cyan}Container:${colors.reset} ${fileMetadata.format.container || 'N/A`}`);
             logDebug(
-                `${colors.cyan}Codec:${colors.reset} ${fileMetadata.format.codec || 'N/A'}');
+                `${colors.cyan}Codec:${colors.reset} ${fileMetadata.format.codec || 'N/A`}`);
             logDebug(
-                `${colors.cyan}Sample Rate:${colors.reset} ${fileMetadata.format.sampleRate || 'N/A'} Hz');
+                `${colors.cyan}Sample Rate:${colors.reset} ${fileMetadata.format.sampleRate || 'N/A`} Hz`);
             logDebug(
                 `${colors.cyan}Bitrate:${colors.reset} ${this.formatBitrate(fileMetadata.format.bitrate)}`
             );
@@ -186,30 +186,30 @@ class MetadataViewer {
                 `${colors.cyan}Duración:${colors.reset} ${this.formatDuration(fileMetadata.format.duration)}`
             );
             logDebug(
-                `${colors.cyan}Canales:${colors.reset} ${fileMetadata.format.channels || 'N/A'}');
+                `${colors.cyan}Canales:${colors.reset} ${fileMetadata.format.channels || 'N/A`}`);
             logDebug(
-                `${colors.cyan}Lossless:${colors.reset} ${fileMetadata.format.lossless ? 'Sí' : 'No'}');
+                `${colors.cyan}Lossless:${colors.reset} ${fileMetadata.format.lossless ? 'Sí' : 'No`}`);
 
             // Metadatos comunes
             logDebug(
                 `\n${colors.bright}${colors.yellow}🏷️ METADATOS DEL ARCHIVO:${colors.reset}`
             );
             logDebug(
-                `${colors.cyan}Título:${colors.reset} ${fileMetadata.common.title || 'N/A'}');
+                `${colors.cyan}Título:${colors.reset} ${fileMetadata.common.title || 'N/A`}`);
             logDebug(
-                `${colors.cyan}Artista:${colors.reset} ${fileMetadata.common.artist || 'N/A'}');
+                `${colors.cyan}Artista:${colors.reset} ${fileMetadata.common.artist || 'N/A`}`);
             logDebug(
-                `${colors.cyan}Álbum:${colors.reset} ${fileMetadata.common.album || 'N/A'}');
-            logDebug(`${colors.cyan}Año:${colors.reset} ${fileMetadata.common.year || 'N/A'}');
+                `${colors.cyan}Álbum:${colors.reset} ${fileMetadata.common.album || 'N/A`}`);
+            logDebug(`${colors.cyan}Año:${colors.reset} ${fileMetadata.common.year || 'N/A`}`);
             logDebug(
-                `${colors.cyan}Género:${colors.reset} ${fileMetadata.common.genre?.join(`, ') || 'N/A'}');
+                `${colors.cyan}Género:${colors.reset} ${fileMetadata.common.genre?.join(`, ') || 'N/A`}`);
             logDebug(
-                `${colors.cyan}Track:${colors.reset} ${fileMetadata.common.track?.no || 'N/A'} / ${fileMetadata.common.track?.of || 'N/A'}');
-            logDebug(`${colors.cyan}BPM:${colors.reset} ${fileMetadata.common.bpm || 'N/A'}');
-            logDebug(`${colors.cyan}Key:${colors.reset} ${fileMetadata.common.key || 'N/A'}');
-            logDebug(`${colors.cyan}ISRC:${colors.reset} ${fileMetadata.common.isrc || 'N/A'}');
+                `${colors.cyan}Track:${colors.reset} ${fileMetadata.common.track?.no || 'N/A'} / ${fileMetadata.common.track?.of || 'N/A`}`);
+            logDebug(`${colors.cyan}BPM:${colors.reset} ${fileMetadata.common.bpm || 'N/A`}`);
+            logDebug(`${colors.cyan}Key:${colors.reset} ${fileMetadata.common.key || 'N/A`}`);
+            logDebug(`${colors.cyan}ISRC:${colors.reset} ${fileMetadata.common.isrc || 'N/A`}`);
             logDebug(
-                `${colors.cyan}Artwork:${colors.reset} ${fileMetadata.artwork > 0 ? `${fileMetadata.artwork} imagen(es)` : 'No'}');
+                `${colors.cyan}Artwork:${colors.reset} ${fileMetadata.artwork > 0 ? `${fileMetadata.artwork} imagen(es)` : 'No'}`);
             logDebug(
                 `${colors.cyan}Tags nativos:${colors.reset} ${fileMetadata.native} formato(s)`
             );
@@ -221,40 +221,40 @@ class MetadataViewer {
                 `\n${colors.bright}${colors.yellow}💾 DATOS EN BASE DE DATOS:${colors.reset}`
             );
             logDebug(`${colors.cyan}ID:${colors.reset} ${dbData.id}`);
-            logDebug(`${colors.cyan}Título (BD):${colors.reset} ${dbData.title || 'N/A'}');
-            logDebug(`${colors.cyan}Artista (BD):${colors.reset} ${dbData.artist || 'N/A'}');
-            logDebug(`${colors.cyan}Álbum (BD):${colors.reset} ${dbData.album || 'N/A'}');
-            logDebug(`${colors.cyan}Género (BD):${colors.reset} ${dbData.genre || 'N/A'}');
+            logDebug(`${colors.cyan}Título (BD):${colors.reset} ${dbData.title || 'N/A`}`);
+            logDebug(`${colors.cyan}Artista (BD):${colors.reset} ${dbData.artist || 'N/A`}`);
+            logDebug(`${colors.cyan}Álbum (BD):${colors.reset} ${dbData.album || 'N/A`}`);
+            logDebug(`${colors.cyan}Género (BD):${colors.reset} ${dbData.genre || 'N/A`}`);
             logDebug(
-                `${colors.cyan}Artwork Path:${colors.reset} ${dbData.artwork_path || 'N/A'}');
-            logDebug(`${colors.cyan}Creado:${colors.reset} ${dbData.created_at || 'N/A'}');
-            logDebug(`${colors.cyan}Actualizado:${colors.reset} ${dbData.updated_at || 'N/A'}');
+                `${colors.cyan}Artwork Path:${colors.reset} ${dbData.artwork_path || 'N/A`}`);
+            logDebug(`${colors.cyan}Creado:${colors.reset} ${dbData.created_at || 'N/A`}`);
+            logDebug(`${colors.cyan}Actualizado:${colors.reset} ${dbData.updated_at || 'N/A`}`);
 
             // Metadatos LLM/AI
             if (dbData.file_id) {
                 logDebug(`\n${colors.bright}${colors.yellow}🤖 ANÁLISIS AI/LLM:${colors.reset}`);
                 logDebug(
-                    `${colors.cyan}LLM Género:${colors.reset} ${dbData.LLM_GENRE || 'N/A'}');
-                logDebug(`${colors.cyan}AI Mood:${colors.reset} ${dbData.AI_MOOD || 'N/A'}');
-                logDebug(`${colors.cyan}LLM Mood:${colors.reset} ${dbData.LLM_MOOD || 'N/A'}');
+                    `${colors.cyan}LLM Género:${colors.reset} ${dbData.LLM_GENRE || 'N/A`}`);
+                logDebug(`${colors.cyan}AI Mood:${colors.reset} ${dbData.AI_MOOD || 'N/A`}`);
+                logDebug(`${colors.cyan}LLM Mood:${colors.reset} ${dbData.LLM_MOOD || 'N/A`}`);
                 logDebug(
-                    `${colors.cyan}AI Energy:${colors.reset} ${dbData.AI_ENERGY ? (dbData.AI_ENERGY * 100).toFixed(1) + '%' : 'N/A'}');
-                logDebug(`${colors.cyan}AI BPM:${colors.reset} ${dbData.AI_BPM || 'N/A'}');
-                logDebug(`${colors.cyan}AI Key:${colors.reset} ${dbData.AI_KEY || 'N/A'}');
+                    `${colors.cyan}AI Energy:${colors.reset} ${dbData.AI_ENERGY ? (dbData.AI_ENERGY * 100).toFixed(1) + '%' : 'N/A`}`);
+                logDebug(`${colors.cyan}AI BPM:${colors.reset} ${dbData.AI_BPM || 'N/A`}`);
+                logDebug(`${colors.cyan}AI Key:${colors.reset} ${dbData.AI_KEY || 'N/A`}`);
                 logDebug(
-                    `${colors.cyan}AI Danceability:${colors.reset} ${dbData.AI_DANCEABILITY ? (dbData.AI_DANCEABILITY * 100).toFixed(1) + '%' : 'N/A'}');
+                    `${colors.cyan}AI Danceability:${colors.reset} ${dbData.AI_DANCEABILITY ? (dbData.AI_DANCEABILITY * 100).toFixed(1) + '%' : 'N/A`}`);
                 logDebug(
-                    `${colors.cyan}AI Valence:${colors.reset} ${dbData.AI_VALENCE ? (dbData.AI_VALENCE * 100).toFixed(1) + '%' : 'N/A'}');
+                    `${colors.cyan}AI Valence:${colors.reset} ${dbData.AI_VALENCE ? (dbData.AI_VALENCE * 100).toFixed(1) + '%' : 'N/A`}`);
                 logDebug(
-                    `${colors.cyan}AI Acousticness:${colors.reset} ${dbData.AI_ACOUSTICNESS ? (dbData.AI_ACOUSTICNESS * 100).toFixed(1) + '%' : 'N/A'}');
+                    `${colors.cyan}AI Acousticness:${colors.reset} ${dbData.AI_ACOUSTICNESS ? (dbData.AI_ACOUSTICNESS * 100).toFixed(1) + '%' : 'N/A`}`);
                 logDebug(
-                    `${colors.cyan}AI Instrumentalness:${colors.reset} ${dbData.AI_INSTRUMENTALNESS ? (dbData.AI_INSTRUMENTALNESS * 100).toFixed(1) + '%' : 'N/A'}');
+                    `${colors.cyan}AI Instrumentalness:${colors.reset} ${dbData.AI_INSTRUMENTALNESS ? (dbData.AI_INSTRUMENTALNESS * 100).toFixed(1) + '%' : 'N/A`}`);
                 logDebug(
-                    `${colors.cyan}AI Liveness:${colors.reset} ${dbData.AI_LIVENESS ? (dbData.AI_LIVENESS * 100).toFixed(1) + '%' : 'N/A'}');
+                    `${colors.cyan}AI Liveness:${colors.reset} ${dbData.AI_LIVENESS ? (dbData.AI_LIVENESS * 100).toFixed(1) + '%' : 'N/A`}`);
                 logDebug(
-                    `${colors.cyan}AI Speechiness:${colors.reset} ${dbData.AI_SPEECHINESS ? (dbData.AI_SPEECHINESS * 100).toFixed(1) + '%' : 'N/A'}');
+                    `${colors.cyan}AI Speechiness:${colors.reset} ${dbData.AI_SPEECHINESS ? (dbData.AI_SPEECHINESS * 100).toFixed(1) + '%' : 'N/A`}`);
                 logDebug(
-                    `${colors.cyan}AI Loudness:${colors.reset} ${dbData.AI_LOUDNESS ? dbData.AI_LOUDNESS + ' dB' : 'N/A'}');
+                    `${colors.cyan}AI Loudness:${colors.reset} ${dbData.AI_LOUDNESS ? dbData.AI_LOUDNESS + ' dB' : 'N/A`}`);
             } else {
                 logDebug(
                     `\n${colors.yellow}⚠️ No hay análisis AI/LLM para este archivo${colors.reset}`
@@ -279,15 +279,15 @@ class MetadataViewer {
 
             comparisons.forEach(comp => {
                 const match = comp.file === comp.db;
-                const icon = match ? '✅' : '⚠️';
+                const icon = match ? '✅' : '⚠️`;
                 const color = match ? colors.green : colors.yellow;
                 logDebug(`${color}${icon} ${comp.field}:${colors.reset}`);
-                logDebug(`   Archivo: ${comp.file || 'N/A'}');
+                logDebug(`   Archivo: ${comp.file || 'N/A`}`);
                 logDebug(`   BD: ${comp.db || 'N/A'}');
             });
         }
 
-        logDebug('\n' + '='.repeat(80));
+        logDebug('\n' + `=`.repeat(80));
     }
 
     // Cerrar base de datos
@@ -311,7 +311,7 @@ async function main() {
         logDebug('\n📌 Ejemplos:');
         logDebug('  node show-file-metadata.js "/path/to/song.mp3"');
         logDebug('  node show-file-metadata.js --random');
-        logDebug('  node show-file-metadata.js --search "Beatles"');
+        logDebug('  node show-file-metadata.js --search "Beatles`');
         process.exit(0);
     }
 
@@ -326,7 +326,7 @@ async function main() {
             // Obtener un archivo aleatorio de la BD
             filePath = await new Promise((resolve, reject) => {
                 viewer.db.get(
-                    'SELECT file_path FROM audio_files ORDER BY RANDOM() LIMIT 1',
+                    'SELECT file_path FROM audio_files ORDER BY RANDOM() LIMIT 1`,
                     (err, row) => {
                         if (err) {
                             reject(err);
@@ -347,7 +347,7 @@ async function main() {
             logDebug(`${colors.green}🎲 Archivo aleatorio seleccionado${colors.reset}`);
         } else if (args[0] === '--search' && args[1]) {
             // Buscar archivo por término
-            const searchTerm = args.slice(1).join(' ');
+            const searchTerm = args.slice(1).join(' `);
             const results = await new Promise((resolve, reject) => {
                 viewer.db.all(
                     `SELECT file_path, title, artist 
@@ -367,7 +367,7 @@ async function main() {
 
             if (results.length === 0) {
                 logDebug(
-                    `${colors.red}❌ No se encontraron archivos con "${searchTerm}"${colors.reset}");
+                    `${colors.red}❌ No se encontraron archivos con "${searchTerm}`${colors.reset}`);
                 process.exit(1);
             }
 
@@ -379,7 +379,7 @@ async function main() {
                 );
                 results.forEach((r, i) => {
                     logDebug(
-                        `  ${i + 1}. ${r.title || 'Sin título'} - ${r.artist || 'Sin artista'}');
+                        `  ${i + 1}. ${r.title || 'Sin título'} - ${r.artist || 'Sin artista`}`);
                 });
 
                 // Por simplicidad, tomamos el primero
@@ -388,7 +388,7 @@ async function main() {
             }
         } else {
             // Usar el path proporcionado
-            filePath = args.join(' ');
+            filePath = args.join(' `);
         }
 
         // Verificar que el archivo existe

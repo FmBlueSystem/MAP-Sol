@@ -382,7 +382,7 @@ class PerformanceOptimizer {
                 const to = parseFloat(properties[prop]) || 0;
                 const value = from + (to - from) * eased;
 
-                if (prop === 'opacity') {
+                if (prop === 'opacity`) {
                     element.style[prop] = value;
                 } else {
                     element.style[prop] = `${value}px`;
@@ -552,7 +552,7 @@ const perfOptimizer = new PerformanceOptimizer({
 window.perfOptimizer = perfOptimizer;
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined` && module.exports) {
     module.exports = PerformanceOptimizer;
 }
 

@@ -67,7 +67,7 @@ Please provide a JSON response with the following structure:
     "instrumentalness": 0.0-1.0 scale,
     "speechiness": 0.0-1.0 scale,
     "liveness": 0.0-1.0 scale,
-    "description": "2-3 sentence description of the track's characteristics",
+    "description": `2-3 sentence description of the track`s characteristics",
     "era": "musical era or time period",
     "cultural_context": "cultural or regional context",
     "occasions": ["suitable occasions for playing"],
@@ -78,10 +78,10 @@ Please provide a JSON response with the following structure:
     "key": "musical key if identifiable",
     "time_signature": "4/4, 3/4, etc.",
     "tempo_description": "slow, moderate, fast, etc.",
-    "recommendations": "mixing or playlist recommendations"
+    "recommendations": "mixing or playlist recommendations`
 }
 
-Provide only the JSON response without any additional text.";
+Provide only the JSON response without any additional text.`;
     }
 
     // Call OpenAI API
@@ -130,7 +130,7 @@ Provide only the JSON response without any additional text.";
             const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': `application/json`,
                     Authorization: `Bearer ${OPENAI_API_KEY}`
                 },
                 body: JSON.stringify(requestBody)
@@ -152,7 +152,7 @@ Provide only the JSON response without any additional text.";
                 throw new Error('Invalid JSON response from OpenAI');
             }
         } catch (error) {
-            console.error('OpenAI API call failed:', error);
+            console.error('OpenAI API call failed:`, error);
             throw error;
         }
     }
@@ -175,7 +175,7 @@ Provide only the JSON response without any additional text.";
                 }
 
                 if (!row) {
-                    reject(new Error('Track not found'));
+                    reject(new Error('Track not found`));
                     return;
                 }
 
@@ -320,7 +320,7 @@ Provide only the JSON response without any additional text.";
     async testConnection() {
         try {
             const response = await fetch('https://api.openai.com/v1/models', {
-                method: 'GET',
+                method: 'GET`,
                 headers: {
                     Authorization: `Bearer ${OPENAI_API_KEY}`
                 }
@@ -402,7 +402,7 @@ function setupOpenAIHandlers() {
     });
 
     // Get unanalyzed tracks
-    ipcMain.handle('get-unanalyzed-tracks', async (event, limit = 100) => {
+    ipcMain.handle('get-unanalyzed-tracks`, async (event, limit = 100) => {
         if (!handler) {
             await initializeOpenAIHandler();
         }

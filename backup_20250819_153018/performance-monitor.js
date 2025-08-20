@@ -7,7 +7,7 @@ class PerformanceMonitor {
             loadTimes: {},
             apiCalls: {},
             renderTimes: [],
-            errors: []
+            errors: [],
         };
         this.observers = new Map();
         this.isMonitoring = false;
@@ -47,7 +47,7 @@ class PerformanceMonitor {
         if (this.memoryInterval) {
             clearInterval(this.memoryInterval);
         }
-        this.observers.forEach(observer => observer.disconnect());
+        this.observers.forEach((observer) => observer.disconnect());
         this.observers.clear();
     }
 
@@ -65,7 +65,7 @@ class PerformanceMonitor {
                 const fps = Math.round(1000 / delta);
                 this.metrics.fps.push({
                     value: fps,
-                    timestamp: now
+                    timestamp: now,
                 });
 
                 // Keep only last 60 samples
@@ -100,7 +100,7 @@ class PerformanceMonitor {
                 used: Math.round(performance.memory.usedJSHeapSize / 1048576), // MB
                 total: Math.round(performance.memory.totalJSHeapSize / 1048576), // MB
                 limit: Math.round(performance.memory.jsHeapSizeLimit / 1048576), // MB
-                timestamp: Date.now()
+                timestamp: Date.now(),
             };
 
             this.metrics.memory.push(memInfo);
@@ -123,7 +123,7 @@ class PerformanceMonitor {
         // Navigation timing
         if ('PerformanceObserver' in window) {
             try {
-                const navObserver = new PerformanceObserver(list => {
+                const navObserver = new PerformanceObserver((list) => {
                     for (const entry of list.getEntries()) {
                         if (entry.entryType === 'navigation') {
                             this.metrics.loadTimes.page = {
@@ -133,7 +133,7 @@ class PerformanceMonitor {
                                 response: entry.responseEnd - entry.responseStart,
                                 dom: entry.domComplete - entry.domInteractive,
                                 load: entry.loadEventEnd - entry.loadEventStart,
-                                total: entry.loadEventEnd - entry.fetchStart
+                                total: entry.loadEventEnd - entry.fetchStart,
                             };
                         }
                     }
@@ -144,7 +144,7 @@ class PerformanceMonitor {
 
             // Resource timing
             try {
-                const resourceObserver = new PerformanceObserver(list => {
+                const resourceObserver = new PerformanceObserver((list) => {
                     for (const entry of list.getEntries()) {
                         if (entry.entryType === 'resource') {
                             const type = entry.name.split('.').pop()?.toLowerCase() || 'other';
@@ -154,7 +154,7 @@ class PerformanceMonitor {
                             this.metrics.loadTimes[type].push({
                                 name: entry.name,
                                 duration: entry.duration,
-                                size: entry.transferSize || 0
+                                size: entry.transferSize || 0,
                             });
                         }
                     }
@@ -168,13 +168,13 @@ class PerformanceMonitor {
     detectLongTasks() {
         if ('PerformanceObserver' in window) {
             try {
-                const longTaskObserver = new PerformanceObserver(list => {
+                const longTaskObserver = new PerformanceObserver((list) => {
                     for (const entry of list.getEntries()) {
                         console.warn(`⚠️ Long task detected: ${entry.duration.toFixed(2)}ms`);
                         this.metrics.renderTimes.push({
                             duration: entry.duration,
                             timestamp: entry.startTime,
-                            type: 'longTask'
+                            type: 'longTask',
                         });
                     }
                 });
@@ -208,7 +208,7 @@ class PerformanceMonitor {
                 count: 0,
                 totalDuration: 0,
                 avgDuration: 0,
-                failures: 0
+                failures: 0,
             };
         }
 
@@ -232,7 +232,7 @@ class PerformanceMonitor {
         this.metrics.errors.push({
             ...error,
             memoryAtError: this.getCurrentMemory(),
-            fpsAtError: this.getCurrentFPS()
+            fpsAtError: this.getCurrentFPS(),
         });
 
         // Keep only last 50 errors
@@ -269,14 +269,14 @@ class PerformanceMonitor {
             fps: {
                 current: this.getCurrentFPS(),
                 average: this.getAverageFPS(),
-                min: Math.min(...this.metrics.fps.map(f => f.value)),
-                max: Math.max(...this.metrics.fps.map(f => f.value))
+                min: Math.min(...this.metrics.fps.map((f) => f.value)),
+                max: Math.max(...this.metrics.fps.map((f) => f.value)),
             },
             memory: this.getCurrentMemory(),
             loadTimes: this.metrics.loadTimes,
             apiCalls: this.metrics.apiCalls,
-            longTasks: this.metrics.renderTimes.filter(t => t.type === 'longTask').length,
-            errors: this.metrics.errors.length
+            longTasks: this.metrics.renderTimes.filter((t) => t.type === 'longTask').length,
+            errors: this.metrics.errors.length,
         };
     }
 
@@ -287,14 +287,12 @@ class PerformanceMonitor {
             timestamp: new Date().toISOString(),
             summary: {
                 fps: `${metrics.fps.average} FPS (${metrics.fps.min}-${metrics.fps.max})`,
-                memory: metrics.memory
-                    ? `${metrics.memory.used}/${metrics.memory.limit} MB`
-                    : 'N/A',
+                memory: metrics.memory ? `${metrics.memory.used}/${metrics.memory.limit} MB` : 'N/A',
                 longTasks: metrics.longTasks,
-                errors: metrics.errors
+                errors: metrics.errors,
             },
             details: metrics,
-            recommendations: this.getRecommendations(metrics)
+            recommendations: this.getRecommendations(metrics),
         };
 
         return report;
@@ -308,15 +306,11 @@ class PerformanceMonitor {
         }
 
         if (metrics.memory && metrics.memory.used > metrics.memory.limit * 0.8) {
-            recommendations.push(
-                'High memory usage. Consider clearing caches or reducing data retention.'
-            );
+            recommendations.push('High memory usage. Consider clearing caches or reducing data retention.');
         }
 
         if (metrics.longTasks > 5) {
-            recommendations.push(
-                'Multiple long tasks detected. Consider breaking up heavy computations.'
-            );
+            recommendations.push('Multiple long tasks detected. Consider breaking up heavy computations.');
         }
 
         if (metrics.errors > 10) {

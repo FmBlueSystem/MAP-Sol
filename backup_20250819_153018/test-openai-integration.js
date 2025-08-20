@@ -26,7 +26,7 @@ async function testOpenAIIntegration() {
         }
 
         // 3. Get some unanalyzed tracks
-        logDebug('3️⃣ Finding unanalyzed tracks...');
+        logDebug(`3️⃣ Finding unanalyzed tracks...`);
         const tracks = await new Promise((resolve, reject) => {
             handler.db.all(
                 `
@@ -51,16 +51,16 @@ async function testOpenAIIntegration() {
         logInfo('✅ Found ${tracks.length} unanalyzed tracks\n');
 
         if (tracks.length > 0) {
-            logDebug('📋 Sample tracks:');
+            logDebug(`📋 Sample tracks:`);
             tracks.forEach((track, i) => {
-                logDebug(`   ${i + 1}. "${track.title}" by ${track.artist}");
+                logDebug(`   ${i + 1}. "${track.title}` by ${track.artist}`);
             });
             logDebug('');
 
             // 4. Analyze first track as a test
-            logDebug('4️⃣ Testing analysis on first track...');
+            logDebug(`4️⃣ Testing analysis on first track...`);
             const firstTrack = tracks[0];
-            logDebug(`   Analyzing: "${firstTrack.title}" by ${firstTrack.artist}");
+            logDebug(`   Analyzing: "${firstTrack.title}` by ${firstTrack.artist}`);
             logDebug('   ⏳ This may take a few seconds...\n');
 
             const result = await handler.analyzeTrack(firstTrack.id);
@@ -74,7 +74,7 @@ async function testOpenAIIntegration() {
             logDebug('   Description:', result.analysis.description);
 
             // 5. Verify database update
-            logDebug('\n5️⃣ Verifying database update...');
+            logDebug(`\n5️⃣ Verifying database update...`);
             const updated = await new Promise((resolve, reject) => {
                 handler.db.get(
                     `
@@ -94,7 +94,7 @@ async function testOpenAIIntegration() {
             });
 
             if (updated && updated.LLM_ANALYZED === 1) {
-                logInfo('✅ Database successfully updated!');
+                logInfo('✅ Database successfully updated!`);
                 logDebug(`   - LLM_ANALYZED: ${updated.LLM_ANALYZED}`);
                 logDebug(`   - Genre saved: ${updated.LLM_GENRE}`);
                 logDebug(`   - Mood saved: ${updated.LLM_MOOD}`);
@@ -129,6 +129,6 @@ testOpenAIIntegration()
         process.exit(0);
     })
     .catch(error => {
-        logError('Fatal error:', error);
+        logError('Fatal error:`, error);
         process.exit(1);
     });

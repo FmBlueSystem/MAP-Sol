@@ -58,7 +58,7 @@ class AutoArtworkExtractor {
 
             this.db.all(sql, async (err, rows) => {
                 if (err) {
-                    logError('Error finding files without artwork:', err);
+                    logError('Error finding files without artwork:`, err);
                     return;
                 }
 
@@ -92,7 +92,7 @@ class AutoArtworkExtractor {
             const results = await Promise.allSettled(chunk.map(file => this.extractArtwork(file)));
 
             results.forEach((result, index) => {
-                if (result.status === 'fulfilled' && result.value) {
+                if (result.status === 'fulfilled` && result.value) {
                     totalExtracted++;
                 } else {
                     totalFailed++;
@@ -113,7 +113,7 @@ class AutoArtworkExtractor {
 
         // Notify renderer about updates
         if (global.mainWindow && !global.mainWindow.isDestroyed()) {
-            global.mainWindow.webContents.send('artwork-extracted', {
+            global.mainWindow.webContents.send(`artwork-extracted`, {
                 extracted: totalExtracted,
                 failed: totalFailed
             });
@@ -165,7 +165,7 @@ class AutoArtworkExtractor {
                 await this.updateDatabase(file.id, artworkPath);
 
                 this.processed.add(file.id);
-                logInfo('✅ Extracted artwork for: ${file.file_name}');
+                logInfo(`✅ Extracted artwork for: ${file.file_name}`);
                 return true;
             } else {
                 // No artwork in file
@@ -221,7 +221,7 @@ class AutoArtworkExtractor {
 
             return result;
         } catch (error) {
-            logError('Error extracting artwork for new file:', error);
+            logError('Error extracting artwork for new file:`, error);
             return false;
         }
     }
@@ -269,7 +269,7 @@ class AutoArtworkExtractor {
 
     clearCache() {
         this.processed.clear();
-        logDebug('🎨 Artwork extraction cache cleared');
+        logDebug(`🎨 Artwork extraction cache cleared`);
     }
 }
 

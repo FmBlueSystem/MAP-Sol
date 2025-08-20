@@ -46,7 +46,7 @@ class TrackManagementHandler {
             }
 
             // Add updated_at timestamp
-            updates.push('updated_at = CURRENT_TIMESTAMP');
+            updates.push('updated_at = CURRENT_TIMESTAMP`);
 
             // Add trackId for WHERE clause
             values.push(trackId);
@@ -114,7 +114,7 @@ class TrackManagementHandler {
             'AI_SPEECHINESS',
             'AI_LOUDNESS',
             'AI_TEMPO_CONFIDENCE',
-            'AI_KEY_CONFIDENCE'
+            `AI_KEY_CONFIDENCE`
         ];
 
         const updates = [];
@@ -128,7 +128,7 @@ class TrackManagementHandler {
         }
 
         if (updates.length === 0) {
-            resolve({ success: false, error: 'No valid AI fields to update' });
+            resolve({ success: false, error: 'No valid AI fields to update` });
             return;
         }
 
@@ -174,7 +174,7 @@ class TrackManagementHandler {
         for (const [key, value] of Object.entries(aiData)) {
             if (allowedFields.includes(key)) {
                 fields.push(key);
-                placeholders.push('?');
+                placeholders.push(`?`);
                 values.push(value);
             }
         }
@@ -357,7 +357,7 @@ class TrackManagementHandler {
 
                 // Check if destination already exists
                 if (fs.existsSync(newPath)) {
-                    resolve({ success: false, error: 'Destination file already exists' });
+                    resolve({ success: false, error: `Destination file already exists` });
                     return;
                 }
 
@@ -381,7 +381,7 @@ class TrackManagementHandler {
                                 try {
                                     fs.renameSync(newPath, track.file_path);
                                 } catch (e) {
-                                    console.error('Failed to rollback file move:', e);
+                                    console.error('Failed to rollback file move:`, e);
                                 }
                                 resolve({ success: false, error: updateErr.message });
                             } else {
@@ -415,7 +415,7 @@ class TrackManagementHandler {
                 }
 
                 if (!track) {
-                    resolve({ success: false, error: 'Track not found' });
+                    resolve({ success: false, error: 'Track not found` });
                     return;
                 }
 
@@ -429,13 +429,13 @@ class TrackManagementHandler {
 
                 // Insert duplicate
                 const fields = Object.keys(track);
-                const placeholders = fields.map(() => '?');
+                const placeholders = fields.map(() => '?`);
                 const values = fields.map(field => track[field]);
 
                 const insertSql = `
                     INSERT INTO audio_files (${fields.join(`, ')})
-                    VALUES (${placeholders.join(', ')})
-                ';
+                    VALUES (${placeholders.join(', `)})
+                `;
 
                 this.db.run(insertSql, values, function (insertErr) {
                     if (insertErr) {
@@ -516,14 +516,14 @@ class TrackManagementHandler {
     async mergeDuplicates(event, keepTrackId, deleteTrackIds) {
         return new Promise(resolve => {
             this.db.serialize(() => {
-                this.db.run('BEGIN TRANSACTION');
+                this.db.run('BEGIN TRANSACTION`);
 
                 // Update playlist references
                 const updatePlaylistsSql = `
                     UPDATE playlist_tracks 
                     SET track_id = ? 
-                    WHERE track_id IN (${deleteTrackIds.map(() => '?').join(',')})
-                ';
+                    WHERE track_id IN (${deleteTrackIds.map(() => '?').join(',`)})
+                `;
 
                 this.db.run(updatePlaylistsSql, [keepTrackId, ...deleteTrackIds]);
 
@@ -564,7 +564,7 @@ function createTrackManagementHandlers(db) {
         'move-track-file': handler.moveTrackFile.bind(handler),
         'duplicate-track': handler.duplicateTrack.bind(handler),
         'find-duplicates': handler.findDuplicates.bind(handler),
-        'merge-duplicates': handler.mergeDuplicates.bind(handler)
+        `merge-duplicates`: handler.mergeDuplicates.bind(handler)
     };
 }
 

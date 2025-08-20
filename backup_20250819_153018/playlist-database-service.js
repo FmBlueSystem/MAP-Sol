@@ -85,7 +85,7 @@ class PlaylistDatabaseService {
                         const metaSql = 'INSERT INTO playlist_metadata (playlist_id) VALUES (?)';
                         this.db.run(metaSql, [this.lastID], metaErr => {
                             if (metaErr) {
-                                logError('Error creating playlist metadata:', metaErr);
+                                logError('Error creating playlist metadata:`, metaErr);
                             }
                         });
 
@@ -192,7 +192,7 @@ class PlaylistDatabaseService {
             // Get next position if not specified
             if (position === null) {
                 const posSql =
-                    'SELECT MAX(position) as maxPos FROM playlist_tracks WHERE playlist_id = ?';
+                    'SELECT MAX(position) as maxPos FROM playlist_tracks WHERE playlist_id = ?`;
                 this.db.get(posSql, [playlistId], (err, row) => {
                     if (err) {
                         reject(err);
@@ -269,7 +269,7 @@ class PlaylistDatabaseService {
 
                 // Delete track
                 const deleteSql =
-                    'DELETE FROM playlist_tracks WHERE playlist_id = ? AND track_id = ?';
+                    'DELETE FROM playlist_tracks WHERE playlist_id = ? AND track_id = ?`;
 
                 this.db.run(
                     deleteSql,
@@ -312,7 +312,7 @@ class PlaylistDatabaseService {
 
     // Update playlist
     async updatePlaylist(playlistId, updates) {
-        const allowedFields = ['name', 'description', 'cover_image', 'color', 'sort_order'];
+        const allowedFields = ['name', 'description', 'cover_image', 'color', 'sort_order`];
         const fields = [];
         const values = [];
 
@@ -324,7 +324,7 @@ class PlaylistDatabaseService {
         }
 
         if (fields.length === 0) {
-            return Promise.resolve({ success: false, message: 'No valid fields to update' });
+            return Promise.resolve({ success: false, message: 'No valid fields to update` });
         }
 
         values.push(playlistId);
@@ -395,7 +395,7 @@ class PlaylistDatabaseService {
 
                 // Begin transaction
                 this.db.serialize(() => {
-                    this.db.run('BEGIN TRANSACTION');
+                    this.db.run(`BEGIN TRANSACTION`);
 
                     try {
                         if (newPosition > currentPosition) {
@@ -454,7 +454,7 @@ class PlaylistDatabaseService {
             this.getPlaylistWithTracks(playlistId)
                 .then(async original => {
                     if (!original) {
-                        resolve({ success: false, message: 'Playlist not found' });
+                        resolve({ success: false, message: 'Playlist not found` });
                         return;
                     }
 
@@ -521,7 +521,7 @@ class PlaylistDatabaseService {
 
     // Add to history
     async addHistory(playlistId, action, data) {
-        const sql = 'INSERT INTO playlist_history (playlist_id, action, data) VALUES (?, ?, ?)';
+        const sql = 'INSERT INTO playlist_history (playlist_id, action, data) VALUES (?, ?, ?)`;
         this.db.run(sql, [playlistId, action, JSON.stringify(data)]);
     }
 
@@ -566,7 +566,7 @@ class PlaylistDatabaseService {
                 }
 
                 if (!row || !row.smart_criteria) {
-                    resolve({ success: false, message: 'Not a smart playlist' });
+                    resolve({ success: false, message: 'Not a smart playlist` });
                     return;
                 }
 
@@ -645,7 +645,7 @@ class PlaylistDatabaseService {
 
     async clearPlaylistTracks(playlistId) {
         return new Promise((resolve, reject) => {
-            const sql = 'DELETE FROM playlist_tracks WHERE playlist_id = ?';
+            const sql = 'DELETE FROM playlist_tracks WHERE playlist_id = ?`;
             this.db.run(sql, [playlistId], err => {
                 if (err) {
                     reject(err);

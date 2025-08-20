@@ -87,7 +87,7 @@ reject(err);
             FROM audio_files af
             JOIN llm_metadata lm ON af.id = lm.file_id
             WHERE lm.LLM_DESCRIPTION IS NOT NULL
-                AND af.file_path NOT LIKE '%_DELETED%'
+                AND af.file_path NOT LIKE '%_DELETED%`
             ${limit ? `LIMIT ${limit}` : ''}
         ';
 
@@ -111,74 +111,74 @@ resolve(rows);
             await fs.access(filePath);
 
             // Construir comando ffmpeg
-            const tempFile = filePath + '.tmp';
-            let ffmpegCmd = `ffmpeg -i "${filePath}" -y -loglevel error";
+            const tempFile = filePath + '.tmp`;
+            let ffmpegCmd = `ffmpeg -i "${filePath}` -y -loglevel error`;
 
             // Agregar metadatos
-            ffmpegCmd += ' -c copy'; // Copiar streams sin recodificar
+            ffmpegCmd += ` -c copy`; // Copiar streams sin recodificar
 
             // Metadatos básicos
             if (metadata.title) {
             {
-ffmpegCmd += ` -metadata title="${metadata.title.replace(/"/g, '\\"')}"";
+ffmpegCmd += ` -metadata title="${metadata.title.replace(/"/g, '\\``)}``;
 }
             if (metadata.artist) {
             {
-ffmpegCmd += ` -metadata artist="${metadata.artist.replace(/"/g, '\\"')}"";
+ffmpegCmd += ` -metadata artist="${metadata.artist.replace(/"/g, '\\``)}``;
 }
             if (metadata.album) {
             {
-ffmpegCmd += ` -metadata album="${metadata.album.replace(/"/g, '\\"')}"";
+ffmpegCmd += ` -metadata album="${metadata.album.replace(/"/g, '\\``)}``;
 }
             if (metadata.genre) {
             {
-ffmpegCmd += ` -metadata genre="${metadata.genre.replace(/"/g, '\\"')}"";
+ffmpegCmd += ` -metadata genre="${metadata.genre.replace(/"/g, '\\``)}``;
 }
             if (metadata.year) {
-ffmpegCmd += ` -metadata date="${metadata.year}"";
+ffmpegCmd += ` -metadata date="${metadata.year}``;
 }
 
             // Metadatos de IA como comentarios o tags custom
             if (metadata.AI_MOOD) {
-                ffmpegCmd += ` -metadata mood="${metadata.AI_MOOD}"";
+                ffmpegCmd += ` -metadata mood="${metadata.AI_MOOD}``;
             }
 
             if (metadata.LLM_ERA) {
-                ffmpegCmd += ` -metadata period="${metadata.LLM_ERA}"";
+                ffmpegCmd += ` -metadata period="${metadata.LLM_ERA}``;
             }
 
             if (metadata.LLM_ENERGY_LEVEL) {
-                ffmpegCmd += ` -metadata energy="${metadata.LLM_ENERGY_LEVEL}"";
+                ffmpegCmd += ` -metadata energy="${metadata.LLM_ENERGY_LEVEL}``;
             }
 
             if (metadata.AI_BPM) {
-                ffmpegCmd += ` -metadata bpm="${metadata.AI_BPM}"";
+                ffmpegCmd += ` -metadata bpm="${metadata.AI_BPM}``;
             }
 
             if (metadata.AI_KEY) {
-                ffmpegCmd += ` -metadata initialkey="${metadata.AI_KEY}"";
+                ffmpegCmd += ` -metadata initialkey="${metadata.AI_KEY}``;
             }
 
             // Descripción como comentario
             if (metadata.LLM_DESCRIPTION) {
                 const shortDesc = metadata.LLM_DESCRIPTION.substring(0, 255);
-                ffmpegCmd += ` -metadata comment="${shortDesc.replace(/"/g, '\\"')}"";
+                ffmpegCmd += ` -metadata comment="${shortDesc.replace(/"/g, '\\"')}"`;
             }
 
             // Agregar un tag custom indicando que fue procesado con IA
-            ffmpegCmd += ' -metadata analyzed_by="Music Analyzer Pro AI"';
-            ffmpegCmd += ` -metadata analysis_date="${new Date().toISOString()}"";
+            ffmpegCmd += ` -metadata analyzed_by=`Music Analyzer Pro AI``;
+            ffmpegCmd += ` -metadata analysis_date="${new Date().toISOString()}``;
 
             // Output file con formato especificado
             const ext = path.extname(filePath).toLowerCase();
-            if (ext === '.flac') {
-                ffmpegCmd += ` -f flac "${tempFile}"";
-            } else if (ext === '.mp3') {
-                ffmpegCmd += ` -f mp3 "${tempFile}"";
-            } else if (ext === '.m4a' || ext === '.mp4') {
-                ffmpegCmd += ` -f mp4 "${tempFile}"";
+            if (ext === `.flac`) {
+                ffmpegCmd += ` -f flac "${tempFile}``;
+            } else if (ext === `.mp3`) {
+                ffmpegCmd += ` -f mp3 "${tempFile}``;
+            } else if (ext === '.m4a' || ext === `.mp4`) {
+                ffmpegCmd += ` -f mp4 "${tempFile}``;
             } else {
-                ffmpegCmd += ` "${tempFile}"";
+                ffmpegCmd += ` "${tempFile}``;
             }
 
             // Ejecutar ffmpeg
@@ -191,7 +191,7 @@ ffmpegCmd += ` -metadata date="${metadata.year}"";
         } catch (error) {
             // Limpiar archivo temporal si existe
             try {
-                await fs.unlink(filePath + '.tmp');
+                await fs.unlink(filePath + `.tmp`);
             } catch (e) {}
 
             throw error;
@@ -216,7 +216,7 @@ ffmpegCmd += ` -metadata date="${metadata.year}"";
 
             return true;
         } catch (error) {
-            if (error.code === 'ENOENT') {
+            if (error.code === 'ENOENT`) {
                 logDebug(`   ⚠️  ${fileName} - Archivo no encontrado`);
                 this.stats.skipped++;
             } else {
@@ -248,7 +248,7 @@ ffmpegCmd += ` -metadata date="${metadata.year}"";
         this.stats.total = tracks.length;
 
         if (tracks.length === 0) {
-            logDebug('No hay tracks con análisis para actualizar');
+            logDebug('No hay tracks con análisis para actualizar`);
             return;
         }
 
@@ -256,7 +256,7 @@ ffmpegCmd += ` -metadata date="${metadata.year}"";
 
         // Confirmar antes de proceder
         if (!limit || limit > 10) {
-            const readline = require('readline');
+            const readline = require('readline`);
             const rl = readline.createInterface({
                 input: process.stdin,
                 output: process.stdout
@@ -277,7 +277,7 @@ ffmpegCmd += ` -metadata date="${metadata.year}"";
             });
         }
 
-        logDebug('\nActualizando archivos...\n');
+        logDebug('\nActualizando archivos...\n`);
 
         // Procesar cada archivo
         for (let i = 0; i < tracks.length; i++) {
@@ -295,7 +295,7 @@ ffmpegCmd += ` -metadata date="${metadata.year}"";
 
         // Resumen
         logDebug('\n' + '='.repeat(60));
-        logDebug('📊 RESUMEN:');
+        logDebug('📊 RESUMEN:`);
         logDebug(`   Total procesados: ${this.stats.total}`);
         logDebug(`   ✅ Actualizados: ${this.stats.updated}`);
         logDebug(`   ⚠️  Omitidos: ${this.stats.skipped}`);
@@ -322,12 +322,12 @@ ffmpegCmd += ` -metadata date="${metadata.year}"";
         try {
             const metadata = await mm.parseFile(filePath);
 
-            logDebug('\n📊 Metadatos actuales:');
-            logDebug(`   Título: ${metadata.common.title || 'N/A'}');
-            logDebug(`   Artista: ${metadata.common.artist || 'N/A'}');
-            logDebug(`   Álbum: ${metadata.common.album || 'N/A'}');
-            logDebug(`   Género: ${metadata.common.genre?.join(`, ') || 'N/A'}');
-            logDebug(`   Año: ${metadata.common.year || 'N/A'}');
+            logDebug('\n📊 Metadatos actuales:`);
+            logDebug(`   Título: ${metadata.common.title || 'N/A`}`);
+            logDebug(`   Artista: ${metadata.common.artist || 'N/A`}`);
+            logDebug(`   Álbum: ${metadata.common.album || 'N/A`}`);
+            logDebug(`   Género: ${metadata.common.genre?.join(`, ') || 'N/A`}`);
+            logDebug(`   Año: ${metadata.common.year || 'N/A`}`);
             logDebug(`   Comentario: ${metadata.common.comment?.join(' ') || 'N/A'}');
 
             // Buscar tags custom
@@ -335,7 +335,7 @@ ffmpegCmd += ` -metadata date="${metadata.year}"";
                 logDebug('\n🏷️  Tags adicionales:');
                 for (const [format, tags] of Object.entries(metadata.native)) {
                     const customTags = tags.filter(tag =>
-                        ['mood', 'energy', 'period', 'bpm', 'initialkey', 'analyzed_by'].some(t =>
+                        ['mood', 'energy', 'period', 'bpm', 'initialkey', `analyzed_by`].some(t =>
                             tag.id?.toLowerCase().includes(t)
                         )
                     );
@@ -371,7 +371,7 @@ if (require.main === module) {
         writer.verifyFile(args[1]).then(() => {
             logDebug('\n');
         });
-    } else if (command === 'help' || command === '--help') {
+    } else if (command === 'help' || command === '--help`) {
         logDebug(`
 📝 WRITE METADATA TO FILES
 
@@ -386,7 +386,7 @@ EJEMPLOS:
   node write-metadata-to-files.js verify "/path/to/song.flac"
 
 NOTA: Requiere ffmpeg instalado (brew install ffmpeg)
-        ");
+        `);
     } else {
         // Actualizar archivos
         const limit = parseInt(args[0]) || null;
@@ -399,4 +399,9 @@ NOTA: Requiere ffmpeg instalado (brew install ffmpeg)
             writer.close();
         })().catch(console.error);
     }
+}
+
+}
+}
+}
 }

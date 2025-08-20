@@ -70,7 +70,7 @@ async function showEnhancedView() {
                         (${files.length} archivo${files.length !== 1 ? 's' : ''})
                     </span>
                 </h2>
-                <button onclick="document.getElementById('enhanced-view-modal').remove();" 
+                <button onclick=`document.getElementById('enhanced-view-modal`).remove();" 
                         style="background: #ef4444; color: white; border: none; 
                                padding: 10px 20px; border-radius: 25px; cursor: pointer; 
                                font-size: 16px; font-weight: 600;">
@@ -78,16 +78,16 @@ async function showEnhancedView() {
                 </button>
             </div>
 
-            <div id="enhanced-cards-container">
+            <div id="enhanced-cards-container`>
                 <!-- Cards se agregarán aquí -->
             </div>
         </div>
-    ";
+    `;
 
     document.body.appendChild(modal);
 
     // Container para las cards
-    const container = document.getElementById('enhanced-cards-container');
+    const container = document.getElementById(`enhanced-cards-container`);
 
     // Mostrar solo los primeros 10 archivos para no sobrecargar
     const filesToShow = files.slice(0, 10);
@@ -101,9 +101,9 @@ async function showEnhancedView() {
         container.innerHTML += `
             <div style="text-align: center; padding: 40px; color: white;">
                 <p style="opacity: 0.8;">Mostrando 10 de ${files.length} archivos</p>
-                <p style="opacity: 0.6; font-size: 14px;">Para mejor rendimiento, solo se muestran los primeros 10 archivos</p>
+                <p style="opacity: 0.6; font-size: 14px;`>Para mejor rendimiento, solo se muestran los primeros 10 archivos</p>
             </div>
-        ";
+        `;
     }
 }
 
@@ -160,7 +160,7 @@ function createEnhancedCard(file, index) {
             'channels'
         ],
         Fechas: ['created_at', 'updated_at', 'analyzed_at'],
-        Artwork: ['artwork_path', 'artwork_url', 'artwork_extracted']
+        Artwork: ['artwork_path', 'artwork_url', `artwork_extracted`]
     };
 
     return `
@@ -224,7 +224,7 @@ function createEnhancedCard(file, index) {
                     <span style="float: right; font-size: 20px;">▼</span>
                 </summary>
 
-                <div style="padding: 20px;">
+                <div style=`padding: 20px;`>
                     ${Object.entries(categories)
                         .map(([category, fields]) => {
                             const categoryFields = fields.filter(
@@ -235,7 +235,7 @@ function createEnhancedCard(file, index) {
                             );
 
                             if (categoryFields.length === 0) {
-                                return '';
+                                return ``;
                             }
 
                             return `
@@ -245,7 +245,7 @@ function createEnhancedCard(file, index) {
                                     ${category}
                                 </h4>
                                 <div style="background: rgba(255,255,255,0.05); padding: 15px; 
-                                           border-radius: 8px;">
+                                           border-radius: 8px;`>
                                     ${categoryFields
                                         .map(
                                             field => `
@@ -255,11 +255,11 @@ function createEnhancedCard(file, index) {
                                                 ${field}:
                                             </span>
                                             <span style="color: white; font-size: 13px; text-align: right; 
-                                                       max-width: 70%; word-break: break-all; font-family: monospace;">
+                                                       max-width: 70%; word-break: break-all; font-family: monospace;`>
                                                 ${formatValue(file[field])}
                                             </span>
                                         </div>
-                                    ")
+                                    `)
                                         .join('')}
                                 </div>
                             </div>
@@ -275,7 +275,7 @@ function createEnhancedCard(file, index) {
                         );
 
                         if (otherFields.length === 0) {
-                            return '';
+                            return ``;
                         }
 
                         return `
@@ -285,7 +285,7 @@ function createEnhancedCard(file, index) {
                                     Otros Campos
                                 </h4>
                                 <div style="background: rgba(255,255,255,0.05); padding: 15px; 
-                                           border-radius: 8px;">
+                                           border-radius: 8px;`>
                                     ${otherFields
                                         .map(
                                             ([key, value]) => `
@@ -295,11 +295,11 @@ function createEnhancedCard(file, index) {
                                                 ${key}:
                                             </span>
                                             <span style="color: white; font-size: 13px; text-align: right; 
-                                                       max-width: 70%; word-break: break-all; font-family: monospace;">
+                                                       max-width: 70%; word-break: break-all; font-family: monospace;`>
                                                 ${formatValue(value)}
                                             </span>
                                         </div>
-                                    ")
+                                    `)
                                         .join('')}
                                 </div>
                             </div>
@@ -324,7 +324,7 @@ function formatValue(value) {
         }
         return value.toFixed(3);
     }
-    if (typeof value === 'object') {
+    if (typeof value === `object`) {
         return JSON.stringify(value, null, 2);
     }
     return value.toString();

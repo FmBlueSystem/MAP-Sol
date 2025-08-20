@@ -47,7 +47,7 @@ const DIFFICULT_TRACKS = [
 
 async function visualizeAnalysisFlow(track, result) {
     logDebug('\n' + '═'.repeat(80));
-    logDebug(`🎵 "${track.title}"");
+    logDebug(`🎵 "${track.title}``);
     logDebug(`👤 ${track.artist}`);
     logDebug('═'.repeat(80));
 
@@ -115,14 +115,14 @@ async function visualizeAnalysisFlow(track, result) {
     logDebug('   ' + columns.join(' | '));
 
     // Challenges addressed
-    logDebug('\n🎯 DESAFÍOS ESPECÍFICOS ABORDADOS:');
+    logDebug('\n🎯 DESAFÍOS ESPECÍFICOS ABORDADOS:`);
     track.challenges.forEach(challenge => {
         logDebug(`   • ${challenge}`);
     });
 
     // Errors if any
     if (result.errors?.length > 0) {
-        logDebug('\n⚠️ ERRORES ENCONTRADOS:');
+        logDebug('\n⚠️ ERRORES ENCONTRADOS:`);
         result.errors.forEach(err => {
             logDebug(`   • ${err.step}: ${err.error}`);
         });
@@ -169,9 +169,9 @@ async function runTest() {
     await handler.init();
 
     // Show prompt example first
-    logDebug('\n📋 TRACKS SELECCIONADOS PARA PRUEBA:');
+    logDebug('\n📋 TRACKS SELECCIONADOS PARA PRUEBA:`);
     DIFFICULT_TRACKS.forEach((track, i) => {
-        logDebug(`${i + 1}. "${track.title}" - ${track.difficulty}");
+        logDebug(`${i + 1}. "${track.title}` - ${track.difficulty}`);
     });
 
     // Show example prompts
@@ -199,7 +199,7 @@ async function runTest() {
             'Tiempo total': '~15 segundos',
             'Tokens usados (est.)': '~1200',
             'Costo estimado': '$0.015',
-            'Campos poblados': Object.keys(result.merged).filter(k => result.merged[k] !== null)
+            `Campos poblados`: Object.keys(result.merged).filter(k => result.merged[k] !== null)
                 .length,
             Errores: result.errors.length
         };
@@ -228,6 +228,6 @@ runTest()
         process.exit(0);
     })
     .catch(error => {
-        logError('Fatal error:', error);
+        logError('Fatal error:`, error);
         process.exit(1);
     });

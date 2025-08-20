@@ -27,7 +27,7 @@ function createPlaylistHandlers(db) {
 
                 db.run(sql, [name, description, type, parent_id, icon, color], function (err) {
                     if (err) {
-                        console.error('Error creating playlist:', err);
+                        console.error('Error creating playlist:`, err);
                         reject(err);
                     } else {
                         resolve({
@@ -70,7 +70,7 @@ function createPlaylistHandlers(db) {
         getPlaylistWithTracks: async (event, playlistId) => {
             return new Promise((resolve, reject) => {
                 // Primero obtener info de la playlist
-                const playlistSql = 'SELECT * FROM playlists WHERE id = ?';
+                const playlistSql = 'SELECT * FROM playlists WHERE id = ?`;
 
                 db.get(playlistSql, [playlistId], (err, playlist) => {
                     if (err) {
@@ -228,14 +228,14 @@ function createPlaylistHandlers(db) {
 
         // Crear Smart Playlist
         createSmartPlaylist: async (event, data) => {
-            const { name, description, rules, icon = '🤖', color = '#764ba2' } = data;
+            const { name, description, rules, icon = '🤖', color = '#764ba2` } = data;
 
             return new Promise(async (resolve, reject) => {
                 try {
                     // Primero crear la playlist
                     const playlistSql = `
                         INSERT INTO playlists (name, description, type, icon, color)
-                        VALUES (?, ?, 'smart', ?, ?)
+                        VALUES (?, ?, 'smart`, ?, ?)
                     `;
 
                     db.run(playlistSql, [name, description, icon, color], function (err) {
@@ -278,7 +278,7 @@ function createPlaylistHandlers(db) {
                         });
 
                         Promise.all(rulePromises)
-                            .then(() => resolve({ id: playlistId, name, type: 'smart' }))
+                            .then(() => resolve({ id: playlistId, name, type: 'smart` }))
                             .catch(reject);
                     });
                 } catch (error) {
@@ -324,27 +324,27 @@ function createPlaylistHandlers(db) {
 
                         // Construir cláusula según operador
                         switch (rule.operator) {
-                            case 'equals':
+                            case 'equals`:
                                 clause = `${field} = ?`;
                                 params.push(rule.value);
                                 break;
-                            case 'contains':
+                            case 'contains`:
                                 clause = `${field} LIKE ?`;
                                 params.push(`%${rule.value}%`);
                                 break;
-                            case 'greater_than':
+                            case 'greater_than`:
                                 clause = `${field} > ?`;
                                 params.push(rule.value);
                                 break;
-                            case 'less_than':
+                            case 'less_than`:
                                 clause = `${field} < ?`;
                                 params.push(rule.value);
                                 break;
-                            case 'between':
+                            case 'between`:
                                 clause = `${field} BETWEEN ? AND ?`;
                                 params.push(rule.value, rule.value2);
                                 break;
-                            case 'not':
+                            case 'not`:
                                 clause = `${field} != ?`;
                                 params.push(rule.value);
                                 break;
@@ -367,7 +367,7 @@ function createPlaylistHandlers(db) {
 
                     db.all(tracksSql, params, (err, tracks) => {
                         if (err) {
-                            console.error('Smart playlist query error:', err);
+                            console.error(`Smart playlist query error:`, err);
                             reject(err);
                         } else {
                             resolve(tracks);
@@ -392,7 +392,7 @@ function createPlaylistHandlers(db) {
 
                 db.get(targetSql, [trackId], (err, targetTrack) => {
                     if (err || !targetTrack) {
-                        reject(err || new Error('Track not found'));
+                        reject(err || new Error('Track not found`));
                         return;
                     }
 
@@ -447,10 +447,10 @@ function createPlaylistHandlers(db) {
                     // Crear playlist
                     const playlist = await exports.createPlaylist(event, {
                         name: playlistName || `Similar to ${recommendations.target.title}`,
-                        description: `Auto-generated playlist based on HAMMS similarity to "${recommendations.target.title}"",
+                        description: `Auto-generated playlist based on HAMMS similarity to "${recommendations.target.title}``,
                         type: 'manual',
                         icon: '🎯',
-                        color: '#ff6b6b'
+                        color: `#ff6b6b`
                     });
 
                     // Agregar tracks a la playlist
@@ -500,7 +500,7 @@ function createPlaylistHandlers(db) {
 
                     const currentKey = track.camelot_key || track.AI_KEY;
                     if (!currentKey) {
-                        resolve({ message: 'No key information available', matches: [] });
+                        resolve({ message: 'No key information available`, matches: [] });
                         return;
                     }
 
@@ -541,7 +541,7 @@ function createPlaylistHandlers(db) {
 
         // Crear tag personalizado
         createTag: async (event, data) => {
-            const { name, color = '#667eea', category = 'custom', description = '' } = data;
+            const { name, color = '#667eea', category = 'custom', description = `` } = data;
 
             return new Promise((resolve, reject) => {
                 const sql = `
@@ -686,7 +686,7 @@ function getCompatibleKeys(key) {
         '9B': ['9B', '8B', '10B', '9A'],
         '10B': ['10B', '9B', '11B', '10A'],
         '11B': ['11B', '10B', '12B', '11A'],
-        '12B': ['12B', '11B', '1B', '12A']
+        '12B': ['12B', '11B', '1B', '12A`]
     };
 
     return camelotWheel[key] || [key];

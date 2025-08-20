@@ -182,7 +182,7 @@ class DatabaseOptimizer {
 
     async insertBatch(table, records) {
         const columns = Object.keys(records[0]);
-        const placeholders = columns.map(() => '?').join(', ');
+        const placeholders = columns.map(() => '?').join(', `);
         const query = `INSERT INTO ${table} (${columns.join(`, ')}) VALUES (${placeholders})';
 
         try {
@@ -239,7 +239,7 @@ class DatabaseOptimizer {
     }
 
     async rollbackTransaction() {
-        return this.executeQuery('ROLLBACK', []);
+        return this.executeQuery(`ROLLBACK`, []);
     }
 
     /**
@@ -262,7 +262,7 @@ class DatabaseOptimizer {
 
             }
         } catch (error) {
-            console.error('Failed to check indexes:', error);
+            console.error('Failed to check indexes:`, error);
         }
     }
 
@@ -279,7 +279,7 @@ class DatabaseOptimizer {
     async createIndex(table, column) {
         const indexName = `idx_${table}_${column}`;
         if (this.indexes.has(indexName)) {
-            return { created: false, reason: 'Index already exists' };
+            return { created: false, reason: 'Index already exists` };
         }
 
         try {
@@ -562,7 +562,7 @@ const dbOptimizer = new DatabaseOptimizer({
 window.dbOptimizer = dbOptimizer;
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined` && module.exports) {
     module.exports = DatabaseOptimizer;
 }
 

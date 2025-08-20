@@ -56,7 +56,7 @@ let splash;
 let configWindow = null;
 
 // Error handler
-process.on('uncaughtException', error => {
+process.on('uncaughtException', (error) => {
     logError('Uncaught Exception:', error);
     // Log to file instead of crashing
     const errorLog = path.join(app.getPath('userData'), 'error.log');
@@ -77,7 +77,7 @@ function createSplashScreen() {
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
-            sandbox: true
+            sandbox: true,
         }
     });
 
@@ -180,16 +180,16 @@ function createWindow() {
             contextIsolation: true,
             sandbox: true,
             webSecurity: true,
-            preload: path.join(__dirname, 'preload-secure.js')
+            preload: path.join(__dirname, 'preload-secure.js'),
         },
-        icon: icon || undefined
+        icon: icon || undefined,
     });
 
     // Configure Content Security Policy
     const cspConfig = new CSPConfig();
     cspConfig.applyToWindow(mainWindow);
     cspConfig.enableViolationReporting(mainWindow);
-    
+
     logInfo('✅ CSP headers configured for ' + cspConfig.environment);
 
     // Load the production HTML file with all features
@@ -199,7 +199,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
 
     // Prevent title changes
-    mainWindow.on('page-title-updated', event => {
+    mainWindow.on('page-title-updated', (event) => {
         event.preventDefault();
     });
 
@@ -216,26 +216,26 @@ function createApplicationMenu() {
             submenu: [
                 {
                     label: 'About MAP',
-                    click: () => showAboutWindow()
+                    click: () => showAboutWindow(),
                 },
                 { type: 'separator' },
                 {
                     label: '⚙️ Audio Configuration',
                     accelerator: 'CmdOrCtrl+Shift+A',
-                    click: () => showAudioConfigWindow()
+                    click: () => showAudioConfigWindow(),
                 },
                 {
                     label: 'Preferences...',
                     accelerator: 'CmdOrCtrl+,',
                     click: () => {
                         mainWindow.webContents.send('open-preferences');
-                    }
+                    },
                 },
                 { type: 'separator' },
                 {
                     label: 'Quit MAP',
                     accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
-                    click: () => app.quit()
+                    click: () => app.quit(),
                 }
             ]
         },
@@ -248,7 +248,7 @@ function createApplicationMenu() {
                 { role: 'cut' },
                 { role: 'copy' },
                 { role: 'paste' },
-                { role: 'selectall' }
+                { role: 'selectall' },
             ]
         },
         {
@@ -262,13 +262,13 @@ function createApplicationMenu() {
                 { role: 'zoomin' },
                 { role: 'zoomout' },
                 { type: 'separator' },
-                { role: 'togglefullscreen' }
+                { role: 'togglefullscreen' },
             ]
         },
         {
             label: 'Window',
             role: 'window',
-            submenu: [{ role: 'minimize' }, { role: 'close' }]
+            submenu: [{ role: 'minimize' }, { role: 'close' }],
         }
     ];
 
@@ -282,7 +282,7 @@ function showAboutWindow() {
         title: 'About MAP',
         message: 'Music Analyzer Pro',
         detail: 'Version 2.0.0\nSecure Edition\n\nProfessional DJ Software\nby BlueSystemIO',
-        buttons: ['OK']
+        buttons: ['OK'],
     });
 }
 
@@ -303,7 +303,7 @@ function showAudioConfigWindow() {
             nodeIntegration: false,
             contextIsolation: true,
             sandbox: true,
-            preload: path.join(__dirname, 'preload-config.js')
+            preload: path.join(__dirname, 'preload-config.js'),
         }
     });
 
@@ -342,9 +342,7 @@ app.whenReady().then(async () => {
         logInfo('✅ Playlist database initialized');
 
         // Initialize auto artwork extractor
-        const artworkExtractor = require('./services/auto-artwork-extractor').getInstance(
-            playlistDb.db
-        );
+        const artworkExtractor = require('./services/auto-artwork-extractor').getInstance(playlistDb.db);
         logInfo('✅ Auto artwork extractor initialized');
 
         // Initialize simple audio handlers
@@ -356,10 +354,7 @@ app.whenReady().then(async () => {
         global.mainWindow = mainWindow;
     } catch (error) {
         logError('Failed to connect to database:', error);
-        dialog.showErrorBox(
-            'Database Error',
-            'Failed to connect to database. The application will exit.'
-        );
+        dialog.showErrorBox('Database Error', 'Failed to connect to database. The application will exit.');
         app.quit();
         return;
     }
@@ -488,7 +483,7 @@ app.whenReady().then(async () => {
                 bmp: 'bmp',
                 existing_bmp: 'existing_bmp',
                 existing_key: 'existing_key',
-                energy_level: 'energy_level'
+                energy_level: 'energy_level',
             };
 
             // Prepare SQL for llm_metadata table
@@ -504,7 +499,7 @@ app.whenReady().then(async () => {
                 AI_INSTRUMENTALNESS: 'AI_INSTRUMENTALNESS',
                 AI_LIVENESS: 'AI_LIVENESS',
                 AI_SPEECHINESS: 'AI_SPEECHINESS',
-                AI_LOUDNESS: 'AI_LOUDNESS'
+                AI_LOUDNESS: 'AI_LOUDNESS',
             };
 
             // Update audio_files table
@@ -538,10 +533,9 @@ app.whenReady().then(async () => {
 
             if (llmUpdates.length > 0) {
                 // Check if record exists
-                const existsResult = await dbService.query(
-                    'SELECT file_id FROM llm_metadata WHERE file_id = ?',
-                    [trackId]
-                );
+                const existsResult = await dbService.query('SELECT file_id FROM llm_metadata WHERE file_id = ?', [
+                    trackId,
+                ]);
 
                 if (existsResult.length > 0) {
                     // Update existing record
@@ -554,11 +548,7 @@ app.whenReady().then(async () => {
                     const insertValues = [trackId];
 
                     for (const [key, field] of Object.entries(llmFieldsMap)) {
-                        if (
-                            updates[key] !== undefined &&
-                            updates[key] !== null &&
-                            updates[key] !== ''
-                        ) {
+                        if (updates[key] !== undefined && updates[key] !== null && updates[key] !== '') {
                             insertFields.push(field);
                             insertValues.push(updates[key]);
                         }
@@ -612,7 +602,7 @@ app.whenReady().then(async () => {
             preloadNext: false,
             crossfade: false,
             bufferSize: 4096,
-            gaplessPlayback: false
+            gaplessPlayback: false,
         };
     }
 
@@ -679,10 +669,7 @@ app.whenReady().then(async () => {
 
             // 3. Get configuration (K-Meter disabled)
             const config = await getAudioConfig();
-            logDebug(
-                '⚙️ Audio config loaded, K-Meter disabled:',
-                config.kMeterEnabled === false
-            );
+            logDebug('⚙️ Audio config loaded, K-Meter disabled:', config.kMeterEnabled === false);
 
             // 4. Create Howler instance with fallbacks
             const sound = new Howl({
@@ -695,7 +682,7 @@ app.whenReady().then(async () => {
                     logInfo('✅ Track loaded successfully');
                     event.sender.send('track-loaded', {
                         duration: sound.duration(),
-                        format: sound._format || 'unknown'
+                        format: sound._format || 'unknown',
                     });
                 },
                 onplay: () => {
@@ -719,18 +706,18 @@ app.whenReady().then(async () => {
                     logError('❌ Load error:', error);
                     event.sender.send('playback-error', {
                         error: 'Failed to load audio file',
-                        details: error
+                        details: error,
                     });
                 },
                 onplayerror: (id, error) => {
                     logError('❌ Play error:', error);
                     event.sender.send('playback-error', {
                         error: 'Failed to play audio file',
-                        details: error
+                        details: error,
                     });
                     // Try fallback to native Audio API
                     fallbackToNativeAudio(sanitized, event);
-                }
+                },
             });
 
             // 5. Store global reference
@@ -746,14 +733,14 @@ app.whenReady().then(async () => {
             return {
                 success: true,
                 duration: sound.duration(),
-                format: sound._format || 'unknown'
+                format: sound._format || 'unknown',
             };
         } catch (error) {
             logError('❌ Play error:', error);
             return {
                 success: false,
                 error: error.message,
-                fallback: 'native'
+                fallback: 'native',
             };
         }
     });
@@ -766,7 +753,7 @@ app.whenReady().then(async () => {
             // This is a basic fallback that may not work for all formats
             event.sender.send('playback-fallback', {
                 message: 'Using fallback player',
-                path: filePath
+                path: filePath,
             });
         } catch (error) {
             logError('❌ Fallback also failed:', error);
@@ -861,7 +848,7 @@ app.whenReady().then(async () => {
                     playing: sound.playing(),
                     duration: sound.duration(),
                     position: sound.seek(),
-                    volume: sound.volume()
+                    volume: sound.volume(),
                 };
             }
             return { success: true, playing: false };
@@ -959,7 +946,7 @@ app.whenReady().then(async () => {
     try {
         const { createBackupHandler } = require('./handlers/backup-handler');
         const backupHandlers = createBackupHandler();
-        
+
         safeIpcHandle('backup-create', backupHandlers['backup-create']);
         safeIpcHandle('backup-incremental', backupHandlers['backup-incremental']);
         safeIpcHandle('backup-restore', backupHandlers['backup-restore']);
@@ -967,7 +954,7 @@ app.whenReady().then(async () => {
         safeIpcHandle('backup-stats', backupHandlers['backup-stats']);
         safeIpcHandle('backup-critical', backupHandlers['backup-critical']);
         safeIpcHandle('backup-schedule', backupHandlers['backup-schedule']);
-        
+
         logInfo('✅ Backup handlers registered successfully');
     } catch (error) {
         logError('Failed to register backup handlers:', error);
@@ -975,10 +962,7 @@ app.whenReady().then(async () => {
 
     // Register normalization handlers
     const normalizationHandlers = require('./handlers/normalization-handler');
-    if (
-        normalizationHandlers &&
-        typeof normalizationHandlers.createNormalizationHandlers === 'function'
-    ) {
+    if (normalizationHandlers && typeof normalizationHandlers.createNormalizationHandlers === 'function') {
         const normHandlers = normalizationHandlers.createNormalizationHandlers(playlistDb.db);
         Object.entries(normHandlers).forEach(([channel, handler]) => {
             safeIpcHandle(channel, handler);
@@ -1035,11 +1019,9 @@ app.whenReady().then(async () => {
         analyzerInstance = new MusicAnalyzer();
         await analyzerInstance.initialize();
 
-        const result = await analyzerInstance.analyzeDirectory(directoryPath, progress => {
+        const result = await analyzerInstance.analyzeDirectory(directoryPath, (progress) => {
             // Send progress updates to renderer
-            logDebug(
-                `Progress: ${progress.percentage}% (${progress.current}/${progress.total})`
-            );
+            logDebug(`Progress: ${progress.percentage}% (${progress.current}/${progress.total})`);
             event.sender.send('analysis-progress', progress);
         });
 
@@ -1049,7 +1031,7 @@ app.whenReady().then(async () => {
         return {
             success: true,
             result: result,
-            results: [] // For consistency with analyze-files
+            results: [], // For consistency with analyze-files
         };
     });
 
@@ -1078,7 +1060,7 @@ app.whenReady().then(async () => {
                     total: total,
                     percentage: Math.round((processed / total) * 100),
                     currentFile: path.basename(filePath),
-                    estimatedTimeRemaining: 0
+                    estimatedTimeRemaining: 0,
                 });
 
                 await analyzerInstance.analyzeFile(filePath);
@@ -1095,7 +1077,7 @@ app.whenReady().then(async () => {
                     total: total,
                     percentage: Math.round((processed / total) * 100),
                     currentFile: path.basename(filePath),
-                    estimatedTimeRemaining: Math.round(estimatedTime)
+                    estimatedTimeRemaining: Math.round(estimatedTime),
                 });
 
                 results.push({ file: filePath, success: true });
@@ -1115,15 +1097,13 @@ app.whenReady().then(async () => {
             result: {
                 total: total,
                 processed: processed,
-                failed: results.filter(r => !r.success).length,
-                duration: duration
+                failed: results.filter((r) => !r.success).length,
+                duration: duration,
             },
-            results: results
+            results: results,
         };
 
-        logDebug(
-            `\n✅ Analysis complete: ${processed}/${total} files in ${Math.round(duration)}s`
-        );
+        logDebug(`\n✅ Analysis complete: ${processed}/${total} files in ${Math.round(duration)}s`);
         return finalResult;
     });
 
@@ -1156,7 +1136,7 @@ app.whenReady().then(async () => {
         const result = await dialog.showOpenDialog(mainWindow, {
             properties: ['openDirectory'],
             title: 'Select Music Folder to Analyze',
-            buttonLabel: 'Select Folder'
+            buttonLabel: 'Select Folder',
         });
 
         if (!result.canceled && result.filePaths.length > 0) {
@@ -1173,9 +1153,9 @@ app.whenReady().then(async () => {
             filters: [
                 {
                     name: 'Audio Files',
-                    extensions: ['mp3', 'm4a', 'flac', 'wav', 'aac', 'ogg', 'opus', 'wma']
+                    extensions: ['mp3', 'm4a', 'flac', 'wav', 'aac', 'ogg', 'opus', 'wma'],
                 },
-                { name: 'All Files', extensions: ['*'] }
+                { name: 'All Files', extensions: ['*'] },
             ]
         });
 
@@ -1188,10 +1168,8 @@ app.whenReady().then(async () => {
     safeIpcHandle('get-all-library-files', async () => {
         try {
             // Get all files from database
-            const files = await dbService.query(
-                'SELECT file_path FROM audio_files WHERE file_path IS NOT NULL'
-            );
-            return { success: true, paths: files.map(f => f.file_path) };
+            const files = await dbService.query('SELECT file_path FROM audio_files WHERE file_path IS NOT NULL');
+            return { success: true, paths: files.map((f) => f.file_path) };
         } catch (error) {
             logError('Error getting library files:', error);
             return { success: false, error: error.message };
@@ -1221,7 +1199,7 @@ app.on('window-all-closed', async () => {
 // Clean up IPC handlers before quitting
 app.on('before-quit', () => {
     // Remove all IPC handlers to prevent duplicate registration on reload
-    registeredHandlers.forEach(channel => {
+    registeredHandlers.forEach((channel) => {
         ipcMain.removeHandler(channel);
     });
     registeredHandlers.clear();

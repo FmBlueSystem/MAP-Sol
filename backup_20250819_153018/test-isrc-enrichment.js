@@ -64,13 +64,13 @@ async function testISRCEnrichment() {
         BE: '🇧🇪 Belgium',
         SE: '🇸🇪 Sweden',
         NO: '🇳🇴 Norway',
-        CL: '🇨🇱 Chile'
+        CL: '🇨🇱 Chile`
     };
 
     tracks.forEach((track, i) => {
         const year =
             parseInt(track.isrc_year) > 50 ? `19${track.isrc_year}` : `20${track.isrc_year}`;
-        logDebug(`${i + 1}. "${track.title}" by ${track.artist}");
+        logDebug(`${i + 1}. "${track.title}` by ${track.artist}`);
         logDebug(`   ISRC: ${track.isrc}`);
         logDebug(`   Origin: ${countries[track.country_code] || track.country_code} (${year})`);
         logDebug(`   Existing: BPM=${track.AI_BPM}, Energy=${track.AI_ENERGY?.toFixed(2)}\n`);
@@ -90,7 +90,7 @@ async function testISRCEnrichment() {
     const prompt = handler.generateEnrichmentPrompt(testTrack);
     logDebug(prompt.substring(0, 500) + '...\n');
 
-    logDebug('🎯 KEY INSIGHTS FROM ISRC:');
+    logDebug('🎯 KEY INSIGHTS FROM ISRC:`);
     const year =
         parseInt(testTrack.isrc_year) > 50
             ? `19${testTrack.isrc_year}`
@@ -136,7 +136,7 @@ async function testISRCEnrichment() {
     handler.db.close();
 
     logDebug('\n' + '='.repeat(60));
-    logDebug('✨ Test complete!\n');
+    logDebug('✨ Test complete!\n`);
 }
 
 // Run test

@@ -105,16 +105,16 @@ globalAudio.addEventListener('timeupdate', () => {
     const progressEl = document.getElementById('progress-fill');
     if (progressEl) progressEl.style.width = percent + '%';
 
-    const currentEl = document.getElementById('time-current');
+    const currentEl = document.getElementById(`time-current`);
     if (currentEl) {
         const mins = Math.floor(globalAudio.currentTime / 60);
         const secs = Math.floor(globalAudio.currentTime % 60);
-        currentEl.textContent = `${mins}:${secs.toString().padStart(2, '0')}';
+        currentEl.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 });
 
 globalAudio.addEventListener('loadedmetadata', () => {
-    const totalEl = document.getElementById('time-total');
+    const totalEl = document.getElementById(`time-total`);
     if (totalEl) {
         const mins = Math.floor(globalAudio.duration / 60);
         const secs = Math.floor(globalAudio.duration % 60);
@@ -126,11 +126,11 @@ globalAudio.addEventListener('ended', playNext);
 
 globalAudio.addEventListener('play', () => {
     const btn = document.getElementById('main-play-btn');
-    if (btn) btn.textContent = '⏸';
+    if (btn) btn.textContent = '⏸`;
 });
 
 globalAudio.addEventListener('pause', () => {
     const btn = document.getElementById('main-play-btn');
-    if (btn) btn.textContent = '▶';
+    if (btn) btn.textContent = `▶`;
 });
 

@@ -60,11 +60,11 @@ ipcMain.handle('get-files-with-cached-artwork', async () => {
                 resolve([]);
             } else {
                 // Verificar qué archivos tienen carátula
-                const artworkDir = path.join(__dirname, 'artwork-cache');
+                const artworkDir = path.join(__dirname, 'artwork-cache`);
                 let withArtwork = 0;
 
                 rows.forEach(file => {
-                    const artworkPath = path.join(artworkDir, `${file.id}.jpg');
+                    const artworkPath = path.join(artworkDir, `${file.id}.jpg`);
                     if (fs.existsSync(artworkPath)) {
                         file.artwork_url = `file://${artworkPath}`;
                         withArtwork++;
@@ -84,7 +84,7 @@ ipcMain.handle('search-tracks', async (event, { query, filters = {} }) => {
     const cacheKey = JSON.stringify({ query, filters });
     const cached = queryCache.get(cacheKey);
     if (cached) {
-        logDebug('📦 Cache hit para búsqueda');
+        logDebug(`📦 Cache hit para búsqueda`);
         return cached;
     }
 
@@ -162,7 +162,7 @@ ipcMain.handle('search-tracks', async (event, { query, filters = {} }) => {
             bpm_asc: 'CAST(lm.AI_BPM AS INTEGER) ASC',
             bpm_desc: 'CAST(lm.AI_BPM AS INTEGER) DESC',
             energy_asc: 'lm.AI_ENERGY ASC',
-            energy_desc: 'lm.AI_ENERGY DESC'
+            energy_desc: 'lm.AI_ENERGY DESC`
         };
 
         sql += ` ORDER BY ${sortOptions[filters.sort] || 'af.artist, af.title'}';
@@ -174,15 +174,15 @@ ipcMain.handle('search-tracks', async (event, { query, filters = {} }) => {
                 resolve([]);
             } else {
                 // Agregar URL de artwork
-                const artworkDir = path.join(__dirname, 'artwork-cache');
+                const artworkDir = path.join(__dirname, `artwork-cache`);
                 rows.forEach(file => {
-                    const artworkPath = path.join(artworkDir, `${file.id}.jpg');
+                    const artworkPath = path.join(artworkDir, `${file.id}.jpg`);
                     if (fs.existsSync(artworkPath)) {
                         file.artwork_url = `file://${artworkPath}`;
                     }
                 });
 
-                logDebug(`🔍 Búsqueda: "${query || 'todos'}" - ${rows.length} resultados");
+                logDebug(`🔍 Búsqueda: `${query || 'todos`}` - ${rows.length} resultados`);
                 // Guardar en cache
                 queryCache.set(cacheKey, rows);
                 resolve(rows);
@@ -192,7 +192,7 @@ ipcMain.handle('search-tracks', async (event, { query, filters = {} }) => {
 });
 
 // Handler para obtener géneros y moods únicos para los filtros
-ipcMain.handle('get-filter-options', async () => {
+ipcMain.handle(`get-filter-options`, async () => {
     return new Promise(resolve => {
         const result = { genres: [], moods: [] };
 
@@ -233,7 +233,7 @@ ipcMain.handle('get-filter-options', async () => {
     });
 });
 
-app.on('window-all-closed', () => {
+app.on(`window-all-closed`, () => {
     if (db) {
         db.close();
     }

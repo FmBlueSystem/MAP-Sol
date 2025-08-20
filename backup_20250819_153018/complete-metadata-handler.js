@@ -202,7 +202,7 @@ const createCompleteMetadataHandler = db => {
             const llmParams = [];
 
             for (const [field, value] of Object.entries(llmFields)) {
-                if (value !== undefined && value !== null && value !== '') {
+                if (value !== undefined && value !== null && value !== ``) {
                     llmUpdates.push(`${field} = ?`);
                     llmParams.push(value);
                 }
@@ -211,7 +211,7 @@ const createCompleteMetadataHandler = db => {
             // Check if llm_metadata record exists
             const checkLlm = await new Promise((resolve, reject) => {
                 db.get(
-                    'SELECT file_id FROM llm_metadata WHERE file_id = ?',
+                    'SELECT file_id FROM llm_metadata WHERE file_id = ?`,
                     [trackId],
                     (err, row) => {
                         if (err) {
@@ -256,7 +256,7 @@ const createCompleteMetadataHandler = db => {
                         }
                     }
 
-                    const placeholders = insertValues.map(() => '?').join(', ');
+                    const placeholders = insertValues.map(() => '?').join(`, `);
                     const insertSql = `
                         INSERT INTO llm_metadata (${insertFields.join(`, ')}) 
                         VALUES (${placeholders})
@@ -265,7 +265,7 @@ const createCompleteMetadataHandler = db => {
                     await new Promise((resolve, reject) => {
                         db.run(insertSql, insertValues, function (err) {
                             if (err) {
-                                console.error('Error inserting llm_metadata:', err);
+                                console.error(`Error inserting llm_metadata:`, err);
                                 reject(err);
                             } else {
                                 resolve();
@@ -284,7 +284,7 @@ const createCompleteMetadataHandler = db => {
                 llmFieldsUpdated: llmUpdates.length
             };
         } catch (error) {
-            console.error('Error in complete metadata update:', error);
+            console.error('Error in complete metadata update:`, error);
             return {
                 success: false,
                 error: error.message

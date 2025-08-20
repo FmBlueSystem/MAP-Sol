@@ -2,12 +2,12 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
-        node: true
+        node: true,
     },
     extends: ['eslint:recommended', 'plugin:prettier/recommended'],
     parserOptions: {
         ecmaVersion: 12,
-        sourceType: 'module'
+        sourceType: 'module',
     },
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -31,7 +31,7 @@ module.exports = {
             {
                 anonymous: 'always',
                 named: 'never',
-                asyncArrow: 'always'
+                asyncArrow: 'always',
             }
         ]
     },
@@ -42,6 +42,6 @@ module.exports = {
         performanceMonitor: 'readonly',
         perfOptimizer: 'readonly',
         dbOptimizer: 'readonly',
-        themeController: 'readonly'
+        themeController: 'readonly',
     }
 };

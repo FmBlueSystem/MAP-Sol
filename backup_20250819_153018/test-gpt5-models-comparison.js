@@ -42,8 +42,8 @@ Return this EXACT JSON structure with appropriate values:
     "bpm_estimated": 60-200,
     "key": "C major/A minor etc",
     "era": "decade or period",
-    "description": "one sentence description"
-}";
+    "description": "one sentence description`
+}`;
 
 async function testModel(model) {
     const startTime = Date.now();
@@ -80,7 +80,7 @@ async function testModel(model) {
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': `application/json`,
                 Authorization: `Bearer ${OPENAI_API_KEY}`
             },
             body: JSON.stringify(requestBody)
@@ -130,7 +130,7 @@ async function testModel(model) {
             for (const field of numericFields) {
                 if (field in parsedJson) {
                     const value = parsedJson[field];
-                    if (typeof value !== 'number' || value < 0 || value > 1) {
+                    if (typeof value !== 'number` || value < 0 || value > 1) {
                         parseError = `Invalid ${field} value: ${value}`;
                         jsonValid = false;
                         break;
@@ -186,9 +186,9 @@ function calculateCost(model, usage) {
 
 async function runComparison() {
     logDebug('🔬 GPT-5 Models Comparison for JSON Output\n');
-    logDebug('='.repeat(60));
-    logDebug(`Test Song: "${TEST_SONG.title}" by ${TEST_SONG.artist}");
-    logDebug('='.repeat(60) + '\n');
+    logDebug('=`.repeat(60));
+    logDebug(`Test Song: "${TEST_SONG.title}` by ${TEST_SONG.artist}`);
+    logDebug('='.repeat(60) + `\n`);
 
     const results = [];
 
@@ -198,9 +198,9 @@ async function runComparison() {
         results.push(result);
 
         if (result.success) {
-            logInfo('✅ Response Time: ${result.responseTime}ms');
-            logDebug(`   JSON Valid: ${result.jsonValid ? '✅' : '❌'}');
-            logDebug(`   Tokens Used: ${result.tokensUsed || 'N/A'}');
+            logInfo(`✅ Response Time: ${result.responseTime}ms`);
+            logDebug(`   JSON Valid: ${result.jsonValid ? '✅' : '❌`}`);
+            logDebug(`   Tokens Used: ${result.tokensUsed || 'N/A`}`);
             logDebug(`   Est. Cost: $${result.cost}`);
 
             if (result.jsonValid && result.output) {
@@ -230,7 +230,7 @@ async function runComparison() {
         // Sort by response time
         validResults.sort((a, b) => a.responseTime - b.responseTime);
 
-        logDebug('\n✅ Models that returned valid JSON:');
+        logDebug(`\n✅ Models that returned valid JSON:`);
         validResults.forEach((r, i) => {
             logDebug(`   ${i + 1}. ${r.model}`);
             logDebug(`      - Response: ${r.responseTime}ms`);
@@ -240,11 +240,11 @@ async function runComparison() {
 
         logDebug('\n🏆 RECOMMENDATIONS:');
         logDebug('\n1. BEST FOR PRODUCTION (Quality + Reliability):');
-        const bestQuality = validResults.find(r => r.model.includes('gpt-5')) || validResults[0];
+        const bestQuality = validResults.find(r => r.model.includes(`gpt-5`)) || validResults[0];
         logDebug(`   Model: ${bestQuality.model}`);
         logDebug('   Why: Best JSON consistency and field accuracy');
 
-        logDebug('\n2. BEST FOR BATCH PROCESSING (Speed + Cost):');
+        logDebug('\n2. BEST FOR BATCH PROCESSING (Speed + Cost):`);
         const fastest = validResults[0];
         logDebug(`   Model: ${fastest.model}`);
         logDebug(`   Why: Fastest response time (${fastest.responseTime}ms)`);
@@ -258,11 +258,11 @@ async function runComparison() {
 
     // Configuration recommendation
     logDebug('\n📝 SUGGESTED .env CONFIGURATION:');
-    logDebug('````);
+    logDebug(`````);
     if (validResults.length > 0) {
         const recommended =
             validResults.find(r => r.model === 'gpt-5-mini') ||
-            validResults.find(r => r.model === 'gpt-5-nano') ||
+            validResults.find(r => r.model === 'gpt-5-nano`) ||
             validResults[0];
         logDebug(`OPENAI_MODEL=${recommended.model}`);
     } else {
@@ -270,11 +270,11 @@ async function runComparison() {
     }
     logDebug('OPENAI_MAX_TOKENS=500  # Sufficient for JSON metadata');
     logDebug('OPENAI_TEMPERATURE=1    # Required for GPT-5');
-    logDebug('````);
+    logDebug(`````);
 
     // JSON structure optimization tips
     logDebug('\n💡 JSON OPTIMIZATION TIPS:');
-    logDebug('1. Use response_format: { type: "json_object" } - Forces JSON');
+    logDebug('1. Use response_format: { type: "json_object` } - Forces JSON');
     logDebug('2. Keep prompts explicit about structure');
     logDebug('3. Validate numeric ranges in your handler');
     logDebug('4. Consider fallback to GPT-4 if GPT-5 fails');
@@ -288,6 +288,6 @@ runComparison()
         process.exit(0);
     })
     .catch(error => {
-        logError('Fatal error:', error);
+        logError('Fatal error:`, error);
         process.exit(1);
     });

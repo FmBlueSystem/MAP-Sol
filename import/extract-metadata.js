@@ -15,19 +15,20 @@ class MetadataExtractor {
         this.failed = [];
         this.cache = [];
     }
-    
+
     async init() {
         return new Promise((resolve, reject) => {
             this.db = new sqlite3.Database(this.dbPath, (err) => {
-                if (err) reject(err);
-                else {
+                if (err) {
+                    reject(err);
+                } else {
                     console.log('✅ Connected to database');
                     this.createTables().then(resolve).catch(reject);
                 }
             });
         });
     }
-    
+
     async createTables() {
         // Ensure tables exist
         const sql = `
@@ -83,33 +84,36 @@ class MetadataExtractor {
             CREATE INDEX IF NOT EXISTS idx_import_genre ON audio_files_import(genre);
             CREATE INDEX IF NOT EXISTS idx_import_hash ON audio_files_import(file_hash);
         `;
-        
+
         return new Promise((resolve, reject) => {
             this.db.exec(sql, (err) => {
-                if (err) reject(err);
-                else resolve();
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
             });
         });
     }
-    
+
     async extractBatch(filePaths) {
         console.log(`\n📦 Processing batch of ${filePaths.length} files...`);
         const startTime = Date.now();
-        
+
         for (let i = 0; i < filePaths.length; i++) {
             const filePath = filePaths[i];
-            
+
             try {
                 const metadata = await this.extractSingle(filePath);
                 if (metadata) {
                     this.cache.push(metadata);
                     this.processed++;
-                    
+
                     // Progress
                     if (this.processed % 10 === 0) {
                         process.stdout.write(`\r✅ Processed: ${this.processed} files (${this.failed.length} failed)`);
                     }
-                    
+
                     // Save to DB periodically
                     if (this.cache.length >= this.saveInterval) {
                         await this.saveToDatabase();
@@ -118,31 +122,31 @@ class MetadataExtractor {
             } catch (error) {
                 this.failed.push({
                     path: filePath,
-                    error: error.message
+                    error: error.message,
                 });
             }
         }
-        
+
         // Save remaining cache
         if (this.cache.length > 0) {
             await this.saveToDatabase();
         }
-        
+
         const duration = ((Date.now() - startTime) / 1000).toFixed(2);
         console.log(`\n⏱️ Batch complete in ${duration}s`);
     }
-    
+
     async extractSingle(filePath) {
         try {
             const metadata = await mm.parseFile(filePath, {
                 skipCovers: true, // Skip covers for speed (we extract them separately)
-                duration: true
+                duration: true,
             });
-            
+
             const stats = await fs.stat(filePath);
             // Skip hash for speed (can be done later if needed)
             const fileHash = null; // await this.calculateHash(filePath);
-            
+
             return {
                 file_path: filePath,
                 file_name: path.basename(filePath),
@@ -183,36 +187,38 @@ class MetadataExtractor {
                 lyrics: metadata.common.lyrics?.[0],
                 mood: metadata.common.mood,
                 energy: this.extractEnergyLevel(metadata),
-                existing_bmp: metadata.common.bpm || metadata.native?.['ID3v2.4']?.find(tag => tag.id === 'TBPM')?.value
+                existing_bmp:
+                    metadata.common.bpm || metadata.native?.['ID3v2.4']?.find((tag) => tag.id === 'TBPM')?.value,
             };
-            
         } catch (error) {
             throw new Error(`Failed to extract metadata: ${error.message}`);
         }
     }
-    
+
     extractEnergyLevel(metadata) {
         // Prioridad 1: Buscar en tags nativos ENERGYLEVEL
-        const energyLevelTag = metadata.native?.['ID3v2.4']?.find(tag => 
-            tag.id === 'TXXX' && tag.value?.description === 'ENERGYLEVEL'
+        const energyLevelTag = metadata.native?.['ID3v2.4']?.find(
+            (tag) => tag.id === 'TXXX' && tag.value?.description === 'ENERGYLEVEL'
         );
         if (energyLevelTag?.value?.text) {
             const energy = parseInt(energyLevelTag.value.text);
-            if (!isNaN(energy)) return energy;
+            if (!isNaN(energy)) {
+                return energy;
+            }
         }
-        
+
         // Prioridad 2: Buscar en el comment "Energy X"
-        const comment = Array.isArray(metadata.common.comment) 
-            ? metadata.common.comment[0] 
-            : metadata.common.comment;
+        const comment = Array.isArray(metadata.common.comment) ? metadata.common.comment[0] : metadata.common.comment;
         if (comment) {
             const energyMatch = comment.match(/Energy\s+(\d+)/i);
             if (energyMatch) {
                 const energy = parseInt(energyMatch[1]);
-                if (!isNaN(energy)) return energy;
+                if (!isNaN(energy)) {
+                    return energy;
+                }
             }
         }
-        
+
         // Prioridad 3: metadata.common.energy
         if (metadata.common.energy) {
             // Si es un valor entre 0-1, convertir a 1-10
@@ -224,10 +230,10 @@ class MetadataExtractor {
                 return Math.round(energy);
             }
         }
-        
+
         // Prioridad 4: Buscar AI_Energy en tags
-        const aiEnergyTag = metadata.native?.['ID3v2.4']?.find(tag => 
-            tag.id === 'TXXX' && tag.value?.description === 'AI_Energy'
+        const aiEnergyTag = metadata.native?.['ID3v2.4']?.find(
+            (tag) => tag.id === 'TXXX' && tag.value?.description === 'AI_Energy'
         );
         if (aiEnergyTag?.value?.text) {
             const energy = parseFloat(aiEnergyTag.value.text);
@@ -235,35 +241,38 @@ class MetadataExtractor {
                 return Math.round(energy * 10);
             }
         }
-        
+
         return null;
     }
-    
+
     async calculateHash(filePath, bytes = 1024 * 1024) {
         // Read first 1MB for hash (faster than full file)
         const buffer = Buffer.alloc(bytes);
         const fd = await fs.open(filePath, 'r');
         await fd.read(buffer, 0, bytes, 0);
         await fd.close();
-        
+
         return crypto.createHash('md5').update(buffer).digest('hex');
     }
-    
+
     async saveToDatabase() {
-        if (this.cache.length === 0) return;
-        
+        if (this.cache.length === 0) {
+            return;
+        }
+
         // Use transaction for better performance
         await new Promise((resolve, reject) => {
             this.db.run('BEGIN TRANSACTION', (err) => {
-                if (err) reject(err);
-                else resolve();
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
             });
         });
-        
-        const placeholders = this.cache.map(() => 
-            '(' + Array(40).fill('?').join(',') + ')'
-        ).join(',');
-        
+
+        const placeholders = this.cache.map(() => '(' + Array(40).fill('?').join(',') + ')').join(',');
+
         const sql = `
             INSERT OR REPLACE INTO audio_files_import (
                 file_path, file_name, title, artist, album, album_artist,
@@ -275,25 +284,53 @@ class MetadataExtractor {
                 encoding_date, tagging_date, lyrics, mood, energy, existing_bmp
             ) VALUES ${placeholders}
         `;
-        
+
         const values = [];
-        this.cache.forEach(track => {
+        this.cache.forEach((track) => {
             values.push(
-                track.file_path, track.file_name, track.title, track.artist,
-                track.album, track.album_artist, track.genre, track.year,
-                track.track_number, track.total_tracks, track.disc_number,
-                track.total_discs, track.duration, track.bitrate,
-                track.sample_rate, track.codec, track.file_extension,
-                track.file_size, track.date_modified, track.bpm, track.key,
-                track.comment, track.rating, track.file_hash, track.has_artwork,
-                track.artwork_format, track.channels, track.bits_per_sample,
-                track.lossless, track.compilation, track.publisher, track.isrc,
-                track.copyright, track.encoded_by, track.encoding_date,
-                track.tagging_date, track.lyrics, track.mood, track.energy,
+                track.file_path,
+                track.file_name,
+                track.title,
+                track.artist,
+                track.album,
+                track.album_artist,
+                track.genre,
+                track.year,
+                track.track_number,
+                track.total_tracks,
+                track.disc_number,
+                track.total_discs,
+                track.duration,
+                track.bitrate,
+                track.sample_rate,
+                track.codec,
+                track.file_extension,
+                track.file_size,
+                track.date_modified,
+                track.bpm,
+                track.key,
+                track.comment,
+                track.rating,
+                track.file_hash,
+                track.has_artwork,
+                track.artwork_format,
+                track.channels,
+                track.bits_per_sample,
+                track.lossless,
+                track.compilation,
+                track.publisher,
+                track.isrc,
+                track.copyright,
+                track.encoded_by,
+                track.encoding_date,
+                track.tagging_date,
+                track.lyrics,
+                track.mood,
+                track.energy,
                 track.existing_bmp
             );
         });
-        
+
         return new Promise((resolve, reject) => {
             this.db.run(sql, values, async (err) => {
                 if (err) {
@@ -316,13 +353,13 @@ class MetadataExtractor {
             });
         });
     }
-    
+
     async close() {
         // Save any remaining cache
         if (this.cache.length > 0) {
             await this.saveToDatabase();
         }
-        
+
         return new Promise((resolve) => {
             this.db.close(() => {
                 console.log('✅ Database connection closed');
@@ -330,25 +367,22 @@ class MetadataExtractor {
             });
         });
     }
-    
+
     printSummary() {
         console.log('\n' + '='.repeat(50));
         console.log('📊 METADATA EXTRACTION COMPLETE');
         console.log('='.repeat(50));
         console.log(`✅ Successfully processed: ${this.processed}`);
         console.log(`❌ Failed: ${this.failed.length}`);
-        
+
         if (this.failed.length > 0 && this.failed.length <= 10) {
             console.log('\n❌ Failed files:');
-            this.failed.forEach(f => {
+            this.failed.forEach((f) => {
                 console.log(`   ${f.path}: ${f.error}`);
             });
         } else if (this.failed.length > 10) {
             console.log(`\n❌ ${this.failed.length} files failed (check metadata-errors.json)`);
-            fs.writeFile(
-                'metadata-errors.json',
-                JSON.stringify(this.failed, null, 2)
-            );
+            fs.writeFile('metadata-errors.json', JSON.stringify(this.failed, null, 2));
         }
     }
 }
@@ -356,28 +390,27 @@ class MetadataExtractor {
 // CLI execution
 if (require.main === module) {
     const extractor = new MetadataExtractor();
-    
+
     (async () => {
         try {
             // Read file list from scanner output
             const fileList = await fs.readFile('music-files.txt', 'utf8');
-            const files = fileList.split('\n').filter(f => f.trim());
-            
+            const files = fileList.split('\n').filter((f) => f.trim());
+
             console.log(`📚 Found ${files.length} files to process`);
-            
+
             await extractor.init();
-            
+
             // Process in batches
             for (let i = 0; i < files.length; i += extractor.batchSize) {
                 const batch = files.slice(i, i + extractor.batchSize);
                 await extractor.extractBatch(batch);
-                
+
                 console.log(`\n📊 Overall progress: ${i + batch.length}/${files.length}`);
             }
-            
+
             extractor.printSummary();
             await extractor.close();
-            
         } catch (error) {
             console.error('Fatal error:', error);
             process.exit(1);

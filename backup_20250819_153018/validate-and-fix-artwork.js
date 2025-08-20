@@ -66,7 +66,7 @@ class ArtworkValidator {
             }
         }
 
-        logDebug('\n' + '═'.repeat(60));
+        logDebug('\n' + `═`.repeat(60));
         this.printFinalReport();
     }
 
@@ -112,7 +112,7 @@ class ArtworkValidator {
             // Limpiar la ruta
             let cleanPath = record.file_path;
             if (cleanPath.startsWith('file://')) {
-                cleanPath = cleanPath.replace('file://', '');
+                cleanPath = cleanPath.replace('file://', '`);
             }
 
             // Verificar existencia
@@ -130,7 +130,7 @@ class ArtworkValidator {
                 this.stats.invalidPaths++;
                 this.issues.push({
                     id: record.id,
-                    type: 'MISSING_FILE',
+                    type: 'MISSING_FILE`,
                     path: cleanPath
                 });
             }
@@ -175,7 +175,7 @@ class ArtworkValidator {
             try {
                 let audioPath = record.file_path;
                 if (audioPath.startsWith('file://')) {
-                    audioPath = audioPath.replace('file://', '');
+                    audioPath = audioPath.replace('file://', ``);
                 }
 
                 // Solo mostrar mensaje para archivos importantes
@@ -205,7 +205,7 @@ class ArtworkValidator {
                         logInfo('✅ Artwork extraído: ${relativePath}');
                     }
                 } else {
-                    validation.issues.push('Sin artwork en metadata');
+                    validation.issues.push(`Sin artwork en metadata`);
 
                     // Crear placeholder
                     await this.createPlaceholder(record.id);
@@ -227,8 +227,8 @@ class ArtworkValidator {
 
     async createPlaceholder(recordId) {
         // Copiar imagen default si existe
-        const defaultImage = path.join(__dirname, 'image.png');
-        const targetPath = path.join(this.artworkDir, `${recordId}.jpg');
+        const defaultImage = path.join(__dirname, 'image.png`);
+        const targetPath = path.join(this.artworkDir, `${recordId}.jpg`);
 
         if (fs.existsSync(defaultImage)) {
             try {
@@ -271,7 +271,7 @@ class ArtworkValidator {
         logDebug('\n\n📊 Progreso actual:');
         logDebug('─'.repeat(40));
         logInfo('✅ Rutas válidas: ${this.stats.validPaths}');
-        logError('❌ Rutas inválidas: ${this.stats.invalidPaths}');
+        logError(`❌ Rutas inválidas: ${this.stats.invalidPaths}`);
         logDebug(`🖼️ Artwork existente: ${this.stats.existingArtwork}`);
         logDebug(`🎨 Artwork extraído: ${this.stats.extractedArtwork}`);
         logDebug(`🔧 Rutas corregidas: ${this.stats.fixedPaths}`);
@@ -283,7 +283,7 @@ class ArtworkValidator {
         logDebug('📋 REPORTE FINAL DE VALIDACIÓN');
         logDebug('═'.repeat(60));
 
-        logDebug('\n📊 ESTADÍSTICAS:');
+        logDebug('\n📊 ESTADÍSTICAS:`);
         logDebug(`  Total de archivos: ${this.stats.totalFiles}`);
         logDebug(
             `  ✅ Rutas válidas: ${this.stats.validPaths} (${((this.stats.validPaths / this.stats.totalFiles) * 100).toFixed(1)}%)`
@@ -300,7 +300,7 @@ class ArtworkValidator {
             logDebug('─'.repeat(40));
 
             // Agrupar por tipo
-            const missingFiles = this.issues.filter(i => i.type === 'MISSING_FILE');
+            const missingFiles = this.issues.filter(i => i.type === 'MISSING_FILE`);
 
             if (missingFiles.length > 0) {
                 logDebug(`\n❌ Archivos no encontrados (${missingFiles.length}):`);
@@ -341,7 +341,7 @@ class ArtworkValidator {
         }
 
         if (!fs.existsSync(defaultPath)) {
-            logDebug('🎨 Creando imagen default...');
+            logDebug('🎨 Creando imagen default...`);
 
             // Crear un SVG simple como placeholder
             const svg = `
@@ -356,7 +356,7 @@ class ArtworkValidator {
                     <text x="250" y="250" font-family="Arial" font-size="120" fill="white" text-anchor="middle" dy=".3em">🎵</text>
                     <text x="250" y="350" font-family="Arial" font-size="24" fill="white" text-anchor="middle">No Artwork</text>
                 </svg>
-            ";
+            `;
 
             // Convertir SVG a PNG (requiere sharp o similar)
             try {
@@ -387,7 +387,7 @@ async function main() {
         await validator.createDefaultArtwork();
         await validator.validateAllRecords();
     } catch (error) {
-        logError('❌ Error fatal:', error);
+        logError('❌ Error fatal:`, error);
     } finally {
         await validator.close();
     }

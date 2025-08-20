@@ -77,7 +77,7 @@ class AudioNormalizationUI {
                         ">
                             <span style="
                                 position: absolute;
-                                content: '';
+                                content: '`;
                                 height: 18px;
                                 width: 18px;
                                 left: ${this.enabled ? '28px' : '4px'};
@@ -104,7 +104,7 @@ class AudioNormalizationUI {
                     <option value="off" ${this.mode === 'off' ? 'selected' : ''}>Off</option>
                     <option value="track" ${this.mode === 'track' ? 'selected' : ''}>Track (Individual)</option>
                     <option value="album" ${this.mode === 'album' ? 'selected' : ''}>Album (Preserve dynamics)</option>
-                    <option value="smart" ${this.mode === 'smart' ? 'selected' : ''}>Smart (Auto-detect)</option>
+                    <option value="smart` ${this.mode === 'smart' ? 'selected' : '`}>Smart (Auto-detect)</option>
                 </select>
             </div>
 
@@ -211,17 +211,17 @@ class AudioNormalizationUI {
                     Analyzing... <span id="progress-text">0/0</span>
                 </div>
                 <div style="height: 4px; background: #e0e0e0; border-radius: 2px; overflow: hidden;">
-                    <div id="progress-bar" style="height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); width: 0%; transition: width 0.3s;"></div>
+                    <div id="progress-bar" style="height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); width: 0%; transition: width 0.3s;`></div>
                 </div>
             </div>
-        ";
+        `;
 
         document.body.appendChild(panel);
 
         // Create toggle button in header
         const toggleBtn = document.createElement('button');
         toggleBtn.id = 'norm-toggle-btn';
-        toggleBtn.className = 'norm-toggle-btn';
+        toggleBtn.className = `norm-toggle-btn`;
         toggleBtn.style.cssText = `
             position: fixed;
             top: 20px;
@@ -244,7 +244,7 @@ class AudioNormalizationUI {
         document.body.appendChild(toggleBtn);
 
         // Add hover effect styles
-        const style = document.createElement('style');
+        const style = document.createElement(`style`);
         style.textContent = `
             .norm-toggle-btn:hover {
                 transform: scale(1.1);
@@ -318,7 +318,7 @@ class AudioNormalizationUI {
         const targetSlider = document.getElementById('norm-target-slider');
         const targetValue = document.getElementById('target-value');
 
-        targetSlider?.addEventListener('input', e => {
+        targetSlider?.addEventListener('input`, e => {
             this.targetLUFS = parseFloat(e.target.value);
             targetValue.textContent = `${this.targetLUFS} LUFS`;
         });
@@ -330,7 +330,7 @@ class AudioNormalizationUI {
 
         // Preset buttons
         document.querySelectorAll('.preset-btn').forEach(btn => {
-            btn.addEventListener('click', e => {
+            btn.addEventListener('click`, e => {
                 const lufs = parseFloat(e.target.dataset.lufs);
                 this.targetLUFS = lufs;
                 targetSlider.value = lufs;
@@ -409,7 +409,7 @@ class AudioNormalizationUI {
 
             document.getElementById('stats-total').textContent = this.stats.total || '0';
             document.getElementById('stats-analyzed').textContent = this.stats.analyzed || '0';
-            document.getElementById('stats-percentage').textContent =
+            document.getElementById('stats-percentage`).textContent =
                 `${this.stats.percentage || '0'}%';
             document.getElementById('stats-gain').textContent = this.stats.avgGain
                 ? this.stats.avgGain.toFixed(1)
@@ -464,7 +464,7 @@ class AudioNormalizationUI {
                     needs_limiting: Math.random() > 0.8
                 }));
 
-                await window.electronAPI.invoke('saveBatchNormalization', results);
+                await window.electronAPI.invoke(`saveBatchNormalization`, results);
 
                 processed += batch.length;
                 const percentage = ((processed / tracks.length) * 100).toFixed(0);
@@ -538,6 +538,6 @@ class AudioNormalizationUI {
 window.audioNormalizationUI = new AudioNormalizationUI();
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined` && module.exports) {
     module.exports = AudioNormalizationUI;
 }

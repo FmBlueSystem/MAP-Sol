@@ -11,7 +11,7 @@ class VirtualScroller {
             bufferSize: config.bufferSize || 5,
             renderItem: config.renderItem,
             loadMore: config.loadMore || null,
-            debug: config.debug || false
+            debug: config.debug || false,
         };
 
         this.items = [];
@@ -136,8 +136,8 @@ class VirtualScroller {
         this.scrollContainer.appendChild(sentinel);
 
         this.intersectionObserver = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
+            (entries) => {
+                entries.forEach((entry) => {
                     if (entry.isIntersecting && this.config.loadMore) {
                         this.config.loadMore();
                     }
@@ -206,7 +206,7 @@ class VirtualScroller {
             start: bufferStart,
             end: bufferEnd,
             visibleStart: start,
-            visibleEnd: end
+            visibleEnd: end,
         };
     }
 
@@ -241,7 +241,7 @@ class VirtualScroller {
         this.emitEvent('render', {
             start: range.visibleStart,
             end: range.visibleEnd,
-            total: this.items.length
+            total: this.items.length,
         });
     }
 
@@ -252,8 +252,7 @@ class VirtualScroller {
         }
 
         const element = this.getItemElement();
-        const top =
-            index * this.config.itemHeight - this.visibleRange.start * this.config.itemHeight;
+        const top = index * this.config.itemHeight - this.visibleRange.start * this.config.itemHeight;
 
         element.style.transform = `translateY(${top}px)`;
         element.style.height = `${this.config.itemHeight}px`;
@@ -346,7 +345,7 @@ class VirtualScroller {
         const top = index * this.config.itemHeight;
         this.scrollContainer.scrollTo({
             top,
-            behavior
+            behavior,
         });
     }
 
@@ -360,11 +359,7 @@ class VirtualScroller {
 
     getVisibleItems() {
         const items = [];
-        for (
-            let i = this.visibleRange.visibleStart;
-            i <= this.visibleRange.visibleEnd && i < this.items.length;
-            i++
-        ) {
+        for (let i = this.visibleRange.visibleStart; i <= this.visibleRange.visibleEnd && i < this.items.length; i++) {
             items.push(this.items[i]);
         }
         return items;

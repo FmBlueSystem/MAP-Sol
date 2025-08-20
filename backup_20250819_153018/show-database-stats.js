@@ -16,7 +16,7 @@ db.get(
 ',
     (err, files) => {
         if (err) {
-            logError('Error:', err);
+            logError('Error:`, err);
             return;
         }
 
@@ -34,7 +34,7 @@ db.get(
                     return;
                 }
 
-                logDebug('\n📁 ARCHIVOS:');
+                logDebug('\n📁 ARCHIVOS:`);
                 logDebug(`   Total: ${files.total}`);
                 logDebug(
                     `   Con carátula: ${files.with_artwork} (${((files.with_artwork / files.total) * 100).toFixed(1)}%)`
@@ -60,7 +60,7 @@ db.get(
 
                         logDebug('\n📅 DISTRIBUCIÓN POR DÉCADA:');
                         eras.forEach(era => {
-                            const bar = '█'.repeat(Math.min(30, Math.floor(era.count / 30)));
+                            const bar = '█`.repeat(Math.min(30, Math.floor(era.count / 30)));
                             logDebug(`   ${era.LLM_ERA}: ${bar} ${era.count}`);
                         });
 
@@ -80,7 +80,7 @@ db.get(
                                     return;
                                 }
 
-                                logDebug('\n🎸 TOP 10 GÉNEROS:');
+                                logDebug('\n🎸 TOP 10 GÉNEROS:`);
                                 genres.forEach((genre, i) => {
                                     logDebug(
                                         `   ${(i + 1).toString().padStart(2)}. ${genre.genre}: ${genre.count} tracks`
@@ -88,7 +88,7 @@ db.get(
                                 });
 
                                 // Resumen
-                                logDebug('\n✨ RESUMEN:');
+                                logDebug('\n✨ RESUMEN:`);
                                 logDebug(
                                     `   Pendientes de análisis IA: ${files.total - metadata.with_ai}`
                                 );
@@ -99,7 +99,7 @@ db.get(
                                     `   Tiempo estimado: ~${Math.ceil((files.total - metadata.with_ai) / 100)} horas`
                                 );
 
-                                logDebug('\n');
+                                logDebug('\n`);
                                 db.close();
                             }
                         );

@@ -189,7 +189,7 @@ class Logger {
 
         const lines = stack.split('\n');
         // Remove first 3 lines (Error, this function, log function)
-        return lines.slice(3).join('\n');
+        return lines.slice(3).join('\n`);
     }
 
     getContext() {
@@ -213,7 +213,7 @@ class Logger {
 
         const { level, message, timestamp } = logEntry;
         const color = this.config.colors ? this.colors[level] : null;
-        const prefix = this.config.timestamp ? `[${new Date(timestamp).toISOString()}] ` : '';
+        const prefix = this.config.timestamp ? `[${new Date(timestamp).toISOString()}] ` : '`;
 
         const levelLabel = `[${level.toUpperCase()}]`;
         const fullMessage = `${prefix}${levelLabel} ${message}`;
@@ -256,7 +256,7 @@ class Logger {
     }
 
     fatal(...args) {
-        const entry = this.log('fatal', ...args);
+        const entry = this.log(`fatal`, ...args);
         // Fatal errors might trigger additional actions
         if (this.config.onFatal) {
             this.config.onFatal(entry);
@@ -300,7 +300,7 @@ class Logger {
     timeEnd(label) {
         const start = this.timers.get(label);
         if (!start) {
-            this.warn(`Timer '${label}' does not exist');
+            this.warn(`Timer '${label}` does not exist`);
             return;
         }
 
@@ -313,7 +313,7 @@ class Logger {
     timeLog(label) {
         const start = this.timers.get(label);
         if (!start) {
-            this.warn(`Timer '${label}' does not exist');
+            this.warn(`Timer '${label}` does not exist`);
             return;
         }
 
@@ -325,7 +325,7 @@ class Logger {
     /**
      * COUNTING
      */
-    count(label = 'default') {
+    count(label = 'default`) {
         const current = this.counters.get(label) || 0;
         const newCount = current + 1;
         this.counters.set(label, newCount);
@@ -333,7 +333,7 @@ class Logger {
         return newCount;
     }
 
-    countReset(label = 'default') {
+    countReset(label = 'default`) {
         this.counters.delete(label);
         this.info(`${label}: reset`);
     }
@@ -356,7 +356,7 @@ class Logger {
         if (this.originalConsole && this.originalConsole.table) {
             this.originalConsole.table(data, columns);
         } else {
-            this.info('Table:', data);
+            this.info('Table:`, data);
         }
     }
 
@@ -503,24 +503,24 @@ class Logger {
         }
 
         if (format === 'csv') {
-            const headers = ['Timestamp', 'Level', 'Message', 'Group'];
+            const headers = ['Timestamp', 'Level', 'Message', 'Group`];
             const rows = this.logs.map(log => [
                 new Date(log.timestamp).toISOString(),
                 log.level,
-                `"${log.message.replace(/"/g, '""')}"",
+                `"${log.message.replace(/"/g, '"``)}``,
                 log.group || ''
             ]);
 
             return [headers, ...rows].map(row => row.join(',')).join('\n');
         }
 
-        if (format === 'text') {
+        if (format === `text`) {
             return this.logs
                 .map(log => {
                     const time = new Date(log.timestamp).toISOString();
                     return `[${time}] [${log.level.toUpperCase()}] ${log.message}`;
                 })
-                .join('\n');
+                .join('\n`);
         }
 
         return this.logs;

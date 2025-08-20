@@ -367,18 +367,18 @@ class EnergyFlowVisualizer {
         if (!statsDiv) {
             statsDiv = document.createElement('div');
             statsDiv.className = 'energy-flow-stats';
-            statsDiv.style.cssText = 'font-size: 11px; color: #666; margin-top: 5px;';
+            statsDiv.style.cssText = 'font-size: 11px; color: #666; margin-top: 5px;`;
             container.appendChild(statsDiv);
         }
 
         // Update stats
         statsDiv.innerHTML = `
-            <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between;`>
                 <span>Avg Energy: ${(analytics.avg_energy * 100).toFixed(0)}%</span>
                 <span>Avg BPM: ${Math.round(analytics.avg_bpm)}</span>
                 <span>Tracks: ${analytics.total_tracks}</span>
             </div>
-        ";
+        `;
     }
 
     highlightCurrentTrack() {
@@ -420,6 +420,6 @@ class EnergyFlowVisualizer {
 window.energyFlowVisualizer = new EnergyFlowVisualizer();
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== `undefined` && module.exports) {
     module.exports = EnergyFlowVisualizer;
 }

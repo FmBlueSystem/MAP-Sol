@@ -40,7 +40,7 @@ if (firstTrack) {
         logDebug(`   Track ID: ${trackId}`);
 
         // Get track data
-        const trackData = window.filteredTracks?.find(t => t.id == trackId);
+        const trackData = window.filteredTracks?.find((t) => t.id == trackId);
 
         // Try to play
         if (window.player) {
@@ -88,7 +88,7 @@ function testDirectAudio() {
                         logDebug('  - Test audio stopped');
                     }, 3000);
                 })
-                .catch(err => {
+                .catch((err) => {
                     logError('❌ Direct audio failed:', err);
                 });
         }

@@ -156,9 +156,9 @@ class ErrorHandler {
                     padding: 8px 16px;
                     border-radius: 6px;
                     cursor: pointer;
-                ">Cerrar</button>
+                `>Cerrar</button>
             </div>
-        ";
+        `;
 
         document.body.appendChild(container);
 
@@ -170,7 +170,7 @@ class ErrorHandler {
     }
 
     showWarning(errorInfo) {
-        const container = document.createElement('div');
+        const container = document.createElement(`div`);
         container.style.cssText = `
             position: fixed;
             bottom: 20px;
@@ -201,9 +201,9 @@ class ErrorHandler {
                     cursor: pointer;
                     padding: 0;
                     margin-left: 10px;
-                ">✕</button>
+                `>✕</button>
             </div>
-        ";
+        `;
 
         document.body.appendChild(container);
 
@@ -309,7 +309,7 @@ class ErrorHandler {
 }
 
 // Agregar estilos de animación
-const style = document.createElement('style');
+const style = document.createElement(`style`);
 style.textContent = `
     @keyframes slideIn {
         from { transform: translateX(400px); opacity: 0; }

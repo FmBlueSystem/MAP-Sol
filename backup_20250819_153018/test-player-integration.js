@@ -39,7 +39,7 @@ const uiElements = {
     'level-right': 'Right channel meter',
     'value-left': 'Left channel value',
     'value-right': 'Right channel value',
-    volumeSlider: 'Volume slider'
+    volumeSlider: 'Volume slider',
 };
 
 logDebug('\nChecking UI elements:');
@@ -66,7 +66,7 @@ if (currentFiles && currentFiles.length > 0) {
         title: currentFiles[0].title,
         artist: currentFiles[0].artist,
         file_path: currentFiles[0].file_path,
-        artwork_url: currentFiles[0].artwork_url
+        artwork_url: currentFiles[0].artwork_url,
     });
     logDebug('\nTo test playback, run: playTrack(0)');
 } else {

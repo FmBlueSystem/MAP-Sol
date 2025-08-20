@@ -18,7 +18,7 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            webSecurity: false // Para cargar imágenes locales
+            webSecurity: false, // Para cargar imágenes locales
         }
     });
 

@@ -81,7 +81,7 @@ PROVIDE COMPREHENSIVE ANALYSIS:
 1. DESCRIPTION (3-4 sentences):
    - Unique characteristics and sound signature
    - Production style and instrumentation
-   - Place in artist's discography and genre evolution
+   - Place in artist`s discography and genre evolution
 
 2. LYRICS ANALYSIS (if applicable):
    - Main theme and narrative
@@ -125,7 +125,7 @@ PROVIDE COMPREHENSIVE ANALYSIS:
    - Is this a compilation track? (Yes/No)
 
 8. ERA AND STYLE:
-   - Musical era (e.g., "Early 90s House")
+   - Musical era (e.g., `Early 90s House`)
    - Subgenres (up to 3)
    - Style period in artist's career
    - Original vs release era if different
@@ -391,7 +391,7 @@ Keep analysis factual, specific, and useful for DJs, music historians, and playl
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${OPENAI_API_KEY}`
+                    `Authorization`: `Bearer ${OPENAI_API_KEY}`
                 },
                 body: JSON.stringify({
                     model: MODELS.COMPLETE,
@@ -401,7 +401,7 @@ Keep analysis factual, specific, and useful for DJs, music historians, and playl
                             content: 'You are a comprehensive music analyst with expertise in lyrics, production, cultural history, and DJ performance. Provide detailed, factual analysis.'
                         },
                         {
-                            role: 'user',
+                            role: 'user`,
                             content: prompt
                         }
                     ],
@@ -418,7 +418,7 @@ Keep analysis factual, specific, and useful for DJs, music historians, and playl
             return data.choices[0].message.content;
 
         } catch (error) {
-            console.error('❌ OpenAI API Error:', error.message);
+            console.error('❌ OpenAI API Error:`, error.message);
             throw error;
         }
     }
@@ -560,7 +560,7 @@ Keep analysis factual, specific, and useful for DJs, music historians, and playl
 
             // Show sample results
             if (analysis.similar_artists?.length > 0) {
-                }');
+                }`);
             }
             if (analysis.lyrics_theme) {
 
@@ -679,7 +679,7 @@ Keep analysis factual, specific, and useful for DJs, music historians, and playl
                     END,
                     RANDOM()
                 LIMIT ?
-            ';
+            `;
 
             this.db.all(sql, [limit], (err, rows) => {
                 if (err) reject(err);

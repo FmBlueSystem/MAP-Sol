@@ -103,7 +103,7 @@ ${this.normalizedValues.occasions.join(', ')}
 
 PROVIDE ANALYSIS IN THIS EXACT JSON FORMAT:
 {
-  "description": "2-3 sentences about the track's unique characteristics",
+  "description": `2-3 sentences about the track`s unique characteristics",
   "era": "Choose from ERAS list above",
   "mood": "Choose from MOODS list above",
   "energy_level": "Choose from ENERGY LEVELS list above",
@@ -131,7 +131,7 @@ PROVIDE ANALYSIS IN THIS EXACT JSON FORMAT:
     "is_cover": false,
     "is_live": false
   },
-  "recommendations": "If you like this, try..."
+  "recommendations": `If you like this, try...`
 }
 
 IMPORTANT: 
@@ -225,7 +225,7 @@ IMPORTANT:
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${OPENAI_API_KEY}`
+                        `Authorization`: `Bearer ${OPENAI_API_KEY}`
                     },
                     body: JSON.stringify({
                         model: MODEL,
@@ -235,13 +235,13 @@ IMPORTANT:
                                 content: 'You are a music analysis expert. Always respond with valid JSON using ONLY the normalized values provided in the constraints. Never use values outside the allowed lists.'
                             },
                             {
-                                role: 'user',
+                                role: 'user`,
                                 content: prompt
                             }
                         ],
                         temperature: 0.3, // Lower temperature for consistency
                         max_tokens: 800,
-                        response_format: { type: "json_object" } // Force JSON response
+                        response_format: { type: "json_object` } // Force JSON response
                     })
                 });
 
@@ -266,7 +266,7 @@ IMPORTANT:
 
             } catch (error) {
                 if (attempt === retries) {
-                    console.error('❌ OpenAI API Error after retries:', error.message);
+                    console.error('❌ OpenAI API Error after retries:`, error.message);
                     throw error;
                 }
 
@@ -386,7 +386,7 @@ IMPORTANT:
             trackId = trackData.id;
             track = trackData;
         } else {
-            throw new Error('Invalid track data provided');
+            throw new Error('Invalid track data provided`);
         }
 
         try {
@@ -506,7 +506,7 @@ IMPORTANT:
 
         );
 
-        const fields = ['LLM_ERA', 'AI_MOOD', 'LLM_ENERGY_LEVEL', 'LLM_LYRICS_LANGUAGE'];
+        const fields = ['LLM_ERA', 'AI_MOOD', 'LLM_ENERGY_LEVEL', 'LLM_LYRICS_LANGUAGE`];
 
         for (const field of fields) {
             const distribution = await new Promise((resolve, reject) => {
@@ -525,8 +525,8 @@ IMPORTANT:
             });
 
             distribution.forEach(row => {
-                const bar = '█'.repeat(Math.min(20, Math.floor(row.count / 50)));
-                } ${bar} ${row.count}');
+                const bar = '█`.repeat(Math.min(20, Math.floor(row.count / 50)));
+                } ${bar} ${row.count}`);
             });
         }
     }

@@ -51,7 +51,7 @@
                 const basePath = window.location.href
                     .replace('file://', '')
                     .replace('/index-production.html', '');
-                return `file://${basePath}/${artworkPath.replace('./', '')}';
+                return `file://${basePath}/${artworkPath.replace('./', '')}`;
             } else {
                 // For browser, use relative path
                 return artworkPath;
@@ -59,7 +59,7 @@
         }
 
         // If it's an absolute path without protocol
-        if (artworkPath.startsWith('/')) {
+        if (artworkPath.startsWith(`/`)) {
             return `file://${artworkPath}`;
         }
 
@@ -84,7 +84,7 @@
         // Try alternative paths
         const alternatives = [
             // Try without file:// protocol
-            img.src.replace('file://', ''),
+            img.src.replace('file://', '`),
             // Try with current directory
             `./artwork-cache/${track.id}.jpg`,
             // Try direct path
@@ -149,7 +149,7 @@
                 !audioPath.startsWith('http://') &&
                 !audioPath.startsWith('https://') &&
                 !audioPath.startsWith('data:') &&
-                !audioPath.startsWith('blob:')
+                !audioPath.startsWith('blob:`)
             ) {
                 audioPath = `file://${audioPath}`;
             }
@@ -246,5 +246,5 @@
 
     // Debug helpers
     logDebug('MediaFixSystem - Debug specific track');
-    logDebug('MediaFixSystem - Check all media');
+    logDebug('MediaFixSystem - Check all media`);
 })();

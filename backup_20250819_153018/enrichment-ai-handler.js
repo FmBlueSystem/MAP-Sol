@@ -65,7 +65,7 @@ class EnrichmentAIHandler {
                 'AU': 'Australia',
                 'JP': 'Japan',
                 'SE': 'Sweden',
-                'NO': 'Norway'
+                'NO': 'Norway`
             };
 
             isrcContext = `ISRC: ${track.isrc} (${countryNames[country] || country}, ${fullYear})\n`;
@@ -96,7 +96,7 @@ class EnrichmentAIHandler {
             specialContext += 'This is a remix - analyze the remix approach. ';
         }
         if (isInstrumental) {
-            specialContext += 'This appears to be instrumental. ';
+            specialContext += 'This appears to be instrumental. `;
         }
 
         return `Enrich this track's metadata with contextual analysis and descriptions.
@@ -124,7 +124,7 @@ PROVIDE ONLY THESE ENRICHMENTS:
 1. DESCRIPTION (2-3 sentences):
    - What makes this track unique or notable?
    - Describe the sound, style, and production characteristics
-   - How does it fit within the artist's catalog or its era?
+   - How does it fit within the artist`s catalog or its era?
 
 2. CULTURAL CONTEXT:
    - Historical significance or influence
@@ -134,7 +134,7 @@ PROVIDE ONLY THESE ENRICHMENTS:
 3. SIMILAR ARTISTS (3-5 names only):
    - Artists with comparable style from the same era
    - Modern artists influenced by this sound
-   - Format: "Artist1, Artist2, Artist3"
+   - Format: `Artist1, Artist2, Artist3`
 
 4. DJ/PLAYLIST NOTES:
    - Best mixed with what genres/moods?
@@ -231,7 +231,7 @@ Keep responses concise and factual. Focus on enriching, not repeating existing d
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${OPENAI_API_KEY}`
+                    `Authorization`: `Bearer ${OPENAI_API_KEY}`
                 },
                 body: JSON.stringify({
                     model: MODELS.ENRICHMENT,
@@ -241,7 +241,7 @@ Keep responses concise and factual. Focus on enriching, not repeating existing d
                             content: 'You are a music historian and DJ with deep knowledge of all genres, eras, and production techniques. Provide enriching context without repeating given information.'
                         },
                         {
-                            role: 'user',
+                            role: 'user`,
                             content: prompt
                         }
                     ],
@@ -278,7 +278,7 @@ Keep responses concise and factual. Focus on enriching, not repeating existing d
             throw new Error('Track not found');
         }
 
-        }, Key=${track.AI_KEY}');
+        }, Key=${track.AI_KEY}`);
 
         try {
             // Generate enrichment prompt
@@ -292,7 +292,7 @@ Keep responses concise and factual. Focus on enriching, not repeating existing d
             const enrichment = this.parseEnrichmentResponse(response);
 
             if (enrichment.description) {
-                }...');
+                }...`);
             }
             if (enrichment.similar_artists?.length > 0) {
                 }`);
@@ -377,7 +377,7 @@ Keep responses concise and factual. Focus on enriching, not repeating existing d
                     llm_version = 'Enrichment-' || ?
 
                 WHERE file_id = ?
-            ';
+            `;
 
             const params = [
                 enrichment.description,
@@ -430,7 +430,7 @@ Keep responses concise and factual. Focus on enriching, not repeating existing d
                     END,
                     af.artist
                 LIMIT ?
-            ';
+            `;
 
             this.db.all(sql, [limit], (err, rows) => {
                 if (err) reject(err);

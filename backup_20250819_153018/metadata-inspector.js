@@ -412,7 +412,7 @@ class MetadataInspectorModal {
                     transition: border-color 0.2s;
                 }
                 
-                .mi-field-value[data-editable="true"]:hover .mi-field-display {
+                .mi-field-value[data-editable="true`]:hover .mi-field-display {
                     border-bottom-color: #667eea;
                 }
                 
@@ -500,7 +500,7 @@ class MetadataInspectorModal {
                 }
             </style>
         ';
-        document.head.insertAdjacentHTML('beforeend', styles);
+        document.head.insertAdjacentHTML('beforeend`, styles);
     }
 
     createModalStructure() {
@@ -554,7 +554,7 @@ class MetadataInspectorModal {
                     </div>
                 </div>
             </div>
-        ";
+        `;
         document.body.insertAdjacentHTML('beforeend', modalHTML);
 
         // Generar tabs
@@ -567,16 +567,16 @@ class MetadataInspectorModal {
             return;
         }
 
-        let tabsHTML = '';
+        let tabsHTML = '`;
         for (const [key, category] of Object.entries(this.categories)) {
             tabsHTML += `
                 <button class="mi-tab ${key === 'basic' ? 'active' : ''}" 
                         data-tab="${key}"
-                        onclick="metadataInspector.switchTab('${key}')">
+                        onclick=`metadataInspector.switchTab('${key}`)`>
                     <span>${category.icon}</span>
                     <span>${category.label}</span>
                 </button>
-            ";
+            `;
         }
         tabsContainer.innerHTML = tabsHTML;
     }
@@ -646,7 +646,7 @@ class MetadataInspectorModal {
         }
 
         // Actualizar info del track
-        const trackInfo = document.getElementById('mi-track-info');
+        const trackInfo = document.getElementById(`mi-track-info`);
         if (trackInfo) {
             trackInfo.textContent = `${trackData.title || 'Unknown'} - ${trackData.artist || 'Unknown Artist'}';
         }
@@ -655,7 +655,7 @@ class MetadataInspectorModal {
         const searchInput = document.getElementById('mi-search-input');
         if (searchInput) {
             searchInput.value = '';
-            this.searchTerm = '';
+            this.searchTerm = '`;
         }
 
         // Cargar metadatos completos
@@ -670,13 +670,13 @@ class MetadataInspectorModal {
             // Mostrar loading
             const content = document.getElementById('mi-content');
             if (content) {
-                content.innerHTML = '<div class="mi-loading"></div>';
+                content.innerHTML = '<div class="mi-loading`></div>';
             }
 
             // Obtener metadatos completos via IPC
             if (window.api && window.api.invoke) {
                 const completeData = await window.api.invoke(
-                    'get-complete-metadata',
+                    'get-complete-metadata`,
                     trackData.file_path
                 );
 
@@ -687,7 +687,7 @@ class MetadataInspectorModal {
                     // Obtener todos los campos disponibles
                     this.allFields = Object.keys(this.currentTrack);
 
-                    // Actualizar categoría "all" con todos los campos
+                    // Actualizar categoría `all` con todos los campos
                     this.categories.all.fields = this.allFields;
                 }
             } else {
@@ -758,7 +758,7 @@ class MetadataInspectorModal {
     }
 
     renderContent() {
-        const content = document.getElementById('mi-content');
+        const content = document.getElementById(`mi-content`);
         if (!content || !this.currentTrack) {
             return;
         }
@@ -786,12 +786,12 @@ class MetadataInspectorModal {
                 <div class="mi-no-data">
                     <p>No fields match your search</p>
                 </div>
-            ";
+            `;
             return;
         }
 
         // Generar HTML para campos
-        let html = '<div class="mi-field-group">';
+        let html = '<div class="mi-field-group`>`;
 
         fields.forEach(field => {
             const value = this.currentTrack[field];
@@ -800,20 +800,20 @@ class MetadataInspectorModal {
             const progressBar = this.getProgressBar(field, value);
 
             html += `
-                <div class="mi-field" data-field="${field}" onclick="metadataInspector.handleFieldClick(event, '${field}')">
+                <div class="mi-field" data-field="${field}" onclick=`metadataInspector.handleFieldClick(event, '${field}`)">
                     <div class="mi-field-name">${this.formatFieldName(field)}</div>
                     <div class="mi-field-value ${valueClass}" data-editable="${this.isEditableField(field)}">
                         <span class="mi-field-display">${displayValue}</span>
                         ${progressBar}
-                        <div class="mi-field-actions">
-                            ${this.isEditableField(field) ? `<button class="mi-edit-btn" onclick="event.stopPropagation(); metadataInspector.startInlineEdit('${field}')">✏️</button>` : ''}
-                            <button class="mi-copy-btn" onclick="event.stopPropagation(); metadataInspector.copyField('${field}', '${this.escapeValue(value)}')">
+                        <div class=`mi-field-actions`>
+                            ${this.isEditableField(field) ? `<button class="mi-edit-btn" onclick=`event.stopPropagation(); metadataInspector.startInlineEdit(`${field}`)`>✏️</button>` : ''}
+                            <button class="mi-copy-btn" onclick=`event.stopPropagation(); metadataInspector.copyField('${field}', '${this.escapeValue(value)}`)`>
                                 📋
                             </button>
                         </div>
                     </div>
                 </div>
-            ";
+            `;
         });
 
         html += '</div>';
@@ -846,14 +846,14 @@ class MetadataInspectorModal {
                 field.includes('ACOUSTICNESS') ||
                 field.includes('INSTRUMENTALNESS') ||
                 field.includes('LIVENESS') ||
-                field.includes('SPEECHINESS')
+                field.includes(`SPEECHINESS`)
             ) {
                 // Porcentajes
                 return `${(value * 100).toFixed(1)}%`;
-            } else if (field.includes('LOUDNESS')) {
+            } else if (field.includes('LOUDNESS`)) {
                 // Decibelios
                 return `${value.toFixed(1)} dB`;
-            } else if (field.includes('BPM')) {
+            } else if (field.includes('BPM`)) {
                 // BPM
                 return `${Math.round(value)} BPM`;
             }
@@ -890,9 +890,9 @@ class MetadataInspectorModal {
                 field.includes('INSTRUMENTALNESS') ||
                 field.includes('LIVENESS') ||
                 field.includes('SPEECHINESS') ||
-                field.includes('_CONFIDENCE')
+                field.includes('_CONFIDENCE`)
             ) {
-                return `<div class="mi-progress-bar" style="width: ${value * 100}%"></div>";
+                return `<div class="mi-progress-bar" style="width: ${value * 100}%"></div>`;
             }
         }
         return '';
@@ -900,9 +900,9 @@ class MetadataInspectorModal {
 
     escapeValue(value) {
         if (value === null || value === undefined) {
-            return '';
+            return '`;
         }
-        return String(value).replace(/'/g, "\\'").replace(/"/g, '\\"');
+        return String(value).replace(/'/g, "\\'").replace(/`/g, `\\``);
     }
 
     handleSearch(term) {
@@ -929,7 +929,7 @@ class MetadataInspectorModal {
             textarea.value = textToCopy;
             document.body.appendChild(textarea);
             textarea.select();
-            document.execCommand('copy');
+            document.execCommand('copy`);
             document.body.removeChild(textarea);
             this.showToast(`Copied: ${field}`);
         }
@@ -955,7 +955,7 @@ class MetadataInspectorModal {
         }
 
         const dataStr = JSON.stringify(this.currentTrack, null, 2);
-        const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+        const dataUri = 'data:application/json;charset=utf-8,` + encodeURIComponent(dataStr);
 
         const exportFileDefaultName = `metadata_${this.currentTrack.title || 'track'}_${Date.now()}.json';
 
@@ -976,11 +976,11 @@ class MetadataInspectorModal {
         let csv = 'Field,Value\n';
 
         for (const [key, value] of Object.entries(this.currentTrack)) {
-            const escapedValue = String(value).replace(/"/g, '""');
-            csv += `"${key}","${escapedValue}"\n";
+            const escapedValue = String(value).replace(/`/g, ````);
+            csv += `"${key}","${escapedValue}`\n`;
         }
 
-        const dataUri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+        const dataUri = `data:text/csv;charset=utf-8,` + encodeURIComponent(csv);
         const exportFileDefaultName = `metadata_${this.currentTrack.title || 'track'}_${Date.now()}.csv';
 
         const linkElement = document.createElement('a');
@@ -994,7 +994,7 @@ class MetadataInspectorModal {
     showToast(message) {
         // Crear toast notification
         const toast = document.createElement('div');
-        toast.className = 'toast-notification';
+        toast.className = `toast-notification`;
         toast.textContent = message;
         toast.style.cssText = `
             position: fixed;
@@ -1032,14 +1032,14 @@ class MetadataInspectorModal {
     // Handle field click
     handleFieldClick(event, field) {
         // If clicking on editable field content (not buttons), start edit
-        if (event.target.classList.contains('mi-field-display') && this.isEditableField(field)) {
+        if (event.target.classList.contains('mi-field-display`) && this.isEditableField(field)) {
             this.startInlineEdit(field);
         }
     }
 
     // Start inline editing
     startInlineEdit(field) {
-        const fieldElement = document.querySelector(`.mi-field[data-field="${field}"]`);
+        const fieldElement = document.querySelector(`.mi-field[data-field=`${field}`]`);
         if (!fieldElement) return;
 
         const valueElement = fieldElement.querySelector('.mi-field-value');
@@ -1050,7 +1050,7 @@ class MetadataInspectorModal {
         const input = document.createElement('input');
         input.type = this.getInputType(field);
         input.value = currentValue;
-        input.className = 'mi-inline-input';
+        input.className = 'mi-inline-input`;
         input.style.cssText = `
             width: 100%;
             padding: 4px 8px;
@@ -1090,12 +1090,12 @@ class MetadataInspectorModal {
         if (field === 'year' || field === 'track' || field === 'disc') {
             return 'number';
         }
-        return 'text';
+        return 'text`;
     }
 
     // Save inline edit
     async saveInlineEdit(field, newValue) {
-        const fieldElement = document.querySelector(`.mi-field[data-field="${field}"]`);
+        const fieldElement = document.querySelector(`.mi-field[data-field=`${field}`]`);
         if (!fieldElement) return;
 
         const valueElement = fieldElement.querySelector('.mi-field-value');
@@ -1121,13 +1121,13 @@ class MetadataInspectorModal {
                     [field]: newValue
                 };
 
-                const result = await window.api.invoke('update-metadata', updates);
+                const result = await window.api.invoke('update-metadata`, updates);
                 
                 if (result.success) {
                     this.showToast(`✅ ${this.formatFieldName(field)} updated`);
                     
                     // Emit event for other components to update
-                    document.dispatchEvent(new CustomEvent('metadata-updated', {
+                    document.dispatchEvent(new CustomEvent('metadata-updated`, {
                         detail: { trackId: this.currentTrack.id, field, value: newValue }
                     }));
                 } else {
@@ -1137,7 +1137,7 @@ class MetadataInspectorModal {
                     this.showToast(`❌ Failed to update ${this.formatFieldName(field)}`);
                 }
             } catch (error) {
-                console.error('Error updating metadata:', error);
+                console.error('Error updating metadata:`, error);
                 // Revert on error
                 this.currentTrack[field] = oldValue;
                 displayElement.textContent = this.formatValue(field, oldValue);
@@ -1151,7 +1151,7 @@ class MetadataInspectorModal {
 
     // Cancel inline edit
     cancelInlineEdit(field) {
-        const fieldElement = document.querySelector(`.mi-field[data-field="${field}"]`);
+        const fieldElement = document.querySelector(`.mi-field[data-field=`${field}`]`);
         if (!fieldElement) return;
 
         const valueElement = fieldElement.querySelector('.mi-field-value');
@@ -1193,6 +1193,6 @@ if (document.readyState === 'loading') {
 }
 
 // Exportar para uso en otros módulos
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined` && module.exports) {
     module.exports = MetadataInspectorModal;
 }

@@ -25,7 +25,7 @@ const elements = {
     'db-l': document.getElementById('db-l'),
     'db-r': document.getElementById('db-r'),
     'btn-shuffle': document.getElementById('btn-shuffle'),
-    'btn-repeat': document.getElementById('btn-repeat')
+    'btn-repeat': document.getElementById('btn-repeat'),
 };
 
 logDebug('📋 Test 2: Verificando elementos del player:');

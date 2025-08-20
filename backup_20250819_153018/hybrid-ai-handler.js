@@ -54,7 +54,7 @@ Artist: ${metadata.artist || 'Unknown'}
 Album: ${metadata.album || 'Unknown'}
 Genre: ${metadata.genre || 'Unknown'}
 Year: ${metadata.year || 'Unknown'}
-Duration: ${metadata.duration ? Math.round(metadata.duration) + 's' : 'Unknown'}
+Duration: ${metadata.duration ? Math.round(metadata.duration) + 's' : 'Unknown`}
 
 Return EXACTLY this JSON structure:
 {
@@ -73,8 +73,8 @@ Return EXACTLY this JSON structure:
     "time_signature": "4/4",
     "era": "decade or period",
     "vocal_type": "male/female/instrumental/mixed",
-    "production_quality": "lo-fi/standard/hi-fi/professional"
-}";
+    "production_quality": "lo-fi/standard/hi-fi/professional`
+}`;
     }
 
     /**
@@ -103,7 +103,7 @@ Return EXACTLY this JSON structure:
             specialContext += 'This is a collaboration. Analyze how the artists complement each other. ';
         }
         if (isMultiGenre) {
-            specialContext += 'This blends multiple genres. Identify the fusion elements. ';
+            specialContext += `This blends multiple genres. Identify the fusion elements. `;
         }
 
         return `Provide a deep musical and cultural analysis of this track:
@@ -159,7 +159,7 @@ ${isRemix ? '8. REMIX ANALYSIS:\n   - How does it differ from the original?\n   
 ${isClassical ? '8. CLASSICAL ELEMENTS:\n   - Compositional structure\n   - Performance interpretation' : ''}
 ${isJazz ? '8. JAZZ ELEMENTS:\n   - Improvisation quality\n   - Harmonic complexity' : ''}
 
-Format your response as clear paragraphs, not JSON.';
+Format your response as clear paragraphs, not JSON.`;
     }
 
     /**
@@ -178,7 +178,7 @@ Format your response as clear paragraphs, not JSON.';
                         : 'You are a professional music critic and analyst with deep knowledge of all genres and eras.'
                 },
                 {
-                    role: 'user',
+                    role: 'user`,
                     content: prompt
                 }
             ]
@@ -186,7 +186,7 @@ Format your response as clear paragraphs, not JSON.';
 
         // Model-specific parameters
         if (expectJSON) {
-            requestBody.response_format = { type: "json_object" };
+            requestBody.response_format = { type: `json_object` };
         }
 
         if (isGPT5) {
@@ -202,7 +202,7 @@ Format your response as clear paragraphs, not JSON.';
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${OPENAI_API_KEY}`
+                    `Authorization`: `Bearer ${OPENAI_API_KEY}`
                 },
                 body: JSON.stringify(requestBody)
             });
@@ -220,7 +220,7 @@ Format your response as clear paragraphs, not JSON.';
                     return JSON.parse(content);
                 } catch (e) {
                     console.error('Failed to parse JSON:', content);
-                    throw new Error('Invalid JSON response');
+                    throw new Error('Invalid JSON response`);
                 }
             }
 
@@ -358,7 +358,7 @@ Format your response as clear paragraphs, not JSON.';
 
         // Clean up
         Object.keys(sections).forEach(key => {
-            if (typeof sections[key] === 'string') {
+            if (typeof sections[key] === 'string`) {
                 sections[key] = sections[key].trim();
             }
         });
@@ -465,7 +465,7 @@ Format your response as clear paragraphs, not JSON.';
                     AI_ANALYZED_DATE = datetime('now'),
                     llm_version = ?
                 WHERE file_id = ?
-            ';
+            `;
 
             const params = [
                 // Structured

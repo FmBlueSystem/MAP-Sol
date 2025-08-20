@@ -15,7 +15,7 @@ async function testGPT5() {
         const modelsResponse = await fetch('https://api.openai.com/v1/models', {
             method: 'GET',
             headers: {
-                Authorization: `Bearer ${OPENAI_API_KEY}`
+                Authorization: `Bearer ${OPENAI_API_KEY}`,
             }
         });
 
@@ -27,11 +27,11 @@ async function testGPT5() {
 
         // Check for GPT-5 models
         const gpt5Models = modelsData.data.filter(
-            m => m.id.toLowerCase().includes('gpt-5') || m.id.toLowerCase().includes('gpt5')
+            (m) => m.id.toLowerCase().includes('gpt-5') || m.id.toLowerCase().includes('gpt5')
         );
 
         const gpt4Models = modelsData.data.filter(
-            m => m.id.toLowerCase().includes('gpt-4') || m.id.toLowerCase().includes('gpt4')
+            (m) => m.id.toLowerCase().includes('gpt-4') || m.id.toLowerCase().includes('gpt4')
         );
 
         logDebug('\n📋 Available models summary:');
@@ -41,7 +41,7 @@ async function testGPT5() {
 
         if (gpt5Models.length > 0) {
             logDebug('\n✅ GPT-5 models found:');
-            gpt5Models.forEach(m => {
+            gpt5Models.forEach((m) => {
                 logDebug(`   - ${m.id}`);
                 logDebug(`     Created: ${new Date(m.created * 1000).toLocaleDateString()}`);
                 logDebug(`     Owner: ${m.owned_by}`);
@@ -49,7 +49,7 @@ async function testGPT5() {
         } else {
             logDebug('\n⚠️ No GPT-5 models found in your account');
             logDebug('\n📌 Available GPT-4 models:');
-            gpt4Models.slice(0, 5).forEach(m => {
+            gpt4Models.slice(0, 5).forEach((m) => {
                 logDebug(`   - ${m.id}`);
             });
         }
@@ -62,22 +62,21 @@ async function testGPT5() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${OPENAI_API_KEY}`
+                Authorization: `Bearer ${OPENAI_API_KEY}`,
             },
             body: JSON.stringify({
                 model: 'gpt-5',
                 messages: [
                     {
                         role: 'system',
-                        content: 'You are a helpful assistant.'
+                        content: 'You are a helpful assistant.',
                     },
                     {
                         role: 'user',
-                        content:
-                            'What model are you? Please specify your exact model name and capabilities.'
+                        content: 'What model are you? Please specify your exact model name and capabilities.',
                     }
                 ],
-                max_tokens: 100
+                max_tokens: 100,
             })
         });
 
@@ -107,12 +106,12 @@ async function testGPT5() {
             'gpt-4-turbo',
             'gpt-4-1106-preview',
             'gpt-4',
-            'gpt-3.5-turbo'
+            'gpt-3.5-turbo',
         ];
 
         let bestModel = null;
         for (const modelId of recommendedModels) {
-            if (modelsData.data.some(m => m.id === modelId)) {
+            if (modelsData.data.some((m) => m.id === modelId)) {
                 bestModel = modelId;
                 break;
             }
@@ -141,7 +140,7 @@ testGPT5()
     .then(() => {
         process.exit(0);
     })
-    .catch(error => {
+    .catch((error) => {
         logError('Fatal error:', error);
         process.exit(1);
     });

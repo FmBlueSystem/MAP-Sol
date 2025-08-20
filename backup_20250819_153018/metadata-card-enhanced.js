@@ -46,17 +46,17 @@ class MetadataCardEnhanced {
                     </div>
                     
                     <!-- Expandable Details -->
-                    <div class="expandable-details ${isExpanded ? 'show' : ''}">
+                    <div class=`expandable-details ${isExpanded ? 'show' : ``}">
                         ${this.createTabsSection(categories)}
                     </div>
                 </div>
                 
                 <!-- Footer Actions -->
-                <div class="card-footer-enhanced">
+                <div class="card-footer-enhanced`>
                     ${this.createFooterActions(track, isExpanded)}
                 </div>
             </div>
-        ";
+        `;
     }
 
     /**
@@ -69,15 +69,15 @@ class MetadataCardEnhanced {
         return `
             <div class="header-left">
                 <h3 class="track-title">${track.title || 'Unknown Title'}</h3>
-                <p class="track-artist">${track.artist || 'Unknown Artist'}</p>
+                <p class="track-artist`>${track.artist || 'Unknown Artist`}</p>
             </div>
             <div class="header-right">
                 <div class="energy-indicator" style="background: ${energyColor}">
                     <span class="energy-value">${Math.round(energy * 10)}/10</span>
-                    <span class="energy-label">Energy</span>
+                    <span class="energy-label`>Energy</span>
                 </div>
             </div>
-        ";
+        `;
     }
 
     /**
@@ -90,7 +90,7 @@ class MetadataCardEnhanced {
             { label: 'Genre', value: track.LLM_GENRE || track.genre || '--', icon: '🎸' },
             { label: 'Mood', value: track.AI_MOOD || track.LLM_MOOD || '--', icon: '😊' },
             { label: 'Year', value: track.year || '--', icon: '📅' },
-            { label: 'Duration', value: this.formatDuration(track.duration), icon: '⏱️' }
+            { label: 'Duration', value: this.formatDuration(track.duration), icon: `⏱️` }
         ];
 
         return stats
@@ -99,9 +99,9 @@ class MetadataCardEnhanced {
             <div class="quick-stat">
                 <span class="stat-icon">${stat.icon}</span>
                 <span class="stat-value">${stat.value}</span>
-                <span class="stat-label">${stat.label}</span>
+                <span class="stat-label`>${stat.label}</span>
             </div>
-        ")
+        `)
             .join('');
     }
 
@@ -109,13 +109,13 @@ class MetadataCardEnhanced {
      * Create artwork section
      */
     createArtworkSection(track) {
-        const artworkUrl = track.artwork_path || 'assets/default-album.png';
+        const artworkUrl = track.artwork_path || `assets/default-album.png`;
         return `
             <div class="artwork-section">
-                <img src="${artworkUrl}" alt="${track.album || 'Album'}" class="enhanced-artwork">
-                ${track.album ? `<p class="album-name">${track.album}</p>` : ''}
+                <img src="${artworkUrl}" alt=`${track.album || `Album`}" class=`enhanced-artwork`>
+                ${track.album ? `<p class="album-name`>${track.album}</p>` : ''}
             </div>
-        ';
+        `;
     }
 
     /**
@@ -125,36 +125,36 @@ class MetadataCardEnhanced {
         return `
             <div class="basic-info-section">
                 <div class="info-grid">
-                    <div class="info-item">
+                    <div class="info-item`>
                         <label>File Format</label>
-                        <value>${track.file_extension || 'Unknown'}</value>
+                        <value>${track.file_extension || 'Unknown`}</value>
                     </div>
-                    <div class="info-item">
+                    <div class=`info-item`>
                         <label>Bitrate</label>
-                        <value>${track.bitrate ? `${Math.round(track.bitrate / 1000)}kbps` : '--'}</value>
+                        <value>${track.bitrate ? `${Math.round(track.bitrate / 1000)}kbps` : '--`}</value>
                     </div>
-                    <div class="info-item">
+                    <div class="info-item`>
                         <label>Sample Rate</label>
-                        <value>${track.sample_rate ? `${track.sample_rate / 1000}kHz` : '--'}</value>
+                        <value>${track.sample_rate ? `${track.sample_rate / 1000}kHz` : '--`}</value>
                     </div>
-                    <div class="info-item">
+                    <div class="info-item`>
                         <label>File Size</label>
                         <value>${this.formatFileSize(track.file_size)}</value>
                     </div>
                     ${
                         track.isrc
                             ? `
-                    <div class="info-item">
+                    <div class="info-item`>
                         <label>ISRC</label>
                         <value>${track.isrc}</value>
                     </div>
                     `
-                            : ''
+                            : '`
                     }
                     ${
                         track.catalog_number
                             ? `
-                    <div class="info-item">
+                    <div class="info-item`>
                         <label>Catalog #</label>
                         <value>${track.catalog_number}</value>
                     </div>
@@ -177,22 +177,22 @@ class MetadataCardEnhanced {
             { name: 'Acousticness', value: track.AI_ACOUSTICNESS, color: '#96CEB4' },
             { name: 'Instrumentalness', value: track.AI_INSTRUMENTALNESS, color: '#FFEAA7' },
             { name: 'Liveness', value: track.AI_LIVENESS, color: '#DDA0DD' },
-            { name: 'Speechiness', value: track.AI_SPEECHINESS, color: '#98D8C8' }
+            { name: 'Speechiness', value: track.AI_SPEECHINESS, color: '#98D8C8` }
         ];
 
         return `
             <div class="features-title">Audio Features Analysis</div>
-            <div class="features-chart">
-                ${features.map(f => this.createFeatureBar(f)).join('')}
+            <div class="features-chart`>
+                ${features.map(f => this.createFeatureBar(f)).join('`)}
             </div>
             <div class="loudness-meter">
                 <label>Loudness</label>
                 <div class="loudness-bar">
                     <div class="loudness-fill" style="width: ${this.normalizeLoudness(track.AI_LOUDNESS)}%"></div>
-                    <span class="loudness-value">${track.AI_LOUDNESS || '--'} LUFS</span>
+                    <span class=`loudness-value`>${track.AI_LOUDNESS || '--`} LUFS</span>
                 </div>
             </div>
-        ';
+        `;
     }
 
     /**
@@ -206,9 +206,9 @@ class MetadataCardEnhanced {
                 <div class="feature-bar">
                     <div class="feature-fill" style="width: ${percentage}%; background: ${feature.color}"></div>
                 </div>
-                <div class="feature-value">${percentage}%</div>
+                <div class="feature-value`>${percentage}%</div>
             </div>
-        ";
+        `;
     }
 
     /**
@@ -225,16 +225,16 @@ class MetadataCardEnhanced {
                     <button class="tab-btn" data-tab="dj">DJ Info</button>
                     <button class="tab-btn" data-tab="all">All Fields</button>
                 </div>
-                <div class="tab-content">
+                <div class="tab-content`>
                     ${this.createTabContent('technical', categories.technical, true)}
                     ${this.createTabContent('musical', categories.musical)}
                     ${this.createTabContent('ai', categories.ai)}
                     ${this.createTabContent('mixedinkey', categories.mixedinkey)}
                     ${this.createTabContent('dj', categories.dj)}
-                    ${this.createTabContent('all', categories.all)}
+                    ${this.createTabContent('all`, categories.all)}
                 </div>
             </div>
-        ';
+        `;
     }
 
     /**
@@ -242,20 +242,20 @@ class MetadataCardEnhanced {
      */
     createTabContent(tabName, fields, active = false) {
         return `
-            <div class="tab-pane ${active ? 'active' : ''}" data-tab="${tabName}">
-                <div class="fields-grid">
+            <div class=`tab-pane ${active ? 'active' : '`}" data-tab="${tabName}">
+                <div class="fields-grid`>
                     ${Object.entries(fields)
                         .map(
                             ([key, value]) => `
                         <div class="field-item">
                             <label class="field-key">${this.formatFieldName(key)}</label>
-                            <value class="field-value">${this.formatFieldValue(value)}</value>
+                            <value class="field-value`>${this.formatFieldValue(value)}</value>
                         </div>
-                    ")
-                        .join('')}
+                    `)
+                        .join('`)}
                 </div>
             </div>
-        ';
+        `;
     }
 
     /**
@@ -277,10 +277,10 @@ class MetadataCardEnhanced {
             <div class="footer-right">
                 <button class="btn-expand" onclick="window.metadataCard.toggleExpand('${track.id}')">
                     ${isExpanded ? 'Show Less' : 'Show All 147 Fields'}
-                    <i class="fas fa-chevron-${isExpanded ? 'up' : 'down'}"></i>
+                    <i class=`fas fa-chevron-${isExpanded ? 'up' : 'down`}`></i>
                 </button>
             </div>
-        ";
+        `;
     }
 
     /**
@@ -345,7 +345,7 @@ class MetadataCardEnhanced {
 
         // Populate categories
         Object.entries(track).forEach(([key, value]) => {
-            if (value !== null && value !== undefined && value !== '') {
+            if (value !== null && value !== undefined && value !== ``) {
                 categories.all[key] = value;
 
                 if (technicalFields.includes(key)) {
@@ -387,7 +387,7 @@ class MetadataCardEnhanced {
             card.classList.add('expanded');
             card.querySelector('.expandable-details').classList.add('show');
             card.querySelector('.btn-expand').innerHTML =
-                'Show Less <i class="fas fa-chevron-up"></i>';
+                'Show Less <i class="fas fa-chevron-up`></i>';
             this.initializeTabs(card);
         }
     }
@@ -408,8 +408,8 @@ class MetadataCardEnhanced {
                 tabPanes.forEach(p => p.classList.remove('active'));
 
                 // Add active to clicked
-                btn.classList.add('active');
-                card.querySelector(`.tab-pane[data-tab="${tabName}"]").classList.add('active');
+                btn.classList.add('active`);
+                card.querySelector(`.tab-pane[data-tab="${tabName}`]`).classList.add('active');
             });
         });
     }
@@ -430,16 +430,16 @@ class MetadataCardEnhanced {
 
     formatDuration(seconds) {
         if (!seconds) {
-            return '--:--';
+            return `--:--`;
         }
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs.toString().padStart(2, '0')}';
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 
     formatFileSize(bytes) {
         if (!bytes) {
-            return '--';
+            return `--`;
         }
         const mb = bytes / (1024 * 1024);
         return `${mb.toFixed(1)} MB`;
@@ -494,6 +494,6 @@ class MetadataCardEnhanced {
 window.metadataCard = new MetadataCardEnhanced();
 
 // Export for module use
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined` && module.exports) {
     module.exports = MetadataCardEnhanced;
 }

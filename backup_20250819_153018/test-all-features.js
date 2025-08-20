@@ -55,22 +55,13 @@ logDebug('\n⌨️ 3. VERIFICACIÓN DE SHORTCUTS:');
 logDebug('-'.repeat(50));
 
 test('Space para Play/Pause', htmlContent.includes("e.key === ' '"));
-test(
-    'Flechas para Next/Prev',
-    htmlContent.includes('ArrowRight') && htmlContent.includes('ArrowLeft')
-);
+test('Flechas para Next/Prev', htmlContent.includes('ArrowRight') && htmlContent.includes('ArrowLeft'));
 test('Volumen con flechas', htmlContent.includes('ArrowUp') && htmlContent.includes('ArrowDown'));
 test('M para Mute', htmlContent.includes("e.key === 'm'"));
 test('S para Shuffle', htmlContent.includes("e.key === 's'"));
 test('R para Repeat', htmlContent.includes("e.key === 'r'"));
-test(
-    'Ctrl+F para búsqueda',
-    htmlContent.includes('e.ctrlKey') && htmlContent.includes("e.key === 'f'")
-);
-test(
-    'Ctrl+Shift+L para theme',
-    htmlContent.includes('e.shiftKey') && htmlContent.includes("e.key === 'L'")
-);
+test('Ctrl+F para búsqueda', htmlContent.includes('e.ctrlKey') && htmlContent.includes("e.key === 'f'"));
+test('Ctrl+Shift+L para theme', htmlContent.includes('e.shiftKey') && htmlContent.includes("e.key === 'L'"));
 
 // 4. VERIFICAR CONFIGURACIÓN PWA
 logDebug('\n📱 4. VERIFICACIÓN PWA:');
@@ -90,7 +81,7 @@ logDebug('\n🎨 5. VERIFICACIÓN DE ICONOS:');
 logDebug('-'.repeat(50));
 
 const iconSizes = [16, 32, 72, 96, 128, 144, 152, 180, 192, 384, 512];
-iconSizes.forEach(size => {
+iconSizes.forEach((size) => {
     test(`icon-${size}.png existe`, fs.existsSync(`icons/icon-${size}.png`));
 });
 
@@ -100,10 +91,7 @@ logDebug('-'.repeat(50));
 
 test('AudioProcessor inicializa', htmlContent.includes('window.audioProcessor.initialize()'));
 test('AudioConfigManager carga', htmlContent.includes('new AudioConfigManager()'));
-test(
-    'Conexión con FixedAudioPlayer',
-    htmlContent.includes('window.audioProcessor.connectAudioElement')
-);
+test('Conexión con FixedAudioPlayer', htmlContent.includes('window.audioProcessor.connectAudioElement'));
 test('Compressor configurado', htmlContent.includes('window.audioProcessor.applyConfiguration'));
 
 // 7. VERIFICAR BASE DE DATOS
@@ -124,15 +112,12 @@ db.serialize(() => {
     });
 
     // Verificar metadata AI
-    db.get(
-        'SELECT COUNT(DISTINCT file_id) as analyzed FROM llm_metadata WHERE AI_MOOD IS NOT NULL',
-        (err, row) => {
-            if (row) {
-                test('Archivos con análisis AI > 3000', row.analyzed > 3000);
-                logDebug(`   Archivos analizados: ${row.analyzed}`);
-            }
+    db.get('SELECT COUNT(DISTINCT file_id) as analyzed FROM llm_metadata WHERE AI_MOOD IS NOT NULL', (err, row) => {
+        if (row) {
+            test('Archivos con análisis AI > 3000', row.analyzed > 3000);
+            logDebug(`   Archivos analizados: ${row.analyzed}`);
         }
-    );
+    });
 
     // Cerrar BD
     db.close();

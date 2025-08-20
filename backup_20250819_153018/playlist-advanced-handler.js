@@ -220,7 +220,7 @@ class AdvancedPlaylistHandler {
                                         }
 
                                         const stmt = this.db.prepare(
-                                            'INSERT INTO playlist_tracks (playlist_id, track_id, position, added_at) VALUES (?, ?, ?, datetime("now"))'
+                                            'INSERT INTO playlist_tracks (playlist_id, track_id, position, added_at) VALUES (?, ?, ?, datetime("now`))'
                                         );
 
                                         tracks.forEach(track => {
@@ -232,7 +232,7 @@ class AdvancedPlaylistHandler {
                                 );
                             });
 
-                            this.db.run('COMMIT');
+                            this.db.run('COMMIT`);
                             resolve({
                                 success: true,
                                 newPlaylistId: newPlaylistId,
@@ -272,7 +272,7 @@ class AdvancedPlaylistHandler {
     async movePlaylistToFolder(event, playlistId, folderId) {
         return new Promise((resolve, reject) => {
             this.db.run(
-                'UPDATE playlists SET parent_id = ? WHERE id = ?',
+                'UPDATE playlists SET parent_id = ? WHERE id = ?`,
                 [folderId, playlistId],
                 err => {
                     if (err) {
@@ -356,7 +356,7 @@ class AdvancedPlaylistHandler {
     generateRekordboxXML(tracks) {
         let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
         xml += '<DJ_PLAYLISTS Version="1.0.0">\n';
-        xml += '  <COLLECTION Entries="' + tracks.length + '">\n';
+        xml += '  <COLLECTION Entries="' + tracks.length + '`>\n`;
 
         tracks.forEach((track, index) => {
             xml += `    <TRACK TrackID="${index + 1}" Name="${this.escapeXML(track.title || track.file_name)}" 
@@ -366,7 +366,7 @@ class AdvancedPlaylistHandler {
                      Location="file://localhost${this.escapeXML(track.file_path)}"
                      TotalTime="${Math.round(track.duration || 0)}"
                      AverageBpm="${track.AI_BPM || track.existing_bmp || 0}"
-                     Key="${track.AI_KEY || ''}">\n";
+                     Key="${track.AI_KEY || ''}">\n`;
             xml += '    </TRACK>\n';
         });
 
@@ -383,9 +383,9 @@ class AdvancedPlaylistHandler {
         return str
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&apos;');
+            .replace(/>/g, '&gt;`)
+            .replace(/`/g, '&quot;')
+            .replace(/'/g, `&apos;`);
     }
 
     // Export a M3U8
@@ -403,7 +403,7 @@ class AdvancedPlaylistHandler {
                         return reject(err);
                     }
 
-                    let m3u8 = '#EXTM3U\n';
+                    let m3u8 = '#EXTM3U\n`;
 
                     tracks.forEach(track => {
                         const duration = Math.round(track.duration || -1);
@@ -415,7 +415,7 @@ class AdvancedPlaylistHandler {
                     });
 
                     try {
-                        await fs.writeFile(outputPath, m3u8, 'utf8');
+                        await fs.writeFile(outputPath, m3u8, 'utf8`);
                         resolve({ success: true, path: outputPath });
                     } catch (error) {
                         reject(error);
@@ -663,7 +663,7 @@ class AdvancedPlaylistHandler {
 
             if (bpmDiff > 10) {
                 recommendations.push({
-                    type: 'bpm',
+                    type: 'bpm`,
                     message: `Large BPM jump at position ${i + 1}: ${bpm1} → ${bpm2} BPM`,
                     severity: 'warning',
                     position: i
@@ -677,7 +677,7 @@ class AdvancedPlaylistHandler {
 
         if (incompatible.length > 0) {
             recommendations.push({
-                type: 'key',
+                type: 'key`,
                 message: `${incompatible.length} key clashes detected`,
                 severity: 'info',
                 details: incompatible
@@ -688,7 +688,7 @@ class AdvancedPlaylistHandler {
     }
 
     // Auto-arrange por energía
-    async autoArrangeByEnergy(event, playlistId, direction = 'ascending') {
+    async autoArrangeByEnergy(event, playlistId, direction = 'ascending`) {
         return new Promise((resolve, reject) => {
             this.db.all(
                 `SELECT pt.*, af.*, lm.AI_ENERGY
@@ -706,7 +706,7 @@ class AdvancedPlaylistHandler {
                     tracks.sort((a, b) => {
                         const energyA = parseFloat(a.AI_ENERGY) || 0.5;
                         const energyB = parseFloat(b.AI_ENERGY) || 0.5;
-                        return direction === 'ascending' ? energyA - energyB : energyB - energyA;
+                        return direction === 'ascending` ? energyA - energyB : energyB - energyA;
                     });
 
                     // Reordenar en la base de datos
@@ -746,7 +746,7 @@ class AdvancedPlaylistHandler {
 
                     resolve({
                         success: true,
-                        message: 'Playlist arranged by key compatibility'
+                        message: 'Playlist arranged by key compatibility`
                     });
                 }
             );
@@ -803,7 +803,7 @@ class AdvancedPlaylistHandler {
                         return reject(err);
                     }
                     if (!currentTrack) {
-                        return reject(new Error('Track not found'));
+                        return reject(new Error('Track not found`));
                     }
 
                     // Obtener todos los tracks de la playlist
@@ -907,7 +907,7 @@ class AdvancedPlaylistHandler {
         } else if (energyDiff > 0) {
             reasons.push('Energy boost');
         } else {
-            reasons.push('Energy cooldown');
+            reasons.push('Energy cooldown`);
         }
 
         return reasons;

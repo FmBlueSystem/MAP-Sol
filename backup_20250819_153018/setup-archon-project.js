@@ -176,7 +176,7 @@ async function createProject() {
 }
 
 async function createTasks(projectId) {
-    logDebug('📝 Creando tareas...');
+    logDebug('📝 Creando tareas...`);
 
     for (const task of tasks) {
         try {
@@ -205,9 +205,9 @@ async function createTasks(projectId) {
                 })
             });
 
-            logInfo('✅ Tarea creada: ${task.title}');
+            logInfo(`✅ Tarea creada: ${task.title}`);
         } catch (error) {
-            logError(`❌ Error creando tarea "${task.title}":", error);
+            logError(`❌ Error creando tarea "${task.title}`:`, error);
         }
     }
 }
@@ -227,7 +227,7 @@ async function main() {
             await createTasks(projectId);
 
             logDebug('\n✨ ¡Setup completo!');
-            logDebug('📊 Proyecto ID: ${projectId}');
+            logDebug(`📊 Proyecto ID: ${projectId}`);
             logDebug(`📝 ${tasks.length} tareas creadas`);
             logDebug('\n🎯 Próximos pasos:');
             logDebug('1. Ve a http://localhost:3737');
@@ -236,7 +236,7 @@ async function main() {
         }
     } else {
         logDebug('\n⚠️  Nota: El proyecto puede haberse creado pero sin ID de respuesta.');
-        logDebug('Verifica en http://localhost:3737 en la sección Projects');
+        logDebug('Verifica en http://localhost:3737 en la sección Projects`);
     }
 }
 

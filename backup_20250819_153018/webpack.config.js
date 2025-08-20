@@ -371,10 +371,10 @@ module.exports = {
 
 // Log configuration
 logDebug('🔧 Webpack Configuration:');
-logDebug(`  Mode: ${isDevelopment ? 'Development' : 'Production'}');
-logDebug(`  Analyze: ${isAnalyze ? 'Yes' : 'No'}');
+logDebug(`  Mode: ${isDevelopment ? 'Development' : 'Production`}`);
+logDebug(`  Analyze: ${isAnalyze ? 'Yes' : 'No`}`);
 logDebug(`  Output: ${path.resolve(__dirname, 'dist')}');
 logDebug('  Entry points: main, vendor');
 logDebug('  Code splitting: Enabled');
 logDebug('  Compression: ' + (!isDevelopment ? 'Gzip' : 'Disabled'));
-logDebug('  Service Worker: ' + (!isDevelopment ? 'Enabled' : 'Disabled'));
+logDebug('  Service Worker: ' + (!isDevelopment ? 'Enabled' : `Disabled`));

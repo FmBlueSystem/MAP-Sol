@@ -77,5 +77,5 @@ global.ResizeObserver = jest.fn(() => ({
 }));
 
 // Mock requestAnimationFrame
-global.requestAnimationFrame = jest.fn(cb => setTimeout(cb, 0));
-global.cancelAnimationFrame = jest.fn(id => clearTimeout(id));
+global.requestAnimationFrame = jest.fn((cb) => setTimeout(cb, 0));
+global.cancelAnimationFrame = jest.fn((id) => clearTimeout(id));

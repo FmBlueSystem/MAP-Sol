@@ -30,7 +30,9 @@ class MusicAnalyzerApp {
     }
 
     async init() {
-        if (this.isInitialized) return;
+        if (this.isInitialized) {
+            return;
+        }
 
         try {
             logInfo('🚀 Initializing Music Analyzer Pro...');
@@ -57,10 +59,9 @@ class MusicAnalyzerApp {
             this.isInitialized = true;
 
             logInfo('✅ Music Analyzer Pro initialized successfully');
-            
+
             // Dispatch ready event
             window.dispatchEvent(new CustomEvent('app-ready'));
-
         } catch (error) {
             logError('Failed to initialize application:', error);
             this.showInitError(error);
@@ -162,25 +163,25 @@ class MusicAnalyzerApp {
             // Load files from database
             const response = await window.electronAPI.invoke('get-files-with-cached-artwork', {
                 limit: 300,
-                offset: 0
+                offset: 0,
             });
 
             if (response && response.files) {
                 logInfo(`Loaded ${response.files.length} files`);
-                
+
                 // Store globally for other modules
                 window.audioFiles = response.files;
-                
+
                 // Initialize virtual scroller with data
                 if (window.VirtualScroller && document.getElementById('content')) {
                     const scroller = new window.VirtualScroller({
                         container: document.getElementById('content'),
                         items: response.files,
-                        viewType: localStorage.getItem('viewType') || 'cards'
+                        viewType: localStorage.getItem('viewType') || 'cards',
                     });
                     this.modules.set('virtualScroller', scroller);
                 }
-                
+
                 // Update UI elements
                 this.updateFileCount(response.files.length);
             }
@@ -193,13 +194,16 @@ class MusicAnalyzerApp {
         // Search functionality
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
-            searchInput.addEventListener('input', this.debounce((e) => {
-                this.handleSearch(e.target.value);
-            }, 300));
+            searchInput.addEventListener(
+                'input',
+                this.debounce((e) => {
+                    this.handleSearch(e.target.value);
+                }, 300)
+            );
         }
 
         // View toggle buttons
-        document.querySelectorAll('[data-view]').forEach(button => {
+        document.querySelectorAll('[data-view]').forEach((button) => {
             button.addEventListener('click', (e) => {
                 const view = e.currentTarget.dataset.view;
                 this.changeView(view);
@@ -215,16 +219,16 @@ class MusicAnalyzerApp {
     async handleSearch(query) {
         try {
             const results = await window.electronAPI.invoke('search-tracks', { query });
-            
+
             if (results && results.tracks) {
                 window.audioFiles = results.tracks;
-                
+
                 // Update virtual scroller
                 const scroller = this.modules.get('virtualScroller');
                 if (scroller) {
                     scroller.updateItems(results.tracks);
                 }
-                
+
                 this.updateFileCount(results.tracks.length);
             }
         } catch (error) {
@@ -238,12 +242,12 @@ class MusicAnalyzerApp {
         if (scroller) {
             scroller.changeView(viewType);
         }
-        
+
         // Save preference
         localStorage.setItem('viewType', viewType);
-        
+
         // Update UI
-        document.querySelectorAll('[data-view]').forEach(button => {
+        document.querySelectorAll('[data-view]').forEach((button) => {
             button.classList.toggle('active', button.dataset.view === viewType);
         });
     }
@@ -252,10 +256,10 @@ class MusicAnalyzerApp {
         // Implement keyboard shortcuts
         const shortcuts = {
             ' ': () => this.togglePlayPause(),
-            'ArrowRight': () => this.playNext(),
-            'ArrowLeft': () => this.playPrevious(),
+            ArrowRight: () => this.playNext(),
+            ArrowLeft: () => this.playPrevious(),
             '/': () => document.getElementById('searchInput')?.focus(),
-            'Escape': () => this.clearSearch()
+            Escape: () => this.clearSearch(),
         };
 
         const handler = shortcuts[event.key];

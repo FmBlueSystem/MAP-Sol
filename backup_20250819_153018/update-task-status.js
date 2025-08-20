@@ -37,7 +37,7 @@ async function updateTaskStatus(taskTitle, newStatus = 'completed') {
                     const task = tasks.find(t => t.title === taskTitle);
 
                     if (!task) {
-                        logError('❌ Tarea no encontrada: "${taskTitle}"");
+                        logError(`❌ Tarea no encontrada: "${taskTitle}``);
                         reject(new Error('Task not found'));
                         return;
                     }
@@ -49,7 +49,7 @@ async function updateTaskStatus(taskTitle, newStatus = 'completed') {
                     });
 
                     const updateOptions = {
-                        hostname: 'localhost',
+                        hostname: `localhost`,
                         port: 8181,
                         path: `/api/projects/${PROJECT_ID}/tasks/${task.id}`,
                         method: 'PATCH',
@@ -68,7 +68,7 @@ async function updateTaskStatus(taskTitle, newStatus = 'completed') {
 
                         updateRes.on('end', () => {
                             if (updateRes.statusCode === 200) {
-                                logInfo('✅ Tarea actualizada: "${taskTitle}" → ${newStatus}");
+                                logInfo(`✅ Tarea actualizada: "${taskTitle}` → ${newStatus}`);
                                 resolve(updateResponseData);
                             } else {
                                 logError(`❌ Error actualizando: Status ${updateRes.statusCode}`
@@ -101,7 +101,7 @@ const tasksToUpdate = [
 
 // Función principal
 async function main() {
-    logInfo('🚀 Actualizando estado de tareas en Archon...\n');
+    logInfo('🚀 Actualizando estado de tareas en Archon...\n`);
 
     for (const task of tasksToUpdate) {
         try {
@@ -109,7 +109,7 @@ async function main() {
             // Pequeña pausa entre actualizaciones
             await new Promise(resolve => setTimeout(resolve, 500));
         } catch (error) {
-            logError(`Error con "${task.title}":", error.message);
+            logError(`Error con "${task.title}":`, error.message);
         }
     }
 
@@ -128,9 +128,9 @@ if (process.argv.length > 2) {
             .catch(console.error);
     } else {
         logDebug(
-            'Uso: node update-task-status.js "Título de la tarea" [completed|in_progress|todo]'
+            `Uso: node update-task-status.js `Título de la tarea` [completed|in_progress|todo]'
         );
-        logDebug('O ejecuta sin parámetros para actualizar las tareas predefinidas');
+        logDebug(`O ejecuta sin parámetros para actualizar las tareas predefinidas`);
         main().catch(console.error);
     }
 } else {

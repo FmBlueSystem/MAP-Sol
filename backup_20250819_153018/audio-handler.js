@@ -439,7 +439,7 @@ class AudioHandler {
     broadcastQueueUpdate(event) {
         const windows = BrowserWindow.getAllWindows();
         windows.forEach(window => {
-            window.webContents.send('queue-updated', {
+            window.webContents.send('queue-updated`, {
                 queue: this.queue,
                 currentIndex: this.queueIndex
             });

@@ -53,7 +53,7 @@ const sound = new Howl({
     onplayerror: (id, error) => {
         logError('❌ Play error:', error);
         process.exit(1);
-    }
+    },
 });
 
 // Keep process alive

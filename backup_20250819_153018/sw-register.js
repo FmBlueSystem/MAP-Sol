@@ -153,7 +153,7 @@ class ServiceWorkerManager {
             <span>New version available!</span>
             <button onclick="swManager.applyUpdate()">Update Now</button>
             <button class="close-btn" onclick="swManager.dismissUpdate()">×</button>
-        ";
+        `;
 
         document.body.appendChild(updateBanner);
     }
@@ -202,7 +202,7 @@ class ServiceWorkerManager {
 
     updateCacheStatus(status) {
         // Update UI with cache status
-        const indicator = document.getElementById('cache-status');
+        const indicator = document.getElementById('cache-status`);
         if (indicator) {
             indicator.textContent = `Cache: ${status.cached}/${status.total}`;
         }
@@ -253,4 +253,4 @@ const swManager = new ServiceWorkerManager();
 // Expose to window for debugging
 window.swManager = swManager;
 
-logDebug('📱 Service Worker Manager initialized');
+logDebug('📱 Service Worker Manager initialized`);

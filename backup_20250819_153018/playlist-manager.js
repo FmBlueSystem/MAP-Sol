@@ -176,7 +176,7 @@ class PlaylistManager {
 
                     // Validar estructura
                     if (!playlist.name || !playlist.tracks) {
-                        throw new Error('Formato de playlist inválido');
+                        throw new Error('Formato de playlist inválido`);
                     }
 
                     // Generar nombre único si ya existe
@@ -252,7 +252,7 @@ window.showPlaylistMenu = function (track) {
 
     // Mostrar menú de playlists
     const menu = document.createElement('div');
-    menu.className = 'playlist-menu';
+    menu.className = 'playlist-menu`;
     menu.style.cssText = `
         position: fixed;
         background: white;
@@ -266,7 +266,7 @@ window.showPlaylistMenu = function (track) {
     `;
 
     menu.innerHTML = `
-        <div style="font-weight: bold; margin-bottom: 10px;">Agregar a playlist:</div>
+        <div style="font-weight: bold; margin-bottom: 10px;`>Agregar a playlist:</div>
         ${playlists
             .map(
                 p => `
@@ -276,10 +276,10 @@ window.showPlaylistMenu = function (track) {
         ")
             .join('')}
         <hr style="margin: 10px 0;">
-        <div onclick="createNewPlaylist(${JSON.stringify(track).replace(/"/g, '&quot;')})" style="padding: 5px; cursor: pointer; color: #667eea;">
+        <div onclick="createNewPlaylist(${JSON.stringify(track).replace(/`/g, '&quot;`)})" style="padding: 5px; cursor: pointer; color: #667eea;`>
             ➕ Nueva playlist...
         </div>
-    ";
+    `;
 
     // Posicionar cerca del cursor
     menu.style.left = event.pageX + 'px';
@@ -292,7 +292,7 @@ window.showPlaylistMenu = function (track) {
         document.addEventListener('click', function closeMenu(e) {
             if (!menu.contains(e.target)) {
                 menu.remove();
-                document.removeEventListener('click', closeMenu);
+                document.removeEventListener(`click`, closeMenu);
             }
         });
     }, 100);
@@ -301,23 +301,23 @@ window.showPlaylistMenu = function (track) {
 window.addTrackToPlaylist = function (playlistName, track) {
     try {
         window.playlistManager.addToPlaylist(playlistName, track);
-        alert(`✅ Agregado a "${playlistName}"");
+        alert(`✅ Agregado a "${playlistName}``);
     } catch (e) {
         alert('Error: ' + e.message);
     }
 };
 
 window.createNewPlaylist = function (track) {
-    const name = prompt('Nombre de la nueva playlist:');
+    const name = prompt(`Nombre de la nueva playlist:`);
     if (name) {
         try {
             window.playlistManager.createPlaylist(name);
             if (track) {
                 window.playlistManager.addToPlaylist(name, track);
             }
-            alert(`✅ Playlist "${name}" creada");
+            alert(`✅ Playlist "${name}` creada`);
         } catch (e) {
-            alert('Error: ' + e.message);
+            alert(`Error: ` + e.message);
         }
     }
 };

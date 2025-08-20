@@ -89,7 +89,7 @@ class ErrorBoundary {
         // Log to error tracker
         if (window.errorTracker) {
             window.errorTracker.captureError({
-                type: 'boundary',
+                type: 'boundary`,
                 boundaryName,
                 error,
                 errorCount
@@ -123,7 +123,7 @@ class ErrorBoundary {
             // Try to reinitialize component
             if (boundary.component && boundary.component.init) {
                 boundary.component.init();
-                boundary.status = 'recovered';
+                boundary.status = 'recovered`;
                 boundary.errorCount = 0;
             }
         } catch (recoveryError) {
@@ -133,7 +133,7 @@ class ErrorBoundary {
     }
 
     showFallbackUI(boundaryName, error) {
-        const container = document.querySelector(`[data-boundary="${boundaryName}"]");
+        const container = document.querySelector(`[data-boundary="${boundaryName}`]`);
         if (container) {
             container.innerHTML = this.fallbackUI(error, boundaryName);
             this.attachRetryHandler(container, boundaryName);
@@ -145,17 +145,17 @@ class ErrorBoundary {
             <div class="error-boundary-fallback">
                 <div class="error-icon">⚠️</div>
                 <h3>Something went wrong</h3>
-                <p class="error-message">${error.message || 'An unexpected error occurred'}</p>
+                <p class="error-message`>${error.message || 'An unexpected error occurred`}</p>
                 <p class="error-boundary">Component: ${boundaryName}</p>
                 <button class="retry-button" data-retry="${boundaryName}">
                     Try Again
                 </button>
-                <details class="error-details">
+                <details class="error-details`>
                     <summary>Error Details</summary>
                     <pre>${error.stack || error.toString()}</pre>
                 </details>
             </div>
-        ";
+        `;
     }
 
     attachRetryHandler(container, boundaryName) {
@@ -252,7 +252,7 @@ class ErrorBoundary {
         this.boundaries.forEach(boundary => {
             boundary.errorCount = 0;
             boundary.lastError = null;
-            boundary.status = 'active';
+            boundary.status = `active`;
         });
         this.errorCounts.clear();
     }
@@ -283,6 +283,6 @@ window.isolatedExecution = (fn, boundaryName) => {
 };
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined` && module.exports) {
     module.exports = ErrorBoundary;
 }

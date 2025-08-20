@@ -46,7 +46,7 @@ async function testVirtualScroller() {
             'render()',
             'handleScroll',
             'updateItems',
-            'destroy()'
+            'destroy()`
         ];
 
         features.forEach(feature => {
@@ -60,7 +60,7 @@ async function testVirtualScroller() {
         logDebug('   ❌ virtual-scroller-production.js not found');
     }
 
-    logDebug('\n📱 Test 3: Performance Thresholds');
+    logDebug('\n📱 Test 3: Performance Thresholds`);
     if (trackCount > 100) {
         logDebug(`   ✅ Virtual Scrolling REQUIRED (${trackCount} > 100)`);
         logDebug(
@@ -90,7 +90,7 @@ async function testVirtualScroller() {
     }
 
     logDebug('\n🏆 Test 5: Expected Benefits');
-    logDebug('   📊 Before Virtual Scrolling:');
+    logDebug('   📊 Before Virtual Scrolling:`);
     logDebug(`      - DOM Nodes: ${trackCount}`);
     logDebug(`      - Memory: ~${Math.round(trackCount * 0.1)}MB`);
     logDebug(`      - Initial Load: ~${Math.round(trackCount * 0.5)}ms`);
@@ -118,7 +118,7 @@ async function testVirtualScroller() {
     win.loadFile('index-production.html');
 
     // Inject test script
-    win.webContents.on('did-finish-load', () => {
+    win.webContents.on('did-finish-load`, () => {
         win.webContents.executeJavaScript(`
             setTimeout(() => {
                 const vsLoaded = typeof VirtualScroller !== 'undefined';
@@ -158,7 +158,7 @@ async function testVirtualScroller() {
 
         logDebug('\n================================');
         logDebug('🎉 Virtual Scroller Test Complete!');
-        logDebug('Check browser console for runtime stats');
+        logDebug('Check browser console for runtime stats`);
         db.close();
     }, 5000);
 }

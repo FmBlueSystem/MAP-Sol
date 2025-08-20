@@ -78,7 +78,7 @@ class MusicLibraryUpdater {
 
             return audioFiles;
         } catch (error) {
-            logError('❌ Error scanning directory:', error.message);
+            logError(`❌ Error scanning directory:`, error.message);
             this.stats.errors.push(`Scan error: ${error.message}`);
             return [];
         }
@@ -137,7 +137,7 @@ class MusicLibraryUpdater {
         const currentPaths = new Set(audioFiles);
         const deletedFiles = existingFiles.filter(f => !currentPaths.has(f.file_path));
 
-        logDebug('📊 Results:');
+        logDebug('📊 Results:`);
         logDebug(`   New files: ${newFiles.length}`);
         logDebug(`   Modified files: ${modifiedFiles.length}`);
         logDebug(`   Deleted files: ${deletedFiles.length}`);
@@ -169,12 +169,12 @@ class MusicLibraryUpdater {
      */
     async processNewFiles(newFiles) {
         if (newFiles.length === 0) {
-            logDebug('\n✅ No new files to process');
+            logDebug('\n✅ No new files to process`);
             return;
         }
 
         logDebug(`\n🎵 PROCESSING ${newFiles.length} NEW FILES`);
-        logDebug('-'.repeat(60));
+        logDebug('-`.repeat(60));
 
         let processed = 0;
 
@@ -200,7 +200,7 @@ class MusicLibraryUpdater {
 
                 // Analyze with AI (if enabled)
                 if (process.env.ENABLE_AI_ANALYSIS === 'true') {
-                    logDebug('   🤖 Analyzing with GPT-4...');
+                    logDebug('   🤖 Analyzing with GPT-4...`);
                     try {
                         await this.llmHandler.analyzeTrack(fileId);
                         this.stats.aiAnalyzed++;
@@ -209,7 +209,7 @@ class MusicLibraryUpdater {
                     }
                 }
 
-                logDebug('   ✅ File processed successfully');
+                logDebug('   ✅ File processed successfully`);
             } catch (error) {
                 logError(`   ❌ Error processing file: ${error.message}`);
                 this.stats.errors.push(`${path.basename(filePath)}: ${error.message}`);
@@ -263,7 +263,7 @@ class MusicLibraryUpdater {
                 isrc: isrc,
                 track: common.track?.no,
                 disk: common.disk?.no,
-                comment: common.comment?.join(' '),
+                comment: common.comment?.join(' `),
                 hasArtwork: common.picture && common.picture.length > 0
             };
         } catch (error) {
@@ -271,7 +271,7 @@ class MusicLibraryUpdater {
             return {
                 title: path.basename(filePath, path.extname(filePath)),
                 artist: 'Unknown Artist',
-                album: 'Unknown Album'
+                album: 'Unknown Album`
             };
         }
     }
@@ -346,8 +346,8 @@ class MusicLibraryUpdater {
 
             if (metadata.common.picture && metadata.common.picture.length > 0) {
                 const picture = metadata.common.picture[0];
-                const extension = picture.format.split('/')[1] || 'jpg';
-                const artworkPath = path.join(this.artworkDir, `${fileId}.${extension}');
+                const extension = picture.format.split('/')[1] || 'jpg`;
+                const artworkPath = path.join(this.artworkDir, `${fileId}.${extension}`);
 
                 await fs.writeFile(artworkPath, picture.data);
                 return `artwork-cache/${fileId}.${extension}`;
@@ -383,12 +383,12 @@ class MusicLibraryUpdater {
      */
     async processModifiedFiles(modifiedFiles) {
         if (modifiedFiles.length === 0) {
-            logDebug('\n✅ No modified files to update');
+            logDebug('\n✅ No modified files to update`);
             return;
         }
 
         logDebug(`\n🔄 UPDATING ${modifiedFiles.length} MODIFIED FILES`);
-        logDebug('-'.repeat(60));
+        logDebug('-`.repeat(60));
 
         for (const file of modifiedFiles) {
             logDebug(`\nUpdating: ${path.basename(file.path)}`);
@@ -406,7 +406,7 @@ class MusicLibraryUpdater {
                     await this.updateArtworkPath(file.id, artworkPath);
                 }
 
-                logDebug('   ✅ Updated successfully');
+                logDebug('   ✅ Updated successfully`);
             } catch (error) {
                 logError(`   ❌ Update failed: ${error.message}`);
                 this.stats.errors.push(`Update ${path.basename(file.path)}: ${error.message}`);
@@ -448,12 +448,12 @@ class MusicLibraryUpdater {
      */
     async handleDeletedFiles(deletedFiles) {
         if (deletedFiles.length === 0) {
-            logDebug('\n✅ No deleted files to remove');
+            logDebug('\n✅ No deleted files to remove`);
             return;
         }
 
         logDebug(`\n🗑️ REMOVING ${deletedFiles.length} DELETED FILES`);
-        logDebug('-'.repeat(60));
+        logDebug('-`.repeat(60));
 
         for (const file of deletedFiles) {
             logDebug(`Removing: ${file.file_path}`);
@@ -477,7 +477,7 @@ class MusicLibraryUpdater {
                     );
                 });
 
-                logDebug('   ✅ Marked as deleted');
+                logDebug('   ✅ Marked as deleted`);
             } catch (error) {
                 logError(`   ❌ Error: ${error.message}`);
             }
@@ -521,7 +521,7 @@ class MusicLibraryUpdater {
         const endTime = Date.now();
         const duration = (endTime - this.startTime) / 1000;
 
-        logDebug('\n📈 Statistics:');
+        logDebug('\n📈 Statistics:`);
         logDebug(`   Files scanned: ${this.stats.scanned}`);
         logDebug(`   New files added: ${this.stats.newFiles}`);
         logDebug(`   Files updated: ${this.stats.updatedFiles}`);
@@ -532,7 +532,7 @@ class MusicLibraryUpdater {
         logDebug(`   Duration: ${duration.toFixed(1)}s`);
 
         if (this.stats.errors.length > 0) {
-            logDebug('\n⚠️  Errors encountered:');
+            logDebug('\n⚠️  Errors encountered:`);
             this.stats.errors.slice(0, 10).forEach(error => {
                 logDebug(`   - ${error}`);
             });
@@ -540,7 +540,7 @@ class MusicLibraryUpdater {
 
         // Get current database stats
         const dbStats = await this.getDatabaseStats();
-        logDebug('\n📊 Database Status:');
+        logDebug('\n📊 Database Status:`);
         logDebug(`   Total tracks: ${dbStats.totalTracks}`);
         logDebug(`   Tracks with metadata: ${dbStats.withMetadata}`);
         logDebug(`   Tracks with artwork: ${dbStats.withArtwork}`);
@@ -557,7 +557,7 @@ class MusicLibraryUpdater {
 
         await fs.writeFile(`update-report-${Date.now()}.json`, JSON.stringify(report, null, 2));
 
-        logDebug('\n💾 Report saved to file');
+        logDebug('\n💾 Report saved to file`);
     }
 
     /**
@@ -570,7 +570,7 @@ class MusicLibraryUpdater {
                     COUNT(*) as totalTracks,
                     COUNT(CASE WHEN artwork_path IS NOT NULL THEN 1 END) as withArtwork
                 FROM audio_files
-                WHERE file_path NOT LIKE '%_DELETED'',
+                WHERE file_path NOT LIKE '%_DELETED'`,
                 (err, row) => {
                     if (err) {
                         reject(err);
@@ -638,7 +638,7 @@ class MusicLibraryUpdater {
 
             logDebug('\n✨ Update complete!');
         } catch (error) {
-            logError('\n❌ Update failed:', error);
+            logError('\n❌ Update failed:`, error);
             this.stats.errors.push(`Fatal: ${error.message}`);
         }
     }
@@ -665,7 +665,7 @@ if (require.main === module) {
         process.env.ENABLE_AI_ANALYSIS = 'true';
         logDebug('🤖 AI analysis enabled\n');
     } else {
-        logDebug('💡 Tip: Use --with-ai flag to enable GPT-4 analysis\n');
+        logDebug('💡 Tip: Use --with-ai flag to enable GPT-4 analysis\n`);
     }
 
     (async () => {

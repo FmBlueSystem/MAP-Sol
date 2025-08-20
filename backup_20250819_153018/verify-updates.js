@@ -41,13 +41,13 @@ db.get(query, (err, row) => {
         return;
     }
 
-    logDebug('\n📊 ESTADO DE LA BASE DE DATOS:');
+    logDebug('\n📊 ESTADO DE LA BASE DE DATOS:`);
     logDebug(`   Total de archivos: ${row.total_files}`);
     logDebug(
         `   Con metadata: ${row.total_metadata} (${((row.total_metadata / row.total_files) * 100).toFixed(1)}%)`
     );
 
-    logDebug('\n🤖 ANÁLISIS CON IA:');
+    logDebug('\n🤖 ANÁLISIS CON IA:`);
     logDebug(
         `   ✅ Con descripción: ${row.with_description} (${((row.with_description / row.total_files) * 100).toFixed(1)}%)`
     );
@@ -70,19 +70,19 @@ db.get(query, (err, row) => {
         `   ✅ Con artistas similares: ${row.with_similar} (${((row.with_similar / row.total_files) * 100).toFixed(1)}%)`
     );
 
-    logDebug('\n📅 ACTIVIDAD:');
-    logDebug(`   Última análisis: ${row.last_analysis || 'Nunca'}');
+    logDebug('\n📅 ACTIVIDAD:`);
+    logDebug(`   Última análisis: ${row.last_analysis || 'Nunca`}`);
     logDebug(`   Analizados hoy: ${row.analyzed_today}`);
     logDebug(`   Flag LLM_ANALYZED=1: ${row.flag_analyzed}`);
 
     const pending = row.total_files - row.with_description;
-    logDebug('\n💰 PENDIENTES:');
+    logDebug('\n💰 PENDIENTES:`);
     logDebug(`   Archivos sin análisis: ${pending}`);
     logDebug(`   Costo estimado: ~$${(pending * 0.01).toFixed(2)} USD`);
     logDebug(`   Tiempo estimado: ~${Math.ceil((pending * 3) / 60)} minutos`);
 
     // Mostrar últimos 5 analizados
-    logDebug('\n🆕 ÚLTIMOS 5 ANALIZADOS:');
+    logDebug('\n🆕 ÚLTIMOS 5 ANALIZADOS:`);
 
     db.all(
         `
@@ -100,15 +100,15 @@ db.get(query, (err, row) => {
     `,
         (err, rows) => {
             if (err) {
-                logError('Error:', err);
+                logError('Error:`, err);
             } else {
                 rows.forEach((row, i) => {
-                    logDebug(`   ${i + 1}. "${row.title}" - ${row.artist}");
+                    logDebug(`   ${i + 1}. "${row.title}` - ${row.artist}`);
                     logDebug(`      ${row.LLM_ERA} | ${row.AI_MOOD} | ${row.date}`);
                 });
             }
 
-            logDebug('\n✅ Los archivos SÍ están siendo actualizados correctamente.\n');
+            logDebug('\n✅ Los archivos SÍ están siendo actualizados correctamente.\n`);
             db.close();
         }
     );

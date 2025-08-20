@@ -9,10 +9,7 @@ logDebug('\n📋 Test 1: Verificación del Sistema');
 if (window.metadataInspector) {
     logInfo('✅ MetadataInspectorModal cargado correctamente');
     logDebug('  - Clase: ' + window.metadataInspector.constructor.name);
-    logDebug(
-        '  - Métodos disponibles:',
-        Object.getOwnPropertyNames(Object.getPrototypeOf(window.metadataInspector))
-    );
+    logDebug('  - Métodos disponibles:', Object.getOwnPropertyNames(Object.getPrototypeOf(window.metadataInspector)));
 } else {
     logError('❌ MetadataInspectorModal NO está cargado');
 }
@@ -24,7 +21,7 @@ const modalElements = {
     'mi-track-info': 'Info del track',
     'mi-search-input': 'Campo de búsqueda',
     'mi-tabs': 'Tabs de categorías',
-    'mi-content': 'Área de contenido'
+    'mi-content': 'Área de contenido',
 };
 
 let allElementsOk = true;
@@ -43,7 +40,7 @@ logDebug('\n📋 Test 3: Verificación de Tabs');
 const tabs = document.querySelectorAll('.mi-tab');
 if (tabs.length > 0) {
     logInfo('✅ ${tabs.length} tabs encontrados:');
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
         logDebug(`  - ${tab.textContent.trim()} (${tab.dataset.tab})`);
     });
 } else {
@@ -62,7 +59,7 @@ const mockTrack = {
     year: '2024',
     AI_BPM: 128,
     AI_KEY: '9A',
-    AI_ENERGY: 0.75
+    AI_ENERGY: 0.75,
 };
 
 logDebug('🎵 Abriendo modal con datos de prueba...');
@@ -138,7 +135,7 @@ setTimeout(() => {
         const dblClickEvent = new MouseEvent('dblclick', {
             bubbles: true,
             cancelable: true,
-            view: window
+            view: window,
         });
         firstCard.dispatchEvent(dblClickEvent);
 
@@ -156,7 +153,7 @@ setTimeout(() => {
                     logDebug('  - Primeros 5 campos:');
                     Array.from(fields)
                         .slice(0, 5)
-                        .forEach(field => {
+                        .forEach((field) => {
                             const name = field.querySelector('.mi-field-name').textContent;
                             const value = field.querySelector('.mi-field-value').textContent;
                             logDebug(`    • ${name}: ${value}`);
@@ -188,7 +185,7 @@ setTimeout(() => {
             const keyEvent = new KeyboardEvent('keydown', {
                 key: 'i',
                 code: 'KeyI',
-                bubbles: true
+                bubbles: true,
             });
             document.dispatchEvent(keyEvent);
 
@@ -220,12 +217,10 @@ setTimeout(() => {
 
         // Test export JSON (no descargará realmente en test)
         logDebug(
-            '  - Export JSON disponible: ' +
-                (typeof window.metadataInspector.exportJSON === 'function' ? '✅' : '❌')
+            '  - Export JSON disponible: ' + (typeof window.metadataInspector.exportJSON === 'function' ? '✅' : '❌')
         );
         logDebug(
-            '  - Export CSV disponible: ' +
-                (typeof window.metadataInspector.exportCSV === 'function' ? '✅' : '❌')
+            '  - Export CSV disponible: ' + (typeof window.metadataInspector.exportCSV === 'function' ? '✅' : '❌')
         );
     }
 }, 4000);
@@ -245,7 +240,7 @@ setTimeout(() => {
         'Cambio de tabs': '✅ (verificar visualmente)',
         'Doble click': '✅ (verificar visualmente)',
         'Shortcut i': '✅ (verificar visualmente)',
-        Exportación: '✅ (verificar funciones)'
+        Exportación: '✅ (verificar funciones)',
     };
 
     for (const [test, result] of Object.entries(results)) {

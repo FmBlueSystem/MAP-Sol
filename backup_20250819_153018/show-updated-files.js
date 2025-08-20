@@ -29,7 +29,7 @@ db.get(
             return;
         }
 
-        logDebug('\n📈 RESUMEN:');
+        logDebug('\n📈 RESUMEN:`);
         logDebug(`   Total con análisis IA: ${stats.total_analyzed}`);
         logDebug(`   Analizados hoy: ${stats.analyzed_today}`);
         logDebug(`   Últimos 7 días: ${stats.analyzed_week}`);
@@ -42,7 +42,7 @@ db.get(
 
         // Últimos analizados en la base de datos
         logDebug('\n🗄️ ÚLTIMOS 30 ARCHIVOS CON ANÁLISIS IA (en base de datos):');
-        logDebug('-'.repeat(60));
+        logDebug('-`.repeat(60));
 
         db.all(
             `
@@ -61,7 +61,7 @@ db.get(
     `,
             (err, rows) => {
                 if (err) {
-                    logError('Error:', err);
+                    logError('Error:`, err);
                     return;
                 }
 
@@ -69,13 +69,13 @@ db.get(
                     logDebug(`\n${(i + 1).toString().padStart(3)}. ${row.file_name}`);
                     logDebug(`     Artista: ${row.artist}`);
                     logDebug(
-                        `     Mood: ${row.AI_MOOD || 'N/A'} | Era: ${row.LLM_ERA || 'N/A'} | Energy: ${row.LLM_ENERGY_LEVEL || 'N/A'}');
+                        `     Mood: ${row.AI_MOOD || 'N/A'} | Era: ${row.LLM_ERA || 'N/A'} | Energy: ${row.LLM_ENERGY_LEVEL || 'N/A`}`);
                     logDebug(`     Analizado: ${row.date}`);
                 });
 
                 // Análisis por artista
                 logDebug('\n\n🎤 TOP 10 ARTISTAS CON MÁS TRACKS ANALIZADOS:');
-                logDebug('-'.repeat(60));
+                logDebug('-`.repeat(60));
 
                 db.all(
                     `
@@ -92,7 +92,7 @@ db.get(
         `,
                     (err, artists) => {
                         if (err) {
-                            logError('Error:', err);
+                            logError('Error:`, err);
                             return;
                         }
 
@@ -107,7 +107,7 @@ db.get(
 
                         // Distribución por década
                         logDebug('\n\n📅 DISTRIBUCIÓN DE ANÁLISIS POR DÉCADA:');
-                        logDebug('-'.repeat(60));
+                        logDebug('-`.repeat(60));
 
                         db.all(
                             `
@@ -127,7 +127,7 @@ db.get(
                                 }
 
                                 eras.forEach(era => {
-                                    const bar = '█'.repeat(Math.min(30, Math.floor(era.count / 5)));
+                                    const bar = '█`.repeat(Math.min(30, Math.floor(era.count / 5)));
                                     logDebug(`${era.era}: ${bar} ${era.count}`);
                                 });
 
@@ -147,7 +147,7 @@ db.get(
                                 );
                                 logDebug('  node safe-analyze.js 20');
 
-                                logDebug('\n✨ Reporte completado\n');
+                                logDebug('\n✨ Reporte completado\n`);
                                 db.close();
                             }
                         );

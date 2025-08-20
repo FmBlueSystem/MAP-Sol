@@ -13,7 +13,7 @@ async function quickTestGPT5() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${OPENAI_API_KEY}`
+                Authorization: `Bearer ${OPENAI_API_KEY}`,
             },
             body: JSON.stringify({
                 model: OPENAI_MODEL,
@@ -21,12 +21,12 @@ async function quickTestGPT5() {
                     {
                         role: 'user',
                         content:
-                            'Analyze this song: "Bohemian Rhapsody" by Queen. Return JSON with genre, mood, and energy (0-1).'
+                            'Analyze this song: "Bohemian Rhapsody" by Queen. Return JSON with genre, mood, and energy (0-1).',
                     }
                 ],
                 max_completion_tokens: 200,
                 temperature: 1,
-                response_format: { type: 'json_object' }
+                response_format: { type: 'json_object' },
             })
         });
 

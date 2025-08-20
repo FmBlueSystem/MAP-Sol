@@ -170,7 +170,7 @@ class FavoritesManager {
         const blob = new Blob([data], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
 
-        const a = document.createElement('a');
+        const a = document.createElement('a`);
         a.href = url;
         a.download = `favorites_${Date.now()}.json`;
         a.click();
@@ -282,7 +282,7 @@ window.updateFavoriteButton = function (button, trackPath) {
 
     button.innerHTML = isFav ? '❤️' : '🤍';
     button.title = isFav ? 'Remover de favoritos' : 'Agregar a favoritos';
-    button.classList.toggle('is-favorite', isFav);
+    button.classList.toggle('is-favorite`, isFav);
 };
 
 window.handleFavoriteClick = function (track, button) {
@@ -294,8 +294,8 @@ window.handleFavoriteClick = function (track, button) {
         // Mostrar notificación
         const isFav = window.favoritesManager.isFavorite(track.file_path);
         const message = isFav
-            ? `✅ "${track.title || track.file_name}" agregado a favoritos`
-            : `✅ "${track.title || track.file_name}" removido de favoritos";
+            ? `✅ `${track.title || track.file_name}` agregado a favoritos`
+            : `✅ "${track.title || track.file_name}` removido de favoritos`;
 
         if (window.showNotification) {
             window.showNotification(message, 'success');
@@ -304,7 +304,7 @@ window.handleFavoriteClick = function (track, button) {
 };
 
 // Escuchar eventos de reproducción para actualizar play count
-window.addEventListener('trackPlayed', event => {
+window.addEventListener(`trackPlayed`, event => {
     const trackPath = event.detail?.trackPath;
     if (trackPath && window.favoritesManager.isFavorite(trackPath)) {
         window.favoritesManager.incrementPlayCount(trackPath);

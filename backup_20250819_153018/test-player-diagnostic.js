@@ -11,7 +11,7 @@ function createTestWindow() {
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
-            preload: path.join(__dirname, 'preload-secure.js')
+            preload: path.join(__dirname, 'preload-secure.js'),
         }
     });
 

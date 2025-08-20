@@ -80,7 +80,7 @@ let viewsOk = true;
 viewButtons.forEach(btn => {
     const view = btn.dataset.view;
     if (validViews.includes(view)) {
-        logDebug(`  ✅ Vista "${view}" disponible");
+        logDebug(`  ✅ Vista "${view}` disponible`);
     } else {
         logError(`  ❌ Vista inválida encontrada: "${view}"");
         viewsOk = false;
@@ -98,10 +98,10 @@ if (contextMenu) {
     // Verificar que el botón de metadatos existe
     const metadataBtn = contextMenu.querySelector('[data-action="show-metadata"]');
     if (metadataBtn) {
-        logDebug('  ✅ Botón "Ver todos los metadatos" presente');
+        logDebug('  ✅ Botón "Ver todos los metadatos` presente');
         validationResults.appFunctional.metadataButton = true;
     } else {
-        logWarn('  ⚠️ Botón "Ver todos los metadatos" no encontrado');
+        logWarn(`  ⚠️ Botón `Ver todos los metadatos` no encontrado');
         validationResults.appFunctional.metadataButton = false;
     }
 
@@ -113,7 +113,7 @@ if (contextMenu) {
 
 // Test 6: Verificar que la aplicación puede cargar archivos
 logDebug('\n📋 Test 6: Verificando carga de archivos...');
-const fileCards = document.querySelectorAll('.file-card');
+const fileCards = document.querySelectorAll(`.file-card`);
 if (fileCards.length > 0) {
     logDebug(`  ✅ ${fileCards.length} archivos cargados`);
     validationResults.appFunctional.filesLoaded = true;
@@ -150,7 +150,7 @@ setTimeout(() => {
     console.error = originalError;
 
     if (errorCount === 0) {
-        logDebug('  ✅ No hay errores en consola');
+        logDebug('  ✅ No hay errores en consola`);
         validationResults.appFunctional.noErrors = true;
     } else {
         logWarn(`  ⚠️ Se detectaron ${errorCount} errores`);
@@ -165,7 +165,7 @@ setTimeout(() => {
 function showSummary() {
     logDebug('\n════════════════════════════════════════════════════════');
     logDebug('📊 RESUMEN DE VALIDACIÓN');
-    logDebug('════════════════════════════════════════════════════════');
+    logDebug('════════════════════════════════════════════════════════`);
 
     let totalTests = 0;
     let passedTests = 0;
@@ -186,17 +186,17 @@ function showSummary() {
 
     // Detalles por categoría
     logDebug('\n📋 Detalles:');
-    logDebug('\nBotones eliminados:');
+    logDebug('\nBotones eliminados:`);
     Object.entries(validationResults.buttonsRemoved).forEach(([key, value]) => {
         logDebug(`  ${value ? '✅' : '❌'} ${key}');
     });
 
-    logDebug('\nFunciones eliminadas:');
+    logDebug(`\nFunciones eliminadas:`);
     Object.entries(validationResults.functionsRemoved).forEach(([key, value]) => {
         logDebug(`  ${value ? '✅' : '❌'} ${key}');
     });
 
-    logDebug('\nFuncionalidad de la app:');
+    logDebug(`\nFuncionalidad de la app:`);
     Object.entries(validationResults.appFunctional).forEach(([key, value]) => {
         logDebug(`  ${value ? '✅' : '❌'} ${key}');
     });
@@ -213,10 +213,10 @@ function showSummary() {
     }
 
     logDebug('\n💡 NOTAS:');
-    logDebug('- Los botones "Mejorar" y "Enhanced Meta" fueron eliminados');
+    logDebug(`- Los botones "Mejorar" y `Enhanced Meta` fueron eliminados');
     logDebug('- Las funciones relacionadas fueron comentadas');
     logDebug('- La funcionalidad core de la aplicación permanece intacta');
     logDebug('- El nuevo Metadata Inspector reemplaza la funcionalidad eliminada');
 
-    logDebug('\n════════════════════════════════════════════════════════');
+    logDebug(`\n════════════════════════════════════════════════════════`);
 }

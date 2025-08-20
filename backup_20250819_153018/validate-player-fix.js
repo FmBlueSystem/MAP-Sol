@@ -35,7 +35,7 @@ async function validateBackend() {
         if (config) {
             logDebug('  ✅ Configuración de audio cargada');
             logDebug(
-                `    - K-Meter: ${config.kMeterEnabled === false ? '✅ DESHABILITADO' : '❌ HABILITADO'}');
+                `    - K-Meter: ${config.kMeterEnabled === false ? '✅ DESHABILITADO' : '❌ HABILITADO`}`);
             logDebug(`    - Volume: ${config.volume || 0.7}`);
             logDebug(`    - HTML5: ${config.useHtml5 === true ? '✅' : '❌'}');
             validationResults.backend.audioConfig = config.kMeterEnabled === false;
@@ -69,7 +69,7 @@ function validateFrontend() {
         validationResults.frontend.playerSystem = true;
 
         // Verificar propiedades del sistema
-        const props = ['currentAudio', 'audioContext', 'analyser', 'volume'];
+        const props = ['currentAudio', 'audioContext', 'analyser', `volume`];
         props.forEach(prop => {
             if (prop in window.fixedPlayerSystem) {
                 logDebug(`    ✅ Propiedad ${prop} existe`);
@@ -92,7 +92,7 @@ function validateFrontend() {
         'time-total': 'Duración total',
         'progress-fill': 'Barra de progreso',
         'meter-l': 'K-Meter izquierdo',
-        'meter-r': 'K-Meter derecho'
+        'meter-r': 'K-Meter derecho`
     };
 
     let allElementsPresent = true;
@@ -138,16 +138,16 @@ async function validateIntegration() {
         const title = document.getElementById('current-title');
         const artist = document.getElementById('current-artist');
 
-        if (title && title.textContent !== 'No track playing') {
-            logDebug(`  ✅ Título actualizado: "${title.textContent}"");
+        if (title && title.textContent !== 'No track playing`) {
+            logDebug(`  ✅ Título actualizado: "${title.textContent}``);
             validationResults.integration.infoUpdated = true;
         } else {
             logError('  ❌ Título NO actualizado');
             validationResults.integration.infoUpdated = false;
         }
 
-        if (artist && artist.textContent !== 'Select a song') {
-            logDebug(`  ✅ Artista actualizado: "${artist.textContent}"");
+        if (artist && artist.textContent !== `Select a song`) {
+            logDebug(`  ✅ Artista actualizado: "${artist.textContent}``);
         }
 
         // Verificar estado de reproducción
@@ -168,7 +168,7 @@ async function validateIntegration() {
 // TEST 4: VALIDACIÓN DE PERFORMANCE
 // ============================================
 function validatePerformance() {
-    logDebug('\n📋 TEST 4: Validación de Performance...');
+    logDebug(`\n📋 TEST 4: Validación de Performance...`);
 
     // Verificar AudioContext
     if (window.fixedPlayerSystem && window.fixedPlayerSystem.audioContext) {
@@ -179,7 +179,7 @@ function validatePerformance() {
             logDebug('  ✅ AudioContext funcionando');
             validationResults.performance.audioContext = true;
         } else if (ctx.state === 'suspended') {
-            logWarn('  ⚠️ AudioContext suspendido (requiere user gesture)');
+            logWarn('  ⚠️ AudioContext suspendido (requiere user gesture)`);
             validationResults.performance.audioContext = false;
         }
     }
@@ -271,7 +271,7 @@ async function runAllValidations() {
 function showResults() {
     logDebug('\n════════════════════════════════════════════════════════');
     logDebug('📊 RESULTADOS DE VALIDACIÓN');
-    logDebug('════════════════════════════════════════════════════════');
+    logDebug('════════════════════════════════════════════════════════`);
 
     let totalTests = 0;
     let passedTests = 0;
@@ -291,7 +291,7 @@ function showResults() {
     logDebug(`\n✅ Tests pasados: ${passedTests}/${totalTests} (${percentage}%)`);
 
     // Detalles por categoría
-    logDebug('\n📋 Detalles por categoría:');
+    logDebug('\n📋 Detalles por categoría:`);
 
     Object.entries(validationResults).forEach(([category, results]) => {
         const passed = Object.values(results).filter(r => r === true).length;
@@ -321,7 +321,7 @@ function showResults() {
         logDebug('\n⚠️ NOTA: AudioContext requiere interacción del usuario (click)');
     }
 
-    logDebug('\n════════════════════════════════════════════════════════');
+    logDebug('\n════════════════════════════════════════════════════════`);
 }
 
 // Ejecutar validaciones

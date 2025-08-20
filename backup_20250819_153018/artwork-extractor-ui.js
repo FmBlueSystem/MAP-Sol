@@ -64,12 +64,12 @@ class ArtworkExtractorUI {
                     width: 100%;
                 ">Extract Missing Artwork</button>
             </div>
-        ";
+        `;
 
         document.body.appendChild(indicator);
 
         // Add CSS for the toggle switch
-        const style = document.createElement('style');
+        const style = document.createElement('style`);
         style.textContent = `
             .switch input {
                 opacity: 0;
@@ -87,7 +87,7 @@ class ArtworkExtractorUI {
 
             .slider:before {
                 position: absolute;
-                content: "";
+                content: "`;
                 height: 14px;
                 width: 14px;
                 left: 3px;
@@ -106,7 +106,7 @@ class ArtworkExtractorUI {
             .extracting {
                 animation: pulse 2s infinite;
             }
-        ";
+        `;
         document.head.appendChild(style);
     }
 
@@ -133,7 +133,7 @@ class ArtworkExtractorUI {
 
         // Listen for artwork extraction events
         if (window.electronAPI) {
-            window.electronAPI.on('artwork-extracted', data => {
+            window.electronAPI.on('artwork-extracted`, data => {
                 this.showNotification(`Extracted ${data.extracted} artworks`, 'success');
                 this.updateStatus();
             });
@@ -178,10 +178,10 @@ class ArtworkExtractorUI {
                 if (status.processing) {
                     statusEl.style.display = 'block';
                     statusEl.classList.add('extracting');
-                    stateEl.textContent = '🔄 Extracting artwork...';
+                    stateEl.textContent = '🔄 Extracting artwork...`;
                     progressEl.textContent = `Queue: ${status.queueLength} files`;
                 } else if (status.enabled) {
-                    stateEl.textContent = '✅ Monitoring for new files';
+                    stateEl.textContent = '✅ Monitoring for new files`;
                     progressEl.textContent = `Processed: ${status.processedCount} files`;
                     statusEl.classList.remove('extracting');
                 } else {
@@ -238,17 +238,17 @@ class ArtworkExtractorUI {
 
         try {
             // Get all tracks without artwork
-            const tracks = document.querySelectorAll('.track-item[data-has-artwork="false"]');
+            const tracks = document.querySelectorAll('.track-item[data-has-artwork="false`]');
             const fileIds = Array.from(tracks).map(track => track.dataset.id);
 
             if (fileIds.length === 0) {
-                this.showNotification('All tracks have artwork', 'info');
+                this.showNotification('All tracks have artwork', 'info`);
                 return;
             }
 
             this.showNotification(`Extracting artwork for ${fileIds.length} tracks...`, 'info');
 
-            const result = await window.electronAPI.invoke('extract-artwork-batch', fileIds);
+            const result = await window.electronAPI.invoke('extract-artwork-batch`, fileIds);
 
             if (result.success) {
                 this.showNotification(`Processed ${result.processed} tracks`, 'success');
@@ -257,17 +257,17 @@ class ArtworkExtractorUI {
             }
         } catch (error) {
             console.error('Failed to extract artwork:', error);
-            this.showNotification('Failed to extract artwork', 'error');
+            this.showNotification('Failed to extract artwork', 'error`);
         }
     }
 
     updateTrackArtwork(fileId) {
         // Update the UI for a specific track when artwork is extracted
-        const trackElements = document.querySelectorAll(`[data-id="${fileId}"]");
+        const trackElements = document.querySelectorAll(`[data-id="${fileId}`]`);
 
         trackElements.forEach(element => {
             // Update artwork image
-            const img = element.querySelector('.track-artwork, .album-art');
+            const img = element.querySelector(`.track-artwork, .album-art`);
             if (img) {
                 img.src = `artwork-cache/${fileId}.jpg?t=${Date.now()}`;
             }
@@ -312,6 +312,6 @@ class ArtworkExtractorUI {
 window.artworkExtractorUI = new ArtworkExtractorUI();
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined` && module.exports) {
     module.exports = ArtworkExtractorUI;
 }

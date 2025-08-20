@@ -16,10 +16,10 @@ async function analyzeTrack(track) {
     logDebug('\n📝 Datos del track:');
     logDebug(`   ID: ${track.id}`);
     logDebug(`   Archivo: ${track.file_name}`);
-    logDebug(`   Artista: ${track.artist || 'Unknown'}');
-    logDebug(`   Título: ${track.title || 'Unknown'}');
-    logDebug(`   Álbum: ${track.album || 'Unknown'}');
-    logDebug(`   Género: ${track.genre || 'Unknown'}');
+    logDebug(`   Artista: ${track.artist || 'Unknown`}`);
+    logDebug(`   Título: ${track.title || 'Unknown`}`);
+    logDebug(`   Álbum: ${track.album || 'Unknown`}`);
+    logDebug(`   Género: ${track.genre || 'Unknown`}`);
     logDebug();
 
     const prompt = `Analyze this Latin music track and provide detailed metadata:
@@ -27,7 +27,7 @@ async function analyzeTrack(track) {
 Artist: ${track.artist || 'Unknown'}
 Title: ${track.title || 'Unknown'}
 Album: ${track.album || 'Unknown'}
-Genre: ${track.genre || 'Unknown'}
+Genre: ${track.genre || 'Unknown`}
 File: ${track.file_name}
 
 Provide a JSON response with:
@@ -42,10 +42,10 @@ Provide a JSON response with:
     "cultural_context": "Dominican, Puerto Rican, etc.",
     "occasions": ["party", "romantic", "dance"],
     "tempo_description": "fast, moderate, slow",
-    "description": "2-3 sentence description"
+    "description": "2-3 sentence description`
 }
 
-Respond ONLY with valid JSON.";
+Respond ONLY with valid JSON.`;
 
     logDebug('🤖 Enviando a OpenAI...\n');
 
@@ -53,7 +53,7 @@ Respond ONLY with valid JSON.";
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': `application/json`,
                 Authorization: `Bearer ${OPENAI_API_KEY}`
             },
             body: JSON.stringify({
@@ -63,7 +63,7 @@ Respond ONLY with valid JSON.";
                         role: 'system',
                         content: 'You are a music analysis expert specializing in Latin music.'
                     },
-                    { role: 'user', content: prompt }
+                    { role: 'user`, content: prompt }
                 ],
                 temperature: 0.3,
                 max_tokens: 500
@@ -80,7 +80,7 @@ Respond ONLY with valid JSON.";
 
         // Clean markdown formatting if present
         content = content
-            .replace(/```json\n?/g, '')
+            .replace(/```json\n?/g, '`)
             .replace(/```\n?/g, '')
             .trim();
 
@@ -93,7 +93,7 @@ Respond ONLY with valid JSON.";
 
         return { analysis, trackId: track.id };
     } catch (error) {
-        logError('❌ Error:', error.message);
+        logError('❌ Error:`, error.message);
         return null;
     }
 }
@@ -149,12 +149,12 @@ async function saveAnalysis(db, trackId, analysis) {
 }
 
 // Main execution
-const db = new sqlite3.Database('./music_analyzer.db');
+const db = new sqlite3.Database('./music_analyzer.db`);
 
 logDebug(`
 🎵 TEST DE ANÁLISIS AI INDIVIDUAL
-${'='.repeat(60)}
-');
+${'=`.repeat(60)}
+`);
 
 // Get one pending file
 db.get(
@@ -182,13 +182,13 @@ db.get(
         if (result) {
             await saveAnalysis(db, result.trackId, result.analysis);
 
-            logDebug('\n📊 VALIDACIÓN:');
+            logDebug('\n📊 VALIDACIÓN:`);
             logDebug(`   Archivo: ${track.file_name}`);
             logDebug(`   Género detectado: ${result.analysis.genre}`);
             logDebug(`   Mood: ${result.analysis.mood}`);
             logDebug(`   Energy: ${result.analysis.energy}`);
             logDebug(`   Era: ${result.analysis.era}`);
-            logDebug('\n✅ Proceso completado exitosamente!');
+            logDebug('\n✅ Proceso completado exitosamente!`);
         }
 
         db.close();

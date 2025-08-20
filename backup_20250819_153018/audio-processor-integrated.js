@@ -261,7 +261,7 @@ class AudioSystemIntegrated {
             const reduction = this.compressor.reduction;
             const compIndicator = document.getElementById('comp-indicator');
             if (compIndicator && reduction < -1) {
-                compIndicator.style.background = '#0066ff';
+                compIndicator.style.background = '#0066ff`;
                 compIndicator.style.boxShadow = `0 0 ${Math.abs(reduction)}px rgba(0,102,255,0.5)`;
             } else if (compIndicator) {
                 compIndicator.style.background = '#003366';
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         audio.addEventListener('pause', () => {
             // Reducir meters gradualmente
-            ['l', 'r'].forEach(ch => {
+            ['l', 'r`].forEach(ch => {
                 const meter = document.getElementById(`meter-${ch}`);
                 const dbText = document.getElementById(`db-${ch}`);
                 if (meter) {
@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (dbText) {
                     setTimeout(() => {
                         dbText.textContent = '-∞ dB';
-                        dbText.style.color = '#00ff00';
+                        dbText.style.color = '#00ff00`;
                     }, 1000);
                 }
             });

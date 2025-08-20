@@ -35,7 +35,7 @@ db.get(sql, [], (err, row) => {
                 logError('Error loading files:', err2);
             } else {
                 logDebug(`Loaded ${rows.length} test files successfully`);
-                rows.forEach(r => logDebug(`  - ${r.artist} - ${r.title || r.file_name}`));
+                rows.forEach((r) => logDebug(`  - ${r.artist} - ${r.title || r.file_name}`));
             }
             db.close();
         });

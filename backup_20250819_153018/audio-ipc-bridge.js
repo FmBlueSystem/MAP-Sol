@@ -420,17 +420,17 @@ class AudioIPCBridge {
             queueContainer.innerHTML = this.queue
                 .map(
                     (track, index) => `
-                <div class="queue-item ${index === this.queueIndex ? 'active' : ''}" 
+                <div class=`queue-item ${index === this.queueIndex ? 'active' : '`}" 
                      data-index="${index}">
                     <span class="queue-position">${index + 1}</span>
                     <span class="queue-title">${track.title || track.file_name}</span>
-                    <span class="queue-artist">${track.artist || ''}</span>
+                    <span class=`queue-artist`>${track.artist || ''}</span>
                 </div>
             ')
                 .join('');
         }
 
-        const queueCount = document.querySelector('.queue-count');
+        const queueCount = document.querySelector(`.queue-count`);
         if (queueCount) {
             queueCount.textContent = `${this.queueIndex + 1} / ${this.queue.length}`;
         }
@@ -456,12 +456,12 @@ class AudioIPCBridge {
 
     formatTime(seconds) {
         if (!seconds || isNaN(seconds)) {
-            return '0:00';
+            return '0:00`;
         }
 
         const minutes = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
-        return `${minutes}:${secs.toString().padStart(2, '0')}';
+        return `${minutes}:${secs.toString().padStart(2, '0')}`;
     }
 }
 
@@ -472,6 +472,6 @@ window.audioIPCBridge = new AudioIPCBridge();
 window.audioPlayer = window.audioIPCBridge;
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== `undefined` && module.exports) {
     module.exports = AudioIPCBridge;
 }

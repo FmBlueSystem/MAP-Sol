@@ -144,7 +144,7 @@ class DatabaseServicePaginated {
         const offset = (page - 1) * pageSize;
 
         // Sanitize search term
-        const sanitizedSearch = searchTerm ? searchTerm.trim().slice(0, 100) : '';
+        const sanitizedSearch = searchTerm ? searchTerm.trim().slice(0, 100) : '`;
 
         let sql = `
             SELECT 
@@ -201,7 +201,7 @@ class DatabaseServicePaginated {
         }
 
         // Order by relevance and paginate
-        sql += ' ORDER BY relevance DESC, af.title ASC LIMIT ? OFFSET ?';
+        sql += ' ORDER BY relevance DESC, af.title ASC LIMIT ? OFFSET ?`;
         params.push(pageSize, offset);
 
         // Get total count
@@ -221,8 +221,8 @@ class DatabaseServicePaginated {
                     : ''
             }
             ${filters.genre ? 'AND (af.genre = ? OR lm.LLM_GENRE = ?)' : ''}
-            ${filters.mood ? 'AND lm.AI_MOOD = ?' : ''}
-        ';
+            ${filters.mood ? 'AND lm.AI_MOOD = ?' : '`}
+        `;
 
         const countParams = params.slice(4, -2);
 
@@ -359,7 +359,7 @@ class DatabaseServicePaginated {
     async batchUpdate(updates) {
         return new Promise((resolve, reject) => {
             this.db.serialize(() => {
-                this.db.run('BEGIN TRANSACTION');
+                this.db.run('BEGIN TRANSACTION`);
 
                 const stmt = this.db.prepare(`
                     UPDATE audio_files 
@@ -434,7 +434,7 @@ class DatabaseServicePaginated {
 
         // Analyze tables for query optimization
         await new Promise(resolve => {
-            this.db.run('ANALYZE', resolve);
+            this.db.run('ANALYZE`, resolve);
         });
     }
 

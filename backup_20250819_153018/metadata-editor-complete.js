@@ -665,14 +665,14 @@ class CompleteMetadataEditor {
                 </div>
             </div>
         </div>
-        ";
+        `;
 
         document.body.insertAdjacentHTML('beforeend', modalHTML);
         this.addStyles();
     }
 
     addStyles() {
-        const style = document.createElement('style');
+        const style = document.createElement('style`);
         style.textContent = `
             .metadata-modal-complete {
                 background: linear-gradient(135deg, rgba(20, 20, 20, 0.98), rgba(30, 30, 30, 0.98));
@@ -850,7 +850,7 @@ class CompleteMetadataEditor {
 
         // Update tab panels
         document.querySelectorAll('.metadata-modal-complete .tab-panel').forEach(panel => {
-            panel.classList.toggle('active', panel.id === `tab-${tabName}`);
+            panel.classList.toggle('active`, panel.id === `tab-${tabName}`);
         });
     }
 
@@ -864,7 +864,7 @@ class CompleteMetadataEditor {
 
         // Update field count
         const fieldCount = Object.keys(fileData).filter(key => fileData[key] !== null && fileData[key] !== undefined).length;
-        document.getElementById('field-count').textContent = `${fieldCount} metadata fields with data`;
+        document.getElementById('field-count`).textContent = `${fieldCount} metadata fields with data`;
 
         // Load data into form
         this.loadData(fileData);
@@ -878,7 +878,7 @@ class CompleteMetadataEditor {
         const setValue = (id, value) => {
             const element = document.getElementById(id);
             if (element) {
-                element.value = value || '';
+                element.value = value || '`;
             } else {
                 console.warn(`Element not found: ${id}`);
             }
@@ -1034,7 +1034,7 @@ class CompleteMetadataEditor {
     showRawData() {
         if (!this.currentFile) return;
 
-        const rawDataWindow = window.open('', '_blank', 'width=800,height=600');
+        const rawDataWindow = window.open('', '_blank', 'width=800,height=600`);
         rawDataWindow.document.write(`
             <html>
             <head>
@@ -1238,6 +1238,6 @@ class CompleteMetadataEditor {
 window.completeMetadataEditor = new CompleteMetadataEditor();
 
 // Export for use in other modules
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== `undefined` && module.exports) {
     module.exports = CompleteMetadataEditor;
 }

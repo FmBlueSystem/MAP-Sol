@@ -12,8 +12,7 @@ async function testAnalyzer() {
     logDebug('='.repeat(60));
 
     // Test path - you can change this to your music folder
-    const testMusicPath =
-        '/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks';
+    const testMusicPath = '/Volumes/My Passport/Ojo otra vez musica de Tidal Original descarga/Consolidado2025/Tracks';
 
     // Check if path exists
     if (!fs.existsSync(testMusicPath)) {
@@ -25,9 +24,9 @@ async function testAnalyzer() {
     // Get first few music files for testing
     const files = fs
         .readdirSync(testMusicPath)
-        .filter(f => ['.mp3', '.flac', '.m4a'].includes(path.extname(f).toLowerCase()))
+        .filter((f) => ['.mp3', '.flac', '.m4a'].includes(path.extname(f).toLowerCase()))
         .slice(0, 3) // Test with only 3 files
-        .map(f => path.join(testMusicPath, f));
+        .map((f) => path.join(testMusicPath, f));
 
     if (files.length === 0) {
         logError('❌ No music files found in test directory');
@@ -35,7 +34,7 @@ async function testAnalyzer() {
     }
 
     logDebug(`📁 Found ${files.length} test files:`);
-    files.forEach(f => logDebug(`   - ${path.basename(f)}`));
+    files.forEach((f) => logDebug(`   - ${path.basename(f)}`));
     logDebug('');
 
     // Create analyzer instance

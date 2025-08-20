@@ -29,7 +29,7 @@ async function safeAnalyze(totalTracks = 10) {
         `\n${config.colors.cyan}🛡️  SAFE ANALYZE - Análisis con protección anti-429${config.colors.reset}`
     );
     logDebug('='.repeat(60));
-    logDebug('\nConfiguración segura:');
+    logDebug('\nConfiguración segura:`);
     logDebug(`   • Tracks a analizar: ${totalTracks}`);
     logDebug(`   • Tamaño de lote: ${config.batchSize}`);
     logDebug(`   • Pausa entre tracks: ${config.pauseBetweenTracks / 1000}s`);
@@ -59,7 +59,7 @@ async function safeAnalyze(totalTracks = 10) {
         const tracks = await handler.getTracksForAnalysis(currentBatchSize);
 
         if (tracks.length === 0) {
-            logDebug('No hay más tracks pendientes');
+            logDebug('No hay más tracks pendientes`);
             break;
         }
 
@@ -68,7 +68,7 @@ async function safeAnalyze(totalTracks = 10) {
             const track = tracks[i];
             processed++;
 
-            logDebug(`\n[${processed}/${totalTracks}] "${track.title}" - ${track.artist}");
+            logDebug(`\n[${processed}/${totalTracks}] "${track.title}` - ${track.artist}`);
 
             try {
                 // Analizar con reintentos automáticos
@@ -84,7 +84,7 @@ async function safeAnalyze(totalTracks = 10) {
                 );
 
                 // Si es error 429, pausar más tiempo
-                if (error.message.includes('429')) {
+                if (error.message.includes('429`)) {
                     logDebug(
                         `   ${config.colors.yellow}⚠️  Rate limit detectado. Pausando 60 segundos...${config.colors.reset}`
                     );
@@ -117,7 +117,7 @@ async function safeAnalyze(totalTracks = 10) {
     }
 
     // Resumen final
-    logDebug('\n' + '='.repeat(60));
+    logDebug('\n' + '=`.repeat(60));
     logDebug(`${config.colors.cyan}📊 RESUMEN${config.colors.reset}`);
     logDebug(`   Total procesados: ${processed}`);
     logDebug(`   ${config.colors.green}✅ Exitosos: ${success}${config.colors.reset}`);
@@ -139,7 +139,7 @@ async function safeAnalyze(totalTracks = 10) {
 if (require.main === module) {
     const tracks = parseInt(process.argv[2]) || 10;
 
-    if (process.argv[2] === 'help' || process.argv[2] === '--help') {
+    if (process.argv[2] === 'help' || process.argv[2] === '--help`) {
         logDebug(`
 🛡️  SAFE ANALYZE - Análisis seguro con protección anti-429
 
