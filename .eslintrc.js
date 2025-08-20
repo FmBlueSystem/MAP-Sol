@@ -43,5 +43,9 @@ module.exports = {
         perfOptimizer: 'readonly',
         dbOptimizer: 'readonly',
         themeController: 'readonly',
+        logInfo: 'readonly',
+        logError: 'readonly',
+        logDebug: 'readonly',
+        logWarn: 'readonly'
     }
 };

@@ -1,0 +1,34 @@
+# Backup directories (contain intentionally broken files from emergency stabilization)
+backup*/
+emergency-backup*/
+*backup*
+backup-emergency-*
+emergency-fix-*
+
+# Generated and temporary files
+node_modules/
+dist/
+build/
+coverage/
+*.min.js
+*.bundle.js
+
+# Logs and cache
+logs/
+*.log
+.npm
+.cache/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test artifacts
+test-results/
+junit.xml
