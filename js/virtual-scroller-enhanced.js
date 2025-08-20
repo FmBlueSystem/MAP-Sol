@@ -277,7 +277,7 @@ class VirtualScrollerEnhanced {
                 <span class="item-index">${index + 1}</span>
                 <span class="item-text">${item.title || item.name || item}</span>
             </div>
-        ";
+        `;
     }
 
     scrollToIndex(index, behavior = 'smooth') {
@@ -335,7 +335,7 @@ class VirtualScrollerEnhanced {
         const itemSize = 100; // ~100 bytes per item data
         const totalNodes = this.renderedItems.size + this.nodePool.length;
         const totalSize = totalNodes * nodeSize + this.items.length * itemSize;
-        return (totalSize / 1048576).toFixed(2) + ' MB';
+        return (totalSize / 1048576).toFixed(2) + ' MB`;
     }
 }
 

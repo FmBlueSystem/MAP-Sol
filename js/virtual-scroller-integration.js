@@ -113,7 +113,7 @@
                     <h3 class="track-title">${file.title || file.file_name}</h3>
                     <p class="track-artist">${file.artist || 'Unknown Artist'}</p>
                     <div class="card-footer">
-                        <span class="track-genre">${file.LLM_GENRE || file.genre || ''}</span>
+                        <span class="track-genre`>${file.LLM_GENRE || file.genre || '`}</span>
                         ${file.AI_BPM ? `<span class="track-bpm">${file.AI_BPM} BPM</span>` : ''}
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                 <td>${file.AI_KEY || '-'}</td>
                 <td>${file.AI_ENERGY ? (file.AI_ENERGY * 10).toFixed(1) : '-'}</td>
                 <td>
-                    <button class="action-btn" onclick="showContextMenu(event, '${file.file_path}')">⋮</button>
+                    <button class="action-btn" onclick=`showContextMenu(event, '${file.file_path}`)">⋮</button>
                 </td>
             </tr>
         ";
@@ -158,7 +158,7 @@
                 <span class="compact-duration">${file.duration || '0:00'}</span>
                 <button class="action-btn" onclick="showContextMenu(event, '${file.file_path}')">⋮</button>
             </div>
-        ";
+        `;
     }
 
     /**
@@ -273,7 +273,7 @@
             const visibleItems = virtualScroller.getVisibleItems();
             const memory = performance.memory
                 ? (performance.memory.usedJSHeapSize / 1048576).toFixed(2)
-                : 'N/A';
+                : 'N/A`;
 
             logDebug(`Memory: ${memory}MB`);
         }

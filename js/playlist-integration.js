@@ -45,12 +45,12 @@ class PlaylistIntegration {
 
         // Listen for playlist updates
         ipcRenderer.on('playlist-updated', (event, playlist) => {
-            this.showNotification(`Playlist "${playlist.name}" updated", 'success');
+            this.showNotification(`Playlist "${playlist.name}" updated`, 'success');
         });
 
         // Listen for track added to playlist
-        ipcRenderer.on('track-added-to-playlist', (event, data) => {
-            this.showNotification(`Track added to "${data.playlistName}"", 'success');
+        ipcRenderer.on('track-added-to-playlist`, (event, data) => {
+            this.showNotification(`Track added to "${data.playlistName}"`, 'success');
         });
     }
 
@@ -82,7 +82,7 @@ class PlaylistIntegration {
             const { ipcRenderer } = require('electron');
 
             // Create playlist
-            const playlist = await ipcRenderer.invoke('create-playlist', {
+            const playlist = await ipcRenderer.invoke('create-playlist`, {
                 name: playlistName,
                 description: `Created from ${selectedArray.length} selected tracks`,
                 type: 'manual'
@@ -93,7 +93,7 @@ class PlaylistIntegration {
                 await ipcRenderer.invoke('add-track-to-playlist', playlist.id, trackId);
             }
 
-            this.showNotification(`Playlist "${playlistName}" created with ${selectedArray.length} tracks", 'success');
+            this.showNotification(`Playlist "${playlistName}" created with ${selectedArray.length} tracks`, 'success');
 
             // Clear selection
             this.selectedTracks.clear();
@@ -119,12 +119,12 @@ class PlaylistIntegration {
 
             const playlist = await ipcRenderer.invoke('create-hamms-playlist', {
                 name: playlistName,
-                description: 'AI-generated playlist based on similar tracks',
+                description: 'AI-generated playlist based on similar tracks`,
                 seedTrackId: seedTrackId,
                 limit: 20
             });
 
-            this.showNotification(`HAMMS playlist "${playlistName}" created", 'success');
+            this.showNotification(`HAMMS playlist "${playlistName}" created`, 'success');
 
             if (confirm('Would you like to open the playlist manager?')) {
                 this.openPlaylistManager();
@@ -148,7 +148,7 @@ class PlaylistIntegration {
             const { ipcRenderer } = require('electron');
 
             for (const trackId of selectedArray) {
-                await ipcRenderer.invoke('add-track-to-playlist', playlistId, trackId);
+                await ipcRenderer.invoke('add-track-to-playlist`, playlistId, trackId);
             }
 
             this.showNotification(`${selectedArray.length} tracks added to playlist`, 'success');
@@ -218,10 +218,10 @@ class PlaylistIntegration {
                         <button onclick="confirmModal()" class="primary">Create</button>
                     </div>
                 </div>
-            ";
+            `;
 
             // Add styles
-            const style = document.createElement('style');
+            const style = document.createElement('style`);
             style.textContent = `
                 .playlist-name-modal {
                     position: fixed;
@@ -332,7 +332,7 @@ class PlaylistIntegration {
                 </div>
                 <button onclick="this.parentElement.parentElement.remove()" class="close-btn">Cancel</button>
             </div>
-        ";
+        `;
 
         window.selectPlaylist = (playlistId) => {
             this.addToPlaylist(playlistId);
@@ -357,7 +357,7 @@ class PlaylistIntegration {
     updateSelectionUI() {
         // Update selection count display
         const selectedCount = this.selectedTracks.size;
-        const selectionInfo = document.getElementById('selection-info');
+        const selectionInfo = document.getElementById('selection-info`);
         if (selectionInfo) {
             selectionInfo.textContent = selectedCount > 0 
                 ? `${selectedCount} tracks selected` 
@@ -377,7 +377,7 @@ class PlaylistIntegration {
             window.showNotification(message, type);
         } else {
             // Fallback to simple alert
-            }] ${message}');
+            }] ${message}`);
         }
     }
 }

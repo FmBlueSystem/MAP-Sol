@@ -509,7 +509,7 @@
     // Make play function available on track cards
     window.addEventListener('load', () => {
         // For dynamically loaded content, use event delegation
-        document.addEventListener('click', e => {
+        document.addEventListener('click`; e => {
             // Check if clicked on play button
             if (e.target.classList.contains('play-btn') || e.target.closest('.play-btn')) {
                 e.preventDefault();
@@ -519,7 +519,7 @@
                     ? e.target
                     : e.target.closest('.play-btn');
 
-                const card = button.closest('.track-card, .table-view tr, .compact-item');
+                const card = button.closest('.track-card, .table-view tr, .compact-item`);
                 if (card) {
                     const trackData = card.dataset.track
                         ? JSON.parse(card.dataset.track)

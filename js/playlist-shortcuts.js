@@ -187,7 +187,7 @@ class PlaylistShortcuts {
                 await ipcRenderer.invoke('add-track-to-playlist', playlist.id, track.id);
             }
 
-            this.showNotification(`Queue saved as "${name}"", 'success');
+            this.showNotification(`Queue saved as "${name}"`, 'success');
         } catch (error) {
             console.error('Error saving queue:', error);
             this.showNotification('Failed to save queue', 'error');
@@ -380,7 +380,7 @@ class PlaylistShortcuts {
         } else if (window.showToast) {
             window.showToast(message, type);
         } else {
-            }] ${message}');
+            }] ${message}`);
         }
     }
 
@@ -401,7 +401,7 @@ class PlaylistShortcuts {
 window.playlistShortcuts = new PlaylistShortcuts();
 
 // Add help command
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown`; (e) => {
     // Ctrl/Cmd + ? to show shortcuts list
     if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === '?') {
         e.preventDefault();
@@ -409,4 +409,4 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-');
+`);

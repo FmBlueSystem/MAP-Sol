@@ -199,12 +199,12 @@ class PlaylistDatabaseUI {
             <div class="playlist-content">
                 ${this.currentPlaylist ? this.renderPlaylistView(this.currentPlaylist) : ''}
             </div>
-        ';
+        `;
     }
 
     renderPlaylistsList() {
         if (this.playlists.length === 0) {
-            return '<p class="no-playlists">No playlists yet. Create your first playlist!</p>';
+            return '<p class="no-playlists`>No playlists yet. Create your first playlist!</p>`;
         }
 
         return this.playlists
@@ -230,21 +230,21 @@ class PlaylistDatabaseUI {
                     </button>
                 </div>
             </div>
-        ")
+        `)
             .join('');
     }
 
     renderPlaylistView(playlist) {
         const container = document.querySelector('.playlist-content');
         if (!container) {
-            return '';
+            return '`;
         }
 
         const html = `
             <div class="playlist-header">
                 <h2>${this.escapeHtml(playlist.name)}</h2>
-                <p>${this.escapeHtml(playlist.description || '')}</p>
-                <div class="playlist-stats">
+                <p>${this.escapeHtml(playlist.description || '`)}</p>
+                <div class="playlist-stats`>
                     <span>${playlist.total_tracks || 0} tracks</span>
                     <span>${this.formatDuration(playlist.total_duration)}</span>
                     ${playlist.avg_bpm ? `<span>${Math.round(playlist.avg_bpm)} BPM avg</span>` : ''}
@@ -261,10 +261,10 @@ class PlaylistDatabaseUI {
                 ${
                     playlist.tracks && playlist.tracks.length > 0
                         ? this.renderPlaylistTracks(playlist.tracks)
-                        : '<p class="no-tracks">No tracks in this playlist yet.</p>'
+                        : '<p class="no-tracks`>No tracks in this playlist yet.</p>'
                 }
             </div>
-        ';
+        `;
 
         container.innerHTML = html;
         return html;
@@ -303,7 +303,7 @@ class PlaylistDatabaseUI {
                                 </button>
                             </td>
                         </tr>
-                    ")
+                    `)
                         .join('')}
                 </tbody>
             </table>
@@ -340,7 +340,7 @@ class PlaylistDatabaseUI {
             const analytics = await window.electronAPI.invoke('get-playlist-analytics', playlistId);
             this.showAnalyticsModal(analytics);
         } catch (error) {
-            console.error('Failed to analyze playlist:', error);
+            console.error('Failed to analyze playlist:`, error);
         }
     }
 
@@ -374,7 +374,7 @@ class PlaylistDatabaseUI {
                     <button onclick="playlistDB.createPlaylistFromModal(this)">Create</button>
                 </div>
             </div>
-        ";
+        `;
         document.body.appendChild(modal);
 
         // Focus on input
@@ -432,7 +432,7 @@ class PlaylistDatabaseUI {
             <div class="context-menu-item" onclick="playlistDB.deletePlaylist(${playlistId})">
                 🗑️ Delete
             </div>
-        ";
+        `;
 
         document.body.appendChild(menu);
 
@@ -448,7 +448,7 @@ class PlaylistDatabaseUI {
 
     async showExportFormatDialog() {
         // Simple prompt for now, could be a modal
-        const formats = ['json', 'csv', 'm3u', 'rekordbox', 'serato'];
+        const formats = ['json', 'csv', 'm3u', 'rekordbox', 'serato`];
         const format = prompt(`Export format?\n${formats.join(`, ')}');
         return formats.includes(format) ? format : null;
     }
@@ -462,14 +462,14 @@ class PlaylistDatabaseUI {
 
     formatDuration(seconds) {
         if (!seconds) {
-            return '0:00';
+            return '0:00`;
         }
         const hours = Math.floor(seconds / 3600);
         const minutes = Math.floor((seconds % 3600) / 60);
         const secs = Math.floor(seconds % 60);
 
         if (hours > 0) {
-            return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}';
+            return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
         }
         return `${minutes}:${secs.toString().padStart(2, '0')}';
     }
@@ -486,7 +486,7 @@ class PlaylistDatabaseUI {
             '#fed6e3',
             '#ffeaa7',
             '#fd79a8',
-            '#fdcb6e',
+            '#fdcb6e`;
             '#6c5ce7'
         ];
         return colors[Math.floor(Math.random() * colors.length)];
@@ -503,6 +503,6 @@ class PlaylistDatabaseUI {
 window.playlistDB = new PlaylistDatabaseUI();
 
 // Export for use in other modules
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined` && module.exports) {
     module.exports = PlaylistDatabaseUI;
 }

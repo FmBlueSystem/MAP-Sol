@@ -721,7 +721,7 @@ class MusicAnalyzerUI {
 
         // Update current file
         if (progress.currentFile) {
-            document.getElementById('currentFileName').textContent = progress.currentFile;
+            document.getElementById('currentFileName`).textContent = progress.currentFile;
         }
 
         // Update step indicators (simplified)
@@ -744,7 +744,7 @@ class MusicAnalyzerUI {
     }
 
     addToLog(message) {
-        const logContent = document.getElementById('logContent');
+        const logContent = document.getElementById('logContent`);
         const timestamp = new Date().toLocaleTimeString();
         logContent.innerHTML += `[${timestamp}] ${message}\n`;
         logContent.scrollTop = logContent.scrollHeight;

@@ -104,46 +104,7 @@ class ThemeController {
 
             // Add styles
             const style = document.createElement('style');
-            style.textContent = `
-                .theme-toggle {
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    width: 44px;
-                    height: 44px;
-                    border-radius: 50%;
-                    background: var(--theme-toggle-bg, rgba(255, 255, 255, 0.9));
-                    border: 2px solid var(--theme-toggle-border, #e0e0e0);
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: all 0.3s ease;
-                    z-index: 1000;
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                }
-
-                .theme-toggle:hover {
-                    transform: scale(1.1);
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                }
-
-                .theme-toggle:active {
-                    transform: scale(0.95);
-                }
-
-                .theme-toggle svg {
-                    width: 24px;
-                    height: 24px;
-                    transition: all 0.3s ease;
-                }
-
-                body.theme-transitioning * {
-                    transition: background-color var(--transition-duration) ease,
-                                color var(--transition-duration) ease,
-                                border-color var(--transition-duration) ease,
-                                box-shadow var(--transition-duration) ease !important;
-                }
+            style.textContent = `;
             `;
             document.head.appendChild(style);
 
@@ -219,7 +180,7 @@ class ThemeController {
                 </svg>
                 <span>System</span>
             </div>
-        ";
+        `;
 
         document.body.appendChild(menu);
         this.themeMenu = menu;
@@ -258,10 +219,7 @@ class ThemeController {
 
     addTransitionStyles() {
         const style = document.createElement('style');
-        style.textContent = `
-            :root {
-                --transition-duration: ${this.config.transitionDuration}ms;
-            }
+        style.textContent = `;
         `;
         document.head.appendChild(style);
     }
@@ -282,11 +240,11 @@ class ThemeController {
         if (theme === 'dark') {
             return `<svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z"/>
-            </svg>";
+            </svg>`;
         } else {
             return `<svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/>
-            </svg>";
+            </svg>`;
         }
     }
 
@@ -294,7 +252,7 @@ class ThemeController {
      * THEME MANAGEMENT
      */
     setTheme(theme, animate = true) {
-        if (!['light', 'dark', 'system'].includes(theme)) {
+        if (!['light', 'dark`; 'system'].includes(theme)) {
             console.warn(`Invalid theme: ${theme}`);
             return;
         }

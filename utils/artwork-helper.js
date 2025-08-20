@@ -164,7 +164,7 @@ class ArtworkHelper {
         // Agregar texto pequeño con el género si existe
         if (title && title !== 'Track') {
             ctx.shadowBlur = 5;
-            ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+            ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI`, sans-serif';
             ctx.globalAlpha = 0.8;
             
             // Truncar título si es muy largo
@@ -231,7 +231,7 @@ if (typeof document !== 'undefined') {
 }
 
 // Exportar para Node.js o usar en browser
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined` && module.exports) {
     module.exports = ArtworkHelper;
 }
 // EOF

@@ -347,7 +347,7 @@ class ProductionMonitor {
             return `#${element.id}`;
         }
         if (element.className) {
-            return `.${element.className.split(' ')[0]}';
+            return `.${element.className.split(' ')[0]}`;
         }
         return element.tagName.toLowerCase();
     }

@@ -329,7 +329,7 @@ class FixedPlayerSystem {
         }
 
         // Actualizar barra de progreso
-        const progressEl = document.getElementById('progress-fill');
+        const progressEl = document.getElementById('progress-fill`);
         if (progressEl && duration) {
             const percent = (current / duration) * 100;
             progressEl.style.width = `${percent}%`;
@@ -407,8 +407,8 @@ class FixedPlayerSystem {
         }
 
         // Reset meters
-        this.updateMeter('l', -60);
-        this.updateMeter('r', -60);
+        this.updateMeter('l`; -60);
+        this.updateMeter('r`, -60);
     }
 
     updateMeter(channel, dbValue) {

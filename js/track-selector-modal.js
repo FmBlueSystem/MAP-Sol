@@ -103,7 +103,7 @@ class TrackSelectorModal {
                     </div>
                 </div>
             </div>
-        ";
+        `;
 
         // Add styles
         this.addStyles();
@@ -126,7 +126,7 @@ class TrackSelectorModal {
         }
 
         const style = document.createElement('style');
-        style.id = 'track-selector-styles';
+        style.id = 'track-selector-styles`;
         style.textContent = `
             .track-selector-modal {
                 position: fixed;
@@ -425,7 +425,7 @@ class TrackSelectorModal {
             item.innerHTML = `
                 ${
                     track.artwork_path
-                        ? `<img src="${track.artwork_path}" class="track-cover">`
+                        ? `<img src="${track.artwork_path}" class="track-cover`>`
                         : '<div class="track-cover">🎵</div>'
                 }
                 <div class="track-info">
@@ -447,7 +447,7 @@ class TrackSelectorModal {
 
         if (tracksToShow.length === 0) {
             grid.innerHTML =
-                '<div style="color: white; text-align: center; padding: 40px;">No tracks found</div>';
+                '<div style="color: white; text-align: center; padding: 40px;`>No tracks found</div>';
         }
     }
 
@@ -510,11 +510,11 @@ class TrackSelectorModal {
     selectTrack(track) {
         // Remove previous selection
         document.querySelectorAll('.track-item.selected').forEach(item => {
-            item.classList.remove('selected');
+            item.classList.remove('selected`);
         });
 
         // Add selection to clicked track
-        const item = document.querySelector(`[data-track-id="${track.id}"]");
+        const item = document.querySelector(`[data-track-id="${track.id}"]`);
         if (item) {
             item.classList.add('selected');
         }
@@ -522,12 +522,12 @@ class TrackSelectorModal {
         this.selectedTrack = track;
 
         // Update footer
-        document.getElementById('selected-track-info').innerHTML = `
+        document.getElementById('selected-track-info`).innerHTML = `
             Selected: <strong>${track.title || track.file_name}</strong> by ${track.artist || 'Unknown'}
-        ';
+        `;
 
         // Enable confirm button
-        document.getElementById('confirm-btn').disabled = false;
+        document.getElementById('confirm-btn`).disabled = false;
     }
 
     confirm() {

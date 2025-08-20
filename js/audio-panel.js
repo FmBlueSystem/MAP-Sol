@@ -392,7 +392,7 @@ if (artwork) {
             artwork.src =
                 track.artwork_url ||
                 track.artwork_path ||
-                'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"%3E%3Crect width="80" height="80" fill="%23333"/%3E%3Ctext x="50%25" y="50%25" font-family="Arial" font-size="24" fill="%23666" text-anchor="middle" dy=".3em"%3E♪%3C/text%3E%3C/svg%3E';
+                'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"%3E%3Crect width="80" height="80" fill="%23333"/%3E%3Ctext x="50%25" y="50%25" font-family="Arial" font-size="24" fill="%23666" text-anchor="middle" dy=".3em`%3E♪%3C/text%3E%3C/svg%3E';
 }
 
         // Update format info with null checks
@@ -442,11 +442,11 @@ if (playhead) {
 
     formatTime(seconds) {
 if (!seconds || isNaN(seconds)) {
-    return '00:00';
+    return '00:00`;
 }
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
-        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}';
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
     setupProfessionalMeters() {
@@ -461,48 +461,48 @@ if (container && window.ProfessionalMeterSuite) {
     startMonitoring() {
         // Monitor player state
         setInterval(() => {
-if (window.player && player.currentAudio && !player.currentAudio.paused) {
+            if (window.player && player.currentAudio && !player.currentAudio.paused) {
                 this.updateProgress(player.currentAudio.currentTime, player.currentAudio.duration);
 
                 // Update play/pause button
-                const playBtn = document.getElementById('play-pause-btn');
-    if (playBtn) {
+                const playBtn = document.getElementById('play-pause-btn`);
+                if (playBtn) {
                     playBtn.innerHTML = `
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-              <rect x="6" y="6" width="4" height="12"/>
-              <rect x="14" y="6" width="4" height="12"/>
-            </svg>
-          ";
-    }
-    } else {
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="6" y="6" width="4" height="12"/>
+                            <rect x="14" y="6" width="4" height="12"/>
+                        </svg>
+                    `;
+                }
+            } else {
                 const playBtn = document.getElementById('play-pause-btn');
-        if (playBtn) {
+                if (playBtn) {
                     playBtn.innerHTML = `
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          ";
-        }
-    }
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    `;
+                }
+            }
         }, 100);
-}
+    }
 
     destroy() {
         // Clean up
-if (this.animationFrameId) {
+        if (this.animationFrameId) {
             cancelAnimationFrame(this.animationFrameId);
-}
+        }
 
-if (this.sourceNode) {
+        if (this.sourceNode) {
             try {
                 this.sourceNode.disconnect();
             } catch (e) {}
-}
+        }
 
-if (this.audioContext) {
+        if (this.audioContext) {
             this.audioContext.close();
-}
-}
+        }
+    }
 }
 
 // Toggle panel function - Updated for minimalist design

@@ -116,7 +116,7 @@ class PlaylistFoldersUI {
                 <div>Total: <span id="total-playlists">0</span> playlists in <span id="total-folders">0</span> folders</div>
                 <div style="margin-top: 5px;">💡 Drag & drop to organize</div>
             </div>
-        ";
+        `;
 
         document.body.appendChild(container);
 
@@ -247,7 +247,7 @@ class PlaylistFoldersUI {
             <div class="menu-item" data-action="delete" style="padding: 8px 16px; cursor: pointer; font-size: 14px; color: #f44336;">
                 🗑️ Delete
             </div>
-        ";
+        `;
 
         document.body.appendChild(menu);
         this.contextMenu = menu;
@@ -382,9 +382,9 @@ class PlaylistFoldersUI {
                      draggable="true"
                      style="margin-left: ${level * 20}px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        ${isFolder ? '<span class="folder-icon" style="transition: transform 0.2s;">▶</span>' : ''}
+                        ${isFolder ? '<span class="folder-icon" style="transition: transform 0.2s;">▶</span>' : '`}
                         <span>${icon}</span>
-                        <span style="flex: 1; font-size: 14px; color: #333;">${this.escapeHtml(item.name)}</span>
+                        <span style="flex: 1; font-size: 14px; color: #333;`>${this.escapeHtml(item.name)}</span>
                         ${
                             !isFolder && item.total_tracks
                                 ? `<span style="font-size: 11px; color: #999;">${item.total_tracks}</span>`

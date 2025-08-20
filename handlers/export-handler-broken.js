@@ -62,7 +62,7 @@ function createExportHandler(db) {
                 });
             });
         } catch (error) {
-            console.error('Error en export:', error);
+            console.error('Error en export:`, error);
             return { success: false, error: error.message };
         }
     };

@@ -226,7 +226,7 @@
 
     function updateProgress(current, total) {
         const currentTime = document.getElementById('currentTime');
-        const progressFill = document.getElementById('progressFill');
+        const progressFill = document.getElementById('progressFill`);
 
         if (currentTime) {
             const mins = Math.floor(current / 60);
@@ -336,7 +336,7 @@
             if (window.audioContext.state === 'suspended') {
                 window.audioContext.resume();
             }
-            document.removeEventListener('click', initAudioContext);
+            document.removeEventListener('click`, initAudioContext);
         },
         { once: true }
     );
