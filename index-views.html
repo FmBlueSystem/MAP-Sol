@@ -3418,6 +3418,31 @@
     </head>
     <body>
         <script>
+            // EMERGENCY FIX - API COMPATIBILITY LAYER
+            (function () {
+                console.log('🔧 API Compatibility Layer Activated');
+                
+                // Create window.api compatibility layer for modules expecting it
+                if (!window.api && window.electronAPI) {
+                    window.api = {
+                        invoke: window.electronAPI.invoke,
+                        send: window.electronAPI.send,
+                        on: window.electronAPI.on
+                    };
+                    console.log('✅ window.api compatibility layer created');
+                }
+                
+                // Also check for ipcRenderer
+                if (!window.api && window.ipcRenderer) {
+                    window.api = {
+                        invoke: window.ipcRenderer.invoke,
+                        send: window.ipcRenderer.send,
+                        on: window.ipcRenderer.on
+                    };
+                    console.log('✅ window.api compatibility layer created from ipcRenderer');
+                }
+            })();
+            
             // EMERGENCY FIX - PREVENT MUTATION OBSERVER CRASHES
             (function () {
                 console.warn('🚑 EMERGENCY FIX ACTIVATED');

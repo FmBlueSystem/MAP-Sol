@@ -42,12 +42,18 @@ function initDatabase() {
             console.error('Error opening database:', err);
         } else {
             console.log('Connected to SQLite database');
+            // Register IPC handlers AFTER database is connected
+            registerIPCHandlers();
         }
     });
 }
 
-// Basic IPC handler for getting files
-ipcMain.handle('get-files-with-cached-artwork', async (event, limit = 300) => {
+// Register all IPC handlers after database is connected
+function registerIPCHandlers() {
+    console.log('Registering IPC handlers...');
+    
+    // Basic IPC handler for getting files
+    ipcMain.handle('get-files-with-cached-artwork', async (event, limit = 300) => {
     return new Promise((resolve, reject) => {
         const sql = `
             SELECT 
@@ -264,7 +270,40 @@ ipcMain.handle('import-music', async () => {
     } catch (error) {
         return { success: false, error: error.message };
     }
-});
+    });
+    
+    // Register additional handlers from external modules
+    try {
+        // Smart Playlist handlers
+        const { createSmartPlaylistHandlers } = require('./handlers/smart-playlist-handler');
+        const smartPlaylistHandlers = createSmartPlaylistHandlers(db);
+        ipcMain.handle('get-smart-playlists', smartPlaylistHandlers.getSmartPlaylistsHandler);
+        console.log('Smart Playlist handlers registered');
+    } catch (error) {
+        console.error('Error registering Smart Playlist handlers:', error.message);
+    }
+    
+    try {
+        // Energy Flow handlers
+        const { createEnergyFlowHandlers } = require('./handlers/energy-flow-handler');
+        const energyFlowHandlers = createEnergyFlowHandlers(db);
+        ipcMain.handle('get-queue-tracks', energyFlowHandlers.getQueueTracksHandler);
+        console.log('Energy Flow handlers registered');
+    } catch (error) {
+        console.error('Error registering Energy Flow handlers:', error.message);
+    }
+    
+    try {
+        // Export handlers
+        const { createGetExportFormatsHandler } = require('./handlers/export-handler');
+        ipcMain.handle('get-export-formats', createGetExportFormatsHandler());
+        console.log('Export handlers registered');
+    } catch (error) {
+        console.error('Error registering Export handlers:', error.message);
+    }
+    
+    console.log('All IPC handlers registered successfully');
+}
 
 // App event handlers
 app.whenReady().then(() => {

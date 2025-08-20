@@ -762,12 +762,13 @@ app.commandLine.appendSwitch('--log-level=3'); // Solo errores fatales
 app.commandLine.appendSwitch('--disable-dev-shm-usage');
 
 // Suprimir específicamente errores de ffmpeg y advertencias de seguridad
-process.env.ELECTRON_ENABLE_LOGGING = '0';
-process.env.ELECTRON_LOG_FILE = '/dev/null';
+// process.env.ELECTRON_ENABLE_LOGGING = '0';
+// process.env.ELECTRON_LOG_FILE = '/dev/null';
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
-process.env.ELECTRON_NO_ATTACH_CONSOLE = 'true';
+// process.env.ELECTRON_NO_ATTACH_CONSOLE = 'true';
 
 app.whenReady().then(() => {
+    console.log('=== APP WHEN READY TRIGGERED ===');
     // Configurar icono del dock en macOS
     if (process.platform === 'darwin') {
         const iconPath = path.join(__dirname, 'image.png');
@@ -791,48 +792,87 @@ app.whenReady().then(() => {
             logInfo('✅ Base de datos conectada');
             
             // Initialize everything AFTER database connection is confirmed
+            console.log('About to call initializeAppAfterDatabase...');
             initializeAppAfterDatabase();
+            console.log('initializeAppAfterDatabase call completed');
         }
     });
-}
+});
 
 function initializeAppAfterDatabase() {
-    // Create smart playlist tables if needed
-    createSmartPlaylistTables(db);
+    console.log('initializeAppAfterDatabase function started');
+    logInfo('🔧 Starting handler initialization...');
+    
+    try {
+        // Create smart playlist tables if needed
+        createSmartPlaylistTables(db);
+        logInfo('Smart playlist tables created');
+    } catch (error) {
+        logInfo('❌ Error creating smart playlist tables: ' + error.message);
+    }
 
-    // Initialize Import Music Handler
-    const ImportMusicHandler = require('./handlers/import-music-handler');
-    const importHandler = new ImportMusicHandler(db);
-    logInfo('✅ Import Music Handler initialized');
+    try {
+        // Initialize Import Music Handler
+        const ImportMusicHandler = require('./handlers/import-music-handler');
+        const importHandler = new ImportMusicHandler(db);
+        logInfo('✅ Import Music Handler initialized');
+    } catch (error) {
+        logInfo('❌ Error initializing Import Music Handler: ' + error.message);
+    }
 
     // Registrar handlers - SOLO después de que DB esté conectada
-    ipcMain.handle('get-files-with-cached-artwork', createArtworkHandler(db));
-    ipcMain.handle('search-tracks', createSearchHandler(db));
-    ipcMain.handle('get-filter-options', createFilterHandler(db));
-    ipcMain.handle('get-track-complete-data', createTrackInfoHandler(db));
-    ipcMain.handle('find-similar-tracks', createFindSimilarHandler(db));
+    try {
+        ipcMain.handle('get-files-with-cached-artwork', createArtworkHandler(db));
+        ipcMain.handle('search-tracks', createSearchHandler(db));
+        ipcMain.handle('get-filter-options', createFilterHandler(db));
+        ipcMain.handle('get-track-complete-data', createTrackInfoHandler(db));
+        ipcMain.handle('find-similar-tracks', createFindSimilarHandler(db));
+        logInfo('✅ Basic handlers registered');
+    } catch (error) {
+        logInfo('❌ Error registering basic handlers: ' + error.message);
+    }
 
-    // Simple Player handlers
-    const simplePlayerHandlers = createSimplePlayerHandlers(db);
-    ipcMain.handle('get-track-for-player', simplePlayerHandlers.getTrackForPlayerHandler);
+    try {
+        // Simple Player handlers
+        const simplePlayerHandlers = createSimplePlayerHandlers(db);
+        ipcMain.handle('get-track-for-player', simplePlayerHandlers.getTrackForPlayerHandler);
+        logInfo('✅ Simple Player handlers registered');
+    } catch (error) {
+        logInfo('❌ Error registering Simple Player handlers: ' + error.message);
+    }
 
-    // Smart Playlist handlers
-    const smartPlaylistHandlers = createSmartPlaylistHandlers(db);
-    ipcMain.handle('preview-smart-playlist', smartPlaylistHandlers.previewHandler);
-    ipcMain.handle('create-smart-playlist', smartPlaylistHandlers.createHandler);
-    ipcMain.handle('get-smart-playlists', smartPlaylistHandlers.getSmartPlaylistsHandler);
-    ipcMain.handle('update-smart-playlist', smartPlaylistHandlers.updateSmartPlaylistHandler);
+    try {
+        // Smart Playlist handlers
+        const smartPlaylistHandlers = createSmartPlaylistHandlers(db);
+        ipcMain.handle('preview-smart-playlist', smartPlaylistHandlers.previewHandler);
+        ipcMain.handle('create-smart-playlist', smartPlaylistHandlers.createHandler);
+        ipcMain.handle('get-smart-playlists', smartPlaylistHandlers.getSmartPlaylistsHandler);
+        ipcMain.handle('update-smart-playlist', smartPlaylistHandlers.updateSmartPlaylistHandler);
+        logInfo('✅ Smart Playlist handlers registered');
+    } catch (error) {
+        logInfo('❌ Error registering Smart Playlist handlers: ' + error.message);
+    }
 
-    // Energy Flow handlers
-    const energyFlowHandlers = createEnergyFlowHandlers(db);
-    ipcMain.handle('get-queue-tracks', energyFlowHandlers.getQueueTracksHandler);
-    ipcMain.handle('analyze-energy-flow', energyFlowHandlers.analyzeFlowHandler);
-    ipcMain.handle('optimize-energy-flow', energyFlowHandlers.optimizeFlowHandler);
+    try {
+        // Energy Flow handlers
+        const energyFlowHandlers = createEnergyFlowHandlers(db);
+        ipcMain.handle('get-queue-tracks', energyFlowHandlers.getQueueTracksHandler);
+        ipcMain.handle('analyze-energy-flow', energyFlowHandlers.analyzeFlowHandler);
+        ipcMain.handle('optimize-energy-flow', energyFlowHandlers.optimizeFlowHandler);
+        logInfo('✅ Energy Flow handlers registered');
+    } catch (error) {
+        logInfo('❌ Error registering Energy Flow handlers: ' + error.message);
+    }
 
-    // Export UI handlers
-    ipcMain.handle('get-all-tracks-for-export', createGetAllTracksForExportHandler(db));
-    ipcMain.handle('export-tracks', createExportTracksHandler(db));
-    ipcMain.handle('get-export-formats', createGetExportFormatsHandler());
+    try {
+        // Export UI handlers
+        ipcMain.handle('get-all-tracks-for-export', createGetAllTracksForExportHandler(db));
+        ipcMain.handle('export-tracks', createExportTracksHandler(db));
+        ipcMain.handle('get-export-formats', createGetExportFormatsHandler());
+        logInfo('✅ Export handlers registered');
+    } catch (error) {
+        logInfo('❌ Error registering Export handlers: ' + error.message);
+    }
 
     // Handler para Audio Configuration
     ipcMain.on('save-audio-config', (event, config) => {
@@ -1185,10 +1225,11 @@ ipcMain.handle('get-file-metadata', async (event, filePath) => {
     });
 
     // Crear splash screen y ventana principal DESPUÉS de inicializar handlers
+    logInfo('✅ All handlers initialized, creating windows...');
     createSplashScreen();
     createWindow();
+    logInfo('✅ Windows created');
 }
-});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

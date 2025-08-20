@@ -152,12 +152,18 @@ class EnergyFlowVisualizer {
 
     async loadQueueTracks() {
         try {
-            // Get tracks from queue or current playlist
-            const response = await window.api.invoke('get-queue-tracks');
-            if (response.success) {
-                this.tracks = response.tracks;
-                this.updateVisualization();
+            // Check if electronAPI is available
+            if (window.electronAPI && window.electronAPI.invoke) {
+                // Get tracks from queue or current playlist
+                const response = await window.electronAPI.invoke('get-queue-tracks');
+                if (response && response.success) {
+                    this.tracks = response.tracks;
+                    this.updateVisualization();
+                    return;
+                }
             }
+            // If not available or failed, use sample data
+            this.loadSampleData();
         } catch (error) {
             console.error('Error loading queue tracks:', error);
             // Use sample data for demonstration

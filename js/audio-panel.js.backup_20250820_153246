@@ -632,13 +632,6 @@ if (window.player) {
 }
 
 // Initialize the audio panel controller when DOM is ready
-if (typeof document !== 'undefined') {
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            window.audioPanelController = new AudioPanelController();
-        });
-    } else {
-        // DOM ya está cargado
-        window.audioPanelController = new AudioPanelController();
-    }
-}
+document.addEventListener('DOMContentLoaded', () => {
+    window.audioPanelController = new AudioPanelController();
+});

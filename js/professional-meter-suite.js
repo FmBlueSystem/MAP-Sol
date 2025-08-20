@@ -1076,7 +1076,7 @@ class ProfessionalMeterSuite {
         if (this.elements.statClips) {
             this.elements.statClips.textContent = this.clipCount.toString();
             if (this.clipCount > 0) {
-                this.elements.statClips.style.color = '#ff0000`;
+                this.elements.statClips.style.color = '#ff0000';
             }
         }
 
@@ -1163,7 +1163,7 @@ class ProfessionalMeterSuite {
 
     toggleMinimize() {
         if (this.elements.suite) {
-            this.elements.suite.classList.toggle('minimized`);
+            this.elements.suite.classList.toggle('minimized');
         }
     }
 

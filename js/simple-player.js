@@ -271,9 +271,8 @@ class SimplePlayer {
                     // Disconnect old source if exists
                     if (this.source) {
                         try {
- this.source.disconnect(); 
-} catch(e) {}
-                    }
+                            this.source.disconnect(); 
+                        } catch(e) {}
                     }
 
                     this.source = this.audioContext.createMediaElementSource(sound._node);
