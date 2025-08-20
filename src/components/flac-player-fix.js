@@ -73,13 +73,13 @@
                     unload: () => {
                         audio.src = '';
                     },
-                    volume: (v) => {
+                    volume: v => {
                         if (v !== undefined) {
                             audio.volume = v;
                         }
                         return audio.volume;
                     },
-                    seek: (s) => {
+                    seek: s => {
                         if (s !== undefined) {
                             audio.currentTime = s;
                         }
@@ -87,7 +87,7 @@
                     },
                     duration: () => audio.duration,
                     playing: () => !audio.paused,
-                    _sounds: [{ _node: audio }],
+                    _sounds: [{ _node: audio }]
                 };
             }
 
@@ -127,9 +127,7 @@
         let filePath = track.file_path;
 
         // Clean and encode the path
-        if (filePath.startsWith('file://')) {
-            filePath = filePath;
-        } else {
+        if (!filePath.startsWith('file://')) {
             filePath = 'file://' + encodeURI(filePath).replace(/#/g, '%23');
         }
 
@@ -142,7 +140,7 @@
         audio
             .play()
             .then(() => {})
-            .catch((err) => {
+            .catch(err => {
                 logError('Play failed:', err);
 
                 if (err.name === 'NotAllowedError') {
@@ -152,7 +150,7 @@
                     // Try fallback to direct path
 
                     audio.src = track.file_path;
-                    audio.play().catch((e) => logError('Direct path also failed:', e));
+                    audio.play().catch(e => logError('Direct path also failed:', e));
                 }
             });
 
@@ -201,7 +199,7 @@
             },
             onloaderror: (id, error) => {
                 logError('Howler load error:', error);
-            },
+            }
         });
 
         window.AppState.howl.play();
@@ -244,6 +242,6 @@
     // Export for debugging
     window.FLACPlayerFix = {
         play: window.playTrackFLAC,
-        standard: playTrackStandard,
+        standard: playTrackStandard
     };
 })();

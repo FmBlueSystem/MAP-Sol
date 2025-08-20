@@ -30,9 +30,9 @@ async function getFailedFiles() {
     const content = fs.readFileSync(errorFile, 'utf8');
     const files = content
         .split('\n')
-        .filter((line) => line.includes('ANALYSIS_FAILED:'))
-        .map((line) => line.replace('ANALYSIS_FAILED: ', '').trim())
-        .filter((f) => f);
+        .filter(line => line.includes('ANALYSIS_FAILED:'))
+        .map(line => line.replace('ANALYSIS_FAILED: ', '').trim())
+        .filter(f => f);
 
     return files;
 }
@@ -57,7 +57,7 @@ async function checkOnDisk(filePath) {
         return {
             exists: true,
             size: stats.size,
-            readable: true,
+            readable: true
         };
     }
     return { exists: false };
@@ -75,12 +75,12 @@ async function checkWithFFprobe(filePath) {
             format: data.format?.format_name,
             duration: data.format?.duration,
             bitrate: data.format?.bit_rate,
-            codec: data.streams?.[0]?.codec_name,
+            codec: data.streams?.[0]?.codec_name
         };
     } catch (error) {
         return {
             success: false,
-            error: error.message,
+            error: error.message
         };
     }
 }
@@ -97,7 +97,7 @@ async function diagnoseFiles() {
         formatIssues: [],
         flacFiles: [],
         m4aFiles: [],
-        fixable: [],
+        fixable: []
     };
 
     for (const fileName of failedFiles) {
@@ -135,7 +135,7 @@ async function diagnoseFiles() {
             logWarn(`  ⚠️ FFprobe failed: ${ffprobeCheck.error}`);
             diagnostics.formatIssues.push({
                 file: fileName,
-                error: ffprobeCheck.error,
+                error: ffprobeCheck.error
             });
         } else {
             logDebug(`  ✅ Format: ${ffprobeCheck.format}, Codec: ${ffprobeCheck.codec}`);
@@ -143,7 +143,7 @@ async function diagnoseFiles() {
                 fileName,
                 filePath: dbRecord.file_path,
                 format: ffprobeCheck.format,
-                codec: ffprobeCheck.codec,
+                codec: ffprobeCheck.codec
             });
         }
     }
@@ -183,7 +183,7 @@ async function diagnoseFiles() {
         logInfo(`• ${diagnostics.fixable.length} files can potentially be re-analyzed`);
 
         // Save fixable files list
-        const fixableList = diagnostics.fixable.map((f) => f.filePath).join('\n');
+        const fixableList = diagnostics.fixable.map(f => f.filePath).join('\n');
         fs.writeFileSync('fixable_files.txt', fixableList);
         logInfo('• List of fixable files saved to fixable_files.txt');
     }
@@ -195,14 +195,14 @@ async function diagnoseFiles() {
 
 // Run diagnostics
 diagnoseFiles()
-    .then((results) => {
+    .then(results => {
         logInfo('\n✅ Diagnostic complete');
 
         // Save full diagnostic report
         fs.writeFileSync('diagnostic_report.json', JSON.stringify(results, null, 2));
         logInfo('📄 Full report saved to diagnostic_report.json');
     })
-    .catch((error) => {
+    .catch(error => {
         logError('❌ Diagnostic failed:', error);
         db.close();
     });

@@ -25,14 +25,14 @@ async function runLighthouse(url, options = {}) {
     try {
         // Launch Chrome
         chrome = await chromeLauncher.launch({
-            chromeFlags: ['--headless', '--disable-gpu', '--no-sandbox'],
+            chromeFlags: ['--headless', '--disable-gpu', '--no-sandbox']
         });
 
         const opts = {
             logLevel: 'info',
             output: 'html',
             port: chrome.port,
-            ...options,
+            ...options
         };
 
         // Run Lighthouse
@@ -60,14 +60,14 @@ function analyzeResults(results) {
         opportunities: [],
         diagnostics: [],
         passed: [],
-        failed: [],
+        failed: []
     };
 
     // Extract scores
     for (const [key, category] of Object.entries(categories)) {
         analysis.scores[key] = {
             score: Math.round(category.score * 100),
-            title: category.title,
+            title: category.title
         };
     }
 
@@ -78,7 +78,7 @@ function analyzeResults(results) {
         'total-blocking-time',
         'cumulative-layout-shift',
         'speed-index',
-        'interactive',
+        'interactive'
     ];
 
     for (const metric of metricAudits) {
@@ -86,7 +86,7 @@ function analyzeResults(results) {
             analysis.metrics[metric] = {
                 value: audits[metric].numericValue,
                 displayValue: audits[metric].displayValue,
-                score: audits[metric].score,
+                score: audits[metric].score
             };
         }
     }
@@ -98,7 +98,7 @@ function analyzeResults(results) {
                 id: key,
                 title: audit.title,
                 description: audit.description,
-                savings: audit.details.overallSavingsMs,
+                savings: audit.details.overallSavingsMs
             });
         }
 
@@ -109,7 +109,7 @@ function analyzeResults(results) {
                 analysis.failed.push({
                     title: audit.title,
                     description: audit.description,
-                    score: audit.score,
+                    score: audit.score
                 });
             }
         }

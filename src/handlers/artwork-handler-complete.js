@@ -4,7 +4,7 @@ const path = require('path');
 
 function createCompleteArtworkHandler(db) {
     return async () => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             // SQL query to get ALL fields from both tables
             const sql = `
                 SELECT 
@@ -173,10 +173,10 @@ function createCompleteArtworkHandler(db) {
                     let withArtwork = 0;
                     let totalFields = 0;
 
-                    rows.forEach((file) => {
+                    rows.forEach(file => {
                         // Count non-null fields
                         const fieldCount = Object.keys(file).filter(
-                            (key) => file[key] !== null && file[key] !== undefined
+                            key => file[key] !== null && file[key] !== undefined
                         ).length;
                         totalFields = Math.max(totalFields, fieldCount);
 

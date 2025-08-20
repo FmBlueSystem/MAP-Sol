@@ -5,12 +5,12 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 console.log('🚨 EMERGENCIA: ESTABILIZACIÓN INMEDIATA DEL PROYECTO');
-console.log('=' .repeat(60));
+console.log('='.repeat(60));
 
 // Critical files that need to work for the project to function
 const criticalFiles = [
     'src/index.js',
-    'js/audio-player.js', 
+    'js/audio-player.js',
     'handlers/export-handler.js',
     'handlers/complete-metadata-handler.js'
 ];
@@ -19,13 +19,13 @@ const criticalFiles = [
 function countBrokenFiles() {
     let count = 0;
     const jsFiles = [];
-    
+
     function scan(dir) {
         const files = fs.readdirSync(dir);
         files.forEach(file => {
             const filePath = path.join(dir, file);
             const stat = fs.statSync(filePath);
-            
+
             if (stat.isDirectory() && !file.includes('node_modules') && !file.includes('backup')) {
                 scan(filePath);
             } else if (file.endsWith('.js')) {
@@ -33,9 +33,9 @@ function countBrokenFiles() {
             }
         });
     }
-    
+
     scan('.');
-    
+
     jsFiles.forEach(file => {
         try {
             execSync(`node -c "${file}" 2>/dev/null`);
@@ -43,7 +43,7 @@ function countBrokenFiles() {
             count++;
         }
     });
-    
+
     return { broken: count, total: jsFiles.length };
 }
 
@@ -55,34 +55,34 @@ function countBrokenFiles() {
 console.log('\n📊 Evaluando el estado actual del proyecto...');
 const fileStatus = countBrokenFiles();
 console.log(`   Archivos con errores de sintaxis: ${fileStatus.broken}/${fileStatus.total}`);
-console.log(`   Porcentaje de archivos rotos: ${(fileStatus.broken / fileStatus.total * 100).toFixed(1)}%`);
+console.log(`   Porcentaje de archivos rotos: ${((fileStatus.broken / fileStatus.total) * 100).toFixed(1)}%`);
 
 if (fileStatus.broken > 50) {
     console.log('\n🚨 PROYECTO EN ESTADO CRÍTICO');
     console.log('   Con más de 50 archivos rotos, necesitamos una estrategia diferente.');
     console.log('   Implementando protocolo de estabilización de emergencia...\n');
-    
+
     // Create a backup of all broken files
     const backupDir = `emergency-backup-${new Date().toISOString().slice(0, 19).replace(/[:.]/g, '-')}`;
     console.log(`📦 Creando backup de emergencia: ${backupDir}`);
-    
+
     if (!fs.existsSync(backupDir)) {
         fs.mkdirSync(backupDir, { recursive: true });
     }
-    
+
     // Move broken files to backup and create minimal placeholders
     console.log('🔄 Moviendo archivos rotos al backup...');
-    
+
     let movedCount = 0;
-    
+
     function processDirectory(dir, relativePath = '') {
         const files = fs.readdirSync(dir);
-        
+
         files.forEach(file => {
             const filePath = path.join(dir, file);
             const relativeFilePath = path.join(relativePath, file);
             const stat = fs.statSync(filePath);
-            
+
             if (stat.isDirectory()) {
                 if (!file.includes('node_modules') && !file.includes('backup') && file !== backupDir) {
                     const backupSubDir = path.join(backupDir, relativeFilePath);
@@ -98,13 +98,13 @@ if (fileStatus.broken > 50) {
                     // File has syntax errors, move to backup
                     const backupFilePath = path.join(backupDir, relativeFilePath);
                     fs.copyFileSync(filePath, backupFilePath);
-                    
+
                     // Create minimal placeholder
                     const placeholder = createMinimalPlaceholder(filePath);
                     fs.writeFileSync(filePath, placeholder);
-                    
+
                     movedCount++;
-                    
+
                     if (movedCount % 10 === 0) {
                         process.stdout.write(`\r   Procesados: ${movedCount} archivos`);
                     }
@@ -112,10 +112,9 @@ if (fileStatus.broken > 50) {
             }
         });
     }
-    
+
     processDirectory('.');
     console.log(`\n   ✅ ${movedCount} archivos movidos al backup`);
-    
 } else {
     console.log('\n✅ El proyecto tiene un número manejable de archivos rotos');
     console.log('   Procediendo con reparaciones específicas...');
@@ -124,7 +123,7 @@ if (fileStatus.broken > 50) {
 function createMinimalPlaceholder(originalPath) {
     const fileName = path.basename(originalPath);
     const dirName = path.dirname(originalPath);
-    
+
     // Determine the type of file based on path and create appropriate placeholder
     if (originalPath.includes('test')) {
         return `// TEST PLACEHOLDER: ${fileName}
@@ -137,7 +136,7 @@ describe('${fileName.replace('.js', '')}', () => {
 });
 `;
     }
-    
+
     if (originalPath.includes('handler')) {
         return `// HANDLER PLACEHOLDER: ${fileName}
 // Original file moved to backup due to syntax errors
@@ -151,7 +150,7 @@ module.exports = {
 };
 `;
     }
-    
+
     if (originalPath.includes('component') || originalPath.includes('src/')) {
         return `// COMPONENT PLACEHOLDER: ${fileName}
 // Original file moved to backup due to syntax errors
@@ -165,7 +164,7 @@ window.${fileName.replace('.js', '').replace(/[-_]/g, '')} = {
 };
 `;
     }
-    
+
     // Default script placeholder
     return `#!/usr/bin/env node
 
@@ -192,19 +191,19 @@ console.log(`   Archivos con errores: ${newStatus.broken}/${newStatus.total}`);
 
 if (newStatus.broken === 0) {
     console.log('✅ PROYECTO ESTABILIZADO EXITOSAMENTE');
-    
+
     // Run basic checks
     console.log('\n🧪 Ejecutando verificaciones básicas...');
-    
+
     try {
         console.log('   - Verificando ESLint...');
         execSync('npx eslint --version', { stdio: 'ignore' });
         console.log('   ✅ ESLint disponible');
-        
+
         console.log('   - Verificando Jest...');
         execSync('npx jest --version', { stdio: 'ignore' });
         console.log('   ✅ Jest disponible');
-        
+
         console.log('   - Ejecutando tests...');
         try {
             execSync('npm test', { stdio: 'ignore', timeout: 30000 });
@@ -212,14 +211,13 @@ if (newStatus.broken === 0) {
         } catch {
             console.log('   ⚠️ Algunos tests fallaron (esperado con placeholders)');
         }
-        
     } catch (error) {
         console.log('   ❌ Error en verificaciones:', error.message);
     }
-    
-    console.log('\n' + '=' .repeat(60));
+
+    console.log('\n' + '='.repeat(60));
     console.log('🎉 ESTABILIZACIÓN COMPLETADA');
-    console.log('=' .repeat(60));
+    console.log('='.repeat(60));
     console.log(`📦 Backup creado en: ${backupDir}`);
     console.log(`🔧 Archivos reparados: ${movedCount}`);
     console.log('📋 Próximos pasos:');
@@ -227,7 +225,6 @@ if (newStatus.broken === 0) {
     console.log('   2. Restaurar archivos importantes desde backup');
     console.log('   3. Implementar tests para nuevas características');
     console.log('   4. Commit de cambios estables');
-    
 } else {
     console.log('❌ Algunos archivos aún tienen problemas');
     console.log('   Puede requerirse intervención manual adicional');

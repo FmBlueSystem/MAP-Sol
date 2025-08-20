@@ -26,7 +26,7 @@ class ArchonTaskMonitor {
             if (fs.existsSync(this.logFile)) {
                 const log = fs.readFileSync(this.logFile, 'utf8');
                 const lines = log.split('\n');
-                lines.forEach((line) => {
+                lines.forEach(line => {
                     const match = line.match(/Task ID: ([a-f0-9-]+)/);
                     if (match) {
                         this.processedTasks.add(match[1]);
@@ -50,16 +50,16 @@ class ArchonTaskMonitor {
                 description: 'This is a mock task',
                 status: 'todo',
                 assignee: 'AI IDE Agent',
-                priority: 'medium',
+                priority: 'medium'
             }
         ];
 
-        const newTasks = mockTasks.filter((task) => !this.processedTasks.has(task.id));
+        const newTasks = mockTasks.filter(task => !this.processedTasks.has(task.id));
 
         if (newTasks.length > 0) {
             console.log(`\n📋 Found ${newTasks.length} new task(s):`);
 
-            newTasks.forEach((task) => {
+            newTasks.forEach(task => {
                 this.logTask(task);
                 this.createImplementationReminder(task);
                 this.processedTasks.add(task.id);
@@ -154,8 +154,8 @@ Delete this file once the task is completed.
 
 ## 📝 Processed Task IDs
 ${Array.from(this.processedTasks)
-    .map((id) => `- ${id}`)
-    .join('\n')}
+        .map(id => `- ${id}`)
+        .join('\n')}
 
 ## 💡 Instructions
 1. Run monitor: \`node monitor-archon-tasks.js\`

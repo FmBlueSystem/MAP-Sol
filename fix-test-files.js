@@ -41,7 +41,7 @@ console.log('🔧 Fixing test files...\n');
 const testFiles = glob.sync('tests/**/*.js');
 
 let totalFixes = 0;
-testFiles.forEach((file) => {
+testFiles.forEach(file => {
     const fixes = fixFile(file);
     if (fixes > 0) {
         console.log(`✅ Fixed ${file}`);

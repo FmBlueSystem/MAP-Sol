@@ -42,7 +42,7 @@ const queries = [
     "DELETE FROM sqlite_sequence WHERE name='playlist_tracks'",
 
     // Vacuum to reclaim space
-    'VACUUM',
+    'VACUUM'
 ];
 
 let completedQueries = 0;
@@ -115,7 +115,7 @@ async function resetDatabase() {
     }, 1000);
 }
 
-resetDatabase().catch((err) => {
+resetDatabase().catch(err => {
     logError('\n❌ RESET FAILED:', err);
     db.close();
     process.exit(1);

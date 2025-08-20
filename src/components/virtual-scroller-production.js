@@ -145,10 +145,14 @@ class VirtualScroller {
 
         // Render visible items
         for (let i = this.visibleStart; i <= this.visibleEnd; i++) {
-            if (i >= this.items.length) break;
+            if (i >= this.items.length) {
+                break;
+            }
 
             // Skip if already rendered
-            if (this.renderedItems.has(i)) continue;
+            if (this.renderedItems.has(i)) {
+                continue;
+            }
 
             const item = this.items[i];
             const element = this.renderFunction(item, i);
@@ -213,9 +217,9 @@ class VirtualScroller {
         `;
 
         // Add event listeners
-        div.addEventListener('contextmenu', (e) => this.handleContextMenu(e, item, index));
-        div.addEventListener('click', (e) => this.handleClick(e, item, index));
-        div.addEventListener('dblclick', (e) => this.handleDoubleClick(e, item, index));
+        div.addEventListener('contextmenu', e => this.handleContextMenu(e, item, index));
+        div.addEventListener('click', e => this.handleClick(e, item, index));
+        div.addEventListener('dblclick', e => this.handleDoubleClick(e, item, index));
 
         return div;
     }
@@ -236,7 +240,9 @@ class VirtualScroller {
     }
 
     escapeHtml(unsafe) {
-        if (!unsafe) return '';
+        if (!unsafe) {
+            return '';
+        }
         return unsafe
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
@@ -245,22 +251,26 @@ class VirtualScroller {
             .replace(/'/g, '&#039;');
     }
 
-    handleScroll = this.debounce(() => {
-        const oldStart = this.visibleStart;
-        const oldEnd = this.visibleEnd;
+    handleScroll() {
+        return this.debounce(() => {
+            const oldStart = this.visibleStart;
+            const oldEnd = this.visibleEnd;
 
-        this.calculateVisibleRange();
+            this.calculateVisibleRange();
 
-        // Only re-render if visible range changed
-        if (oldStart !== this.visibleStart || oldEnd !== this.visibleEnd) {
+            // Only re-render if visible range changed
+            if (oldStart !== this.visibleStart || oldEnd !== this.visibleEnd) {
+                this.render();
+            }
+        }, this.scrollDebounceTime);
+    }
+
+    handleResize() {
+        return this.debounce(() => {
+            this.calculateDimensions();
             this.render();
-        }
-    }, this.scrollDebounceTime);
-
-    handleResize = this.debounce(() => {
-        this.calculateDimensions();
-        this.render();
-    }, this.resizeDebounceTime);
+        }, this.resizeDebounceTime);
+    }
 
     bindEvents() {
         // Scroll event with passive flag for better performance
@@ -313,7 +323,9 @@ class VirtualScroller {
     }
 
     scrollToItem(index) {
-        if (index < 0 || index >= this.items.length) return;
+        if (index < 0 || index >= this.items.length) {
+            return;
+        }
 
         let targetScrollTop;
         if (this.viewType === 'cards') {
@@ -325,7 +337,7 @@ class VirtualScroller {
 
         this.container.scrollTo({
             top: targetScrollTop - this.itemHeight, // Show item with some margin
-            behavior: 'smooth',
+            behavior: 'smooth'
         });
     }
 
@@ -340,7 +352,7 @@ class VirtualScroller {
             totalItems: this.items.length,
             renderedItems: this.renderedItems.size,
             visibleRange: `${this.visibleStart}-${this.visibleEnd}`,
-            memoryReduction: `${Math.round((1 - this.renderedItems.size / this.items.length) * 100)}%`,
+            memoryReduction: `${Math.round((1 - this.renderedItems.size / this.items.length) * 100)}%`
         };
 
         // Dispatch custom event with stats

@@ -9,7 +9,7 @@ class HAMMSCalculator {
             valence: 0.8,
             acousticness: 0.7,
             instrumentalness: 0.6,
-            key: 1.1,
+            key: 1.1
         };
     }
 
@@ -39,7 +39,7 @@ class HAMMSCalculator {
             A: 9,
             'A#': 10,
             Bb: 10,
-            B: 11,
+            B: 11
         };
 
         if (!key) {
@@ -60,7 +60,7 @@ class HAMMSCalculator {
             valence: parseFloat(track.AI_VALENCE) || 0.5,
             acousticness: parseFloat(track.AI_ACOUSTICNESS) || 0.5,
             instrumentalness: parseFloat(track.AI_INSTRUMENTALNESS) || 0.5,
-            key: this.keyToNumber(track.AI_KEY || track.key),
+            key: this.keyToNumber(track.AI_KEY || track.key)
         };
     }
 
@@ -85,15 +85,15 @@ class HAMMSCalculator {
         const targetId = targetTrack.id;
 
         const similarities = allTracks
-            .filter((track) => track.id !== targetId) // Excluir el mismo track
-            .map((track) => ({
+            .filter(track => track.id !== targetId) // Excluir el mismo track
+            .map(track => ({
                 track,
                 vector: this.calculateVector(track),
-                similarity: 0,
+                similarity: 0
             }));
 
         // Calcular similitudes
-        similarities.forEach((item) => {
+        similarities.forEach(item => {
             item.similarity = this.calculateSimilarity(targetVector, item.vector);
         });
 
@@ -101,9 +101,9 @@ class HAMMSCalculator {
         return similarities
             .sort((a, b) => b.similarity - a.similarity)
             .slice(0, limit)
-            .map((item) => ({
+            .map(item => ({
                 track: item.track,
-                similarity: Math.round(item.similarity * 100), // Porcentaje
+                similarity: Math.round(item.similarity * 100) // Porcentaje
             }));
     }
 
@@ -111,7 +111,7 @@ class HAMMSCalculator {
     precalculateVectors(tracks) {
         const vectors = new Map();
 
-        tracks.forEach((track) => {
+        tracks.forEach(track => {
             vectors.set(track.id, this.calculateVector(track));
         });
 
@@ -131,7 +131,7 @@ class HAMMSCalculator {
             if (id !== targetId) {
                 similarities.push({
                     id,
-                    similarity: this.calculateSimilarity(targetVector, vector),
+                    similarity: this.calculateSimilarity(targetVector, vector)
                 });
             }
         });

@@ -35,10 +35,10 @@ function fixTemplateLiterals(filePath) {
                 /path\.join\([^)]*`\)/g,
                 function (match) {
                     return match.replace(/`\)/, "')");
-                },
+                }
             ],
             // Fix any remaining standalone backticks at end of strings
-            [/(['"])([^'"`]*)`\s*(?=[,;)\]}])/g, '$1$2$1'],
+            [/(['"])([^'"`]*)`\s*(?=[,;)\]}])/g, '$1$2$1']
         ];
 
         replacements.forEach(([pattern, replacement]) => {
@@ -64,13 +64,13 @@ console.log('🔧 Fixing template literal issues in all JS files...\n');
 
 // Find all JS files
 const jsFiles = glob.sync('**/*.js', {
-    ignore: ['node_modules/**', '.venv/**', 'dist/**', 'build/**', 'fix-*.js'],
+    ignore: ['node_modules/**', '.venv/**', 'dist/**', 'build/**', 'fix-*.js']
 });
 
 let totalFiles = 0;
 let totalFixes = 0;
 
-jsFiles.forEach((file) => {
+jsFiles.forEach(file => {
     const fixes = fixTemplateLiterals(file);
     if (fixes > 0) {
         console.log(`✅ Fixed ${fixes} issues in ${file}`);

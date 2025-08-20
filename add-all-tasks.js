@@ -3,7 +3,6 @@
 const http = require('http');
 
 const PROJECT_ID = '26c4c114-f142-4720-9417-ca471a50e84d';
-const API_URL = 'http://localhost:8181';
 
 // Las 24 tareas restantes que faltan agregar
 const tasks = [
@@ -13,7 +12,7 @@ const tasks = [
             'Files en missing_89_errors.txt están fallando. Implementar manejo robusto de errores y retry para FLAC/M4A. Referencia: missing_89_errors.txt',
         status: 'todo',
         task_order: 10,
-        feature: 'Bug Fix',
+        feature: 'Bug Fix'
     },
     {
         title: 'Fix: Implementar IPC handlers faltantes',
@@ -21,7 +20,7 @@ const tasks = [
             'Completar handlers: update-metadata, delete-track, create-playlist, add-to-playlist, export-json, export-csv en main-secure.js líneas 289-311',
         status: 'todo',
         task_order: 9,
-        feature: 'Bug Fix',
+        feature: 'Bug Fix'
     },
     {
         title: 'Fix: Saturación de audio en K-Meter',
@@ -29,7 +28,7 @@ const tasks = [
             'K-Meter causa saturación y artifacts. Actualmente deshabilitado. Arreglar cadena de audio sin distorsión. Ref: PROJECT_STATUS_FINAL.md línea 17',
         status: 'todo',
         task_order: 8,
-        feature: 'Bug Fix',
+        feature: 'Bug Fix'
     },
     {
         title: 'Perf: Virtual Scrolling completo para 10k+ tracks',
@@ -37,7 +36,7 @@ const tasks = [
             'Virtual scrolling con Intersection Observer. Meta: <20ms scroll, máx 50 elementos DOM. Ref: ROADMAP.md líneas 23-73',
         status: 'todo',
         task_order: 9,
-        feature: 'Performance',
+        feature: 'Performance'
     },
     {
         title: 'Perf: Web Workers para búsqueda sin bloqueo',
@@ -45,7 +44,7 @@ const tasks = [
             'Mover procesamiento de búsqueda a Web Workers. Meta: <30ms para 10k items. Ref: ROADMAP.md líneas 76-124, workers/search-worker.js',
         status: 'todo',
         task_order: 8,
-        feature: 'Performance',
+        feature: 'Performance'
     },
     {
         title: 'Perf: Optimización SQL con cache LRU',
@@ -53,7 +52,7 @@ const tasks = [
             'Implementar CTEs, prepared statements y cache LRU. Meta: queries <50ms, 85%+ cache hit rate. Ref: ROADMAP.md líneas 127-192',
         status: 'todo',
         task_order: 7,
-        feature: 'Performance',
+        feature: 'Performance'
     },
     {
         title: 'Audio: Sistema HAMMS de similaridad 7D',
@@ -61,7 +60,7 @@ const tasks = [
             'Sistema 7-dimensional: BPM, energy, danceability, valence, acousticness, instrumentalness, key. Ref: ROADMAP.md líneas 304-374',
         status: 'todo',
         task_order: 8,
-        feature: 'Audio Analysis',
+        feature: 'Audio Analysis'
     },
     {
         title: 'Audio: Visualización Canvas BPM vs Energy',
@@ -69,7 +68,7 @@ const tasks = [
             'Heatmap interactivo Canvas con zoom, pan y export para BPM vs Energy. Ref: ROADMAP.md líneas 377-462',
         status: 'todo',
         task_order: 6,
-        feature: 'Audio Analysis',
+        feature: 'Audio Analysis'
     },
     {
         title: 'Audio: Fix pipeline Essentia/Python',
@@ -77,7 +76,7 @@ const tasks = [
             'Resolver ModuleNotFoundError y compatibilidad NumPy. Meta: 100% success rate análisis. Ref: ESSENTIA_STATUS_REPORT.md',
         status: 'todo',
         task_order: 7,
-        feature: 'Audio Analysis',
+        feature: 'Audio Analysis'
     },
     {
         title: 'Build: Webpack config producción optimizada',
@@ -85,7 +84,7 @@ const tasks = [
             'Code splitting, tree shaking, optimización. Meta: main <250KB, vendor <500KB. Ref: PENDING_PHASES.md líneas 24-75',
         status: 'todo',
         task_order: 8,
-        feature: 'Build Process',
+        feature: 'Build Process'
     },
     {
         title: 'PWA: Service Worker con soporte offline',
@@ -93,7 +92,7 @@ const tasks = [
             'Service Worker con cache strategies y manifest PWA. Meta: offline load <500ms. Ref: PENDING_PHASES.md líneas 114-230',
         status: 'todo',
         task_order: 7,
-        feature: 'PWA',
+        feature: 'PWA'
     },
     {
         title: 'TypeScript: Migración completa del proyecto',
@@ -101,7 +100,7 @@ const tasks = [
             'Migrar JS a TypeScript con 100% type coverage. Ref: PENDING_PHASES.md líneas 234-373, tsconfig.json',
         status: 'todo',
         task_order: 6,
-        feature: 'Technical Debt',
+        feature: 'Technical Debt'
     },
     {
         title: 'UI: Dark Mode profesional con persistencia',
@@ -109,7 +108,7 @@ const tasks = [
             'Dark mode con CSS variables, toggle, localStorage y detección sistema. Ref: PENDING_PHASES.md líneas 447-504',
         status: 'todo',
         task_order: 5,
-        feature: 'UI/UX',
+        feature: 'UI/UX'
     },
     {
         title: 'UI: Sistema de animaciones y micro-interacciones',
@@ -117,7 +116,7 @@ const tasks = [
             'Micro-interacciones, loading states, respetando prefers-reduced-motion. Ref: PENDING_PHASES.md líneas 377-444',
         status: 'todo',
         task_order: 4,
-        feature: 'UI/UX',
+        feature: 'UI/UX'
     },
     {
         title: 'UI: Conectar Context Menu al backend',
@@ -125,7 +124,7 @@ const tasks = [
             'Integrar Edit Metadata, Create Playlist, Export al backend. Frontend listo, falta backend integration',
         status: 'todo',
         task_order: 7,
-        feature: 'UI/UX',
+        feature: 'UI/UX'
     },
     {
         title: 'Monitor: Sistema global de tracking de errores',
@@ -133,7 +132,7 @@ const tasks = [
             'Error tracking con clasificación, agrupación inteligente y dashboard. Ref: PENDING_PHASES.md líneas 570-631',
         status: 'todo',
         task_order: 8,
-        feature: 'Monitoring',
+        feature: 'Monitoring'
     },
     {
         title: 'Monitor: Dashboard performance real-time',
@@ -141,7 +140,7 @@ const tasks = [
             'Web Vitals tracking, métricas custom, alertas. Meta: <1% CPU overhead. Ref: PENDING_PHASES.md líneas 510-568',
         status: 'todo',
         task_order: 6,
-        feature: 'Monitoring',
+        feature: 'Monitoring'
     },
     {
         title: 'Security: Actualizar todas las dependencias',
@@ -149,7 +148,7 @@ const tasks = [
             'Update electron 32.3.3→37.2.6, music-metadata 7.14.0→11.7.3, revisar vulnerabilidades. Ref: package.json',
         status: 'todo',
         task_order: 7,
-        feature: 'Security',
+        feature: 'Security'
     },
     {
         title: 'Export: Formatos DJ (Rekordbox, Traktor, Serato)',
@@ -157,14 +156,14 @@ const tasks = [
             'Exportar a M3U8, Rekordbox XML, Traktor NML con metadata completa. Ref: ROADMAP.md líneas 465-535',
         status: 'todo',
         task_order: 6,
-        feature: 'Export',
+        feature: 'Export'
     },
     {
         title: 'Feature: Sistema 5-star rating y favoritos',
         description: '5-star rating, favoritos con corazón, persistencia DB, filtros. Ref: ROADMAP.md líneas 538-556',
         status: 'todo',
         task_order: 5,
-        feature: 'Feature',
+        feature: 'Feature'
     },
     {
         title: 'Test: Suite automática de performance',
@@ -172,7 +171,7 @@ const tasks = [
             'Tests de load time, search, memoria, stress testing. Ref: ROADMAP.md líneas 247-297, NEXT_STEPS_DETAILED.md',
         status: 'todo',
         task_order: 7,
-        feature: 'Testing',
+        feature: 'Testing'
     },
     {
         title: 'Test: E2E para flujos críticos del usuario',
@@ -180,14 +179,14 @@ const tasks = [
             'Tests end-to-end para playback, búsqueda, context menu, carga de datos. Ref: CLAUDE.md lessons learned',
         status: 'todo',
         task_order: 6,
-        feature: 'Testing',
+        feature: 'Testing'
     },
     {
         title: 'Refactor: Modularización completa del backend',
         description: 'Split main.js en módulos lógicos. Meta: main.js <100 líneas. Ref: ROADMAP.md líneas 195-244',
         status: 'todo',
         task_order: 6,
-        feature: 'Technical Debt',
+        feature: 'Technical Debt'
     },
     {
         title: 'Memory: Prevención de memory leaks',
@@ -195,7 +194,7 @@ const tasks = [
             'Cleanup de event listeners, monitoreo memoria, fix leaks en visualizaciones. Ref: CLAUDE.md known issues #3',
         status: 'todo',
         task_order: 6,
-        feature: 'Technical Debt',
+        feature: 'Technical Debt'
     }
 ];
 
@@ -204,7 +203,7 @@ async function createTask(task) {
         const data = JSON.stringify({
             ...task,
             project_id: PROJECT_ID,
-            assignee: 'Archon',
+            assignee: 'Archon'
         });
 
         const options = {
@@ -214,14 +213,14 @@ async function createTask(task) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Content-Length': data.length,
+                'Content-Length': data.length
             }
         };
 
-        const req = http.request(options, (res) => {
+        const req = http.request(options, res => {
             let responseData = '';
 
-            res.on('data', (chunk) => {
+            res.on('data', chunk => {
                 responseData += chunk;
             });
 
@@ -236,7 +235,7 @@ async function createTask(task) {
             });
         });
 
-        req.on('error', (error) => {
+        req.on('error', error => {
             logError(`❌ Error de conexión: ${error.message}`);
             reject(error);
         });
@@ -258,7 +257,7 @@ async function createAllTasks() {
             await createTask(task);
             created++;
             // Pequeña pausa para no sobrecargar el servidor
-            await new Promise((resolve) => setTimeout(resolve, 500));
+            await new Promise(resolve => setTimeout(resolve, 500));
         } catch (error) {
             failed++;
             logError(`Error detallado: ${error.message}`);

@@ -22,7 +22,7 @@ describe('VirtualScroller Production', () => {
             title: `Track ${i}`,
             artist: `Artist ${i}`,
             album: `Album ${i}`,
-            genre: `Genre ${i % 10}`,
+            genre: `Genre ${i % 10}`
         }));
 
         // Mock logging functions
@@ -49,7 +49,7 @@ describe('VirtualScroller Production', () => {
             require('../js/virtual-scroller-production');
             scroller = new window.VirtualScroller({
                 container: container,
-                items: mockItems,
+                items: mockItems
             });
 
             expect(scroller.items.length).toBe(1000);
@@ -63,7 +63,7 @@ describe('VirtualScroller Production', () => {
             scroller = new window.VirtualScroller({
                 container: container,
                 items: mockItems,
-                itemHeight: 100,
+                itemHeight: 100
             });
 
             expect(scroller.viewportHeight).toBe(500);
@@ -77,7 +77,7 @@ describe('VirtualScroller Production', () => {
             scroller = new window.VirtualScroller({
                 container: container,
                 items: mockItems,
-                itemHeight: 100,
+                itemHeight: 100
             });
 
             // With 500px height and 100px item height, should render ~5 items + buffer
@@ -91,7 +91,7 @@ describe('VirtualScroller Production', () => {
             scroller = new window.VirtualScroller({
                 container: container,
                 items: mockItems,
-                itemHeight: 100,
+                itemHeight: 100
             });
 
             const initialStart = scroller.visibleStart;
@@ -112,7 +112,7 @@ describe('VirtualScroller Production', () => {
             scroller = new window.VirtualScroller({
                 container: container,
                 items: mockItems,
-                viewType: 'cards',
+                viewType: 'cards'
             });
 
             expect(scroller.viewType).toBe('cards');
@@ -132,7 +132,7 @@ describe('VirtualScroller Production', () => {
             require('../js/virtual-scroller-production');
             scroller = new window.VirtualScroller({
                 container: container,
-                items: mockItems,
+                items: mockItems
             });
 
             const newItems = mockItems.slice(0, 500);
@@ -146,7 +146,7 @@ describe('VirtualScroller Production', () => {
             scroller = new window.VirtualScroller({
                 container: container,
                 items: mockItems,
-                itemHeight: 100,
+                itemHeight: 100
             });
 
             const scrollToSpy = jest.spyOn(container, 'scrollTo');
@@ -160,13 +160,13 @@ describe('VirtualScroller Production', () => {
         test('should handle large datasets efficiently', () => {
             const largeDataset = Array.from({ length: 10000 }, (_, i) => ({
                 id: i,
-                title: `Track ${i}`,
+                title: `Track ${i}`
             }));
 
             require('../js/virtual-scroller-production');
             scroller = new window.VirtualScroller({
                 container: container,
-                items: largeDataset,
+                items: largeDataset
             });
 
             // Should render only visible items, not all 10000
@@ -178,10 +178,10 @@ describe('VirtualScroller Production', () => {
             expect(memoryReduction).toBeGreaterThan(99);
         });
 
-        test('should emit statistics events', (done) => {
+        test('should emit statistics events', done => {
             require('../js/virtual-scroller-production');
 
-            container.addEventListener('virtual-scroll-stats', (event) => {
+            container.addEventListener('virtual-scroll-stats', event => {
                 expect(event.detail).toHaveProperty('totalItems');
                 expect(event.detail).toHaveProperty('renderedItems');
                 expect(event.detail).toHaveProperty('visibleRange');
@@ -191,7 +191,7 @@ describe('VirtualScroller Production', () => {
 
             scroller = new window.VirtualScroller({
                 container: container,
-                items: mockItems,
+                items: mockItems
             });
         });
     });
@@ -201,7 +201,7 @@ describe('VirtualScroller Production', () => {
             require('../js/virtual-scroller-production');
             scroller = new window.VirtualScroller({
                 container: container,
-                items: mockItems,
+                items: mockItems
             });
 
             const initialHTML = container.innerHTML;

@@ -16,16 +16,16 @@ module.exports = {
             cpuSlowdownMultiplier: 1,
             requestLatencyMs: 0,
             downloadThroughputKbps: 0,
-            uploadThroughputKbps: 0,
+            uploadThroughputKbps: 0
         },
         screenEmulation: {
             mobile: false,
             width: 1350,
             height: 940,
             deviceScaleFactor: 1,
-            disabled: false,
+            disabled: false
         },
-        emulatedUserAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        emulatedUserAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
     },
 
     passes: [
@@ -57,7 +57,7 @@ module.exports = {
                 'resource-summary',
                 'script-elements',
                 'source-maps',
-                'viewport-dimensions',
+                'viewport-dimensions'
             ]
         }
     ],
@@ -165,7 +165,7 @@ module.exports = {
         'uses-passive-event-listeners',
         'uses-rel-preload',
         'uses-text-compression',
-        'uses-webp-images',
+        'uses-webp-images'
     ],
 
     categories: {
@@ -179,7 +179,7 @@ module.exports = {
                 { id: 'total-blocking-time', weight: 30 },
                 { id: 'cumulative-layout-shift', weight: 15 },
                 { id: 'speed-index', weight: 10 },
-                { id: 'interactive', weight: 10 },
+                { id: 'interactive', weight: 10 }
             ]
         }
     },
@@ -187,15 +187,15 @@ module.exports = {
     groups: {
         metrics: {
             title: 'Metrics',
-            description: 'Key performance metrics',
+            description: 'Key performance metrics'
         },
         'load-opportunities': {
             title: 'Opportunities',
-            description: 'Optimization opportunities',
+            description: 'Optimization opportunities'
         },
         diagnostics: {
             title: 'Diagnostics',
-            description: 'Performance diagnostics',
+            description: 'Performance diagnostics'
         }
     }
 };

@@ -19,13 +19,13 @@ const indexes = [
     'CREATE INDEX IF NOT EXISTS idx_ai_energy ON llm_metadata(AI_ENERGY)',
 
     // Índice compuesto para joins frecuentes
-    'CREATE INDEX IF NOT EXISTS idx_file_id ON llm_metadata(file_id)',
+    'CREATE INDEX IF NOT EXISTS idx_file_id ON llm_metadata(file_id)'
 ];
 
 let completed = 0;
 
 indexes.forEach((indexSql, i) => {
-    db.run(indexSql, (err) => {
+    db.run(indexSql, err => {
         if (err) {
             logError(`❌ Error creando índice ${i + 1}:`, err.message);
         } else {
@@ -41,7 +41,7 @@ indexes.forEach((indexSql, i) => {
             db.all("SELECT name FROM sqlite_master WHERE type='index'", (err, rows) => {
                 if (!err) {
                     logDebug('📋 Índices en la base de datos:');
-                    rows.forEach((row) => {
+                    rows.forEach(row => {
                         if (!row.name.startsWith('sqlite_')) {
                             logDebug(`   - ${row.name}`);
                         }

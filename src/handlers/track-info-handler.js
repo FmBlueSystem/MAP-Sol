@@ -1,7 +1,7 @@
 // Handler para obtener datos completos del track
 function createTrackInfoHandler(db) {
     return async (event, trackId) => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             // Query para obtener TODOS los campos del track
             const sql = `
                 SELECT 
@@ -94,7 +94,7 @@ function createTrackInfoHandler(db) {
                             acousticness: row.AI_ACOUSTICNESS || 0,
                             instrumentalness: row.AI_INSTRUMENTALNESS || 0,
                             liveness: row.AI_LIVENESS || 0,
-                            speechiness: row.AI_SPEECHINESS || 0,
+                            speechiness: row.AI_SPEECHINESS || 0
                         };
                     }
 
@@ -108,7 +108,7 @@ function createTrackInfoHandler(db) {
 // Handler para buscar tracks similares usando HAMMS
 function createFindSimilarHandler(db) {
     return async (event, trackId) => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             // Primero obtener el track de referencia
             const refSql = `
                 SELECT 
@@ -171,7 +171,7 @@ function createFindSimilarHandler(db) {
                     refTrack.AI_KEY,
                     refTrack.AI_KEY ? refTrack.AI_KEY.charAt(0) + '%' : '',
                     refTrack.AI_BPM || 0,
-                    trackId,
+                    trackId
                 ];
 
                 db.all(similarSql, params, (err, rows) => {
@@ -180,7 +180,7 @@ function createFindSimilarHandler(db) {
                         resolve({ success: false, error: err.message });
                     } else {
                         // Calcular porcentaje de similitud
-                        rows.forEach((row) => {
+                        rows.forEach(row => {
                             // Normalizar distancia a porcentaje (0-100%)
                             const maxDistance = 7; // Máxima distancia posible (7 dimensiones)
                             const similarity = Math.max(0, 100 - (row.distance / maxDistance) * 100);
@@ -204,7 +204,7 @@ function createFindSimilarHandler(db) {
                         resolve({
                             success: true,
                             tracks: rows,
-                            reference: refTrack,
+                            reference: refTrack
                         });
                     }
                 });
@@ -215,5 +215,5 @@ function createFindSimilarHandler(db) {
 
 module.exports = {
     createTrackInfoHandler,
-    createFindSimilarHandler,
+    createFindSimilarHandler
 };

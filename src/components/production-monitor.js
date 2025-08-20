@@ -8,14 +8,14 @@ class ProductionMonitor {
             flushInterval: config.flushInterval || 30000, // 30 seconds
             sessionId: this.generateSessionId(),
             userId: config.userId || 'anonymous',
-            version: config.version || '2.0.0',
+            version: config.version || '2.0.0'
         };
 
         this.metrics = {
             performance: [],
             errors: [],
             interactions: [],
-            custom: [],
+            custom: []
         };
 
         this.vitals = {
@@ -23,7 +23,7 @@ class ProductionMonitor {
             LCP: null, // Largest Contentful Paint
             FID: null, // First Input Delay
             CLS: null, // Cumulative Layout Shift
-            TTFB: null, // Time to First Byte
+            TTFB: null // Time to First Byte
         };
 
         if (this.config.enabled) {
@@ -56,7 +56,7 @@ class ProductionMonitor {
 
     measureWebVitals() {
         // First Contentful Paint
-        new PerformanceObserver((list) => {
+        new PerformanceObserver(list => {
             for (const entry of list.getEntries()) {
                 if (entry.name === 'first-contentful-paint') {
                     this.vitals.FCP = entry.startTime;
@@ -66,7 +66,7 @@ class ProductionMonitor {
         }).observe({ entryTypes: ['paint'] });
 
         // Largest Contentful Paint
-        new PerformanceObserver((list) => {
+        new PerformanceObserver(list => {
             const entries = list.getEntries();
             const lastEntry = entries[entries.length - 1];
             this.vitals.LCP = lastEntry.renderTime || lastEntry.loadTime;
@@ -74,7 +74,7 @@ class ProductionMonitor {
         }).observe({ entryTypes: ['largest-contentful-paint'] });
 
         // First Input Delay
-        new PerformanceObserver((list) => {
+        new PerformanceObserver(list => {
             const firstInput = list.getEntries()[0];
             this.vitals.FID = firstInput.processingStart - firstInput.startTime;
             this.track('vital', { name: 'FID', value: this.vitals.FID });
@@ -82,7 +82,7 @@ class ProductionMonitor {
 
         // Cumulative Layout Shift
         let clsValue = 0;
-        new PerformanceObserver((list) => {
+        new PerformanceObserver(list => {
             for (const entry of list.getEntries()) {
                 if (!entry.hadRecentInput) {
                     clsValue += entry.value;
@@ -93,7 +93,7 @@ class ProductionMonitor {
         }).observe({ entryTypes: ['layout-shift'] });
 
         // Time to First Byte
-        new PerformanceObserver((list) => {
+        new PerformanceObserver(list => {
             const navigation = list.getEntries()[0];
             this.vitals.TTFB = navigation.responseStart - navigation.requestStart;
             this.track('vital', { name: 'TTFB', value: this.vitals.TTFB });
@@ -104,13 +104,13 @@ class ProductionMonitor {
         // Long tasks
         if ('PerformanceObserver' in window) {
             try {
-                new PerformanceObserver((list) => {
+                new PerformanceObserver(list => {
                     for (const entry of list.getEntries()) {
                         if (entry.duration > 50) {
                             this.track('performance', {
                                 type: 'longTask',
                                 duration: entry.duration,
-                                startTime: entry.startTime,
+                                startTime: entry.startTime
                             });
                         }
                     }
@@ -121,14 +121,14 @@ class ProductionMonitor {
         }
 
         // Resource timing
-        new PerformanceObserver((list) => {
+        new PerformanceObserver(list => {
             for (const entry of list.getEntries()) {
                 if (entry.duration > 1000) {
                     this.track('performance', {
                         type: 'slowResource',
                         name: entry.name,
                         duration: entry.duration,
-                        size: entry.transferSize,
+                        size: entry.transferSize
                     });
                 }
             }
@@ -137,35 +137,35 @@ class ProductionMonitor {
 
     setupErrorMonitoring() {
         // JavaScript errors
-        window.addEventListener('error', (event) => {
+        window.addEventListener('error', event => {
             this.track('error', {
                 type: 'javascript',
                 message: event.message,
                 filename: event.filename,
                 lineno: event.lineno,
                 colno: event.colno,
-                stack: event.error?.stack,
+                stack: event.error?.stack
             });
         });
 
         // Promise rejections
-        window.addEventListener('unhandledrejection', (event) => {
+        window.addEventListener('unhandledrejection', event => {
             this.track('error', {
                 type: 'unhandledRejection',
                 reason: event.reason,
-                promise: String(event.promise),
+                promise: String(event.promise)
             });
         });
 
         // Resource errors
         window.addEventListener(
             'error',
-            (event) => {
+            event => {
                 if (event.target !== window) {
                     this.track('error', {
                         type: 'resource',
                         tagName: event.target.tagName,
-                        src: event.target.src || event.target.href,
+                        src: event.target.src || event.target.href
                     });
                 }
             },
@@ -175,7 +175,7 @@ class ProductionMonitor {
 
     setupInteractionTracking() {
         // Click tracking
-        document.addEventListener('click', (event) => {
+        document.addEventListener('click', event => {
             const target = event.target;
             const selector = this.getSelector(target);
 
@@ -183,18 +183,18 @@ class ProductionMonitor {
                 type: 'click',
                 selector,
                 text: target.textContent?.slice(0, 100),
-                timestamp: Date.now(),
+                timestamp: Date.now()
             });
         });
 
         // Form submissions
-        document.addEventListener('submit', (event) => {
+        document.addEventListener('submit', event => {
             const form = event.target;
             this.track('interaction', {
                 type: 'formSubmit',
                 formId: form.id,
                 formName: form.name,
-                timestamp: Date.now(),
+                timestamp: Date.now()
             });
         });
 
@@ -203,7 +203,7 @@ class ProductionMonitor {
             this.track('interaction', {
                 type: 'visibilityChange',
                 hidden: document.hidden,
-                timestamp: Date.now(),
+                timestamp: Date.now()
             });
         });
     }
@@ -225,7 +225,7 @@ class ProductionMonitor {
                     method: config?.method || 'GET',
                     status: response.status,
                     duration,
-                    ok: response.ok,
+                    ok: response.ok
                 });
 
                 return response;
@@ -237,7 +237,7 @@ class ProductionMonitor {
                     url: resource,
                     method: config?.method || 'GET',
                     error: error.message,
-                    duration,
+                    duration
                 });
 
                 throw error;
@@ -251,7 +251,7 @@ class ProductionMonitor {
                     type: 'connectionChange',
                     effectiveType: navigator.connection.effectiveType,
                     downlink: navigator.connection.downlink,
-                    rtt: navigator.connection.rtt,
+                    rtt: navigator.connection.rtt
                 });
             });
         }
@@ -270,7 +270,7 @@ class ProductionMonitor {
             userId: this.config.userId,
             version: this.config.version,
             url: window.location.href,
-            userAgent: navigator.userAgent,
+            userAgent: navigator.userAgent
         };
 
         this.metrics[category] = this.metrics[category] || [];
@@ -294,12 +294,12 @@ class ProductionMonitor {
         const metricsToSend = { ...this.metrics };
 
         // Clear current metrics
-        Object.keys(this.metrics).forEach((key) => {
+        Object.keys(this.metrics).forEach(key => {
             this.metrics[key] = [];
         });
 
         // Don't send if empty
-        const hasMetrics = Object.values(metricsToSend).some((arr) => arr.length > 0);
+        const hasMetrics = Object.values(metricsToSend).some(arr => arr.length > 0);
         if (!hasMetrics) {
             return;
         }
@@ -310,12 +310,12 @@ class ProductionMonitor {
                 await fetch(this.config.endpoint, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         metrics: metricsToSend,
                         vitals: this.vitals,
-                        timestamp: Date.now(),
+                        timestamp: Date.now()
                     })
                 });
             } else {
@@ -324,7 +324,7 @@ class ProductionMonitor {
         } catch (error) {
             console.error('Failed to send telemetry:', error);
             // Re-add metrics for retry
-            Object.keys(metricsToSend).forEach((key) => {
+            Object.keys(metricsToSend).forEach(key => {
                 this.metrics[key].unshift(...metricsToSend[key]);
             });
         }
@@ -362,7 +362,7 @@ class ProductionMonitor {
             name,
             value,
             metadata,
-            timestamp: Date.now(),
+            timestamp: Date.now()
         });
     }
 
@@ -372,7 +372,7 @@ class ProductionMonitor {
             sessionId: this.config.sessionId,
             vitals: this.vitals,
             metricsCount: Object.values(this.metrics).reduce((sum, arr) => sum + arr.length, 0),
-            uptime: Date.now() - parseInt(this.config.sessionId.split('-')[0]),
+            uptime: Date.now() - parseInt(this.config.sessionId.split('-')[0])
         };
     }
 
@@ -390,7 +390,7 @@ class ProductionMonitor {
 // Initialize production monitor
 window.productionMonitor = new ProductionMonitor({
     enabled: true,
-    version: '2.0.0-optimized',
+    version: '2.0.0-optimized'
 });
 
 // Export for module usage

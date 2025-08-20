@@ -276,12 +276,12 @@ class ExportUI {
 
     attachEventListeners() {
         // Format card selection
-        document.addEventListener('click', (e) => {
+        document.addEventListener('click', e => {
             if (e.target.closest('.format-card')) {
                 const card = e.target.closest('.format-card');
                 if (!card.classList.contains('disabled')) {
                     // Remove previous selection
-                    document.querySelectorAll('.format-card').forEach((c) => c.classList.remove('selected'));
+                    document.querySelectorAll('.format-card').forEach(c => c.classList.remove('selected'));
                     // Select new format
                     card.classList.add('selected');
                     this.selectedFormat = card.dataset.format;
@@ -291,7 +291,7 @@ class ExportUI {
         });
 
         // ESC to close
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && this.isVisible) {
                 this.close();
             }
@@ -312,7 +312,7 @@ class ExportUI {
 
     updateFormatGrid() {
         // Update format availability based on backend support
-        this.exportFormats.forEach((format) => {
+        this.exportFormats.forEach(format => {
             const card = document.querySelector(`[data-format="${format.id}"]`);
             if (card && !format.available) {
                 card.classList.add('disabled');
@@ -377,7 +377,7 @@ class ExportUI {
         const previewTracks = this.selectedTracks.slice(0, 5);
         preview.innerHTML = previewTracks
             .map(
-                (t) => `
+                t => `
             <div class="preview-track">
                 <span class="track-name">${t.title || t.file_name}</span>
                 <span class="track-artist">${t.artist || 'Unknown'}</span>
@@ -398,22 +398,22 @@ class ExportUI {
             'dj-gig': {
                 fields: ['basic', 'bpm', 'key', 'energy', 'cues'],
                 format: 'rekordbox',
-                encoding: 'utf8',
+                encoding: 'utf8'
             },
             backup: {
                 fields: ['all'],
                 format: 'json',
-                encoding: 'utf8',
+                encoding: 'utf8'
             },
             share: {
                 fields: ['basic', 'bpm', 'key'],
                 format: 'csv',
-                encoding: 'utf8',
+                encoding: 'utf8'
             },
             minimal: {
                 fields: ['basic'],
                 format: 'm3u',
-                encoding: 'utf8',
+                encoding: 'utf8'
             }
         };
 
@@ -433,9 +433,9 @@ class ExportUI {
     updateFieldSelection(fields) {
         const checkboxes = document.querySelectorAll('.checkbox-list input[type="checkbox"]');
         if (fields.includes('all')) {
-            checkboxes.forEach((cb) => (cb.checked = true));
+            checkboxes.forEach(cb => (cb.checked = true));
         } else {
-            checkboxes.forEach((cb) => (cb.checked = false));
+            checkboxes.forEach(cb => (cb.checked = false));
             // Check specific fields based on preset
             if (fields.includes('basic')) {
                 checkboxes[0].checked = true;
@@ -487,17 +487,18 @@ class ExportUI {
             case 'json':
                 return JSON.stringify(sampleTracks, null, 2);
 
-            case 'csv':
+            case 'csv': {
                 const headers = Object.keys(sampleTracks[0]).join(',');
-                const rows = sampleTracks.map((t) => Object.values(t).join(','));
+                const rows = sampleTracks.map(t => Object.values(t).join(','));
                 return headers + '\n' + rows.join('\n');
+            }
 
             case 'm3u':
                 return (
                     '#EXTM3U\n' +
                     sampleTracks
                         .map(
-                            (t) =>
+                            t =>
                                 `#EXTINF:${t.duration || 0},${t.artist || 'Unknown'} - ${t.title || t.file_name}\n${t.file_path}`
                         )
                         .join('\n')
@@ -526,7 +527,7 @@ class ExportUI {
                 format: this.selectedFormat,
                 filename: filename,
                 encoding: encoding,
-                options: this.getExportOptions(),
+                options: this.getExportOptions()
             });
 
             if (response.success) {
@@ -546,7 +547,7 @@ class ExportUI {
     getExportOptions() {
         const options = {
             fields: [],
-            pathFormat: document.getElementById('path-format').value,
+            pathFormat: document.getElementById('path-format').value
         };
 
         // Get selected fields

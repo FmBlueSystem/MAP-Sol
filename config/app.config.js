@@ -10,7 +10,7 @@ const APP_CONFIG = {
         version: '2.0.0',
         codename: 'MAP',
         author: 'BlueSystemIO',
-        description: 'Professional Music Analysis & Management System',
+        description: 'Professional Music Analysis & Management System'
     },
 
     // Features
@@ -23,7 +23,7 @@ const APP_CONFIG = {
         errorTracking: true,
         performanceMonitoring: true,
         logging: true,
-        animations: true,
+        animations: true
     },
 
     // Performance
@@ -35,7 +35,7 @@ const APP_CONFIG = {
         cacheTTL: 300000, // 5 minutes
         virtualScrollBuffer: 5,
         lazyLoadOffset: 100,
-        batchSize: 1000,
+        batchSize: 1000
     },
 
     // Database
@@ -53,7 +53,7 @@ const APP_CONFIG = {
             'idx_ai_mood',
             'idx_ai_bpm',
             'idx_ai_energy',
-            'idx_file_id',
+            'idx_file_id'
         ]
     },
 
@@ -66,7 +66,7 @@ const APP_CONFIG = {
         cardMinWidth: 280,
         cardMaxWidth: 400,
         itemsPerPage: 50,
-        maxItemsVisible: 500,
+        maxItemsVisible: 500
     },
 
     // Audio Configuration
@@ -76,7 +76,7 @@ const APP_CONFIG = {
         sampleRate: 44100,
         preloadNext: true,
         visualizerEnabled: true,
-        normalizeVolume: true,
+        normalizeVolume: true
     },
 
     // Paths
@@ -85,7 +85,7 @@ const APP_CONFIG = {
         database: './music_analyzer.db',
         serviceWorker: './service-worker.js',
         manifest: './manifest.json',
-        icons: './icons/',
+        icons: './icons/'
     },
 
     // API Endpoints (if needed in future)
@@ -93,7 +93,7 @@ const APP_CONFIG = {
         base: '',
         timeout: 30000,
         retryAttempts: 3,
-        retryDelay: 1000,
+        retryDelay: 1000
     },
 
     // Error Tracking
@@ -103,7 +103,7 @@ const APP_CONFIG = {
         throttleMs: 1000,
         captureUnhandled: true,
         capturePromiseRejections: true,
-        captureConsoleErrors: true,
+        captureConsoleErrors: true
     },
 
     // Logging
@@ -113,7 +113,7 @@ const APP_CONFIG = {
         persist: true,
         maxLogs: 1000,
         colors: true,
-        timestamp: true,
+        timestamp: true
     },
 
     // Search Configuration
@@ -122,7 +122,7 @@ const APP_CONFIG = {
         debounceMs: 300,
         maxResults: 500,
         fuzzySearch: false,
-        searchFields: ['title', 'artist', 'album', 'genre', 'file_name'],
+        searchFields: ['title', 'artist', 'album', 'genre', 'file_name']
     },
 
     // Cache Configuration
@@ -132,13 +132,13 @@ const APP_CONFIG = {
             images: 'cache-first',
             api: 'network-first',
             static: 'cache-first',
-            dynamic: 'stale-while-revalidate',
+            dynamic: 'stale-while-revalidate'
         },
         maxAge: {
             images: 604800000, // 7 days
             api: 300000, // 5 minutes
             static: 2592000000, // 30 days
-            dynamic: 86400000, // 1 day
+            dynamic: 86400000 // 1 day
         }
     },
 
@@ -148,7 +148,7 @@ const APP_CONFIG = {
         verbose: false,
         mockData: false,
         showStats: true,
-        showPerformance: true,
+        showPerformance: true
     }
 };
 

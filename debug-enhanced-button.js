@@ -43,7 +43,7 @@ if (false) {
             logError('❌ Enhanced button NOT FOUND in DOM');
             logDebug(
                 'Available buttons:',
-                Array.from(allViewButtons).map((b) => b.textContent)
+                Array.from(allViewButtons).map(b => b.textContent)
             );
         }
 
@@ -66,7 +66,7 @@ if (false) {
 
         // List all global functions
         logDebug('4. Available global functions:');
-        const globalFuncs = Object.keys(window).filter((key) => typeof window[key] === 'function');
+        const globalFuncs = Object.keys(window).filter(key => typeof window[key] === 'function');
         logDebug('Total functions:', globalFuncs.length);
         if (globalFuncs.includes('showEnhancedView')) {
             logInfo('✅ showEnhancedView is in global scope');

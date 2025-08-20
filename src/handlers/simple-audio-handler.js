@@ -59,7 +59,7 @@ class SimpleAudioHandler {
                     return {
                         success: true,
                         dataUrl: dataUrl,
-                        method: 'dataUrl',
+                        method: 'dataUrl'
                     };
                 } else {
                     // For larger files, return the file:// URL with proper encoding
@@ -69,14 +69,14 @@ class SimpleAudioHandler {
                         success: true,
                         url: fileUrl,
                         method: 'fileUrl',
-                        size: stats.size,
+                        size: stats.size
                     };
                 }
             } catch (error) {
                 console.error('❌ Error playing audio:', error);
                 return {
                     success: false,
-                    error: error.message,
+                    error: error.message
                 };
             }
         });
@@ -98,12 +98,12 @@ class SimpleAudioHandler {
                 return {
                     success: true,
                     buffer: buffer,
-                    size: buffer.length,
+                    size: buffer.length
                 };
             } catch (error) {
                 return {
                     success: false,
-                    error: error.message,
+                    error: error.message
                 };
             }
         });

@@ -13,9 +13,10 @@ class SharedPlayerState {
             duration: 0,
             shuffle: false,
             repeat: 'none', // 'none', 'one', 'all'
-            source: null, // 'library', 'playlist', 'search', etc.
+            source: null // 'library', 'playlist', 'search', etc.
         };
 
+        this.listeners = new Set();
         this.init();
     }
 
@@ -34,7 +35,9 @@ class SharedPlayerState {
     }
 
     setupIPC() {
-        if (!window.electronAPI) return;
+        if (!window.electronAPI) {
+            return;
+        }
 
         const { ipcRenderer } = require('electron');
 
@@ -52,7 +55,7 @@ class SharedPlayerState {
 
     setupStorageSync() {
         // Use localStorage for cross-tab communication
-        window.addEventListener('storage', (e) => {
+        window.addEventListener('storage', e => {
             if (e.key === 'playerState' && e.newValue) {
                 try {
                     const newState = JSON.parse(e.newValue);
@@ -144,7 +147,9 @@ class SharedPlayerState {
     }
 
     playNext() {
-        if (this.state.queue.length === 0) return;
+        if (this.state.queue.length === 0) {
+            return;
+        }
 
         let nextIndex = this.state.queueIndex + 1;
 
@@ -162,7 +167,9 @@ class SharedPlayerState {
     }
 
     playPrevious() {
-        if (this.state.queue.length === 0) return;
+        if (this.state.queue.length === 0) {
+            return;
+        }
 
         let prevIndex = this.state.queueIndex - 1;
 
@@ -180,7 +187,9 @@ class SharedPlayerState {
     }
 
     playRandom() {
-        if (this.state.queue.length === 0) return;
+        if (this.state.queue.length === 0) {
+            return;
+        }
 
         const randomIndex = Math.floor(Math.random() * this.state.queue.length);
         this.state.queueIndex = randomIndex;
@@ -298,8 +307,6 @@ class SharedPlayerState {
     }
 
     // Event System
-    listeners = new Set();
-
     addListener(callback) {
         this.listeners.add(callback);
     }
@@ -309,7 +316,7 @@ class SharedPlayerState {
     }
 
     notifyListeners() {
-        this.listeners.forEach((callback) => {
+        this.listeners.forEach(callback => {
             try {
                 callback(this.state);
             } catch (error) {
@@ -320,19 +327,23 @@ class SharedPlayerState {
 
     // Utility Methods
     formatTime(seconds) {
-        if (!seconds || isNaN(seconds)) return '0:00';
+        if (!seconds || isNaN(seconds)) {
+            return '0:00';
+        }
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs.toString().padStart(2, `0`)}`;
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 
     getProgress() {
-        if (!this.state.duration) return 0;
+        if (!this.state.duration) {
+            return 0;
+        }
         return (this.state.currentTime / this.state.duration) * 100;
     }
 
     isTrackInQueue(trackId) {
-        return this.state.queue.some((track) => track.id === trackId);
+        return this.state.queue.some(track => track.id === trackId);
     }
 
     getCurrentTrackIndex() {
@@ -348,6 +359,6 @@ class SharedPlayerState {
 window.sharedPlayerState = new SharedPlayerState();
 
 // Export for modules
-if (typeof module !== `undefined` && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
     module.exports = SharedPlayerState;
 }

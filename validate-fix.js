@@ -15,7 +15,7 @@ logDebug('Test 1: Verificando archivos...');
 const filesToCheck = ['index-production.html', 'js/howler-path-fix.js', 'js/app-production.js', 'main-secure.js'];
 
 let allFilesExist = true;
-filesToCheck.forEach((file) => {
+filesToCheck.forEach(file => {
     const filePath = path.join(__dirname, file);
     if (fs.existsSync(filePath)) {
         logDebug(`  ✅ ${file} existe`);

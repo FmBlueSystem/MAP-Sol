@@ -86,7 +86,7 @@ const files = ['main-secure.js', 'js/virtual-scroller-production.js'];
 console.log('🔧 Final template literal fixes...\n');
 
 let totalFixes = 0;
-files.forEach((file) => {
+files.forEach(file => {
     const filePath = path.join(__dirname, file);
     if (fs.existsSync(filePath)) {
         console.log(`Checking ${file}...`);

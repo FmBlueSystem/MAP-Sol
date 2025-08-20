@@ -12,7 +12,7 @@ class ProductionLogger {
             info: 1,
             warn: 2,
             error: 3,
-            critical: 4,
+            critical: 4
         };
 
         // Replace console methods in production
@@ -27,7 +27,7 @@ class ProductionLogger {
             info: console.info,
             warn: console.warn,
             error: console.error,
-            debug: console.debug,
+            debug: console.debug
         };
 
         // Store originals for critical errors
@@ -51,7 +51,7 @@ class ProductionLogger {
         const entry = {
             level,
             message: args
-                .map((arg) => {
+                .map(arg => {
                     if (typeof arg === 'object') {
                         try {
                             return JSON.stringify(arg);
@@ -63,7 +63,7 @@ class ProductionLogger {
                 })
                 .join(' '),
             timestamp: new Date().toISOString(),
-            stack: new Error().stack,
+            stack: new Error().stack
         };
 
         // Store log
@@ -94,7 +94,7 @@ class ProductionLogger {
 
     getLogs(level = null) {
         if (level) {
-            return this.logs.filter((log) => log.level === level);
+            return this.logs.filter(log => log.level === level);
         }
         return this.logs;
     }
@@ -108,7 +108,7 @@ class ProductionLogger {
             logs: this.logs,
             environment: this.isDevelopment ? 'development' : 'production',
             logLevel: this.logLevel,
-            timestamp: new Date().toISOString(),
+            timestamp: new Date().toISOString()
         };
     }
 }

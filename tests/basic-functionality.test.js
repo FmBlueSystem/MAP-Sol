@@ -12,7 +12,7 @@ describe('Basic Project Functionality', () => {
     test('File system operations should work', () => {
         const fs = require('fs');
         const path = require('path');
-        
+
         expect(typeof fs.readFileSync).toBe('function');
         expect(typeof fs.existsSync).toBe('function');
         expect(typeof path.join).toBe('function');
@@ -26,11 +26,7 @@ describe('Basic Project Functionality', () => {
     });
 
     test('Basic dependencies should be loadable', () => {
-        const dependencies = [
-            'path',
-            'fs',
-            'util'
-        ];
+        const dependencies = ['path', 'fs', 'util'];
 
         dependencies.forEach(dep => {
             expect(() => {
@@ -45,13 +41,8 @@ describe('Project Structure Validation', () => {
     test('main directories should exist', () => {
         const fs = require('fs');
         const path = require('path');
-        
-        const requiredDirs = [
-            'src',
-            'js', 
-            'tests',
-            'handlers'
-        ];
+
+        const requiredDirs = ['src', 'js', 'tests', 'handlers'];
 
         requiredDirs.forEach(dir => {
             const dirPath = path.join(__dirname, '..', dir);
@@ -65,12 +56,8 @@ describe('Project Structure Validation', () => {
     test('essential config files should exist', () => {
         const fs = require('fs');
         const path = require('path');
-        
-        const configFiles = [
-            '../../package.json',
-            '../.eslintrc.js',
-            '../jest.config.js'
-        ];
+
+        const configFiles = ['../../package.json', '../.eslintrc.js', '../jest.config.js'];
 
         configFiles.forEach(file => {
             const filePath = path.join(__dirname, file);
@@ -85,12 +72,12 @@ describe('Placeholder System Integrity', () => {
     test('all placeholders should be syntactically correct', () => {
         const fs = require('fs');
         const path = require('path');
-        
+
         // Get all JS files in project root
         const projectRoot = path.join(__dirname, '..');
         const files = fs.readdirSync(projectRoot);
         const jsFiles = files.filter(f => f.endsWith('.js'));
-        
+
         // Test that each can be loaded without syntax errors
         const errors = [];
         jsFiles.forEach(file => {
@@ -106,10 +93,7 @@ describe('Placeholder System Integrity', () => {
     });
 
     test('placeholders should provide basic module exports', () => {
-        const placeholderFiles = [
-            '../analyze-all.js',
-            '../calculate-audio-features.js'
-        ];
+        const placeholderFiles = ['../analyze-all.js', '../calculate-audio-features.js'];
 
         placeholderFiles.forEach(file => {
             const module = require(file);
@@ -122,11 +106,11 @@ describe('Development Environment Health', () => {
     test('npm scripts should be defined', () => {
         const fs = require('fs');
         const path = require('path');
-        
+
         const packagePath = path.join(__dirname, '../package.json');
         if (fs.existsSync(packagePath)) {
             const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
-            
+
             expect(pkg.scripts).toBeDefined();
             expect(typeof pkg.scripts).toBe('object');
         }
@@ -134,7 +118,7 @@ describe('Development Environment Health', () => {
 
     test('development dependencies should be available', () => {
         const commonDevDeps = ['jest', 'eslint'];
-        
+
         commonDevDeps.forEach(dep => {
             try {
                 const module = require(dep);
@@ -150,15 +134,15 @@ describe('Development Environment Health', () => {
     test('backup integrity check', () => {
         const fs = require('fs');
         const path = require('path');
-        
+
         const projectRoot = path.join(__dirname, '..');
         const files = fs.readdirSync(projectRoot);
         const backupDirs = files.filter(f => f.startsWith('emergency-backup-'));
-        
+
         if (backupDirs.length > 0) {
             const backupDir = backupDirs[0];
             const backupPath = path.join(projectRoot, backupDir);
-            
+
             // Check backup contains files
             const backupFiles = fs.readdirSync(backupPath);
             expect(backupFiles.length).toBeGreaterThan(50); // Should have many backed up files

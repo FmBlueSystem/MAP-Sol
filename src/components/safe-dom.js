@@ -12,7 +12,7 @@ class SafeDOM {
             "'": '&#39;',
             '/': '&#x2F;',
             '`': '&#x60;',
-            '=': '&#x3D;',
+            '=': '&#x3D;'
         };
 
         // Allowed HTML tags for rich content
@@ -31,7 +31,7 @@ class SafeDOM {
             return '';
         }
 
-        return text.replace(/[&<>"'`=\/]/g, (char) => {
+        return text.replace(/[&<>"'`=\/]/g, char => {
             return this.escapeMap[char] || char;
         });
     }
@@ -180,7 +180,7 @@ class SafeDOM {
             element.appendChild(content);
         } else if (Array.isArray(content)) {
             const fragment = document.createDocumentFragment();
-            content.forEach((item) => {
+            content.forEach(item => {
                 if (typeof item === 'string') {
                     fragment.appendChild(document.createTextNode(item));
                 } else if (item instanceof Element) {
@@ -270,13 +270,13 @@ class SafeDOM {
     createTrackCard(track) {
         const card = this.createElement('div', {
             className: 'track-card',
-            'data-track-id': track.id,
+            'data-track-id': track.id
         });
 
         // Create artwork safely
         if (track.artwork_path) {
             const img = this.createElement('img', {
-                className: 'track-artwork',
+                className: 'track-artwork'
             });
             img.src = track.artwork_path;
             img.onerror = () => {
@@ -288,14 +288,14 @@ class SafeDOM {
         // Create title safely
         const title = this.createElement('div', {
             className: 'track-title',
-            textContent: track.title || track.file_name || 'Unknown',
+            textContent: track.title || track.file_name || 'Unknown'
         });
         card.appendChild(title);
 
         // Create artist safely
         const artist = this.createElement('div', {
             className: 'track-artist',
-            textContent: track.artist || 'Unknown Artist',
+            textContent: track.artist || 'Unknown Artist'
         });
         card.appendChild(artist);
 
@@ -305,7 +305,7 @@ class SafeDOM {
     // Create table row safely
     createTableRow(track, index) {
         const row = this.createElement('tr', {
-            'data-track-id': track.id,
+            'data-track-id': track.id
         });
 
         const cells = [
@@ -314,13 +314,13 @@ class SafeDOM {
             { content: track.artist || 'Unknown', className: 'track-artist' },
             { content: track.album || '—', className: 'track-album' },
             { content: track.AI_BPM || '—', className: 'track-bpm' },
-            { content: track.AI_KEY || '—', className: 'track-key' },
+            { content: track.AI_KEY || '—', className: 'track-key' }
         ];
 
-        cells.forEach((cellData) => {
+        cells.forEach(cellData => {
             const td = this.createElement('td', {
                 className: cellData.className,
-                textContent: cellData.content,
+                textContent: cellData.content
             });
             row.appendChild(td);
         });
@@ -333,7 +333,7 @@ class SafeDOM {
         // Use DocumentFragment for batch DOM updates
         const fragment = document.createDocumentFragment();
 
-        updates.forEach((update) => {
+        updates.forEach(update => {
             if (update.type === 'create') {
                 const element = this.createElement(update.tag, update.attributes, update.content);
                 fragment.appendChild(element);
