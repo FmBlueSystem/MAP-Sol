@@ -1,4 +1,4 @@
-// VU Meter Professional - Broadcast Standard (-20 to +3 dB)
+// VU Meter Professional - Extended Range (-40 to +3 dB)
 class VuMeter {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
@@ -7,10 +7,16 @@ class VuMeter {
         this.dataArray = null;
         this.animationId = null;
 
-        // VU Meter settings
-        this.minDb = -20; // Minimum dB level
+        // LOG DE VERIFICACIÓN DE CAMBIO DE ESCALA
+        console.log('🎚️ VU METER SCALE UPDATED:');
+        console.log('   Previous range: -20 to +3 dB (23 dB total)');
+        console.log('   NEW RANGE: -40 to +3 dB (43 dB total)');
+        console.log('   Change applied at:', new Date().toISOString());
+
+        // VU Meter settings - EXTENDED RANGE
+        this.minDb = -40; // Minimum dB level (extended from -20)
         this.maxDb = 3; // Maximum dB level (broadcast standard)
-        this.dbRange = this.maxDb - this.minDb;
+        this.dbRange = this.maxDb - this.minDb; // Total range: 43 dB
 
         // Visual settings
         this.width = this.canvas.width;
@@ -34,12 +40,13 @@ class VuMeter {
         this.mode = 'broadcast'; // 'broadcast' or 'dj'
         this.showSpectrum = false;
 
-        // Colors for different levels
+        // Colors for different levels - ADJUSTED FOR -40 to +3 dB
         this.colors = {
+            veryLow: '#0066ff', // Blue: -40 to -20 dB
             low: '#00ff00', // Green: -20 to -10 dB
             medium: '#ffff00', // Yellow: -10 to -3 dB
             high: '#ffa500', // Orange: -3 to 0 dB
-            peak: '#ff0000' // Red: 0 to +3 dB
+            peak: '#ff0000', // Red: 0 to +3 dB
         };
 
         // Scale marks (will be updated by mode)
@@ -127,23 +134,33 @@ class VuMeter {
     }
 
     getColorForLevel(db) {
+        // UPDATED FOR -40 to +3 dB RANGE
+        if (db < -20) {
+            return this.colors.veryLow; // Blue: -40 to -20 dB
+        }
         if (db < -10) {
-            return this.colors.low;
+            return this.colors.low; // Green: -20 to -10 dB
         }
         if (db < -3) {
-            return this.colors.medium;
+            return this.colors.medium; // Yellow: -10 to -3 dB
         }
         if (db < 0) {
-            return this.colors.high;
+            return this.colors.high; // Orange: -3 to 0 dB
         }
-        return this.colors.peak;
+        return this.colors.peak; // Red: 0 to +3 dB
     }
 
     createGradient(level) {
         const gradient = this.ctx.createLinearGradient(this.meterX, 0, this.dbToPixels(level), 0);
 
-        // Add color stops based on dB ranges
-        gradient.addColorStop(0, this.colors.low);
+        // Add color stops based on NEW dB ranges (-40 to +3)
+        gradient.addColorStop(0, this.colors.veryLow); // Start with blue
+
+        if (level > -20) {
+            const stop0 = this.dbToPixels(-20) / this.meterWidth;
+            gradient.addColorStop(stop0, this.colors.veryLow);
+            gradient.addColorStop(stop0, this.colors.low);
+        }
 
         if (level > -10) {
             const stop1 = this.dbToPixels(-10) / this.meterWidth;
@@ -269,12 +286,14 @@ class VuMeter {
         }
     }
 
-    // Update scale marks based on current range
+    // Update scale marks based on current range - UPDATED FOR -40 to +3 dB
     updateScaleMarks() {
         if (this.mode === 'broadcast') {
-            this.scaleMarks = [-20, -15, -10, -7, -5, -3, 0, 3];
+            // NEW SCALE: -40 to +3 dB with more granular marks
+            this.scaleMarks = [-40, -35, -30, -25, -20, -15, -10, -7, -5, -3, 0, 3];
         } else {
-            this.scaleMarks = [-25, -20, -15, -10, -5, 0, 3, 6];
+            // DJ mode also updated for extended range
+            this.scaleMarks = [-40, -30, -25, -20, -15, -10, -5, 0, 3, 6];
         }
     }
 
@@ -282,7 +301,7 @@ class VuMeter {
         this.ctx.font = '10px monospace';
         this.ctx.textAlign = 'center';
 
-        this.scaleMarks.forEach(db => {
+        this.scaleMarks.forEach((db) => {
             const x = this.dbToPixels(db);
 
             // Draw tick mark
@@ -327,7 +346,7 @@ class VuMeter {
         const targetFPS = 60;
         const frameTime = 1000 / targetFPS;
 
-        const animate = currentTime => {
+        const animate = (currentTime) => {
             if (currentTime - lastTime >= frameTime) {
                 this.draw();
                 lastTime = currentTime;

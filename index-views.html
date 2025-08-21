@@ -675,22 +675,23 @@
             /* VIEW 1: CARDS VIEW */
             .tracks-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 15px;
                 animation: fadeIn 0.3s ease;
             }
 
             .track-card {
-                background: #1a1a1a;
-                border-radius: 12px;
+                background: rgba(20, 20, 20, 0.95);
+                border-radius: 8px;
                 overflow: hidden;
                 transition: all 0.3s ease;
                 cursor: pointer;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
                 position: relative;
                 display: flex;
                 flex-direction: column;
-                height: 100%;
+                height: 210px;
+                isolation: isolate;
             }
 
             .track-card:hover {
@@ -703,7 +704,7 @@
             .track-card.selected {
                 box-shadow: 0 0 0 3px var(--accent);
             }
-            
+
             .track-card.track-selected {
                 box-shadow: 0 0 0 2px #667eea;
                 transform: scale(1.02);
@@ -752,9 +753,11 @@
             .card-image {
                 position: relative;
                 width: 100%;
-                aspect-ratio: 1;
+                height: 160px;
                 background: #000;
                 overflow: hidden;
+                flex-shrink: 0;
+                flex-grow: 0;
             }
 
             .card-image img {
@@ -952,54 +955,53 @@
             /* Card info section with adaptive background */
             .card-info {
                 position: relative;
-                padding: 12px;
-                flex-grow: 1;
+                padding: 8px 12px;
+                height: 50px;
+                flex-shrink: 0;
+                flex-grow: 0;
                 display: flex;
                 flex-direction: column;
-                min-height: 90px;
+                justify-content: center;
+                overflow: hidden;
+                z-index: 10;
+                background: rgba(25, 25, 25, 1) !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 0 0 8px 8px;
             }
 
             /* Adaptive background based on image color */
             .info-background {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(
-                    to bottom,
-                    var(--dominant-color, rgba(30, 30, 30, 0.95)),
-                    rgba(20, 20, 20, 0.98)
-                );
-                backdrop-filter: blur(20px);
-                z-index: 0;
+                display: none; /* Disabled to prevent rendering issues */
             }
 
             /* Content with guaranteed contrast */
             .info-content {
                 position: relative;
-                z-index: 1;
+                z-index: 25;
                 display: flex;
                 flex-direction: column;
-                gap: 4px;
+                gap: 2px;
+                width: 100%;
+                height: auto;
+                overflow: visible;
+                padding: 0;
+                margin: 0;
             }
 
             /* Title ALWAYS visible with contrast */
-            .track-title {
-                font-size: 14px;
-                font-weight: 600;
-                color: var(--text-color, #ffffff);
-                line-height: 1.3;
-                margin: 0;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                text-shadow:
-                    0 1px 3px rgba(0, 0, 0, 0.5),
-                    0 0 20px rgba(0, 0, 0, 0.3);
+            .track-card .track-title {
+                font-size: 14px !important;
+                font-weight: 600 !important;
+                color: #ffffff !important;
+                line-height: 1.3 !important;
+                margin: 0 0 3px 0 !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
                 transition: color 0.3s;
+                position: relative;
+                z-index: 20;
+                white-space: nowrap !important;
+                display: block !important;
             }
 
             .track-card:hover .track-title {
@@ -1007,15 +1009,19 @@
             }
 
             /* Artist ALWAYS visible */
-            .track-artist {
-                font-size: 12px;
-                color: var(--text-color-secondary, rgba(255, 255, 255, 0.7));
-                margin: 0;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            .track-card .track-artist {
+                font-size: 12px !important;
+                color: rgba(255, 255, 255, 0.7) !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
                 transition: color 0.3s;
+                position: relative;
+                z-index: 20;
+                display: block !important;
+                max-width: 100% !important;
+                line-height: 1.3 !important;
             }
 
             .track-card:hover .track-artist {
@@ -1024,14 +1030,16 @@
 
             .track-tags {
                 display: flex;
-                gap: 8px;
+                gap: 3px;
                 flex-wrap: wrap;
+                margin-top: 2px;
             }
 
             .tag {
-                padding: 4px 8px;
-                border-radius: 6px;
-                font-size: 12px;
+                padding: 1px 4px;
+                border-radius: 4px;
+                font-size: 8px;
+                line-height: 1.1;
                 font-weight: 500;
             }
 
@@ -1071,10 +1079,10 @@
 
             .energy-bar {
                 width: 100%;
-                height: 4px;
+                height: 3px;
                 background: rgba(255, 255, 255, 0.1);
                 border-radius: 2px;
-                margin-top: 8px;
+                margin-top: 2px;
                 overflow: hidden;
             }
 
@@ -1194,7 +1202,7 @@
 
             .compact-image {
                 width: 100%;
-                height: 150px;
+                height: 180px;
                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                 position: relative;
                 overflow: hidden;
@@ -1221,25 +1229,32 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-                padding: 10px;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7));
+                padding: 8px;
                 color: white;
+                min-height: 45px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
             }
 
             .compact-title {
-                font-size: 13px;
+                font-size: 12px;
                 font-weight: 600;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+                line-height: 1.3;
+                margin-bottom: 2px;
             }
 
             .compact-artist {
-                font-size: 11px;
-                opacity: 0.8;
+                font-size: 10px;
+                opacity: 0.9;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+                line-height: 1.2;
             }
 
             .compact-play {
@@ -1451,13 +1466,7 @@
                 left: 0;
                 height: 100%;
                 width: 0%;
-                background: linear-gradient(
-                    90deg,
-                    #00ff00 0%,
-                    #00ff00 60%,
-                    #ffff00 80%,
-                    #ff0000 100%
-                );
+                background: linear-gradient(90deg, #00ff00 0%, #00ff00 60%, #ffff00 80%, #ff0000 100%);
                 transition: width 0.05s ease-out;
                 opacity: 0.9;
             }
@@ -1525,14 +1534,7 @@
             .corr-meter {
                 flex: 1;
                 height: 10px;
-                background: linear-gradient(
-                    90deg,
-                    #ff0000 0%,
-                    #ffff00 25%,
-                    #00ff00 50%,
-                    #ffff00 75%,
-                    #ff0000 100%
-                );
+                background: linear-gradient(90deg, #ff0000 0%, #ffff00 25%, #00ff00 50%, #ffff00 75%, #ff0000 100%);
                 position: relative;
                 border: 1px solid #333;
                 border-radius: 2px;
@@ -3129,14 +3131,7 @@
                 -webkit-appearance: none;
                 height: 6px;
                 border-radius: 3px;
-                background: linear-gradient(
-                    90deg,
-                    #ff0000 0%,
-                    #ffff00 30%,
-                    #00ff00 50%,
-                    #00ffff 70%,
-                    #0000ff 100%
-                );
+                background: linear-gradient(90deg, #ff0000 0%, #ffff00 30%, #00ff00 50%, #00ffff 70%, #0000ff 100%);
                 outline: none;
             }
 
@@ -3412,40 +3407,40 @@
         <!-- <link rel="stylesheet" href="css/precision-vu-meter.css"> -->
         <!-- ProMeter CSS disabled/removed -->
         <!-- <link rel="stylesheet" href="css/pro-meter.css"> -->
-        
+
         <!-- Add Music Button Styles -->
-        <link rel="stylesheet" href="css/add-music-button.css">
+        <link rel="stylesheet" href="css/add-music-button.css" />
     </head>
     <body>
         <script>
             // EMERGENCY FIX - API COMPATIBILITY LAYER
             (function () {
                 console.log('🔧 API Compatibility Layer Activated');
-                
+
                 // Create window.api compatibility layer for modules expecting it
                 if (!window.api && window.electronAPI) {
                     window.api = {
                         invoke: window.electronAPI.invoke,
                         send: window.electronAPI.send,
-                        on: window.electronAPI.on
+                        on: window.electronAPI.on,
                     };
                     console.log('✅ window.api compatibility layer created');
                 }
-                
+
                 // Also check for ipcRenderer
                 if (!window.api && window.ipcRenderer) {
                     window.api = {
                         invoke: window.ipcRenderer.invoke,
                         send: window.ipcRenderer.send,
-                        on: window.ipcRenderer.on
+                        on: window.ipcRenderer.on,
                     };
                     console.log('✅ window.api compatibility layer created from ipcRenderer');
                 }
             })();
-            
-            // EMERGENCY FIX - PREVENT MUTATION OBSERVER CRASHES
+
+            // SAFETY FIX - PREVENT MUTATION OBSERVER CRASHES
             (function () {
-                console.warn('🚑 EMERGENCY FIX ACTIVATED');
+                console.log('🛡️ MutationObserver protection enabled');
 
                 // Override MutationObserver to prevent crashes
                 const originalObserve = MutationObserver.prototype.observe;
@@ -3492,8 +3487,7 @@
                     <div class="config-section">
                         <h3>🎵 Buffer de Audio</h3>
                         <p class="config-description">
-                            Aumenta el buffer si experimentas cortes o interrupciones en la
-                            reproducción
+                            Aumenta el buffer si experimentas cortes o interrupciones en la reproducción
                         </p>
 
                         <div class="config-item">
@@ -3505,25 +3499,14 @@
                                 <option value="2048">2048 samples (Estable)</option>
                                 <option value="4096">4096 samples (Máxima estabilidad)</option>
                             </select>
-                            <span class="config-hint"
-                                >Latencia: ~<span id="latency-display">23ms</span></span
-                            >
+                            <span class="config-hint">Latencia: ~<span id="latency-display">23ms</span></span>
                         </div>
 
                         <div class="config-item">
                             <label for="preload-time">Pre-carga (segundos):</label>
-                            <input
-                                type="range"
-                                id="preload-time"
-                                min="1"
-                                max="10"
-                                value="3"
-                                step="0.5"
-                            />
+                            <input type="range" id="preload-time" min="1" max="10" value="3" step="0.5" />
                             <span id="preload-value">3s</span>
-                            <p class="config-hint">
-                                Tiempo de audio pre-cargado antes de reproducir
-                            </p>
+                            <p class="config-hint">Tiempo de audio pre-cargado antes de reproducir</p>
                         </div>
 
                         <div class="config-item">
@@ -3544,14 +3527,7 @@
 
                         <div class="config-item">
                             <label for="crossfade">Crossfade entre tracks:</label>
-                            <input
-                                type="range"
-                                id="crossfade"
-                                min="0"
-                                max="5"
-                                value="0"
-                                step="0.5"
-                            />
+                            <input type="range" id="crossfade" min="0" max="5" value="0" step="0.5" />
                             <span id="crossfade-value">0s</span>
                         </div>
 
@@ -3637,8 +3613,8 @@
                     <div class="config-section">
                         <h3>🔊 Normalización de Audio (Smart Volume)</h3>
                         <p class="config-description">
-                            Nivela automáticamente el volumen de todas las canciones para una
-                            experiencia de escucha consistente
+                            Nivela automáticamente el volumen de todas las canciones para una experiencia de escucha
+                            consistente
                         </p>
 
                         <!-- Toggle principal -->
@@ -3648,9 +3624,7 @@
                                 <span class="toggle-slider"></span>
                                 <span class="toggle-label">Normalización Activa</span>
                             </label>
-                            <p class="config-hint">
-                                Ajusta todas las canciones al mismo nivel de volumen
-                            </p>
+                            <p class="config-hint">Ajusta todas las canciones al mismo nivel de volumen</p>
                         </div>
 
                         <!-- Algoritmo de normalización -->
@@ -3674,21 +3648,12 @@
                             <div class="target-level-presets">
                                 <button class="preset-btn" data-level="-23">Quiet<br />-23</button>
                                 <button class="preset-btn" data-level="-18">Soft<br />-18</button>
-                                <button class="preset-btn active" data-level="-14">
-                                    Standard<br />-14
-                                </button>
+                                <button class="preset-btn active" data-level="-14">Standard<br />-14</button>
                                 <button class="preset-btn" data-level="-11">Loud<br />-11</button>
                                 <button class="preset-btn" data-level="-8">Party<br />-8</button>
                             </div>
                             <div class="slider-container">
-                                <input
-                                    type="range"
-                                    id="target-level"
-                                    min="-30"
-                                    max="-6"
-                                    value="-14"
-                                    step="1"
-                                />
+                                <input type="range" id="target-level" min="-30" max="-6" value="-14" step="1" />
                                 <span id="target-level-value">-14 LUFS</span>
                             </div>
                             <p class="config-hint">
@@ -3719,9 +3684,7 @@
                                 <span class="toggle-slider"></span>
                                 <span class="toggle-label">Limitador de Protección</span>
                             </label>
-                            <p class="config-hint">
-                                Previene distorsión en picos altos (recomendado)
-                            </p>
+                            <p class="config-hint">Previene distorsión en picos altos (recomendado)</p>
                         </div>
 
                         <!-- True Peak -->
@@ -3739,9 +3702,7 @@
                             <label for="analysis-mode">Análisis de Audio:</label>
                             <select id="analysis-mode" class="config-select">
                                 <option value="realtime">Tiempo Real (más CPU)</option>
-                                <option value="pre-analyzed" selected>
-                                    Pre-analizado (más rápido)
-                                </option>
+                                <option value="pre-analyzed" selected>Pre-analizado (más rápido)</option>
                                 <option value="hybrid">Híbrido (balancea calidad/velocidad)</option>
                             </select>
                         </div>
@@ -3753,9 +3714,7 @@
                                 <span class="toggle-slider"></span>
                                 <span class="toggle-label">Mostrar Indicador de Ganancia</span>
                             </label>
-                            <p class="config-hint">
-                                Muestra cuánto se ajusta el volumen en el player
-                            </p>
+                            <p class="config-hint">Muestra cuánto se ajusta el volumen en el player</p>
                         </div>
 
                         <!-- Análisis batch -->
@@ -3769,9 +3728,7 @@
                                 </div>
                                 <span id="analysis-status">Analizando... 0/0</span>
                             </div>
-                            <p class="config-hint">
-                                Pre-analiza todos los tracks para normalización instantánea
-                            </p>
+                            <p class="config-hint">Pre-analiza todos los tracks para normalización instantánea</p>
                         </div>
 
                         <!-- Estadísticas -->
@@ -3812,37 +3769,21 @@
                     <div class="config-section">
                         <h3>💾 Gestión de Datos</h3>
                         <p class="config-description">
-                            Exporta e importa tu configuración personalizada o restaura valores por
-                            defecto
+                            Exporta e importa tu configuración personalizada o restaura valores por defecto
                         </p>
 
                         <div class="config-item">
-                            <button
-                                id="export-config-btn"
-                                class="btn-primary"
-                                style="width: 100%; margin-bottom: 10px"
-                            >
+                            <button id="export-config-btn" class="btn-primary" style="width: 100%; margin-bottom: 10px">
                                 📥 Exportar Configuración
                             </button>
-                            <p class="config-hint">
-                                Guarda todas tus preferencias en un archivo JSON
-                            </p>
+                            <p class="config-hint">Guarda todas tus preferencias en un archivo JSON</p>
                         </div>
 
                         <div class="config-item">
-                            <button
-                                id="import-config-btn"
-                                class="btn-primary"
-                                style="width: 100%; margin-bottom: 10px"
-                            >
+                            <button id="import-config-btn" class="btn-primary" style="width: 100%; margin-bottom: 10px">
                                 📤 Importar Configuración
                             </button>
-                            <input
-                                type="file"
-                                id="import-config-input"
-                                accept=".json"
-                                style="display: none"
-                            />
+                            <input type="file" id="import-config-input" accept=".json" style="display: none" />
                             <p class="config-hint">Carga configuración desde un archivo JSON</p>
                         </div>
 
@@ -3865,11 +3806,7 @@
                         </div>
 
                         <div class="config-item">
-                            <button
-                                class="btn-clear-cache"
-                                onclick="clearCache()"
-                                style="width: 100%"
-                            >
+                            <button class="btn-clear-cache" onclick="clearCache()" style="width: 100%">
                                 🗑️ Limpiar Caché
                             </button>
                             <p class="config-hint">Libera espacio eliminando datos temporales</p>
@@ -3878,24 +3815,10 @@
                         <!-- Statistics -->
                         <div
                             class="config-stats"
-                            style="
-                                background: rgba(0, 0, 0, 0.3);
-                                padding: 10px;
-                                border-radius: 5px;
-                                margin-top: 15px;
-                            "
+                            style="background: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 5px; margin-top: 15px"
                         >
-                            <h4 style="margin: 0 0 10px 0; color: #00ff88; font-size: 14px">
-                                📈 Estadísticas de Uso
-                            </h4>
-                            <div
-                                style="
-                                    display: grid;
-                                    grid-template-columns: 1fr 1fr;
-                                    gap: 5px;
-                                    font-size: 12px;
-                                "
-                            >
+                            <h4 style="margin: 0 0 10px 0; color: #00ff88; font-size: 14px">📈 Estadísticas de Uso</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; font-size: 12px">
                                 <div>Última actualización:</div>
                                 <div id="config-last-saved" style="color: #00ff88">Nunca</div>
                                 <div>Tamaño de config:</div>
@@ -3910,12 +3833,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn-secondary" onclick="resetToDefaults()">
-                        🔄 Restaurar Valores Por Defecto
-                    </button>
-                    <button class="btn-primary" onclick="saveConfig()">
-                        💾 Guardar Configuración
-                    </button>
+                    <button class="btn-secondary" onclick="resetToDefaults()">🔄 Restaurar Valores Por Defecto</button>
+                    <button class="btn-primary" onclick="saveConfig()">💾 Guardar Configuración</button>
                 </div>
             </div>
         </div>
@@ -4000,25 +3919,33 @@
                 </div>
 
                 <!-- Smart Playlist Button -->
-                <button class="view-btn smart-playlist-btn" onclick="smartPlaylistWizard.open()" title="Create Smart Playlist">
+                <button
+                    class="view-btn smart-playlist-btn"
+                    onclick="smartPlaylistWizard.open()"
+                    title="Create Smart Playlist"
+                >
                     🧙 <span>Smart Playlist</span>
                 </button>
-                
+
                 <!-- Energy Flow Button -->
                 <button class="view-btn energy-flow-btn" onclick="energyFlow.open()" title="Energy Flow Visualizer">
                     📊 <span>Energy Flow</span>
                 </button>
-                
+
                 <!-- Export Button -->
                 <button class="view-btn export-btn" onclick="exportUI.open()" title="Export Tracks">
                     💾 <span>Export</span>
                 </button>
-                
+
                 <!-- Configuration Button -->
-                <button class="view-btn" onclick="document.getElementById('config-modal').style.display='block'" title="Configuración">
+                <button
+                    class="view-btn"
+                    onclick="document.getElementById('config-modal').style.display='block'"
+                    title="Configuración"
+                >
                     ⚙️ Config
                 </button>
-                
+
                 <!-- Filters Dropdown -->
                 <div class="filters-container">
                     <button class="filters-toggle" id="filtersToggle">
@@ -4055,23 +3982,14 @@
                             </select>
                         </div>
                         <div class="filter-actions">
-                            <button class="btn-clear-filters" onclick="clearAllFilters()">
-                                Clear All
-                            </button>
-                            <button class="btn-apply-filters" onclick="applyFilters()">
-                                Apply
-                            </button>
+                            <button class="btn-clear-filters" onclick="clearAllFilters()">Clear All</button>
+                            <button class="btn-apply-filters" onclick="applyFilters()">Apply</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Refresh Button -->
-                <button
-                    class="btn-refresh"
-                    id="refreshBtn"
-                    title="Refresh Library (F5)"
-                    onclick="refreshLibrary()"
-                >
+                <button class="btn-refresh" id="refreshBtn" title="Refresh Library (F5)" onclick="refreshLibrary()">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
@@ -4280,12 +4198,7 @@
             <!-- CENTER SECTION: Playback Controls & Progress -->
             <div class="player-center-section">
                 <div class="playback-controls">
-                    <button
-                        class="control-button"
-                        id="shuffleBtn"
-                        onclick="player.toggleShuffle()"
-                        title="Shuffle"
-                    >
+                    <button class="control-button" id="shuffleBtn" onclick="player.toggleShuffle()" title="Shuffle">
                         <svg viewBox="0 0 16 16">
                             <path
                                 d="M13.151.922a.75.75 0 10-1.06 1.06L13.109 3H11.16a3.75 3.75 0 00-2.873 1.34l-6.173 7.356A2.25 2.25 0 01.39 12.5H0V14h.391a3.75 3.75 0 002.873-1.34l6.173-7.356a2.25 2.25 0 011.724-.804h1.947l-1.017 1.018a.75.75 0 001.06 1.06L15.98 3.75 13.15.922zM.391 3.5H0V2h.391c1.109 0 2.16.49 2.873 1.34L4.89 5.277l-.979 1.167-1.796-2.14A2.25 2.25 0 00.39 3.5z"
@@ -4293,12 +4206,7 @@
                         </svg>
                     </button>
 
-                    <button
-                        class="control-button"
-                        id="btn-previous"
-                        title="Previous"
-                        onclick="player.playPrevious()"
-                    >
+                    <button class="control-button" id="btn-previous" title="Previous" onclick="player.playPrevious()">
                         <svg viewBox="0 0 16 16">
                             <path
                                 d="M3.3 1a.7.7 0 01.7.7v5.15l9.95-5.744a.7.7 0 011.05.606v12.575a.7.7 0 01-1.05.607L4 9.149V14.3a.7.7 0 01-.7.7H1.7a.7.7 0 01-.7-.7V1.7a.7.7 0 01.7-.7h1.6z"
@@ -4317,24 +4225,14 @@
                                 d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"
                             />
                         </svg>
-                        <svg
-                            class="icon-pause"
-                            viewBox="0 0 16 16"
-                            id="icon-pause"
-                            style="display: none"
-                        >
+                        <svg class="icon-pause" viewBox="0 0 16 16" id="icon-pause" style="display: none">
                             <path
                                 d="M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7H2.7zm8 0a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-2.6z"
                             />
                         </svg>
                     </button>
 
-                    <button
-                        class="control-button"
-                        id="btn-next"
-                        title="Next"
-                        onclick="player.playNext()"
-                    >
+                    <button class="control-button" id="btn-next" title="Next" onclick="player.playNext()">
                         <svg viewBox="0 0 16 16">
                             <path
                                 d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z"
@@ -4342,12 +4240,7 @@
                         </svg>
                     </button>
 
-                    <button
-                        class="control-button"
-                        id="repeatBtn"
-                        onclick="player.cycleRepeatMode()"
-                        title="Repeat"
-                    >
+                    <button class="control-button" id="repeatBtn" onclick="player.cycleRepeatMode()" title="Repeat">
                         <svg viewBox="0 0 16 16">
                             <path
                                 d="M0 4.75A3.75 3.75 0 013.75 1h8.5A3.75 3.75 0 0116 4.75v5a3.75 3.75 0 01-3.75 3.75H9.81l1.018 1.018a.75.75 0 11-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 111.06 1.06L9.811 12h2.439a2.25 2.25 0 002.25-2.25v-5a2.25 2.25 0 00-2.25-2.25h-8.5A2.25 2.25 0 001.5 4.75v5A2.25 2.25 0 003.75 12H5v1.5H3.75A3.75 3.75 0 010 9.75v-5z"
@@ -4391,11 +4284,7 @@
                 </div>
 
                 <!-- Extra Controls -->
-                <button
-                    class="control-button"
-                    onclick="toggleAudioPanelFromPlayer()"
-                    title="Audio Panel"
-                >
+                <button class="control-button" onclick="toggleAudioPanelFromPlayer()" title="Audio Panel">
                     <svg viewBox="0 0 16 16">
                         <path d="M8 1l7 7H1z" />
                     </svg>
@@ -4417,8 +4306,7 @@
 
                 // Interceptar cualquier sistema de notificaciones
                 const noop = () => {};
-                if (window.toastr)
-                    window.toastr = { success: noop, error: noop, info: noop, warning: noop };
+                if (window.toastr) window.toastr = { success: noop, error: noop, info: noop, warning: noop };
                 if (window.Swal) window.Swal = { fire: () => Promise.resolve() };
                 if (window.notie) window.notie = { alert: noop };
 
@@ -4538,7 +4426,7 @@
 
                 // Make loadTracks available globally for Add Music button
                 window.loadFiles = loadTracks;
-                
+
                 // Load data
                 await loadTracks();
                 await loadFilters();
@@ -4572,7 +4460,7 @@
                             title: allTracks[0].title,
                             artist: allTracks[0].artist,
                             artwork_url: allTracks[0].artwork_url,
-                            type_id: typeof allTracks[0].id
+                            type_id: typeof allTracks[0].id,
                         });
                     }
 
@@ -4595,7 +4483,7 @@
 
                     // Populate genre filter
                     const genreSelect = document.getElementById('genreFilter');
-                    options.genres.forEach(genre => {
+                    options.genres.forEach((genre) => {
                         if (genre) {
                             const option = document.createElement('option');
                             option.value = genre;
@@ -4606,7 +4494,7 @@
 
                     // Populate mood filter
                     const moodSelect = document.getElementById('moodFilter');
-                    options.moods.forEach(mood => {
+                    options.moods.forEach((mood) => {
                         if (mood) {
                             const option = document.createElement('option');
                             option.value = mood;
@@ -4692,10 +4580,7 @@
                         // Light background - use dark text
                         card.classList.add('light-bg');
                         card.style.setProperty('--dominant-color', `rgba(${r}, ${g}, ${b}, 0.95)`);
-                        card.style.setProperty(
-                            '--dominant-color-hover',
-                            `rgba(${r}, ${g}, ${b}, 0.7)`
-                        );
+                        card.style.setProperty('--dominant-color-hover', `rgba(${r}, ${g}, ${b}, 0.7)`);
                         card.style.setProperty('--text-color', '#000000');
                         card.style.setProperty('--text-color-secondary', 'rgba(0,0,0,0.7)');
                     } else {
@@ -4719,7 +4604,7 @@
                 const grid = document.getElementById('cardsGrid');
                 grid.innerHTML = '';
 
-                filteredTracks.forEach(track => {
+                filteredTracks.forEach((track) => {
                     const card = document.createElement('div');
                     card.className = 'track-card';
                     card.setAttribute('data-track-id', track.id);
@@ -4775,42 +4660,36 @@
                         <div class="info-content">
                             <h3 class="track-title" title="${track.title || track.file_name}">${track.title || track.file_name}</h3>
                             <p class="track-artist" title="${track.artist || 'Unknown Artist'}">${track.artist || 'Unknown Artist'}</p>
-                            <div class="track-tags">
-                                ${track.genre ? `<span class="tag genre-tag">${track.genre}</span>` : ''}
-                                ${track.AI_MOOD ? `<span class="tag mood-tag">${track.AI_MOOD}</span>` : ''}
-                                ${bpm ? `<span class="tag bpm-tag">${bpm} BPM</span>` : ''}
-                                ${key ? `<span class="tag key-tag">${key}</span>` : ''}
-                            </div>
-                            <div class="energy-bar">
-                                <div class="energy-fill" style="width: ${energy * 100}%"></div>
-                            </div>
                         </div>
                     </div>
                 `;
 
-                    card.onclick = e => {
+                    card.onclick = (e) => {
                         if (!e.target.classList.contains('play-overlay')) {
                             toggleSelection(track.id, e);
                         }
                     };
 
                     card.ondblclick = () => handlePlay(track.file_path, track.id);
-                    
+
                     // Agregar click simple para mostrar info del track
                     card.onclick = (e) => {
                         // Si no es un click en el botón de play
                         if (!e.target.closest('.play-button')) {
                             // Disparar evento para el panel de información
-                            document.dispatchEvent(new CustomEvent('trackSelected', {
-                                detail: track.id
-                            }));
-                            
+                            document.dispatchEvent(
+                                new CustomEvent('trackSelected', {
+                                    detail: track.id,
+                                })
+                            );
+
                             // Guardar último track seleccionado
                             localStorage.setItem('lastSelectedTrack', track.id);
-                            
+
                             // Marcar como seleccionado visualmente
-                            document.querySelectorAll('.track-card').forEach(c => 
-                                c.classList.remove('track-selected'));
+                            document
+                                .querySelectorAll('.track-card')
+                                .forEach((c) => c.classList.remove('track-selected'));
                             card.classList.add('track-selected');
                         }
                     };
@@ -4859,7 +4738,7 @@
                     <td>${duration}</td>
                 `;
 
-                    row.onclick = e => {
+                    row.onclick = (e) => {
                         if (e.target.type !== 'checkbox') {
                             toggleSelection(track.id, e);
                         }
@@ -4876,7 +4755,7 @@
                 const grid = document.getElementById('compactGrid');
                 grid.innerHTML = '';
 
-                filteredTracks.forEach(track => {
+                filteredTracks.forEach((track) => {
                     const card = document.createElement('div');
                     card.className = 'compact-card';
                     card.setAttribute('data-track-id', track.id);
@@ -4903,29 +4782,32 @@
                     </div>
                 `;
 
-                    card.onclick = e => {
+                    card.onclick = (e) => {
                         if (!e.target.classList.contains('compact-play')) {
                             toggleSelection(track.id, e);
                         }
                     };
 
                     card.ondblclick = () => handlePlay(track.file_path, track.id);
-                    
+
                     // Agregar click simple para mostrar info del track
                     card.onclick = (e) => {
                         // Si no es un click en el botón de play
                         if (!e.target.closest('.play-button')) {
                             // Disparar evento para el panel de información
-                            document.dispatchEvent(new CustomEvent('trackSelected', {
-                                detail: track.id
-                            }));
-                            
+                            document.dispatchEvent(
+                                new CustomEvent('trackSelected', {
+                                    detail: track.id,
+                                })
+                            );
+
                             // Guardar último track seleccionado
                             localStorage.setItem('lastSelectedTrack', track.id);
-                            
+
                             // Marcar como seleccionado visualmente
-                            document.querySelectorAll('.track-card').forEach(c => 
-                                c.classList.remove('track-selected'));
+                            document
+                                .querySelectorAll('.track-card')
+                                .forEach((c) => c.classList.remove('track-selected'));
                             card.classList.add('track-selected');
                         }
                     };
@@ -4940,12 +4822,12 @@
                 localStorage.setItem('viewMode', viewName);
 
                 // Update buttons
-                document.querySelectorAll('.view-btn').forEach(btn => {
+                document.querySelectorAll('.view-btn').forEach((btn) => {
                     btn.classList.toggle('active', btn.dataset.view === viewName);
                 });
 
                 // Update containers
-                document.querySelectorAll('.view-container').forEach(container => {
+                document.querySelectorAll('.view-container').forEach((container) => {
                     container.classList.toggle('active', container.id === `${viewName}View`);
                 });
 
@@ -4957,8 +4839,8 @@
             function toggleSelection(trackId, event) {
                 if (event && event.shiftKey && lastSelectedId !== null) {
                     // Range selection
-                    const start = allTracks.findIndex(t => t.id === lastSelectedId);
-                    const end = allTracks.findIndex(t => t.id === trackId);
+                    const start = allTracks.findIndex((t) => t.id === lastSelectedId);
+                    const end = allTracks.findIndex((t) => t.id === trackId);
                     const [from, to] = start < end ? [start, end] : [end, start];
 
                     for (let i = from; i <= to; i++) {
@@ -4997,7 +4879,7 @@
                     try {
                         const results = await ipcRenderer.invoke('search-tracks', {
                             query,
-                            filters: { genre, mood }
+                            filters: { genre, mood },
                         });
                         filteredTracks = results;
                     } catch (error) {
@@ -5031,10 +4913,7 @@
                         case 'artist':
                             return (a.artist || '').localeCompare(b.artist || '');
                         case 'bpm':
-                            return (
-                                (b.AI_BPM || b.existing_bmp || 0) -
-                                (a.AI_BPM || a.existing_bmp || 0)
-                            );
+                            return (b.AI_BPM || b.existing_bmp || 0) - (a.AI_BPM || a.existing_bmp || 0);
                         case 'energy':
                             return (b.AI_ENERGY || 0) - (a.AI_ENERGY || 0);
                         default:
@@ -5103,8 +4982,7 @@
             }
 
             function updateThemeIcon() {
-                document.getElementById('theme-icon').textContent =
-                    currentTheme === 'light' ? '🌙' : '☀️';
+                document.getElementById('theme-icon').textContent = currentTheme === 'light' ? '🌙' : '☀️';
             }
 
             // Seek function for progress bar
@@ -5174,10 +5052,10 @@
                     'peak-left-segments',
                     'peak-right-segments',
                     'rms-left-segments',
-                    'rms-right-segments'
+                    'rms-right-segments',
                 ];
 
-                containers.forEach(containerId => {
+                containers.forEach((containerId) => {
                     const container = document.getElementById(containerId);
                     if (container) {
                         const segments = [];
@@ -5188,9 +5066,7 @@
                             if (db >= -6) colorClass = 'red';
                             else if (db >= -20) colorClass = 'yellow';
 
-                            segments.push(
-                                `<div class="segment ${colorClass}" data-db="${db}"></div>`
-                            );
+                            segments.push(`<div class="segment ${colorClass}" data-db="${db}"></div>`);
                         }
                         container.innerHTML = segments.join('');
                     }
@@ -5202,7 +5078,7 @@
             // Setup event listeners
             function setupEventListeners() {
                 // View toggle
-                document.querySelectorAll('.view-btn').forEach(btn => {
+                document.querySelectorAll('.view-btn').forEach((btn) => {
                     btn.addEventListener('click', () => setView(btn.dataset.view));
                 });
 
@@ -5216,9 +5092,9 @@
                 document.getElementById('sortBy').addEventListener('change', performSearch);
 
                 // Select all checkbox
-                document.getElementById('selectAll').addEventListener('change', e => {
+                document.getElementById('selectAll').addEventListener('change', (e) => {
                     if (e.target.checked) {
-                        filteredTracks.forEach(t => selectedTracks.add(t.id));
+                        filteredTracks.forEach((t) => selectedTracks.add(t.id));
                     } else {
                         selectedTracks.clear();
                     }
@@ -5229,7 +5105,7 @@
 
             // Keyboard shortcuts
             function setupKeyboardShortcuts() {
-                document.addEventListener('keydown', e => {
+                document.addEventListener('keydown', (e) => {
                     // Skip if typing in input
                     const isInput = e.target.matches('input') || e.target.matches('textarea');
 
@@ -5258,7 +5134,7 @@
                     // Select all (keeping Cmd/Ctrl+A for selection)
                     if ((e.ctrlKey || e.metaKey) && e.key === 'a' && !isInput) {
                         e.preventDefault();
-                        filteredTracks.forEach(t => selectedTracks.add(t.id));
+                        filteredTracks.forEach((t) => selectedTracks.add(t.id));
                         updateStats();
                         renderCurrentView();
                     }
@@ -5372,32 +5248,41 @@
                 // Find track data
                 const numericId = Number(trackId);
                 const trackData =
-                    window.filteredTracks?.find(t => t.id === numericId) ||
-                    window.allTracks?.find(t => t.id === numericId);
+                    window.filteredTracks?.find((t) => t.id === numericId) ||
+                    window.allTracks?.find((t) => t.id === numericId);
 
                 if (!trackData) {
                     console.error('❌ Track data not found for ID:', trackId);
                     return;
                 }
 
-                // UNIFIED: Always use Simple Player
-                if (window.simplePlayer) {
-                    console.log('📀 Using Simple Player for:', trackData.title);
-                    window.simplePlayer.loadTrack(trackData);
-                    // Hide other panels if visible
-                    document.getElementById('player-bar').style.display = 'none';
-                    document.getElementById('audio-panel').style.display = 'none';
-                    document.getElementById('emergency-audio-panel').style.display = 'none';
-                    return;
+                // USE SIMPLE PLAYER: Initialize if needed
+                if (!window.simplePlayer) {
+                    console.log('🎵 Initializing SimplePlayer...');
+                    window.simplePlayer = new SimplePlayer();
                 }
 
-                // Fallback: Create Simple Player if not exists
-                console.log('📀 Initializing Simple Player...');
-                if (!window.simplePlayer && window.SimplePlayer) {
-                    window.simplePlayer = new SimplePlayer();
-                    window.simplePlayer.loadTrack(trackData);
-                    return;
+                // Load the entire filtered list as queue (for continuous playback)
+                if (window.simplePlayer.queue.length === 0 && window.filteredTracks) {
+                    console.log('🎵 Loading filtered tracks to queue:', window.filteredTracks.length);
+                    window.simplePlayer.queue = [...window.filteredTracks];
+                    window.simplePlayer.currentIndex = window.filteredTracks.findIndex((t) => t.id === numericId);
                 }
+
+                // Dispatch event to SimplePlayer
+                console.log('🎵 Dispatching playTrack event to SimplePlayer:', trackData.title);
+                const event = new CustomEvent('playTrack', { detail: trackData });
+                document.dispatchEvent(event);
+
+                // Update play button states
+                document.querySelectorAll('.play-btn, .play-overlay, .compact-play').forEach((btn) => {
+                    btn.classList.remove('playing');
+                });
+                document.querySelectorAll(`[data-track-id="${trackId}"]`).forEach((btn) => {
+                    btn.classList.add('playing');
+                });
+
+                return;
 
                 // Legacy fallback (should not reach here)
                 console.warn('⚠️ Simple Player not available, using legacy player');
@@ -5405,7 +5290,7 @@
                     // Set the playlist to all filtered tracks for continuous play
                     window.player.setPlaylist(
                         window.filteredTracks || [],
-                        window.filteredTracks?.findIndex(t => t.id === numericId) || 0
+                        window.filteredTracks?.findIndex((t) => t.id === numericId) || 0
                     );
 
                     // Play the selected track
@@ -5414,6 +5299,9 @@
                     console.error('❌ Audio player not initialized!');
                 }
             }
+
+            // Make handlePlay available globally
+            window.handlePlay = handlePlay;
 
             // Global function for toggling play/pause
             function togglePlayPause() {
@@ -5442,7 +5330,7 @@
                         low: '#00ff00', // Green for low levels
                         mid: '#ffff00', // Yellow for mid levels
                         high: '#ff9900', // Orange for high levels
-                        peak: '#ff0000' // Red for peaks
+                        peak: '#ff0000', // Red for peaks
                     };
 
                     // Update display elements
@@ -5456,8 +5344,7 @@
 
                 initializeAudioContext() {
                     try {
-                        this.audioContext = new (window.AudioContext ||
-                            window.webkitAudioContext)();
+                        this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
                         this.analyser = this.audioContext.createAnalyser();
                         this.analyser.fftSize = 256;
                         this.analyser.smoothingTimeConstant = 0.3;
@@ -5506,11 +5393,7 @@
 
                         // Calculate stereo levels (simulated)
                         const leftLevel = this.calculateLevel(dataArray, 0, bufferLength / 2);
-                        const rightLevel = this.calculateLevel(
-                            dataArray,
-                            bufferLength / 2,
-                            bufferLength
-                        );
+                        const rightLevel = this.calculateLevel(dataArray, bufferLength / 2, bufferLength);
 
                         // Draw meters
                         this.drawMeter(10, leftLevel); // Left channel
@@ -5628,15 +5511,13 @@
                         panel.classList.remove('expanded');
                         panel.classList.add('collapsed');
                         // Update SVG icon to up arrow
-                        btn.innerHTML =
-                            '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l7 7H1z"/></svg>';
+                        btn.innerHTML = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l7 7H1z"/></svg>';
                         btn.style.color = '#1db954';
                     } else {
                         panel.classList.remove('collapsed');
                         panel.classList.add('expanded');
                         // Update SVG icon to down arrow
-                        btn.innerHTML =
-                            '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 15l7-7H1z"/></svg>';
+                        btn.innerHTML = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 15l7-7H1z"/></svg>';
                         btn.style.color = '#1ed760';
                     }
                 }
@@ -5676,8 +5557,7 @@
             };
 
             // Auto-debug when player starts
-            const originalShowMiniPlayer =
-                window.AudioPlayer && window.AudioPlayer.prototype.showMiniPlayer;
+            const originalShowMiniPlayer = window.AudioPlayer && window.AudioPlayer.prototype.showMiniPlayer;
             if (originalShowMiniPlayer) {
                 window.AudioPlayer.prototype.showMiniPlayer = function () {
                     originalShowMiniPlayer.call(this);
@@ -5773,14 +5653,12 @@
                 if (title) title.textContent = 'TEST TITLE - If you see this, UI works!';
                 if (artist) artist.textContent = 'TEST ARTIST - Visual is OK';
 
-                console.log(
-                    '✅ Forced update complete. Check if you see TEST TITLE and TEST ARTIST'
-                );
+                console.log('✅ Forced update complete. Check if you see TEST TITLE and TEST ARTIST');
                 console.log('Elements status:', {
                     miniPlayer: miniPlayer?.style.display,
                     artwork: artwork?.src,
                     title: title?.textContent,
-                    artist: artist?.textContent
+                    artist: artist?.textContent,
                 });
 
                 return 'Check mini player - should show TEST data';
@@ -5795,14 +5673,14 @@
                     miniPlayer: document.getElementById('miniPlayer'),
                     artwork: document.getElementById('nowPlayingArt'),
                     title: document.getElementById('nowPlayingTitle'),
-                    artist: document.getElementById('nowPlayingArtist')
+                    artist: document.getElementById('nowPlayingArtist'),
                 };
 
                 console.log('📋 Elements found:', {
                     miniPlayer: !!elements.miniPlayer,
                     artwork: !!elements.artwork,
                     title: !!elements.title,
-                    artist: !!elements.artist
+                    artist: !!elements.artist,
                 });
 
                 // Try to play first visible track
@@ -5814,15 +5692,15 @@
                     // Get full track data
                     const numericId = Number(trackId);
                     const trackData =
-                        window.filteredTracks?.find(t => t.id === numericId) ||
-                        window.allTracks?.find(t => t.id === numericId);
+                        window.filteredTracks?.find((t) => t.id === numericId) ||
+                        window.allTracks?.find((t) => t.id === numericId);
 
                     console.log('📀 Track data found:', {
                         id: trackData?.id,
                         title: trackData?.title,
                         artist: trackData?.artist,
                         artwork_url: trackData?.artwork_url,
-                        artwork_path: trackData?.artwork_path
+                        artwork_path: trackData?.artwork_path,
                     });
 
                     // Force update mini player
@@ -5845,14 +5723,8 @@
                             ) {
                                 console.error('❌ FAILED: Info not showing!');
                                 console.log('Debugging info:');
-                                console.log(
-                                    '  - player.currentTrackData:',
-                                    player.currentTrackData
-                                );
-                                console.log(
-                                    '  - window.filteredTracks[0]:',
-                                    window.filteredTracks?.[0]
-                                );
+                                console.log('  - player.currentTrackData:', player.currentTrackData);
+                                console.log('  - window.filteredTracks[0]:', window.filteredTracks?.[0]);
                                 console.log('  - window.allTracks[0]:', window.allTracks?.[0]);
                             } else {
                                 console.log('✅ SUCCESS: Info is showing correctly!');
@@ -5880,17 +5752,13 @@
                     console.log('7. Current track ID:', window.player.currentTrackId);
                     console.log('8. Audio duration:', window.player.currentAudio.duration);
                     console.log('9. Current time:', window.player.currentAudio.currentTime);
-                    console.log(
-                        '10. Ended event handler?',
-                        typeof window.player.currentAudio.onended
-                    );
+                    console.log('10. Ended event handler?', typeof window.player.currentAudio.onended);
 
                     // Test skip to end
                     console.log('🎵 Simulating track end in 3 seconds...');
                     setTimeout(() => {
                         if (window.player.currentAudio && window.player.currentAudio.duration) {
-                            window.player.currentAudio.currentTime =
-                                window.player.currentAudio.duration - 0.1;
+                            window.player.currentAudio.currentTime = window.player.currentAudio.duration - 0.1;
                             console.log('⏩ Skipped to end of track');
                         }
                     }, 3000);
@@ -5923,7 +5791,7 @@
 
                 // Show/hide clear button
                 if (searchInput) {
-                    searchInput.addEventListener('input', e => {
+                    searchInput.addEventListener('input', (e) => {
                         if (clearBtn) {
                             clearBtn.style.display = e.target.value ? 'block' : 'none';
                         }
@@ -5958,25 +5826,22 @@
                 const filtersDropdown = document.getElementById('filtersDropdown');
 
                 if (filtersToggle && filtersDropdown) {
-                    filtersToggle.addEventListener('click', e => {
+                    filtersToggle.addEventListener('click', (e) => {
                         e.stopPropagation();
                         const isOpen = filtersDropdown.style.display === 'block';
                         filtersDropdown.style.display = isOpen ? 'none' : 'block';
                     });
 
                     // Close dropdown when clicking outside
-                    document.addEventListener('click', e => {
-                        if (
-                            !filtersToggle.contains(e.target) &&
-                            !filtersDropdown.contains(e.target)
-                        ) {
+                    document.addEventListener('click', (e) => {
+                        if (!filtersToggle.contains(e.target) && !filtersDropdown.contains(e.target)) {
                             filtersDropdown.style.display = 'none';
                         }
                     });
                 }
 
                 // Focus search with '/' key
-                document.addEventListener('keydown', e => {
+                document.addEventListener('keydown', (e) => {
                     if (e.key === '/' && document.activeElement !== searchInput) {
                         e.preventDefault();
                         searchInput.focus();
@@ -6088,10 +5953,8 @@
 
             // Setup fallback for images
             function setupImageFallbacks() {
-                const images = document.querySelectorAll(
-                    '.track-artwork, .player-artwork, img[src*="artwork"]'
-                );
-                images.forEach(img => {
+                const images = document.querySelectorAll('.track-artwork, .player-artwork, img[src*="artwork"]');
+                images.forEach((img) => {
                     if (!img.hasAttribute('data-fallback-set')) {
                         img.setAttribute('data-fallback-set', 'true');
                         img.addEventListener('error', function () {
@@ -6241,7 +6104,7 @@
 
         <script>
             // Show emergency panel with keyboard shortcut
-            document.addEventListener('keydown', e => {
+            document.addEventListener('keydown', (e) => {
                 // Alt + Shift + E for Emergency panel
                 if (e.altKey && e.shiftKey && e.key === 'E') {
                     const panel = document.getElementById('emergency-audio-panel');
@@ -6272,19 +6135,8 @@
                         </svg>
                     </button>
 
-                    <button
-                        class="transport-btn main"
-                        id="playBtn"
-                        onclick="togglePlayPause()"
-                        title="Play/Pause"
-                    >
-                        <svg
-                            class="play-icon"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                        >
+                    <button class="transport-btn main" id="playBtn" onclick="togglePlayPause()" title="Play/Pause">
+                        <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M8 5v14l11-7z" />
                         </svg>
                         <svg
@@ -6358,13 +6210,7 @@
                         />
                     </svg>
                     <div class="volume-container">
-                        <input
-                            type="range"
-                            id="volume-slider-minimal"
-                            min="0"
-                            max="100"
-                            value="75"
-                        />
+                        <input type="range" id="volume-slider-minimal" min="0" max="100" value="75" />
                     </div>
                 </div>
 
@@ -6418,20 +6264,12 @@
                                     <path d="M8 5v14l11-7z" />
                                 </svg>
                             </button>
-                            <button
-                                class="transport-btn"
-                                onclick="if(window.player) player.playNext()"
-                                title="Next"
-                            >
+                            <button class="transport-btn" onclick="if(window.player) player.playNext()" title="Next">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
                                 </svg>
                             </button>
-                            <button
-                                class="transport-btn"
-                                onclick="if(window.player) player.stop()"
-                                title="Stop"
-                            >
+                            <button class="transport-btn" onclick="if(window.player) player.stop()" title="Stop">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                     <rect x="6" y="6" width="12" height="12" />
                                 </svg>
@@ -6471,12 +6309,7 @@
                         <div class="spectrum-info">
                             <span>Spectrum Analyzer</span>
                         </div>
-                        <canvas
-                            id="spectrum-canvas"
-                            class="spectrum-canvas"
-                            width="800"
-                            height="200"
-                        ></canvas>
+                        <canvas id="spectrum-canvas" class="spectrum-canvas" width="800" height="200"></canvas>
                         <div class="frequency-labels">
                             <span>20Hz</span>
                             <span>50Hz</span>
@@ -6534,37 +6367,40 @@
         <link rel="stylesheet" href="css/audio-panel.css" />
         <script src="js/audio-panel.js?v=20250820"></script>
         <script src="js/k-meter-compact.js"></script>
-        
+
         <!-- Track Info Panel -->
         <link rel="stylesheet" href="css/track-info-panel.css" />
         <script src="js/track-info-panel.js"></script>
-        
+
         <!-- Similar Tracks Panel -->
         <link rel="stylesheet" href="css/similar-tracks-panel.css" />
         <script src="js/similar-tracks-panel.js"></script>
-        
+
         <!-- Smart Playlist Wizard -->
         <link rel="stylesheet" href="css/smart-playlist-wizard.css" />
         <script src="js/smart-playlist-wizard.js"></script>
-        
+
         <!-- Smart Playlist Manager -->
         <link rel="stylesheet" href="css/smart-playlist-manager.css" />
         <script src="js/smart-playlist-manager.js"></script>
-        
+
         <!-- Energy Flow Visualizer -->
         <link rel="stylesheet" href="css/energy-flow-visualizer.css" />
         <script src="js/energy-flow-visualizer.js"></script>
-        
+
         <!-- Export UI -->
         <link rel="stylesheet" href="css/export-ui.css" />
         <script src="js/export-ui.js"></script>
-        
+
         <!-- Simple Player with VU Meter -->
         <link rel="stylesheet" href="css/simple-player.css" />
         <script src="js/vu-meter.js"></script>
         <script src="js/simple-player.js"></script>
-        
-        <!-- Add Music Button -->
-        <script src="js/add-music-button.js"></script>
+
+        <!-- Toast Notifications (MUST load before other components) -->
+        <script src="js/toast-notifications.js"></script>
+
+        <!-- Music Folder Selector (replaces drag & drop) -->
+        <script src="js/music-folder-selector.js"></script>
     </body>
 </html>

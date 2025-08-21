@@ -19,12 +19,16 @@ const {
     createGetFormatsHandler,
     createGetAllTracksForExportHandler,
     createExportTracksHandler,
-    createGetExportFormatsHandler
+    createGetExportFormatsHandler,
 } = require('./handlers/export-handler');
 const { createNormalizationHandlers } = require('./handlers/normalization-handler');
 const { createPlaylistHandlers } = require('./handlers/playlist-handler');
 const { createAdvancedPlaylistHandlers } = require('./handlers/playlist-advanced-handler');
 const { createAudioHandler } = require('./handlers/audio-handler');
+// Track info handler - verificar que el archivo existe
+const trackInfoHandlerPath = path.join(__dirname, 'handlers', 'track-info-handler.js');
+console.log('Track info handler path:', trackInfoHandlerPath);
+console.log('Track info handler exists:', require('fs').existsSync(trackInfoHandlerPath));
 const { createTrackInfoHandler, createFindSimilarHandler } = require('./handlers/track-info-handler');
 const { createSmartPlaylistHandlers, createSmartPlaylistTables } = require('./handlers/smart-playlist-handler');
 const { createEnergyFlowHandlers } = require('./handlers/energy-flow-handler');
@@ -48,8 +52,8 @@ function createSplashScreen() {
         transparent: true,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
-        }
+            contextIsolation: false,
+        },
     });
 
     splash.loadURL(
@@ -150,15 +154,15 @@ function createWindow() {
             nodeIntegration: false,
             contextIsolation: true,
             webSecurity: false, // Para cargar imágenes locales
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
         },
-        icon: icon || undefined // Usar el icono si existe
+        icon: icon || undefined, // Usar el icono si existe
     });
 
     mainWindow.loadFile('index-with-search.html');
 
     // Prevenir sobrescritura del título
-    mainWindow.on('page-title-updated', event => {
+    mainWindow.on('page-title-updated', (event) => {
         event.preventDefault();
     });
 }
@@ -174,7 +178,7 @@ function createApplicationMenu() {
                     label: 'About MAP',
                     click: () => {
                         showAboutWindow();
-                    }
+                    },
                 },
                 { type: 'separator' },
                 {
@@ -182,49 +186,49 @@ function createApplicationMenu() {
                     accelerator: 'CmdOrCtrl+Shift+A',
                     click: () => {
                         showAudioConfigWindow();
-                    }
+                    },
                 },
                 {
                     label: 'Preferences...',
                     accelerator: 'CmdOrCtrl+,',
                     click: () => {
                         mainWindow.webContents.send('open-preferences');
-                    }
+                    },
                 },
                 { type: 'separator' },
                 ...(process.platform === 'darwin'
                     ? [
-                        {
-                            label: 'Services',
-                            role: 'services',
-                            submenu: []
-                        },
-                        { type: 'separator' },
-                        {
-                            label: 'Hide MAP',
-                            accelerator: 'CmdOrCtrl+H',
-                            role: 'hide'
-                        },
-                        {
-                            label: 'Hide Others',
-                            accelerator: 'CmdOrCtrl+Shift+H',
-                            role: 'hideothers'
-                        },
-                        {
-                            label: 'Show All',
-                            role: 'unhide'
-                        },
-                        { type: 'separator' }
-                    ]
+                          {
+                              label: 'Services',
+                              role: 'services',
+                              submenu: [],
+                          },
+                          { type: 'separator' },
+                          {
+                              label: 'Hide MAP',
+                              accelerator: 'CmdOrCtrl+H',
+                              role: 'hide',
+                          },
+                          {
+                              label: 'Hide Others',
+                              accelerator: 'CmdOrCtrl+Shift+H',
+                              role: 'hideothers',
+                          },
+                          {
+                              label: 'Show All',
+                              role: 'unhide',
+                          },
+                          { type: 'separator' },
+                      ]
                     : []),
                 {
                     label: 'Quit MAP',
                     accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
                     click: () => {
                         app.quit();
-                    }
-                }
-            ]
+                    },
+                },
+            ],
         },
 
         // Menú File
@@ -236,14 +240,14 @@ function createApplicationMenu() {
                     accelerator: 'CmdOrCtrl+I',
                     click: () => {
                         mainWindow.webContents.send('import-library');
-                    }
+                    },
                 },
                 {
                     label: 'Export Playlist...',
                     accelerator: 'CmdOrCtrl+E',
                     click: () => {
                         mainWindow.webContents.send('export-playlist');
-                    }
+                    },
                 },
                 { type: 'separator' },
                 {
@@ -251,9 +255,9 @@ function createApplicationMenu() {
                     accelerator: 'F5',
                     click: () => {
                         mainWindow.webContents.send('refresh-library');
-                    }
-                }
-            ]
+                    },
+                },
+            ],
         },
 
         // Menú Edit
@@ -266,8 +270,8 @@ function createApplicationMenu() {
                 { role: 'cut' },
                 { role: 'copy' },
                 { role: 'paste' },
-                { role: 'selectall' }
-            ]
+                { role: 'selectall' },
+            ],
         },
 
         // Menú View
@@ -282,8 +286,8 @@ function createApplicationMenu() {
                 { role: 'zoomin' },
                 { role: 'zoomout' },
                 { type: 'separator' },
-                { role: 'togglefullscreen' }
-            ]
+                { role: 'togglefullscreen' },
+            ],
         },
 
         // Menú Window
@@ -293,8 +297,8 @@ function createApplicationMenu() {
             submenu: [
                 { role: 'minimize' },
                 { role: 'close' },
-                ...(process.platform === 'darwin' ? [{ type: 'separator' }, { role: 'front' }] : [])
-            ]
+                ...(process.platform === 'darwin' ? [{ type: 'separator' }, { role: 'front' }] : []),
+            ],
         },
 
         // Menú Help
@@ -306,16 +310,16 @@ function createApplicationMenu() {
                     label: 'Learn More',
                     click: () => {
                         require('electron').shell.openExternal('https://bluesystemio.com');
-                    }
+                    },
                 },
                 {
                     label: 'Documentation',
                     click: () => {
                         require('electron').shell.openExternal('https://github.com/bluesystemio/music-analyzer');
-                    }
-                }
-            ]
-        }
+                    },
+                },
+            ],
+        },
     ];
 
     // Para Windows/Linux, reorganizar si es necesario
@@ -327,14 +331,14 @@ function createApplicationMenu() {
                 accelerator: 'Ctrl+Shift+A',
                 click: () => {
                     showAudioConfigWindow();
-                }
+                },
             },
             {
                 label: 'Preferences',
                 accelerator: 'Ctrl+,',
                 click: () => {
                     mainWindow.webContents.send('open-preferences');
-                }
+                },
             },
             { type: 'separator' }
         );
@@ -354,10 +358,10 @@ function showAboutWindow() {
         parent: mainWindow,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: false,
         },
         titleBarStyle: 'hidden',
-        frame: false
+        frame: false,
     });
 
     aboutWindow.loadURL(
@@ -460,8 +464,8 @@ function showAudioConfigWindow() {
         title: 'Audio Configuration',
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
-        }
+            contextIsolation: false,
+        },
     });
 
     // HTML para la configuración de audio
@@ -779,7 +783,7 @@ app.whenReady().then(() => {
     }
 
     const dbPath = path.join(__dirname, 'music_analyzer.db');
-    
+
     // Create database connection with error handling
     db = new sqlite3.Database(dbPath, (err) => {
         if (err) {
@@ -790,7 +794,7 @@ app.whenReady().then(() => {
             console.log('MAP - Music Analyzer Pro starting...');
             console.log('Connected to SQLite database');
             logInfo('✅ Base de datos conectada');
-            
+
             // Initialize everything AFTER database connection is confirmed
             console.log('About to call initializeAppAfterDatabase...');
             initializeAppAfterDatabase();
@@ -802,7 +806,7 @@ app.whenReady().then(() => {
 function initializeAppAfterDatabase() {
     console.log('initializeAppAfterDatabase function started');
     logInfo('🔧 Starting handler initialization...');
-    
+
     try {
         // Create smart playlist tables if needed
         createSmartPlaylistTables(db);
@@ -811,22 +815,136 @@ function initializeAppAfterDatabase() {
         logInfo('❌ Error creating smart playlist tables: ' + error.message);
     }
 
-    try {
-        // Initialize Import Music Handler
-        const ImportMusicHandler = require('./handlers/import-music-handler');
-        const importHandler = new ImportMusicHandler(db);
-        logInfo('✅ Import Music Handler initialized');
-    } catch (error) {
-        logInfo('❌ Error initializing Import Music Handler: ' + error.message);
-    }
+    // ImportMusicHandler se inicializa después de crear mainWindow
 
     // Registrar handlers - SOLO después de que DB esté conectada
     try {
         ipcMain.handle('get-files-with-cached-artwork', createArtworkHandler(db));
         ipcMain.handle('search-tracks', createSearchHandler(db));
         ipcMain.handle('get-filter-options', createFilterHandler(db));
-        ipcMain.handle('get-track-complete-data', createTrackInfoHandler(db));
+
+        // Registrar handler para track info con logging
+        console.log('Registering get-track-complete-data handler...');
+        if (typeof createTrackInfoHandler === 'function') {
+            ipcMain.handle('get-track-complete-data', createTrackInfoHandler(db));
+            console.log('✅ get-track-complete-data handler registered successfully');
+        } else {
+            console.error('❌ createTrackInfoHandler is not a function:', typeof createTrackInfoHandler);
+        }
+
         ipcMain.handle('find-similar-tracks', createFindSimilarHandler(db));
+
+        // Handler para seleccionar archivos de música - SOLO ARCHIVOS, NO CARPETAS
+        ipcMain.handle('select-music-files', async () => {
+            const result = await dialog.showOpenDialog({
+                title: 'Select Music Files',
+                properties: ['openFile', 'multiSelections'], // SOLO openFile, NO openDirectory
+                filters: [
+                    {
+                        name: 'Music Files',
+                        extensions: [
+                            'mp3',
+                            'flac',
+                            'wav',
+                            'm4a',
+                            'aac',
+                            'ogg',
+                            'wma',
+                            'aiff',
+                            'opus',
+                            'ape',
+                            'webm',
+                            'mp4',
+                        ],
+                    },
+                    { name: 'All Files', extensions: ['*'] },
+                ],
+            });
+
+            console.log('Dialog result:', result);
+
+            if (!result.canceled && result.filePaths && result.filePaths.length > 0) {
+                console.log('Files selected:', result.filePaths);
+                return { filePaths: result.filePaths };
+            }
+            return null;
+        });
+
+        // Handler para importar música a la base de datos
+        ipcMain.handle('import-music', async (event, data) => {
+            const { paths } = data;
+            console.log('Importing music files:', paths);
+
+            const mm = require('music-metadata');
+            const path = require('path');
+            const results = [];
+
+            for (const filePath of paths) {
+                try {
+                    // Extract metadata
+                    const metadata = await mm.parseFile(filePath);
+
+                    // Prepare data for database
+                    const fileData = {
+                        file_path: filePath,
+                        file_name: path.basename(filePath),
+                        title: metadata.common.title || path.basename(filePath, path.extname(filePath)),
+                        artist: metadata.common.artist || 'Unknown Artist',
+                        album: metadata.common.album || 'Unknown Album',
+                        genre: metadata.common.genre ? metadata.common.genre.join(', ') : '',
+                        duration: metadata.format.duration || 0,
+                        format: metadata.format.codec || path.extname(filePath).slice(1).toUpperCase(),
+                        bitrate: metadata.format.bitrate || 0,
+                        sample_rate: metadata.format.sampleRate || 0,
+                    };
+
+                    // Insert into database
+                    await new Promise((resolve, reject) => {
+                        db.run(
+                            `
+                            INSERT OR REPLACE INTO audio_files 
+                            (file_path, file_name, title, artist, album, genre, duration, format, bitrate, sample_rate, created_at, updated_at)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'), datetime('now'))
+                        `,
+                            [
+                                fileData.file_path,
+                                fileData.file_name,
+                                fileData.title,
+                                fileData.artist,
+                                fileData.album,
+                                fileData.genre,
+                                fileData.duration,
+                                fileData.format,
+                                fileData.bitrate,
+                                fileData.sample_rate,
+                            ],
+                            function (err) {
+                                if (err) {
+                                    reject(err);
+                                } else {
+                                    resolve(this.lastID);
+                                }
+                            }
+                        );
+                    });
+
+                    results.push({ success: true, file: fileData.file_name });
+
+                    // Send progress update
+                    event.sender.send('import-progress', {
+                        current: results.length,
+                        total: paths.length,
+                        file: fileData.file_name,
+                    });
+                } catch (error) {
+                    console.error('Error importing file:', filePath, error);
+                    results.push({ success: false, file: path.basename(filePath), error: error.message });
+                }
+            }
+
+            return { results, total: paths.length };
+        });
+
         logInfo('✅ Basic handlers registered');
     } catch (error) {
         logInfo('❌ Error registering basic handlers: ' + error.message);
@@ -910,7 +1028,7 @@ function initializeAppAfterDatabase() {
                 duration: metadata.format.duration,
                 lossless: metadata.format.lossless,
                 channels: metadata.format.numberOfChannels,
-                bitsPerSample: metadata.format.bitsPerSample
+                bitsPerSample: metadata.format.bitsPerSample,
             };
         } catch (error) {
             logError('Error parsing metadata:', error);
@@ -1050,121 +1168,121 @@ function initializeAppAfterDatabase() {
 
     // Obtener estadísticas de la base de datos
     ipcMain.handle('get-database-stats', async () => {
-    return new Promise((resolve, reject) => {
-        const queries = {
-            totalFiles: 'SELECT COUNT(*) as count FROM audio_files',
-            withArtwork: 'SELECT COUNT(*) as count FROM audio_files WHERE artwork_path IS NOT NULL',
-            withAI: 'SELECT COUNT(*) as count FROM llm_metadata WHERE AI_BPM IS NOT NULL',
-            avgBPM: 'SELECT AVG(AI_BPM) as avg FROM llm_metadata WHERE AI_BPM IS NOT NULL'
-        };
+        return new Promise((resolve, reject) => {
+            const queries = {
+                totalFiles: 'SELECT COUNT(*) as count FROM audio_files',
+                withArtwork: 'SELECT COUNT(*) as count FROM audio_files WHERE artwork_path IS NOT NULL',
+                withAI: 'SELECT COUNT(*) as count FROM llm_metadata WHERE AI_BPM IS NOT NULL',
+                avgBPM: 'SELECT AVG(AI_BPM) as avg FROM llm_metadata WHERE AI_BPM IS NOT NULL',
+            };
 
-        const stats = {};
-        let completed = 0;
+            const stats = {};
+            let completed = 0;
 
-        Object.entries(queries).forEach(([key, query]) => {
-            db.get(query, (err, row) => {
-                if (!err && row) {
-                    stats[key] = row.count || row.avg || 0;
-                }
-                completed++;
-                if (completed === Object.keys(queries).length) {
-                    resolve(stats);
-                }
+            Object.entries(queries).forEach(([key, query]) => {
+                db.get(query, (err, row) => {
+                    if (!err && row) {
+                        stats[key] = row.count || row.avg || 0;
+                    }
+                    completed++;
+                    if (completed === Object.keys(queries).length) {
+                        resolve(stats);
+                    }
+                });
             });
         });
     });
-});
 
-// Buscar archivos por término
-ipcMain.handle('search-metadata', async (event, searchTerm) => {
-    return new Promise((resolve, reject) => {
-        const query = `
+    // Buscar archivos por término
+    ipcMain.handle('search-metadata', async (event, searchTerm) => {
+        return new Promise((resolve, reject) => {
+            const query = `
             SELECT file_path, title, artist, album 
             FROM audio_files 
             WHERE title LIKE ? OR artist LIKE ? OR file_name LIKE ? OR album LIKE ?
             LIMIT 10
         `;
-        const pattern = `%${searchTerm}%`;
+            const pattern = `%${searchTerm}%`;
 
-        db.all(query, [pattern, pattern, pattern, pattern], (err, rows) => {
-            if (err) {
-                logError('Search error:', err);
-                reject(err);
-            } else {
-                resolve(rows);
-            }
+            db.all(query, [pattern, pattern, pattern, pattern], (err, rows) => {
+                if (err) {
+                    logError('Search error:', err);
+                    reject(err);
+                } else {
+                    resolve(rows);
+                }
+            });
         });
     });
-});
 
-// Obtener archivo aleatorio
-ipcMain.handle('get-random-file', async () => {
-    return new Promise((resolve, reject) => {
-        db.get('SELECT file_path FROM audio_files ORDER BY RANDOM() LIMIT 1', (err, row) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(row);
-            }
+    // Obtener archivo aleatorio
+    ipcMain.handle('get-random-file', async () => {
+        return new Promise((resolve, reject) => {
+            db.get('SELECT file_path FROM audio_files ORDER BY RANDOM() LIMIT 1', (err, row) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(row);
+                }
+            });
         });
     });
-});
 
-// Obtener metadatos completos de un archivo
-ipcMain.handle('get-file-metadata', async (event, filePath) => {
-    try {
-        const result = {
-            filePath: filePath,
-            artwork: null,
-            fileSize: null,
-            format: null,
-            metadata: null,
-            database: null,
-            ai: null
-        };
-
-        // Obtener tamaño del archivo
+    // Obtener metadatos completos de un archivo
+    ipcMain.handle('get-file-metadata', async (event, filePath) => {
         try {
-            const stats = await fs.stat(filePath);
-            result.fileSize = stats.size;
-        } catch (err) {
-            logError('Error getting file stats:', err);
-        }
-
-        // Obtener metadatos del archivo
-        try {
-            const metadata = await mm.parseFile(filePath);
-
-            result.format = {
-                container: metadata.format.container,
-                codec: metadata.format.codec,
-                sampleRate: metadata.format.sampleRate,
-                bitrate: metadata.format.bitrate,
-                duration: metadata.format.duration,
-                channels: metadata.format.numberOfChannels,
-                lossless: metadata.format.lossless
+            const result = {
+                filePath: filePath,
+                artwork: null,
+                fileSize: null,
+                format: null,
+                metadata: null,
+                database: null,
+                ai: null,
             };
 
-            result.metadata = {
-                title: metadata.common.title,
-                artist: metadata.common.artist,
-                album: metadata.common.album,
-                year: metadata.common.year,
-                genre: metadata.common.genre?.join(', '),
-                track: metadata.common.track ? `${metadata.common.track.no}/${metadata.common.track.of}` : null,
-                bpm: metadata.common.bpm,
-                key: metadata.common.key,
-                isrc: metadata.common.isrc,
-                label: metadata.common.label,
-                composer: metadata.common.composer
-            };
-        } catch (err) {
-            logError('Error parsing metadata:', err);
-        }
+            // Obtener tamaño del archivo
+            try {
+                const stats = await fs.stat(filePath);
+                result.fileSize = stats.size;
+            } catch (err) {
+                logError('Error getting file stats:', err);
+            }
 
-        // Obtener datos de la base de datos
-        const dbData = await new Promise(resolve => {
-            const query = `
+            // Obtener metadatos del archivo
+            try {
+                const metadata = await mm.parseFile(filePath);
+
+                result.format = {
+                    container: metadata.format.container,
+                    codec: metadata.format.codec,
+                    sampleRate: metadata.format.sampleRate,
+                    bitrate: metadata.format.bitrate,
+                    duration: metadata.format.duration,
+                    channels: metadata.format.numberOfChannels,
+                    lossless: metadata.format.lossless,
+                };
+
+                result.metadata = {
+                    title: metadata.common.title,
+                    artist: metadata.common.artist,
+                    album: metadata.common.album,
+                    year: metadata.common.year,
+                    genre: metadata.common.genre?.join(', '),
+                    track: metadata.common.track ? `${metadata.common.track.no}/${metadata.common.track.of}` : null,
+                    bpm: metadata.common.bpm,
+                    key: metadata.common.key,
+                    isrc: metadata.common.isrc,
+                    label: metadata.common.label,
+                    composer: metadata.common.composer,
+                };
+            } catch (err) {
+                logError('Error parsing metadata:', err);
+            }
+
+            // Obtener datos de la base de datos
+            const dbData = await new Promise((resolve) => {
+                const query = `
                 SELECT 
                     af.*,
                     lm.*
@@ -1173,55 +1291,55 @@ ipcMain.handle('get-file-metadata', async (event, filePath) => {
                 WHERE af.file_path = ?
             `;
 
-            db.get(query, [filePath], (err, row) => {
-                if (err) {
-                    logError('Database error:', err);
-                    resolve(null);
-                } else {
-                    resolve(row);
-                }
+                db.get(query, [filePath], (err, row) => {
+                    if (err) {
+                        logError('Database error:', err);
+                        resolve(null);
+                    } else {
+                        resolve(row);
+                    }
+                });
             });
-        });
 
-        if (dbData) {
-            result.database = {
-                id: dbData.id,
-                title: dbData.title,
-                artist: dbData.artist,
-                album: dbData.album,
-                genre: dbData.genre,
-                created_at: dbData.created_at,
-                updated_at: dbData.updated_at
-            };
-
-            if (dbData.artwork_path) {
-                result.artwork = dbData.artwork_path;
-            }
-
-            if (dbData.file_id) {
-                result.ai = {
-                    LLM_GENRE: dbData.LLM_GENRE,
-                    AI_MOOD: dbData.AI_MOOD,
-                    LLM_MOOD: dbData.LLM_MOOD,
-                    AI_ENERGY: dbData.AI_ENERGY,
-                    AI_BPM: dbData.AI_BPM,
-                    AI_KEY: dbData.AI_KEY,
-                    AI_DANCEABILITY: dbData.AI_DANCEABILITY,
-                    AI_VALENCE: dbData.AI_VALENCE,
-                    AI_ACOUSTICNESS: dbData.AI_ACOUSTICNESS,
-                    AI_INSTRUMENTALNESS: dbData.AI_INSTRUMENTALNESS,
-                    AI_LIVENESS: dbData.AI_LIVENESS,
-                    AI_SPEECHINESS: dbData.AI_SPEECHINESS,
-                    AI_LOUDNESS: dbData.AI_LOUDNESS
+            if (dbData) {
+                result.database = {
+                    id: dbData.id,
+                    title: dbData.title,
+                    artist: dbData.artist,
+                    album: dbData.album,
+                    genre: dbData.genre,
+                    created_at: dbData.created_at,
+                    updated_at: dbData.updated_at,
                 };
-            }
-        }
 
-        return result;
-    } catch (error) {
-        logError('Error in get-file-metadata:', error);
-        throw error;
-    }
+                if (dbData.artwork_path) {
+                    result.artwork = dbData.artwork_path;
+                }
+
+                if (dbData.file_id) {
+                    result.ai = {
+                        LLM_GENRE: dbData.LLM_GENRE,
+                        AI_MOOD: dbData.AI_MOOD,
+                        LLM_MOOD: dbData.LLM_MOOD,
+                        AI_ENERGY: dbData.AI_ENERGY,
+                        AI_BPM: dbData.AI_BPM,
+                        AI_KEY: dbData.AI_KEY,
+                        AI_DANCEABILITY: dbData.AI_DANCEABILITY,
+                        AI_VALENCE: dbData.AI_VALENCE,
+                        AI_ACOUSTICNESS: dbData.AI_ACOUSTICNESS,
+                        AI_INSTRUMENTALNESS: dbData.AI_INSTRUMENTALNESS,
+                        AI_LIVENESS: dbData.AI_LIVENESS,
+                        AI_SPEECHINESS: dbData.AI_SPEECHINESS,
+                        AI_LOUDNESS: dbData.AI_LOUDNESS,
+                    };
+                }
+            }
+
+            return result;
+        } catch (error) {
+            logError('Error in get-file-metadata:', error);
+            throw error;
+        }
     });
 
     // Crear splash screen y ventana principal DESPUÉS de inicializar handlers

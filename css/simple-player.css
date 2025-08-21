@@ -1,153 +1,418 @@
-/* Simple Player CSS - Minimal Professional Design */
+/* Simple Player CSS - Professional Music Production UI */
 
 .simple-player-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to bottom, rgba(20, 20, 30, 0.98), rgba(10, 10, 20, 0.99));
-    backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+    height: 110px;
+    background: linear-gradient(
+        135deg,
+        rgba(15, 15, 25, 0.98) 0%,
+        rgba(25, 25, 40, 0.98) 50%,
+        rgba(20, 20, 35, 0.98) 100%
+    );
+    backdrop-filter: blur(25px) saturate(1.5);
+    border-top: 2px solid rgba(0, 255, 150, 0.3);
+    box-shadow:
+        0 -8px 32px rgba(0, 0, 0, 0.4),
+        0 -2px 8px rgba(0, 255, 150, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     z-index: 10000;
-    padding: 8px 15px;
+    padding: 16px 20px;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 15px;
+    gap: 24px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
 }
 
-/* Track Info Section */
+.simple-player-bar:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(18, 18, 30, 0.99) 0%,
+        rgba(30, 30, 45, 0.99) 50%,
+        rgba(25, 25, 40, 0.99) 100%
+    );
+    border-top-color: rgba(0, 255, 150, 0.5);
+}
+
+/* Track Info Section - Enhanced */
 .player-track-info {
     display: flex;
     align-items: center;
     gap: 12px;
-    flex: 0 0 auto;
-    min-width: 300px;
+    min-width: 280px;
+    max-width: 320px;
+    height: 78px;
+    padding: 10px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(30, 30, 45, 0.6) 0%, rgba(25, 25, 40, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.player-track-info:hover {
+    background: linear-gradient(135deg, rgba(35, 35, 50, 0.7) 0%, rgba(30, 30, 45, 0.9) 100%);
+    border-color: rgba(0, 255, 150, 0.3);
+    transform: translateY(-1px);
 }
 
 .player-artwork {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
     object-fit: cover;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.player-artwork:hover {
+    transform: scale(1.05);
+    border-color: rgba(0, 255, 150, 0.5);
 }
 
 .track-details {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
     overflow: hidden;
+    flex: 1;
 }
 
 .player-title {
     color: #fff;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .player-artist {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .player-meta {
     display: flex;
     align-items: center;
-    gap: 8px;
-    color: rgba(255, 255, 255, 0.5);
+    gap: 10px;
+    color: rgba(0, 255, 150, 0.7);
     font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-wrap: wrap;
 }
 
 .player-meta .separator {
-    opacity: 0.3;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: normal;
 }
 
-/* VU Meter Section */
+.player-bpm,
+.player-key,
+.player-energy,
+.player-mood {
+    padding: 2px 6px;
+    background: rgba(0, 255, 150, 0.1);
+    border: 1px solid rgba(0, 255, 150, 0.3);
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.player-energy {
+    background: rgba(255, 150, 0, 0.1);
+    border-color: rgba(255, 150, 0, 0.3);
+    color: rgba(255, 150, 0, 0.9);
+}
+
+.player-mood {
+    background: rgba(150, 0, 255, 0.1);
+    border-color: rgba(150, 0, 255, 0.3);
+    color: rgba(150, 100, 255, 0.9);
+}
+
+/* VU Meter Section - Professional Studio Style */
 .player-vu-section {
-    flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 50px;
+    flex: 1;
+    min-width: 400px;
+    height: 78px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(10, 10, 20, 0.8) 0%, rgba(15, 15, 25, 0.9) 100%);
+    border: 1px solid rgba(0, 255, 150, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.player-vu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 150, 0.5) 50%, transparent 100%);
+}
+
+.vu-meter-label {
+    color: rgba(0, 255, 150, 0.8);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    text-shadow: 0 0 4px rgba(0, 255, 150, 0.3);
 }
 
 #vu-meter-canvas {
-    max-width: 100%;
-    height: 50px;
+    width: 100%;
+    max-width: 500px;
+    height: 40px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 150, 0.1);
+    z-index: 2;
+    position: relative;
 }
 
-/* Controls Section */
+.spectrum-visualizer {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 2px;
+    height: 30px;
+    width: 90%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.spectrum-bar {
+    width: 3px;
+    background: linear-gradient(
+        to top,
+        rgba(0, 255, 150, 0.8) 0%,
+        rgba(0, 255, 255, 0.6) 50%,
+        rgba(255, 0, 150, 0.8) 100%
+    );
+    border-radius: 2px;
+    transition: height 0.1s ease-out;
+    box-shadow: 0 0 4px rgba(0, 255, 150, 0.3);
+}
+
+/* Controls Section - Enhanced Layout */
 .player-controls-section {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 380px;
+    max-width: 420px;
+    height: 78px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(30, 30, 45, 0.6) 0%, rgba(25, 25, 40, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
 }
 
 /* Transport Controls */
 .transport-controls {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 12px;
 }
 
+/* Professional DJ/Studio Style Buttons */
 .player-btn {
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.8);
+    background: linear-gradient(135deg, rgba(40, 40, 55, 0.8) 0%, rgba(30, 30, 45, 0.9) 100%);
+    border: 1px solid rgba(0, 255, 150, 0.3);
+    color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    transition: all 0.2s ease;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 .player-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(45, 45, 60, 0.9) 0%, rgba(35, 35, 50, 1) 100%);
+    border-color: rgba(0, 255, 150, 0.5);
     color: #fff;
+    transform: translateY(-1px);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 8px rgba(0, 255, 150, 0.2);
+}
+
+.player-btn:active {
+    transform: translateY(0);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .player-btn-play {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px;
+    background: linear-gradient(135deg, rgba(0, 255, 150, 0.2) 0%, rgba(0, 200, 120, 0.3) 100%);
+    border: 2px solid rgba(0, 255, 150, 0.5);
+    padding: 12px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.player-btn-play::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 255, 150, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
 }
 
 .player-btn-play:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(0, 255, 150, 0.3) 0%, rgba(0, 200, 120, 0.4) 100%);
+    border-color: rgba(0, 255, 150, 0.8);
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.4),
+        0 0 16px rgba(0, 255, 150, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .player-btn-small {
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.6);
+    background: rgba(40, 40, 55, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
+    padding: 6px;
+    border-radius: 6px;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(5px);
 }
 
 .player-btn-small:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(50, 50, 65, 0.8);
+    border-color: rgba(0, 255, 150, 0.4);
     color: #fff;
+    transform: translateY(-1px);
 }
 
-/* Progress Section */
+/* Progress Section - Compact */
 .progress-section {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 20px;
+    margin-top: 4px;
+}
+
+.time-display {
+    color: rgba(0, 255, 150, 0.8);
+    font-size: 10px;
+    font-weight: 600;
+    font-family: 'Monaco', 'Menlo', monospace;
+    text-shadow: 0 0 4px rgba(0, 255, 150, 0.3);
+    min-width: 32px;
+}
+
+.progress-bar-container {
+    flex: 1;
+    position: relative;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.seek-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    z-index: 2;
+}
+
+.seek-bar::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(0, 255, 150, 0.9);
+    box-shadow: 0 0 8px rgba(0, 255, 150, 0.5);
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+.seek-bar::-webkit-slider-thumb:hover {
+    background: rgba(0, 255, 150, 1);
+    box-shadow: 0 0 12px rgba(0, 255, 150, 0.8);
+    transform: scale(1.2);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 255, 150, 0.8) 0%, rgba(0, 200, 255, 0.6) 100%);
+    border-radius: 2px;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 4px rgba(0, 255, 150, 0.3);
 }
 
 .time-display {
@@ -214,8 +479,9 @@
 .volume-section {
     display: flex;
     align-items: center;
-    gap: 8px;
-    min-width: 140px;
+    gap: 6px;
+    min-width: 120px;
+    flex-shrink: 0;
 }
 
 .volume-bar {
@@ -255,6 +521,8 @@
 .queue-display {
     display: flex;
     align-items: center;
+    gap: 8px;
+    margin-left: auto;
 }
 
 .queue-count {
@@ -269,7 +537,7 @@
 /* Queue Panel */
 .queue-panel {
     position: absolute;
-    bottom: 100%;
+    bottom: calc(100% + 10px);
     right: 20px;
     width: 320px;
     max-height: 400px;
@@ -278,6 +546,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10001;
     margin-bottom: 10px;
     overflow: hidden;
     display: flex;
