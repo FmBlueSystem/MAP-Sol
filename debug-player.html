@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Debug Player Data</title>
+        <style>
+            body {
+                font-family: monospace;
+                background: #1a1a1a;
+                color: #fff;
+                padding: 20px;
+            }
+            .track {
+                border: 1px solid #444;
+                padding: 10px;
+                margin: 10px 0;
+                background: #2a2a2a;
+            }
+            .metadata {
+                color: #1db954;
+            }
+            button {
+                background: #1db954;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                margin: 5px;
+            }
+            #log {
+                background: #000;
+                padding: 10px;
+                margin: 20px 0;
+                max-height: 300px;
+                overflow-y: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Debug: Track Metadata Display</h1>
+
+        <div id="tracks"></div>
+
+        <h2>Console Log:</h2>
+        <div id="log"></div>
+
+        <h2>Current Track Info:</h2>
+        <div id="current-track">
+            <p>Title: <span id="debug-title">--</span></p>
+            <p>Artist: <span id="debug-artist">--</span></p>
+            <p>BPM: <span id="debug-bpm">--</span></p>
+            <p>Key: <span id="debug-key">--</span></p>
+            <p>Energy: <span id="debug-energy">--</span></p>
+            <p>Mood: <span id="debug-mood">--</span></p>
+        </div>
+
+        <script>
+            const { ipcRenderer } = require('electron');
+            const logDiv = document.getElementById('log');
+
+            function log(message, data = null) {
+                const entry = document.createElement('div');
+                entry.innerHTML = `<span style="color: #888">[${new Date().toTimeString().split(' ')[0]}]</span> ${message}`;
+                if (data) {
+                    entry.innerHTML += `<pre style="color: #1db954">${JSON.stringify(data, null, 2)}</pre>`;
+                }
+                logDiv.appendChild(entry);
+                logDiv.scrollTop = logDiv.scrollHeight;
+            }
+
+            async function loadTracks() {
+                log('Loading tracks from database...');
+
+                try {
+                    // Get tracks using the same handler as the main app
+                    const result = await ipcRenderer.invoke('get-files-with-cached-artwork');
+                    const tracks = result.files || result;
+
+                    log(`Loaded ${tracks.length} tracks`);
+
+                    // Filter tracks with AI metadata
+                    const tracksWithAI = tracks.filter((t) => t.AI_BPM || t.AI_KEY || t.AI_ENERGY);
+
+                    log(`Found ${tracksWithAI.length} tracks with AI metadata`);
+
+                    const tracksDiv = document.getElementById('tracks');
+                    tracksDiv.innerHTML = '';
+
+                    tracksWithAI.forEach((track) => {
+                        const trackDiv = document.createElement('div');
+                        trackDiv.className = 'track';
+                        trackDiv.innerHTML = `
+                        <h3>${track.title || track.file_name}</h3>
+                        <p>Artist: ${track.artist || 'Unknown'}</p>
+                        <p class="metadata">AI_BPM: ${track.AI_BPM}</p>
+                        <p class="metadata">AI_KEY: ${track.AI_KEY}</p>
+                        <p class="metadata">AI_ENERGY: ${track.AI_ENERGY}</p>
+                        <p class="metadata">AI_MOOD: ${track.AI_MOOD || 'N/A'}</p>
+                        <button onclick="testPlay(${track.id})">Test Play This Track</button>
+                        <button onclick="showFullData(${track.id})">Show Full Data</button>
+                    `;
+                        tracksDiv.appendChild(trackDiv);
+                    });
+
+                    // Store tracks globally for testing
+                    window.testTracks = tracks;
+                } catch (error) {
+                    log('Error loading tracks:', error);
+                }
+            }
+
+            async function testPlay(trackId) {
+                log(`Testing play for track ID: ${trackId}`);
+
+                const track = window.testTracks.find((t) => t.id === trackId);
+                if (!track) {
+                    log('Track not found!');
+                    return;
+                }
+
+                log('Track data being sent to player:', {
+                    id: track.id,
+                    title: track.title,
+                    AI_BPM: track.AI_BPM,
+                    AI_KEY: track.AI_KEY,
+                    AI_ENERGY: track.AI_ENERGY,
+                    AI_MOOD: track.AI_MOOD,
+                });
+
+                // Update debug display
+                document.getElementById('debug-title').textContent = track.title || '--';
+                document.getElementById('debug-artist').textContent = track.artist || '--';
+                document.getElementById('debug-bpm').textContent = track.AI_BPM ? `${track.AI_BPM} BPM` : '-- BPM';
+                document.getElementById('debug-key').textContent = track.AI_KEY || '--';
+                document.getElementById('debug-energy').textContent = track.AI_ENERGY
+                    ? `${Math.round(track.AI_ENERGY * 100)}%`
+                    : '--';
+                document.getElementById('debug-mood').textContent = track.AI_MOOD || '--';
+
+                // Dispatch event to SimplePlayer (if it exists)
+                if (window.opener || window.parent !== window) {
+                    const event = new CustomEvent('playTrack', { detail: track });
+                    document.dispatchEvent(event);
+                    log('Event dispatched to player');
+                }
+            }
+
+            function showFullData(trackId) {
+                const track = window.testTracks.find((t) => t.id === trackId);
+                if (track) {
+                    log('Full track data:', track);
+                }
+            }
+
+            // Load tracks on page load
+            loadTracks();
+        </script>
+    </body>
+</html>

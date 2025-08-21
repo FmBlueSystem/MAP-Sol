@@ -14,6 +14,7 @@ app.setName('MAP');
 const { createSearchHandler } = require('./handlers/search-handler');
 const { createFilterHandler } = require('./handlers/filter-handler');
 const { createArtworkHandler } = require('./handlers/artwork-handler');
+const { createGetTrackWithMetadataHandler } = require('./handlers/get-track-with-metadata');
 const {
     createExportHandler,
     createGetFormatsHandler,
@@ -820,6 +821,7 @@ function initializeAppAfterDatabase() {
     // Registrar handlers - SOLO después de que DB esté conectada
     try {
         ipcMain.handle('get-files-with-cached-artwork', createArtworkHandler(db));
+        ipcMain.handle('get-track-with-metadata', createGetTrackWithMetadataHandler(db));
         ipcMain.handle('search-tracks', createSearchHandler(db));
         ipcMain.handle('get-filter-options', createFilterHandler(db));
 

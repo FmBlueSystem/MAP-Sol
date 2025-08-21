@@ -4,7 +4,7 @@ const path = require('path');
 
 function createArtworkHandler(db) {
     return async () => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const sql = `
                 SELECT 
                     af.id,
@@ -25,13 +25,14 @@ function createArtworkHandler(db) {
                     af.AI_ENERGY,
                     af.AI_KEY,
                     af.AI_BPM,
-                    lm.LLM_GENRE,
-                    lm.AI_MOOD,
-                    lm.LLM_MOOD,
-                    lm.AI_BPM as LM_AI_BPM,
-                    COALESCE(af.bmp, af.existing_bmp, lm.AI_BPM, af.AI_BPM) as BPM
+                    af.AI_MOOD,
+                    af.AI_DANCEABILITY,
+                    af.AI_VALENCE,
+                    COALESCE(af.AI_BPM, af.bmp, af.existing_bmp) as bpm,
+                    COALESCE(af.AI_KEY, af.existing_key) as key,
+                    COALESCE(af.AI_ENERGY, af.energy_level) as energy,
+                    af.AI_MOOD as mood
                 FROM audio_files af
-                LEFT JOIN llm_metadata lm ON af.id = lm.file_id
                 ORDER BY af.artist, af.title
             `;
 
@@ -40,11 +41,35 @@ function createArtworkHandler(db) {
                     console.error('Error:', err);
                     resolve([]);
                 } else {
+                    // DEBUG: Log first 3 rows to see the actual data
+                    console.log('📊 Handler: First 3 rows from database:');
+                    rows.slice(0, 3).forEach((row) => {
+                        console.log(`  Track ${row.id}: ${row.title}`);
+                        console.log(`    bpm: ${row.bpm}, key: ${row.key}, energy: ${row.energy}, mood: ${row.mood}`);
+                    });
+
                     // Verificar qué archivos tienen carátula
                     const artworkDir = path.join(__dirname, '..', 'artwork-cache');
                     let withArtwork = 0;
 
-                    rows.forEach(file => {
+                    // Debug log for first track with AI data
+                    const tracksWithAI = rows.filter((r) => r.AI_BPM || r.AI_KEY || r.AI_ENERGY);
+                    console.log('📊 Handler: Total rows from DB:', rows.length);
+                    console.log('📊 Handler: Tracks with AI metadata:', tracksWithAI.length);
+
+                    if (tracksWithAI.length > 0) {
+                        console.log('📊 Handler: First track with AI:', {
+                            id: tracksWithAI[0].id,
+                            title: tracksWithAI[0].title,
+                            AI_BPM: tracksWithAI[0].AI_BPM,
+                            AI_KEY: tracksWithAI[0].AI_KEY,
+                            AI_ENERGY: tracksWithAI[0].AI_ENERGY,
+                        });
+                    } else if (rows.length > 0) {
+                        console.log('⚠️ Handler: No AI metadata found. First track fields:', Object.keys(rows[0]));
+                    }
+
+                    rows.forEach((file) => {
                         const artworkPath = path.join(artworkDir, `${file.id}.jpg`);
                         const defaultImagePath = path.join(__dirname, '..', 'image.png');
 
@@ -71,6 +96,20 @@ function createArtworkHandler(db) {
                             }
                         }
                     });
+                    // Debug: Check what we're sending
+                    console.log('📊 Handler: Sending to frontend:', {
+                        totalFiles: rows.length,
+                        filesWithAI: rows.filter((r) => r.AI_BPM || r.AI_KEY || r.AI_ENERGY).length,
+                        firstFileHasAI: rows[0]
+                            ? {
+                                  id: rows[0].id,
+                                  hasAI_BPM: !!rows[0].AI_BPM,
+                                  hasAI_KEY: !!rows[0].AI_KEY,
+                                  hasAI_ENERGY: !!rows[0].AI_ENERGY,
+                              }
+                            : null,
+                    });
+
                     // Retornar en el formato esperado por el frontend
                     resolve({ files: rows });
                 }

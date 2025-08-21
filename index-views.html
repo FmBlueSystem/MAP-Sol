@@ -4399,6 +4399,62 @@
             let currentView = localStorage.getItem('viewMode') || 'cards';
             let currentTheme = localStorage.getItem('theme') || 'light';
 
+            // Debug function to check metadata
+            window.debugMetadata = function () {
+                console.log('=== DEBUG METADATA ===');
+                console.log('Total tracks:', window.allTracks?.length || 0);
+
+                const tracksWithAI = (window.allTracks || []).filter((t) => t.AI_BPM || t.AI_KEY || t.AI_ENERGY);
+
+                console.log('Tracks with AI metadata:', tracksWithAI.length);
+
+                if (tracksWithAI.length > 0) {
+                    console.log('\nFirst track with AI metadata:');
+                    console.table({
+                        id: tracksWithAI[0].id,
+                        title: tracksWithAI[0].title,
+                        AI_BPM: tracksWithAI[0].AI_BPM,
+                        AI_KEY: tracksWithAI[0].AI_KEY,
+                        AI_ENERGY: tracksWithAI[0].AI_ENERGY,
+                        AI_MOOD: tracksWithAI[0].AI_MOOD,
+                    });
+
+                    console.log('\nAll tracks with AI metadata:');
+                    tracksWithAI.forEach((t) => {
+                        console.log(`${t.id}: ${t.title} - BPM: ${t.AI_BPM}, Key: ${t.AI_KEY}, Energy: ${t.AI_ENERGY}`);
+                    });
+                } else {
+                    console.log('❌ No tracks have AI metadata in the loaded data');
+                    console.log('Sample of loaded data:', window.allTracks?.slice(0, 3));
+
+                    // Show what fields ARE present
+                    if (window.allTracks && window.allTracks.length > 0) {
+                        console.log('\nFields present in first track:');
+                        const firstTrack = window.allTracks[0];
+                        const fields = Object.keys(firstTrack).sort();
+                        console.log(fields);
+
+                        // Check for any AI or metadata fields
+                        const aiFields = fields.filter(
+                            (f) => f.includes('AI') || f.includes('bpm') || f.includes('key') || f.includes('energy')
+                        );
+                        console.log('\nAI/Metadata related fields found:', aiFields);
+                    }
+                }
+
+                // Check if SimplePlayer exists and what it's showing
+                if (window.simplePlayer && window.simplePlayer.currentTrack) {
+                    console.log('\n=== CURRENT PLAYING TRACK ===');
+                    console.table({
+                        id: window.simplePlayer.currentTrack.id,
+                        title: window.simplePlayer.currentTrack.title,
+                        AI_BPM: window.simplePlayer.currentTrack.AI_BPM,
+                        AI_KEY: window.simplePlayer.currentTrack.AI_KEY,
+                        AI_ENERGY: window.simplePlayer.currentTrack.AI_ENERGY,
+                    });
+                }
+            };
+
             // Initialize
             async function init() {
                 // Set initial theme
@@ -4436,6 +4492,22 @@
 
                 // Setup keyboard shortcuts
                 setupKeyboardShortcuts();
+
+                // TEST: Auto-play track with metadata after 3 seconds
+                setTimeout(() => {
+                    const trackWithMetadata = window.audioFiles.find((t) => t.id === 3811);
+                    if (trackWithMetadata) {
+                        console.log('🎵 TEST: Playing track with metadata:', {
+                            id: trackWithMetadata.id,
+                            title: trackWithMetadata.title,
+                            bpm: trackWithMetadata.bpm,
+                            key: trackWithMetadata.key,
+                            energy: trackWithMetadata.energy,
+                        });
+                        const event = new CustomEvent('playTrack', { detail: trackWithMetadata });
+                        document.dispatchEvent(event);
+                    }
+                }, 3000);
             }
 
             // Load tracks
@@ -4445,7 +4517,9 @@
                 const startTime = performance.now();
 
                 try {
-                    allTracks = await ipcRenderer.invoke('get-files-with-cached-artwork');
+                    const result = await ipcRenderer.invoke('get-files-with-cached-artwork');
+                    // Handle both formats: direct array or { files: array }
+                    allTracks = result.files || result;
                     filteredTracks = [...allTracks];
                     console.log('[UI] Loaded tracks:', allTracks.length);
 
@@ -4453,13 +4527,17 @@
                     window.allTracks = allTracks;
                     window.filteredTracks = filteredTracks;
 
-                    // DEBUG: Verify data structure
+                    // DEBUG: Verify data structure INCLUDING AI FIELDS
                     if (allTracks.length > 0) {
                         console.log('📀 First track data:', {
                             id: allTracks[0].id,
                             title: allTracks[0].title,
                             artist: allTracks[0].artist,
                             artwork_url: allTracks[0].artwork_url,
+                            AI_BPM: allTracks[0].AI_BPM,
+                            AI_KEY: allTracks[0].AI_KEY,
+                            AI_ENERGY: allTracks[0].AI_ENERGY,
+                            AI_MOOD: allTracks[0].AI_MOOD,
                             type_id: typeof allTracks[0].id,
                         });
                     }
@@ -5255,6 +5333,16 @@
                     console.error('❌ Track data not found for ID:', trackId);
                     return;
                 }
+
+                // Debug: Log AI metadata for the track being played
+                console.log('🎵 Playing track with metadata:', {
+                    id: trackData.id,
+                    title: trackData.title,
+                    AI_BPM: trackData.AI_BPM,
+                    AI_KEY: trackData.AI_KEY,
+                    AI_ENERGY: trackData.AI_ENERGY,
+                    AI_MOOD: trackData.AI_MOOD,
+                });
 
                 // USE SIMPLE PLAYER: Initialize if needed
                 if (!window.simplePlayer) {
@@ -6397,10 +6485,71 @@
         <script src="js/vu-meter.js"></script>
         <script src="js/simple-player.js"></script>
 
+        <!-- Force SimplePlayer initialization -->
+        <script>
+            setTimeout(() => {
+                if (!window.simplePlayer) {
+                    console.log('🔴 FORCING SimplePlayer creation...');
+                    window.simplePlayer = new SimplePlayer();
+                    console.log('✅ SimplePlayer created:', !!window.simplePlayer);
+                }
+
+                // Verify panel exists
+                const panel = document.getElementById('simple-player-bar');
+                if (!panel) {
+                    console.error('❌ Panel not found in DOM!');
+                } else {
+                    console.log('✅ Panel found:', panel);
+                    panel.style.display = 'flex';
+                    panel.style.visibility = 'visible';
+                    panel.style.bottom = '0';
+                    panel.style.position = 'fixed';
+                    panel.style.zIndex = '99999';
+                }
+            }, 1000);
+        </script>
+
         <!-- Toast Notifications (MUST load before other components) -->
         <script src="js/toast-notifications.js"></script>
 
         <!-- Music Folder Selector (replaces drag & drop) -->
         <script src="js/music-folder-selector.js"></script>
+
+        <!-- Professional Tooltip System -->
+        <script src="js/tooltip-system.js"></script>
+
+        <!-- Test functions for metadata -->
+        <script>
+            // TEST FUNCTION: Load track 3811 with metadata
+            async function testLoadTrackWithMetadata() {
+                console.log('🔴 TEST: Loading track 3811 with metadata handler...');
+
+                try {
+                    const track = await ipcRenderer.invoke('get-track-with-metadata', 3811);
+
+                    if (track) {
+                        console.log('✅ TEST: Track loaded from DB:', {
+                            id: track.id,
+                            title: track.title,
+                            bpm: track.bpm,
+                            key: track.key,
+                            energy: track.energy,
+                            mood: track.mood,
+                        });
+
+                        // Force play this track
+                        const event = new CustomEvent('playTrack', { detail: track });
+                        document.dispatchEvent(event);
+                    } else {
+                        console.error('❌ TEST: Track 3811 not found');
+                    }
+                } catch (error) {
+                    console.error('❌ TEST: Error loading track:', error);
+                }
+            }
+
+            // Make test function global
+            window.testLoadTrackWithMetadata = testLoadTrackWithMetadata;
+        </script>
     </body>
 </html>
