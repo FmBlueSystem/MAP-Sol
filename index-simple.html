@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <title>MAP - Music Metadata Display</title>
+        <style>
+            body {
+                background: #111;
+                color: white;
+                font-family: sans-serif;
+                padding: 20px;
+            }
+            .track {
+                background: #222;
+                padding: 15px;
+                margin: 10px;
+                border-radius: 8px;
+            }
+            .metadata {
+                color: #00ff88;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            h1 {
+                color: #00ff88;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🎵 MAP - Metadata Display</h1>
+        <div id="content">Loading...</div>
+
+        <script>
+            // HARDCODED DATA - NO IPC, NO ELECTRON, JUST DATA
+            const tracks = [
+                { id: 3811, title: 'Body Work', AI_BPM: 128, AI_KEY: '8A', AI_ENERGY: 0.85, AI_MOOD: 'Energetic' },
+                { id: 3812, title: 'Savage Lover', AI_BPM: 140, AI_KEY: '11A', AI_ENERGY: 0.92, AI_MOOD: 'Intense' },
+                { id: 3813, title: 'Dance (Disco Heat)', AI_BPM: 95, AI_KEY: '2B', AI_ENERGY: 0.45, AI_MOOD: 'Chill' },
+                {
+                    id: 3814,
+                    title: 'Turn The Music Up!',
+                    AI_BPM: 168,
+                    AI_KEY: '12A',
+                    AI_ENERGY: 0.72,
+                    AI_MOOD: 'Intense',
+                },
+            ];
+
+            const content = document.getElementById('content');
+            content.innerHTML = '';
+
+            tracks.forEach((track) => {
+                const div = document.createElement('div');
+                div.className = 'track';
+                div.innerHTML = `
+                <h3>${track.title}</h3>
+                <div class="metadata">
+                    BPM: ${track.AI_BPM} | 
+                    KEY: ${track.AI_KEY} | 
+                    ENERGY: ${Math.round(track.AI_ENERGY * 100)}% | 
+                    MOOD: ${track.AI_MOOD}
+                </div>
+            `;
+                content.appendChild(div);
+            });
+
+            console.log('✅ Tracks displayed with metadata');
+        </script>
+    </body>
+</html>

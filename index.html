@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+    <head>
+        <title>MAP</title>
+        <style>
+            body {
+                background: #111;
+                color: white;
+                font-family: sans-serif;
+                padding: 20px;
+            }
+            .track {
+                background: #222;
+                padding: 15px;
+                margin: 10px;
+                border-radius: 8px;
+            }
+            .metadata {
+                color: #00ff88;
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            pre {
+                background: #000;
+                padding: 10px;
+                overflow: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>MAP - Music Analyzer</h1>
+        <div id="status">Loading...</div>
+        <pre id="debug"></pre>
+        <div id="tracks"></div>
+
+        <script>
+            const debug = document.getElementById('debug');
+            const status = document.getElementById('status');
+            const tracksDiv = document.getElementById('tracks');
+
+            async function loadData() {
+                try {
+                    debug.innerHTML = 'Calling IPC...\n';
+
+                    const result = await window.electronAPI.getTracks();
+
+                    debug.innerHTML += 'Result type: ' + typeof result + '\n';
+                    debug.innerHTML += 'Result keys: ' + Object.keys(result).join(', ') + '\n';
+
+                    const files = result.files || [];
+                    debug.innerHTML += 'Files count: ' + files.length + '\n\n';
+
+                    if (files.length > 0) {
+                        debug.innerHTML += 'First file:\n' + JSON.stringify(files[0], null, 2).substring(0, 500) + '\n';
+
+                        // Display tracks
+                        tracksDiv.innerHTML = '';
+                        files.forEach((track) => {
+                            const div = document.createElement('div');
+                            div.className = 'track';
+                            div.innerHTML = `
+                            <h3>${track.title || 'Unknown'}</h3>
+                            <div class="metadata">
+                                BPM: ${track.AI_BPM || '--'} | 
+                                KEY: ${track.AI_KEY || '--'} | 
+                                ENERGY: ${track.AI_ENERGY ? Math.round(track.AI_ENERGY * 100) + '%' : '--'}
+                            </div>
+                        `;
+                            tracksDiv.appendChild(div);
+                        });
+
+                        status.innerHTML = `✅ Loaded ${files.length} tracks`;
+                    } else {
+                        status.innerHTML = '❌ No tracks returned';
+                    }
+                } catch (error) {
+                    debug.innerHTML += '❌ ERROR: ' + error.message + '\n' + error.stack;
+                    status.innerHTML = '❌ Error loading tracks';
+                }
+            }
+
+            loadData();
+        </script>
+    </body>
+</html>

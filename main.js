@@ -160,7 +160,8 @@ function createWindow() {
         icon: icon || undefined, // Usar el icono si existe
     });
 
-    mainWindow.loadFile('index-with-search.html');
+    // Cargar la página original
+    mainWindow.loadFile(path.join(__dirname, 'index-views.html'));
 
     // Prevenir sobrescritura del título
     mainWindow.on('page-title-updated', (event) => {
@@ -820,7 +821,9 @@ function initializeAppAfterDatabase() {
 
     // Registrar handlers - SOLO después de que DB esté conectada
     try {
-        ipcMain.handle('get-files-with-cached-artwork', createArtworkHandler(db));
+        // Use simple handler instead
+        const { createSimpleHandler } = require('./simple-handler');
+        ipcMain.handle('get-files-with-cached-artwork', createSimpleHandler(db));
         ipcMain.handle('get-track-with-metadata', createGetTrackWithMetadataHandler(db));
         ipcMain.handle('search-tracks', createSearchHandler(db));
         ipcMain.handle('get-filter-options', createFilterHandler(db));

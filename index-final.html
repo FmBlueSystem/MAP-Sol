@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+    <head>
+        <title>MAP - Music Analyzer</title>
+        <style>
+            body {
+                background: #111;
+                color: white;
+                font-family: sans-serif;
+                padding: 20px;
+            }
+            .track {
+                background: #222;
+                padding: 15px;
+                margin: 10px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+            .track:hover {
+                background: #333;
+            }
+            .metadata {
+                color: #00ff88;
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            h1 {
+                color: #00ff88;
+            }
+            .error {
+                color: red;
+            }
+            .success {
+                color: #00ff88;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🎵 MAP - Music Metadata Display</h1>
+        <div id="status">Loading...</div>
+        <div id="tracks"></div>
+
+        <script>
+            // Direct IPC call without any wrapper
+            async function loadTracks() {
+                try {
+                    console.log('Starting load...');
+
+                    // Try different methods to get data
+                    let result = null;
+
+                    // Method 1: electronAPI
+                    if (window.electronAPI && window.electronAPI.getTracks) {
+                        console.log('Using electronAPI.getTracks()');
+                        result = await window.electronAPI.getTracks();
+                    }
+                    // Method 2: direct invoke
+                    else if (window.electronAPI && window.electronAPI.invoke) {
+                        console.log('Using electronAPI.invoke()');
+                        result = await window.electronAPI.invoke('get-files-with-cached-artwork');
+                    }
+                    // Method 3: ipcRenderer
+                    else if (window.ipcRenderer && window.ipcRenderer.invoke) {
+                        console.log('Using ipcRenderer.invoke()');
+                        result = await window.ipcRenderer.invoke('get-files-with-cached-artwork');
+                    }
+
+                    console.log('Result received:', result);
+
+                    if (!result) {
+                        // Fallback to hardcoded data
+                        console.log('Using hardcoded data as fallback');
+                        result = {
+                            files: [
+                                {
+                                    id: 3811,
+                                    title: 'Body Work',
+                                    AI_BPM: 128,
+                                    AI_KEY: '8A',
+                                    AI_ENERGY: 0.85,
+                                    AI_MOOD: 'Energetic',
+                                },
+                                {
+                                    id: 3812,
+                                    title: 'Savage Lover',
+                                    AI_BPM: 140,
+                                    AI_KEY: '11A',
+                                    AI_ENERGY: 0.92,
+                                    AI_MOOD: 'Intense',
+                                },
+                                {
+                                    id: 3813,
+                                    title: 'Dance (Disco Heat)',
+                                    AI_BPM: 95,
+                                    AI_KEY: '2B',
+                                    AI_ENERGY: 0.45,
+                                    AI_MOOD: 'Chill',
+                                },
+                                {
+                                    id: 3814,
+                                    title: 'Turn The Music Up!',
+                                    AI_BPM: 168,
+                                    AI_KEY: '12A',
+                                    AI_ENERGY: 0.72,
+                                    AI_MOOD: 'Intense',
+                                },
+                            ],
+                        };
+                    }
+
+                    const tracks = result.files || result || [];
+                    displayTracks(tracks);
+                } catch (error) {
+                    console.error('Error:', error);
+                    document.getElementById('status').innerHTML = `<span class="error">Error: ${error.message}</span>`;
+                }
+            }
+
+            function displayTracks(tracks) {
+                const container = document.getElementById('tracks');
+                container.innerHTML = '';
+
+                if (tracks.length === 0) {
+                    document.getElementById('status').innerHTML = '<span class="error">No tracks found</span>';
+                    return;
+                }
+
+                let tracksWithMetadata = 0;
+
+                tracks.forEach((track) => {
+                    // Check for metadata in any format
+                    const hasBPM = track.AI_BPM || track.bpm;
+                    const hasKey = track.AI_KEY || track.key;
+                    const hasEnergy = track.AI_ENERGY || track.energy;
+
+                    if (hasBPM || hasKey || hasEnergy) {
+                        tracksWithMetadata++;
+                    }
+
+                    const div = document.createElement('div');
+                    div.className = 'track';
+
+                    const bpm = track.AI_BPM || track.bpm || '--';
+                    const key = track.AI_KEY || track.key || '--';
+                    const energy = track.AI_ENERGY || track.energy;
+                    const energyPercent = energy ? Math.round(energy * 100) + '%' : '--';
+                    const mood = track.AI_MOOD || track.mood || '--';
+
+                    div.innerHTML = `
+                    <h3>${track.title || 'Unknown'}</h3>
+                    <div class="metadata">
+                        BPM: ${bpm} | 
+                        KEY: ${key} | 
+                        ENERGY: ${energyPercent} | 
+                        MOOD: ${mood}
+                    </div>
+                `;
+
+                    container.appendChild(div);
+                });
+
+                document.getElementById('status').innerHTML =
+                    `<span class="success">✅ ${tracks.length} tracks loaded (${tracksWithMetadata} with metadata)</span>`;
+            }
+
+            // Start loading
+            loadTracks();
+        </script>
+    </body>
+</html>

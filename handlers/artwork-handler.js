@@ -4,6 +4,7 @@ const path = require('path');
 
 function createArtworkHandler(db) {
     return async () => {
+        console.log('🔥🔥🔥 ARTWORK HANDLER CALLED!');
         return new Promise((resolve) => {
             const sql = `
                 SELECT 
@@ -70,6 +71,34 @@ function createArtworkHandler(db) {
                     }
 
                     rows.forEach((file) => {
+                        // ENSURE all tracks have both field formats for compatibility
+                        if (!file.bpm && file.AI_BPM) {
+                            file.bpm = file.AI_BPM;
+                        }
+                        if (!file.key && file.AI_KEY) {
+                            file.key = file.AI_KEY;
+                        }
+                        if (!file.energy && file.AI_ENERGY) {
+                            file.energy = file.AI_ENERGY;
+                        }
+                        if (!file.mood && file.AI_MOOD) {
+                            file.mood = file.AI_MOOD;
+                        }
+
+                        // LOG track 3814 specifically
+                        if (file.id === 3814) {
+                            console.log('🎯 TRACK 3814 AFTER ALIASES:', {
+                                id: file.id,
+                                title: file.title,
+                                bpm: file.bpm,
+                                key: file.key,
+                                energy: file.energy,
+                                mood: file.mood,
+                                AI_BPM: file.AI_BPM,
+                                AI_KEY: file.AI_KEY,
+                            });
+                        }
+
                         const artworkPath = path.join(artworkDir, `${file.id}.jpg`);
                         const defaultImagePath = path.join(__dirname, '..', 'image.png');
 

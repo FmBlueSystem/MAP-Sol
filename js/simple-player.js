@@ -227,6 +227,37 @@ class SimplePlayer {
             return;
         }
 
+        // FORCE ENSURE track has the fields we need
+        console.log('🔴 BEFORE FIX:', {
+            id: track.id,
+            hasBpm: !!track.bpm,
+            hasKey: !!track.key,
+            hasEnergy: !!track.energy,
+            hasAI_BPM: !!track.AI_BPM,
+            hasAI_KEY: !!track.AI_KEY,
+            hasAI_ENERGY: !!track.AI_ENERGY,
+        });
+
+        if (!track.bpm && track.AI_BPM) {
+            track.bpm = track.AI_BPM;
+        }
+        if (!track.key && track.AI_KEY) {
+            track.key = track.AI_KEY;
+        }
+        if (!track.energy && track.AI_ENERGY) {
+            track.energy = track.AI_ENERGY;
+        }
+        if (!track.mood && track.AI_MOOD) {
+            track.mood = track.AI_MOOD;
+        }
+
+        console.log('🟢 AFTER FIX:', {
+            bpm: track.bpm,
+            key: track.key,
+            energy: track.energy,
+            mood: track.mood,
+        });
+
         this.currentTrack = track;
 
         // Initialize audio context on first play
@@ -394,11 +425,11 @@ class SimplePlayer {
             mood: track.mood,
         });
 
-        // FORCE DEBUG: Log what we're about to display
-        const bpmValue = track.AI_BPM || track.bpm || track.existing_bpm || track.existing_bmp || track.BPM;
-        const keyValue = track.AI_KEY || track.key || track.existing_key || track.KEY;
-        const energyValue = track.AI_ENERGY || track.energy || track.ENERGY;
-        const moodValue = track.AI_MOOD || track.mood || track.LLM_MOOD || track.MOOD;
+        // Use REAL VALUES from database
+        const bpmValue = track.AI_BPM || track.bpm;
+        const keyValue = track.AI_KEY || track.key;
+        const energyValue = track.AI_ENERGY || track.energy;
+        const moodValue = track.AI_MOOD || track.mood;
 
         console.log('🎯 VALUES TO DISPLAY:', {
             BPM: bpmValue,

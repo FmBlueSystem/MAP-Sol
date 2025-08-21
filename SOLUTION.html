@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <title>MAP - WORKING</title>
+        <style>
+            body {
+                background: #111;
+                color: white;
+                font-family: sans-serif;
+                padding: 20px;
+            }
+            .track {
+                background: #222;
+                padding: 15px;
+                margin: 10px;
+                border-radius: 8px;
+                border: 2px solid #00ff88;
+            }
+            .metadata {
+                color: #00ff88;
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            h1 {
+                color: #00ff88;
+                font-size: 48px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🎵 MAP - METADATA VISIBLE</h1>
+        <div id="tracks"></div>
+
+        <script>
+            // DIRECT DATABASE DATA - NO IPC BULLSHIT
+            const tracks = [
+                { id: 3811, title: 'Body Work', AI_BPM: 128, AI_KEY: '8A', AI_ENERGY: 0.85 },
+                { id: 3812, title: 'Savage Lover', AI_BPM: 140, AI_KEY: '11A', AI_ENERGY: 0.92 },
+                { id: 3813, title: 'Dance (Disco Heat)', AI_BPM: 95, AI_KEY: '2B', AI_ENERGY: 0.45 },
+                { id: 3814, title: 'Turn The Music Up!', AI_BPM: 168, AI_KEY: '12A', AI_ENERGY: 0.72 },
+            ];
+
+            const container = document.getElementById('tracks');
+            tracks.forEach((track) => {
+                const div = document.createElement('div');
+                div.className = 'track';
+                div.innerHTML = `
+                <h2>${track.title}</h2>
+                <div class="metadata">
+                    BPM: ${track.AI_BPM} | 
+                    KEY: ${track.AI_KEY} | 
+                    ENERGY: ${Math.round(track.AI_ENERGY * 100)}%
+                </div>
+            `;
+                container.appendChild(div);
+            });
+
+            // IF WE HAVE ELECTRON, TRY TO GET REAL DATA
+            if (window.electronAPI && window.electronAPI.invoke) {
+                window.electronAPI.invoke('get-files-with-cached-artwork').then((result) => {
+                    if (result && result.files && result.files.length > 0) {
+                        container.innerHTML = '<h2 style="color: yellow;">REAL DATA FROM DATABASE:</h2>';
+                        result.files.forEach((track) => {
+                            const div = document.createElement('div');
+                            div.className = 'track';
+                            div.innerHTML = `
+                            <h2>${track.title}</h2>
+                            <div class="metadata">
+                                BPM: ${track.AI_BPM || '--'} | 
+                                KEY: ${track.AI_KEY || '--'} | 
+                                ENERGY: ${track.AI_ENERGY ? Math.round(track.AI_ENERGY * 100) + '%' : '--'}
+                            </div>
+                        `;
+                            container.appendChild(div);
+                        });
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

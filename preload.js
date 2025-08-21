@@ -23,7 +23,7 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
     on: (channel, listener) => {
         logDebug('IPC on:', channel);
         ipcRenderer.on(channel, (event, ...args) => listener(event, ...args));
-    }
+    },
 });
 
 // Also expose electronAPI for new code
@@ -41,20 +41,24 @@ contextBridge.exposeInMainWorld('electronAPI', {
         logDebug('electronAPI.on:', channel);
         ipcRenderer.on(channel, (event, ...args) => listener(event, ...args));
     },
-    
+
+    // Specific methods for React app
+    getTracks: () => ipcRenderer.invoke('get-files-with-cached-artwork'),
+    getTrackInfo: (trackId) => ipcRenderer.invoke('get-track-complete-data', trackId),
+
     // Asset management
-    getAssetPath: assetName => ipcRenderer.invoke('get-asset-path', assetName),
+    getAssetPath: (assetName) => ipcRenderer.invoke('get-asset-path', assetName),
 
     // Get app paths
     getAppPath: () => __dirname,
 
     // Platform info
     platform: process.platform,
-    isDevelopment: process.env.NODE_ENV === 'development'
+    isDevelopment: process.env.NODE_ENV === 'development',
 });
 
 // Expose require for Electron modules
-contextBridge.exposeInMainWorld('require', module => {
+contextBridge.exposeInMainWorld('require', (module) => {
     if (module === 'electron') {
         return {
             ipcRenderer: {
@@ -69,8 +73,8 @@ contextBridge.exposeInMainWorld('require', module => {
                 send: (channel, ...args) => {
                     logDebug('require.electron.ipcRenderer.send:', channel);
                     return ipcRenderer.send(channel, ...args);
-                }
-            }
+                },
+            },
         };
     }
     return null;

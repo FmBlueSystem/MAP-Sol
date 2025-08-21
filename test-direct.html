@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Direct Test</title>
+    </head>
+    <body>
+        <h1>Direct IPC Test</h1>
+        <pre id="output"></pre>
+
+        <script>
+            const output = document.getElementById('output');
+
+            // Test what's available
+            output.innerHTML = 'Testing IPC methods...\n\n';
+
+            if (window.electronAPI) {
+                output.innerHTML += '✅ window.electronAPI exists\n';
+
+                if (window.electronAPI.getTracks) {
+                    output.innerHTML += '✅ electronAPI.getTracks exists\n\n';
+                    output.innerHTML += 'Calling getTracks()...\n';
+
+                    window.electronAPI
+                        .getTracks()
+                        .then((result) => {
+                            output.innerHTML += '\n✅ RESULT RECEIVED:\n';
+                            output.innerHTML += JSON.stringify(result, null, 2);
+                        })
+                        .catch((err) => {
+                            output.innerHTML += '\n❌ ERROR: ' + err.message;
+                        });
+                } else {
+                    output.innerHTML += '❌ electronAPI.getTracks NOT FOUND\n';
+                }
+            } else {
+                output.innerHTML += '❌ window.electronAPI NOT FOUND\n';
+            }
+        </script>
+    </body>
+</html>
