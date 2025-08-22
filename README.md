@@ -1,6 +1,12 @@
-# 🎵 Music Analyzer Clean v2.0 - Professional DJ Library Manager
+# 🎵 Music Analyzer Pro (MAP) v3.0
 
-## 📋 Estado Actual (2025-01-11)
+> Professional DJ/Producer Tool for Advanced Music Library Management
+
+[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/FmBlueSystem/MAP-Sol)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-macOS%20|%20Windows%20|%20Linux-lightgrey.svg)](https://github.com/FmBlueSystem/MAP-Sol)
+
+## 📋 Estado Actual (2025-08-22)
 
 ### ✅ Características Funcionando
 
