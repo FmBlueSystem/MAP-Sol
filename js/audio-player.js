@@ -515,7 +515,7 @@ class AudioPlayer {
             if (artworkEl && this.currentTrackData.artwork_url) {
                 artworkEl.src = this.currentTrackData.artwork_url;
                 artworkEl.onerror = () => {
-                    artworkEl.src = 'image.png';
+                    artworkEl.src = 'assets/images/default-album.png';
                 };
             }
         }

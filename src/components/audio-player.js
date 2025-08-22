@@ -47,8 +47,8 @@ class AudioPlayer {
         const numericId = Number(trackId);
         if (!trackData || !trackData.title) {
             const foundData =
-                window.filteredTracks?.find(t => t.id === numericId || t.id === trackId) ||
-                window.allTracks?.find(t => t.id === numericId || t.id === trackId);
+                window.filteredTracks?.find((t) => t.id === numericId || t.id === trackId) ||
+                window.allTracks?.find((t) => t.id === numericId || t.id === trackId);
             if (foundData) {
                 trackData = foundData;
             }
@@ -111,7 +111,7 @@ class AudioPlayer {
             }
         });
 
-        this.currentAudio.addEventListener('error', e => {
+        this.currentAudio.addEventListener('error', (e) => {
             console.error('Audio error:', e);
             this.isPlaying = false;
             this.updateUI(trackId, 'error');
@@ -150,13 +150,13 @@ class AudioPlayer {
 
                 // Update queue position
                 if (userInitiated && this.playlist.length > 0) {
-                    const index = this.playlist.findIndex(t => t.id === trackId);
+                    const index = this.playlist.findIndex((t) => t.id === trackId);
                     if (index !== -1) {
                         this.currentIndex = index;
                     }
                 }
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error('Playback error:', error);
                 this.isPlaying = false;
             });
@@ -403,7 +403,7 @@ class AudioPlayer {
     // UI Updates
     updateUI(trackId, status) {
         // Update track cards
-        document.querySelectorAll('.track-card').forEach(card => {
+        document.querySelectorAll('.track-card').forEach((card) => {
             if (card.dataset.trackId == trackId) {
                 card.classList.remove('playing', 'paused');
                 if (status === 'playing' || status === 'paused') {
@@ -503,7 +503,7 @@ class AudioPlayer {
             if (artworkEl && this.currentTrackData.artwork_url) {
                 artworkEl.src = this.currentTrackData.artwork_url;
                 artworkEl.onerror = () => {
-                    artworkEl.src = 'image.png';
+                    artworkEl.src = 'assets/images/default-album.png';
                 };
             }
         }

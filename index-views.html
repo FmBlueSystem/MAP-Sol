@@ -769,7 +769,7 @@
                     filter 0.3s ease;
             }
 
-            /* Gradient overlay for better text readability */
+            /* Gradient overlay for better text readability - made more transparent */
             .image-overlay {
                 position: absolute;
                 top: 0;
@@ -778,9 +778,9 @@
                 bottom: 0;
                 background: linear-gradient(
                     to bottom,
-                    rgba(0, 0, 0, 0.3) 0%,
-                    rgba(0, 0, 0, 0) 50%,
-                    rgba(0, 0, 0, 0.5) 100%
+                    rgba(0, 0, 0, 0.1) 0%,
+                    /* Reduced from 0.3 to 0.1 */ rgba(0, 0, 0, 0) 50%,
+                    rgba(0, 0, 0, 0.2) 100% /* Reduced from 0.5 to 0.2 */
                 );
                 pointer-events: none;
             }
@@ -813,8 +813,8 @@
 
             /* Style for fallback images */
             .fallback-image {
-                opacity: 0.7;
-                filter: grayscale(30%);
+                opacity: 1;
+                /* Removed grayscale filter to show real colors */
             }
 
             /* Badge for tracks without artwork */
@@ -840,14 +840,14 @@
             }
 
             .card-image.no-artwork .track-artwork {
-                opacity: 0.5;
-                mix-blend-mode: luminosity;
+                opacity: 1;
+                /* Removed mix-blend-mode to show real colors */
             }
 
             /* Hover effect for fallback */
             .track-card:hover .no-artwork .track-artwork {
                 transform: scale(1.05);
-                opacity: 0.7;
+                opacity: 1; /* Keep full opacity to show real colors */
             }
 
             /* Loading state for images */
@@ -911,7 +911,7 @@
 
             .track-card:hover .card-image img {
                 transform: scale(1.05);
-                filter: brightness(0.7);
+                /* Removed brightness filter to show real colors on hover */
             }
 
             .play-overlay {
@@ -4499,17 +4499,21 @@
 
                 // TEST: Auto-play track with metadata after 3 seconds
                 setTimeout(() => {
-                    const trackWithMetadata = window.audioFiles.find((t) => t.id === 3811);
-                    if (trackWithMetadata) {
-                        console.log('🎵 TEST: Playing track with metadata:', {
-                            id: trackWithMetadata.id,
-                            title: trackWithMetadata.title,
-                            bpm: trackWithMetadata.bpm,
-                            key: trackWithMetadata.key,
-                            energy: trackWithMetadata.energy,
-                        });
-                        const event = new CustomEvent('playTrack', { detail: trackWithMetadata });
-                        document.dispatchEvent(event);
+                    if (window.audioFiles && Array.isArray(window.audioFiles)) {
+                        const trackWithMetadata = window.audioFiles.find((t) => t.id === 3811);
+                        if (trackWithMetadata) {
+                            console.log('🎵 TEST: Playing track with metadata:', {
+                                id: trackWithMetadata.id,
+                                title: trackWithMetadata.title,
+                                bpm: trackWithMetadata.bpm,
+                                key: trackWithMetadata.key,
+                                energy: trackWithMetadata.energy,
+                            });
+                            const event = new CustomEvent('playTrack', { detail: trackWithMetadata });
+                            document.dispatchEvent(event);
+                        }
+                    } else {
+                        console.log('⚠️ window.audioFiles not yet loaded');
                     }
                 }, 3000);
             }
@@ -4530,6 +4534,7 @@
                     // CRITICAL: Make tracks globally available IMMEDIATELY
                     window.allTracks = allTracks;
                     window.filteredTracks = filteredTracks;
+                    window.audioFiles = allTracks; // For backward compatibility
 
                     // DEBUG: Verify data structure INCLUDING AI FIELDS
                     if (allTracks.length > 0) {

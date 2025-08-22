@@ -278,7 +278,15 @@ class ImportMusicHandler {
         });
         const fileId = await this.insertFileRecord(filePath, metadata, fileHash);
 
-        // Stage 4: Calculate HAMMS vector
+        // Stage 4: Save basic metadata (BPM, Key, Energy) to llm_metadata
+        this.sendProgress(event, {
+            stage: 'basic-metadata',
+            fileName,
+            message: 'Saving BPM, Key and Energy metadata...',
+        });
+        await this.saveBasicMetadata(fileId, metadata);
+
+        // Stage 5: Calculate HAMMS vector
         this.sendProgress(event, {
             stage: 'hamms',
             fileName,
@@ -286,8 +294,17 @@ class ImportMusicHandler {
         });
         await this.calculateAndSaveHAMMS(fileId, metadata);
 
-        // Stage 5: Extract artwork
-        if (options.extractArtwork && metadata.artwork) {
+        // Stage 5: Extract artwork (always try to extract if available)
+        if (metadata.common && metadata.common.picture && metadata.common.picture.length > 0) {
+            this.sendProgress(event, {
+                stage: 'artwork',
+                fileName,
+                message: 'Extracting album artwork...',
+            });
+            // Pass the first picture from the metadata
+            await this.extractArtwork(fileId, metadata.common.picture[0]);
+        } else if (options.extractArtwork && metadata.artwork) {
+            // Fallback to old format if exists
             this.sendProgress(event, {
                 stage: 'artwork',
                 fileName,
@@ -468,17 +485,27 @@ class ImportMusicHandler {
             const artworkDir = path.join(process.cwd(), 'artwork-cache');
             await fs.mkdir(artworkDir, { recursive: true });
 
-            const artworkPath = path.join(artworkDir, `${fileId}.jpg`);
-            await fs.writeFile(artworkPath, artworkData.data);
+            const artworkFileName = `${fileId}.jpg`;
+            const artworkFullPath = path.join(artworkDir, artworkFileName);
+            await fs.writeFile(artworkFullPath, artworkData.data);
 
-            // Update database with artwork path
+            // Store relative path in database (artwork-cache/ID.jpg)
+            const artworkRelativePath = `artwork-cache/${artworkFileName}`;
+
+            // Update database with relative artwork path
             return new Promise((resolve) => {
-                this.db.run('UPDATE audio_files SET artwork_path = ? WHERE id = ?', [artworkPath, fileId], (err) => {
-                    if (err) {
-                        console.error('Error updating artwork path:', err);
+                this.db.run(
+                    'UPDATE audio_files SET artwork_path = ? WHERE id = ?',
+                    [artworkRelativePath, fileId],
+                    (err) => {
+                        if (err) {
+                            console.error('Error updating artwork path:', err);
+                        } else {
+                            console.log(`✅ Artwork saved for track ${fileId}: ${artworkRelativePath}`);
+                        }
+                        resolve();
                     }
-                    resolve();
-                });
+                );
             });
         } catch (error) {
             console.error('Artwork extraction error:', error);
@@ -648,6 +675,88 @@ Return as JSON with keys: genre, subgenres (array), mood, era, occasions (array)
                     }
                 }
             );
+        });
+    }
+
+    async saveBasicMetadata(fileId, metadata) {
+        return new Promise((resolve, reject) => {
+            // First ensure the record exists in llm_metadata
+            this.db.run('INSERT OR IGNORE INTO llm_metadata (file_id) VALUES (?)', [fileId], (err) => {
+                if (err) {
+                    console.error('Error creating llm_metadata record:', err);
+                    return resolve(); // Don't fail the import
+                }
+
+                // Extract BPM, Key, Energy from various sources
+                let bpm = metadata.mik_bpm || metadata.bpm || null;
+                let key = metadata.mik_key || metadata.key || null;
+                let energy = metadata.mik_energy || metadata.energy || null;
+
+                // Try to extract from native tags if not found
+                if (!bpm && metadata.native) {
+                    for (const [format, tags] of Object.entries(metadata.native)) {
+                        tags?.forEach((tag) => {
+                            const tagId = tag.id?.toLowerCase() || '';
+                            if (!bpm && (tagId.includes('bpm') || tagId === 'tempo')) {
+                                const parsedBpm = parseFloat(tag.value);
+                                if (!isNaN(parsedBpm) && parsedBpm > 0) {
+                                    bpm = Math.round(parsedBpm);
+                                }
+                            }
+                            if (!key && (tagId.includes('key') || tagId === 'initialkey' || tagId === 'tkey')) {
+                                key = tag.value;
+                            }
+                            if (!energy && tagId.includes('energy')) {
+                                const parsedEnergy = parseFloat(tag.value);
+                                if (!isNaN(parsedEnergy)) {
+                                    energy = parsedEnergy;
+                                }
+                            }
+                        });
+                    }
+                }
+
+                // Update the metadata
+                const updates = [];
+                const values = [];
+
+                if (bpm !== null && bpm !== undefined) {
+                    updates.push('AI_BPM = ?');
+                    values.push(bpm);
+                    console.log(`  BPM: ${bpm}`);
+                }
+
+                if (key !== null && key !== undefined) {
+                    updates.push('AI_KEY = ?');
+                    values.push(key);
+                    console.log(`  Key: ${key}`);
+                }
+
+                if (energy !== null && energy !== undefined) {
+                    // Normalize energy to 0-10 scale if it's 0-1
+                    const normalizedEnergy = energy <= 1 ? energy * 10 : energy;
+                    updates.push('AI_ENERGY = ?');
+                    values.push(normalizedEnergy);
+                    console.log(`  Energy: ${normalizedEnergy}`);
+                }
+
+                if (updates.length > 0) {
+                    values.push(fileId);
+                    const query = `UPDATE llm_metadata SET ${updates.join(', ')} WHERE file_id = ?`;
+
+                    this.db.run(query, values, (err) => {
+                        if (err) {
+                            console.error('Error updating basic metadata:', err);
+                        } else {
+                            console.log(`✅ Basic metadata saved for file ID ${fileId}`);
+                        }
+                        resolve();
+                    });
+                } else {
+                    console.log(`⚠️  No BPM/Key/Energy found for file ID ${fileId}`);
+                    resolve();
+                }
+            });
         });
     }
 

@@ -69,13 +69,13 @@ db.all(sql, [], (err, rows) => {
 
     rows.forEach((file) => {
         const artworkPath = path.join(artworkDir, `${file.id}.jpg`);
-        const defaultImagePath = path.join(__dirname, 'image.png');
+        const defaultImagePath = path.join(__dirname, 'assets/images/default-album.png');
 
         if (fs.existsSync(artworkPath)) {
             file.artwork_url = `artwork-cache/${file.id}.jpg`;
             file.has_artwork = true;
         } else {
-            file.artwork_url = 'image.png';
+            file.artwork_url = 'assets/images/default-album.png';
             file.has_artwork = false;
         }
     });

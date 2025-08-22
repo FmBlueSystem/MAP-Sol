@@ -16,27 +16,26 @@ function createTrackInfoHandler(db) {
                     af.year,
                     af.duration,
                     af.bitrate,
-                    af.existing_bmp,
-                    af.existing_key,
                     af.artwork_path,
                     
-                    -- Análisis AI de audio_files
-                    af.AI_KEY,
-                    af.AI_BPM,
-                    af.AI_ENERGY,
-                    af.AI_DANCEABILITY,
-                    af.AI_VALENCE,
-                    af.AI_ACOUSTICNESS,
-                    af.AI_INSTRUMENTALNESS,
-                    af.AI_LIVENESS,
-                    af.AI_SPEECHINESS,
-                    af.AI_LOUDNESS,
-                    af.AI_MODE,
-                    af.AI_TIME_SIGNATURE,
-                    af.AI_MOOD,
-                    af.AI_GENRE
+                    -- Análisis AI de llm_metadata
+                    lm.AI_KEY,
+                    lm.AI_BPM,
+                    lm.AI_ENERGY,
+                    lm.AI_DANCEABILITY,
+                    lm.AI_VALENCE,
+                    lm.AI_ACOUSTICNESS,
+                    lm.AI_INSTRUMENTALNESS,
+                    lm.AI_LIVENESS,
+                    lm.AI_SPEECHINESS,
+                    lm.AI_LOUDNESS,
+                    lm.AI_MODE,
+                    lm.AI_TIME_SIGNATURE,
+                    lm.AI_MOOD,
+                    lm.LLM_GENRE as AI_GENRE
                     
                 FROM audio_files af
+                LEFT JOIN llm_metadata lm ON af.id = lm.file_id
                 WHERE af.id = ?
             `;
 
@@ -53,20 +52,6 @@ function createTrackInfoHandler(db) {
                     console.log('AI_KEY:', row.AI_KEY);
                     console.log('AI_ENERGY:', row.AI_ENERGY);
                     console.log('AI_MOOD:', row.AI_MOOD);
-
-                    // ENSURE metadata is passed
-                    if (!row.AI_BPM) {
-                        row.AI_BPM = 128;
-                    } // Default test value
-                    if (!row.AI_KEY) {
-                        row.AI_KEY = '8A';
-                    } // Default test value
-                    if (!row.AI_ENERGY) {
-                        row.AI_ENERGY = 0.85;
-                    } // Default test value
-                    if (!row.AI_MOOD) {
-                        row.AI_MOOD = 'Energetic';
-                    } // Default test value
 
                     // ADD ALL POSSIBLE ALIASES
                     row.bpm = row.AI_BPM;

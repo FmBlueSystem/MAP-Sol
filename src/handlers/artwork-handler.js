@@ -4,7 +4,7 @@ const path = require('path');
 
 function createArtworkHandler(db) {
     return async () => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const sql = `
                 SELECT 
                     af.id,
@@ -44,9 +44,9 @@ function createArtworkHandler(db) {
                     const artworkDir = path.join(__dirname, '..', 'artwork-cache');
                     let withArtwork = 0;
 
-                    rows.forEach(file => {
+                    rows.forEach((file) => {
                         const artworkPath = path.join(artworkDir, `${file.id}.jpg`);
-                        const defaultImagePath = path.join(__dirname, '..', 'image.png');
+                        const defaultImagePath = path.join(__dirname, '..', 'assets/images/default-album.png');
 
                         if (fs.existsSync(artworkPath)) {
                             // Provide both absolute and relative paths
@@ -58,7 +58,7 @@ function createArtworkHandler(db) {
                         } else {
                             // Use default image.png as fallback
                             if (fs.existsSync(defaultImagePath)) {
-                                file.artwork_url = 'image.png';
+                                file.artwork_url = 'assets/images/default-album.png';
                                 file.artwork_path = defaultImagePath;
                                 file.artwork_full = `file://${defaultImagePath}`;
                                 file.has_artwork = false;

@@ -461,17 +461,22 @@ class SimplePlayer {
 
         // Update artwork
         const artwork = document.getElementById('player-artwork');
+        const defaultArtwork = 'assets/images/default-album.png';
+
         if (track.artwork_path || track.artwork_url) {
             artwork.src = track.artwork_path || track.artwork_url;
         } else if (track.id) {
+            // Try to load from artwork-cache first
             artwork.src = `artwork-cache/${track.id}.jpg`;
         } else {
-            artwork.src = 'image.png';
+            // Use default artwork
+            artwork.src = defaultArtwork;
         }
 
-        // Error fallback for artwork
+        // Error fallback for artwork (if file doesn't exist or fails to load)
         artwork.onerror = () => {
-            artwork.src = 'image.png';
+            console.log(`⚠️ Artwork not found for track ${track.id}, using default`);
+            artwork.src = defaultArtwork;
         };
     }
 

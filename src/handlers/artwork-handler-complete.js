@@ -4,7 +4,7 @@ const path = require('path');
 
 function createCompleteArtworkHandler(db) {
     return async () => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             // SQL query to get ALL fields from both tables
             const sql = `
                 SELECT 
@@ -173,16 +173,16 @@ function createCompleteArtworkHandler(db) {
                     let withArtwork = 0;
                     let totalFields = 0;
 
-                    rows.forEach(file => {
+                    rows.forEach((file) => {
                         // Count non-null fields
                         const fieldCount = Object.keys(file).filter(
-                            key => file[key] !== null && file[key] !== undefined
+                            (key) => file[key] !== null && file[key] !== undefined
                         ).length;
                         totalFields = Math.max(totalFields, fieldCount);
 
                         // Process artwork
                         const artworkPath = path.join(artworkDir, `${file.id}.jpg`);
-                        const defaultImagePath = path.join(__dirname, '..', 'image.png');
+                        const defaultImagePath = path.join(__dirname, '..', 'assets/images/default-album.png');
 
                         if (fs.existsSync(artworkPath)) {
                             file.artwork_url = `artwork-cache/${file.id}.jpg`;
@@ -192,7 +192,7 @@ function createCompleteArtworkHandler(db) {
                             withArtwork++;
                         } else {
                             if (fs.existsSync(defaultImagePath)) {
-                                file.artwork_url = 'image.png';
+                                file.artwork_url = 'assets/images/default-album.png';
                                 file.artwork_path = defaultImagePath;
                                 file.artwork_full = `file://${defaultImagePath}`;
                                 file.has_artwork = false;

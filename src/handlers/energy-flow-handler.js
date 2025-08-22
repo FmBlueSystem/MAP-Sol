@@ -2,7 +2,7 @@
 function createEnergyFlowHandlers(db) {
     // Get queue tracks with energy data
     const getQueueTracksHandler = async (event, options = {}) => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const { playlistId, limit = 50 } = options;
 
             let sql;
@@ -67,7 +67,7 @@ function createEnergyFlowHandlers(db) {
                     resolve({ success: false, error: err.message });
                 } else {
                     // Add artwork URLs
-                    rows.forEach(row => {
+                    rows.forEach((row) => {
                         if (row.id) {
                             const artworkPath = `artwork-cache/${row.id}.jpg`;
                             const fs = require('fs');
@@ -77,7 +77,7 @@ function createEnergyFlowHandlers(db) {
                             if (fs.existsSync(fullPath)) {
                                 row.artwork_url = artworkPath;
                             } else {
-                                row.artwork_url = 'image.png';
+                                row.artwork_url = 'assets/images/default-album.png';
                             }
                         }
 
@@ -98,14 +98,14 @@ function createEnergyFlowHandlers(db) {
 
     // Analyze energy flow and provide recommendations
     const analyzeFlowHandler = async (event, tracks) => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             if (!tracks || tracks.length === 0) {
                 resolve({ success: false, error: 'No tracks provided' });
                 return;
             }
 
             // Calculate energy metrics
-            const energies = tracks.map(t => t.energy || 0.5);
+            const energies = tracks.map((t) => t.energy || 0.5);
 
             // Calculate mean energy
             const meanEnergy = energies.reduce((a, b) => a + b, 0) / energies.length;
@@ -129,12 +129,12 @@ function createEnergyFlowHandlers(db) {
                     from: i - 1,
                     to: i,
                     difference: diff,
-                    quality: diff < 0.15 ? 'smooth' : diff < 0.25 ? 'moderate' : 'harsh'
+                    quality: diff < 0.15 ? 'smooth' : diff < 0.25 ? 'moderate' : 'harsh',
                 });
             }
 
-            const smoothTransitions = transitions.filter(t => t.quality === 'smooth').length;
-            const harshTransitions = transitions.filter(t => t.quality === 'harsh').length;
+            const smoothTransitions = transitions.filter((t) => t.quality === 'smooth').length;
+            const harshTransitions = transitions.filter((t) => t.quality === 'harsh').length;
 
             // Generate recommendations
             const recommendations = [];
@@ -143,7 +143,7 @@ function createEnergyFlowHandlers(db) {
                 recommendations.push({
                     type: 'warning',
                     message: 'High energy variance detected',
-                    suggestion: 'Consider reordering tracks for smoother energy transitions'
+                    suggestion: 'Consider reordering tracks for smoother energy transitions',
                 });
             }
 
@@ -151,7 +151,7 @@ function createEnergyFlowHandlers(db) {
                 recommendations.push({
                     type: 'warning',
                     message: 'Many harsh transitions found',
-                    suggestion: 'Add transitional tracks between high and low energy songs'
+                    suggestion: 'Add transitional tracks between high and low energy songs',
                 });
             }
 
@@ -159,13 +159,13 @@ function createEnergyFlowHandlers(db) {
                 recommendations.push({
                     type: 'info',
                     message: 'No energy peaks detected',
-                    suggestion: 'Add some high-energy tracks to create climactic moments'
+                    suggestion: 'Add some high-energy tracks to create climactic moments',
                 });
             } else if (peaks.length > 5) {
                 recommendations.push({
                     type: 'warning',
                     message: 'Too many energy peaks',
-                    suggestion: 'Space out high-energy tracks for better flow'
+                    suggestion: 'Space out high-energy tracks for better flow',
                 });
             }
 
@@ -188,15 +188,15 @@ function createEnergyFlowHandlers(db) {
                     totalTransitions: transitions.length,
                     flowScore,
                     recommendations,
-                    transitions
-                }
+                    transitions,
+                },
             });
         });
     };
 
     // Optimize track order for better energy flow
     const optimizeFlowHandler = async (event, tracks) => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             if (!tracks || tracks.length === 0) {
                 resolve({ success: false, error: 'No tracks provided' });
                 return;
@@ -225,7 +225,7 @@ function createEnergyFlowHandlers(db) {
 
                 // Find track closest to target energy
                 const track =
-                    sortedByEnergy.find(t => Math.abs((t.energy || 0.5) - targetEnergy) < 0.15) ||
+                    sortedByEnergy.find((t) => Math.abs((t.energy || 0.5) - targetEnergy) < 0.15) ||
                     sortedByEnergy[lowIndex++];
 
                 wavePattern.push(track);
@@ -251,7 +251,7 @@ function createEnergyFlowHandlers(db) {
             resolve({
                 success: true,
                 optimizedTracks: wavePattern,
-                message: 'Tracks reordered for optimal energy flow'
+                message: 'Tracks reordered for optimal energy flow',
             });
         });
     };
@@ -259,10 +259,10 @@ function createEnergyFlowHandlers(db) {
     return {
         getQueueTracksHandler,
         analyzeFlowHandler,
-        optimizeFlowHandler
+        optimizeFlowHandler,
     };
 }
 
 module.exports = {
-    createEnergyFlowHandlers
+    createEnergyFlowHandlers,
 };
