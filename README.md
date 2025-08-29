@@ -1,6 +1,6 @@
-# Music Player Qt - Tidal Style
+# Music Player Pro - Qt Edition
 
-A modern music player application built with PyQt6, featuring a Tidal-inspired interface with audio metadata extraction and album artwork display.
+A modern music player application built with PyQt6, featuring a professional dark theme interface with audio metadata extraction and album artwork display.
 
 ## Features
 
@@ -18,7 +18,7 @@ A modern music player application built with PyQt6, featuring a Tidal-inspired i
 - Sidebar navigation with search
 - Grid view for albums/tracks
 - Bottom player bar with controls
-- Modern dark theme inspired by Tidal
+- Modern professional dark theme
 
 ## Installation
 
@@ -49,7 +49,7 @@ pip install -r requirements.txt
 
 Run the application:
 ```bash
-python src/tidal_app.py
+python src/music_player.py
 ```
 
 ### Adding Music
@@ -69,7 +69,7 @@ python src/tidal_app.py
 ```
 music-app-qt/
 ├── src/
-│   ├── tidal_app.py         # Main application (Tidal-style UI)
+│   ├── music_player.py      # Main application with modern UI
 │   ├── app.py               # Alternative analyzer UI
 │   ├── database.py          # SQLite database handler
 │   ├── metadata_extractor.py # Audio metadata extraction
@@ -110,7 +110,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- UI design inspired by Tidal
+- Modern dark theme UI design
 - Built with PyQt6 framework
 - Uses mutagen for metadata extraction
 

@@ -427,18 +427,18 @@ class PlayerBar(QWidget):
         return btn
 
 
-class TidalMainWindow(QMainWindow):
-    """Main Tidal-style window"""
+class MusicPlayerWindow(QMainWindow):
+    """Main music player window with modern dark theme"""
     
     def __init__(self):
         super().__init__()
         self.loaded_files = []  # Store loaded audio files
         self.album_cards = []  # Store album card references
         self.init_ui()
-        self.apply_tidal_theme()
+        self.apply_dark_theme()
         
     def init_ui(self):
-        self.setWindowTitle("Music Player - Tidal Style")
+        self.setWindowTitle("Music Player Pro")
         self.setGeometry(100, 100, 1400, 900)
         
         # Central widget
@@ -471,7 +471,7 @@ class TidalMainWindow(QMainWindow):
         sidebar_layout.setSpacing(0)
         
         # Logo
-        logo = QLabel("TIDAL")
+        logo = QLabel("MUSIC PRO")
         logo.setAlignment(Qt.AlignmentFlag.AlignCenter)
         logo.setStyleSheet("""
             QLabel {
@@ -891,8 +891,8 @@ class TidalMainWindow(QMainWindow):
         # 3. Update the player bar with track info
         # 4. Start playback
         
-    def apply_tidal_theme(self):
-        """Apply Tidal-like dark theme"""
+    def apply_dark_theme(self):
+        """Apply modern dark theme"""
         self.setStyleSheet("""
             QMainWindow {
                 background: #121212;
@@ -915,11 +915,11 @@ def main():
     app.setStyle("Fusion")
     
     # Set application info
-    app.setApplicationName("Tidal Clone")
+    app.setApplicationName("Music Player Pro")
     app.setOrganizationName("MusicApp")
     
     # Create and show main window
-    window = TidalMainWindow()
+    window = MusicPlayerWindow()
     window.show()
     
     sys.exit(app.exec())

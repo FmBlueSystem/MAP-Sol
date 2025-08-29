@@ -1,7 +1,7 @@
 # Audio Flow Documentation - Music Player Qt
 
 ## Overview
-This document describes the audio processing and playback flow in the Tidal-style music player application built with PyQt6.
+This document describes the audio processing and playback flow in the Music Player Pro application built with PyQt6.
 
 ## Architecture Components
 
@@ -149,7 +149,7 @@ Media Event → Qt Signal System → Handler Methods → Widget Updates
 
 ### Key Classes
 ```python
-class TidalMainWindow(QMainWindow):
+class MusicPlayerWindow(QMainWindow):
     - add_audio_files()      # Import audio files
     - add_file_to_library()  # Add single file to library
     - play_file()           # Initialize playback
