@@ -1,0 +1,1 @@
+"""Search module for advanced query functionality."""

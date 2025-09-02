@@ -1,0 +1,12 @@
+database:
+  busy_timeout_ms: 3000
+
+analysis:
+  max_concurrent: 2
+  timeout_per_track: 30
+  use_mixedinkey_first: true
+
+ui:
+  grid_page_size: 40
+  toasts_enabled: true
+  toast_timeout_ms: 2500

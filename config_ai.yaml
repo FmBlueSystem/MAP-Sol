@@ -1,0 +1,41 @@
+ai_analysis:
+  enabled: true
+  models_path: ./models
+  cache_results: true
+  max_parallel: 2
+  genre_classification:
+    model: genre_model_v1.pkl
+    confidence_threshold: 0.7
+  mood_analysis:
+    energy_buckets: 10
+  lyrics_analysis:
+    enabled: false
+    import_lrc: true
+    show_in_ui: false
+
+playlist_generation:
+  default_duration: 60
+  default_type: harmonic_journey
+  harmonic_weight: 0.6
+  ai_weight: 0.4
+  hamms_weight: 0.6
+  templates:
+    - warm_up
+    - peak_time
+    - closing
+  export_formats:
+    - m3u
+    - serato_db
+
+serato_export:
+  enabled: true
+  root_path:
+    macos: ~/Music/Serato
+    windows: '%USERPROFILE%/Music/Serato'
+  crate_name: MusicAnalyzerPro
+  write_database_v2: true
+  create_crates: true
+  write_file_tags: false
+
+lyrics_analysis:
+  enabled: false

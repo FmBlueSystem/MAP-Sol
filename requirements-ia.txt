@@ -1,0 +1,5 @@
+# Optional heavy AI dependencies
+torch>=2.0.0
+spacy>=3.6.0
+transformers>=4.40.0
+

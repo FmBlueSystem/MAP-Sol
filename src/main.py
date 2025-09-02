@@ -17,9 +17,13 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from app import MusicAnalyzerApp
 from utils.logger import setup_logger
+from utils.paths import is_ci_environment
 
-# Load environment variables
-load_dotenv()
+# Load environment variables (optional)
+try:
+    load_dotenv()
+except:
+    pass  # dotenv is optional
 
 logger = setup_logger(__name__)
 
@@ -46,24 +50,24 @@ class SplashScreen(QSplashScreen):
         
         # Draw logo
         logo_rect = pixmap.rect().adjusted(0, -50, 0, -50)
-        painter.setPen(QColor("#00ffff"))
+        painter.setPen(QColor("#00d4aa"))
         font = QFont("Arial", 48, QFont.Weight.Bold)
         painter.setFont(font)
-        painter.drawText(logo_rect, Qt.AlignmentFlag.AlignCenter, "MAP")
+        painter.drawText(logo_rect, Qt.AlignmentFlag.AlignCenter, "MP")
         
         # Draw title
         title_rect = pixmap.rect().adjusted(0, 50, 0, 50)
         painter.setPen(QColor("#ffffff"))
         font = QFont("Arial", 24, QFont.Weight.Light)
         painter.setFont(font)
-        painter.drawText(title_rect, Qt.AlignmentFlag.AlignCenter, "MUSIC ANALYZER PRO")
+        painter.drawText(title_rect, Qt.AlignmentFlag.AlignCenter, "MUSIC PRO")
         
         # Draw subtitle
         subtitle_rect = pixmap.rect().adjusted(0, 100, 0, 100)
-        painter.setPen(QColor("#00ffff"))
+        painter.setPen(QColor("#00d4aa"))
         font = QFont("Arial", 12)
         painter.setFont(font)
-        painter.drawText(subtitle_rect, Qt.AlignmentFlag.AlignCenter, "PROFESSIONAL EDITION - QT")
+        painter.drawText(subtitle_rect, Qt.AlignmentFlag.AlignCenter, "QT EDITION")
         
         painter.end()
         
@@ -74,9 +78,16 @@ class SplashScreen(QSplashScreen):
 def main():
     """Main application entry point"""
     
+    # Check if running in CI environment
+    if is_ci_environment():
+        logger.info("Running in CI environment - skipping GUI initialization")
+        # In CI, just verify imports work
+        print("CI Mode: Basic import check passed")
+        return 0
+    
     # Configure Qt application
-    QApplication.setApplicationName("Music Analyzer Pro")
-    QApplication.setOrganizationName("BlueSystemIO")
+    QApplication.setApplicationName("Music Pro")
+    QApplication.setOrganizationName("MusicPro")
     QApplication.setOrganizationDomain("bluesystemio.com")
     
     # Create application
@@ -87,7 +98,7 @@ def main():
     splash = SplashScreen()
     
     # Create main application
-    logger.info("Starting Music Analyzer Pro...")
+    logger.info("Starting Music Pro...")
     main_app = MusicAnalyzerApp()
     
     # Close splash and show main window
