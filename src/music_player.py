@@ -717,17 +717,10 @@ class PlayerBar(QWidget):
         
         # VU Meter - auto height based on DPI to show both L and R channels
         self.vu_meter = VUMeterWidget()
-        try:
-            from PyQt6.QtGui import QGuiApplication
-            scr = self.window().windowHandle().screen() if self.windowHandle() else QGuiApplication.primaryScreen()
-            dpi = float(getattr(scr, 'logicalDotsPerInch', lambda: 96.0)()) if scr else 96.0
-            scale = max(0.9, min(2.0, dpi / 96.0))
-        except Exception:
-            scale = 1.0
-        desired_h = int(60 * scale)
-        self.vu_meter.setMinimumHeight(max(54, desired_h))
-        self.vu_meter.setMaximumHeight(max(64, desired_h + 8))
-        self.vu_meter.setFixedHeight(max(54, desired_h))
+        # Set height for proper dual channel display
+        self.vu_meter.setMinimumHeight(50)
+        self.vu_meter.setMaximumHeight(70)
+        self.vu_meter.setFixedHeight(60)
         
         center_layout.addLayout(controls_layout)
         center_layout.addLayout(progress_layout)
@@ -836,6 +829,16 @@ class MusicPlayerWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         cfg = get_config()
+        # Env override for VU height (auto|compact|tall)
+        try:
+            import os
+            env_vu = os.environ.get('VU_HEIGHT')
+            if env_vu:
+                if 'playback' not in cfg:
+                    cfg['playback'] = {}
+                cfg['playback']['vu_height'] = str(env_vu).strip().lower()
+        except Exception:
+            pass
         self._cfg = cfg
         self.loaded_files = []  # Store loaded audio files
         self.album_cards = []  # Store album card references
@@ -1056,6 +1059,41 @@ class MusicPlayerWindow(QMainWindow):
         shortcuts_action = help_menu.addAction('Keyboard Shortcuts')
         shortcuts_action.setShortcut('Ctrl+?')
         shortcuts_action.triggered.connect(self.show_shortcuts)
+
+    def _compute_vu_heights(self, mode: str) -> tuple[int, int, int]:
+        """Compute (min, max, fixed) heights for the VU widget based on mode.
+        mode: 'auto' | 'compact' | 'tall'
+        """
+        if mode == 'compact':
+            return (50, 60, 54)
+        if mode == 'tall':
+            return (68, 88, 72)
+        # auto by DPI
+        try:
+            from PyQt6.QtGui import QGuiApplication
+            scr = self.window().windowHandle().screen() if self.windowHandle() else QGuiApplication.primaryScreen()
+            dpi = float(getattr(scr, 'logicalDotsPerInch', lambda: 96.0)()) if scr else 96.0
+            scale = max(0.9, min(2.0, dpi / 96.0))
+        except Exception:
+            scale = 1.0
+        desired = int(60 * scale)
+        return (max(54, desired), max(64, desired + 8), max(54, desired))
+
+    def apply_vu_height_mode(self, mode: str | None = None):
+        """Public method to adjust VU height at runtime (called from Preferences)."""
+        if not mode:
+            mode = self._cfg.get('playback', {}).get('vu_height', 'auto')
+        mn, mx, fx = self._compute_vu_heights(str(mode).lower())
+        try:
+            self.vu_meter.setMinimumHeight(mn)
+            self.vu_meter.setMaximumHeight(mx)
+            self.vu_meter.setFixedHeight(fx)
+        except Exception:
+            pass
+
+    def apply_vu_height_from_config(self):
+        mode = self._cfg.get('playback', {}).get('vu_height', 'auto')
+        self.apply_vu_height_mode(mode)
         
     def init_ui(self):
         self.setWindowTitle("Music Pro")
@@ -2067,14 +2105,52 @@ class MusicPlayerWindow(QMainWindow):
                 # Trigger AI metadata analysis/persist in background (non-blocking)
                 try:
                     if row:
-                        from ai_analysis import AIAnalysisProcessor
-                        def _ai_job(tid:int, dbp:str):
-                            try:
+                        # Try OpenAI enrichment first if available
+                        try:
+                            from ai_analysis.metadata_enrichment_openai import MetadataEnrichmentOpenAI
+                            def _openai_job(tid: int, dbp: str):
+                                try:
+                                    enricher = MetadataEnrichmentOpenAI()
+                                    if enricher.enabled:
+                                        # Get track and HAMMS data
+                                        import sqlite3
+                                        conn = sqlite3.connect(dbp)
+                                        conn.row_factory = sqlite3.Row
+                                        track = conn.execute("SELECT * FROM tracks WHERE id = ?", (tid,)).fetchone()
+                                        hamms = conn.execute("SELECT * FROM hamms_advanced WHERE track_id = ?", (tid,)).fetchone()
+                                        conn.close()
+                                        
+                                        if track and hamms:
+                                            track_data = dict(track)
+                                            hamms_data = dict(hamms)
+                                            enriched = enricher.enrich_track(track_data, hamms_data)
+                                            
+                                            # Store enrichment
+                                            conn = sqlite3.connect(dbp)
+                                            enricher._store_enrichment(conn, tid, enriched)
+                                            conn.commit()
+                                            conn.close()
+                                            logger.info(f"Track {tid} enriched with OpenAI")
+                                            return
+                                except Exception as e:
+                                    logger.debug(f"OpenAI enrichment failed: {e}")
+                                
+                                # Fallback to standard AI processor
+                                from ai_analysis import AIAnalysisProcessor
                                 AIAnalysisProcessor(db_path=dbp, max_parallel=2).process_one(tid)
-                            except Exception as _e:
-                                logger.debug(f"AI post-analysis skipped: {_e}")
-                        th = threading.Thread(target=_ai_job, args=(row['id'], self.database.db_path), daemon=True)
-                        th.start()
+                                
+                            th = threading.Thread(target=_openai_job, args=(row['id'], self.database.db_path), daemon=True)
+                            th.start()
+                        except ImportError:
+                            # Fallback to standard processor if OpenAI module not available
+                            from ai_analysis import AIAnalysisProcessor
+                            def _ai_job(tid:int, dbp:str):
+                                try:
+                                    AIAnalysisProcessor(db_path=dbp, max_parallel=2).process_one(tid)
+                                except Exception as _e:
+                                    logger.debug(f"AI post-analysis skipped: {_e}")
+                            th = threading.Thread(target=_ai_job, args=(row['id'], self.database.db_path), daemon=True)
+                            th.start()
                 except Exception:
                     pass
             logger.info(f"Background analysis finished for {file_path}")

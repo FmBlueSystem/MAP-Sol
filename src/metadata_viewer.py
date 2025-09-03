@@ -66,6 +66,31 @@ class MetadataViewer(QMainWindow):
         
         # Create tab widget
         self.tabs = QTabWidget()
+        # Colorful tabs: selected accent, unselected subtle, hover brighter
+        self.tabs.setStyleSheet(self.tabs.styleSheet() + f"""
+            QTabWidget::pane {{
+                border: 1px solid {PALETTE['border']};
+                top: -0.5em;
+            }}
+            QTabBar::tab {{
+                background: #1a1f2b;
+                color: {PALETTE['text']};
+                padding: 6px 12px;
+                border: 1px solid {PALETTE['border']};
+                border-bottom-color: {PALETTE['border']};
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+                margin-right: 2px;
+            }}
+            QTabBar::tab:selected {{
+                background: {PALETTE['accent']};
+                color: {PALETTE['bg']};
+                font-weight: bold;
+            }}
+            QTabBar::tab:hover:!selected {{
+                background: #243046;
+            }}
+        """)
         layout.addWidget(self.tabs)
         
         # Tab 1: Track Overview
@@ -570,14 +595,14 @@ class MetadataViewer(QMainWindow):
         cursor = conn.execute("""
             SELECT t.title, t.artist, h.tempo_stability,
                    h.harmonic_complexity, h.dynamic_range,
-                   t.date_added
+                   t.date_added, t.file_path, h.spectral_features
             FROM tracks t
             LEFT JOIN hamms_advanced h ON t.id = h.file_id
             ORDER BY t.date_added DESC
         """)
         
         self.features_table.setRowCount(0)
-        
+
         for row_data in cursor.fetchall():
             row_num = self.features_table.rowCount()
             self.features_table.insertRow(row_num)
@@ -585,13 +610,95 @@ class MetadataViewer(QMainWindow):
             track_name = f"{row_data[1]} - {row_data[0]}"
             self.features_table.setItem(row_num, 0, QTableWidgetItem(track_name))
             
-            # Add available features
-            if row_data[2]:  # tempo_stability
+            # Always initialize cells to 0.000 (no blanks allowed)
+            for c in range(1, 12):
+                self.features_table.setItem(row_num, c, QTableWidgetItem("0.000" if c != 11 else "0s"))
+
+            # Add available features (HAMMS columns)
+            if row_data[2] is not None:  # tempo_stability
                 self.features_table.setItem(row_num, 1, QTableWidgetItem(f"{row_data[2]:.3f}"))
-            if row_data[3]:  # harmonic_complexity
+            if row_data[3] is not None:  # harmonic_complexity
                 self.features_table.setItem(row_num, 2, QTableWidgetItem(f"{row_data[3]:.3f}"))
-            if row_data[4]:  # dynamic_range
+            if row_data[4] is not None:  # dynamic_range
                 self.features_table.setItem(row_num, 3, QTableWidgetItem(f"{row_data[4]:.3f}"))
+            
+            # Fill from persisted spectral_features JSON if present
+            try:
+                spec_json = row_data[7]
+                if spec_json:
+                    spec = json.loads(spec_json)
+                    # centroid (Hz), rolloff (Hz), flux, brightness, zcr, mfcc_mean, onset_strength, calc_time
+                    if 'centroid' in spec:
+                        self.features_table.setItem(row_num, 4, QTableWidgetItem(f"{float(spec['centroid']):.0f}"))
+                    if 'rolloff' in spec:
+                        self.features_table.setItem(row_num, 5, QTableWidgetItem(f"{float(spec['rolloff']):.0f}"))
+                    if 'flux' in spec:
+                        self.features_table.setItem(row_num, 6, QTableWidgetItem(f"{float(spec['flux']):.3f}"))
+                    if 'brightness' in spec:
+                        self.features_table.setItem(row_num, 7, QTableWidgetItem(f"{float(spec['brightness']):.3f}"))
+                    if 'zcr' in spec:
+                        self.features_table.setItem(row_num, 8, QTableWidgetItem(f"{float(spec['zcr']):.4f}"))
+                    if 'mfcc_mean' in spec:
+                        self.features_table.setItem(row_num, 9, QTableWidgetItem(f"{float(spec['mfcc_mean']):.3f}"))
+                    if 'onset_strength' in spec:
+                        self.features_table.setItem(row_num, 10, QTableWidgetItem(f"{float(spec['onset_strength']):.3f}"))
+                    if 'calc_time' in spec:
+                        self.features_table.setItem(row_num, 11, QTableWidgetItem(f"{float(spec['calc_time']):.2f}s"))
+            except Exception:
+                pass
+
+            # Compute spectral features on-the-fly (librosa) if JSON absent
+            try:
+                import librosa
+                import numpy as _np
+                fpath = row_data[6]
+                if fpath and Path(fpath).exists() and not row_data[7]:
+                    # Short analysis: mono, 22050 Hz, offset a 10s, duración 30s si es posible
+                    y, sr = librosa.load(fpath, sr=22050, mono=True, offset=0.0, duration=None)
+                    if y.size > 0:
+                        # Spectral centroid / rolloff
+                        sc = librosa.feature.spectral_centroid(y=y, sr=sr)
+                        sr95 = librosa.feature.spectral_rolloff(y=y, sr=sr, roll_percent=0.95)
+                        flux = librosa.onset.onset_strength(y=y, sr=sr)
+                        # Brightness ~ mean centroid normalized to Nyquist
+                        centroid = float(_np.mean(sc)) if sc is not None else 0.0
+                        rolloff = float(_np.mean(sr95)) if sr95 is not None else 0.0
+                        flux_mean = float(_np.mean(flux)) if flux is not None else 0.0
+                        brightness = centroid / (sr / 2.0) if sr > 0 else 0.0
+                        # ZCR
+                        zcr = librosa.feature.zero_crossing_rate(y)
+                        zcr_mean = float(_np.mean(zcr)) if zcr is not None else 0.0
+                        # MFCC mean (first coefficient as proxy)
+                        mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
+                        mfcc_mean = float(_np.mean(mfcc[0])) if mfcc is not None and mfcc.shape[0] > 0 else 0.0
+                        # Onset strength mean
+                        onset_env = librosa.onset.onset_strength(y=y, sr=sr)
+                        onset_mean = float(_np.mean(onset_env)) if onset_env is not None else 0.0
+                        # Dynamic range fallback if HAMMS missing
+                        if row_data[4] is None:
+                            rms = librosa.feature.rms(y=y)
+                            if rms is not None and rms.size > 0:
+                                rms_db = 20.0 * _np.log10(_np.maximum(rms, 1e-9))
+                                dr_est = float(_np.percentile(rms_db, 95) - _np.percentile(rms_db, 10))
+                            else:
+                                dr_est = 0.0
+                        # Calculated time
+                        calc_time = f"{len(y)/sr:.2f}s"
+
+                        # Fill table columns 4..11
+                        self.features_table.setItem(row_num, 4, QTableWidgetItem(f"{centroid:.0f}"))
+                        self.features_table.setItem(row_num, 5, QTableWidgetItem(f"{rolloff:.0f}"))
+                        self.features_table.setItem(row_num, 6, QTableWidgetItem(f"{flux_mean:.3f}"))
+                        self.features_table.setItem(row_num, 7, QTableWidgetItem(f"{brightness:.3f}"))
+                        self.features_table.setItem(row_num, 8, QTableWidgetItem(f"{zcr_mean:.4f}"))
+                        self.features_table.setItem(row_num, 9, QTableWidgetItem(f"{mfcc_mean:.3f}"))
+                        self.features_table.setItem(row_num, 10, QTableWidgetItem(f"{onset_mean:.3f}"))
+                        self.features_table.setItem(row_num, 11, QTableWidgetItem(calc_time))
+                        if row_data[4] is None:
+                            self.features_table.setItem(row_num, 3, QTableWidgetItem(f"{dr_est:.3f}"))
+            except Exception as e:
+                # Non-blocking: if librosa is unavailable or file unreadable, leave blanks
+                logger.debug(f"Feature calc failed for {track_name}: {e}")
                 
     def on_hamms_selection(self):
         """Handle HAMMS table selection"""

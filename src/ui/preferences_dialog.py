@@ -53,17 +53,22 @@ class PreferencesDialog(QDialog):
         
         layout.addWidget(self.tabs)
         
-        # Buttons
+        # Buttons (Add Apply to apply changes without closing)
         button_box = QDialogButtonBox(
             QDialogButtonBox.StandardButton.Save |
             QDialogButtonBox.StandardButton.Cancel |
-            QDialogButtonBox.StandardButton.RestoreDefaults
+            QDialogButtonBox.StandardButton.RestoreDefaults |
+            QDialogButtonBox.StandardButton.Apply
         )
-        
+
         button_box.accepted.connect(self.save_settings)
         button_box.rejected.connect(self.reject)
         button_box.button(QDialogButtonBox.StandardButton.RestoreDefaults).clicked.connect(
             self.restore_defaults
+        )
+        # Apply without closing
+        button_box.button(QDialogButtonBox.StandardButton.Apply).clicked.connect(
+            self.apply_settings
         )
         
         layout.addWidget(button_box)
@@ -184,6 +189,11 @@ class PreferencesDialog(QDialog):
         self.target_lufs_spin.setSingleStep(0.5)
         self.target_lufs_spin.setSuffix(" LUFS")
         layout.addRow("Target Loudness:", self.target_lufs_spin)
+
+        # VU Height preference
+        self.vu_height_combo = QComboBox()
+        self.vu_height_combo.addItems(["auto", "compact", "tall"])  # stored as lowercase values
+        layout.addRow("VU Height:", self.vu_height_combo)
         
         widget.setLayout(layout)
         return widget
@@ -375,6 +385,11 @@ class PreferencesDialog(QDialog):
         
         target_lufs = self.general_config.get('playback', {}).get('target_lufs', -18.0)
         self.target_lufs_spin.setValue(target_lufs)
+        # VU Height
+        vu_height = self.general_config.get('playback', {}).get('vu_height', 'auto')
+        idx = self.vu_height_combo.findText(str(vu_height).lower())
+        if idx >= 0:
+            self.vu_height_combo.setCurrentIndex(idx)
         
         # Telemetry
         telemetry_enabled = self.general_config.get('telemetry', {}).get('enabled', False)
@@ -397,6 +412,7 @@ class PreferencesDialog(QDialog):
             self.general_config['playback'] = {}
         self.general_config['playback']['loudness_normalization'] = self.loudness_norm_check.isChecked()
         self.general_config['playback']['target_lufs'] = self.target_lufs_spin.value()
+        self.general_config['playback']['vu_height'] = self.vu_height_combo.currentText().lower()
         
         if 'telemetry' not in self.general_config:
             self.general_config['telemetry'] = {}
@@ -422,7 +438,23 @@ class PreferencesDialog(QDialog):
         save_config(self.general_config)
         save_ai_config(self.ai_config)
         
+        # Apply live changes to parent (height of VU)
+        self.apply_settings()
         self.accept()
+
+    def apply_settings(self):
+        """Apply settings without closing (used by Apply button)."""
+        # Update in-memory preview config
+        if 'playback' not in self.general_config:
+            self.general_config['playback'] = {}
+        self.general_config['playback']['vu_height'] = self.vu_height_combo.currentText().lower()
+        # Ask parent to apply VU changes if available
+        try:
+            parent = self.parent()
+            if parent and hasattr(parent, 'apply_vu_height_mode'):
+                parent.apply_vu_height_mode(self.general_config['playback']['vu_height'])
+        except Exception:
+            pass
     
     def restore_defaults(self):
         """Restore default settings."""

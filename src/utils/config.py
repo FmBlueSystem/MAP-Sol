@@ -31,6 +31,11 @@ _DEFAULTS = {
         'toasts_enabled': True,
         'toast_timeout_ms': 2500,
     },
+    'playback': {
+        'vu_height': 'auto',  # auto | compact | tall
+        'loudness_normalization': True,
+        'target_lufs': -18.0,
+    },
     'telemetry': {
         'enabled': False,  # Opt-in by default OFF
         'log_path': '~/.music_player_qt/telemetry.jsonl',

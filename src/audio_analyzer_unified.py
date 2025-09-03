@@ -132,22 +132,45 @@ class UnifiedAudioAnalyzer:
                 
                 # Always calculate these for HAMMS
                 logger.debug("Calculating additional features")
-                
+                import librosa
                 # Spectral features
-                import librosa
-                spectral_centroids = librosa.feature.spectral_centroid(y=y, sr=sr)
-                features['spectral_centroid'] = float(np.mean(spectral_centroids)) / sr
-                
-                # Zero crossing rate (rhythmic complexity)
-                import librosa
+                sc = librosa.feature.spectral_centroid(y=y, sr=sr)
+                roll95 = librosa.feature.spectral_rolloff(y=y, sr=sr, roll_percent=0.95)
+                flux = librosa.onset.onset_strength(y=y, sr=sr)
                 zcr = librosa.feature.zero_crossing_rate(y)
-                features['rhythmic_pattern'] = float(np.mean(zcr))
-                
-                # Tempo stability
-                import librosa
+                mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
                 onset_env = librosa.onset.onset_strength(y=y, sr=sr)
+
+                centroid = float(np.mean(sc)) if sc is not None else 0.0
+                rolloff = float(np.mean(roll95)) if roll95 is not None else 0.0
+                flux_mean = float(np.mean(flux)) if flux is not None else 0.0
+                zcr_mean = float(np.mean(zcr)) if zcr is not None else 0.0
+                mfcc_mean = float(np.mean(mfcc[0])) if mfcc is not None and mfcc.shape[0] > 0 else 0.0
+                onset_mean = float(np.mean(onset_env)) if onset_env is not None else 0.0
+                brightness = centroid / (sr / 2.0) if sr > 0 else 0.0
+
+                features['spectral_centroid'] = centroid
+                features['spectral_rolloff'] = rolloff
+                features['spectral_flux'] = flux_mean
+                features['zcr_mean'] = zcr_mean
+                # Maintain backward compat: rhythmic_pattern == zcr_mean
+                features['rhythmic_pattern'] = zcr_mean
+                features['mfcc_mean'] = mfcc_mean
+                features['onset_strength_mean'] = onset_mean
+                features['brightness'] = brightness
+                features['calculated_time_sec'] = float(len(y) / sr) if sr > 0 else 0.0
+
+                # Tempo stability & dynamic range (better estimates)
                 tempo_stability = 1.0 - np.std(onset_env) / (np.mean(onset_env) + 1e-6)
-                features['tempo_stability'] = np.clip(tempo_stability, 0, 1)
+                features['tempo_stability'] = float(np.clip(tempo_stability, 0, 1))
+                # Dynamic range estimate (dB P95-P10)
+                rms = librosa.feature.rms(y=y)
+                if rms is not None and rms.size > 0:
+                    rms_db = 20.0 * np.log10(np.maximum(rms, 1e-9))
+                    dr_est = float(np.percentile(rms_db, 95) - np.percentile(rms_db, 10))
+                else:
+                    dr_est = features.get('dynamic_range', 0.5)
+                features['dynamic_range'] = dr_est
                 
                 if features['source'] != 'MixedInKey':
                     features['source'] = 'Librosa'

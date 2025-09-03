@@ -1,0 +1,39 @@
+# OpenAI Configuration for Music Analyzer Pro
+# Copy this to config_openai.yaml and add your API key
+
+openai:
+  # Your OpenAI API key (get from https://platform.openai.com/api-keys)
+  api_key: "sk-..."  # Replace with your actual key
+  
+  # Model to use (gpt-4, gpt-3.5-turbo, etc.)
+  model: "gpt-4"
+  
+  # Enable/disable enrichment
+  enabled: true
+  
+  # Maximum tracks to enrich per import session
+  batch_limit: 10
+  
+  # Features to enable
+  features:
+    genre_classification: true
+    mood_analysis: true
+    lyrics_analysis: true
+    context_extraction: true
+    dj_mixing_notes: true
+    quality_scoring: true
+
+# Enrichment settings
+enrichment:
+  # Automatically enrich on import
+  auto_enrich: true
+  
+  # Only enrich tracks with these characteristics
+  filters:
+    min_duration: 60  # seconds
+    require_hamms: true  # Only enrich after HAMMS analysis
+    
+  # Cache settings
+  cache:
+    enabled: true
+    ttl: 86400  # seconds (24 hours)

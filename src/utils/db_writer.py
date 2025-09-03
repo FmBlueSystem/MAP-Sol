@@ -108,17 +108,32 @@ class DBWriteWorker(QThread):
         vector_json = json.dumps(vector_12d)
         energy_curve = json.dumps(metadata.get('energy_curve', []))
         transition_points = json.dumps(metadata.get('transition_points', []))
+        # Build spectral features JSON if present
+        spectral = {
+            'centroid': metadata.get('spectral_centroid'),
+            'rolloff': metadata.get('spectral_rolloff'),
+            'flux': metadata.get('spectral_flux'),
+            'brightness': metadata.get('brightness'),
+            'zcr': metadata.get('zcr_mean') or metadata.get('rhythmic_pattern'),
+            'mfcc_mean': metadata.get('mfcc_mean'),
+            'onset_strength': metadata.get('onset_strength_mean'),
+            'calc_time': metadata.get('calculated_time_sec'),
+        }
+        # Remove None values to keep JSON clean
+        spectral = {k: v for k, v in spectral.items() if v is not None}
+        spectral_json = json.dumps(spectral) if spectral else None
         with conn:
             conn.execute('''
                 INSERT OR REPLACE INTO hamms_advanced (
-                    file_id, vector_12d, tempo_stability,
-                    harmonic_complexity, dynamic_range,
+                    file_id, vector_12d, spectral_features,
+                    tempo_stability, harmonic_complexity, dynamic_range,
                     energy_curve, transition_points,
                     genre_cluster, ml_confidence
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ''', (
                 track_id,
                 vector_json,
+                spectral_json,
                 metadata.get('tempo_stability', 0.7),
                 metadata.get('harmonic_complexity', 0.5),
                 metadata.get('dynamic_range', 0.5),

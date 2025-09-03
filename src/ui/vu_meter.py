@@ -2,7 +2,7 @@
 VU Meter widget for real-time audio level visualization.
 """
 
-from PyQt6.QtWidgets import QWidget
+from PyQt6.QtWidgets import QWidget, QSizePolicy
 from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtGui import QPainter, QBrush, QPen, QLinearGradient, QColor, QFont
 import math
@@ -35,6 +35,8 @@ class VUMeterWidget(QWidget):
         self.setMinimumHeight(50)
         self.setMaximumHeight(70)
         self.setMinimumWidth(200)
+        # Ensure layouts respect our vertical size (avoid clipping R channel)
+        self.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         
         # Decay timer for smooth falloff
         self.decay_timer = QTimer()
@@ -156,32 +158,21 @@ class VUMeterWidget(QWidget):
         # Background
         painter.fillRect(0, 0, width, height, QColor(30, 30, 30))
         
-        # Simplified layout calculation to ensure both channels are visible
+        # Single-bar layout (mono view): use max of L/R for readability
         top_margin = 2
         bottom_margin = 2
-        channel_spacing = 2  # Space between L and R channels
         scale = self._dpi_scale()
+        label_band = max(4, int(6 * scale))  # small padding if needed
+        bar_height = max(14, height - (top_margin + bottom_margin + label_band))
+        bar_y = top_margin
         
-        # Reserve minimal space for labels, prioritize showing both channels
-        label_height = int(10 * scale) if height >= 50 else max(8, int(8 * scale))
+        # Compute mono normalized level from smoothed L/R
+        mono_norm = max(self.left_smooth, self.right_smooth)
+        mono_peak_db = max(self.left_peak_db, self.right_peak_db)
         
-        # Calculate available height for both bars
-        available_height = height - top_margin - label_height - bottom_margin
-        
-        # Each bar gets half the available space minus spacing
-        bar_height = max(8, (available_height - channel_spacing) // 2)
-        
-        # Position the bars
-        bar_y_left = top_margin + label_height
-        bar_y_right = bar_y_left + bar_height + channel_spacing
-        
-        # Draw left channel
-        self._draw_channel(painter, 2, bar_y_left, width - 4, bar_height, 
-                          self.left_smooth, self.left_peak_db, "L")
-        
-        # Draw right channel
-        self._draw_channel(painter, 2, bar_y_right, width - 4, bar_height,
-                          self.right_smooth, self.right_peak_db, "R")
+        # Draw single combined bar with scale
+        self._draw_channel(painter, 2, bar_y, width - 4, bar_height,
+                           mono_norm, mono_peak_db, "M")
     
     def _draw_channel(self, painter, x, y, width, height, level_norm, peak_db, label):
         """Draw a single channel bar."""
@@ -237,8 +228,8 @@ class VUMeterWidget(QWidget):
         painter.setPen(QPen(QColor(150, 150, 150)))
         painter.drawText(x + 2, y + height - 2, label)
         
-        # Draw dB scale marks (-40 .. +3 dB) only on the top (L) bar
-        if label == 'L':
+        # Draw dB scale marks (-40 .. +3 dB) (for mono view or left channel)
+        if label in ('L', 'M'):
             marks = [-20, -10, -6, -3, 0, 3]
             for m in marks:
                 norm = (m - self.min_db) / (self.max_db - self.min_db)
