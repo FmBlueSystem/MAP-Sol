@@ -1,2 +1,32 @@
-pytest
-pytest-asyncio
+# Development dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-qt>=4.2.0
+pytest-mock>=3.10.0
+pytest-asyncio>=0.21.0
+pytest-benchmark>=4.0.0
+
+# Code quality
+black>=23.0.0
+ruff>=0.1.0
+mypy>=1.0.0
+pylint>=3.0.0
+
+# Pre-commit hooks
+pre-commit>=3.0.0
+
+# Documentation
+sphinx>=7.0.0
+sphinx-rtd-theme>=2.0.0
+myst-parser>=2.0.0
+
+# Debugging
+ipython>=8.0.0
+ipdb>=0.13.0
+memory-profiler>=0.61.0
+line-profiler>=4.0.0
+
+# Build tools
+pyinstaller>=6.0.0
+twine>=4.0.0
+wheel>=0.40.0
